@@ -1,1 +1,0 @@
-[![Apply Now](https://user-images.githubusercontent.com/327432/63690366-1d1fc300-c815-11e9-8b87-2e33a863fda9.png)](https://www.nosto.com/join-us/)
