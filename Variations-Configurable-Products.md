@@ -1,6 +1,7 @@
+![2.3.6](https://img.shields.io/badge/nosto-2.3.6-green.svg)
+
 Nosto for Magento natively supports variations. 
 
-![2.3.6](https://img.shields.io/badge/nosto-2.3.6-green.svg)
 
 ### What are variations?
 

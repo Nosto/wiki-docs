@@ -17,14 +17,14 @@
     * [Overriding Customer Data](Overriding-Customer-Data.md)
   * [Console Commands](Console-Commands.md)
 * Features
-  * [Variations (Configurable Products.md)](Variations-Configurable-Products.md)
+  * [Variations (Configurable Products)](Variations-Configurable-Products.md)
   * [Add to Cart](Add-to-Cart.md)
   * [Indexer](Indexer.md)
   * [Customer Group Pricing](Customer-Group-Pricing.md)
   * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
   * [Restore Cart Link](Restore-Cart-Link.md)
   * [Ratings & Reviews](Ratings-&-Reviews.md)
-  * [Multi Currency (Exchange Rates.md)](Multi-Currency-Exchange-Rates.md)
+  * [Multi Currency (Exchange Rates)](Multi-Currency-Exchange-Rates.md)
   * [Marketing permission and GDPR compatibility](Marketing-permission-and-GDPR-compatibility.md)
   * [Content Staging & Special Prices](Content-Staging-&-Special-Prices.md)
 * Integrations
