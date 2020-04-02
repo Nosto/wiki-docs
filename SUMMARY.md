@@ -1,0 +1,12 @@
+* [Installing](Installing.md)
+  * [Granting Access to your Store](Granting-Access-to-your-Store.md)
+  * [Adding/Moving Recommendations](Adding-Removing-or-Moving-Recommendations.md)
+  * [Customizing Product Metadata](Customising-Product-Metadata.md)
+  * [Configuring Tax Rates](Configuring-Tax-Rates.md)
+* [Disabling Nosto](Disabling-Nosto.md)
+* Features
+  * [Variations (Configurable Products)](Variations-Configurable-Products.md)
+  * [Add to Cart](Add-to-Cart.md)
+  * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
+  * [Ratings & Reviews](Ratings-&-Reviews.md)
+* [FAQ](FAQ.md)
