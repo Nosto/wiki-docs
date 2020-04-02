@@ -10,7 +10,7 @@ All images are thumbnailed into flattened JPEG images.
 
 As Nosto thumbnails all images into JPEGs, the alpha-channel (transparency) - as found on PNG images - are discarded. No PNG support exists on our roadmap. If it is necessary that the recommendations use an alternate version, you will need to customise our extension.
 
-→ Learn more about [Overriding Product Data](Overriding-Product-Data)
+→ Learn more about [Overriding Product Data](Overriding-Product-Data.md)
 
 ## Multi-Currency
 
@@ -49,7 +49,7 @@ If you are synchronising products from your ERP/PIM system, it is necessary that
 
 ![Full reindex flag](https://user-images.githubusercontent.com/2778820/49804818-43233700-fd5c-11e8-82a5-59cb6ca0520d.png)
 
-→ Learn more about [Indexer](Indexer)
+→ Learn more about [Indexer](Indexer.md)
 
 ## Order Confirmations
 

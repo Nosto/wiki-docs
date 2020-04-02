@@ -3,7 +3,7 @@ Nosto extension supports Magento >= 2.2, which requires at least PHP `7.0.13` to
 
 ## Required PHP 7 extensions
 Magento 2 requires the following extensions to run:
-```
+```bash
 	curl
 	dom 
 	gd 
@@ -27,7 +27,7 @@ Magento 2 requires the following extensions to run:
 	zip 
 ```
 To run the dev scripts from Nosto you are required to install the following PHP extensions
-```
+```bash
 	ast
 	pcntl
 ```
@@ -36,7 +36,7 @@ The `pcntl` comes by default if you install PHP via Homebrew. If you compiled PH
 
 #### Checking Extensions
 You can easily check that all required extensions are installed piping this script to you local PHP binary
-```
+```bash
 curl https://gist.githubusercontent.com/supercid/fbf020ed8bdb15f5f72fd45a820703c3/raw/5defa0554f45fe14b085dc9e461e6c684e716ed4/nosto-check-m2-extensions.php | php
 ```
 ## Local Code Quality Check
@@ -59,7 +59,9 @@ You can check the style by running the following command on your Nosto installat
 If you need to test the extension against multiple installations and versions of Magento, the best way to do it is to clone the extension repository in a folder outside Magento installation and symlink this copy to `$Magento%/vendor/nosto/module-nostotagging` directory.
 You can do so by running the following command:
 
-`ln -s path/to/extensions/repository path/to/magento/vendor/nosto/module-nostotagging`
+```bash
+ln -s path/to/extensions/repository path/to/magento/vendor/nosto/module-nostotagging
+```
 
 ## Generate data 
 
@@ -81,10 +83,14 @@ Images `<product-images> ... </product-images>`
 
 Run the command.
 
-`bin/magento setup:perf:generate-fixtures <path-to-profile>`
+```bash
+bin/magento setup:perf:generate-fixtures <path-to-profile>
+```
 
 For example:: 
 
-`bin/magento setup:perf:generate-fixtures  <magento-2-installation>/setup/performancetoolkit/profiles/ce/medium.xml`                  
+```bash
+bin/magento setup:perf:generate-fixtures  <magento-2-installation>/setup/performancetoolkit/profiles/ce/medium.xml
+```
 
 For more detailed setup you can follow the Magento 2 [documentation](https://devdocs.magento.com/guides/v2.2/config-guide/cli/config-cli-subcommands-perf-data.html). 

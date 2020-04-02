@@ -1,4 +1,4 @@
-For installing Nosto module on your Magento 2 store please [read these instructions](Installing)
+For installing Nosto module on your Magento 2 store please [read these instructions](Installing.md)
 
 After you have installed and enabled Nosto module you will need to create a new Nosto account or connect an existing one into your store view. You can find Nosto Dashboard under Marketing section in your store admin (screenshot below)
 

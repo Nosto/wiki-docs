@@ -6,8 +6,8 @@ Set application to development mode with
 bin/magento deploy:mode:set developer
 ```
 
-The preferred method to edit Nosto's block data is by [Extending Nosto's Module](Extending-Nosto's-Module).<br>
-However you can also [Create a Storefront Child Theme](Create-a-storefront-theme). Notice that by creating a new child theme, all widgets defined in the parent theme <b>will not be inherit</b> by the child theme, you would have to manually recreate all of them. <br><br>
+The preferred method to edit Nosto's block data is by [Extending Nosto's Module](Overriding-or-extending-functionalities.md).<br>
+However you can also [Create a Storefront Child Theme](Create-a-storefront-child-theme.md). Notice that by creating a new child theme, all widgets defined in the parent theme <b>will not be inherit</b> by the child theme, you would have to manually recreate all of them. <br><br>
 
 ## Managing Blocks
 

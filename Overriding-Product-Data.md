@@ -1,4 +1,4 @@
-In order to modify the product data that is sent to Nosto you must create a small Magento 2 module. Start by following the steps described in the wiki page [Extending Nosto's Module](Overriding-or-extending-functionalities). <br>
+In order to modify the product data that is sent to Nosto you must create a small Magento 2 module. Start by following the steps described in the wiki page [Extending Nosto's Module](Overriding-or-extending-functionalities.md). <br>
 By creating a M2 module you can override the product model in a way that the modifications take place in API calls, exports and in the tagging.
 
 ## Required files and configurations
@@ -160,4 +160,4 @@ Run the following commands to update the generated code in Magento's end <br>
 
 `bin/magento setup:upgrade`
 
-As of module version 4.0.0 [Nosto product data is cached in database](https://github.com/Nosto/nosto-magento2/wiki/Caching-Improvements) and for this you must run full reindex (`bin/magento indexer:reindex nosto_index_product_invalidate`) in order for the changes to be reflected to Nosto.
+As of module version 4.0.0 [Nosto product data is cached in database](Caching-Improvements.md) and for this you must run full reindex (`bin/magento indexer:reindex nosto_index_product_invalidate`) in order for the changes to be reflected to Nosto.

@@ -24,4 +24,4 @@ You might need to change file permissions or ownership of the generated files af
 After running the commands above you can login to the store admin. You will find Nosto -link under Marketing section. 
 
 ## Indexer mode
-We strongly recommend that you set the mode for Nosto indexer(s) to be "Update by schedule". This is important especially with large product catalogs and / or when using multiple store views. Read more about indexer performance and optimization [here](https://github.com/Nosto/nosto-magento2/wiki/Indexer-performance-enhancement) 
+We strongly recommend that you set the mode for Nosto indexer(s) to be "Update by schedule". This is important especially with large product catalogs and / or when using multiple store views. Read more about indexer performance and optimization [here](Indexer.md) 

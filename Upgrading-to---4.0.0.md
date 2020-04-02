@@ -10,7 +10,7 @@ As with any Magento 2 module upgrade remember to run `bin/magento setup:upgrade`
 
 ### Set your indexers to "Update by Schedule"
 
-We introduced two new indexers along with version 4.0.0. It's highly recommended to set the indexer mode to be "Update by Schedule" for both of the indexers. Read more about the new indexers [here](https://github.com/Nosto/nosto-magento2/wiki/Indexer)
+We introduced two new indexers along with version 4.0.0. It's highly recommended to set the indexer mode to be "Update by Schedule" for both of the indexers. Read more about the new indexers [here](Indexer.md)
 
 ### Re-connect Nosto account
 

@@ -1,6 +1,6 @@
 In order to exclude certain products from being indexed, you will need to override the Nosto product model and flag it to be excluded. 
 
-Start by reading [how to extend Nosto module](Extending-Nosto's-Module) and [how to alter Nosto product data](Overriding-Product-Data).
+Start by reading [how to extend Nosto module](Overriding-or-extending-functionalities.md) and [how to alter Nosto product data](Overriding-Product-Data.md).
 
 File `app/code/My/Nosto/Observer/Product/Load.php`
 

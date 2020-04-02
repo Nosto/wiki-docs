@@ -6,7 +6,7 @@ The indexers can be found by navigating to the Index Management view in the Mage
 
 The two indexers are named `InvalidateIndexer` and `DataIndexer`.
 
-The main focus of the first indexer is to listen for product changes from Magento. In case a product is updated, the indexer will sign the product as dirty in the [cached product table](https://github.com/Nosto/nosto-magento2/wiki/Caching-Improvements).
+The main focus of the first indexer is to listen for product changes from Magento. In case a product is updated, the indexer will sign the product as dirty in the [cached product table](Caching-Improvements.md).
 
 The second indexer will listen for changes inside the product cache table itself. When a table entry is set to dirty, the DataIndexer will check and compare that the product has changed.
 
@@ -81,6 +81,6 @@ We recommend the following best practices for Nosto indexers.
 
 ## Troubleshoot
 
-For troubleshooting the indexer please follow the [troubleshoot wiki](https://github.com/Nosto/nosto-magento2/wiki/Indexer-troubleshooting).
+For troubleshooting the indexer please follow the [troubleshoot wiki](Indexer-troubleshooting.md).
 
-If you are looking for instructions for the old indexer you can still find it from [here](https://github.com/Nosto/nosto-magento2/wiki/Indexer-(legacy)).
+If you are looking for instructions for the old indexer you can still find it from [here](Indexer-legacy.md).

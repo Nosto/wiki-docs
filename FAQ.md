@@ -6,7 +6,7 @@ As of version 2.10.3 Nosto extension tags the products according to the store's 
 If the value of this setting is "Including Tax" Nosto will use the prices with taxes. If the value is "Excluding Tax" or "Including and Excluding Tax" Nosto will use prices without taxes.
 
 ## How do I enable or disable multi-currency?
-See article about [Multi Currency (Exchange Rates)](Multi-Currency-(Exchange-Rates))
+See article about [Multi Currency (Exchange Rates)](Multi-Currency-Exchange-Rates.md)
 
 ## How to improve order confirmation performance?
 Please follow the following steps:
@@ -19,7 +19,7 @@ That improves the order confirmation performance and backend operation performan
 
 ## How do I remove the `___store` parameter from the URLs?
 
-In order to remove the `___store` parameter, you will need to enable clean-urls in the advanced configuration. Please see the [URL Options](Configuring#url-options) section in our configuration guide.
+In order to remove the `___store` parameter, you will need to enable clean-urls in the advanced configuration. Please see the [URL Options](Configuring.md#url-options) section in our configuration guide.
 
 ## Why is incomplete / cancelled order attributed to Nosto
 
@@ -34,7 +34,7 @@ More info about the attribution can be found from [here (Nosto's payment terms)]
 The minimum module version required for this feature is `3.6.1`. 
 If a merchant does not prefer to fetch the product recommendation data when the page is loaded, the autoload can be set to `false`. The solution is to fetch the product recommendation when the user scroll down to the slot.
 
-This is done by extending our module following our docs: [Overriding or extending functionalities](https://github.com/Nosto/nosto-magento2/wiki/Overriding-or-extending-functionalities)
+This is done by extending our module following our docs: [Overriding or extending functionalities](Overriding-or-extending-functionalities.md)
 
 The logic followed is by adding an interceptor to our class, more info on interceptors can be found on [Magento documentation](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/plugins.html)
 
@@ -87,6 +87,6 @@ Run the following commands to update the generated code in Magento's end
 
 Sometimes you might need to reconnect a Nosto account to your store view. This could be due to for example expired or missing tokens.  
 
-First you must [disconnect](https://github.com/Nosto/nosto-magento2/wiki/Disconnecting-Nosto-From-Store-Front) the existing Nosto account from your store. You can find the instructions for that [here](https://github.com/Nosto/nosto-magento2/wiki/Disconnecting-Nosto-From-Store-Front).
+First you must [disconnect](Disconnecting-Nosto-From-Store-Front.md) the existing Nosto account from your store. You can find the instructions for that [here](Disconnecting-Nosto-From-Store-Front.md).
 
-After you have disconnected an account you can re-connect the account by following the [normal Oauth flow](https://github.com/Nosto/nosto-magento2/wiki/Getting-Started#connecting-with-an-existing-nosto-account)    
+After you have disconnected an account you can re-connect the account by following the [normal Oauth flow](Getting-Started.md#connecting-with-an-existing-nosto-account)    
