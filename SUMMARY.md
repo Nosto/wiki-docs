@@ -1,0 +1,18 @@
+* [Installing](Installing.md)
+* [Configuring](Configuring.md)
+* Guides
+  * [Varnish & Full-Page Caches](Varnish-and-Full-Page-Caches.md)
+  * [Managing Recommendations](Managing-Recommendations.md)
+  * [Overriding or Extending Functionalities](Overriding-or-extending-functionalities.md)
+    * [Overriding Product Data](Overriding-Product-Data.md)
+    * [Overriding Customer Data](Overriding-Customer-Data.md)
+* Features
+  * [Variations (Configurable Products.md)](Variations-Configurable-Products.md)
+  * [Add to Cart](Add-to-Cart.md)
+  * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
+  * [Restore Cart Link](Restore-Cart-Link.md)
+  * [Ratings & Reviews](Ratings-&-Reviews.md)
+  * [Marketing permission and GDPR compatibility](Marketing-permission-and-GDPR-compatibility.md)
+  * [Multi Currency (Exchange Rates.md)](Multi-Currency-Exchange-Rates.md)
+* [FAQ](FAQ.md)
+* [Developing & Contributing](Developing.md)
