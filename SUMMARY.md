@@ -5,10 +5,10 @@
   * [Customizing Product Metadata](Customising-Product-Metadata.md)
   * [How Nosto modifies your theme](How-Nosto-modifies-your-theme.md)
   * [Working with Multiple Themes](Working-with-multiple-themes.md)
-  * [Version Controlled Themes](Working-with-Version-Controlled-Themes.md)
+  * [Version Controlled Themes](Working-with-version-controlled-themes.md)
   * [Implementing enhanced conversion tracking](Implementing-enhanced-conversion-tracking.md)
 * Features
-  * [Variations (Configurable Products.md)](Variations-Configurable-Products.md)
+  * [Variations (Configurable Products)](Variations-Configurable-Product.md)
   * [Add to Cart](Add-to-Cart.md)
   * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
   * [Restore Cart Link](Restore-Cart-Link.md)
@@ -20,7 +20,7 @@
   * [Using Yotpo](Integration-Yotpo.md)
   * [Using Bazaarvoice](Integration-Bazaarvoice.md)
   * [Using Stamped.IO](Integration-Stamped.md)
-  * [Using Judge.Me](Integration-Judgeme.md)
+  * [Using Judge.Me](Integration-JudgeMe.md)
   * [Using Okendo](Integration-Okendo.md)
 * Articles
   * [Article: Leveraging Margin Data](Leveraging-Margin-Data.md)
