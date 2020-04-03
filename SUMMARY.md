@@ -17,11 +17,11 @@
   * Shopify Flow
   * Marketing permission and GDPR compatibility
 * Integrations
-  * [Using Yotpo](Integration:-Yotpo.md)
-  * [Using Bazaarvoice](Integration:-Bazaarvoice.md)
-  * [Using Stamped.IO](Integration:-Stamped.md)
-  * [Using Judge.Me](Integration:-Judgeme.md)
-  * [Using Okendo](Integration:-Okendo.md)
+  * [Using Yotpo](Integration-Yotpo.md)
+  * [Using Bazaarvoice](Integration-Bazaarvoice.md)
+  * [Using Stamped.IO](Integration-Stamped.md)
+  * [Using Judge.Me](Integration-Judgeme.md)
+  * [Using Okendo](Integration-Okendo.md)
 * Articles
   * [Article: Leveraging Margin Data](Leveraging-Margin-Data.md)
 * [FAQ](FAQ.md)
