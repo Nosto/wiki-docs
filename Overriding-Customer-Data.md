@@ -1,4 +1,4 @@
-In order to modify the customer data that is sent to Nosto, you need to create your own mini-module. Please read the basics on [how to extend or override data in Nosto extension](Overriding-or-extending-functionalities)
+In order to modify the customer data that is sent to Nosto, you need to create your own mini-module. Please read the basics on [how to extend or override data in Nosto extension](Overriding-or-extending-functionalities.md)
 
 For modifying Nosto's customer data you must register hook **`actionNostoCustomerLoadAfter`** and the **`actionNostoOrderLoadAfter`** and implement corresponding action methods. Below is an example of how your `MyNosto` class could look like.
 

@@ -1,4 +1,4 @@
-It's recommended to install the module from the repository when developing, please read the [install section](Installing#repository).
+It's recommended to install the module from the repository when developing, please read the [install from repository section](Installing.md).
 
 When developing or testing the module it may be useful to connect it to your local Nosto environment  or the the staging environment instead of the live one. This can be done by modying a "Dot Env" (.env) file in the Nosto SDK that the module uses. After having installed the module in PrestaShop, copy `PRESTASHOP/modules/nostotagging/libs/nosto/php-sdk/.env.example` to `PRESTASHOP/modules/nostotagging/libs/nosto/php-sdk/.env` and modify the parameters.
 
