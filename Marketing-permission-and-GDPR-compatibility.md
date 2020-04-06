@@ -6,7 +6,7 @@ By default Nosto's extension uses Shopware's newsletter subscription as a source
 
 ![customer_account___english](https://user-images.githubusercontent.com/2778820/38422547-d0a19c38-39b3-11e8-9acc-c832fd0be302.png)
 
-If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [overriding the customer data](Overriding-Customer-Data).
+If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [overriding the customer data](Overriding-Customer-Data.md).
 
 ## Disabling customer tagging completely
-See [Nosto settings](https://github.com/Nosto/nosto-shopware/wiki/Configuring#customer-tagging)
+See [Nosto settings](Configuring.md#customer-tagging)

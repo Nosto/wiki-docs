@@ -1,4 +1,4 @@
-It's recommended to install the plugin from the repository when developing, please read the [install section](Installing#repository).
+It's recommended to install the plugin from the repository when developing, please read the [install section](Installing.md).
 
 When developing or testing the module it may be useful to connect it to your local Nosto environment or the staging environment instead of the live one. This can be done by modifying a "Dot Env" (.env) file in the Nosto SDK that the module uses. After having installed the module in Shopware, copy `SHOPWARE/engine/Shopware/Plugins/Local/Frontend/NostoTagging/vendor/nosto/php-sdk/.env.example` to `SHOPWARE/engine/Shopware/Plugins/Local/Frontend/NostoTagging/vendor/nosto/php-sdk/.env` and modify the parameters.
 
