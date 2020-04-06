@@ -28,7 +28,7 @@ The usual add-to-cart functionality provided by the extension has been amended t
 
 The function takes an object with the first argument being the identifier of the parent product, while the second argument is the identifier of the actual variant being added to the cart.
 
-→ Learn more about the [Add to Cart](Add-to-Cart)
+→ Learn more about the [Add to Cart](Add-to-Cart.md)
 
 ## Enabling / Disabling Variations
 

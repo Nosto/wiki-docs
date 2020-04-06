@@ -8,4 +8,4 @@ Removing Nosto is a two-step process.
 
 Firstly, you will need to uninstall the Nosto app. Instructions on how to do this can be found in BigCommerce's [help article](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel#uninstalling).
 
-Finally, you can then remove any [recommendation placeholders](Adding-Removing-or-Moving-Recommendations) you may have added to your theme.
+Finally, you can then remove any [recommendation placeholders](Adding-Removing-or-Moving-Recommendations.md) you may have added to your theme.
