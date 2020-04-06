@@ -1,4 +1,4 @@
-In order to modify the customer data that is sent to Nosto, you need to create your own extension. Please read the basics on [how to extend or override data in Nosto extension](Overriding-or-extending-functionalities)
+In order to modify the customer data that is sent to Nosto, you need to create your own extension. Please read the basics on [how to extend or override data in Nosto extension](Overriding-or-extending-functionalities.md)
 
 ## Verifying
 

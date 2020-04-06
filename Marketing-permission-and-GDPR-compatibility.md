@@ -6,4 +6,4 @@ By default Nosto's Magento extension uses Magento's newsletter subscription as a
 
 ![create_new_customer_account_m](https://user-images.githubusercontent.com/2778820/38495735-5bbe2d76-3c03-11e8-8123-46d7263cef76.png)
 
-If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [overriding the customer data](Overriding-Customer-Data).
+If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [overriding the customer data](Overriding-Customer-Data.md).

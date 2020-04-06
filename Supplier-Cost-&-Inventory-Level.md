@@ -8,7 +8,7 @@ The supplier-cost and inventory-level of a product are considered sensitive info
 
 The extension relies on observers to detect changes to the catalog and synchronize it with Nosto. If you are synchronizing products from your ERP/PIM system, observers may not be triggered, and therefore it is necessary that you run a cron to bulk update products to Nosto.
 
-→ Learn more about [Bulk Product Updates](Bulk-Product-Updates)
+→ Learn more about [Bulk Product Updates](Bulk-Product-Updates.md)
 
 
 ## Enabling / Disabling Inventory-Level Metadata

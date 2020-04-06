@@ -46,7 +46,7 @@ Creating an override requires a few files to be created. Follow the guide below 
 </config>
 ```
 
-In the example configuration above we are overriding Nosto's Product and Order models. See full example how to override Product data [from here](Overriding-Product-Data)
+In the example configuration above we are overriding Nosto's Product and Order models. See full example how to override Product data [from here](Overriding-Product-Data.md)
 
 ## Enabling the plugin
 

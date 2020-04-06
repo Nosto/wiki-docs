@@ -24,7 +24,7 @@
   * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
   * [Restore Cart Link](Restore-Cart-Link.md)
   * [Ratings & Reviews](Ratings-&-Reviews.md)
-  * [Multi Currency (Exchange Rates.md)](Multi-Currency-Exchange-Rates.md)
+  * [Multi Currency (Exchange Rates)](Multi-Currency-Exchange-Rates.md)
   * [Marketing permission and GDPR compatibility](Marketing-permission-and-GDPR-compatibility.md)
   * [Catalog Price Rules](Catalog-Price-Rules.md)
 * Integrations

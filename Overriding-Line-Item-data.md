@@ -1,6 +1,6 @@
 By default you do not need to make changes to the line item handling. Nosto's extension handles orders and line items correctly with the default checkout process. However if you need to for example alter the product data for simple products you can do it by overriding class `Nosto_Tagging_Model_Meta_Order_Item_Simple`).
 
-Please [read here the basics how to alter the functionalities of Nosto extension](Overriding-or-extending-functionalities). 
+Please [read here the basics how to alter the functionalities of Nosto extension](Overriding-or-extending-functionalities.md). 
 
 ## Required files and configurations
 

@@ -182,7 +182,7 @@ Both Nosto's extension and Magento require PHP 5.4+ to work. Our code uses trait
 
 ## How do I remove the `___store` parameter from the URLs?
 
-In order to remove the `___store` parameter, you will need to enable clean-urls in the advanced configuration. Please see the [URL configuration](Configuring#url-configuration) section in our configuration guide.
+In order to remove the `___store` parameter, you will need to enable clean-urls in the advanced configuration. Please see the [URL configuration](Configuring.md#url-configuration) section in our configuration guide.
 
 ## Why is the Nosto script not being rendered and how can I fix it?
 

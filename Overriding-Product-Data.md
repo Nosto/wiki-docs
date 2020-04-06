@@ -1,4 +1,4 @@
-You can override the product model Nosto extension uses as data source for both the tagging in the store front and the API calls. Please [read here the basics how to alter the functionalities of Nosto extension](Overriding-or-extending-functionalities). 
+You can override the product model Nosto extension uses as data source for both the tagging in the store front and the API calls. Please [read here the basics how to alter the functionalities of Nosto extension](Overriding-or-extending-functionalities.md). 
 
 **Note:** As of extension version > 3.0.0 you must use getters and setters to populate and access Nosto product object attributes.
 

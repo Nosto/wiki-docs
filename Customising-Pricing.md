@@ -1,4 +1,4 @@
-If your store uses customized price handling or 3rd party module for product prices you might need to amend the custom price handling to Nosto module as well. Start by reading [how to extend Nosto module](Extending-Nosto's-Module) and [how to alter Nosto product data](Overriding-Product-Data).
+If your store uses customized price handling or 3rd party module for product prices you might need to amend the custom price handling to Nosto module as well. Start by reading [how to extend Nosto module](Overriding-or-extending-functionalities.md) and [how to alter Nosto product data](Overriding-Product-Data.md).
 
 **Note:** In order to use custom pricing in Nosto, you must amend the prices to Nosto's product model and handle the correct active variation. Please note that when using customized pricing you should disable the multi-currency method from the Nosto module's setting in Magento.
 

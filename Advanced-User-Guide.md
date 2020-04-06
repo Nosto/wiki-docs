@@ -10,7 +10,7 @@ All images are thumbnailed into flattened JPEG images.
 
 As Nosto thumbnails all images into JPEGs, the alpha-channel (transparency) - as found on PNG images - are discarded. No PNG support exists on our roadmap. If it is necessary that the recommendations use an alternate version, you will need to customise our extension.
 
-→ Learn more about [Overriding Product Data](Overriding-Product-Data)
+→ Learn more about [Overriding Product Data](Overriding-Product-Data.md)
 
 ## Multi-Currency
 
@@ -47,7 +47,7 @@ This will disable all product-update API calls.
 
 If you are synchronising products from your ERP/PIM system, it is necessary that you run a cron to bulk update products to Nosto.
 
-→ Learn more about [Bulk Product Updates](Bulk-Product-Updates)
+→ Learn more about [Bulk Product Updates](Bulk-Product-Updates.md)
 
 ## Order Confirmations
 

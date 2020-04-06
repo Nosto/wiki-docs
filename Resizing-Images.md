@@ -1,6 +1,6 @@
 In order to use images with custom dimensions, you can use a built-in Magento re-sizer function to generate image URLs with the correct dimensions and you will need to amend the product model.
 
-Start by reading [how to extend Nosto module](Extending-Nosto's-Module) and [how to alter Nosto product data](Overriding-Product-Data).
+Start by reading [how to extend Nosto module](Overriding-or-extending-functionalities.md) and [how to alter Nosto product data](Overriding-Product-Data.md).
 
 **Note:** In case you want a square image, only the first parameter is required.
 

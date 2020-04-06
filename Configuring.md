@@ -75,7 +75,7 @@ Set this to `Yes` if you want to send the date a product has been added to Magen
 
 ### Rating And Reviews
 
-The rating and review dropdown allows you to select the rating and review provider. For more information on leveraging this feature, we recommend reading our guide on [ratings and reviews](Ratings-&-Reviews).
+The rating and review dropdown allows you to select the rating and review provider. For more information on leveraging this feature, we recommend reading our guide on [ratings and reviews](Ratings-&-Reviews.md).
 
 ![screen shot 2018-04-06 at 15 40 50](https://user-images.githubusercontent.com/2778820/38488300-b85a0496-3beb-11e8-90cb-b6e82c0389b1.png)
 
@@ -95,7 +95,7 @@ The price-variation dropdown allows you to enable support the customer group pri
 
 ### Multi Currency
 
-The multi-currency dropdown allows you to toggle the multi-currency feature. For more information on using multiple currencies, we recommend reading our guide on [multi-currency (exchange-rates)](Multi-Currency-(Exchange-Rates)).
+The multi-currency dropdown allows you to toggle the multi-currency feature. For more information on using multiple currencies, we recommend reading our guide on [multi-currency (exchange-rates)](Multi-Currency-Exchange-Rates.md).
 
 ![screen shot 2018-04-06 at 15 41 18](https://user-images.githubusercontent.com/2778820/38488308-c1e573d8-3beb-11e8-96c6-c8d1cde89934.png)
 
