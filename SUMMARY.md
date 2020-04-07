@@ -35,4 +35,7 @@
   * [Using Yotpo](integrations/using-yotpo.md)
 * [FAQ](faq.md)
 * [Developing & Contributing](developing.md)
+* [Visit Nosto](https://nosto.com)
+* [Issues](https://github.com/nosto/nosto-magento2/issues)
+* [Releases](https://github.com/nosto/nosto-magento2/releases)
 
