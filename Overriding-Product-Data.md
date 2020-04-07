@@ -160,4 +160,4 @@ Run the following commands to update the generated code in Magento's end <br>
 
 `bin/magento setup:upgrade`
 
-As of module version 4.0.0 [Nosto product data is cached in database](Caching-Improvements.md) and for this you must run full reindex (`bin/magento indexer:reindex nosto_index_product_invalidate`) in order for the changes to be reflected to Nosto.
+As of module version 4.0.0 [Nosto product data is cached in database](CachingImprovements.md) and for this you must run full reindex (`bin/magento indexer:reindex nosto_index_product_invalidate`) in order for the changes to be reflected to Nosto.
