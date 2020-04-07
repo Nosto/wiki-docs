@@ -4,7 +4,7 @@ In most implementations, there isn't any need to use the Nosto JavaScript API an
 
 Typically calling the API should be approached only after the normal tagging implementation has been done and now needs to be extended with something that doesn’t come out of the box. The JavaScript API is commonly used to support dynamic functionality i.e. without a page reload. For example, showing recommendations in a product quick view.
 
-If you are working on a Single-Page App \(SPA\) or a Progressive Web Application \(PWA\) you most likely want to use [Session API](implementation-guide-session-api/). Also, please note that you can not use both, Session API and JS API on a same page or application.
+If you are working on a Single-Page App \(SPA\) or a Progressive Web Application \(PWA\) you most likely want to use [Session API](../frontend/implementation-guide-session-api/). Also, please note that you can not use both, Session API and JS API on a same page or application.
 
 ## Prerequisites
 

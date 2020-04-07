@@ -4,7 +4,7 @@
 
 If you have a website, that is built atop JavaScript frameworks, such as AngularJS, Ember.js, ExtJS, Knockout.js, Meteor.js, React or Vue.js, your site has likely adopted SPA principles.
 
-**Important**: You cannot mix [JS API](../) and Session API. You need to use either or. If you are not sure which one to use, please contact Nosto's support.
+**Important**: You cannot mix [JS API](../../js-apis/) and Session API. You need to use either or. If you are not sure which one to use, please contact Nosto's support.
 
 **Note:** The examples in the documentation are written in [ES5](https://www.ecma-international.org/ecma-262/5.1/) and leverage advanced browser features such as [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
