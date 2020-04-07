@@ -20,6 +20,7 @@
   * [Variations (Configurable Products)](Variations-Configurable-Products.md)
   * [Add to Cart](Add-to-Cart.md)
   * [Indexer](Indexer.md)
+    * [Caching Improvements](CachingImprovements.md)
   * [Customer Group Pricing](Customer-Group-Pricing.md)
   * [Supplier Cost & Inventory Level](Supplier-Cost-&-Inventory-Level.md)
   * [Restore Cart Link](Restore-Cart-Link.md)
