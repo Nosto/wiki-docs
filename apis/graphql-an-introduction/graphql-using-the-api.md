@@ -111,7 +111,7 @@ fetch('https://api.nosto.com/v1/graphql', {
 
 If you want to send raw GraphQL queries to the API, you can still do so but you must set the `Content-Type` header to `application/graphql`.
 
- **NOTE:**If you do not set the correct Content-Type header, the request will be interpreted as JSON and will fail.
+**NOTE:**If you do not set the correct Content-Type header, the request will be interpreted as JSON and will fail.
 
 ```javascript
 const body = `

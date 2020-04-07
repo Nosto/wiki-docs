@@ -96,6 +96,6 @@
 
 * [3rd party data integrations](3rd-party-data-integrations/3rd-party-data-integrations/README.md)
   * [Tracking Nosto with Google Analytics Enhanced Ecommerce](3rd-party-data-integrations/3rd-party-data-integrations/tracking-nosto-with-google-analytics.md)
-
-## Implement on site
+* [Visit Nosto](https://nosto.com)
+* [Issues](https://github.com/nosto/techdocs/issues)
 
