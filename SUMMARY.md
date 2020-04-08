@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Nosto PHP-SDK](README.md)
 * [Developing](developing.md)
 * [Implementing Add To Cart](implementing-the-add-to-cart.md)
 * [Visit Nosto](https://nosto.com)
