@@ -14,7 +14,7 @@ Exchange rates are be automatically synchronised with Nosto and the recommendati
 
 The customer's active currency is denoted by some embedded semantic markup on all pages. The semantic markup resembles the following snippet:
 
-```text
+```markup
 <div class="nosto_variation" style="display: none;">EUR</div>
 ```
 

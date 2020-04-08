@@ -22,7 +22,7 @@ Moving one of the recommendation elements on the category pages to the top of th
 
 The file you need to override is `frontend/plugins/nosto_tagging/listing/index.tpl`. Copy this file and place it in `SHOPWARE/themes/Frontend/THEME_NAME/frontend/plugins/nosto_tagging/listing/index.php`. Then edit the file to move the recommendations as below.
 
-```text
+```markup
 {**
 * Copyright (c) 2015, Nosto Solutions Ltd
 * All rights reserved.
@@ -82,5 +82,5 @@ Recommendations that are not visible will not be populated with content by Nosto
 
 You can add your own customised recommendation elements to your shop by adding the recommendation placeholder elements in your theme. The placeholders are simple html div elements, e.g. `<div class="nosto_element" id="my-custom-recommendation-id"></div>`.
 
-Note that the element IDs need to match defined element's in Nosto. These you need to create and configure for you're Nosto account by logging in to the [Nosto backend](https://my.nosto.com/).
+Note that the element IDs need to match defined element's in Nosto. These you need to create and configure for your Nosto account by logging in to the [Nosto backend](https://my.nosto.com/).
 
