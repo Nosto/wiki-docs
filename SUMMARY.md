@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for PrestaShop](README.md)
 * [Installing](installing.md)
 * [Configuring](configuring.md)
 * [Guides](guides/README.md)
