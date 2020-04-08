@@ -9,7 +9,7 @@ As a platform vendor an agency looking to support the add-to-cart feature, you'l
 
 ## Javascript Function
 
-```text
+```javascript
 if (typeof Nosto === "undefined") {
     var Nosto = {};
 }
