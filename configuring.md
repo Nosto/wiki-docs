@@ -40,8 +40,6 @@ The extension always fetches the original version of the image and not a resized
 
 This option determines the Magento EAV attribute whose value will be used as the Brand attribute.
 
-![](https://d3dr1ze7164817.cloudfront.net/items/3c2f2k3U1G3o190K4438/Screen%20Shot%202017-02-21%20at%2012.15.18.png?X-CloudApp-Visitor-Id=2709492&v=21c93ea0)
-
 This dropdown will list all the attributes available. Choose the appropriate one and click "Save". You can validate that the change has taken effect by navigating a product page and using the Nosto Debug Tool to check the value of the Brand attribute.
 
 **Note:** A full [reindex of your store](https://help.nosto.com/settings-and-troubleshooting-faq/tools-product-reindexupdate) is required after this configuration is changed.
