@@ -90,7 +90,7 @@ The rating and review dropdown allows you to select the rating and review provid
 
 ### Price Variation
 
-The price-variation dropdown allows you to enable support the customer group pricing and catalog price rules. For more information on using price variations, we recommend reading our guide on [customer group pricing and catalog price rules](https://github.com/supercid/wiki-docs/tree/6ca88e6a4c93f2b956005f4c7aa2fce46193adab/Customer-Group-Pricing/README.md).
+The price-variation dropdown allows you to enable support the customer group pricing and catalog price rules. For more information on using price variations, we recommend reading our guide on [customer group pricing and catalog price rules](features/customer-group-pricing.md).
 
 ![screen shot 2018-04-06 at 15 41 11](https://user-images.githubusercontent.com/2778820/38488307-c1c4b760-3beb-11e8-9b13-33e26c9b197b.png)
 
@@ -106,7 +106,7 @@ The multi-currency dropdown allows you to toggle the multi-currency feature. For
 
 ### Optional Attributes
 
-The optional attributes dropdowns allow you to select the EAV that will be used for the brand and the GTIN. Both the brand and GTIN fields are simple Magento attributes and therefore need to be manually selected.
+The optional attributes drop-downs allow you to select the EAV that will be used for the brand and the GTIN. Both the brand and GTIN fields are simple Magento attributes and therefore need to be manually selected.
 
 ![screen shot 2018-04-06 at 15 41 27](https://user-images.githubusercontent.com/2778820/38488310-c20536f0-3beb-11e8-9d4c-fec5e23b762a.png)
 

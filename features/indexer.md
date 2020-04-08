@@ -42,5 +42,5 @@ Please note that product data indexing for Nosto products is disabled by default
 
 ## Limiting available memory for the indexer
 
-See [https://github.com/Nosto/nosto-magento/wiki/Configuring\#indexer-memory](https://github.com/Nosto/nosto-magento/wiki/Configuring#indexer-memory)
+See [Configuring Indexer Memory](../configuring.md#indexer-memory)
 

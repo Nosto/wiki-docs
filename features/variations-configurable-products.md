@@ -42,5 +42,5 @@ Enabling variations will impact performance as more queries are executed against
 
 It is recommended that you use a production-grade full-page caching mechanism \(FPC.\) or enable Nosto indexer in your Magento.
 
-→ Learn more about the [Indexer](../guides/bulk-product-updates.md)
+→ Learn more about the [Indexer](indexer.md)
 
