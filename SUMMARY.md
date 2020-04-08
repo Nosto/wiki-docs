@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for Magento 2](README.md)
 * [Installing](installing.md)
 * [Disconnecting](disconnecting-nosto-from-store-front.md)
 * [Uninstalling](uninstalling.md)
