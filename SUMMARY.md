@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for Shopware](README.md)
 * [Installing](installing.md)
 * [Configuring](configuring.md)
 * [Guides](guides/README.md)
