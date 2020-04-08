@@ -86,7 +86,7 @@ Run the following commands to update the generated code in Magento's end
 
 Sometimes you might need to reconnect a Nosto account to your store view. This could be due to for example expired or missing tokens.
 
-First you must [disconnect](disconnecting-nosto-from-store-front.md) the existing Nosto account from your store. You can find the instructions for that [here](disconnecting-nosto-from-store-front.md).
+First you must [disconnect](disconnecting-nosto-from-store-front.md) the existing Nosto account from your store.
 
 After you have disconnected an account you can re-connect the account by following the [normal Oauth flow](getting-started.md#connecting-with-an-existing-nosto-account)
 
