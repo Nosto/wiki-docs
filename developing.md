@@ -1,6 +1,6 @@
 # Developing & Contributing
 
-It's recommended to install the module from the repository when developing, please read the [install from repository section](installing.md).
+It's recommended to install the module from the repository when developing, please read the [install from repository section](installing.md#installing-via-a-repository-github).
 
 When developing or testing the module it may be useful to connect it to your local Nosto environment or the the staging environment instead of the live one. This can be done by modying a "Dot Env" \(.env\) file in the Nosto SDK that the module uses. After having installed the module in PrestaShop, copy `PRESTASHOP/modules/nostotagging/libs/nosto/php-sdk/.env.example` to `PRESTASHOP/modules/nostotagging/libs/nosto/php-sdk/.env` and modify the parameters.
 
@@ -10,7 +10,7 @@ When developing or testing the module it may be useful to connect it to your loc
 * `NOSTO_WEB_HOOK_BASE_URL` is the base url for Nosto web hooks
 * `NOSTO_IFRAME_ORIGIN_REGEXP` is a regexp for validating window.postMessage\(\) event origin dispatched by the account configuration iframe \(not in use in this module\)
 
-The sample `.env` file can viewed at [https://github.com/Nosto/php-sdk/blob/master/.env.example](https://github.com/Nosto/php-sdk/blob/master/.env.example)
+The sample `.env` file can viewed [here](https://github.com/Nosto/php-sdk/blob/master/src/.env)
 
 Note that you can only have one .env file at a time, and if you wish to switch between environments you can copy them into `.env.[environment]` files. This way you can switch the environment by replacing the .env with the correct .env.\[environment\] file.
 
@@ -24,7 +24,7 @@ Once installed go to the root directory and run
 phpcs --standard=ruleset.xml -v .
 ```
 
-## Development on prestashop 1.7
+## Development on Prestashop 1.7
 
 Run "composer install --no-dev" to install dependencies excluding development required dependencies
 
