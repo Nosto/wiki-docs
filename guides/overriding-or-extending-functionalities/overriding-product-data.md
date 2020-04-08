@@ -1,6 +1,6 @@
 # Overriding Product Data
 
-In order to modify the product data that is sent to Nosto, you need to create your own plugin. Please read the basics on [how to extend or override data in Nosto extension](https://github.com/supercid/wiki-docs/tree/16e7063bba4e84d9e0e1b47564ffda8a7eb25486/Overriding-or-Extending-Functionalities.md)
+In order to modify the product data that is sent to Nosto, you need to create your own plugin. Please read the basics on [how to extend or override data in Nosto extension](./)
 
 For modifying Nosto's product data you must register hook **`onNostoTaggingComponentsModelProductAfterLoad`** and implement corresponding action method. Below is an example of how your `MyNosto` class could look like.
 

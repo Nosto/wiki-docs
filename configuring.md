@@ -68,5 +68,5 @@ It is recommended that you use a production-grade full-page caching mechanism \(
 
 ### Multi-Currency
 
-See own article about multi-currency feature in \[Multi-Currency\]\(Multi-Currency-\(Exchange-Rates\)\)
+See own article about multi-currency feature in [Multi-Currency](features/multi-currency-exchange-rates.md)
 

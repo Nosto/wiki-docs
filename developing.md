@@ -10,7 +10,7 @@ When developing or testing the module it may be useful to connect it to your loc
 * `NOSTO_WEB_HOOK_BASE_URL` is the base URL for Nosto web hooks
 * `NOSTO_IFRAME_ORIGIN_REGEXP` is a regexp for validating window.postMessage\(\) event origin dispatched by the account configuration iframe \(not in use in this module\)
 
-The sample `.env` file can viewed at [https://github.com/Nosto/php-sdk/blob/master/.env.example](https://github.com/Nosto/php-sdk/blob/master/.env.example)
+The sample `.env` file can viewed [here](https://github.com/Nosto/nosto-php-sdk/blob/master/src/.env)
 
 Note that you can only have one .env file at a time, and if you wish to switch between environments you can copy them into `.env.[environment]` files. This way you can switch the environment by replacing the .env with the correct .env.\[environment\] file.
 
