@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for BigCommerce](README.md)
 * [Installing](installing/README.md)
   * [Granting Access to your Store](installing/granting-access-to-your-store.md)
   * [Adding/Moving Recommendations](installing/adding-removing-or-moving-recommendations.md)
