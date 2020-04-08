@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for Shopify](README.md)
 * [Installing](installing.md)
 * [Guides](guides/README.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)
