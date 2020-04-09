@@ -99,4 +99,11 @@
   * [Tracking Nosto with Google Analytics Enhanced Ecommerce](3rd-party-data-integrations/3rd-party-data-integrations/tracking-nosto-with-google-analytics.md)
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/techdocs/issues)
+* [Magento](https://docs.nosto.com/magento/)
+* [Magento 2](https://docs.nosto.com/magento-2)
+* [Shopware](https://docs.nosto.com/shopware)
+* [Shopify](https://docs.nosto.com/shopify)
+* [Prestashop](https://docs.nosto.com/prestashop)
+* [BigCommerce](https://docs.nosto.com/bigcommerce)
+* [PHP-SDK](https://docs.nosto.com/php-sdk)
 
