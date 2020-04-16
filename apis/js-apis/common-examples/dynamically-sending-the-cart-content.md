@@ -9,6 +9,10 @@ description: >-
 
 The example below illustrates how to fetch the fresh cart-content over CORS, leverage that to render the cart-tagging and then use the API to sent that information to Nosto.
 
+{% hint style="danger" %}
+This example uses advances constructs, leverages CORS, browser modules and may not have compatibility on older browsers.
+{% endhint %}
+
 {% code title="" %}
 ```javascript
 
@@ -50,9 +54,6 @@ function cartToHtml(cart) {
  *     currency: "currency"
  *   ]
  * }
- * 
- * Note: this example uses advances constructs, leverages CORS 
- * and may not have compatibility on older browsers.
  */
 export default function() {
   nostojs(api => {
