@@ -92,6 +92,7 @@
     * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
     * [Sending email addresses to Nosto](apis/js-apis/common-examples/sending-email-addresses-to-nosto.md)
     * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)
+    * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
 
 ## 3rd party data integrations
 
