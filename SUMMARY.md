@@ -23,8 +23,7 @@
     * [Adding support for multi-currency](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-multi-currency.md)
     * [Adding support for customer group pricing](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md)
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
-* [Implement on native mobile](implementing-nosto/implement-on-native-mobile/README.md)
-  * [Implementing on iOS and Android](implementing-nosto/implement-on-native-mobile/implementing-on-ios-and-android.md)
+* [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store/README.md)
   * [Sending Offline Orders](implementing-nosto/implement-on-physical-store/sending-offline-orders.md)
 
