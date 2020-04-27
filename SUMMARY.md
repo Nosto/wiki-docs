@@ -1,4 +1,8 @@
-- [Installing](Installing.md)
-- [Configuring](Configuring.md)
-    - [On SiteGenesis](Configuring-SiteGenesis.md)
-    - [On SFRA](Configuring-SFRA.md)
+# Table of contents
+
+* [Introduction](README.md)
+* [Installing](installing.md)
+* [Configuring](configuring/README.md)
+  * [On SiteGenesis](configuring/configuring-sitegenesis.md)
+  * [On SFRA](configuring/configuring-sfra.md)
+
