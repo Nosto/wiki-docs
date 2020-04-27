@@ -14,5 +14,5 @@ Nosto cartridge provides all necessary data for the tagging implementation as we
 
 ### Verifying the integration
 
-Once you have [installed](Installing) and [configured](Configuring) Nosto you can use Nosto debug toolbar to verify that the tagging is in place. You can activate Nosto debug toolbar by adding parameter `?nostodebug=true` to the end of any URL in store front. Please note that you need to have [Nosto account configured and Nosto must be enabled](configuring/#custom-preferences) in your storefront in order to use the debug toolbar.
+Once you have [installed](installing.md) and [configured](configuring/) Nosto you can use Nosto debug toolbar to verify that the tagging is in place. You can activate Nosto debug toolbar by adding parameter `?nostodebug=true` to the end of any URL in store front. Please note that you need to have [Nosto account configured and Nosto must be enabled](configuring/#custom-preferences) in your storefront in order to use the debug toolbar.
 
