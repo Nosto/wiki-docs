@@ -24,6 +24,7 @@
   * [Add to Cart](features/add-to-cart.md)
   * [Indexer](features/indexer/README.md)
     * [Caching Improvements](features/indexer/cachingimprovements.md)
+  * [Legacy Indexer](features/legacy-indexer.md)
   * [Customer Group Pricing](features/customer-group-pricing.md)
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)
   * [Restore Cart Link](features/restore-cart-link.md)

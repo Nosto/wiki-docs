@@ -84,5 +84,5 @@ We recommend the following best practices for Nosto indexers.
 
 For troubleshooting the indexer please follow the [troubleshoot wiki](https://github.com/supercid/wiki-docs/tree/1c543a4861c9354be5f50550ea5bad813770b889/Indexer-troubleshooting.md).
 
-If you are looking for instructions for the old indexer you can still find it from [here](https://github.com/supercid/wiki-docs/tree/1c543a4861c9354be5f50550ea5bad813770b889/Indexer-legacy.md).
+If you are looking for instructions for the old indexer you can still find it from [here](../legacy-indexer.md).
 
