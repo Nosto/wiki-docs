@@ -106,4 +106,5 @@
 * [Prestashop](https://docs.nosto.com/prestashop)
 * [BigCommerce](https://docs.nosto.com/bigcommerce)
 * [PHP-SDK](https://docs.nosto.com/php-sdk)
+* [Salesforce](https://docs.nosto.com/salesforce/)
 
