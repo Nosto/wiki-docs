@@ -1,6 +1,4 @@
-# Introduction
-
-## Personalization for Salesforce Commerce Cloud
+# Personalization for Salesforce Commerce Cloud
 
 Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
 

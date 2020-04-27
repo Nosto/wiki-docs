@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Personalization for Salesforce Commerce Cloud](README.md)
 * [Installing](installing.md)
 * [Configuring](configuring/README.md)
   * [On SiteGenesis](configuring/configuring-sitegenesis.md)
