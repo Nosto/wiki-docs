@@ -1,0 +1,4 @@
+- [Installing](Installing.md)
+- [Configuring](Configuring.md)
+    - [On SiteGenesis](Configuring-SiteGenesis.md)
+    - [On SFRA](Configuring-SFRA.md)
