@@ -8,4 +8,5 @@
 * [Multi-Currency\(Exchange Rates\)](multi-currency-exchange-rates.md)
 * [Restore Cart Link](restore-cart-link.md)
 * [Supplier Cost & Inventory Level](supplier-cost-and-inventory-level.md)
+* [Issues](https://github.com/Nosto/nosto-sfcc/issues)
 
