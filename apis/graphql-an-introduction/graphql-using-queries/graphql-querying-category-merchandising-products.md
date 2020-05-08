@@ -81,3 +81,47 @@ EOF
 
 If you wish to skip the first number of pages, you can use the `skipPages` parameter instead of the `batchToken`. A page size is calculated from the `maxProducts` parameter.
 
+## Filtering Results
+
+Results can be filtered by specifying the include and exclude parameters. You can explore more parameters in the [GraphQL Playground](https://github.com/Nosto/techdocs/wiki/GraphQL:-The-Playground)
+
+```bash
+curl -0 -v -X POST https://api.nosto.com/v1/graphql \
+-u ":<token>" \
+-H 'Content-Type: application/graphql' \
+-d @- << EOF
+query {
+  session(by: BY_CID, id: $customerId) {
+    id
+    recos(
+      preview: false,
+      image: VERSION_ORIGINAL,
+      addAttributionParameters: true) {
+      category(
+        category: $categoryName,
+        minProducts: 1,
+        maxProducts: 10,
+        include: {
+          customFields: [{
+            attribute: "color",
+            values: ["white"]
+          }]
+        }
+        exclude: {
+          discounted: true
+        }
+      ) {
+        primary {
+          productId
+          url
+        }
+        batchToken
+        totalPrimaryCount
+        resultId
+      }
+    }
+  }
+}
+EOF
+```
+
