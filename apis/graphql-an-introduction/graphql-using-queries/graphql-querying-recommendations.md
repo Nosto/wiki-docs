@@ -114,3 +114,116 @@ query {
 EOF
 ```
 
+## Add inclusive or exclusive filters
+
+In case some cases it is desired to filter products by their properties. `include` and `exclude` fields of `primary` should be used to achieve this. The former will filter only the products that match the specified attribute, the later will filter out the products that match the attribute.
+
+`include` field expects a type of `InputIncludeParams`, whose attributes are
+
+```text
+brands: [String]
+The list of brand used for inclusion or exclusion
+
+categories: [String]
+The list of categories used for inclusion or exclusion
+
+customFields: [InputAttributeParams]
+The map of product attributes used for inclusion or exclusion
+
+discounted: Boolean
+A boolean indicating whether discounted products should be excluded
+
+fresh: Boolean
+A boolean value denoting the inclusion of new products
+
+price: InputPriceParams
+The price range used for inclusion
+
+productIds: [String]
+The list of product identifiers used for inclusion or exclusion
+
+rating: Float
+The minimum rating score for the inclusion
+
+reviews: Int
+The minimum amount of reviews for the inclusion
+
+search: String
+Search all products containing this text
+
+stock: InputStockParams
+The stock level range used for inclusion
+
+tags1: [String]
+The first set of tags used for inclusion or exclusion
+
+tags2: [String]
+The second set of tags used for inclusion or exclusion
+
+tags3: [String]
+The third set of tags used for inclusion or exclusion
+```
+
+`exclude` field expect type `InputFilterParams` whose attributes are:
+
+```text
+brands: [String]
+The list of brand used for inclusion or exclusion
+
+categories: [String]
+The list of categories used for inclusion or exclusion
+
+customFields: [InputAttributeParams]
+The map of product attributes used for inclusion or exclusion
+
+discounted: Boolean
+A boolean indicating whether discounted products should be excluded
+
+productIds: [String]
+The list of product identifiers used for inclusion or exclusion
+
+search: String
+Search all products containing this text
+
+tags1: [String]
+The first set of tags used for inclusion or exclusion
+
+tags2: [String]
+The second set of tags used for inclusion or exclusion
+
+tags3: [String]
+The third set of tags used for inclusion or exclusion
+```
+
+Here is an example of a query including filters
+
+```bash
+curl -0 -v -X POST https://api.nosto.com/v1/graphql \
+-u ":<token>" \
+-H 'Content-Type: application/graphql' \
+-d @- << EOF
+query {
+  recos (preview: false, image: VERSION_7_200_200) {
+    toplist(hours: 168, sort: BUYS, params: {
+      minProducts: 1
+      maxProducts: 10
+      includeFilters: {
+        customFields: [
+          {
+            "attribute": "pattern"
+            "values": "Solid"
+          }
+        ]
+        discounted: true
+      }
+    }) {
+      primary {
+        name 
+        productId
+      }
+    }
+  }
+}
+EOF
+```
+

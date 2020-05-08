@@ -13,7 +13,7 @@ This endpoint requires an Email token.
 You can specify multiple email addresses separated by a newline.
 
 ```text
-curl -v -X POST https://api.nosto.com/v1/email?op=add \
+curl -v -X POST https://api.nosto.com/v1/email/blacklist \
 --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw -d '
 john.doe@nosto.com
 jane.doe@nosto.com'
