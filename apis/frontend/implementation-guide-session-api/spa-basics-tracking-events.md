@@ -145,3 +145,24 @@ nostojs(api => {
 });
 ```
 
+  
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: \#000000; color: rgba\(0, 0, 0, 0.5\)}  
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: \#000000; color: rgba\(0, 0, 0, 0.5\); min-height: 13.0px}  
+
+
+## Upon viewing a general page
+
+When a page with a type - other than the ones listed here - is viewed, there's no context to be provided, so invoking the `viewOther` will suffice.
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+    .viewOther()
+    .setPlacements(['general-recommendations'])
+    .load()
+    .then(data => {
+      console.log(data.recommendations);
+    })
+});
+```
+
