@@ -77,7 +77,7 @@ MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_prod
 
 We recommend the following best practices for Nosto indexers.
 
-* We strongly advise that both indexer modes are set to `Update by Schedule` for better performance.  This will also make the indexers independent from each other.
+* We strongly advise that both indexer modes are set to `Update by Schedule` for better performance.  This will also make the product updates to Nosto more reliable. For example the scheduled catalog price rules would not be updated in real-time to Nosto unless the indexer mode is set to  `Update by Schedule` 
 * If you have multiple store views, we recommend that you enable multi-dimensional indexing for **both** indexers.
 
 ## Troubleshoot
