@@ -50,3 +50,13 @@ A common way to implement the functionality to add a variation directly to cart 
 #end
 ```
 
+Here's an example of how to add an SKU to cart where your product has a single SKU or you want to simply add the product's first SKU to cart instead of allowing the user to select which SKU to add.
+
+```markup
+<a
+  href="#"
+  onclick="window.Nosto.addProductToCart('$!product.lastPathOfProductUrl()', '$!product.skus[0].id', this);">
+  Add to Cart
+</a>
+```
+
