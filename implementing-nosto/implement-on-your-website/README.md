@@ -2,6 +2,8 @@
 
 ### Choosing the implementation method
 
+Most customers implement Nosto by installing a Nosto extension to their e-commerce platform. The extension provides a working out of the box implementation for majority of websites.
+
 <table>
   <thead>
     <tr>
