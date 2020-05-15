@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Implementing Nosto</th>
+      <th style="text-align:left"></th>
       <th style="text-align:left"></th>
     </tr>
   </thead>
@@ -35,7 +35,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Implemento on your PWA</td>
+      <td style="text-align:left">Implement on your PWA</td>
       <td style="text-align:left"><a href="../../apis/frontend/implementation-guide-session-api/">Session API</a>
       </td>
     </tr>
@@ -61,8 +61,8 @@ _Note that you can not mix Session API and JS API._
 
 ### 
 
-|  |  |
-| :--- | :--- |
+|  |
+| :--- |
 
 
 
