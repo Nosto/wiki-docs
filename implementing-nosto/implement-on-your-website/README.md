@@ -2,7 +2,8 @@
 
 ### Choosing the implementation method
 
-Most customers implement Nosto by installing a Nosto extension to their e-commerce platform. The extension provides a working out of the box implementation for majority of websites.
+Most customers implement Nosto by installing a Nosto extension to their e-commerce platform. The extension provides a working out of the box implementation for majority of websites.  
+The extension handles installing tagging and product updates, however for customized PWA/SPA environments, you should additionally follow the SPA/PWA guides.
 
 <table>
   <thead>
