@@ -43,6 +43,10 @@ Setting the `addAttributionParameters` parameter to `true`, causes attribution p
 
 If you wish to handle attribution parameters manually, the `addAttributionParameters` parameter can either be set to `false` or can be omitted. In order to build the attribution parameters yourself, you will need to set `nosto_source` to `cmp` and the `nosto` parameter to the `resultId` from the GraphQL response.
 
+## Event handling
+
+Graphql calls using CMP methods are treated as a category view by default. This behavior can be changed by including skipVCEvent: true into the graphql request. All product URLs on a category page must be appended with #nosto_cmp fragment. An example of such a product URL would be www.test-store.com/product1#nosto_cmp where #nosto_cmp is the added fragment.
+
 ## Pagination
 
 The `batchToken` can be used the next batch of results. This is useful if you only wish to fetch the first 10 products when there may be thousands of results. To fetch the next batch, use the `batchToken` in the next query like in the example below:
