@@ -80,6 +80,11 @@ Many e-commerce stores utilize SKU:s or "child" products that are sorted under t
 
 In cases where a product might have multiple prices in differing currencies, you can also add support for multi-currency. Refer to [this article](../../advanced-implementation/adding-support-for-multi-currency.md)
 
+### Supplier Cost / Margin Filter
+
+If you want to use Nosto’s margin filter, you need to send supplier cost via [API](../../../../apis/rest/products/updating-products-using-the-products-api.md) since it's a sensitive data that you might not want to expose in the product tagging.  
+
+
 ## Troubleshooting
 
 Once included on all pages, you can review if the site is transmitting data using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see product attributes being picked up under "Tagging" then the product details are correctly set up. You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to Tools → Products: [https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)
