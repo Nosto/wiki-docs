@@ -28,7 +28,11 @@ This option removes the trailing `___store` parameter from the product URLs. If 
 
 The other-attributes section can be used to map custom attributes to the certain Nosto fields. Magento does not have predefined fields for the brand, the GTIN or the supplier cost fields and these can be customised by the retailer.
 
-![screen shot 2017-11-02 at 15 21 38](https://user-images.githubusercontent.com/327432/32328131-a34054e2-bfe1-11e7-881f-d8d2c3b58d73.png)
+![Other options](.gitbook/assets/image.png)
+
+From version `5.0.0` Nosto extension also supports tagging Google category attribute. Similarly to GTIN attribute described above, select the attribute you wish to map using the selector and confirm on the product tagging using the debug toolbar.  
+  
+**Note:** A full [reindex of your store](features/indexer/) is required after this configuration is changed.
 
 ## Feature Flags
 
