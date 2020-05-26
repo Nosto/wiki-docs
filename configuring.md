@@ -104,9 +104,12 @@ The multi-currency dropdown allows you to toggle the multi-currency feature. For
 
 ### Optional Attributes
 
-The optional attributes drop-downs allow you to select the EAV that will be used for the brand and the GTIN. Both the brand and GTIN fields are simple Magento attributes and therefore need to be manually selected.
+The optional attributes drop-downs allow you to select the EAV that will be used for the brand and the GTIN. Both the brand and GTIN fields are simple Magento attributes and therefore need to be manually selected.  
 
-![screen shot 2018-04-06 at 15 41 27](https://user-images.githubusercontent.com/2778820/38488310-c20536f0-3beb-11e8-9d4c-fec5e23b762a.png)
+
+![](.gitbook/assets/image.png)
+
+From version `4.1.0` Nosto extension also supports tagging Google category attribute. Similarly to GTIN attribute described above, select the attribute you wish to map using the selector and confirm on the product tagging using the debug toolbar.
 
 **Note:** A full [reindex of your store](https://help.nosto.com/settings-and-troubleshooting-faq/tools-product-reindexupdate) is required after this configuration is changed.
 
