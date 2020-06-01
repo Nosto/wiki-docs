@@ -2,7 +2,7 @@
 
 ## Upon viewing the homepage
 
-When viewing a home-page, there's no context to be provided, so invoking the `viewIndex` will suffice.
+When viewing a home-page, there's no context to be provided, so invoking the `viewFrontPage` will suffice.
 
 ```javascript
 nostojs(api => {
