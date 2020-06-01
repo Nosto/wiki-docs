@@ -1,10 +1,6 @@
 # Customize Query Parameters
 
-This module relies on Http parameters for handling pagination and sorting. In case your Magento installation has a customised catalog page or customised query parameter \(we rely on `p` for page and `product_list_order` for sorting order\), it is necessary to create a class which will be responsible for handling two parameters: page number and sorting order.
-
-### Create module
-
-First create a new Magento module by following [this guide](https://github.com/Nosto/nosto-magento2-cmp/wiki/Overriding-or-extending-functionalities)
+This module relies on Http parameters for handling pagination and sorting. In case your Magento installation has a customised catalog page or customised query parameter \(we rely on `p` for page and `product_list_order` for sorting order\), it is necessary to create a class which will be responsible for handling two parameters: page number and sorting order.  Read up on [Overriding or Extending Functionalities](./) prior to proceeding with this.
 
 ### Create a `CustomParameterResolver` class
 
@@ -59,5 +55,11 @@ class CustomParameterResolver implements ParameterResolverInterface
     </type>
 ```
 
-1. Run `bin/magento setup:di:compile`
+### Compiling your changes 
+
+In order to compile your changes you'll need to run the `di:compile` command
+
+```markup
+bin/magento setup:di:compile
+```
 
