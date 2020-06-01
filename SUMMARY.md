@@ -40,3 +40,14 @@
 * [Issues](https://github.com/nosto/nosto-magento2/issues)
 * [Releases](https://github.com/nosto/nosto-magento2/releases)
 
+## Addons
+
+* [Category Merchandising & Personalisation](addons/cmp/README.md)
+  * [Installing](addons/cmp/installing.md)
+  * [Uninstalling](addons/cmp/uninstalling.md)
+  * [Configuring](addons/cmp/configuring-1.md)
+  * [Guides](addons/cmp/guides/README.md)
+    * [Overriding or Extending Functionalities](addons/cmp/guides/overriding-or-extending-functionalities/README.md)
+      * [Customize Query Parameters](addons/cmp/guides/overriding-or-extending-functionalities/customize-query-parameters.md)
+    * [Translating](addons/cmp/guides/translating.md)
+

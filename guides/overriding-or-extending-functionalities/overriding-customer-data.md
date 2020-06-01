@@ -1,6 +1,6 @@
 # Overriding Customer Data
 
-In order to modify marketing permission detection you must create a small Magento 2 module. Start by following the steps described in the wiki page \[Extending Nosto's Module\]\(Extending-Nosto's-Module\).
+In order to modify marketing permission detection you must create a small Magento 2 module. Start by following the steps described in the guide about [Overriding or Extending Functionalities](../../addons/cmp/guides/overriding-or-extending-functionalities/)
 
 ## Required files and configurations
 
