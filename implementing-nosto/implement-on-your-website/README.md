@@ -31,7 +31,9 @@ Most customers implement Nosto by installing a Nosto extension to their e-commer
     </tr>
   </thead>
   <tbody></tbody>
-</table>| Implement on your SPA | [Session API](../../apis/frontend/implementation-guide-session-api/) |
+</table>
+
+| Implement on your SPA | [Session API](../../apis/frontend/implementation-guide-session-api/) |
 | :--- | :--- |
 
 
