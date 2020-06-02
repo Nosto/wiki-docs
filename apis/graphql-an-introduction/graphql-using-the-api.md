@@ -1,6 +1,6 @@
 # Using the API
 
-In order to use the GraphQL endpoints, you'll need to [authenticate yourself](https://developer.nosto.com/#authentication). You will need a **Apps** [token](https://help.nosto.com/settings-and-troubleshooting-faq/settings-authentication-tokens) to access this endpoint.
+In order to use the GraphQL endpoints, you'll need to [authenticate yourself](https://developer.nosto.com/#authentication). You will need a **Apps** [token](https://help.nosto.com/settings-and-troubleshooting-faq/settings-authentication-tokens) to access this endpoint. Only a subset of the endpoints can be accessed with a public token. This makes it possible to access functionality like querying product recommendations in an environment where it's not possible to protect the token, for example in a web browser. Each publicly accessible endpoint is denoted in the embedded documentation inside the [playground](graphql-the-playground).
 
 **Note:** Nosto does not rate-limit the API usage but follows a fair-use policy. Nosto reserves the right to revoke API access for any abusive API usage patterns.
 
