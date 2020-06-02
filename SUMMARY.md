@@ -46,7 +46,7 @@
   * [Installing](addons/msi/installing.md)
   * [Uninstalling](addons/msi/uninstalling.md)
   * [Configuring](addons/msi/configuring.md)
-* [Category Merchandising & Personalisation](addons/cmp/README.md)
+* [Category Merchandising](addons/cmp/README.md)
   * [Installing](addons/cmp/installing.md)
   * [Uninstalling](addons/cmp/uninstalling.md)
   * [Configuring](addons/cmp/configuring-1.md)

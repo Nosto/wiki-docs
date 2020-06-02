@@ -1,2 +1,2 @@
-# Category Merchandising & Personalisation
+# Category Merchandising
 
