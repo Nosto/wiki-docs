@@ -33,7 +33,7 @@ class CustomParameterResolver implements ParameterResolverInterface
 }
 ```
 
-### Inject `CustomParameterResolver`
+### Inject the `CustomParameterResolver`
 
 1. Open the file `app/code/My/Nosto/etc/di.xml`
 2. Inject the class
