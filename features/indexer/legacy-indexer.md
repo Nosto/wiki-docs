@@ -1,4 +1,4 @@
-# Legacy Indexer \(&lt; 4.0.0\)
+# On 3.x
 
 **This article only applies to the old version &lt; 4.0.0 of Nosto module**
 
