@@ -88,7 +88,25 @@ We recommend the following best practices for Nosto indexers.
 
 ## Troubleshoot
 
-For troubleshooting the indexer please follow the [troubleshoot wiki](indexer-troubleshooting.md).
+If you are having issues with indexing you want to first enable Magento's debug logging [https://devdocs.magento.com/guides/v2.3/config-guide/cli/logging.html](https://devdocs.magento.com/guides/v2.3/config-guide/cli/logging.html). This will enable more verbose logging for the indexing. You will find indexing related logs from debug log \(`debug.log` by default\). All log entries are prefixed with "nosto".‌
 
-If you are looking for instructions for the old indexer \(&lt; 5.0.0\) you can still find it from [here](4.0.0-less-than-5.0.0.md).
+### Indexer is not keeping up with product updates <a id="indexer-is-not-keeping-up-with-product-updates"></a>
+
+‌If you are frequently updating massive amount of products \(for example via API or import\) there's a chance that the indexer cannot process the previous update before the next update batch is executed. In these cases we recommend [parallelising the indexer](https://app.gitbook.com/@nosto/s/magento-2/~/drafts/-M9Nt0el0H5wkhKBxY6J/features/indexer#indexer-parallelisation/@merged) as a first step.‌
+
+We also recommend figuring out the source of frequent product updates and do optimisations for the [mview subscriptions / triggers](https://github.com/Nosto/nosto-magento2/blob/master/etc/mview.xml#L38). For example if you are using 3rd party module / integration that updates all product images frequently but those images are not used for recommendations you might want to remove [gallery related subscriptions](https://github.com/Nosto/nosto-magento2/blob/master/etc/mview.xml#L45-L46). Modifying the `mview.xml` file can be done for example using [Magento's patches](https://devdocs.magento.com/guides/v2.3/comp-mgr/patching.html).‌
+
+### Warning about `innodb_buffer_pool_size` <a id="warning-about-innodb_buffer_pool_size"></a>
+
+You will most likely see this warning in your Magento logs if you've installed MySQL using the defaults. To get rid of this warning we recommend increasing `innodb_buffer_pool_size` on you MySQL server configuration. You can find more info about indexer optimization from [the official Magento documentation](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/indexer-batch.html).‌
+
+### Products not synchronized to Nosto <a id="products-not-synchronized-to-nosto"></a>
+
+If the product data is not synchronized to Nosto you must verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically but you can verify this by checking the process list \(`ps -ax` for example\) on your server.‌​[​](https://user-images.githubusercontent.com/15191701/67567284-4f28a500-f732-11e9-976d-1c587d317b45.png)
+
+### Bulk attribute updates not synchronized to Nosto <a id="bulk-attribute-updates-not-synchronized-to-nosto"></a>
+
+If you have the indexers running on mode "Update by save" the bulk operations are not automatically reflected to Nosto. This is due to how Magento processes bulk updates internally.‌
+
+It is highly recommended to run all indexers in mode "Update by schedule".‌
 
