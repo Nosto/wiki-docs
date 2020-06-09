@@ -18,5 +18,9 @@ In order to enable Nosto in your store view navigate to Nosto Dashboard and eith
 
 If you already have an existing Nosto account you want to use in your store view you can simply click "Connect with with existing account" button on Nosto Dashboard and follow the Oauth flow.
 
-![Nosto\_-\_Account\_Settings\_\_\_Magento\_Admin](https://user-images.githubusercontent.com/15191701/72875946-0f0b9b00-3cfe-11ea-9778-8efa18b71953.png)
+![](https://user-images.githubusercontent.com/15191701/72875946-0f0b9b00-3cfe-11ea-9778-8efa18b71953.png)
+
+### Connecting / disconnecting using command line
+
+See [these instructions](guides/console-commands.md) for connecting or disconnecting Nosto accounts using command line.
 

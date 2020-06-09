@@ -1,77 +1,32 @@
 # Indexer
 
-![4.0.0](https://img.shields.io/badge/nosto-4.0.0-green.svg)
+![](https://img.shields.io/badge/nosto-%3E%3D%205.0.0-green)
 
-Nosto module \(4.0.0\) for Magento 2 introduced two brand new indexers to the existing Magento indexers. These indexers are used to drastically improve the performance of synchronising the product catalog with Nosto as well as generating the product tagging for product detail pages.
+Indexer logic changed in \(5.0.0\) in order to avoid blocking other indexing processing. As of 5.0.0 the product data is building is done in [bulk operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html).
 
-The indexers can be found by navigating to the Index Management view in the Magento settings.
+Version &gt; 5.0.0 has two indexers `Nosto Product Queue`_\(nosto\_index\_product\_queue\)_ and `Nosto Product Queue Processor`_\(nosto\_index\_product\_queue\_processor\)_.  The first indexer \(_nosto\_index\_product\_queue_\) listens for product changes in Magento and adds the changed product ids into a queue. The second indexer \(_nosto\_index\_product\_queue\_processor\)_ fetches the product ids from the queue, merges the queues when possible, removes duplicated product ids and sends the product ids to the bulk operation that builds the product data and sends the data to Nosto. [The cache](../product-data-caching/built-in-caching.md) is also updated in bulk operations.  
 
-The two indexers are named `InvalidateIndexer` and `DataIndexer`.
-
-The main focus of the first indexer is to listen for product changes from Magento. In case a product is updated, the indexer will sign the product as dirty in the [cached product table](cachingimprovements.md).
-
-The second indexer will listen for changes inside the product cache table itself. When a table entry is set to dirty, the DataIndexer will check and compare that the product has changed.
-
-The product will be rebuilt, serialised and stored in the product\_data field. Then the product is set as out of sync, which means that the data should be sent to Nosto through our APIs.
-
-To further optimise the process, the module makes use of [message queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html).
-
-All the products that have been rebuilt will be divided into batches and passed as messages to queue processor which will take care of sending the data and set the product as in\_sync after it's a success.
+To further optimise the process, the bulk operations can be configured to use [message queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html).
 
 ## Manually Running the Indexer
 
-You can run a full reindex of the product catalog by using Magento's built-in CLI indexer. After version 4.0.0, Nosto extension makes use of two indexers.
+You can run a full reindex of the product catalog by using Magento's built-in CLI indexer.
 
 To reindex all products, re-run both indexers:
 
-* Invalidate indexer
+* _nosto\_index\_product\_queue_ indexer
 
   ```bash
-  bin/magento indexer:reset nosto_index_product_invalidate
-  bin/magento indexer:reindex nosto_index_product_invalidate
+  bin/magento indexer:reset nosto_index_product_queue
+  bin/magento indexer:reindex nosto_index_product_queue
   ```
 
-* Product data indexer
+* _nosto\_index\_product\_queue\_processor_
 
   ```bash
-  bin/magento indexer:reset nosto_index_product_data
-  bin/magento indexer:reindex nosto_index_product_data
+  bin/magento indexer:reset nosto_index_product_queue_processor
+  bin/magento indexer:reindex nosto_index_product_queue_processor
   ```
-
-## Indexer Parallelisation
-
-Starting with version 2.2.6 Magento [supports parallel reindexing](https://community.magento.com/t5/Magento-DevBlog/Indexers-parallelization-and-optimization/ba-p/104922). Nosto's indexers support parallelization and both the Nosto indexers can be executed in parallel mode. The indexers are scoped based on stores. This means that if a merchant has n-stores, there will be n-processes running in parallel, each indexing a specific store \(also called a "Dimension"\).
-
-There are a few steps to be taken before enabling parallelisation:
-
-1. Check the dimension mode for the indexer
-
-```text
-bin/magento indexer:show-dimensions-mode
-Product Price:                                     none
-Nosto Product Index Data :                         none
-Nosto Product Data Invalidator:                    none
-```
-
-1. Set the indexer mode for **both** to `store`
-
-```text
-bin/magento indexer:set-dimensions-mode nosto_index_product_data store
-Dimensions mode for indexer "Nosto Product Index Data " was changed from 'none' to 'store'
-```
-
-```text
-bin/magento indexer:set-dimensions-mode nosto_index_product_invalidate store
-Dimensions mode for indexer "Nosto Product Data Invalidator" was changed from 'none' to 'store'
-```
-
-1. Make sure that the number of threads declared in the env variable `MAGE_INDEXER_THREADS_COUNT` is equal to the max number of stores.
-
-For testing purposes, it can be declared in the CLI, like:
-
-```text
-MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_product_data
-```
 
 ## Best Practices
 
@@ -82,7 +37,7 @@ We recommend the following best practices for Nosto indexers.
 
 ## Troubleshoot
 
-For troubleshooting the indexer please follow the [troubleshoot wiki](https://github.com/supercid/wiki-docs/tree/1c543a4861c9354be5f50550ea5bad813770b889/Indexer-troubleshooting.md).
+For troubleshooting the indexer please follow the [troubleshoot wiki](indexer-troubleshooting.md).
 
-If you are looking for instructions for the old indexer you can still find it from [here](../legacy-indexer.md).
+If you are looking for instructions for the old indexer \(&lt; 5.0.0\) you can still find it from [here](4.0.0-less-than-5.0.0.md).
 

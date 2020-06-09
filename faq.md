@@ -8,7 +8,7 @@ If the value of this setting is "Including Tax" Nosto will use the prices with t
 
 ## How do I enable or disable multi-currency?
 
-See article about [Multi Currency \(Exchange Rates\)](features/multi-currency-exchange-rates.md)
+See article about [Multi Currency \(Exchange Rates\)](features/multi-currency-exchange-rates/)
 
 ## How to improve order confirmation performance?
 
