@@ -4,7 +4,7 @@ The extension can be configured by navigating to Stores &gt; Configuration &gt; 
 
 ## Check the tokens
 
-The APPS token should be present to enable the usage of category merchandising. If it is missing, please reconnect the account by navigating to Marketing -> Nosto -> Nosto Dashboard -> Settings and press on Reconnect.
+The APPS token should be present to enable the usage of category merchandising. If it is missing, please reconnect the account by navigating to Marketing -&gt; Nosto -&gt; Nosto Dashboard -&gt; Settings and press on Reconnect.
 
 ## Enabling/Disabling CMP
 
@@ -12,4 +12,3 @@ Navigate to `Stores -> Settings -> Configuration -> Service -> Nosto Category Me
 
 ![](../../.gitbook/assets/cmp1.png)
 
-## 

@@ -32,9 +32,9 @@ Open Software License \("OSL"\) v3.0
 
 ### Dependencies
 
-Magento Community Edition v2.1.x &gt; v2.3.2
+Magento Open Source &gt;= v2.2.6
 
-Magento Enterprise Edition v2.1.x &gt; v2.3.2
+Magento Commerce &gt;= v2.2.6
 
-From version 4.0.0 of this extension, the minimal Magento 2 required version is 2.2.6
+If you are using a version below 2.2.6 of Magento Commerce or Magento Open you must use version &lt; 4.0.0 of Nosto module. 
 

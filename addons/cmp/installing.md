@@ -21,6 +21,5 @@ bin/magento setup:di:compile
 
 You might need to change file permissions or ownership of the generated files after the installation.
 
-
-After running the commands above, you can log-in to the store admin. You will find settings for `Category personalization and merchandizing` module under Stores > Configuration > Services > Nosto CMP.
+After running the commands above, you can log-in to the store admin. You will find settings for `Category personalization and merchandizing` module under Stores &gt; Configuration &gt; Services &gt; Nosto CMP.
 

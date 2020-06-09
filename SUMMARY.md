@@ -23,6 +23,8 @@
   * [Variations \(Configurable Products\)](features/variations-configurable-products.md)
   * [Add to Cart](features/add-to-cart.md)
   * [Indexer](features/indexer/README.md)
+    * [Message Queuing](features/indexer/message-queuing.md)
+    * [Indexer Parallisation](features/indexer/indexer-parallisation.md)
     * [Caching Improvements](features/indexer/cachingimprovements.md)
   * [Legacy Indexer](features/legacy-indexer.md)
   * [Customer Group Pricing](features/customer-group-pricing.md)
