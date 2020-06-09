@@ -125,7 +125,9 @@ Once included you can review if the SKUs are picked up by using the [Nosto Debug
 
 You can further verify that products are being indexed to the catalogue under the Nosto admin by navigating to Tools → Products \([https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)\)
 
-![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalogue](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png)
+![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) 
+
+![](../../../.gitbook/assets/image.png)
 
 ## FAQ
 
