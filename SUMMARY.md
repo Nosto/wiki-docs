@@ -26,8 +26,6 @@
   * [Variations \(Configurable Products\)](features/variations-configurable-products.md)
   * [Add to Cart](features/add-to-cart.md)
   * [Indexer](features/indexer/README.md)
-    * [Indexer Parallelisation](features/indexer/indexer-parallelisation.md)
-    * [Using RabbitMQ](features/indexer/using-rabbitmq.md)
     * [Indexer troubleshooting](features/indexer/indexer-troubleshooting.md)
     * [4.0.0 &lt; 5.0.0](features/indexer/4.0.0-less-than-5.0.0.md)
     * [Legacy Indexer \(&lt; 4.0.0\)](features/indexer/legacy-indexer.md)
