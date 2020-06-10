@@ -14,5 +14,5 @@ The extension relies on observers to detect changes to the catalog and synchroni
 
 The inventory-level metadata collection is disabled by default. You can toggle the inventory-level metadata collection by navigating to the configuration page and toggling **Enable Inventory Levels** under the **Feature Flags** section.
 
-![Inventory-Level Metadata Settings](https://user-images.githubusercontent.com/327432/31331031-68a69dec-ace9-11e7-8cf5-b287f924a018.png)
+![](../.gitbook/assets/m2-nosto-feature-flags.png)
 
