@@ -110,3 +110,7 @@ If you have the indexers running on mode "Update by save" the bulk operations ar
 
 It is highly recommended to run all indexers in mode "Update by schedule".‌
 
+### Nosto indexer runs after Nosto module settings are changed ‌ <a id="nosto-indexer-is-blocking-other-magento-indexers"></a>
+
+This happens by design. When Nosto settings that affect Nosto product data are changed and indexers are defined to be run in mode "Update By Schedule" Nosto will automatically initialise a full reindex to keep the product data up to date.
+
