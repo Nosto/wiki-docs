@@ -11,7 +11,7 @@ Here is a list of all the valid page types:
 * The order confirmation page should be tagged as `order`.
 * The search results page should be tagged as `search`.
 * All no-found pages should be tagged as `notfound`.
-* Other pages should be tagged as `otherPages`.
+* Other pages should be tagged as `other`.
 
 ```markup
  <div class="nosto_page_type" style="display:none">product</div>
