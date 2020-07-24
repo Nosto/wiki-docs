@@ -92,7 +92,7 @@ If you are having issues with indexing you want to first enable Magento's debug 
 
 ### Indexer is not keeping up with product updates <a id="indexer-is-not-keeping-up-with-product-updates"></a>
 
-‌If you are frequently updating massive amount of products \(for example via API or import\) there's a chance that the indexer cannot process the previous update before the next update batch is executed. In these cases we recommend [parallelising the indexer](https://app.gitbook.com/@nosto/s/magento-2/~/drafts/-M9Nt0el0H5wkhKBxY6J/features/indexer#indexer-parallelisation/@merged) as a first step.‌
+‌If you are frequently updating massive amount of products \(for example via API or import\) there's a chance that the indexer cannot process the previous update before the next update batch is executed. In these cases we recommend [parallelising the indexer](https://docs.nosto.com/magento-2/features/indexer/on-5.x#indexer-parallelisation) as a first step.‌
 
 We also recommend figuring out the source of frequent product updates and do optimisations for the [mview subscriptions / triggers](https://github.com/Nosto/nosto-magento2/blob/master/etc/mview.xml#L38). For example if you are using 3rd party module / integration that updates all product images frequently but those images are not used for recommendations you might want to remove [gallery related subscriptions](https://github.com/Nosto/nosto-magento2/blob/master/etc/mview.xml#L45-L46). Modifying the `mview.xml` file can be done for example using [Magento's patches](https://devdocs.magento.com/guides/v2.3/comp-mgr/patching.html).‌
 
