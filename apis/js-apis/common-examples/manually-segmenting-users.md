@@ -8,7 +8,13 @@ nostojs(function(api) {
 });
 ```
 
-The example above does not trigger a reload of all the placements. Once you have placed the snippet into your page, all Nosto requests will automatically leverage the given segment-code. You must specify the segment code on every page load.
+The example above does not trigger a reload of all the placements. If you would like to reload all onsite content to reflect the new segment, you must explicitly reload it.
+
+```javascript
+nostojs(function(api) {
+  api.loadRecommendations();
+});
+```
 
 Once you have done so, read our guide on [segmenting users via custom events](https://help.nosto.com/articles/2398016-visit-custom-event).
 
