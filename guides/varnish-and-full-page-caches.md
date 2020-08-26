@@ -1,6 +1,6 @@
 # Varnish & Full-Page Caches
 
-Nosto injects the details of the currently logged in customer, the contents of current shopping cart and the currently active currency. It does so on all pages. Since these data for these are session dependant, they should never be cached. As a solution for this, Nosto for Shopware supports hole-punching these sections via it's built-in caching support.
+Nosto injects the details of the currently logged in customer, the contents of the current shopping cart, and the currently active currency. It does so on all pages. Since these data for these are session dependant, they should never be cached. As a solution for this, Nosto for Shopware supports hole-punching these sections via it's built-in caching support.
 
   
 Nosto for Shopware works out of the box with [Shopware's HTTP cache.](https://developers.shopware.com/developers-guide/http-cache/) Nosto does this by leveraging [Shopware's support for Action Tags](https://developers.shopware.com/blog/2016/07/11/on-action-tags/). Action Tags automatically hole-punch certain parts of the page and when used with Varnish, it autogenerates the necessery Edge Side Includes \(ESI\). 
