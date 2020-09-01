@@ -6,6 +6,10 @@ Nosto supports supplier costs and inventory level. The supplier-cost and invento
 
 The supplier-cost and inventory-level of a product are considered sensitive information and therefore does not exist in the page tagging, and instead, are sent over a secure API.
 
+{% hint style="info" %}
+You must[ run the indexer manually ](https://docs.nosto.com/magento-2/features/indexer/on-5.x#manually-running-the-indexer)every time you toggle these features. Running the indexer updates your product catalog in Nosto.
+{% endhint %}
+
 ### Why don't all my products have the supplier-cost and inventory-level information?
 
 The extension relies on observers to detect changes to the catalog and synchronize it with Nosto. If you are synchronizing products from your ERP/PIM system, observers may not be triggered, and therefore it is necessary that you run a cron to bulk update products to Nosto.
