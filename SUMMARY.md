@@ -68,6 +68,7 @@
     * [Terminology](apis/frontend/implementation-guide-session-api/session-api-terminology.md)
     * [Setting up](apis/frontend/implementation-guide-session-api/spa-basics-setting-up.md)
     * [Managing Sessions](apis/frontend/implementation-guide-session-api/spa-basics-managing-sessions.md)
+    * [Handling Placements](apis/frontend/implementation-guide-session-api/handling-placements.md)
     * [Tracking Events](apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md)
     * [Leveraging Features](apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md)
     * [Advanced Usage](apis/frontend/implementation-guide-session-api/advanced-usage/README.md)
