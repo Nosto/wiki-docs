@@ -9,7 +9,7 @@ In order to do this, you two arguments must be passed to the `Nosto.addSkuToCart
 The first argument is a javascript object containing the id of the configurable product and the variation, and the second one being the element where the product was added to the cart. If configurable product's id is 123 and the id of the variation is 124 the method call in recommendations template would look like this
 
 ```javascript
-Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
+Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'front-bestsellers-1')
 ```
 
 ### Leveraging Quantities
@@ -17,7 +17,7 @@ Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
 It is possible to specify the quantity when adding products to cart.
 
 ```javascript
-Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
+Nosto.addSkuToCart({productId: '425', skuId: '310'}, 'front-bestsellers-1', 5)
 ```
 
 ### Adding Multiple Products
