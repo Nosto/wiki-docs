@@ -29,9 +29,9 @@ Note that if you use a configurable product as SKU ID, will simply not be added 
 
 ```javascript
 Nosto.addMultipleProductsToCart([
-    {productId: "111", skuId: "112"},
-    {productId: "221", skuId: "221"}
-    ]);
+    {productId: 'p1', variantId: 'v1'}, 
+    {productId: 'p2', variantId: 'v2'}
+    ], 'frontpage-nosto-1');
 ```
 
 ## Use Cases
