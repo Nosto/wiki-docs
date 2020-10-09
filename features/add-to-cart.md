@@ -22,7 +22,17 @@ Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
 
 ### Adding Multiple Products
 
-It is not possible to add multiple products to the cart at once. This is a limitation of Bigcommerce Ajax API and the only way to add multiple products to the cart at once is by invoking the add-to-cart function multiple times.
+It is also possible to add multiple products to the cart by using an array of objects containing the productId and the skuId.
+The product id is the parent product that holds the variations, and the SKU is the variation itself.
+The parent id is needed in order to recognize which product was added and improve the recommendations.
+Note that if you use a configurable product as SKU ID, will simply not be added to the cart, since you need to select the options.
+
+```javascript
+Nosto.addMultipleProductsToCart([
+    {productId: 'p1', variantId: 'v1'}, 
+    {productId: 'p2', variantId: 'v2'}
+    ], 'frontpage-nosto-1');
+```
 
 ## Use Cases
 
