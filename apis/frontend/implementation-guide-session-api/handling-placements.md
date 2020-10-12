@@ -26,7 +26,7 @@ If you require complete control over which placements are requested and how they
 
 ```text
 nostojs(api ⇒ api.defaultSession()
-	.withElements(['front-bestsellers-1'])
+  .setElements(['front-bestsellers-1'])
   .setResponseMode('JSON')
   .load()
   .then(response => response.recommendations)
@@ -52,7 +52,7 @@ In the event that you would like to offload the campaign rendering to Nosto, you
 
 ```text
 nostojs(api ⇒ api.defaultSession()
-	.withElements(['front-bestsellers-1'])
+  .setElements(api.placements.getPlacements())
   .setResponseMode('HTML')
   .load()
   .then(response => {
