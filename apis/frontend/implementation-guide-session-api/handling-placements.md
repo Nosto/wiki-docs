@@ -57,7 +57,7 @@ nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')
     .viewFrontPage()
-    .setPlacements(['front-bestsellers-1'])
+    .setPlacements(api.placements.getPlacements())
     .load()
     .then(response => {
       api.placements.injectCampaigns(response)
