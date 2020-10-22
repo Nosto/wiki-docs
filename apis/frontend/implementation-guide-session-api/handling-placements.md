@@ -25,11 +25,14 @@ These are defined in the administration panel and are CSS and URL rules to defin
 If you require complete control over which placements are requested and how they are templated and how they are injected, you can do so by using our JS API.
 
 ```text
-nostojs(api ⇒ api.defaultSession()
-  .setElements(['front-bestsellers-1'])
-  .setResponseMode('JSON')
-  .load()
-  .then(response => response.recommendations)
+nostojs(api => {
+  api.defaultSession()
+    .viewFrontPage()
+    .setPlacements(['front-bestsellers-1'])
+    .setResponseMode('HTML')
+    .load()
+    .then(response => response.recommendations)
+});
 ```
 
 This example allows you to specify what placements are fetched. The above example will fetch the content for the campaign associated with `front-bestsellers-1`.
@@ -51,13 +54,16 @@ Here is an example of a sample response.
 In the event that you would like to offload the campaign rendering to Nosto, you can use the Placements API to inject the resultant campaigns.
 
 ```text
-nostojs(api ⇒ api.defaultSession()
-  .setElements(api.placements.getPlacements())
-  .setResponseMode('HTML')
-  .load()
-  .then(response => {
-    api.placements.injectCampaigns(response)
-  })
+nostojs(api => {
+  api.defaultSession()
+    .setResponseMode('HTML')
+    .viewFrontPage()
+    .setPlacements(['front-bestsellers-1'])
+    .load()
+    .then(response => {
+      api.placements.injectCampaigns(response)
+    })
+});
 ```
 
 The example above will fetch the data associated with campaign `front-bestsellers-1` and inject it into the associated elements in the DOM.
