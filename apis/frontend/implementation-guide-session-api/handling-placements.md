@@ -29,8 +29,8 @@ nostojs(api => {
   api.defaultSession()
     .viewFrontPage()
     .setPlacements(['front-bestsellers-1'])
-    .setResponseMode('HTML')
-    .then(response => response.recommendations)
+    .load()
+    .then(response => console.log(response.recommendations))
 });
 ```
 
