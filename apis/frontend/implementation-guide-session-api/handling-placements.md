@@ -30,7 +30,6 @@ nostojs(api => {
     .viewFrontPage()
     .setPlacements(['front-bestsellers-1'])
     .setResponseMode('HTML')
-    .load()
     .then(response => response.recommendations)
 });
 ```
