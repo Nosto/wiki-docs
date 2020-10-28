@@ -2,7 +2,7 @@
 
 It is now possible to use the category merchandising feature in PWA.  
 The merchandising rules are applied to the catalog by using the `nosto_personalized` sorting option 
-in products query. It comes out of the box from version `>3.1.0` and it does not require any further
+in products grapqhl query. It comes out of the box from version `>3.1.0` and it does not require any further
 configuration.
 
 ### Filters
