@@ -1,6 +1,6 @@
 ## Products limit per page
 
-The module has a limit of 250 products per page. 
+The module limits maximum products fetched from Nosto to 250 by default. 
 This is related to the limit set for our internal cmp query. 
 
 In case you have enabled the `Show all products` feature on our catalog page, 
