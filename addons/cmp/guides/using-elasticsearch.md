@@ -1,4 +1,4 @@
-## Support for Elasticsearch 
+## Using Elasticsearch 
 
 Previous to `v2.4.0 `, Magento2 offers the possibility to select the catalog search engine
 between MySql and Elasticsearch. The following versions will use Elasticsearch by default.
