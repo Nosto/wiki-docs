@@ -54,8 +54,11 @@
   * [Installing](addons/cmp/installing.md)
   * [Uninstalling](addons/cmp/uninstalling.md)
   * [Configuring](addons/cmp/configuring-1.md)
+  * [Elasticsearch Support](addons/cmp/elasticsearch-support.md)
   * [Guides](addons/cmp/guides/README.md)
     * [Translating Frontend Strings](addons/cmp/guides/translating.md)
+    * [PWA Implementation](addons/cmp/guides/pwa-implementation.md)
+    * [Product Limits](addons/cmp/guides/product-limit.md)
     * [Overriding or Extending Functionalities](addons/cmp/guides/overriding-or-extending-functionalities/README.md)
       * [Customize Query Parameters](addons/cmp/guides/overriding-or-extending-functionalities/customize-query-parameters.md)
 
