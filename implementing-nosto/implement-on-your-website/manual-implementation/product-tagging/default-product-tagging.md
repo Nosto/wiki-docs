@@ -9,7 +9,7 @@ Basic tagging
   <span class="name">Acme Canoe</span>
   <span class="url">https://example.com/canoe123</span>
   <span class="image_url">https://image.example.com/canoe1.jpg</span>
-  <span class="availability">Instock</span>
+  <span class="availability">InStock</span>
   <span class="price">999.50</span>
   <span class="price_currency_code">USD</span>
 </div>
