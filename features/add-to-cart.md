@@ -9,7 +9,7 @@ In order to do this, you two arguments must be passed to the `Nosto.addSkuToCart
 The first argument is a javascript object containing the id of the configurable product and the variation, and the second one being the element where the product was added to the cart. If configurable product's id is 123 and the id of the variation is 124 the method call in recommendations template would look like this
 
 ```javascript
-Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'front-bestsellers-1')
+Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
 ```
 
 ### Leveraging Quantities
@@ -17,12 +17,23 @@ Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'front-bestsellers-1')
 It is possible to specify the quantity when adding products to cart.
 
 ```javascript
-Nosto.addSkuToCart({productId: '425', skuId: '310'}, 'front-bestsellers-1', 5)
+Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
 ```
 
 ### Adding Multiple Products
 
-It is not possible to add multiple products to the cart at once. This is a limitation of [Shopify's Ajax API](https://help.shopify.com/en/themes/development/getting-started/using-ajax-api) and the only way to add multiple products to the cart at once is by invoking the add-to-cart function multiple times.
+It is also possible to add multiple products to the cart by using an array of objects containing the productId, skuId and quantity. The product id is the parent product that holds the variations, and the SKU is the variation itself. 
+The parent id is needed in order to recognize which product was added and improve the recommendations. Note that if you use a configurable product as SKU ID, will simply not be added to the cart, since you need to select the options.
+
+```javascript
+Nosto.addMultipleProductsToCart(
+    [
+        {productId:"1234", skuId:"4321", quantity: 1},
+        {productId:"345", skuId:"543", quantity: 1}
+    ], 
+    this 
+)
+```
 
 ## Use Cases
 
