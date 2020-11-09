@@ -40,6 +40,11 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
     ],
     "date_published":"2013-­04-­23",
     "variation_id":"EUR_1",
+    "alternate_image_urls": [
+      "http://cdn.example.com/product_123-1.jpg",
+      "http://cdn.example.com/product_123-2.jpg",
+      "http://cdn.example.com/product_123-3.jpg",
+    ],
     "variations":{
       "USD_2":{
         "price_currency_code":"USD",
