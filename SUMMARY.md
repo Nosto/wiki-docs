@@ -2,6 +2,8 @@
 
 * [Personalization for Shopware](README.md)
 * [Installing](installing.md)
+* [Disconnecting](disconnecting-nosto-from-store-front.md)
+* [Uninstalling](uninstalling.md)
 * [Configuring](configuring.md)
 * [Guides](guides/README.md)
   * [Varnish & Full-Page Caches](guides/varnish-and-full-page-caches.md)
