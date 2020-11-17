@@ -2,7 +2,7 @@
 
 * [Personalization for Shopware](README.md)
 * [Installing](installing.md)
-* [Disconnecting](disconnecting-nosto-from-store-front.md)
+* [Disconnecting](disconnecting.md)
 * [Uninstalling](uninstalling.md)
 * [Configuring](configuring.md)
 * [Guides](guides/README.md)
