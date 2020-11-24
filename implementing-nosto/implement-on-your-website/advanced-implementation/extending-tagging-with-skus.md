@@ -18,6 +18,7 @@ Many e-commerce stores have a parent product with individual child products. The
       <span class="name">S-Orange</span>
       <span class="price">1269.00</span>
       <span class="list_price">1299.00</span>
+      <span class="inventory_level">55</span>
       <span class="url">http://www.example.com/product/CANOE123#/1-size-s/13-color-orange</span>
       <span class="image_url">http://www.example.com/product/images/CANOE123-1.jpg</span>
       <span class="availability">InStock</span>
@@ -32,6 +33,7 @@ Many e-commerce stores have a parent product with individual child products. The
       <span class="name">S-Blue</span>
       <span class="price">1269.00</span>
       <span class="list_price">1299.00</span>
+      <span class="inventory_level">12</span>
       <span class="url">http://www.example.com/product/CANOE123#/1-size-s/14-color-blue</span>
       <span class="image_url">http://www.example.com/product/images/CANOE123-2.jpg</span>
       <span class="availability">InStock</span>
