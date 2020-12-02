@@ -4,9 +4,7 @@ Mutations can be used to update the product catalog in Nosto. The `updateProduct
 
 Any validation errors in the product data are accessible in the response. The entire product object is accessible in the response too. In the event that a product validation error led to the product to not be updated, the response would contain the errors as well as the invalid product data.
 
-**Note:** This mutation is currently in beta and may not support mutating all product fields. At the time of writing, it is only possible to update the UGC images for a product.
-
-The given example updates the UGC image for product \#74 and requests the details of the updated products and any associated errors.
+The given example updates the product #101 and requests the details of the updated products and any associated errors.
 
 ```text
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
@@ -16,11 +14,20 @@ curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 mutation {
   updateProducts(products: [
     {
-      id: "74"
-      url: "https://store.mybigcommerce.com/sample-french-connection-straw-bag/"
-      ugcImages: [
+      id: "101"
+      productId: "101"
+      url: "http://mridang.dev.nos.to:8890/product.htm"
+      imageUrl: "https://example.com/product/sku-1.jpg"
+      priceCurrencyCode: "EUR"
+      price: 10
+      skus: [
         {
-          url: "https://instagram.com/photo.jpg"
+          id: "sku-1"
+          name: "One"
+          availability: "InStock"
+          price: 100
+          listPrice: 111
+          imageUrl: "https://example.com/product/sku-1.jpg"
         }
       ]
     }
@@ -39,3 +46,32 @@ mutation {
 EOF
 ```
 
+The given example updates the price of #101 and requests the details of the updated products and any associated errors.
+
+```text
+curl -0 -v -X POST https://api.nosto.com/v1/graphql \
+-u ":<token>" \
+-H 'Content-Type: application/graphql' \
+-d @- << EOF
+mutation {
+  updateProducts(products: [
+    {
+      id: "101"
+      productId: "101"
+      url: "http://mridang.dev.nos.to:8890/product.htm"
+      price: 10
+    }
+  ]) {
+    result {
+      errors {
+        field
+        message
+      }
+      data {
+        productId
+      }
+    }
+  }
+}
+EOF
+```
