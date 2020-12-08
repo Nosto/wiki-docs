@@ -117,3 +117,14 @@ You should make an API call when any product information changes. If a non-criti
 
 While the product API contains the full superset of the information in the tagging, it also allows you to pass sensitive information to us. Sensitive information is fields such as the supplier cost \(margin\) and the inventory level. These fields are only mutable via the API.
 
+## What fields are required?
+
+The following fields are required:
+* `product_id`
+* `name`
+* `url`
+* `image_url`
+* `availability`
+* `price`
+* `price_currency_code`
+</div>
