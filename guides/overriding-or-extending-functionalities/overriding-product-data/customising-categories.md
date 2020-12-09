@@ -1,4 +1,4 @@
-# Customising Pricing
+# Customising Category data
 
 If your store uses a customized logic for handling product's categories you might need to amend categories in Nosto module as well . Start by reading [how to extend Nosto module](../) and [how to alter Nosto product data](./).
  
