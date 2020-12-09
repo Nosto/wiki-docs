@@ -16,6 +16,7 @@
     * [Overriding Product Data](guides/overriding-or-extending-functionalities/overriding-product-data/README.md)
       * [Excluding Products](guides/overriding-or-extending-functionalities/overriding-product-data/excluding-products.md)
       * [Customising Pricing](guides/overriding-or-extending-functionalities/overriding-product-data/customising-pricing.md)
+      * [Customising Categories](guides/overriding-or-extending-functionalities/overriding-product-data/customising-categories.md)
       * [Resizing Images](guides/overriding-or-extending-functionalities/overriding-product-data/resizing-images.md)
     * [Overriding Customer Data](guides/overriding-or-extending-functionalities/overriding-customer-data.md)
   * [Console Commands](guides/console-commands.md)
