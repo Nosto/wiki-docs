@@ -12,6 +12,14 @@ Navigate to `Stores -> Settings -> Configuration -> Service -> Nosto Category Me
 
 ![](../../.gitbook/assets/cmp1.png)
 
+## Map all categories
+
+Nosto makes use of a map of categories for caching and tracking reasons. By default the category list is limited 
+to only categories that are used in the storefront. In case you are using categories that are not visible, you need 
+to enable mapping all categories
+
+![image](https://user-images.githubusercontent.com/44775916/101625474-1fb32580-3a24-11eb-8854-77de887a87cc.png)
+
 ## Products limit per page
 
 The module limits maximum products fetched from Nosto to 250 by default. 
