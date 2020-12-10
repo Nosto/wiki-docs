@@ -13,7 +13,7 @@ File `app/code/My/Nosto/Model/Service/MyCategoryServive.php`
 ```php
 <?php
 
-namespace My\Nosto\Observer\Product;
+namespace My\Nosto\Model\Service;
 
 use Nosto\Tagging\Model\Service\Product\Category\CategoryServiceInterface;
 use Magento\Catalog\Model\Category;
@@ -43,6 +43,14 @@ class MyCategoryServive implements CategoryServiceInterface
     
     }   
 }
+```
+
+File `app/code/My/Nosto/etc/di.xml`
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Nosto\Tagging\Model\Service\Product\Category\CategoryServiceInterface" type="My\Nosto\Model\Service\MyCategoryServive"/>
+</config>
 ```
 
 
