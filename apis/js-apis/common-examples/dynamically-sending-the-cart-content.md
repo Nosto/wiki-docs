@@ -65,7 +65,7 @@ export default function() {
           .forEach(element => element.remove());
         document.body.append(tagging)
 
-        api.resendCustomerTagging();
+        api.resendCartTagging();
       })
   })
 }
