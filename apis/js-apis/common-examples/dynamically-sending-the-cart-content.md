@@ -15,7 +15,6 @@ This example uses advances constructs, leverages CORS, browser modules and may n
 
 {% code title="" %}
 ```javascript
-
 function lineItemToHtml(item) {
   return `
     <div class="line_item">
@@ -71,6 +70,4 @@ export default function() {
 }
 ```
 {% endcode %}
-
-
 

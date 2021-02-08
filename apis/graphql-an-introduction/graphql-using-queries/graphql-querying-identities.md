@@ -1,6 +1,8 @@
 # Querying Identities
 
-You can query identities using the GraphQL Identities endpoint. So long as you are able to specify the email address, you will be able to query the identity, it's associated segment information and the personalized recommendations for that identity.
+You can query identities using the GraphQL Identities endpoint. An "identity" is the personal information associated with an email address.
+
+So long as you are able to specify the email address, you will be able to query the identity, its associated customer aff and, the personalized recommendations for that identity.
 
 ```graphql
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
@@ -32,4 +34,8 @@ query {
 }
 EOF
 ```
+
+#### What can identity attributes be used for?
+
+The attributes associated with an identity can be used to segment users. This works similarly to how the attributes can be leveraged [when importing them via a CSV](https://help.nosto.com/en/articles/2884483-how-to-import-customer-data-to-nosto-via-api).
 

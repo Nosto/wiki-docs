@@ -82,8 +82,7 @@ In cases where a product might have multiple prices in differing currencies, you
 
 ### Supplier Cost / Margin Filter
 
-If you want to use Nosto’s margin filter, you need to send supplier cost via [API](../../../../apis/rest/products/updating-products-using-the-products-api.md) since it's a sensitive data that you might not want to expose in the product tagging.  
-
+If you want to use Nosto’s margin filter, you need to send supplier cost via [API](../../../../apis/rest/products/updating-products-using-the-products-api.md) since it's a sensitive data that you might not want to expose in the product tagging.
 
 ## Troubleshooting
 

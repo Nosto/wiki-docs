@@ -6,7 +6,7 @@ Prior to the multi-currency implementation, ensure that the Nosto tagging is cor
 
 ## Shopify Multi-Currency
 
-For instructions on integrating with Shopify's multi-currency, please go [here](https://github.com/Nosto/nosto-shopify/wiki/Multi-Currency-Support).
+For instructions on integrating with Shopify's multi-currency, please go [here](https://docs.nosto.com/shopify/features/multi-currency-support).
 
 ## Changes to the product tagging
 

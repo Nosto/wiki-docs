@@ -120,6 +120,7 @@ While the product API contains the full superset of the information in the taggi
 ## What fields are required?
 
 The following fields are required:
+
 * `product_id`
 * `name`
 * `url`
@@ -127,4 +128,6 @@ The following fields are required:
 * `availability`
 * `price`
 * `price_currency_code`
-</div>
+
+  &lt;/div&gt;
+
