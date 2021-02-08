@@ -11,7 +11,7 @@ To start tracking visits and content the Nosto script needs to be active on all 
 
 **Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialised as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
 
-**Note:** This needs to exist on every page
+**Note:** This needs to exist on every page.
 
 ## Troubleshooting Nosto script:
 
