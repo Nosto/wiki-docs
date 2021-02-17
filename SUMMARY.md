@@ -72,6 +72,7 @@
     * [Tracking Events](apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md)
     * [Leveraging Features](apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md)
     * [Advanced Usage](apis/frontend/implementation-guide-session-api/advanced-usage/README.md)
+      * [Using external session identifiers](apis/frontend/implementation-guide-session-api/advanced-usage/spa-customising-session-handling.md)
       * [Adding support for multi-currency](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency.md)
       * [Adding support for customer group pricing](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-customer-group-pricing.md)
     * [FAQ](apis/frontend/implementation-guide-session-api/spa-faq.md)
