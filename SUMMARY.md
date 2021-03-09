@@ -21,7 +21,6 @@
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
 * [Integrations](integrations/README.md)
   * [Using Yotpo](integrations/integration-yotpo.md)
-  * [Using Bazaarvoice](integrations/integration-bazaarvoice.md)
   * [Using Stamped.IO](integrations/integration-stamped.md)
   * [Using Judge.Me](integrations/integration-judgeme.md)
   * [Using Okendo](integrations/integration-okendo.md)
