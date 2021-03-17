@@ -105,7 +105,9 @@ You will most likely see this warning in your Magento logs if you've installed M
 If the product data is not synchronized to Nosto check the following steps:
 1. The `Product Updates via API` flag is enabled. The flag can be found under `Store > Settings > Configurations > Services > Nosto > Feature Flags`. If disabled, please enable the flag
 2. Set both Nosto indexer mode to `Update by Schedule`. Check that `nosto_tagging_product_update_queue` is being populated. 
-3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically but you can verify this by checking the process list \(`ps -ax` for example\) on your server.‌​[​](https://user-images.githubusercontent.com/15191701/67567284-4f28a500-f732-11e9-976d-1c587d317b45.png). To start both consumers run the command `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &`
+3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.
+   <br>For testing purpose our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &` 
+   <br>(CAUTION! The process started by this command will not terminate and restart automatically)
 4. Check that messages are being published. If your M2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.
 5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table.
 6. If you are using MySQL 8 or MariaDB > 10.2.3, you can use the following query to have better visibility on the products that are being sent to Nosto
