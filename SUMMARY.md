@@ -2,6 +2,7 @@
 
 * [Personalization for Shopify](README.md)
 * [Installing](installing.md)
+* [Uninstalling](uninstalling.md)
 * [Guides](guides/README.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)
   * [Adding/Moving Recommendations](guides/adding-removing-or-moving-recommendations.md)

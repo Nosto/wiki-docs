@@ -22,8 +22,7 @@ Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
 
 ### Adding Multiple Products
 
-It is also possible to add multiple products to the cart by using an array of objects containing the productId, skuId and quantity. The product id is the parent product that holds the variations, and the SKU is the variation itself. 
-The parent id is needed in order to recognize which product was added and improve the recommendations. Note that if you use a configurable product as SKU ID, will simply not be added to the cart, since you need to select the options.
+It is also possible to add multiple products to the cart by using an array of objects containing the productId, skuId and quantity. The product id is the parent product that holds the variations, and the SKU is the variation itself. The parent id is needed in order to recognize which product was added and improve the recommendations. Note that if you use a configurable product as SKU ID, will simply not be added to the cart, since you need to select the options.
 
 ```javascript
 Nosto.addMultipleProductsToCart(

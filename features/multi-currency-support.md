@@ -1,6 +1,14 @@
 # Multi Currency Support
 
-In this article, you will learn how to set Nosto up to integrate with [Shopify Multi-currency](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency).
+{% hint style="info" %}
+Please note that this article only applies to [Shopify Multi-currency](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency). 
+{% endhint %}
+
+There are various 3rd party multi-currency providers for Shopify but we are currently only able to support Shopify multi-currency.
+
+You can determine if a store is using Shopify multi-currency by checking if multiple currencies are enabled in the [Shopify Payments ](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency/setup)section of the store's settings.
+
+If you do not have access to the store's settings, you can navigate to the store and [open Chrome's developer tools](https://developers.google.com/web/tools/chrome-devtools#open). If you switch currencies, entering `Shopify.currency` in the console should reflect the currency change. If it doesn't, the chances are a 3rd party is being used.
 
 ## Theme Changes
 
