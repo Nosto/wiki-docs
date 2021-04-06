@@ -48,11 +48,15 @@ If you are running into issues with the indexer not finishing due to out of memo
 
 This option allow the merchant to enable/disable the sending of customer data to Nosto. If this option is disabled no customer tagging is done by Nosto.
 
+#### Reload recs after reloading cart
+
+This option allows reloading recommendations after updating the cart. If you are using cart based recs, it is advised to enable this flag
+
 #### Add product published date to tagging
 
 Set this to `Yes` if you want to send the date a product has been added to Magento's catalog to Nosto.
 
-### Enable custom fields
+#### Enable custom fields
 
 ![image](https://user-images.githubusercontent.com/2778820/44519745-9bafc500-a6d6-11e8-91a0-5726b3601280.png)
 
