@@ -74,7 +74,7 @@ nostojs(api => {
 
 ## Upon starting a checkout
 
-When viewing a checkout page, there's no context to be provided, so invoking the `viewCheckout` will suffice.
+When viewing a checkout page, there's no context to be provided, so invoking the `viewCart` will suffice.
 
 ```javascript
 nostojs(api => {
