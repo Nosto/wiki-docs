@@ -65,7 +65,7 @@ Here's an example of how to add an SKU to cart where your product has a single S
 ```markup
 <a
   href="#"
-  onclick="window.Nosto.addProductToCart('$!product.lastPathOfProductUrl()', '$!product.skus[0].id', this);">
+  onclick="window.Nosto.addProductToCart('$!product.lastPathOfProductUrl()', this);">
   Add to Cart
 </a>
 ```
