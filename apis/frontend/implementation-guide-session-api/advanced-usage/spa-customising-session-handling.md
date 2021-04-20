@@ -1,4 +1,4 @@
-# Using an external session identifier
+# Using external session identifiers
 
 Nosto uses a cookie to set to identify browsers between their visits to the site. The purpose and usage of this cookie is very similar to how web analytics tools, such as Google Analytics, work.
 
@@ -6,9 +6,11 @@ Each session is identified using a randomly generated 24-character secure string
 
 For privacy reasons, if you have the need to disallow any third-party tracking cookies, this feature can be used to acheive that.
 
-{% hint style="warn" %}
+{% hint style="info" %}
 This feature will not remove previously set `2c.cId` cookies and will only affect sessions from the time of implementation onwards.
-{% endhint %}``
+{% endhint %}
+
+\`\`
 
 ## Changing the way sessions are handled
 
@@ -16,7 +18,7 @@ You can opt-out of tracking by enabling uusing the `setCustomerIdentifierService
 
 Assuming that your platform has a method called `platform.getSID()` that returns the current session identifier as offered by your platform - you would use:
 
-```js
+```javascript
 nostojs((api) => {
   api.visit.setCustomerIdentifierService({
     getCustomerId: () => {
@@ -31,9 +33,9 @@ nostojs((api) => {
 });
 ```
 
-To showcase, the flexibility offered by this API - the following example simply uses `LocalStorage` (instead of cookies) to persist the session identifier. 
+To showcase, the flexibility offered by this API - the following example simply uses `LocalStorage` \(instead of cookies\) to persist the session identifier.
 
-```js
+```javascript
 nostojs((api) => {
   api.visit.setCustomerIdentifierService({
     getCustomerId: () => {
@@ -51,3 +53,4 @@ nostojs((api) => {
   })
 });
 ```
+
