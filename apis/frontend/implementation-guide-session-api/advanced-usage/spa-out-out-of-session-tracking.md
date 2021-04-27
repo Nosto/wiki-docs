@@ -25,7 +25,7 @@ Normally Nosto uses a cookie to identify browsers between their visits to the si
 You can use opting out of session tracking in case you want to enable Nosto's features in a limited manner where Nosto doesn't track browser sessions. When users opt out of session tracking, Nosto treats each request like it would be a new session that is then immediately discarded. In this mode, Nosto can still serve generic trend based recommendations, but any feature that relies on users actions over multiple requests will never activate.
 
 {% hint style="info" %}
-Any information sent to Nosto with the requests activated by the implementation will still be processed normally by Nosto's service even when users have opted out of session tracking.
+Any information sent to Nosto with the requests activated by the implementation will still be processed normally by Nosto's service even when users have opted out of session tracking. Merchant should ensure necessary consent is obtained for this processing.
 {% endhint %}
 
 Nosto supports opting out of session tracking via the "Do Not Track" feature. If you leverage Nosto's "Do Not Track", Nosto will avoid setting a session identifier.
