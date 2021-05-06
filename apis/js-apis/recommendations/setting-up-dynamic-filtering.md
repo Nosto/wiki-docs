@@ -57,6 +57,21 @@ You can even use multiple
 <div class="nosto_custom_field" style="display:none">material:cotton</div>
 ```
 
+These colon separated values are then parsed into an object with format { "key1":"value1,value2", "key2":"value1" }.
+
+```markup
+texts.keyValueTexts(nodes)
+```
+
+The above method will receive references to all the "nosto_custom_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material cutom fields will be parsed to
+
+```markup
+{
+  "gender":"male",
+  "material":"cotton"
+}
+```
+
 ## Dynamically reloading
 
 If you want to refresh the recommendations with new facet constraints, the simplest way would be to update the value of the filters in the page and then reload the recommendations.
