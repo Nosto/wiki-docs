@@ -47,15 +47,24 @@ If you are using a child theme, you need to create a folder named `Nosto_Tagging
 
 * Inside the `layout` folder we need to create a new file named default.xml, the basic structure for this file is:
 
-  \`\`\`xml
+```xml
+<?xml version="1.0"?>
 
-  &lt;?xml version="1.0"?&gt;
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+       <referenceContainer name="content">
+           <block class="Nosto\Tagging\Block\Element" name="customelement" template="Nosto_Tagging::element.phtml"></block>
+       </referenceContainer>
+   </body>
+</page>
+```
 
-```text
+
 ### Using the module extending solution
 In case you have extended the Nosto module, you need to mirror the `vendor` folder structure.<br>
 Create the following directory structure:
-```bash
+```
 app
 ├── code
 │   └── My
@@ -76,13 +85,21 @@ app
 
 * Inside the `layout` folder we need to create a new file named default.xml, the basic structure for this file is:
 
-  \`\`\`xml
+```xml
+<?xml version="1.0"?>
 
-  &lt;?xml version="1.0"?&gt;
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+       <referenceContainer name="content">
+           <block class="Nosto\Tagging\Block\Element" name="customelement" template="My_Nosto::element.phtml"></block>
+       </referenceContainer>
+   </body>
+</page>
+```
 
-```text
 At the end, you should at least have the structure below:
-```bash
+```
 app
 ├── code
 │   └── My
