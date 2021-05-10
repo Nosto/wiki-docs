@@ -63,7 +63,7 @@ These colon separated values are then parsed into an object with format { "key1"
 texts.keyValueTexts(nodes)
 ```
 
-The above method will receive references to all the "nosto_custom_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material cutom fields will be parsed to
+The above method will receive references to all the "nosto\_custom\_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material cutom fields will be parsed to
 
 ```markup
 {

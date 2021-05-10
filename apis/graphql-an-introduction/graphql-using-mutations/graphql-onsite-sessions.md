@@ -162,3 +162,80 @@ mutation {
 }
 ```
 
+### Attribution of Recommendation Results
+
+Recommendation results can be attributed to events by setting a session event's `ref` to the recommendation result's `resultId`.
+
+Here is an example of some recommendations for a front page. You can see recommendation result's `resultId` is `"frontpage-nosto-1"`.
+
+```graphql
+{
+  "data": {
+    "updateSession": {
+      "pages": {
+        "forFrontPage": [
+          {
+            "resultId": "frontpage-nosto-1",
+            "primary": [
+              {
+                "productId": "9497180547",
+                "name": "Cool Kicks",
+                "url": "https://example.com/products/cool-kicks"
+              },
+              {
+                "productId": "9497180163",
+                "name": "Awesome Sneakers",
+                "url": "https://example.com/products/awesome-sneakers"
+              },
+              {
+                "productId": "4676165861430",
+                "name": "Free gift",
+                "url": "https://example.com/products/free-gift"
+              },
+              {
+                "productId": "2188051218486",
+                "name": "Furry Dice",
+                "url": "https://example.com/products/furry-dice"
+              },
+              {
+                "productId": "9497180611",
+                "name": "Gnarly Shoes",
+                "url": "https://example.com/products/gnarly-shoes-1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+If a customer selects to view the Cool Kicks product, you can generate the following request. Note that the event's `ref` is set to `"frontpage-nosto-1"`. 
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "9497180547"
+        ref: "frontpage-nosto-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400
+      }, product: "9497180547") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
