@@ -26,6 +26,20 @@ nostojs(api => {
 });
 ```
 
+In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same colour (`red`):
+
+```javascript
+nostojs(api => {
+  api.createRecommendationRequest({includeTagging:true})
+    .setCurrentTags(["color:red"])
+    .addCurrentCustomFields({gender: "male", material: "cotton"})
+    .setElements(["productpage-nosto-3"])
+    .load()
+    .then(response => {
+      console.log(response);
+    });
+```
+
 In many cases leveraging the existing tagging on the page and then overriding the specific parts is simpler and more robust.
 
 In case the request is built completely manually, it needs to include also the attribution information for click tracking. Below is an example which shows how that can be done for product views that result from clicking on a Nosto recommendation slot.
