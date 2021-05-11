@@ -26,6 +26,20 @@ nostojs(api => {
 });
 ```
 
+In addition to the `currentTags` information, we will be able to send-in `current custom field` data in recommendation request in order to create a more robust and dynamic recommendations using custom fields. `customFields` is of object type. For e.g. { key1: "value1", key2: "value2" }
+
+```javascript
+nostojs(api => {
+  api.createRecommendationRequest({includeTagging:true})
+    .setCurrentTags(["color:red"])
+    .addCurrentCustomFields({gender: "male", material: "cotton"})
+    .setElements(["productpage-nosto-2"])
+    .load()
+    .then(response => {
+      console.log(response);
+    });
+```
+
 In many cases leveraging the existing tagging on the page and then overriding the specific parts is simpler and more robust.
 
 In case the request is built completely manually, it needs to include also the attribution information for click tracking. Below is an example which shows how that can be done for product views that result from clicking on a Nosto recommendation slot.
