@@ -26,14 +26,14 @@ nostojs(api => {
 });
 ```
 
-In addition to the `currentTags` information, we will be able to send-in `current custom field` data in recommendation request in order to create a more robust and dynamic recommendations using custom fields. `customFields` is of object type. For e.g. { key1: "value1", key2: "value2" }
+In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same colour (`red`):
 
 ```javascript
 nostojs(api => {
   api.createRecommendationRequest({includeTagging:true})
     .setCurrentTags(["color:red"])
     .addCurrentCustomFields({gender: "male", material: "cotton"})
-    .setElements(["productpage-nosto-2"])
+    .setElements(["productpage-nosto-3"])
     .load()
     .then(response => {
       console.log(response);
