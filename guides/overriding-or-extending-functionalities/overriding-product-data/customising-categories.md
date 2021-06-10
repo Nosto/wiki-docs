@@ -1,12 +1,10 @@
-# Customising Category data
+# Customising Categories
 
 If your store uses a customized logic for handling product's categories you might need to amend categories in Nosto module as well . Start by reading [how to extend Nosto module](../) and [how to alter Nosto product data](./).
- 
-If overriding the product data directly does not seem the best option for you, you can create a service class and make use of Dependency Injection pattern. 
 
-Create a new class which will implement `CategoryServiceInterface`. Override the required functions and afterwards replace 
-`CategoryServiceInterface` with `MyCategoryServive` in the DI `etc/di.xml`
+If overriding the product data directly does not seem the best option for you, you can create a service class and make use of Dependency Injection pattern.
 
+Create a new class which will implement `CategoryServiceInterface`. Override the required functions and afterwards replace `CategoryServiceInterface` with `MyCategoryServive` in the DI `etc/di.xml`
 
 File `app/code/My/Nosto/Model/Service/MyCategoryServive.php`
 
@@ -32,7 +30,7 @@ class MyCategoryServive implements CategoryServiceInterface
     public function getCategory(Category $category, StoreInterface $store) {
         //ToDo Implement logic    
     }   
-    
+
     /**
      * Method used to return list of strings representing categories for a given product 
      * @param Product $product
@@ -40,17 +38,17 @@ class MyCategoryServive implements CategoryServiceInterface
      * @return array
      */
     public function getCategories(Product $product, StoreInterface $store) {
-    
+
     }   
 }
 ```
 
 File `app/code/My/Nosto/etc/di.xml`
-```xml
+
+```markup
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Nosto\Tagging\Model\Service\Product\Category\CategoryServiceInterface" type="My\Nosto\Model\Service\MyCategoryServive"/>
 </config>
 ```
-
 

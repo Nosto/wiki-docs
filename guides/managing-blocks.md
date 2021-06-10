@@ -9,9 +9,7 @@ bin/magento deploy:mode:set developer
 ```
 
 The preferred method to edit Nosto's block data is by [Extending Nosto's Module](overriding-or-extending-functionalities/).  
- However you can also [Create a Storefront Child Theme](https://github.com/supercid/wiki-docs/tree/bfcad31e54e9c48d9a2ca1df7b28ae4691497212/Create-a-storefront-child-theme.md). Notice that by creating a new child theme, all widgets defined in the parent theme **will not be inherit** by the child theme, you would have to manually recreate all of them.   
-  
-
+However you can also [Create a Storefront Child Theme](https://github.com/supercid/wiki-docs/tree/bfcad31e54e9c48d9a2ca1df7b28ae4691497212/Create-a-storefront-child-theme.md). Notice that by creating a new child theme, all widgets defined in the parent theme **will not be inherit** by the child theme, you would have to manually recreate all of them.
 
 ## Managing Blocks
 
@@ -34,7 +32,7 @@ Navigate to `vendor/nosto/module-nostotagging/view/frontend/templates` and you w
 ### Using a child theme
 
 If you are using a child theme, you need to create a folder named `Nosto_Tagging`, which is the name of our module.  
- In the path `app/design/frontend/<vendor>/<theme_name>/Nosto_Tagging` we also need to create 2 new directories.
+In the path `app/design/frontend/<vendor>/<theme_name>/Nosto_Tagging` we also need to create 2 new directories.
 
 * Create a new folder named `layout` and another folder named `templates`
 * Inside the `templates` directory, we put the new templates structure we want Nosto to use, so create the `element.phtml` file there with the following content:
@@ -47,7 +45,7 @@ If you are using a child theme, you need to create a folder named `Nosto_Tagging
 
 * Inside the `layout` folder we need to create a new file named default.xml, the basic structure for this file is:
 
-```xml
+```markup
 <?xml version="1.0"?>
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -60,11 +58,12 @@ If you are using a child theme, you need to create a folder named `Nosto_Tagging
 </page>
 ```
 
-
 ### Using the module extending solution
-In case you have extended the Nosto module, you need to mirror the `vendor` folder structure.<br>
-Create the following directory structure:
-```
+
+In case you have extended the Nosto module, you need to mirror the `vendor` folder structure.  
+ Create the following directory structure:
+
+```text
 app
 ├── code
 │   └── My
@@ -85,7 +84,7 @@ app
 
 * Inside the `layout` folder we need to create a new file named default.xml, the basic structure for this file is:
 
-```xml
+```markup
 <?xml version="1.0"?>
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -99,7 +98,8 @@ app
 ```
 
 At the end, you should at least have the structure below:
-```
+
+```text
 app
 ├── code
 │   └── My
@@ -122,8 +122,7 @@ Clear cache and visit Magento's FrontEnd, and you should see the text in Nosto's
 
 ## Moving Blocks Position
 
-In order to move a block inside a page, we need to set the tag `move` in our layout file.   
-
+In order to move a block inside a page, we need to set the tag `move` in our layout file.
 
 * If you are using the child theme method, navigate to `app/design/frontend/<vendor>/<theme_name>/Nosto_Tagging/layout` 
 * If you are using the module extension method, navigate to `app/code/My/Nosto/view/frontend/layout`  

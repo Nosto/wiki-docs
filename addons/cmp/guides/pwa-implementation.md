@@ -1,27 +1,24 @@
-## Implementing CMP on Magento2 PWA
+# PWA Implementation
 
 It is now possible to use the category merchandising feature in PWA.  
-The merchandising rules are applied to the catalog by using the `nosto_personalized` sorting option 
-in products grapqhl query. It comes out of the box from version `>3.1.0` and it does not require any further
-configuration.
+The merchandising rules are applied to the catalog by using the `nosto_personalized` sorting option in products grapqhl query. It comes out of the box from version `>3.1.0` and it does not require any further configuration.
 
-### Filters
+## Filters
 
-Currently the only filters supported for merchandising is the price filtering. 
+Currently the only filters supported for merchandising is the price filtering.
 
+## Query example
 
-### Query example
-
-```
+```text
 {
   products(
     filter: { 
-    	category_id: { eq: "4" },
-     	price: {
-      	from:"10",
-      	to: "100"
-    	}
-  	}
+        category_id: { eq: "4" },
+         price: {
+          from:"10",
+          to: "100"
+        }
+      }
     currentPage: 1
     pageSize: 5
     sort: {nosto_personalized: DESC}

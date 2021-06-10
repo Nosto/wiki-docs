@@ -4,7 +4,7 @@
 
 Indexer logic changed in \(5.0.0\) in order to avoid blocking other indexing processing. As of 5.0.0 the product data is building is done in [bulk operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html).
 
-Version &gt; 5.0.0 has two indexers `Nosto Product Queue`_\(nosto\_index\_product\_queue\)_ and `Nosto Product Queue Processor`_\(nosto\_index\_product\_queue\_processor\)_.  The first indexer \(_nosto\_index\_product\_queue_\) listens for product changes in Magento and adds the changed product ids into a queue. The second indexer \(_nosto\_index\_product\_queue\_processor\)_ fetches the product ids from the queue, merges the queues when possible, removes duplicated product ids and sends the product ids to the bulk operation that builds the product data and sends the data to Nosto. [The cache](../product-data-caching/built-in-caching.md) is also updated in bulk operations.  
+Version &gt; 5.0.0 has two indexers `Nosto Product Queue`_\(nosto\_index\_product\_queue\)_ and `Nosto Product Queue Processor`_\(nosto\_index\_product\_queue\_processor\)_. The first indexer \(_nosto\_index\_product\_queue_\) listens for product changes in Magento and adds the changed product ids into a queue. The second indexer \(_nosto\_index\_product\_queue\_processor\)_ fetches the product ids from the queue, merges the queues when possible, removes duplicated product ids and sends the product ids to the bulk operation that builds the product data and sends the data to Nosto. [The cache](../product-data-caching/built-in-caching.md) is also updated in bulk operations.
 
 To further optimise the process, the bulk operations can be configured to use [message queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html).
 
@@ -63,11 +63,11 @@ For testing purposes, it can be declared in the CLI, like:
 MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_product_data
 ```
 
-Nosto module uses [Magento's Bulk Operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html) and [Message Queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html) for rebuilding the product data, populating the product cache and synchronising the product data to Nosto over API. By default the message queues are backed by MySQL but Magento also supports [using RabbitMQ](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/install-rabbitmq.html) for message queues.  
+Nosto module uses [Magento's Bulk Operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html) and [Message Queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html) for rebuilding the product data, populating the product cache and synchronising the product data to Nosto over API. By default the message queues are backed by MySQL but Magento also supports [using RabbitMQ](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/install-rabbitmq.html) for message queues.
 
 ## Using Message Queues \(RabbitMQ\)
 
-In order to make Nosto module to use RabbitMQ for message queue processing you need to override the message queue configuration files under Nosto module. You must define the value of `connection` attribute to be `amqp` instead of `db`  to  the following files. You might also want rename the `exchange` across the configurations files to something else than `magento-db`.
+In order to make Nosto module to use RabbitMQ for message queue processing you need to override the message queue configuration files under Nosto module. You must define the value of `connection` attribute to be `amqp` instead of `db` to the following files. You might also want rename the `exchange` across the configurations files to something else than `magento-db`.
 
 * [etc/queue\_consumer.xml](https://github.com/Nosto/nosto-magento2/blob/master/etc/queue_consumer.xml) 
 * [etc/queue\_publisher.xml](https://github.com/Nosto/nosto-magento2/blob/master/etc/queue_publisher.xml)
@@ -77,7 +77,7 @@ We recommend also deleting the file [queue.xml](https://github.com/Nosto/nosto-m
 
 After the configuration files have been overridden you must run `bin/magento setup:upgrade`.
 
-For overriding the message queue configuration you can use for example [Magento's patches.](https://devdocs.magento.com/guides/v2.3/comp-mgr/patching.html) 
+For overriding the message queue configuration you can use for example [Magento's patches.](https://devdocs.magento.com/guides/v2.3/comp-mgr/patching.html)
 
 ## Best Practices
 
@@ -102,34 +102,40 @@ You will most likely see this warning in your Magento logs if you've installed M
 
 ### Products not synchronized to Nosto <a id="products-not-synchronized-to-nosto"></a>
 
-If the product data is not synchronized to Nosto check the following steps:
-1. The `Product Updates via API` flag is enabled. The flag can be found under `Store > Settings > Configurations > Services > Nosto > Feature Flags`. If disabled, please enable the flag
-2. Set both Nosto indexer mode to `Update by Schedule`. Check that `nosto_tagging_product_update_queue` is being populated. 
-3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.
-   <br>For testing purpose our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &` 
-   <br>(CAUTION! The process started by this command will not terminate and restart automatically)
-4. Check that messages are being published. If your M2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.
-5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table.
-6. If you are using MySQL 8 or MariaDB > 10.2.3, you can use the following query to have better visibility on the products that are being sent to Nosto
-````sql
+If the product data is not synchronized to Nosto check the following steps:   
+  
+1. The `Product Updates via API` flag is enabled. The flag can be found under `Store > Settings > Configurations > Services > Nosto > Feature Flags`. If disabled, please enable the flag   
+  
+2. Set both Nosto indexer mode to `Update by Schedule`. Check that `nosto_tagging_product_update_queue` is being populated.   
+  
+3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.   
+For testing purpose our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &`   
+\(CAUTION! The process started by this command will not terminate and restart automatically\)   
+  
+4. Check that messages are being published. If your M2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.   
+  
+5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table.   
+  
+6. If you are using MySQL 8 or MariaDB &gt; 10.2.3, you can use the following query to have better visibility on the products that are being sent to Nosto
+
+```sql
 SELECT 
-	CONVERT(op.bulk_uuid USING utf8) as uuid,
-	JSON_EXTRACT(CONVERT(op.serialized_data USING utf8), "$.product_ids") as products,  
+    CONVERT(op.bulk_uuid USING utf8) as uuid,
+    JSON_EXTRACT(CONVERT(op.serialized_data USING utf8), "$.product_ids") as products,  
     JSON_LENGTH(JSON_EXTRACT(CONVERT(op.serialized_data USING utf8), "$.product_ids")) as product_count,
     op.status, 
     op.error_code,
-    op.result_message,		
+    op.result_message,        
     bulk.start_time
 FROM 
-	magento2.magento_operation as op
+    magento2.magento_operation as op
 JOIN 
-	magento2.magento_bulk as bulk
+    magento2.magento_bulk as bulk
 ON
-	op.bulk_uuid = bulk.uuid
+    op.bulk_uuid = bulk.uuid
 WHERE 
-	op.topic_name = "nosto_product_sync.update"
-````
-
+    op.topic_name = "nosto_product_sync.update"
+```
 
 ### Bulk attribute updates not synchronized to Nosto <a id="bulk-attribute-updates-not-synchronized-to-nosto"></a>
 
