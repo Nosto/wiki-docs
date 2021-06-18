@@ -6,7 +6,13 @@ Typical situation when manual update is needed if your site handles login with A
 
 ```javascript
 nostojs(function(api) {
-  api.customer({ email:"jane.doe@example.com", first_name:"Jane", last_name:"Doe", marketing_permission: true });
+  api.customer({
+    email:"jane.doe@example.com",
+    first_name:"Jane",
+    last_name:"Doe",
+    marketing_permission: true,
+    customer_reference: "5e3d4a9c-cf58-11ea-87d0-0242ac130003"
+  })
 });
 ```
 
