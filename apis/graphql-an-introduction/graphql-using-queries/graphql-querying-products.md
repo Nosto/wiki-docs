@@ -25,6 +25,10 @@ query {
 EOF
 ```
 
+{% hint style="info" %}
+The maximum number of products that can be paged over is capped at 10000. If you need to get around this limitation, we recommend adding more restrictive filters to narrow down the result set.
+{% endhint %}
+
 ## Query by Product ID
 
 ```graphql
