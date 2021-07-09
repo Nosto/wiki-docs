@@ -90,7 +90,7 @@
     * [Popup Callbacks](apis/js-apis/popups/popup-callbacks.md)
   * [Common Examples](apis/js-apis/common-examples/README.md)
     * [Sending Product-View Events](apis/js-apis/common-examples/sending-product-view-events.md)
-    * [Sending Add-To-Cart Events](apis/js-apis/common-examples/sending-add-to-cart-events.md)
+    * [Including Add to Cart-buttons into Recommendations](apis/js-apis/common-examples/sending-add-to-cart-events.md)
     * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
     * [Sending email addresses to Nosto](apis/js-apis/common-examples/sending-email-addresses-to-nosto.md)
     * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)

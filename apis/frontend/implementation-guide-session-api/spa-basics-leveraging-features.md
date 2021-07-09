@@ -28,6 +28,22 @@ nostojs(api => {
 
 Please note that Nosto will not inject the returned HTML into the DOM even if the response mode is set to HTML. The logic for injecting the recommendations must be implemented in the application side.
 
+### Including Add to Cart-buttons into Recommendations
+
+Usually adding an Add to cart button directly into the recommendation which lists multiple products is fairly straightforward, the website just needs to have an appropriate javascript function to do the operation. Nosto provides ready-made functions for multiple platforms so check the Nosto documentation specific to your e-commerce platform or if needed look into your e-commerce platform's documentation and support on how to create such a function.
+
+Once the Add to cart button is pressed it should call that function to add the products to the cart, but it should also additionally let Nosto know that the button was pressed so Nosto can track the sales from the recommendation. This can be done with the `reportAddToCart` function as follows:
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+    .reportAddToCart('product-id', 'element')
+    .update()
+});
+```
+
+  ⚠️ The api call is only for informing Nosto about the attribution \(that the product was added from the recommendation\), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
+
 ## Working with content
 
 The `load` method returns a promise which can be consumed to get the raw placement data. The raw recommendation data is an object containing the placement data.

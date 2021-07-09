@@ -164,15 +164,3 @@ nostojs(api => {
 });
 ```
 
-## Reporting added product to cart
-
-In case you use an AJAX cart in your website, in order to track that, you should call the function below:
-
-```javascript
-nostojs(api => {
-  api.defaultSession()
-    .reportAddToCart('product-id', 'element')
-    .update()
-});
-```
-
