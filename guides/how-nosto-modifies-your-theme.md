@@ -2,25 +2,9 @@
 
 Upon installing the Nosto for Shopify app, choosing a theme to edit, Nosto amends the core theme file called `layout/theme.liquid` and amends it to include the Nosto semantic markup snippet and the Nosto script snippet. To better understand snippets and the Shopify theme structure, we recommend reading [Shopify's theme development guide](https://help.shopify.com/themes/development/templates#snippets).
 
-## Amendments to include the Nosto script
-
-Nosto amends the core theme file \(`layout/theme.liquid`\) to include the Nosto semantic markup snippet using the following include:
-
-```text
-{% include 'nosto-script' with 'shopify-<id>' %}
-```
-
-> **Note:** The `<id>` variable in the above script is a unique identifier for your store. When working with multiple top-level domains e.g. shop.co.uk, shop.com, extreme caution must be exercised to ensure that you do not mix up the unique references across stores. This will cause the recommendations to be polluted with customer data leaking across store views. In the event that you need guidance with handling multiple accounts, please contact our support personnel.
-
-A corresponding snippet file named `nosto-script.liquid` is uploaded to the `snippets` directory of your theme. The snippet contains the one-liner `script` element to load the Nosto script.
-
-```text
-<script type="text/javascript" src="//connect.nosto.com/include/{{ nosto-script }}" async></script>
-```
-
 ## Amendments to include the Nosto tagging
 
-Nosto also amends the core theme file \(`layout/theme.liquid`\) to include the Nosto semantic markup snippet using the following include:
+Nosto amends the core theme file \(`layout/theme.liquid`\) to include the Nosto semantic markup snippet using the following include:
 
 ```text
 {% include 'nosto-tagging' %}
@@ -37,13 +21,25 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
 <div class="nosto_page_type" style="display:none">cart</div>
 {% endif %}
 
+{% if shop.money_format contains "{{amount_with_comma_separator}}" %}
+{% assign thousand_separator = '.' %}
+{% elsif shop.money_format contains "{{amount}}" %}
+{% assign thousand_separator = ',' %}
+{% elsif shop.money_format contains "{{amount_no_decimals}}" %}
+{% assign thousand_separator = ',' %}
+{% elsif shop.money_format contains "{{amount_with_apostrophe_separator}}" %}
+{% assign thousand_separator = "'" %}
+{% elsif shop.money_format contains "{{amount_no_decimals_with_comma_separator}}" %}
+{% assign thousand_separator = '.' %}
+{% endif %}
+
 {% if product %}
 <div class="nosto_page_type" style="display:none">product</div>
 <div class="nosto_product" style="display:none">
     <span class="url">{{shop.url}}{{product.url}}</span>
     <span class="product_id">{{product.id}}</span>
     <span class="name">{{product.title}}</span>
-    <span class="price">{{product.variants[0].price | money_without_currency | remove: ','}}</span>
+    <span class="price">{{product.variants[0].price | money_without_currency | remove: thousand_separator }}</span>
     <span class="image_url">{{product.featured_image | img_url: 'master' }}</span>
     <span class="thumb_url">{{product.featured_image | img_url: 'large' }}</span>
     <span class="price_currency_code">{{shop.currency}}</span>
@@ -54,11 +50,12 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
     {% endif %}
     <span class="category">{{product.type}}</span>
     {% for collection in product.collections %}
+    <span class="category_id">{{collection.id}}</span>
     <span class="category">{{collection.title}}</span>
     {% endfor %}
     <span class="description">{{product.description}}</span>
     {% if product.variants[0].compare_at_price > product.variants[0].price%}
-    <span class="list_price">{{product.variants[0].compare_at_price | money_without_currency | remove: ','}}</span>
+    <span class="list_price">{{product.variants[0].compare_at_price | money_without_currency | remove: thousand_separator }}</span>
     {% endif %}
     <span class="brand">{{product.vendor}}</span>
     {% for tag in product.tags %}
@@ -68,7 +65,6 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
     <span class="tag2">add-to-cart</span>
     {% endif %}
     <span class="tag3"></span>
-    <span class="date_published">{{product.published_at | date:'%Y-%m-%d'}}</span>
     {% for image in product.images %}
     {% if image != product.featured_image %}
     <span class="alternate_image_url">{{ image.src | img_url: 'master' }}</span>
@@ -78,8 +74,8 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
     <span class="nosto_sku">
       <span class="id">{{ variant.id }}</span>
       <span class="name">{{ variant.title  }}</span>
-      <span class="price">{{ variant.price | money_without_currency | remove: ',' }}</span>
-      <span class="list_price">{{ variant.compare_at_price | money_without_currency | remove: ',' }}</span>
+      <span class="price">{{ variant.price | money_without_currency | remove: thousand_separator }}</span>
+      <span class="list_price">{{ variant.compare_at_price | money_without_currency | remove: thousand_separator }}</span>
       <span class="image_url">{{ variant.image.src | img_url: 'master' }}</span>
       <span class="url">{{ shop.url }}{{ variant.url }}</span>
       {% if variant.available %}
@@ -107,7 +103,10 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
 {% if collection %}
 {% unless product %}
 <div class="nosto_page_type" style="display:none">category</div>
-<div class="nosto_category" style="display:none">{{ collection.title }}</div>
+<div class="nosto_category" style="display:none">
+  <span class="category_string">{{ collection.title }}</span>
+  <span class="id">{{ collection.id }}</span>
+</div>
 {% for tag in current_tags %}
 <span class="nosto_tag" style="display:none">{{ tag }}</span>
 {% endfor %}
@@ -120,17 +119,10 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
 {% endif %}
 
 {% if cart %}
-<div class="nosto_external_visit_ref" style="display:none"></div>
-<script type="text/javascript">
-  var ctoken = (document.cookie.match('(^|; )cart=([^;]*)')||0)[2];
-  if (ctoken) {
-    document.getElementsByClassName('nosto_external_visit_ref')[0].textContent = ctoken;
-  }
-
-</script>
 <div class="nosto_cart" style="display:none">
     {% assign restorecart = '' %}
     {% for line_item in cart.items %}
+    {% if line_item.product.id %}
     <div class="line_item">
         {% if restorecart != '' %}
         {% assign restorecart = restorecart | append: ',' %}
@@ -140,9 +132,10 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
         <span class="sku_id">{{ line_item.variant_id }}</span>
         <span class="quantity">{{ line_item.quantity }}</span>
         <span class="name">{{ line_item.title }}</span>
-        <span class="unit_price">{{ line_item.price | money_without_currency | remove: ',' }}</span>
-        <span class="price_currency_code">{{ shop.currency }}</span>
+        <span class="unit_price">{{ line_item.price | money_without_currency | remove: thousand_separator }}</span>
+        <span class="price_currency_code">{{ cart.currency.iso_code }}</span>
     </div>
+    {% endif %}
     {% endfor %}
     {% if restorecart != '' %}
     <span class="restore_link">{{ shop.secure_url }}/cart/{{restorecart}}</span>
@@ -175,15 +168,26 @@ A corresponding snippet file named `nosto-tagging.liquid` is uploaded to the `sn
 </script>
 <div class="nosto_cart" style="display:none">
     {% for line_item in checkout.line_items %}
-    <div class="line_item">
-        <span class="product_id">{{ line_item.product.id }}</span>
-        <span class="quantity">{{ line_item.quantity }}</span>
-        <span class="name">{{ line_item.title }}</span>
-        <span class="unit_price">{{ line_item.price | money_without_currency | remove: ',' }}</span>
-        <span class="price_currency_code">{{ shop.currency }}</span>
-    </div>
+      {% if line_item.product.id %}
+        <div class="line_item">
+            <span class="product_id">{{ line_item.product.id }}</span>
+            <span class="quantity">{{ line_item.quantity }}</span>
+            <span class="name">{{ line_item.title }}</span>
+            <span class="unit_price">{{ line_item.price | money_without_currency | remove: thousand_separator }}</span>
+            <span class="price_currency_code">{{ cart.currency.iso_code }}</span>
+        </div>
+      {% endif %}
     {% endfor %}
 </div>
 {% endif %}
+
+{% if shop.enabled_currencies.size > 1 %}
+{% for currency in shop.enabled_currencies %}
+{% if currency == cart.currency %}
+<div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+
 ```
 
