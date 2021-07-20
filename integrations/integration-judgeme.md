@@ -1,6 +1,6 @@
 # Using Judge.Me
 
-Nosto for Shopify supports ratings and reviews powered by JudgeMe. In order to begin leveraging JudgeMe's ratings and reviews in Nosto, you'll need to install [Stamped.IO's app for Shopify](https://apps.shopify.com/product-reviews-addon).
+Nosto for Shopify supports ratings and reviews powered by JudgeMe. In order to begin leveraging JudgeMe's ratings and reviews in Nosto, you'll need to install [Judge.Me's app for Shopify](https://apps.shopify.com/judgeme?).
 
 ![](https://cdn.judge.me/assets/extension_logos/core-f1d66dc62cf16ebd3cf3ca4e8386786e0727dc8621632abe6ed31624f4abda4f.svg)
 
