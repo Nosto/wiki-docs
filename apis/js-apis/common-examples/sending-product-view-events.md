@@ -5,12 +5,12 @@ When you need to explicitly send an event to Nosto to tell it that the user has 
 ```javascript
 nostojs(function(api) {
   api.createRecommendationRequest()
-    .addEvent('vp', "product-id-101")
+    .setProducts([{product_id: 'product-id-101'}])
     .load();
 });
 ```
 
-**Note:** The example above creates a new request, adds view product event for productId3 and sends the event to Nosto. Since the request did not specify any recommendation slots, this request only submits view event to Nosto.
+**Note:** The example above creates a new request, adds view product event for `product-id-101` and sends the event to Nosto. Since the request did not specify any recommendation slots, this request only submits view event to Nosto.
 
 You can either create an empty request as in the above example and add only the wanted parts to it, or you can create a request based on the tagging on the page by using the `includeTagging` field and then modify it. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour to update the recommendation with id `productpage-nosto-2` to show only products with the same colour:
 
@@ -49,7 +49,7 @@ In the event that the product was viewed due to a click on a Nosto recommendatio
 ```javascript
 nostojs(function(api){
    var request = api.createRecommendationRequest()
-     .addEvent('vp', "product-id", "recommendation-id")
+     .setProducts([{product_id: 'product-id-101'}], 'recommendation-id')
      .load();
 });
 ```
