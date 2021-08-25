@@ -24,8 +24,7 @@
     * [Adding support for customer group pricing](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md)
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
-* [Implement on a physical store](implementing-nosto/implement-on-physical-store/README.md)
-  * [Sending Offline Orders](implementing-nosto/implement-on-physical-store/sending-offline-orders.md)
+* [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
 
 ## APIs
 
