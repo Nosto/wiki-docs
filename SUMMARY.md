@@ -48,7 +48,6 @@
     * [Querying Category Merchandising Products](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-category-merchandising-products.md)
   * [For iOS & Android](apis/graphql-an-introduction/graphql-for-ios-and-android.md)
   * [For Headless](apis/graphql-an-introduction/graphql-for-headless.md)
-  * [FAQ](apis/graphql-an-introduction/graphql-faq.md)
 * [REST](apis/rest/README.md)
   * [GDPR](apis/rest/gdpr/README.md)
     * [Redacting customer data](apis/rest/gdpr/sanitizing-customer-data-using-the-redaction-api.md)
