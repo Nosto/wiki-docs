@@ -2,7 +2,7 @@
 
 ## Setting the cart
 
-The cart content _must_ updated whenever the cart contents change. The cart contents are the 1:1 representation of the user's cart. Also note that the cart contents is only send to Nosto when you perform an [action](session-api-terminology.md#action). If you want to send the cart contents to Nosto right away, you add `.viewCart().update()` to your call. See full example below.
+The cart content _must_ updated whenever the cart contents change. The cart contents are the 1:1 representation of the user's cart. Also note that the cart contents is only send to Nosto when you perform an [action](session-api-terminology.md#action). If you want to send the cart contents to Nosto right away, you add `.viewCart().update()` to your call.
 
 You may also pass `null` or `undefined` to signify that there was no change in the cart.
 

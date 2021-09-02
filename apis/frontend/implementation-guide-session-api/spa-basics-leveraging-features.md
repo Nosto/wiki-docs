@@ -4,9 +4,31 @@
 
 The `load` method returns a promise which can be consumed to get the raw recommendation data. The raw recommendation data is an object containing the recommendation data.
 
+### load\(\) vs update\(\)
+
+Recommendation results are returned in a promise by calling either `load()` or `update()`. The difference between these two methods is:
+
+* `load()` causes the load count of the most recently tracked page view to be incremented.
+* `update()` does not automatically increment the page load count.
+
+In order to achieve an accurate reach statistic for recommendations, `load()` should be called once per page view when fetching recommendations and all proceeding recommendation requests should use `update()`.
+
 ### Handling attribution
 
-When a recommendation placement is clicked, you must redirect to the next page using the `nosto` query parameter and the value must be the `result_id` from the response.
+When a recommended product is viewed, the `result_id` from the recommendation result should be set as a reference when tracking the viewed product.
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+    .viewProduct('product-id')
+    .setRef('product-id', 'nosto-frontpage1')
+    .setPlacements(['product-crosssells'])
+    .load()
+    .then(data => {
+      console.log(data.recommendations);
+    })
+});
+```
 
 ### Letting Nosto render the HTML
 
@@ -47,14 +69,6 @@ nostojs(api => {
 ## Working with content
 
 The `load` method returns a promise which can be consumed to get the raw placement data. The raw recommendation data is an object containing the placement data.
-
-### Handling attribution
-
-When a content placement is clicked, you must redirect to the next page using the `nosto` query parameter and the value must be the `result_id` from the response.
-
-**Example** If a product route is `/product/nike-sneakers-1` with `result_id` having value _nosto-frontpage-1_ the route would be `/product/nike-sneakers-1/?nosto=nosto-frontpage-1`.
-
-**Important** In order for the attribution to work you must perform an [action](session-api-terminology.md#action) after the product route change. Most likely you would be fetching [product related recommendations](spa-basics-tracking-events.md#upon-viewing-a-product).
 
 ## Working with popups
 
