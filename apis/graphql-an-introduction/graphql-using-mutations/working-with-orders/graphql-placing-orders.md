@@ -1,6 +1,6 @@
 # GraphQL: Placing Orders
 
-When a user places an order onsite, you must send the conversion tracking information to Nosto.
+When a user places an order onsite or offsite, you must send the conversion tracking information to Nosto.
 
 ```graphql
 mutation {
