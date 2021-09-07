@@ -1,6 +1,6 @@
 # Adding/Moving Recommendations
 
-In order to move recommendations, you will need to edit your theme. Follow Shopify's instructions on [editing theme code](https://help.shopify.com/themes/customization) to edit your theme.
+In order to move recommendations, you will need to edit your theme. Follow Shopify's instructions on [editing theme code](https://shopify.dev/themes/getting-started/customize) to edit your theme.
 
 Use Shopify's theme editor to find the associated Liquid file to edit it. In the editor, you will need to find the corresponding placeholder, after which, you can reposition, remove or even add a new placeholder.
 
