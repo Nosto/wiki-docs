@@ -13,7 +13,7 @@
   * [Implementing enhanced conversion tracking](guides/implementing-enhanced-conversion-tracking.md)
 * [Features](features/README.md)
   * [Variations \(Configurable Products\)](features/variations-configurable-product.md)
-  * [Add to Cart](features/add-to-cart.md)
+  * [Managing the Cart](features/add-to-cart.md)
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)
   * [Restore Cart Link](features/restore-cart-link.md)
   * [Ratings & Reviews](features/ratings-and-reviews.md)

@@ -1,4 +1,20 @@
-# Add to Cart
+---
+description: >-
+  This page describes some helpful Javascript functions that allow you to manage
+  the cart.
+---
+
+# Managing the Cart
+
+### Reload Cart
+
+This function replaces the cart in Nosto with the contents of the cart from Shopify and then loads recommendations. This can be useful if you have an Add to Cart button that adds a product to cart via ajax and you want to subsequently show cart-based recommendations.
+
+```markup
+Nosto.reloadCart()
+```
+
+### Add Recommended Products to Cart
 
 Nosto supports a quick-buy function straight from within its recommendations. This feature will be referred to as the add-to-cart feature henceforth.
 
@@ -12,7 +28,7 @@ The first argument is a javascript object containing the id of the configurable 
 Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
 ```
 
-### Leveraging Quantities
+#### Leveraging Quantities
 
 It is possible to specify the quantity when adding products to cart.
 
@@ -20,7 +36,7 @@ It is possible to specify the quantity when adding products to cart.
 Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
 ```
 
-### Adding Multiple Products
+#### Adding Multiple Products
 
 It is also possible to add multiple products to the cart by using an array of objects containing the productId, skuId and quantity. The product id is the parent product that holds the variations, and the SKU is the variation itself. The parent id is needed in order to recognize which product was added and improve the recommendations. Note that if you use a configurable product as SKU ID, will simply not be added to the cart, since you need to select the options.
 
