@@ -49,9 +49,21 @@ The json format of a single product variation will look like,
 ```
 
 ## Activating customer group pricing in Nosto
+
+### Currency Settings
 In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
 
 Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter a default `Variation ID`. 
 If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
 ![](https://user-images.githubusercontent.com/82023195/134679655-c9d68242-e595-4b2b-b217-6916360ef532.png)
+
+### Product Reindexing
+After completing the set up under `Currency Settings`, navigate to `Product Indexer` page using the following link
+> https://my.nosto.com/admin/{MERCHANT_NAME}/reindexer
+**Note:** Be sure to replace the {MERCHANT_NAME} above with the actual merchant name
+
+![](https://user-images.githubusercontent.com/82023195/134689417-f03cce32-2759-465c-b285-c943ee9b5575.png)
+
+In the above screen, do a `Request` and then `Flush All Products` which completes the reindexing process.
+
