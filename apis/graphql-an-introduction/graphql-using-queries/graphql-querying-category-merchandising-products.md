@@ -1,6 +1,6 @@
 # Querying Category Merchandising Products
 
-Nosto's category merchandising APIs are meant to be used for resorting your existing product listing pages. It has support for listing the products in the order defined within Nosto for different categories, including paging and filtering support. It doesn't support taking over the product listing pages fully as it doesn't include support for creating category specific filters and calculating their facet counts. The expected implementation leveraging these APIs would keep on using their current solution for building most of the product list pages, but simple swap the shown products with the information retrieved from this APIs results.
+Nosto's category merchandising APIs are meant to be used for resorting your existing product listing pages. It has support for listing the products in the order defined within Nosto for different categories, including paging and filtering support. It doesn't support taking over the product listing pages fully as it doesn't include support for creating category specific filters and calculating their facet counts. The expected implementation leveraging these APIs would keep on using their current solution for building most of the product list pages, but swap the shown products with the information retrieved from this APIs results.
 
 You can query [category merchandising products](https://help.nosto.com/en/articles/3648242-get-started-with-category-merchandising) using the query below:
 
