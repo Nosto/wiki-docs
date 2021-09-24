@@ -2,6 +2,8 @@
 
 ## List Products
 
+Querying products gives access to Nosto's product catalogues current state. It can be useful for backend integration and verification purposes. It is not meant for online use purposes as it doesn't include any concepts related to user sessions or attribution, for those refer to [GraphQL For Headless](../graphql-for-headless.md)
+
 ```graphql
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
