@@ -1,4 +1,3 @@
-# Customer Group Pricing (Multiple Product Variations)
 Nosto recently implemented support for **Customer Group Pricing** feature, described [here](https://support.bigcommerce.com/s/article/Customer-Groups?language=en_US#pricing). With customer groups, offering product discounts and promotions gets even more convenient and flexible. In following sections, we will discuss more about this feature and how it can be activated from Nosto admin page.
 
 > **Note:** In this initial release, nosto only supports discount rules for merchant default currency (say, EUR). When a product has no  discount rules matching the merchant default currency, then no recommendations will be served.
