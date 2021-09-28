@@ -12,6 +12,7 @@
   * [Add to Cart](features/add-to-cart.md)
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)
   * [Ratings & Reviews](features/ratings-and-reviews.md)
+  * [Customer group pricing](features/customer-group-pricing.md)
 * [FAQ](faq.md)
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/nosto-bigcommerce/issues)
