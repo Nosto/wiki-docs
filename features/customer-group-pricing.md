@@ -68,7 +68,7 @@ This is because Nosto requires all products to be associated with the default va
 ### Currency Settings
 In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
 
-Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter a `Default Variation ID (0)`. 
+Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter `0` for `Variation ID`. 
 If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
 ![](https://user-images.githubusercontent.com/82023195/134679655-c9d68242-e595-4b2b-b217-6916360ef532.png)
