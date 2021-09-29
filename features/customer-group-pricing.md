@@ -27,9 +27,8 @@ Rules are applied in following order
 4. Store Rule, if available
 
 ## Nosto's implementation
-Nosto maps each customer group and it's currency as a product price variation with Variation ID takling the form
-> customer_group_id + '_' + currency_code
-for e.g. if the customer_group_id is `1` and currency code is `eur`, then variation ID will be `1_eur`.
+Nosto maps each customer group id as a product variation ID
+for e.g. if the customer_group_id is `1`, then variation ID will be `1`.
 In addition to Variation ID, a product variation has the following component,
 * price - The selling price of the product including the discount as per the discount rule.
 * list price - The actual price of the product excluding the discount.
@@ -41,7 +40,7 @@ The json format of a single product variation will look like,
 
 ```json
 {
-  variation_id: '1_eur',
+  variation_id: '1',
   price: 360,
   list_price: 260, //This can be a discount rule with PRICE method with a value of 100
   availability: 'InStock',
@@ -50,15 +49,29 @@ The json format of a single product variation will look like,
 }
 ```
 
+In addition to the variations fetched, Nosto adds a default variation ID `0` where both price and list_price will have the same value.
+This is because Nosto requires all products to be associated with the default variation ID.
+
+```json
+{
+  variation_id: '1',
+  price: 360,
+  list_price: 360, //There is no discount rule here. Product price is used as it is
+  availability: 'InStock',
+  price_text: '360',
+  price_currency_code: 'eur' //Merchant currency code
+}
+```
+
 ## Activating customer group pricing in Nosto
 
 ### Currency Settings
 In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
 
-Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter a default `Variation ID`. 
+Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter `0` for `Variation ID`. 
 If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
-![](https://user-images.githubusercontent.com/82023195/134679655-c9d68242-e595-4b2b-b217-6916360ef532.png)
+![](https://user-images.githubusercontent.com/82023195/135241593-7effaad4-f8d9-4c12-80d8-4b9de2aeadba.png)
 
 ### Product Reindexing
 After completing the set up under `Currency Settings`, navigate to `Product Indexer` page using the following link
@@ -68,4 +81,6 @@ After completing the set up under `Currency Settings`, navigate to `Product Inde
 ![](https://user-images.githubusercontent.com/82023195/134689417-f03cce32-2759-465c-b285-c943ee9b5575.png)
 
 In the above screen, do a `Request` and then `Flush All Products` which completes the reindexing process.
+
+Optionally, a `Settings > Platforms > Sync Products` can also be performed manually
 
