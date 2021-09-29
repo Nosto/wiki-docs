@@ -71,7 +71,7 @@ In order to make use of the `Product Variation` approach, it needs to be enabled
 Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter `0` for `Variation ID`. 
 If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
-![](https://user-images.githubusercontent.com/82023195/134679655-c9d68242-e595-4b2b-b217-6916360ef532.png)
+![](https://user-images.githubusercontent.com/82023195/135241593-7effaad4-f8d9-4c12-80d8-4b9de2aeadba.png)
 
 ### Product Reindexing
 After completing the set up under `Currency Settings`, navigate to `Product Indexer` page using the following link
