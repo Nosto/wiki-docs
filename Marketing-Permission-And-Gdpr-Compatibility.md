@@ -1,4 +1,4 @@
-Marketing permission or newsletter constent from customers are recorded at Nosto either during order confirmation (Conversion Tracking) or through customerUpdate webhook (Customer Feed). In case of order confirmation, the consent is received through the `marketingPermission` field in `OrderCustomer` bean and though `acceptsMarketing` field in `ShopifyCustomer` bean in case of webhook. These fields tells Nosto whether the customer has given their ![GDPR](https://www.eugdpr.org/) compliant consent for receiving marketing emails.
+Marketing permission or newsletter constent from customers are recorded at Nosto either during order confirmation (Conversion Tracking) or through customerUpdate webhook (Customer Feed). In case of order confirmation, the consent is received through the `marketingPermission` field in `OrderCustomer` bean and though `acceptsMarketing` field in `ShopifyCustomer` bean in case of webhook. These fields tells Nosto whether the customer has given their [GDPR](https://www.eugdpr.org/) compliant consent for receiving marketing emails.
 
 ## Consent - Order confirmation
 When a customer is placing an order for any product, the checkout page will collect the customer's consent for receiving the marketing emails as shown below,
@@ -46,5 +46,5 @@ During this process, shopify will share updated customer information through a r
 ```
 
 ### Note: 
-1. If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on ![Import customer data](https://help.nosto.com/en/articles/2884483-how-to-import-customer-data-to-nosto-via-api)
-2. In order manually override marketing information for a customer email, follow the steps here ![Manually Override Consent](https://docs.nosto.com/techdocs/apis/rest/customers/toggling-email-opt-in-using-the-consent-api)
+1. If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [Import customer data](https://help.nosto.com/en/articles/2884483-how-to-import-customer-data-to-nosto-via-api)
+2. In order manually override marketing information for a customer email, follow the steps here [Manually Override Consent](https://docs.nosto.com/techdocs/apis/rest/customers/toggling-email-opt-in-using-the-consent-api)
