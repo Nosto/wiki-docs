@@ -1,10 +1,9 @@
-# Marketing permission and GDPR compatibility
 Marketing permission or newsletter constent from customers are recorded at Nosto either during order confirmation (Conversion Tracking) or through customerUpdate webhook (Customer Feed). In case of order confirmation, the consent is received through the `marketingPermission` field in `OrderCustomer` bean and though `acceptsMarketing` field in `ShopifyCustomer` bean in case of webhook. These fields tells Nosto whether the customer has given their ![GDPR](https://www.eugdpr.org/) compliant consent for receiving marketing emails.
 
 ## Consent - Order confirmation
 When a customer is placing an order for any product, the checkout page will collect the customer's consent for receiving the marketing emails as shown below,
 
-![Consent during order confirmation]()
+![]()
 
 When the customer selects `Email me with news and offers` option and confims the order, the consent along with order information will be sent to Nosto through `/order/track` API in the following format,
 
@@ -32,7 +31,7 @@ When the customer selects `Email me with news and offers` option and confims the
 ## Consent - Customer update
 A merchant will be able to update customer's information or their marketing constent from store management (Admin) page. 
 
-![Update Marketing Consent]()
+![]()
 
 During this process, shopify will share updated customer information through a registered webhook `https://webhooks.nosto.com/hub/shopify/customerFeed` in the following format,
 
