@@ -33,7 +33,7 @@ A merchant will be able to update customer's information or their marketing cons
 
 ![Update Marketing Consent](https://user-images.githubusercontent.com/82023195/136540161-057d6c72-fa25-4785-aa56-19a48a016200.png)
 
-During this process, shopify will share updated customer information through a registered webhook `https://webhooks.nosto.com/hub/shopify/customerFeed` in the following format,
+During this process, Nosto will receive updated customer information, in following format, through a pre-configured webhook,
 
 ```json
 {
@@ -44,6 +44,9 @@ During this process, shopify will share updated customer information through a r
     "accepts_marketing": true
 }
 ```
+
+## Consent - Customer Tagging
+A thrid approach for sending customer information to Nosto is using `Page tagging`. For more information, please refer [Customer Information Tagging](https://docs.nosto.com/techdocs/implementing-nosto/implement-on-your-website/manual-implementation/adding-the-customer-information)
 
 ### Note: 
 1. If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [Import customer data](https://help.nosto.com/en/articles/2884483-how-to-import-customer-data-to-nosto-via-api)
