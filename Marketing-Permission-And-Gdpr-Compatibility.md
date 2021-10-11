@@ -1,4 +1,3 @@
-# Marketing permission and GDPR compatibility
 Marketing permission or newsletter consent from customers is recorded either during order confirmation or through customer webhooks. In case of order confirmation, the consent is received through the `marketingPermission` flag. These fields tell Nosto if the customer has given their [GDPR](https://www.eugdpr.org/) compliant consent for receiving marketing emails.
 
 ## Consent - Order confirmation
