@@ -1,4 +1,4 @@
-# Variations \(Configurable Products\)
+# Variations (Configurable Products)
 
 Nosto for Bigcommerce natively supports variations.
 
@@ -22,7 +22,7 @@ Once variations are enabled, you will be able to preview by navigating any produ
 
 The usual add-to-cart functionality provided by the extension has been amended to also support adding an individual variation to cart.
 
-`Nosto.addSkuToCart({productId: "<product-id>", skuId: "<variant-id>"});`
+`Nosto.addProductToCart({productId: "<product-id>", variantId: "<variant-id>"});`
 
 The function takes an object with the first argument being the identifier of the parent product, while the second argument is the identifier of the actual variant being added to the cart.
 
@@ -31,4 +31,3 @@ The function takes an object with the first argument being the identifier of the
 ## Enabling / Disabling Variations
 
 Variations are enabled by default.
-
