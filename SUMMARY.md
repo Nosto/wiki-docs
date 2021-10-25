@@ -59,6 +59,7 @@
     * [Translating Frontend Strings](addons/cmp/guides/translating.md)
     * [PWA Implementation](addons/cmp/guides/pwa-implementation.md)
     * [Using Elasticsearch](addons/cmp/guides/using-elasticsearch.md)
+    * [Segmentation](addons/cmp/guides/segmentation.md)
     * [Overriding or Extending Functionalities](addons/cmp/guides/overriding-or-extending-functionalities/README.md)
       * [Customize Query Parameters](addons/cmp/guides/overriding-or-extending-functionalities/customize-query-parameters.md)
 
