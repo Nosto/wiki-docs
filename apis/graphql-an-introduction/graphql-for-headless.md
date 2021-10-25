@@ -5,13 +5,14 @@ Nosto's GraphQL APIs can be used for simplified implementations for headless fro
 * [Using the API](graphql-using-the-api.md)
 * [Testing & Debugging](graphql-testing-and-debugging.md)
 
-🚨Implementing Nosto over GraphQL will not allow you to leverage the entire Nosto suite. When Nosto is implemented over tagging and/or Javascript APIs it can modify web-pages automatically with Javascript, which means many things can work out of the box. For example inserting recommendations dynamically onto a webpage, rendering of templates, tracking of user behaviour. GraphQL instead is only an API which can be called from anywhere, so it cannot directly run Javascript or modify web-pages, instead those need to be implemented by the caller of the API.  
-  
-The following features require editing webpages through running Javascript so they are available only in tagging/Javascript-based implementations:
+🚨Implementing Nosto over GraphQL will not allow you to leverage the entire Nosto suite. When Nosto is implemented over tagging and/or Javascript APIs it can modify web-pages automatically with Javascript, which means many things can work out of the box. For example inserting recommendations dynamically onto a webpage, rendering of templates, tracking of user behaviour. GraphQL instead is only an API which can be called from anywhere, so it cannot directly run Javascript or modify web-pages, instead those need to be implemented by the caller of the API.\
+\
+The following features are not available through GraphQL API:
 
 * Facebook Ads: As the pixel events aren't dispatched.
-* Content Personalisation: As the GraphQL API only handle the personalization and not onsite experiences.
+* Content Personalisation: As the GraphQL API only handles the personalization and not onsite experiences.
 * Popups: As the GraphQL API only handle the personalization and not onsite experiences.
+* AB-testing & dynamic placements: Because the current GraphQL API works with recommendation identifiers directly and not through placements.
 
 Each customer who visits a site is uniquely identified with a session identifier. When a new customer comes to the site, a GraphQL session mutation call must be made to initiate a session. The resultant session identifier must be persisted and reused for all consecutive calls.
 
@@ -413,4 +414,3 @@ mutation {
 #### Fetching Recos
 
 The `forOrderPage` field will return the result of all the recommendations that are configured for the order-confirmation page.
-
