@@ -25,6 +25,7 @@
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
+* [Checking your setup](implementing-nosto/checking-your-setup.md)
 
 ## APIs
 
@@ -108,4 +109,3 @@
 * [BigCommerce](https://docs.nosto.com/bigcommerce)
 * [PHP-SDK](https://docs.nosto.com/php-sdk)
 * [Salesforce](https://docs.nosto.com/salesforce/)
-
