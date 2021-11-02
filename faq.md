@@ -36,7 +36,7 @@ This is done by extending our module following our docs: [Overriding or extendin
 
 The logic followed is by adding an interceptor to our class, more info on interceptors can be found on [Magento documentation](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/plugins.html)
 
-Remember that the you still need to call `nostojs(function(api){api.loadRecommendations()})` when you want the recommendations to be loaded and populated.
+Remember that you still need to call `nostojs(function(api){api.loadRecommendations()})` when you want the recommendations to be loaded and populated.
 
 ### Required files and configurations:
 
@@ -90,3 +90,9 @@ First you must [disconnect](disconnecting-nosto-from-store-front.md) the existin
 
 After you have disconnected an account you can re-connect the account by following the [normal Oauth flow](getting-started.md#connecting-with-an-existing-nosto-account)
 
+## Placeholder image for products without images
+
+Placeholder image will be used for the products without images. 
+
+You can setup placeholder images from Magento 2 admin under "Store > Configuration > Catalog -> Product Image Placeholders". 
+"Base" image placeholder will be used as a placeholder image.
