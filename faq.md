@@ -92,7 +92,7 @@ After you have disconnected an account you can re-connect the account by followi
 
 ## Placeholder image for products without images
 
-Placeholder image will be used for the products without images. 
+In case a product does not have any image, the Nosto module will use the configured placeholder as the image for the product.
 
 You can setup placeholder images from Magento 2 admin under "Store > Configuration > Catalog -> Product Image Placeholders". 
 "Base" image placeholder will be used as a placeholder image.
