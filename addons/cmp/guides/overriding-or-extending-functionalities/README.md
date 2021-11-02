@@ -98,9 +98,3 @@ A simple way to verify that the changes are working would be to log in as a cust
 ## Using the module in production environment
 
 Before using your custom module in production environment we strongly recommend that you follow the instructions how to package a Magento 2 module. If you are familiar with creating packages for composer, creating a package for M2 is a no-brainer. You can find the instructions from [here](http://devdocs.magento.com/guides/v2.0/extension-dev-guide/package/package_module.html)
-
-## Using custom value for category page size
-
-Developers can set custom page size for category tagging via dependency injection. 
-
-Custom page size value can be passed for web handler `Nosto\Cmp\Plugin\Framework\Search\Request\WebHandler` and GraphQL handler `Nosto\Cmp\Plugin\Framework\Search\Request\GraphQlHandler`
