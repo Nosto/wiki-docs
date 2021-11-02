@@ -15,7 +15,7 @@ In order to achieve an accurate reach statistic for recommendations, `load()` sh
 
 ### Handling attribution
 
-When a recommended product is viewed, the `result_id` from the recommendation result should be set used. Below is an example recommendation result (some fields have been omitted).
+When a recommended product is viewed, the `result_id` from the recommendation result should be used. Below is an example recommendation result (some fields have been omitted).
 
 ```json
 {
