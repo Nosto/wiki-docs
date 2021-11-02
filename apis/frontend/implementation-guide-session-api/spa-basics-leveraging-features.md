@@ -4,7 +4,7 @@
 
 The `load` method returns a promise which can be consumed to get the raw recommendation data. The raw recommendation data is an object containing the recommendation data.
 
-### load\(\) vs update\(\)
+### load() vs update()
 
 Recommendation results are returned in a promise by calling either `load()` or `update()`. The difference between these two methods is:
 
@@ -15,19 +15,37 @@ In order to achieve an accurate reach statistic for recommendations, `load()` sh
 
 ### Handling attribution
 
-When a recommended product is viewed, the `result_id` from the recommendation result should be set as a reference when tracking the viewed product.
+When a recommended product is viewed, the `result_id` from the recommendation result should be set used. Below is an example recommendation result (some fields have been omitted).
+
+```json
+{
+    "recommendations": {
+        "nosto-frontpage-1": {
+            "result_id": "nosto-frontpage-1-fallback",
+            "products": [{
+                "url": "https://example.com/products/product1",
+                "product_id": "product1"
+            }, {
+                "url": "https://example.com/products/product2",
+                "product_id": "product2"
+            }],
+            "result_type": "REAL",
+            "title": "Most Popular Right Now",
+            "div_id": "nosto-frontpage-1"
+    }
+}
+```
+
+The snippet of code below attributes `product1` to the result id `nosto-frontpage-1-fallback` from the recommendation result above and fetches recommendations for `nosto-productpage-1`.
 
 ```javascript
 nostojs(api => {
   api.defaultSession()
-    .viewProduct('product-id')
-    .setRef('product-id', 'nosto-frontpage1')
-    .setPlacements(['product-crosssells'])
-    .load()
-    .then(data => {
-      console.log(data.recommendations);
-    })
-});
+   .reportAddToCart('product1', 'nosto-frontpage-1-fallback')
+   .setPlacements(['nosto-productpage-1'])
+   .load()
+   .then(data => console.log(data))
+ })
 ```
 
 ### Letting Nosto render the HTML
@@ -64,7 +82,7 @@ nostojs(api => {
 });
 ```
 
-  ⚠️ The api call is only for informing Nosto about the attribution \(that the product was added from the recommendation\), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
+&#x20; ⚠️ The api call is only for informing Nosto about the attribution (that the product was added from the recommendation), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
 
 ## Working with content
 
@@ -73,4 +91,3 @@ The `load` method returns a promise which can be consumed to get the raw placeme
 ## Working with popups
 
 Popups are handled automatically and you do not need to control the rendering of the popups. As events are dispatched, popups will show and hide automatically. If you would like to have programmatic control over the popups, see [our guide on the Popup JS API](../../js-apis/popups/).
-
