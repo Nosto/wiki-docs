@@ -6,7 +6,7 @@ You can generic recommendations using the GraphQL orders endpoint. The recommend
 
 The endpoint can be used to fetch toplist recommendations i.e. best-sellers. Toplists recommendations are either sorted by views or buys.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
@@ -31,13 +31,13 @@ EOF
 
 The endpoint can be used to fetch random recommendations i.e. previews. Random recommendations are a totally randomized selection of products and often used for testing purposes.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
 -d @- << EOF
 query {
-  recos (preview: true, image: VERSION_7_200_200) {
+  recos (preview: false, image: VERSION_7_200_200) {
     random(params: {
       minProducts: 1
       maxProducts: 10
@@ -60,13 +60,13 @@ The endpoint can be used to fetch related recommendations i.e. cross-sellers. Cr
 
 **Example:** If you were to use this to add recommendations to an order-follow email, the `productIds` parameter would be an array containing the product identifiers of the products that were purchased.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
 -d @- << EOF
 query {
-  recos (preview: true, image: VERSION_7_200_200) {
+  recos (preview: false, image: VERSION_7_200_200) {
     related(relationship: VIEWED_TOGETHER, productIds: [
         "8685560646"  
     ],
@@ -92,13 +92,13 @@ The endpoint can be used to fetch recommendations related to a search term.
 
 **Note:** This endpoint cannot be used for building auto-complete style integrations.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
 -d @- << EOF
 query {
-  recos (preview: true, image: VERSION_7_200_200) {
+  recos (preview: false, image: VERSION_7_200_200) {
     search(term: "shoes",
     params: {
       minProducts: 1
@@ -120,7 +120,7 @@ In case some cases it is desired to filter products by their properties. `includ
 
 `include` field expects a type of `InputIncludeParams`, whose attributes are
 
-```text
+```
 brands: [String]
 The list of brand used for inclusion or exclusion
 
@@ -166,7 +166,7 @@ The third set of tags used for inclusion or exclusion
 
 `exclude` field expect type `InputFilterParams` whose attributes are:
 
-```text
+```
 brands: [String]
 The list of brand used for inclusion or exclusion
 
@@ -226,4 +226,3 @@ query {
 }
 EOF
 ```
-
