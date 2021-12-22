@@ -10,22 +10,23 @@ Use Shopify's theme editor to find the associated Liquid file to edit it. In the
 
 Nosto places the following recommendation placeholders on the site.
 
-| Element Name | Theme File (OS1) | Theme File (OS2) - Updated | Theme File (OS2) - Added |
-| :--: | :--: | :--: | :--: |
-| `<div class="nosto_element" id="frontpage-nosto-1" />` | templates/index.liquid | templates/index.json | section/nosto-index.liquid |
-| `<div class="nosto_element" id="frontpage-nosto-2" />` | templates/index.liquid | templates/index.json | section/nosto-index.liquid |
-| `<div class="nosto_element" id="frontpage-nosto-3" />` | templates/index.liquid | templates/index.json | section/nosto-index.liquid |
-| `<div class="nosto_element" id="frontpage-nosto-4" />` | templates/index.liquid | templates/index.json | section/nosto-index.liquid |
-| `<div class="nosto_element" id="productpage-nosto-1" />` | templates/product.liquid | templates/product.json | section/nosto-product.liquid |
-| `<div class="nosto_element" id="productpage-nosto-2" />` | templates/product.liquid | templates/product.json | section/nosto-product.liquid |
-| `<div class="nosto_element" id="productpage-nosto-3" />` | templates/product.liquid | templates/product.json | section/nosto-product.liquid |
-| `<div class="nosto_element" id="categorypage-nosto-1" />` | templates/collection.liquid | templates/collection.json | section/nosto-collection-prepend.liquid |
-| `<div class="nosto_element" id="categorypage-nosto-2" />` | templates/collection.liquid | templates/collection.json | section/nosto-collection-append.liquid |
-| `<div class="nosto_element" id="searchpage-nosto-1" />` | templates/search.liquid | templates/search.json | section/nosto-search-prepend.liquid |
-| `<div class="nosto_element" id="searchpage-nosto-2" />` | templates/search.liquid | templates/search.json | section/nosto-search-append.liquid |
-| `<div class="nosto_element" id="notfound-nosto-1" />` | templates/404.liquid | templates/404.json | section/nosto-404.liquid |
-| `<div class="nosto_element" id="notfound-nosto-2" />` | templates/404.liquid | templates/404.json | section/nosto-404.liquid |
-| `<div class="nosto_element" id="notfound-nosto-3" />` | templates/404.liquid | templates/404.json | section/nosto-404.liquid |
-| `<div class="nosto_element" id="cartpage-nosto-1" />` | templates/cart.liquid | templates/cart.json | section/nosto-cart.liquid |
-| `<div class="nosto_element" id="cartpage-nosto-2" />` | templates/cart.liquid | templates/cart.json | section/nosto-cart.liquid |
-| `<div class="nosto_element" id="cartpage-nosto-3" />` | templates/cart.liquid | templates/cart.json | section/nosto-cart.liquid |
+| Element Name | Theme File |
+| :--- | :--- |
+| `<div class="nosto_element" id="frontpage-nosto-1" />` | templates/index.liquid |
+| `<div class="nosto_element" id="frontpage-nosto-2" />` | templates/index.liquid |
+| `<div class="nosto_element" id="frontpage-nosto-3" />` | templates/index.liquid |
+| `<div class="nosto_element" id="frontpage-nosto-4" />` | templates/index.liquid |
+| `<div class="nosto_element" id="productpage-nosto-1" />` | templates/product.liquid |
+| `<div class="nosto_element" id="productpage-nosto-2" />` | templates/product.liquid |
+| `<div class="nosto_element" id="productpage-nosto-3" />` | templates/product.liquid |
+| `<div class="nosto_element" id="categorypage-nosto-1" />` | templates/collection.liquid |
+| `<div class="nosto_element" id="categorypage-nosto-2" />` | templates/collection.liquid |
+| `<div class="nosto_element" id="searchpage-nosto-1" />` | templates/search.liquid |
+| `<div class="nosto_element" id="searchpage-nosto-2" />` | templates/search.liquid |
+| `<div class="nosto_element" id="notfound-nosto-1" />` | templates/404.liquid |
+| `<div class="nosto_element" id="notfound-nosto-2" />` | templates/404.liquid |
+| `<div class="nosto_element" id="notfound-nosto-3" />` | templates/404.liquid |
+| `<div class="nosto_element" id="cartpage-nosto-1" />` | templates/cart.liquid |
+| `<div class="nosto_element" id="cartpage-nosto-2" />` | templates/cart.liquid |
+| `<div class="nosto_element" id="cartpage-nosto-3" />` | templates/cart.liquid |
+
