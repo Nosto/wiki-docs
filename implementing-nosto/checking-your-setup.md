@@ -6,7 +6,7 @@ description: >-
 
 # Checking your setup
 
-### Session view in the debug toolbar <a href="viewing-the-session-view-in-the-debug-toolbar" id="viewing-the-session-view-in-the-debug-toolbar"></a>
+### Session view in the debug toolbar <a href="#viewing-the-session-view-in-the-debug-toolbar" id="viewing-the-session-view-in-the-debug-toolbar"></a>
 
 1. Navigate to your site in [incognito mode](https://support.google.com/chrome/answer/95464).
 2. Load the debug toolbar by appending `nostodebug=true` to your store's URL e.g. `https://example.com?nostodebug=true`
@@ -41,7 +41,7 @@ If the product doesn't appear in the session, these pages might help:
 * [JS API: product](https://docs.nosto.com/techdocs/apis/js-apis/common-examples/sending-product-view-events)
 * [Session API: product](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-tracking-events#upon-viewing-a-product)
 
-### View a Recommended Product <a href="view-a-recommended-product" id="view-a-recommended-product"></a>
+### View a Recommended Product <a href="#view-a-recommended-product" id="view-a-recommended-product"></a>
 
 Click on a product recommendation and verify that the View Product event is tracked with the following details:
 
@@ -90,3 +90,33 @@ If the order doesn't correctly show in the session view, these pages might help:
 {% hint style="info" %}
 If it’s not possible to perform a test order, the Nosto admin UI's orders page can be used to review that orders link to known products in the catalogue and that some items have click attribution towards the visible recommendations.
 {% endhint %}
+
+### Measuring Performance
+
+We’ve integrated with the [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User\_Timing\_API) to be able to show some performance measurements of our client script. The supported measurements are:
+
+* `nosto.get_dynamic_placements` Parse the DOM and find placements on the page. Performed before a recommendations request is sent.
+* `nosto.load_recommendations` Send the recommendations request and handle the recommendation result. This encompasses measuring the recommendations request and `nosto.inject_campaigns`.
+* `nosto.inject_campaigns` Inject both dynamic and static campaigns into the DOM. This encompasses both `nosto.inject_static_campaigns` and `nosto.inject_dynamic_campaigns`.
+* `nosto.inject_static_campaigns` Inject static campaigns into the DOM.
+* `nosto.inject_dynamic_campaigns` Inject dynamic campaigns into the DOM.
+* `nosto.evaluate_js` Extract and evaluate embedded JavaScript from recommendation templates.
+
+#### Lighthouse
+
+Chrome's [lighthouse](https://developers.google.com/web/tools/lighthouse) tool can be opened by doing the following:
+
+1. Right click and select Inspect.
+2. Navigate to the Lighthouse tab.
+3. Ensure the Performance category is enabled.
+4. Click Generate Report
+
+![](<../.gitbook/assets/image (5).png>)![](<../.gitbook/assets/image (3).png>)
+
+Once the report is generated, you can expand the “User Timing marks and measures” section under the Diagnostics section to see some basic information like how long after the page started to load the measurements start and how long each measurement took.
+
+![](<../.gitbook/assets/image (4).png>)
+
+You can scroll back up and click the View Original Trace button to view a timeline of the measurements. You may need to expand the Timings section to view the client script’s recorded measurements. You can zoom in an out of this graph and swipe side to side to get a better view of things.
+
+![](<../.gitbook/assets/image (2).png>)
