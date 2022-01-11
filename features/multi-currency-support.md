@@ -1,7 +1,7 @@
 # Multi Currency Support
 
 {% hint style="info" %}
-Please note that this article only applies to [Shopify Multi-currency](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency). 
+Please note that this article only applies to [Shopify Multi-currency](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency).
 {% endhint %}
 
 There are various 3rd party multi-currency providers for Shopify but we are currently only able to support Shopify multi-currency.
@@ -18,14 +18,27 @@ Please note that recommendations will not be visible after editing the theme unt
 
 The snippet:
 
-```text
-{% if shop.enabled_currencies.size > 1 %}
-  {% for currency in shop.enabled_currencies %}
-    {% if currency == cart.currency %}
+```
+<div data-gb-custom-block data-tag="if" data-0='1' data-1='1' data-2='1' data-3='1' data-4='1' data-5='1' data-6='1' data-7='1' data-8='1' data-9='1' data-10='1' data-11='1' data-12='1' data-13='1' data-14='1' data-15='1'>
+
+  
+
+<div data-gb-custom-block data-tag="for">
+
+    
+
+<div data-gb-custom-block data-tag="if">
+
       <div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
-    {% endif %}
-  {% endfor %}
-{% endif %}
+    
+
+</div>
+
+  
+
+</div>
+
+</div>
 ```
 
 ![Editing theme file in Shopify](https://user-images.githubusercontent.com/22770093/70220546-6f934880-174f-11ea-812d-94356e47ae36.png)
@@ -61,4 +74,26 @@ Price formatting can be configured at the bottom of the page.
 ![Price format](https://user-images.githubusercontent.com/22770093/70220589-80dc5500-174f-11ea-8864-1caef3e7613b.png)
 
 Finally, you can verify that currency conversion is working as expected by viewing recommendations on your store and comparing the prices of the recommended products with the prices displayed on the product page.
+
+## Fetch Product Prices in Presentment Currency (legacy)
+
+This older approach can be used to fetch the correct product prices for onsite recommendations when Shopify multi-currency features are used which are not supported by Nosto.
+
+Our client script has the function `Nosto.setPresentmentPricesUrl()` which has the following parameters:
+
+* `priceElement` The CSS selector used to find elements where the presentment price should be inserted
+* `productUrl` The attribute name of the element that contains the product URL
+* `fetchListPrice`Fetch the list price (aka compare\_at\_price). Otherwise fetch the price.
+* `variantId`  (Optional) The product's variant whose price should be fetched.&#x20;
+
+This recommendation template snippet works with the function:
+
+```
+#foreach($product in $products)
+  <span class="nosto_money" x-nosto-url="$!product.url"></span>
+#end
+<script type="text/javascript">
+  Nosto.setPresentmentPricesUrl('.nosto_money', 'x-nosto-url')
+<script>
+```
 
