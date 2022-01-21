@@ -6,8 +6,7 @@ One challenge to deliver segmentation is to overcome the Magento cache so differ
 The segmentation logic is handled by the Nosto client script. Nosto's CMP module will append `nosto-cmp-mapping` block which contains a map of category urls and hashes. 
 This will be used as a mechanism to generate different cached versions based on segments. 
 
-The client script will append a query parameter to the category url like `example.com/category?key=xyz`. Each segment will have its own key and value, where the value
-is found in `nosto-cmp-mapping`. Magento will generate a new cached version of the category page based on the url parameters.
+The client script will append a query parameter to the category url like `example.com/category?key=xyz`. Each segment will have its own key value and the value is defined by Nosto. Magento will generate a new cached version of the category page based on the url parameters when a user lands on the page (in case the cached version is missing for the specific semgent).
 Users within the same segment will be served the same cached segment sorting. 
 
 ## Category Mapping Cache
