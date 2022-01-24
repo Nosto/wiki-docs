@@ -20,7 +20,7 @@ That improves the order confirmation performance and backend operation performan
 
 When the module is installed or upgraded it will generate a customer_reference for every customer in the customer_entity table. Currently, the module makes use of the customer collection, but this can be a costly operation in case of a big customer pool. 
 
-Running the raw SQL query to mass generate the attribute will resolve failing installation. The following query will do the job:
+Execute the following SQL query to generate the attribute for each of your customers. This will resolve the failing installation.
 
 ```mysql
 INSERT INTO magento2.customer_entity_varchar 
