@@ -16,6 +16,24 @@ Please follow the following steps: 1. Update to latest nosto version: [https://g
 
 That improves the order confirmation performance and backend operation performance. But please make sure the magento cron job is running properly, otherwise nosto product information will not be updated to nosto in time.
 
+## How to deal with failing customer reference creation due to large customer pool
+
+When the module is installed or upgraded it will generate a customer_reference for every customer in the customer_entity table. Currently, the module makes use of the customer collection, but this can be a costly operation in case of a big customer pool. 
+
+Running the raw SQL query to mass generate the attribute will resolve failing installation. The following query will do the job:
+
+```mysql
+INSERT INTO magento2.customer_entity_varchar 
+            (attribute_id, 
+             entity_id, 
+             value) 
+SELECT (SELECT attribute_id 
+        FROM   magento2.eav_attribute 
+        WHERE  attribute_code = "nosto_customer_reference"), 
+       entity_id, 
+       SHA2(Concat(entity_id, email), 256) 
+FROM   magento2.customer_entity
+```
 ## How do I remove the `___store` parameter from the URLs?
 
 In order to remove the `___store` parameter, you will need to enable clean-urls in the advanced configuration. Please see the [URL Options](configuring.md#url-options) section in our configuration guide.
