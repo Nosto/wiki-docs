@@ -1,3 +1,4 @@
+
 # Recording attribution for any event type
 ## Summary
 Nosto already offers session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functonality to any event types, a new session API method `recordAttribution` has been introduced. Using JS API, this method can be utilised to update current visit with details of events for attribution.
@@ -38,4 +39,14 @@ nostojs(function(api) {
   .done()
 });
 ```
+(3) Adding the fourth `refSrc` parameter
+
+```javascript
+nostojs(api => api
+.defaultSession()
+.recordAttribution("vp", "7513872007393", "productpage-nosto-3", "7513872007393")
+.done()
+```
+In the above example, we are recording a `View Product` event for product `7513872007393` which was clicked from the recommendation slot `productpage-nosto-3` while on another product page `7513872007393`. In other words, the product page for `7513872007393` had the recommendation slot `productpage-nosto-3` which contained the product `7513872007393`. As the customer was interested in the product `7513872007393` he clicked it to navigate to it's product page. 
+
 In similar way, we will be able to send in all the Nosto supported event types that are relevant
