@@ -21,6 +21,8 @@
         - [sections/nosto-product.liquid](#sectionsnosto-productliquid)
         - [sections/nosto-search-prepend.liquid](#sectionsnosto-search-prependliquid)
         - [sections/nosto-search-append.liquid](#sectionsnosto-search-appendliquid)
+    - [Hybrid themes](#hybrid-themes)
+  - [Migrating customers](#migrating-customers)
 
 ## Summary
 
@@ -379,3 +381,17 @@ The section names `nosto_search_prepend` and `nosto_search_append` from above co
 {% render 'nosto-element', id:'searchpage-nosto-2' %}
 ```
 
+### Hybrid themes
+
+As per their migration guide, Shopify allows the option of migrating their themes one file at a time, meaning a customer can migrate `templates/404.liquid` to `templates/404.json` today and leave the rest of their theme setup as it is and continue using the liquid template files. In that case, a customer will be using scheme structure of both `version 1.0` and `version 2.0` themes. Nosto has implemented support for this scenario under the recent release. It will automatically identify those files that are still using `version 1.0` liquid templates and injects content, into the liquid template, using the existing logic. Also identifies those that belongs to `version 2.0` json templates and injects content, into those json templates, using the approach discussed in above sections.
+
+
+## Migrating customers
+
+Assume a customer is on `version 1.0` and has Nosto installed already. When such a customer is migrating to `version 2.0`, they can do either of the following,
+
+1. For every migration, uninstall Nosto, migrate your files and then reinstall Nosto from within the Nosto app
+2. Migrate everything excluding Nosto content
+
+The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of structureless json shema, it became little challenging to isolate Nosto content for easy installation or uninstallation. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitiagte the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents.
+In future, we will introduce other options to better handle this situation
