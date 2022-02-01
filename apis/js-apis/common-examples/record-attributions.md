@@ -19,9 +19,27 @@ class: session.js name: recordAttribution parameters:
 |   ref  |   string   |      no     | id of the element that hosted the link which triggered the event |
 | refSrc |   string   |      no     |     id of parent element of the link that triggered the event    |
 
+### Event Types
+Nosto supports following pre-defined event types
+* View Product (VP)
+* Like Product (LP)
+* Dislike Product (DP)
+* Remove Product (RP)
+* Bought Product (BP)
+* View Category (VC)
+* Order (OR)
+* Internal Search (IS)
+* Add to cart (CP)
+* External Campaign (EC)
+* External Search (ES)
+* Give Coupon (GC)
+* Source (SRC)
+* Cart Popup Recommendations (CPR)
+* Page Load (PL)
+* Custom Campaign (CC)
 ### Examples
 
-(1) Attributing a placement click to a `vp` event
+1. Attributing a placement click to a `vp`  (View Product) event
 
 ```javascript
 nostojs(function(api) {
@@ -31,8 +49,13 @@ nostojs(function(api) {
   .done()
 });
 ```
+In the above example,
+- `vp` specifies the type of event and it corresponds to View Product
+- `12345678` specifies the target and it corresponds to the ID of the product that's being viewed
+- `frontpage-nosto-1` specifies tge reference and it corresponds to the placement that hosted the product that's being clicked
 
-(2) Attributing a placement click to a `cc` event
+
+2. Attributing a placement click to a `cc`  (Custom Campaign) event
 
 ```javascript
 nostojs(function(api) {
@@ -42,8 +65,12 @@ nostojs(function(api) {
   .done()
 });
 ```
+In the above example,
+- `cc` specifies the type of event and it corresponds to Custom Campaign
+- `12345678` specifies the target and it corresponds to the ID of the product that's being viewed
+- `frontpage-nosto-1` specifies tge reference and it corresponds to the placement that hosted the product that's being clicked
 
-(3) Adding the fourth `refSrc` parameter
+3.  Adding the fourth `refSrc` parameter
 
 ```javascript
 nostojs(api => api
@@ -52,6 +79,12 @@ nostojs(api => api
 .done()
 ```
 
-In the above example, we are recording a `View Product` event for product 7513863258337 which was clicked from the recommendation slot `productpage-nosto-3` while on another product page `7513872007393`.&#x20;
+In the above example,
+- `vp` specifies the type of event and it corresponds to View Product
+- `7513863258337` specifies the target and it corresponds to the ID of the product that's being viewed
+- `productpage-nosto-3` specifies the reference and it corresponds to the placement that hosted the product that's being clicked
+- `7513872007393` specifies the reference source and it corresponds to the ID of element, of the current page, that contained the `ref` element, `productpage-nosto-3` in this case
 
-In similar way, we will be able to send in all the Nosto supported event types that are relevant
+Here we are recording a `View Product` event for product 7513863258337 which was clicked from the recommendation slot `productpage-nosto-3` while on another product page `7513872007393`
+
+In similar way, we will be able to record attribution for all the event types listed under `Event Types` section of this documentation.
