@@ -52,7 +52,7 @@ nostojs(function(api) {
 In the above example,
 - `vp` specifies the type of event and it corresponds to View Product
 - `12345678` specifies the target and it corresponds to the ID of the product that's being viewed
-- `frontpage-nosto-1` specifies tge reference and it corresponds to the placement that hosted the product that's being clicked
+- `frontpage-nosto-1` specifies the reference and it corresponds to the placement that hosted the product that's being viewed
 
 
 2. Attributing a placement click to a `cc`  (Custom Campaign) event
