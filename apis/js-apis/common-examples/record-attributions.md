@@ -26,7 +26,6 @@ Nosto supports following pre-defined event types
 | View Product (VP) | An event associated with viewing a single product |
 | Like Product (LP) | An event associated with liking a single product |
 | Dislike Product (DP) | An event associated with disliking a product |
-| Remove Product (RP) | ?? |
 | Bought Product (BP) | An event assiated with every product that belonged to a completed order. Basically, a product that has been purchased | 
 | View Category (VC) | An event associated with event a single category of items |
 | Order (OR) | An event associated with a single order |
