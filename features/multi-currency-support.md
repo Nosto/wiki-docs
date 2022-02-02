@@ -84,16 +84,16 @@ Our client script has the function `Nosto.setPresentmentPricesUrl()` which has t
 * `priceElement` The CSS selector used to find elements where the presentment price should be inserted
 * `productUrl` The attribute name of the element that contains the product URL
 * `fetchListPrice`Fetch the list price (aka compare\_at\_price). Otherwise fetch the price.
-* `variantId`  (Optional) The product's variant whose price should be fetched.&#x20;
+* `variantId`  (Optional) The attribute name of the element that contains the variant id.
 
 This recommendation template snippet works with the function:
 
 ```
 #foreach($product in $products)
-  <span class="nosto_money" x-nosto-url="$!product.url"></span>
+  <span class="nosto_money" x-nosto-url="$!product.url" x-variant-id="123456"></span>
 #end
 <script type="text/javascript">
-  Nosto.setPresentmentPricesUrl('.nosto_money', 'x-nosto-url')
+  Nosto.setPresentmentPricesUrl('.nosto_money', 'x-nosto-url', true, 'x-variant-id')
 <script>
 ```
 
