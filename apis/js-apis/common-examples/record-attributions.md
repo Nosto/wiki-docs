@@ -24,11 +24,7 @@ Nosto supports following pre-defined event types
 |  Type  | Description | 
 | :----: | -------- |
 | View Product (VP) | An event associated with viewing a single product |
-| Like Product (LP) | An event associated with liking a single product |
-| Dislike Product (DP) | An event associated with disliking a product |
-| Bought Product (BP) | An event assiated with every product that belonged to a completed order. Basically, a product that has been purchased | 
 | View Category (VC) | An event associated with event a single category of items |
-| Order (OR) | An event associated with a single order |
 | Internal Search (IS) | An event associated with results of search internal to a merchant's website |
 | Add to cart (CP) | An event associated with adding a product or bundle to a cart |
 | External Campaign (EC) | An event associated with campaigns, which are not part of nosto, that directed a user to a merchant website. These campaigns will contain google's UTM parameters ([UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) for more info.) in  `ev1` request URL |
