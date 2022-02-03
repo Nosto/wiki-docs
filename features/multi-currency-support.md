@@ -97,3 +97,11 @@ This recommendation template snippet works with the function:
 <script>
 ```
 
+If all prices are being formatted with the dollar symbol, regardless of the selected currency, you may need to ensure that the `Shopify.money_format` variable is correctly set to include the currency symbol. If not, you can add this snippet to your theme
+
+```
+<script>
+  var Shopify = Shopify || {};
+  Shopify.money_format = {{ shop.money_format | json }};
+</script>
+```
