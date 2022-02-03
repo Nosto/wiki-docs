@@ -8,17 +8,22 @@
     - [Known Issues](#known-issues)
 
 ## Introduction
-This documentation will explain the process of settings up `Nosto - Dynamic Bundles` for automatic discount, when a bundle is added to the cart on a Shopify store. As per the existing setup, this has to be done manually from `setting up line item script` to `script for including discount details to shopify cart API`. As a first step into completely automating this process end-to-end, Nosto has released some enhancements to internal processing of dynamic bundles that will help automate this process with minimal manual intervention.
+This documentation explains the process of setting up `Nosto - Dynamic Bundles` for automatic discount, when a bundle is added to the cart on a Shopify store. As per the existing setup, the end-to-end process has to be done manually. This release improves this by reducing manual intervention, to an extent, in setting up the store for bundle discounts.
 
 ## Setup
 
 ### Dynamic Bundle template changes
-A new Nosto JavaScript API `addBundleToCartWithDiscount` has been introduced that will collect the bundle information, from the bundle template, **validates and prepares the data** and then invokes the Shopify API. In order to use this new API, invoke the API from the dynamic bundle template with the following
-1. Products selected in the bundle while adding to cart
-2. Discount configuration
-3. All the product IDs from the bundle (both selected and unselected)
+A new Nosto JavaScript API `addBundleToCartWithDiscount` has been introduced. Functionality if the API is as follows, 
+- collect the bundle information, from the bundle template, 
+- **validate and prepare the data for Shopify API call** (This step adds discount details along with bundle information to line item properties)
+- invoke Shopify API with the data
 
-An example where all the products from a bundle are added to cart.
+In order to use this new API, invoke the API from the dynamic bundle template with the following parameters,
+1. Products selected in the bundle while adding to cart (_items parameter_)
+2. Discount (type & value) configuration (_discount parameter_)
+3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
+
+(a) An example where all the products from a bundle are added to cart.
 
 ```javascript
 _targetWindow.Nosto.addBundleToCartWithDiscount({
@@ -36,10 +41,21 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
     bundleProducts: [ '123456789', '987654321' ]
 }, this)
 ```
-> In this case, the configured discount value will be applied to all the products in the bundle. Assume for e.g., product `123456789` costs `126$` and product `987654321` costs `100$`, with a discount of 10%, 
-> the final price the customer pays will be, (126 * 0.1) + (100 * 0.1) => 113.4 + 90 => 203.4
+in the above example, the configured discount value applies to all the products in the bundle. <br>
 
-An example where NOT all the products from a bundle are added to cart.
+Assume for example, 
+
+| Product ID | Price |
+| :-----------: | :-----: |
+| 123456789 | 126$ |
+| 987654321 | 100$ |
+
+**discount type** - percent <br>
+**discount value** - 10
+
+_the final price the customer pays is, (126 * 0.1) + (100 * 0.1) => 113.4 + 90 => 203.4_
+
+(b) An example where NOT all the products from a bundle are added to cart.
 
 ```javascript
 _targetWindow.Nosto.addBundleToCartWithDiscount({
@@ -55,17 +71,15 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
 }, this)
 ```
 
-> In this case, no discount will be offered and the customer will pay the actual price of the selected product
+_In the above example, no discount is offered and the customer pays the actual price of the selected product_
 
 ### Shopify line item script changes
 Shopify offers line item script for handling bundle discounts out of the box. Now, please follow the steps below for adding the line item script to the shopify store. This has to be done manually for now (until next Nosto release)
-1. Install [Script Editor](https://apps.shopify.com/script-editor) add on the store 
-2. Create a blank line item script
-3. Remove any existing content
-4. Copy the authentication code from [here](https://github.com/ripenecommerce/shopify-ruby-sha256/blob/main/sha265.rb) and add it to the blank line item script that we created in step (2). This code will authenticate bundle discount requests and applies the discount only for genuine requests.
-5. Copy the shopify bundle discount line item script from [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/examples/line-item-scripts#bundle-discount) and add it below the authentication code.
-6. The authentication code has a `SECRET_KEY` variable towards the end, which needs to be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
-7. Finally copy the code below to the line item script in order to complete the setup. 
+1. Install and configure Shopify Script Editor based on steps listed [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) (make sure to select blank template and clear any existing code in the template)
+2. Copy the authentication code from [here](https://github.com/ripenecommerce/shopify-ruby-sha256/blob/main/sha265.rb) and add it to the blank line item script that we created in step (2). This code authenticates bundle discount requests and applies the discount only for genuine requests.
+3. Copy the shopify bundle discount line item script from [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/examples/line-item-scripts#bundle-discount) and add it below the authentication code.
+4. The authentication code has a `SECRET_KEY` variable towards the end, which needs to be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
+5. Finally copy the code below to the line item script in order to complete the setup. 
 > Note: The code presents a testing block. This can been uncommented for testing the script in script editor
    
 ```ruby
@@ -166,8 +180,9 @@ Output.cart = Input.cart
 ```
 
 ### Known Issues
-Nosto implementation uses a private property field for sharing discount information to Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields will get exposed as shown below.
+Nosto implementation uses a private property field for sharing discount information to Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
 
+__ADD IMAGE__
 
 In such a case, we can add the following line to the template liquid file that displays the cart information (usually cart-template.liquid). 
 
