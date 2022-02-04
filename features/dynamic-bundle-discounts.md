@@ -76,7 +76,7 @@ Please follow the steps below for setting up the line item script for handling t
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) to install and setup Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
 2. Copy the authentication logic (entire code) from [here](https://github.com/ripenecommerce/shopify-ruby-sha256/blob/main/sha265.rb) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. Copy the shopify bundle discount line item script from [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/examples/line-item-scripts#bundle-discount) and add it below the authentication logic.
-4. The authentication logic has a `SECRET_KEY` variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
+4. The authentication logic has a SECRET_KEY variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
 5. Finally copy the code below to the line item script in order to complete the setup. 
 > Note: The code presents a testing block. This can been uncommented for testing the script in script editor
    
