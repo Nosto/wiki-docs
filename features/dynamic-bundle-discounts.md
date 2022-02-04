@@ -8,15 +8,12 @@
     - [Known Issues](#known-issues)
 
 ## Introduction
-This documentation explains the process of setting up `Nosto - Dynamic Bundles` for automatic discount, when a bundle is added to the cart on a Shopify store. As per the existing setup, the end-to-end process has to be done manually. This release improves this by reducing manual intervention, to an extent, in setting up the store for bundle discounts.
+This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store. 
 
 ## Setup
 
 ### Nosto Dynamic Bundle template
-A new Nosto JavaScript API `addBundleToCartWithDiscount` has been introduced. Functionalities of this API are as follows, 
-- collect the bundle information, from the bundle template, 
-- **validate and prepare the data for Shopify API call** (This step adds discount details along with bundle information to line item properties)
-- invoke Shopify API with the data
+A new Nosto JavaScript API **addBundleToCartWithDiscount** has been introduced. 
 
 In order to use this new API, invoke the API from the dynamic bundle template with the following parameters,
 1. Products selected in the bundle while adding to cart (_items parameter_)
@@ -74,11 +71,12 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
 _In the above example, no discount is offered and the customer pays the actual price of the selected product_
 
 ### Shopify Line Item script
-Shopify offers line item script for handling bundle discounts out of the box. Now, please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
-1. Install and configure Shopify Script Editor based on steps listed [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) (make sure to select blank template and clear any existing code in the template)
+Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
+
+1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) to install and setup Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
 2. Copy the authentication logic (entire code) from [here](https://github.com/ripenecommerce/shopify-ruby-sha256/blob/main/sha265.rb) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. Copy the shopify bundle discount line item script from [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/examples/line-item-scripts#bundle-discount) and add it below the authentication logic.
-4. The authentication logic has a `SECRET_KEY` variable towards the end, which needs to be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
+4. The authentication logic has a `SECRET_KEY` variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
 5. Finally copy the code below to the line item script in order to complete the setup. 
 > Note: The code presents a testing block. This can been uncommented for testing the script in script editor
    
