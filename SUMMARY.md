@@ -21,7 +21,7 @@
   * [Shopify Flow](features/shopify-flow.md)
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
   * [Online Store 2.0](features/online-store-2.md)
-  * [Dynamic Bundles](features/dynamic-bundle-discounts.md)
+  * [Dynamic Bundle Discounts](features/dynamic-bundle-discounts.md)
 * [Integrations](integrations/README.md)
   * [Using Yotpo](integrations/integration-yotpo.md)
   * [Using Stamped.IO](integrations/integration-stamped.md)
