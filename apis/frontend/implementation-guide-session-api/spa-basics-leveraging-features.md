@@ -41,7 +41,8 @@ The snippet of code below attributes `product1` to the result id `nosto-frontpag
 ```javascript
 nostojs(api => {
   api.defaultSession()
-   .reportAddToCart('product1', 'nosto-frontpage-1-fallback')
+   .viewProduct('product1')
+   .setRef('product1', 'nosto-frontpage-1-fallback')
    .setPlacements(['nosto-productpage-1'])
    .load()
    .then(data => console.log(data))
