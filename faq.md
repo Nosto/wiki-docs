@@ -114,3 +114,12 @@ In case a product does not have any image, the Nosto module will use the configu
 
 You can setup placeholder images from Magento 2 admin under "Store > Configuration > Catalog -> Product Image Placeholders". 
 "Base" image placeholder will be used as a placeholder image.
+
+## Difference between 'Discontinued' and 'Invisible' products
+
+A product's availability will be tagged as `Invisible` if its Visibility set to `Not visible individually` on Magento.
+`Discontinued` products are products that no longer exist or cannot be tagged (e.g. if disabled).
+
+Starting from version 5.4.0 there is also a possibility to send disabled product data to Nosto via API.
+It can be enabled from Magento's Nosto settings (Stores > Configuration > Services > Nosto > Feature Flags > Index disabled products).‌
+When enabled it will tag disabled products as `Invisible`, otherwise disabled products will not end up in Nosto CEX or will end up as `Discontinued` if disabled after being tagged.
