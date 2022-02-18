@@ -4,20 +4,20 @@ Nosto recently implemented support for **Customer Group Pricing** feature, descr
 > **Note:** In this initial release, nosto only supports discount rules for merchant default currency (say, EUR). When a product has no  discount rules matching the merchant default currency, then no recommendations will be served.
 
 ## Customer groups
-A customer group is a set of rules for configuring product promotions or discounts using different pricing strategies as below,
+A customer group is a set of rules for configuring product promotions or discounts using different pricing strategies as below:
 * Product Rule - This rule will define discount rules for each product
 * Category Rule - This rule will define rules for product categories. When defined, all products belonging to this category will received the discount offered. This can be further refined to include **direct** sub-categories of the selected product
 * Store Rule - There can be only one store discount rule for a customer group. This rule will define discount rules for all the store products
-* Price Lists - Price Lists are special form of defining discount rules. A store can have many price lists. This is similar to `Product Rule` discount rule except that price list offers flexibility of defining rules for each and every product at once. This can be used when there's a requirement for defining rules for huge number of products. 
+* Price Lists - Price Lists are special form of defining discount rules. A store can have many price lists. This is similar to "Product Rule" discount rule except that price list offers flexibility of defining rules for each and every product at once. This can be used when there's a requirement for defining rules for huge number of products. 
 
-**Note:** A customer group can only have a `Price List` rule OR Product and/or Category and/or store rule. These customer groups will then be associated with the customers.
+**Note:** A customer group can only have a Price List Rule OR Product and/or Category and/or store rule. Customer groups are associated with the customers.
 
-Following are the pricing strategies that can be associated with pricing rules defined above
+Following are the pricing strategies that can be associated with pricing rules defined above:
 * Fixed pricing - Value defined will be the exact selling price of the product
 * Percent pricing - Value defined will be the percentage value of the product list price. For e.g. if this value is 1, that means the product is offered at a 1% discount from the list price
 * Price pricing - Value defined will be directly discounted from the product list price. For e.g. if this value is 100, that means the product price will be 100 less than the list price
 
-**Note:** A Price List rule can only be defined using `Percent` pricing strategy.
+**Note:** A Price List rule can only be defined using "Percent" pricing strategy.
 
 ### Rules precedence
 Rules are applied in following order
@@ -28,13 +28,13 @@ Rules are applied in following order
 
 ## Nosto's implementation
 Nosto maps each customer group id as a product variation ID
-for e.g. if the customer_group_id is `1`, then variation ID will be `1`.
+for e.g. if the customer_group_id is "1", then variation ID will be "1".
 In addition to Variation ID, a product variation has the following component,
 * price - The selling price of the product including the discount as per the discount rule.
 * list price - The actual price of the product excluding the discount.
-* availability - Current status of product availability. For e.g. `In Stock` or `Out of Stock`.
-* currency code - currency code of the product pricing rule. A rule can be defined in one currency but still be applied on different currency code. Consider, the product currency is `eur`, the customer is ordering using `usd` and the customer belongs to a customer group, 
-In the situation, promotion will be converted to `usd` but  customer will still be paying in `eur` during checkout.
+* availability - Current status of product availability. For e.g. In Stock or Out of Stock.
+* currency code - currency code of the product pricing rule. A rule can be defined in one currency but still be applied on different currency code. Consider, the product currency is "eur", the customer is ordering using "usd" and the customer belongs to a customer group, 
+In the situation, promotion will be converted to "usd" but  customer will still be paying in "eur" during checkout.
 
 The json format of a single product variation will look like,
 
@@ -67,18 +67,18 @@ An example of default variation data,
 ## Activating customer group pricing in Nosto
 
 ### Currency Settings
-In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the below steps:
+Please follow the below steps to enable product variation from Nosto Admin:
 
-1. Navigate to `Settings > Currency Settings` in Nosto admin, 
-2. Disable `Exchange rates` toggle (if it's enabled) 
-3. Configure `Variation ID`  (this is considered the default variation id). 
+1. Navigate to Settings > Currency Settings in Nosto admin, 
+2. Disable "Exchange rates" toggle (if it's enabled) 
+3. Configure "Variation ID" text field  (this is considered the default variation id). 
 
 If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
 ![](https://user-images.githubusercontent.com/82023195/154739514-8e5f078a-cf6d-45b1-b51b-dccc7a690396.png)
 
 ### Product Reindexing
-After completing the set up under `Currency Settings`, re-index the products by following the below steps:
+After completing the steps in previous section, re-index the products by following the below steps:
 1. Navigate to Catalog Explorer > Products page 
 2. Click "Update Catalog"
 
