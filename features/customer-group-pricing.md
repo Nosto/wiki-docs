@@ -67,9 +67,13 @@ An example of default variation data,
 ## Activating customer group pricing in Nosto
 
 ### Currency Settings
-In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
+In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the below steps:
 
-Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and configure `Variation ID` which is considered the default variation id. If we consider our example in the previous section and configure the currency settings, it will look as shown below,
+1. Navigate to `Settings > Currency Settings` in Nosto admin, 
+2. Disable `Exchange rates` toggle (if it's enabled) 
+3. Configure `Variation ID`  (this is considered the default variation id). 
+
+If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
 ![](https://user-images.githubusercontent.com/82023195/154739514-8e5f078a-cf6d-45b1-b51b-dccc7a690396.png)
 
