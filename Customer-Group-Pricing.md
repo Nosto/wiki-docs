@@ -16,7 +16,7 @@ Following are the pricing strategies that can be associated with pricing rules d
 * Percent pricing - Value defined will be the percentage value of the product list price. For e.g. if this value is 1, that means the product is offered at a 1% discount from the list price
 * Price pricing - Value defined will be directly discounted from the product list price. For e.g. if this value is 100, that means the product price will be 100 less than the list price
 
-**Note:** A Price List rule can only be defined using `Percent` pricing strategry.
+**Note:** A Price List rule can only be defined using `Percent` pricing strategy.
 
 ### Rules precedence
 Rules are applied in following order
@@ -26,9 +26,8 @@ Rules are applied in following order
 4. Store Rule, if available
 
 ## Nosto's implementation
-Nosto maps each customer group and it's currency as a product price variation with Variation ID takling the form
-> customer_group_id + '_' + currency_code
-for e.g. if the customer_group_id is `1` and currency code is `eur`, then variation ID will be `1_eur`.
+Nosto maps each customer group id as a product variation ID
+for e.g. if the customer_group_id is `1`, then variation ID will be `1`.
 In addition to Variation ID, a product variation has the following component,
 * price - The selling price of the product including the discount as per the discount rule.
 * list price - The actual price of the product excluding the discount.
@@ -40,7 +39,7 @@ The json format of a single product variation will look like,
 
 ```json
 {
-  variation_id: '1_eur',
+  variation_id: 'VAR_1',
   price: 360,
   list_price: 260, //This can be a discount rule with PRICE method with a value of 100
   availability: 'InStock',
@@ -49,22 +48,36 @@ The json format of a single product variation will look like,
 }
 ```
 
+In addition to the variations fetched, Nosto adds the default variation ID (as configured in "Nosto Admin"), where both price and list_price will have the same value. This is because Nosto requires all products to be associated with the default variation ID.
+
+An example of default variation data,
+
+```json
+{
+  variation_id: 'DEF_1',
+  price: 360,
+  list_price: 360, //There is no discount rule here. Product price is used as it is
+  availability: 'InStock',
+  price_text: '360',
+  price_currency_code: 'eur' //Merchant currency code
+}
+```
+
 ## Activating customer group pricing in Nosto
 
 ### Currency Settings
 In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
 
-Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter a default `Variation ID`. 
-If we consider our example in the previous section and configure the currency settings, it will look as shown below,
+Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and configure `Variation ID` which is considered the default variation id. If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
-![](https://user-images.githubusercontent.com/82023195/134679655-c9d68242-e595-4b2b-b217-6916360ef532.png)
+![](https://user-images.githubusercontent.com/82023195/154737808-5a86254f-88bd-4ddb-9fb7-0321eebbc163.png)
 
 ### Product Reindexing
-After completing the set up under `Currency Settings`, navigate to `Product Indexer` page using the following link
-> https://my.nosto.com/admin/{MERCHANT_NAME}/reindexer
-**Note:** Be sure to replace the {MERCHANT_NAME} above with the actual merchant name
+After completing the set up under `Currency Settings`, re-index the products by following the below steps:
+1. Navigate to Catalog Explorer > Products page 
+2. Click "Update Catalog"
 
-![](https://user-images.githubusercontent.com/82023195/134689417-f03cce32-2759-465c-b285-c943ee9b5575.png)
-
-In the above screen, do a `Request` and then `Flush All Products` which completes the reindexing process.
+![](https://user-images.githubusercontent.com/82023195/154738159-823129bd-2e07-4262-8817-a1300dfa4963.png)
+   
+Note: Re-indexing may take some time to complete, depending on the product count. 
 

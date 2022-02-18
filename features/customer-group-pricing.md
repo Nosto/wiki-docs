@@ -17,7 +17,7 @@ Following are the pricing strategies that can be associated with pricing rules d
 * Percent pricing - Value defined will be the percentage value of the product list price. For e.g. if this value is 1, that means the product is offered at a 1% discount from the list price
 * Price pricing - Value defined will be directly discounted from the product list price. For e.g. if this value is 100, that means the product price will be 100 less than the list price
 
-**Note:** A Price List rule can only be defined using `Percent` pricing strategry.
+**Note:** A Price List rule can only be defined using `Percent` pricing strategy.
 
 ### Rules precedence
 Rules are applied in following order
@@ -40,7 +40,7 @@ The json format of a single product variation will look like,
 
 ```json
 {
-  variation_id: '1',
+  variation_id: 'VAR_1',
   price: 360,
   list_price: 260, //This can be a discount rule with PRICE method with a value of 100
   availability: 'InStock',
@@ -49,12 +49,13 @@ The json format of a single product variation will look like,
 }
 ```
 
-In addition to the variations fetched, Nosto adds a default variation ID `0` where both price and list_price will have the same value.
-This is because Nosto requires all products to be associated with the default variation ID.
+In addition to the variations fetched, Nosto adds the default variation ID (as configured in "Nosto Admin"), where both price and list_price will have the same value. This is because Nosto requires all products to be associated with the default variation ID.
+
+An example of default variation data,
 
 ```json
 {
-  variation_id: '1',
+  variation_id: 'DEF_1',
   price: 360,
   list_price: 360, //There is no discount rule here. Product price is used as it is
   availability: 'InStock',
@@ -68,19 +69,15 @@ This is because Nosto requires all products to be associated with the default va
 ### Currency Settings
 In order to make use of the `Product Variation` approach, it needs to be enabled from Nosto admin. Please follow the steps outlined below,
 
-Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and enter `0` for `Variation ID`. 
-If we consider our example in the previous section and configure the currency settings, it will look as shown below,
+Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and configure `Variation ID` which is considered the default variation id. If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
-![](https://user-images.githubusercontent.com/82023195/135241593-7effaad4-f8d9-4c12-80d8-4b9de2aeadba.png)
+![](https://user-images.githubusercontent.com/82023195/154737808-5a86254f-88bd-4ddb-9fb7-0321eebbc163.png)
 
 ### Product Reindexing
-After completing the set up under `Currency Settings`, navigate to `Product Indexer` page using the following link
-> https://my.nosto.com/admin/{MERCHANT_NAME}/reindexer
-**Note:** Be sure to replace the {MERCHANT_NAME} above with the actual merchant name
+After completing the set up under `Currency Settings`, re-index the products by following the below steps:
+1. Navigate to Catalog Explorer > Products page 
+2. Click "Update Catalog"
 
-![](https://user-images.githubusercontent.com/82023195/134689417-f03cce32-2759-465c-b285-c943ee9b5575.png)
-
-In the above screen, do a `Request` and then `Flush All Products` which completes the reindexing process.
-
-Optionally, a `Settings > Platforms > Sync Products` can also be performed manually
-
+![](https://user-images.githubusercontent.com/82023195/154738159-823129bd-2e07-4262-8817-a1300dfa4963.png)
+   
+Note: Re-indexing may take some time to complete, depending on the product count. 
