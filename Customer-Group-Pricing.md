@@ -39,7 +39,7 @@ The json format of a single product variation will look like,
 
 ```json
 {
-  variation_id: 'VAR_1',
+  variation_id: '1_USD',
   price: 360,
   list_price: 260, //This can be a discount rule with PRICE method with a value of 100
   availability: 'InStock',
@@ -54,7 +54,7 @@ An example of default variation data,
 
 ```json
 {
-  variation_id: 'DEF_1',
+  variation_id: '1_EUR',
   price: 360,
   list_price: 360, //There is no discount rule here. Product price is used as it is
   availability: 'InStock',
@@ -70,7 +70,7 @@ In order to make use of the `Product Variation` approach, it needs to be enabled
 
 Navigate to `Settings > Currency Settings` in Nosto admin, disable `Exchange rates` toggle and configure `Variation ID` which is considered the default variation id. If we consider our example in the previous section and configure the currency settings, it will look as shown below,
 
-![](https://user-images.githubusercontent.com/82023195/154737808-5a86254f-88bd-4ddb-9fb7-0321eebbc163.png)
+![](https://user-images.githubusercontent.com/82023195/154739514-8e5f078a-cf6d-45b1-b51b-dccc7a690396.png)
 
 ### Product Reindexing
 After completing the set up under `Currency Settings`, re-index the products by following the below steps:
