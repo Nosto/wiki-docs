@@ -214,10 +214,37 @@ mutation {
   }
 }
 ```
+The pages query for home page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forFrontPage` request, as shown below:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PAGE
+        target: "https://example.com"
+      }
+    }
+  ) {
+    pages {
+      forFrontPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400, slotIds: ["frontpage-nosto-1"]
+      }) {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+Note: `slotIds` accepts an array of String parameters
 
 #### Fetching Recos
 
-The `forFrontPage` field will return the result of all the recommendations that are configured for the front page.
+The `forFrontPage` field will return the result of all the recommendations that are configured for the front page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
 ### On your Category pages
 
@@ -250,9 +277,37 @@ mutation {
 }
 ```
 
+The pages query for category page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forCategoryPage` request, as shown below:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_CATEGORY
+        target: "/Shorts"
+      }
+    }
+  ) {
+    pages {
+      forCategoryPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400, slotIds: ["categorypage-nosto-1"]
+      }) {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+Note: `slotIds` accepts an array of String parameters
+
 #### Fetching Recos
 
-The `forCategoryPage` field will return the result of all the recommendations that are configured for the front page.
+The `forCategoryPage` field will return the result of all the recommendations that are configured for the category page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
 ### On your Product pages
 
@@ -286,9 +341,37 @@ mutation {
 }
 ```
 
+The pages query for product page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forProductPage` request, as shown below:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "11923861519"
+        ref: "front-page-slot-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400, slotIds: ["productpage-nosto-2"]
+      }, product: "11923861519") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
 #### Fetching Recos
 
-The `forProductPage` field will return the result of all the recommendations that are configured for the product page.
+The `forProductPage` field will return the result of all the recommendations that are configured for the product page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
 ### On your search page
 
@@ -321,9 +404,36 @@ mutation {
 }
 ```
 
+The pages query for search page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forSearchPage` request, as shown below:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: SEARCHED_FOR
+        target: "black shoes"
+      }
+    }
+  ) {
+    pages {
+      forSearchPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400, slotIds: ["searchpage-nosto-3"]
+      }, term: "black shoes") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
 #### Fetching Recos
 
-The `forSearchPage` field will return the result of all the recommendations that are configured for the search page.
+The `forSearchPage` field will return the result of all the recommendations that are configured for the search page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
 ### On your cart/checkout page
 
@@ -356,9 +466,36 @@ mutation {
 }
 ```
 
+The pages query for cart page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forCartPage` request, as shown below:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PAGE
+        target: "https://example.com/cart"
+      }
+    }
+  ) {
+    pages {
+      forCartPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400, slotIds: ["cartpage-nosto-1"]
+      }, value: 100) {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
 #### Fetching Recos
 
-The `forCartPage` field will return the result of all the recommendations that are configured for the front page.
+The `forCartPage` field will return the result of all the recommendations that are configured for the front page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
 ### On the order page
 
@@ -397,8 +534,54 @@ mutation {
     id
     pages {
       forOrderPage(value: "25435", params: {
-        imageVersion: VERSION_3_90_70
+        imageVersion: VERSION_3_90_70,
         isPreview: true
+      }) {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
+The pages query for order page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forOrderPage` request, as shown below:
+
+```graphql
+mutation {
+  placeOrder(by:BY_CID, id: "514421fce84abcb61bd45241", params: {
+    customer: {
+      firstName: "Mridang"
+      lastName: "Agarwalla"
+      email: "mridang@nosto.com"
+      marketingPermission: false
+    }
+    order: {
+      number: "25435"
+      orderStatus: "paid"
+      paymentProvider: "klarna"
+      ref: "0010"
+      purchasedItems: [
+        {
+          name: "Shoe"
+          productId: "1"
+          skuId: "11"
+          priceCurrencyCode: "EUR"
+          unitPrice: 22.43
+          quantity: 1
+        }
+      ]
+    }
+  }) {
+    id
+    pages {
+      forOrderPage(value: "25435", params: {
+        imageVersion: VERSION_3_90_70,
+        isPreview: true,
+        slotIds: ["orderpage-test-1"]
       }) {
         divId
         resultId
@@ -413,4 +596,4 @@ mutation {
 
 #### Fetching Recos
 
-The `forOrderPage` field will return the result of all the recommendations that are configured for the order-confirmation page.
+The `forOrderPage` field will return the result of all the recommendations that are configured for the order-confirmation page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
