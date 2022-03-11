@@ -6,7 +6,7 @@ To start tracking visits and content the Nosto script needs to be active on all 
 <script type="text/javascript">
     (function(){var name="nostojs";window[name]=window[name]||function(cb){(window[name].q=window[name].q||[]).push(cb);};})();
 </script>
-<script src="//connect.nosto.com/include/$accountID" async></script>
+<script src="https://connect.nosto.com/include/$accountID" async></script>
 ```
 
 **Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialised as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
