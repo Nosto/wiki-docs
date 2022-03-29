@@ -16,7 +16,7 @@ You may need to make some theme changes to ensure the active price variation is 
 
 ![The active price variation EUR matches the selected currency.](../.gitbook/assets/image.png)
 
-If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](multi-currency-support.md#theme-changes).
+If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](../installing.md#theme-changes).
 
 If you prefer to manually edit your theme, you can to add the snippet below to the `nosto-tagging.liquid` file in your theme. You can read about how to edit your theme’s code in [Shopify’s help center](https://help.shopify.com/en/manual/using-themes/change-the-layout/theme-code).
 
