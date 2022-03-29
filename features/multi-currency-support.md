@@ -12,33 +12,28 @@ If you do not have access to the store's settings, you can navigate to the store
 
 ## Theme Changes
 
-You will first need to add the snippet below to the nosto-tagging.liquid file in your theme. You can read about how to edit your theme’s code in [Shopify’s help center](https://help.shopify.com/en/manual/using-themes/change-the-layout/theme-code).
+You may need to make some theme changes to ensure the active price variation is displayed in the debug toolbar. The debug toolbar can be activated by appending `nostodebug=true` to your store's URL.
+
+![The active price variation EUR matches the selected currency.](../.gitbook/assets/image.png)
+
+If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](multi-currency-support.md#theme-changes).
+
+If you prefer to manually edit your theme, you can to add the snippet below to the `nosto-tagging.liquid` file in your theme. You can read about how to edit your theme’s code in [Shopify’s help center](https://help.shopify.com/en/manual/using-themes/change-the-layout/theme-code).
 
 Please note that recommendations will not be visible after editing the theme until you complete the multi-currency setup.
 
 The snippet:
 
 ```
-<div data-gb-custom-block data-tag="if" data-0='1' data-1='1' data-2='1' data-3='1' data-4='1' data-5='1' data-6='1' data-7='1' data-8='1' data-9='1' data-10='1' data-11='1' data-12='1' data-13='1' data-14='1' data-15='1'>
-
-  
-
-<div data-gb-custom-block data-tag="for">
-
-    
-
-<div data-gb-custom-block data-tag="if">
-
-      <div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
-    
-
-</div>
-
-  
-
-</div>
-
-</div>
+{% raw %}
+{% if shop.enabled_currencies.size > 1 %}
+{% for currency in shop.enabled_currencies %}
+{% if currency == cart.currency %}
+<div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endraw %}
 ```
 
 ![Editing theme file in Shopify](https://user-images.githubusercontent.com/22770093/70220546-6f934880-174f-11ea-812d-94356e47ae36.png)
