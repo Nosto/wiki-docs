@@ -207,7 +207,7 @@ query {
     toplist(hours: 168, sort: BUYS, params: {
       minProducts: 1
       maxProducts: 10
-      includeFilters: {
+      include: {
         customFields: [
           {
             "attribute": "pattern"
