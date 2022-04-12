@@ -1,7 +1,7 @@
 # Customer Group Pricing (Multiple Product Variations)
 Nosto recently implemented support for **Customer Group Pricing** feature, described [here](https://support.bigcommerce.com/s/article/Customer-Groups?language=en_US#pricing). With customer groups, offering product discounts and promotions gets even more convenient and flexible. In following sections, we will discuss more about this feature and how it can be activated from Nosto admin page.
 
-> **Note:** In this initial release, nosto only supports discount rules for merchant default currency (say, EUR). When a product has no  discount rules matching the merchant default currency, then no recommendations will be served.
+> **Note:** In this initial release, nosto only supports discount rules for merchant default currency. When a product has no discount rules matching the merchant default currency, then no recommendations will be served.
 
 ## Customer groups
 A customer group is a set of rules for configuring product promotions or discounts using different pricing strategies as below:
@@ -17,14 +17,11 @@ Following are the pricing strategies that can be associated with pricing rules d
 * Percent pricing - Value defined will be the percentage value of the product list price. For e.g. if this value is 1, that means the product is offered at a 1% discount from the list price
 * Price pricing - Value defined will be directly discounted from the product list price. For e.g. if this value is 100, that means the product price will be 100 less than the list price
 
-**Note:** A Price List rule can only be defined using "Percent" pricing strategy.
-
 ### Rules precedence
-Rules are applied in following order
+When Price List rule is not enabled, the following order is applied for rules
 1. Product Rule, if available
-2. Price List Rule, if available
-3. Category Rule, if available
-4. Store Rule, if available
+2. Category Rule, if available
+3. Store Rule, if available
 
 ## Nosto's implementation
 Nosto maps each customer group id as a product variation ID
@@ -84,4 +81,9 @@ After completing the steps in previous section, re-index the products by followi
 
 ![](https://user-images.githubusercontent.com/82023195/154738159-823129bd-2e07-4262-8817-a1300dfa4963.png)
    
-Note: Re-indexing may take some time to complete, depending on the product count. 
+Note: Re-indexing may take some time to complete, depending on the product count.
+
+### Limitations
+
+ * Default customer group should be assigned for both registered customers and guests for the feature to work correctly 
+ * Currently Nosto generates product variant entries for each customer group even when category access is limited to few categories
