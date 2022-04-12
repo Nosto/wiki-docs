@@ -3,11 +3,6 @@ Nosto recently implemented support for **Customer Group Pricing** feature, descr
 
 > **Note:** In this initial release, nosto only supports discount rules for merchant default currency. When a product has no discount rules matching the merchant default currency, then no recommendations will be served.
 
-> **Note:** Default customer group should be assigned for both registered customers and guests 
-> for the feature to work correctly
-
-> **Note:** Currently Nosto generates product variant entries for each customer group even when category access is limited to few categories
-
 ## Customer groups
 A customer group is a set of rules for configuring product promotions or discounts using different pricing strategies as below:
 * Product Rule - This rule will define discount rules for each product
@@ -86,4 +81,9 @@ After completing the steps in previous section, re-index the products by followi
 
 ![](https://user-images.githubusercontent.com/82023195/154738159-823129bd-2e07-4262-8817-a1300dfa4963.png)
    
-Note: Re-indexing may take some time to complete, depending on the product count. 
+Note: Re-indexing may take some time to complete, depending on the product count.
+
+### Limitations
+
+ * Default customer group should be assigned for both registered customers and guests for the feature to work correctly 
+ * Currently Nosto generates product variant entries for each customer group even when category access is limited to few categories
