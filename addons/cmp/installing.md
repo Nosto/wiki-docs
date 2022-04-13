@@ -1,5 +1,15 @@
 # Installing
 
+## Compatibility matrix for 3rd party apps <a href="#compatibility-matrix-for-third-party-apps" id="compatibility-matrix-for-third-party-apps"></a>
+
+Magento is compaible with Elasti Search/Suite. We do not support MySQL as a search engine:
+
+| Magento Apps   | Compatibility  |
+|----------------|--------------- |
+| Elastic Search | Compatible     |
+| Elastic Suite  | Compatible     |
+| MySQL          | Not compatible |
+
 ## PHP Requirements
 
 The Nosto Magento 2 module requires at least PHP version &gt;= 7.0.0 and Nosto's Magento 2 module &gt;= 4.0.0
