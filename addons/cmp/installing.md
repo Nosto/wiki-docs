@@ -1,8 +1,8 @@
 # Installing
 
-## Compatibility matrix for 3rd party apps <a href="#compatibility-matrix-for-third-party-apps" id="compatibility-matrix-for-third-party-apps"></a>
+## Compatibility with Magento apps (search engines) <a href="#compatibility-for-magento-apps" id="compatibility-for-magento-apps"></a>
 
-Magento is compaible with Elasti Search/Suite. We do not support MySQL as a search engine:
+Magento is compatible with Elastic Search/Suite. We do not support MySQL as a search engine:
 
 | Magento Apps   | Compatibility  |
 |----------------|--------------- |
