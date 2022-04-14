@@ -7,7 +7,7 @@ Magento is compatible with Elastic Search/Suite. We do not support MySQL as a se
 | Magento Apps   | Compatibility  |
 |----------------|--------------- |
 | Elastic Search | Compatible     |
-| Elastic Suite  | Compatible     |
+| Elastic Suite  | Not compatible |
 | MySQL          | Not compatible |
 
 ## PHP Requirements
