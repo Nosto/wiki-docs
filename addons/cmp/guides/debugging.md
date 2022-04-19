@@ -22,7 +22,7 @@ If CMP is not working on Magento 2 while being enabled and configured, there are
 
 ## How to debug on the backend (server) <a href="#how-to-debug-on-backend" id="how-to-debug-on-backend"></a>?
 
-1. Enable debug logging in Magento 2 (https://devdocs.magento.com/guides/v2.4/config-guide/cli/logging.html).
+1. Enable debug logging in Magento 2 ([https://devdocs.magento.com/guides/v2.4/config-guide/cli/logging.html](https://devdocs.magento.com/guides/v2.4/config-guide/cli/logging.html)).
 
 2. Visit category pages where Nosto CMP sequence is configured.
 
