@@ -124,5 +124,5 @@ SKUs which are tagged within the configurable product.
 
 By default, disabled products will not be tagged by Nosto or will end up as `Discontinued` if disabled after being tagged.
 Starting from version `5.4.0` there is also a possibility to send disabled product data to Nosto via API.
-It can be enabled from Magento's Nosto settings (Stores > Configuration > Services > Nosto > Feature Flags > Index disabled products).‌
-When enabled it will tag disabled products as `Invisible`.
+The option can be enabled from Magento's Nosto settings (Stores > Configuration > Services > Nosto > Feature Flags > Index disabled products).‌
+With the option enabled Nosto will tag disabled products as `Invisible`.
