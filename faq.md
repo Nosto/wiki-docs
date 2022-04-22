@@ -117,9 +117,12 @@ You can setup placeholder images from Magento 2 admin under "Store > Configurati
 
 ## Difference between 'Discontinued' and 'Invisible' products
 
-A product's availability will be tagged as `Invisible` if its Visibility set to `Not visible individually` on Magento.
+A product's availability will be tagged as `Invisible` if its Visibility is set to `Not visible individually` on Magento. That does not include
+SKUs which are tagged within the configurable product.
+
 `Discontinued` products are products that no longer exist or cannot be tagged (e.g. if disabled).
 
-Starting from version 5.4.0 there is also a possibility to send disabled product data to Nosto via API.
+By default, disabled products will not be tagged by Nosto or will end up as `Discontinued` if disabled after being tagged.
+Starting from version `5.4.0` there is also a possibility to send disabled product data to Nosto via API.
 It can be enabled from Magento's Nosto settings (Stores > Configuration > Services > Nosto > Feature Flags > Index disabled products).‌
-When enabled it will tag disabled products as `Invisible`, otherwise disabled products will not end up in Nosto CEX or will end up as `Discontinued` if disabled after being tagged.
+When enabled it will tag disabled products as `Invisible`.
