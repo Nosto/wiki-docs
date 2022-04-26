@@ -1,3 +1,8 @@
+# !! THIS PROJECT HAS BEEN ARCHIVED !!
+
+Nosto has decided to discontinue the development for their Magento 1 extension. There are no more upstream security fixes and it is recommended to upgrade to Magento 2. Nosto have already supported it to past its end of life. <br>
+This extension will continue to work as is however, no more development will be done.
+
 # Personalization for Magento
 
 Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
