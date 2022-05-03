@@ -15,13 +15,12 @@ This documentation explains the process of setting up **Nosto - Dynamic Bundles*
 
 ### Nosto Dynamic Bundle template
 
-A new Nosto JavaScript API **addBundleToCartWithDiscount** has been introduced.
-
-In order to use this new API, invoke the API from the dynamic bundle template with the following parameters,
+Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the selected bundle to the cart with the following parameters:
 
 1. Products selected in the bundle while adding to cart (_items parameter_)
 2. Discount (type & value) configuration (_discount parameter_)
 3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
+4. A hash value that is provided with the template out of the box (_hash parameter_)
 
 (a) An example where all the products from a bundle are added to cart.
 
@@ -38,12 +37,12 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
         type: 'percent',
         value: 10
     },
-    bundleProducts: [ '123456789', '987654321' ]
+    bundleProducts: [ '123456789', '987654321' ],
+    hash: "$hash"
 }, this)
 ```
 
-in the above example, the configured discount value applies to all the products in the bundle.\
-
+in the above example, the configured discount value applies to all the products in the bundle.
 
 Assume for example,
 
@@ -52,10 +51,13 @@ Assume for example,
 |  123456789 |  126$ |
 |  987654321 |  100$ |
 
-**discount type** - percent\
+**discount type** - percent
 **discount value** - 10
 
-_the final price the customer pays is, (126 \* 0.1) + (100 \* 0.1) => 113.4 + 90 => 203.4_
+_the final price customer pays: (126 \* 0.1) + (100 \* 0.1) => 113.4 + 90 => 203.4_
+
+**Note**
+Discount is applicable only when a bundle is added to the cart. Not applicable when products of a bundle are added individually.
 
 (b) An example where NOT all the products from a bundle are added to cart.
 
@@ -69,7 +71,8 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
         type: 'percent',
         value: 10
     },
-    bundleProducts: [ '123456789', '987654321' ]
+    bundleProducts: [ '123456789', '987654321' ],
+    hash: "$hash"
 }, this)
 ```
 
@@ -79,7 +82,7 @@ _In the above example, no discount is offered and the customer pays the actual p
 
 Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
 
-1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) to install and setup Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
+1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
 2. Copy the authentication logic (entire code) from [here](https://github.com/ripenecommerce/shopify-ruby-sha256/blob/main/sha265.rb) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. Copy the shopify bundle discount line item script from [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/examples/line-item-scripts#bundle-discount) and add it below the authentication logic.
 4. The authentication logic has a SECRET\_KEY variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
