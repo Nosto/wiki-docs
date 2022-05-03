@@ -56,7 +56,7 @@ Assume for example,
 
 _the final price customer pays: (126 \* 0.1) + (100 \* 0.1) => 113.4 + 90 => 203.4_
 
-**Note**
+**Note:**\
 Discount is applicable only when a bundle is added to the cart. Not applicable when products of a bundle are added individually.
 
 (b) An example where NOT all the products from a bundle are added to cart.
