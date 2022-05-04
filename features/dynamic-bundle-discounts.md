@@ -22,16 +22,24 @@ Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the sele
 3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
 4. A hash value that is provided with the template out of the box (_hash parameter_)
 
+Expanding _items parameter_, it should contain the following fields:
+
+1. `productId` - Product ID of the variant selected in the bundle
+2. `variantId` - ID of the selected variant in the bundle
+
+**Note:**\
+At present, Nosto supports only 1 quantity of each product in a bundle. So, quantity of selected product/variant defaults to 1
+
 (a) An example where all the products from a bundle are added to cart.
 
 ```javascript
 _targetWindow.Nosto.addBundleToCartWithDiscount({
     items: [{
         productId: '123456789',
-        quantity: 1
+        variantId: '4123456098'
     }, {
         productId: '987654321',
-        quantity: 1
+        variantId: '4897122347'
     }],
     discount: {
         type: 'percent',
@@ -46,10 +54,10 @@ in the above example, the configured discount value applies to all the products 
 
 Assume for example,
 
-| Product ID | Price |
-| :--------: | :---: |
-|  123456789 |  126$ |
-|  987654321 |  100$ |
+| Product ID | Variant ID | Price |
+| :--------: | :---: | :---: |
+|  123456789 | 4123456098 | 126$ |
+|  987654321 | 4897122347 | 100$ |
 
 **discount type** - percent
 **discount value** - 10
@@ -65,7 +73,7 @@ Discount is applicable only when a bundle is added to the cart. Not applicable w
 _targetWindow.Nosto.addBundleToCartWithDiscount({
     items: [{
         productId: '123456789',
-        quantity: 1
+        variantId: '4123456098'
     }],
     discount: {
         type: 'percent',
