@@ -112,7 +112,7 @@ Please follow the steps below for setting up the line item script for handling t
 
 Nosto implementation uses a private property field for sharing discount information with Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
 
-**ADD IMAGE**
+**ADD IMAGE - Remove this** 
 
 In such a case, make the following changes to the template liquid file that displays the cart information (usually cart.liquid or cart-template.liquid).
 
