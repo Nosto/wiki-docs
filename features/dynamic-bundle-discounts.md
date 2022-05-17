@@ -28,9 +28,6 @@ Expanding _items parameter_, it should contain the following fields:
 2. `variantId` - ID of the selected variant in the bundle
 3. `quantity` - An optional field indicating product quantity offered in bundle. Defaults to 1. For bundles with only one quantity, this field can be omitted
 
-**Note:**\
-At present, Nosto supports only 1 quantity of each product in a bundle. So, quantity of selected product/variant defaults to 1
-
 (a) An example where all the products from a bundle are added to cart.
 
 ```javascript
@@ -64,7 +61,7 @@ Assume for example,
 
 **discount type** - percent **discount value** - 10
 
-_the final price customer pays: (126 \* 0.1) + (100 \* 0.1) => 113.4 + 90 => 203.4_
+_the final price customer pays: (126 \* 3 \* 0.1) + (100 \* 1 \* 0.1) => 340.2 + 90 => 430.2_
 
 **Note:**\
 Discount is applicable only when a bundle is added to the cart. Not applicable when products of a bundle are added individually.
