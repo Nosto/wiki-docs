@@ -26,6 +26,7 @@ Expanding _items parameter_, it should contain the following fields:
 
 1. `productId` - Product ID of the variant selected in the bundle
 2. `variantId` - ID of the selected variant in the bundle
+3. `quantity` - An optional field indicating product quantity offered in bundle. Defaults to 1. For bundles with only one quantity, this field can be omitted 
 
 **Note:**\
 At present, Nosto supports only 1 quantity of each product in a bundle. So, quantity of selected product/variant defaults to 1
@@ -36,10 +37,12 @@ At present, Nosto supports only 1 quantity of each product in a bundle. So, quan
 _targetWindow.Nosto.addBundleToCartWithDiscount({
     items: [{
         productId: '123456789',
-        variantId: '4123456098'
+        variantId: '4123456098',
+        quantity: 3
     }, {
         productId: '987654321',
-        variantId: '4897122347'
+        variantId: '4897122347',
+        quantity: 1
     }],
     discount: {
         type: 'percent',
@@ -84,14 +87,14 @@ _targetWindow.Nosto.addBundleToCartWithDiscount({
 }, this)
 ```
 
-_In the above example, no discount is offered and the customer pays the actual price of the selected product_
+_In the above example, quantity defaults to 1 and no discount is offered and the customer pays the actual price of the selected product_
 
 ### Shopify Line Item script
 
 Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
 
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
-2. Copy the code from [here](https://github.com/Nosto/wiki-docs/files/8610779/line_item_script.txt) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
+2. Copy the code from [here](https://github.com/Nosto/wiki-docs/files/8706014/line_item_script.txt) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
 4. The code includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
       - Uncomment from `Input.cart.line_times` till `end`
@@ -112,7 +115,7 @@ Please follow the steps below for setting up the line item script for handling t
 
 Nosto implementation uses a private property field for sharing discount information with Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
 
-**ADD IMAGE**
+![Properties Exposed](https://user-images.githubusercontent.com/82023195/168611801-666c24bc-c7f9-4edd-bdf5-2be32798391c.png)
 
 In such a case, make the following changes to the template liquid file that displays the cart information (usually cart.liquid or cart-template.liquid).
 
