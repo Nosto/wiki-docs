@@ -34,6 +34,7 @@ Nosto supports following pre-defined event types
 | Source (SRC) | An event associated with a customer action which needs to be attributed to one of Nosto's feature (api, email, rec, imgrec, cmp). Here the information is usually passed through a pre-configured source parameters name (`nosto_source`, by default) in `ev1` request URL |
 | Cart Popup Recommendations (CPR) | An event associated with a recommendation, that's shown when a product is added to cart, in which a customer has acted upon |
 | Page Load (PL) | An event associated with a page load merchant's website |
+| Content Campaign (CON) | Event triggered when a customer performs an action inside a content campaign |
 
 ### Examples
 
@@ -84,5 +85,19 @@ In the above example,
 - `7513872007393` specifies the reference source and it corresponds to the ID of the product displayed in current page (PDP), that contained the `ref` element, (`productpage-nosto-3`)
 
 Here we are recording a `View Product` event for product 7513863258337 which was clicked from the recommendation slot `productpage-nosto-3` while on another product page `7513872007393`
+
+4. Attributing a click inside a content campaign to a `con`  (Content Campaign) event
+
+```javascript
+nostojs(function(api) {
+  api
+  .defaultSession()
+  .recordAttribution("con", "6ef452da787623f2")
+  .done()
+});
+```
+In the above example,
+- `con` specifies the type of event and it corresponds to Content Campaign
+- `6ef452da787623f2` specifies the target and it corresponds to the ID of the content campaign inside which a customer performs an action
 
 In similar way, we will be able to record attribution for all the event types listed under `Event Types` section of this documentation.
