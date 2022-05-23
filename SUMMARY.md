@@ -21,6 +21,7 @@
   * [Shopify Flow](features/shopify-flow.md)
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
   * [Online Store 2.0](features/online-store-2.md)
+  * [Shopify Sections](features/shopify-sections.md)
   * [Dynamic Bundle Discounts](features/dynamic-bundle-discounts.md)
   * [Customer Reference](features/customer-reference.md)
 * [Integrations](integrations/README.md)
