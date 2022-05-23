@@ -36,7 +36,7 @@ You can find the placements on the theme editor under the name of `Nosto placeme
 ## Add new placements
 
 You can add more placements to your theme based on the section. 
-In case you are adding though the code editor, you need to pass the placement id under the settings object with key `placement`.
+In case you are adding through the code editor, you need to pass the placement id under the settings object with key `placement`.
 
 ```json
     "productpage-nosto-1": {
