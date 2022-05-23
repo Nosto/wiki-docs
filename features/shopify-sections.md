@@ -8,16 +8,17 @@
 
 
 ## Introduction
+
+{% hint style="info" %}This feature is currently in beta mode. Please reach out to our support if you want to use it{% endhint %}
+
 Nosto supports Shopify sections. You can add new placements through sections
 or drag-and-drop existing ones.
 
-
-```
-Warning!
+{% hint style="info" %}
 Our implementation for sections is limited only to Shopify Online 
 Store 2.0. This is based on Shopify architecture.
-```
 [Read more](https://shopify.dev/themes/architecture/sections/section-schema#access-section-settings)
+{% endhint %}
 
 ## How it works
 
