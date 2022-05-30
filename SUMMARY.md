@@ -4,6 +4,7 @@
 * [Installing](installing.md)
 * [Uninstalling](uninstalling.md)
 * [Guides](guides/README.md)
+  * [Quicker recommendation loading](guides/quicker-recommendation-loading.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)
   * [Adding/Moving Recommendations](guides/adding-removing-or-moving-recommendations.md)
   * [Customizing Product Metadata](guides/customising-product-metadata.md)
