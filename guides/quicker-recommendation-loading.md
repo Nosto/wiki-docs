@@ -1,4 +1,4 @@
-# Setup recommendation
+# Quicker recommendation loading
 This documentation walks you through the steps for setting up `nostojs` client script on your theme for avoiding delays in loading recommendations
 
 ## Approach
