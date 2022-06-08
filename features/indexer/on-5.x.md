@@ -39,28 +39,30 @@ There are a few steps to be taken before enabling parallelisation:
 ```text
 bin/magento indexer:show-dimensions-mode
 Product Price:                                     none
-Nosto Product Index Data :                         none
-Nosto Product Data Invalidator:                    none
+Nosto Product Queue :                              none
+Nosto Product Queue Processor:                     none
 ```
 
 #### Set the indexer mode for **both** to `store`
 
-```text
-bin/magento indexer:set-dimensions-mode nosto_index_product_data store
-Dimensions mode for indexer "Nosto Product Index Data " was changed from 'none' to 'store'
+```bash
+bin/magento indexer:set-dimensions-mode nosto_index_product_queue store
 ```
+> Dimensions mode for indexer "Nosto Product Queue" was changed from 'none' to 'store'
 
-```text
-bin/magento indexer:set-dimensions-mode nosto_index_product_invalidate store
-Dimensions mode for indexer "Nosto Product Data Invalidator" was changed from 'none' to 'store'
+```bash
+bin/magento indexer:set-dimensions-mode nosto_index_product_queue_processor store
 ```
+> Dimensions mode for indexer "Nosto Product Queue Processor" was changed from 'none' to 'store'
+
 
 Make sure that the number of threads declared in the env variable `MAGE_INDEXER_THREADS_COUNT` is equal to the max number of stores.
 
 For testing purposes, it can be declared in the CLI, like:
 
-```text
-MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_product_data
+```bash
+MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_product_queue
+MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex nosto_index_product_queue_processor
 ```
 
 Nosto module uses [Magento's Bulk Operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html) and [Message Queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html) for rebuilding the product data, populating the product cache and synchronising the product data to Nosto over API. By default the message queues are backed by MySQL but Magento also supports [using RabbitMQ](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/install-rabbitmq.html) for message queues.
