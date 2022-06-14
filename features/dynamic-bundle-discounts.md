@@ -5,7 +5,8 @@
   * [Setup](dynamic-bundle-discounts.md#setup)
     * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
     * [Shopify Line Item script](dynamic-bundle-discounts.md#shopify-line-item-script)
-    * [Known Issues](dynamic-bundle-discounts.md#known-issues)
+  * [Important Note](dynamic-bundle-discounts.md#important-note)
+  * [Known Issues](dynamic-bundle-discounts.md#known-issues)
 
 ## Introduction
 
@@ -14,6 +15,20 @@ This documentation explains the process of setting up **Nosto - Dynamic Bundles*
 ## Setup
 
 ### Nosto Dynamic Bundle template
+
+Nosto bundle templates needs the following mandatory variables (name intact) to be configured for proper functioning:
+1. discount type - Defines the type of discount offered (percent/dollar)
+2. discount value - Defines the amount/percent of discount offered on products
+3. secured - Enable (true)/Disable (false) `hash` based authentication for bundle discounts. 
+4. discountCurrentProduct - Defines whether the currently displayed product in PDP to be included & discounted when an associated bundle is added to cart. This flag is useful when bundles are displayed along with product details as depicted in image below:
+
+![PDP with Dynamic Bundle](https://user-images.githubusercontent.com/82023195/173544975-2b80f502-fe2c-41d8-b388-11ce8f951db2.png)
+
+In additional to these mandatory variables, any number of additional custom variables can be created and configured. A sample bundle template variable configuration is shown below
+
+![Dynamic Bundle template variables](https://user-images.githubusercontent.com/82023195/173543873-dcbc9224-3410-4e52-8d72-4f60067fbcfa.png)
+
+In the above sample configuration, all the mandatory fields are highlighed and the "ATC button text" and "subtitle" are custom variables
 
 Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the selected bundle to the cart with the following parameters:
 
@@ -107,7 +122,12 @@ Please follow the steps below for setting up the line item script for handling t
 \#end\
 \# ================================================================
 
-### Known Issues
+## Important Note
+Nosto Dynamic Bundle configuration involves two important keys, hash and secret key. Hash key is used within the bundle template and can be accessed using predefined variation `$hash`. Please avoid hard-coding this value anywhere inside the template. As dynamic bundle configurations are subjected to change, the hash key will also change accordingly. Hard-coding this key may break the functionality.
+
+Secret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
+
+## Known Issues
 
 Nosto implementation uses a private property field for sharing discount information with Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
 
