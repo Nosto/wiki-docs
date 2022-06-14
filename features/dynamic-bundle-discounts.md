@@ -19,7 +19,7 @@ This documentation explains the process of setting up **Nosto - Dynamic Bundles*
 Nosto bundle templates needs the following mandatory variables (name intact) to be configured for proper functioning:
 1. discount type - Defines the type of discount offered (percent/dollar)
 2. discount value - Defines the amount/percent of discount offered on products
-3. secured - A flag that can be used to specify if the merchant willing to use `hash` based authentication for bundle discounts
+3. secured - Enable (true)/Disable (false) `hash` based authentication for bundle discounts. 
 4. discountCurrentProduct - Defines whether the currently displayed product in PDP to be included & discounted when an associated bundle is added to cart. This flag is useful when bundles are displayed along with product details as depicted in image below:
 
 ![PDP with Dynamic Bundle](https://user-images.githubusercontent.com/82023195/173544975-2b80f502-fe2c-41d8-b388-11ce8f951db2.png)
@@ -125,7 +125,7 @@ Please follow the steps below for setting up the line item script for handling t
 ## Important Note
 Nosto Dynamic Bundle configuration involves two important keys, hash and secret key. Hash key is used within the bundle template and can be accessed using predefined variation `$hash`. Please avoid hard-coding this value anywhere inside the template. As dynamic bundle configurations are subjected to change, the hash key will also change accordingly. Hard-coding this key may break the functionality.
 
-Seret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value should be shared with merchants which then gets included in the Shopify line item script replacing the GET\_FROM\_NOSTO placeholder
+Seret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
 
 ## Known Issues
 
