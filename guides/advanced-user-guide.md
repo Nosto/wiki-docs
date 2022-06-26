@@ -69,3 +69,5 @@ If your site always shows an order-confirmation page, you may disable our order-
 
 → For more information [Contact our support](mailto:support@nosto.com)
 
+## Currencies Settings
+In versions > 6.1.0 of the module, the sending of currencies has been moved to a cronjob that will run everyday at 1am or whenever the Nosto account is connected.
