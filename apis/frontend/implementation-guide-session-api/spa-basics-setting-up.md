@@ -5,7 +5,7 @@
 You must use a valid domain for your website. If you are creating a test account and running your store locally, you must use valid TLD as using `localhost` is not supported.
 
 {% hint style="warning" %}
-You cannot use the following domains as they are reserved by the IANA. 
+You cannot use the following domains as they are reserved by the IANA.&#x20;
 
 * `.test`
 * `.example`
@@ -25,19 +25,18 @@ While Nosto crawls sites to replicate the product catalog, it is unable to do so
 
 To start tracking visits and content the Nosto script needs to be active on all pages within the store. Replace the account-id in the snippet below with your own account-id and place the code within the `<head>` section of your DOM. You can find your account-id from the admin.
 
-The JS comprises of three parts - the first is the default Nosto snippet, the second is the "stub" \(which allows API usage prior to the script being loaded\), and last is the "autoload" configuration \(which prevents Nosto from automatically initiating once loaded.\)
+The JS comprises of three parts - the first is the "stub" (which allows API usage prior to the script being loaded), the second is the "autoload" configuration (which prevents Nosto from automatically initiating once loaded.) and finally the Nosto script is loaded.
 
 ```markup
-<script src="//connect.nosto.com/include/$accountID" async></script>
 <script type="text/javascript">
   (() => {window.nostojs=window.nostojs||(cb => {(window.nostojs.q=window.nostojs.q||[]).push(cb);});})();
 </script>
 <script type="text/javascript">
   nostojs(api => api.setAutoLoad(false));
 </script>
+<script src="//connect.nosto.com/include/$accountID" async></script>
 ```
 
 **Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialised as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
 
 **Note:** This needs to exist on every page.
-
