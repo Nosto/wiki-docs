@@ -48,7 +48,13 @@ nostojs(api => {
 });
 ```
 
-**Note:** You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your product’s categories are.
+{% hint style="info" %}
+You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your product’s categories are.
+{% endhint %}
+
+{% hint style="info" %}
+On Shopify, the category name should be used, so in the snippet above, use simply "Dresses" instead of the fully qualified name.
+{% endhint %}
 
 ## Tagging the categories
 
@@ -94,7 +100,7 @@ On all thank-you and order-confirmation views, the order confirmation metadata _
 
 The order confirmation metadata is used for sending personalised order-followup emails, personalise the recommendations e.g. order-related, for segmentation insights and conversion statistics.
 
-**Important** Even if you would not display any recommendations in your order-confirmation view you must still set placements \(`.setPlacements(...)`\) and load \(`.load()`\) the results. Setting the order works in a similar manner than [cart](spa-basics-managing-sessions.md#setting-the-cart) and [customer](spa-basics-managing-sessions.md#setting-the-customer) and an [action](session-api-terminology.md#action) must be performed for the data to be sent to Nosto.
+**Important** Even if you would not display any recommendations in your order-confirmation view you must still set placements (`.setPlacements(...)`) and load (`.load()`) the results. Setting the order works in a similar manner than [cart](spa-basics-managing-sessions.md#setting-the-cart) and [customer](spa-basics-managing-sessions.md#setting-the-customer) and an [action](session-api-terminology.md#action) must be performed for the data to be sent to Nosto.
 
 ```javascript
 nostojs(api => {
@@ -129,7 +135,7 @@ nostojs(api => {
 });
 ```
 
-## Upon viewing a page that was not found \(404\)
+## Upon viewing a page that was not found (404)
 
 When viewing a page / view that was not found, there's no context to be provided, so invoking the `viewNotFound` will suffice.
 
@@ -145,8 +151,8 @@ nostojs(api => {
 });
 ```
 
-p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: \#000000; color: rgba\(0, 0, 0, 0.5\)}  
-p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: \#000000; color: rgba\(0, 0, 0, 0.5\); min-height: 13.0px}
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: #000000; color: rgba(0, 0, 0, 0.5)}\
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Menlo; color: #000000; color: rgba(0, 0, 0, 0.5); min-height: 13.0px}
 
 ## Upon viewing a general page
 
@@ -163,4 +169,3 @@ nostojs(api => {
     })
 });
 ```
-
