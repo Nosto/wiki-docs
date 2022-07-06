@@ -4,7 +4,7 @@ In order to install the app, use our [Shopify App](https://apps.shopify.com/nost
 
 Once you've installed the app, follow the on-screen instructions to help you get set up.
 
-![](<.gitbook/assets/image (5).png>)
+![](<.gitbook/assets/image (3).png>)
 
 ### Theme Changes
 
@@ -12,10 +12,10 @@ The first time the Nosto app is installed, it adds [tagging](https://docs.nosto.
 
 Navigate to the Nosto app in the Apps section of Shopify admin.
 
-![](<.gitbook/assets/image (1) (1) (2).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1).png>)
 
 Go to the Settings tab and the scroll down to the bottom of the page. There you will see buttons to add Nosto to one of your installed themes. You can simply click the **Install Nosto to Theme** button beside your theme to update it.
 
 Please note that this operation is performed in the background, so may take a minute or so to complete.
 
-![](<.gitbook/assets/image (2) (1) (2).png>)
+![](<.gitbook/assets/image (2) (1) (1) (1).png>)
