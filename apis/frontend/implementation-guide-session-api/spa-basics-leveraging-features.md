@@ -20,8 +20,8 @@ When a recommended product is viewed, the `result_id` from the recommendation re
 ```json
 {
     "recommendations": {
-        "nosto-frontpage-1": {
-            "result_id": "nosto-frontpage-1-fallback",
+        "nosto-frontpage-1": { // requested placement id
+            "result_id": "nosto-frontpage-1-fallback", // slot id that served the recommendations
             "products": [{
                 "url": "https://example.com/products/product1",
                 "product_id": "product1"
@@ -31,7 +31,7 @@ When a recommended product is viewed, the `result_id` from the recommendation re
             }],
             "result_type": "REAL",
             "title": "Most Popular Right Now",
-            "div_id": "nosto-frontpage-1"
+            "div_id": "nosto-frontpage-1" // requested placement id
     }
 }
 ```
@@ -41,9 +41,9 @@ The snippet of code below attributes `product1` to the result id `nosto-frontpag
 ```javascript
 nostojs(api => {
   api.defaultSession()
-   .viewProduct('product1')
-   .setRef('product1', 'nosto-frontpage-1-fallback')
-   .setPlacements(['nosto-productpage-1'])
+   .viewProduct('product1') // id of product currently being viewed
+   .setRef('product1', 'nosto-frontpage-1-fallback') // id of product and slot that resulted in the product view
+   .setPlacements(['nosto-productpage-1']) // placements to request content for on the product page
    .load()
    .then(data => console.log(data))
  })
