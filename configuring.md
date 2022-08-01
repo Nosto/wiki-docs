@@ -60,6 +60,9 @@ Set this to `Yes` if you want to send the date a product has been added to Magen
 
 ![image](https://user-images.githubusercontent.com/2778820/44519745-9bafc500-a6d6-11e8-91a0-5726b3601280.png)
 
+If the attribute is not a system attribute (user defined attribute) and is either set to be "Visible on Catalog Pages on Storefront" or "Used in Layered Navigation" it will be added to the list of custom fields. 
+If the attribute does not meet the above-mentioned conditions, it can still be tagged by adding it to either of the three `Attributes to tags` columns (See [Attributes To Tags](https://docs.nosto.com/magento-2/configuring#attributes-to-tags) section for more information).
+
 This option comes enabled by default. In case the merchant wants to completely hide, including from the page source code, he can disable using this feature flag.
 
 ## Attributes To Tags
