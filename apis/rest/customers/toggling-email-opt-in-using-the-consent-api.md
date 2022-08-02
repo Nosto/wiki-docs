@@ -13,14 +13,14 @@ This endpoint requires an Email token.
 ### Granting consent
 
 ```text
-curl -v -X POST https://api.nosto.com/v1/customers/consent/john.doe@nosto.com/true \
+curl -v -X POST https://api.nosto.com/api/v1/customers/consent/john.doe@nosto.com/true \
 --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
 ```
 
 ### Revoking consent
 
 ```text
-curl -v -X POST https://api.nosto.com/v1/customers/consent/john.doe@nosto.com/false \
+curl -v -X POST https://api.nosto.com/api/v1/customers/consent/john.doe@nosto.com/false \
 --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
 ```
 
