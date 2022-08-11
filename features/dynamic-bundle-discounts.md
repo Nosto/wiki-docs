@@ -105,7 +105,7 @@ _In the above example, quantity defaults to 1 and no discount is offered and the
 Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
 
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
-2. Copy the code from here and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
+2. Copy the code from [here](#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
 4. The code includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
    * Uncomment from `Input.cart.line_times` till `end`
