@@ -35,7 +35,7 @@ Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the sele
 1. Products selected in the bundle while adding to cart (_items parameter_)
 2. Discount (type & value) configuration (_discount parameter_)
 3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
-4. A hash value that is provided with the template out of the box (_hash parameter_)
+4. A hash value that is provided with the template out of the box (_hash parameter_). This hash value will later be used in conjuction with the secret key obtained from Nosto in order to authenticate the request for bundle discount. 
 
 Expanding _items parameter_, it should contain the following fields:
 
