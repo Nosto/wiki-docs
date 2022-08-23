@@ -70,6 +70,7 @@
     * [Handling Placements](apis/frontend/implementation-guide-session-api/handling-placements.md)
     * [Tracking Events](apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md)
     * [Leveraging Features](apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md)
+    * [Record Attribution](apis/frontend/implementation-guide-session-api/record-attributions.md)
     * [Advanced Usage](apis/frontend/implementation-guide-session-api/advanced-usage/README.md)
       * [Supporting opt-out and do-not-track](apis/frontend/implementation-guide-session-api/advanced-usage/spa-out-out-of-session-tracking.md)
       * [Using external session identifiers](apis/frontend/implementation-guide-session-api/advanced-usage/spa-customising-session-handling.md)
@@ -94,7 +95,6 @@
     * [Sending email addresses to Nosto](apis/js-apis/common-examples/sending-email-addresses-to-nosto.md)
     * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)
     * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
-    * [Record Attribution](apis/js-apis/common-examples/record-attributions.md)
 
 ## 3rd party data integrations
 
