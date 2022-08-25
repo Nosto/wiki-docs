@@ -1,12 +1,14 @@
 # Dynamic Bundle Discounts
 
-* [Dynamic Bundle discounts](dynamic-bundle-discounts.md#dynamic-bundle-discounts)
-  * [Introduction](dynamic-bundle-discounts.md#introduction)
-  * [Setup](dynamic-bundle-discounts.md#setup)
-    * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
-    * [Shopify Line Item script](dynamic-bundle-discounts.md#shopify-line-item-script)
-  * [Important Note](dynamic-bundle-discounts.md#important-note)
-  * [Known Issues](dynamic-bundle-discounts.md#known-issues)
+- [Dynamic Bundle Discounts](#dynamic-bundle-discounts)
+  - [Introduction](#introduction)
+  - [Setup](#setup)
+    - [Nosto Dynamic Bundle template](#nosto-dynamic-bundle-template)
+    - [Shopify Line Item script](#shopify-line-item-script)
+  - [Important Note](#important-note)
+  - [Known Issues](#known-issues)
+  - [Authentication Script](#authentication-script)
+  - [Nosto Bundle Script](#nosto-bundle-script)
 
 ## Introduction
 
