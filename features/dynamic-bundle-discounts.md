@@ -106,8 +106,9 @@ Please follow the steps below for setting up the line item script for handling t
 
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
 2. Copy the code from [here](#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
-3. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
-4. The code includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
+3. Copy the Nosto bundle discount script from [here](#nosto-bundle-script) and add it to the line item script, below the authentication script (added from previous step)
+4. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
+5. The code includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
    * Uncomment from `Input.cart.line_times` till `end`
    * The hash value marked with (GET\_FROM\_DEV\_CONSOLE) can be retrieved from browser's network tab
    * Replace "PROD\_1", "PROD\_2" etc., with the actual product IDs.
@@ -376,4 +377,284 @@ end
 
 # Secret Key can be anything but must be consistent between this script and the frontend
 SECRET_KEY="GET_FROM_NOSTO"
+```
+
+
+## [Nosto Bundle Script](#nosto-bundle-script)
+
+```ruby
+# ================================ Script Code (do not edit) ================================
+# ================================================================
+# BundleSelector
+#
+# Finds any items that are part of the entered bundle and saves
+# them.
+# ================================================================
+class BundleSelector
+  def initialize(bundle_items)
+    @bundle_items = bundle_items.reduce({}) do |acc, bundle_item|
+      acc[bundle_item[:product_id]] = {
+        cart_items: [],
+        quantity_needed: bundle_item[:quantity_needed],
+        total_quantity: 0,
+      }
+
+      acc
+    end
+  end
+
+  def build(cart)
+    cart.line_items.each do |line_item|
+            next if line_item.line_price_changed?
+      next unless @bundle_items[line_item.variant.product.id]
+
+      @bundle_items[line_item.variant.product.id][:cart_items].push(line_item)
+      @bundle_items[line_item.variant.product.id][:total_quantity] += line_item.quantity
+    end
+
+    @bundle_items
+  end
+end
+
+# ================================================================
+# DiscountApplicator
+#
+# Applies the entered discount to the supplied line item.
+# ================================================================
+class DiscountApplicator
+  def initialize(discount_type, discount_amount, discount_message)
+    @discount_type = discount_type
+    @discount_message = discount_message
+
+    @discount_amount = if discount_type == :percent
+      1 - (discount_amount * 0.01)
+    else
+      Money.new(cents: 100) * discount_amount
+    end
+  end
+
+  def apply(line_item)
+    new_line_price = if @discount_type == :percent
+      line_item.line_price * @discount_amount
+    else
+      [line_item.line_price - (@discount_amount * line_item.quantity), Money.zero].max
+    end
+
+    line_item.change_line_price(new_line_price, message: @discount_message)
+  end
+end
+
+# ================================================================
+# DiscountLoop
+#
+# Loops through the supplied line items and discounts the supplied
+# number of items by the supplied discount.
+# ================================================================
+class DiscountLoop
+  def initialize(discount_applicator)
+    @discount_applicator = discount_applicator
+  end
+
+  def loop_items(cart, line_items, num_to_discount)
+    line_items.each_with_index do |line_item|
+      break if num_to_discount <= 0
+
+      if line_item.quantity > num_to_discount
+        split_line_item = line_item.split(take: num_to_discount)
+        @discount_applicator.apply(split_line_item)
+        position = cart.line_items.find_index(line_item)
+        cart.line_items.insert(position + 1, split_line_item)
+        break
+      else
+        @discount_applicator.apply(line_item)
+        num_to_discount -= line_item.quantity
+      end
+    end
+  end
+end
+
+# ================================================================
+# BundleDiscountCampaign
+#
+# If the entered bundle is present, the entered discount is
+# applied to each item in the bundle.
+# ================================================================
+class BundleDiscountCampaign
+  def initialize(campaigns)
+    @campaigns = campaigns
+  end
+
+  def run(cart)
+    @campaigns.each do |campaign|
+      bundle_selector = BundleSelector.new(campaign[:bundle_items])
+      bundle_items = bundle_selector.build(cart)
+
+      next if bundle_items.any? do |product_id, product_info|
+        product_info[:total_quantity] < product_info[:quantity_needed]
+      end
+
+      num_bundles = bundle_items.map do |product_id, product_info|
+        (product_info[:total_quantity] / product_info[:quantity_needed])
+      end
+
+      num_bundles = num_bundles.min.floor
+
+      discount_applicator = DiscountApplicator.new(
+        campaign[:discount_type],
+        campaign[:discount_amount],
+        campaign[:discount_message]
+      )
+
+      discount_loop = DiscountLoop.new(discount_applicator)
+
+      bundle_items.each do |product_id, product_info|
+        discount_loop.loop_items(
+          cart,
+          product_info[:cart_items],
+          (product_info[:quantity_needed] * num_bundles),
+        )
+      end
+    end
+  end
+end
+
+
+BUNDLE_ITEMS = []
+
+discount_type = ""
+discount_amount = 0.0
+
+# ================================================================
+# Testing block. Uncomment the following lines to test the script
+#
+
+#Input.cart.line_items.each do |line_item|
+#  new_properties = { '_nosto_bundle' => { 'discount' => { 'type' => 'dollar', 'value' => 10 }, 'bundle_products' => ["9172269958", "9172630790", "4719799304243"], '_hash' => '239a2b5bc60229ca8a6d9dd0f390a5bdc7098996506415e8637d3381e1935269' } }
+#  new_properties = { '_nosto_bundle' => { 'discount' => { 'type' => 'percent', 'value' => 5 }, 'bundle_products' => ["9172269958", "9172630790", "4719799304243"], '_hash' => '239a2b5bc60229ca8a6d9dd0f390a5bdc7098996506415e8637d3381e1935269' } }
+#  line_item.change_properties(new_properties, { :message => "discount test" })
+#end
+# ================================================================
+
+class NostoBundleHandler
+  def initialize(line_items)
+    @nosto_bundle_products = []
+    if line_items.length() > 0
+      @nostoBundle = line_items.first.properties["_nosto_bundle"]
+      if @nostoBundle.nil? == false
+        @nosto_bundle_products = @nostoBundle["bundle_products"]
+        cleanup()
+      end
+    end
+  end
+  
+  def isValid()
+    if @nostoBundle.to_a.empty? or @nostoBundle['_hash'].to_s.nil?
+      return false
+    end
+    data = @nosto_bundle_products.to_a.join(":")
+    if data.empty?
+      return false
+    end
+    discount = getDiscount()
+    if discount.nil?
+      return false
+    end
+    if discount['type'].nil? or discount['type'].to_s.strip.empty?
+      return false
+    end
+    if discount['value'].nil? or discount['value'].to_s.strip.empty?
+      return false
+    end
+    hashData = [data, discount['type'], discount['value'], SECRET_KEY].join(":")
+    SHA_HASH = sha256(hashData)
+    return SHA_HASH == @nostoBundle['_hash']
+  end
+  
+  def cleanup()
+    @nosto_bundle_products = @nosto_bundle_products.map do |item| 
+      if item.class == Integer
+        item
+      else
+        item.to_i
+      end
+    end
+  end
+  
+  def isBundleActive()
+    cart_product_ids = Input.cart.line_items.map {
+      |item|item.variant.product.id 
+    }
+    (@nosto_bundle_products.to_a - cart_product_ids).empty?
+  end
+  
+  def isBundleItem(productId)
+    @nosto_bundle_products.to_a.include?(productId)
+  end
+  
+  def getDiscount()
+    if @nostoBundle.nil? == false
+      @nostoBundle['discount']
+    else
+      nil
+    end
+  end
+end
+
+nostoBundleHandler = NostoBundleHandler.new(Input.cart.line_items)
+
+if nostoBundleHandler.isValid()
+  
+  isBundleActive = nostoBundleHandler.isBundleActive()
+  
+  if isBundleActive
+  
+    Input.cart.line_items.each do |line_item|
+      
+      product_id = line_item.variant.product.id
+      
+      if nostoBundleHandler.isBundleItem(product_id)
+      
+        bundle_item = {}
+        
+        bundle_item[:product_id] = product_id
+        bundle_item[:quantity_needed] = line_item.quantity
+        
+        discountConfig = nostoBundleHandler.getDiscount()
+        
+        if discount_type.empty?  
+          unless discountConfig.nil?
+            discountType = discountConfig['type']
+            discount_type = discountType == 'percent' ? :percent : :dollar
+            discount_amount = discountConfig['value']
+          end
+        end
+        
+        BUNDLE_ITEMS << bundle_item
+        
+      end
+    end
+  
+  end
+  
+  
+  @BUNDLE_DISCOUNTS = [{
+    :bundle_items => BUNDLE_ITEMS,
+    :discount_type => discount_type,
+    :discount_amount => discount_amount,
+    :discount_message => "#{discount_amount} #{discount_type} bundle discount!"
+  }]
+  
+  
+  if BUNDLE_ITEMS.empty? == false and BUNDLE_ITEMS.nil? == false
+    CAMPAIGNS = [
+      BundleDiscountCampaign.new(@BUNDLE_DISCOUNTS)
+    ]
+    
+    CAMPAIGNS.each do |campaign|
+      campaign.run(Input.cart)
+    end
+  end
+end
+
+Output.cart = Input.cart
 ```
