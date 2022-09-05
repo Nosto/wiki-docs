@@ -1,4 +1,4 @@
-# On 5.x
+# On 5.x and 6.x
 
 ![](https://img.shields.io/badge/nosto-%3E%3D%205.0.0-green)
 
