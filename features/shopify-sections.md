@@ -9,8 +9,6 @@
 
 ## Introduction
 
-{% hint style="info" %}This feature is currently in beta mode. Please reach out to our support if you want to use it{% endhint %}
-
 Nosto supports Shopify sections. You can add new placements through sections
 or drag-and-drop existing ones.
 
@@ -19,6 +17,18 @@ Our implementation for sections is limited only to Shopify Online
 Store 2.0. This is based on Shopify architecture.
 [Read more](https://shopify.dev/themes/architecture/sections/section-schema#access-section-settings)
 {% endhint %}
+
+## Enable sections feature
+
+To enable sections navigate to the `Shopify Settings` tab. You can find it easily under `Dashboard > Go to Shopify Settings`.
+On the settings page click the enable button.
+
+{% hint style="info" %}
+To add sections to existing themes with Nosto please remove Nosto from the theme and install again.
+{% endhint %}
+
+<img width="495" alt="image" src="https://user-images.githubusercontent.com/44775916/190137971-e989aeef-25fa-4b55-9e0a-c9dc666dbf16.png">
+
 
 ## How it works
 
