@@ -10,4 +10,6 @@ In the event that you would like to initialize Nosto but not have it automatical
   nostojs(api => api.setAutoLoad(false));
 ```
 
+_Also see_: [spa-basics-setting-up.md](../frontend/implementation-guide-session-api/spa-basics-setting-up.md "mention") for how to first include the script stub that allows API usage in this manner.
+
 _Note:_ You will need to manually load the recommendations when the autoloading is disabled. A recommendation request needs to be sent in order to track user events. So, if autoloading is disabled and you wish to track an order or cart changes, you need to send a recommendation request even if you don't wish to display recommendations on the page.

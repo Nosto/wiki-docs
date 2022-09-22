@@ -26,6 +26,7 @@
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
+* [Getting Started with Nosto Search](implementing-nosto/getting-started-with-nosto-search.md)
 
 ## APIs
 
@@ -63,7 +64,7 @@
   * [Other](apis/rest/other/README.md)
     * [Updating Rates](apis/rest/other/updating-rates-using-the-rates-api.md)
 * [Frontend](apis/frontend/README.md)
-  * [Session Api](apis/frontend/implementation-guide-session-api/README.md)
+  * [Session API](apis/frontend/implementation-guide-session-api/README.md)
     * [Terminology](apis/frontend/implementation-guide-session-api/session-api-terminology.md)
     * [Setting up](apis/frontend/implementation-guide-session-api/spa-basics-setting-up.md)
     * [Managing Sessions](apis/frontend/implementation-guide-session-api/spa-basics-managing-sessions.md)
