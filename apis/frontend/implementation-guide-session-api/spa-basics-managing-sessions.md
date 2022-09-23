@@ -105,7 +105,7 @@ nostojs(api => {
 **Note:** 
 
 1. Passing `null` or `undefined` will prevent the customer information from being mutated on Nosto. Passing an empty object `{}` will reset the customer information.
-2. Here `viewCart` is only provided as an example. But the actual tracking method to be invoked will depend on customer's current page. For more information on this, please refer [Tracking Events](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-tracking-events)
+2. Here `viewCart` is only provided as an example. But the actual tracking method to be invoked will depend on customer's current page. For more information on this, please refer [Tracking Events](spa-basics-tracking-events)
 
 ### Tagging marketing permission
 
