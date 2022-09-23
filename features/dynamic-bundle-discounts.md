@@ -7,12 +7,6 @@
     - [Shopify Line Item script](#shopify-line-item-script)
   - [Important Note](#important-note)
   - [Scope](#scope)
-    - [Bundle Discount Example](#bundle-discount-example)
-    - [Supported Scenarios](#supported-scenarios)
-      - [When all the products of a bundle offering are added to the cart](#when-all-the-products-of-a-bundle-offering-are-added-to-the-cart)
-      - [When all the products of a bundle offering are added to the cart alogn with PDP product](#when-all-the-products-of-a-bundle-offering-are-added-to-the-cart-alogn-with-pdp-product)
-    - [Scenarios not supported](#scenarios-not-supported)
-      - [When a partial bundle is added to cart](#when-a-partial-bundle-is-added-to-cart)
   - [Will not work If](#will-not-work-if)
   - [Known Issues](#known-issues)
   - [Authentication Script](#authentication-script)
@@ -139,36 +133,8 @@ Nosto Dynamic Bundle configuration involves two important keys, hash and secret 
 Secret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
 
 ## Scope
-Scope of this initial release is to support discounts on bundled product offerings. 
-
-### Bundle Discount Example
-Let's say, in PDP for Product#1, we display a bundle of products Product#2, Product#3 & Product#4 along with the only action button "Add to cart". 
-
-### Supported Scenarios
-The logic works only under the following scenarios:
-_Note: This section is subjected to change in future_
-
-#### When all the products of a bundle offering are added to the cart
-     
-Consider the example in the [Bundle Discount Example](#bundle-discount-example) section above
-Upon clicking "Add to cart" button, Nosto script adds all the products of bundle Product#2, Product#3 & Product#4 to cart and applies the pre-configured discount
-
-#### When all the products of a bundle offering are added to the cart alogn with PDP product
-
-Recommendation templates for bundle offerings can be configured to include currently displayed product for discount when a bundle is added to car, using the `discountCurrentProduct` discussed under section [Nosto Dynamic Bundle template](#nosto-dynamic-bundle-template) above.
-
-Consider the example in the [Bundle Discount Example](#bundle-discount-example) section above and assuming the `discountCurrentProduct` variable in the recommendation template is set to `true`,
-Upon clicking "Add to cart" button, Nosto script adds all the products of bundle Product#2, Product#3, Product#4 and **Product#1** (currently displayed product), to cart and applies the pre-configured discount
-
-### Scenarios not supported
-
-#### When a partial bundle is added to cart
-
-When we offer the option of selecting only specific products from a bundle, say with a checkbox or option button, in the recommendation template, specific products can be selected or deselected from a bundle and then added to cart. In this situation, the logic will not apply discount on any product.   
-Consider the example in the [Bundle Discount Example](#bundle-discount-example) section above and assuming each product in the bundle has an associated checkbox, for selecting or deselecting a product
-Product#3 in the bundle is deselected using the checkbox and "Add to cart" button is clicked. In this scenario, only Product#2 and Product#4 gets added to cart with no discounts. 
-
-**In order to overcome this issue, the template shouldn't include any option for selecting or deselecting products**
+In scope - Apply discounts when all the products in a bundle are added to cart. 
+Not in scope - Selecting only specific products from a bundle, for discounts.
 
 ## Will not work If
 
