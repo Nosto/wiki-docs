@@ -85,7 +85,27 @@ nostojs(api => {
 });
 ```
 
-**Note:** Passing `null` or `undefined` will prevent the customer information from being mutated on Nosto. Passing an empty object `{}` will reset the customer information.
+or when sending the contents to Nosto right away
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+   .setCustomer({
+      customer_reference: "b369f1235cf4f08153c560.82515936",
+      email: "devnull@nosto.com",
+      first_name: "Nosto",
+      last_name: "Test",
+      newsletter: true
+    })
+   .viewCart()
+   .update()
+});
+```
+
+**Note:** 
+
+1. Passing `null` or `undefined` will prevent the customer information from being mutated on Nosto. Passing an empty object `{}` will reset the customer information.
+2. Here `viewCart` is only provided as an example. But the actual tracking method to be invoked will depend on customer's current page. For more information on this, please refer [Tracking Events](spa-basics-tracking-events.md#tracking-events)
 
 ### Tagging marketing permission
 
