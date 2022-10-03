@@ -685,7 +685,7 @@ In such a case, make the following changes to the template liquid file that disp
 
 ### Cause
 
-1. Nosto provided scripts are not used as-is. 
+1. Nosto provided scripts are not used as-is. Nosto can't provide support in this case.
 2. Incorrect value used for SECRET_KEY. 
 3. Issue with Bundle script configuration.
 4. Not all the products from a bundle is added to cart.
