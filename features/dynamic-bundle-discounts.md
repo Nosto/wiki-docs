@@ -6,15 +6,21 @@
     - [Nosto Dynamic Bundle template](#nosto-dynamic-bundle-template)
     - [Shopify Line Item script](#shopify-line-item-script)
   - [Important Note](#important-note)
-  - [Scope](#scope)
-  - [Will not work If](#will-not-work-if)
-  - [Known Issues](#known-issues)
-  - [Authentication Script](#authentication-script)
   - [Nosto Bundle Script](#nosto-bundle-script)
+  - [Troubleshooting](#troubleshooting)
+    - [Issue #1: When additional content displayed in cart page](#issue-1-when-additional-content-displayed-in-cart-page)
+    - [Cause](#cause)
+    - [Solution](#solution)
+    - [Issue #2: When discount is not applied](#issue-2-when-discount-is-not-applied)
+    - [Cause](#cause-1)
+    - [Solution](#solution-1)
 
 ## Introduction
 
-This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store.
+This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store. 
+
+This release of bundle discounts will work only when all products from a bundle are added to the cart. 
+{: .alert .alert-info}
 
 ## Setup
 
@@ -132,44 +138,7 @@ Nosto Dynamic Bundle configuration involves two important keys, hash and secret 
 
 Secret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
 
-## Scope
-In scope - Apply discounts when all the products in a bundle are added to cart. 
-Not in scope - Selecting only specific products from a bundle, for discounts.
 
-## Will not work If
-
-  1. Nosto script for applying discount, provided [here](#authentication-script) and [here](#nosto-bundle-script), is not used as it is (except for replacing the SECRET_KEY)
-
-  2. SECRET_KEY is not configured correctly in [Authentication Script](#authentication-script)
-
-## Known Issues
-
-Nosto implementation uses a private property field for sharing discount information with Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
-
-![Properties Exposed](https://user-images.githubusercontent.com/82023195/168611801-666c24bc-c7f9-4edd-bdf5-2be32798391c.png)
-
-In such a case, make the following changes to the template liquid file that displays the cart information (usually cart.liquid or cart-template.liquid).
-
-```html
-{% raw %}
-{% for p in item.properties %}
-  {% assign first_character_in_key = p.first | truncate: 1, '' %} <== new line
-  {% unless p.last == blank or first_character_in_key == '_' %} <== new line
-  <small>
-    {{ p.first }}:
-
-    {% comment %}
-      Check if there was an uploaded file associated
-    {% endcomment %}
-    {% if p.last contains '/uploads/' %}
-      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-    {% else %}
-      {{ p.last }}
-    {% endif %}
-  </small><br />
-  {% endunless %} <== new line
-{% endfor %}
-{% endraw %}
 ```
 ## [Authentication Script](#authentication-script)
 
@@ -395,6 +364,9 @@ SECRET_KEY="GET_FROM_NOSTO"
 
 
 ## [Nosto Bundle Script](#nosto-bundle-script)
+
+We offer support only when the script, given below, is used as-is. We don't offer support when the below script is modified, in any way. 
+{: .alert .alert-warning}
 
 ```ruby
 # ================================ Script Code (do not edit) ================================
@@ -672,3 +644,52 @@ end
 
 Output.cart = Input.cart
 ```
+
+## Troubleshooting
+
+### Issue #1: When additional content displayed in cart page
+
+![Properties Exposed](https://user-images.githubusercontent.com/82023195/168611801-666c24bc-c7f9-4edd-bdf5-2be32798391c.png)
+
+### Cause
+
+Nosto implementation uses a private property field for sharing discount information with Shopify. In newer theme versions, Shopify automatically hides these fields while displaying products in cart page. In older version of themes, these fields gets exposed as shown below.
+
+### Solution
+
+In such a case, make the following changes to the template liquid file that displays the cart information (usually cart.liquid or cart-template.liquid).
+
+```html
+{% raw %}
+{% for p in item.properties %}
+  {% assign first_character_in_key = p.first | truncate: 1, '' %} <== new line
+  {% unless p.last == blank or first_character_in_key == '_' %} <== new line
+  <small>
+    {{ p.first }}:
+
+    {% comment %}
+      Check if there was an uploaded file associated
+    {% endcomment %}
+    {% if p.last contains '/uploads/' %}
+      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+    {% else %}
+      {{ p.last }}
+    {% endif %}
+  </small><br />
+  {% endunless %} <== new line
+{% endfor %}
+{% endraw %}
+```
+
+### Issue #2: When discount is not applied
+
+### Cause
+
+1. Nosto provided scripts are not used as-is. 
+2. Incorrect value used for SECRET_KEY. 
+3. Issue with Bundle script configuration.
+4. Not all the products from a bundle is added to cart.
+
+### Solution
+
+Contact Nosto support and share the line item script content for further analysis.
