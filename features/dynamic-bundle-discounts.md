@@ -5,6 +5,7 @@
   - [Setup](#setup)
     - [Nosto Dynamic Bundle template](#nosto-dynamic-bundle-template)
     - [Shopify Line Item script](#shopify-line-item-script)
+    - [Debugging Line Item Script](#debugging-line-item-script)
   - [Important Note](#important-note)
   - [Nosto Bundle Script](#nosto-bundle-script)
   - [Troubleshooting](#troubleshooting)
@@ -119,9 +120,13 @@ Please follow the steps below for setting up the line item script for handling t
 2. Copy the code from [here](#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
 3. Copy the Nosto bundle discount script from [here](#nosto-bundle-script) and add it to the line item script, below the authentication script (added from previous step)
 4. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
-5. The code includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
+5. Click"Save and Publish" to publish the script
+
+### Debugging Line Item Script
+
+[Nosto Bundle Script](#nosto-bundle-script) includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
    * Uncomment from `Input.cart.line_times` till `end`
-   * The hash value marked with (GET\_FROM\_DEV\_CONSOLE) can be retrieved from browser's network tab
+   * The hash value marked with (GET\_FROM\_DEV\_CONSOLE) can be retrieved from browser's network tab after adding a bundle to cart
    * Replace "PROD\_1", "PROD\_2" etc., with the actual product IDs.
    * `type` can be `percent` or `dollar`
    * **Make sure to comment the lines after testing and before publishing the script again**. This is an important step. Skipping this could cause issues with applying discounts in real-time.
