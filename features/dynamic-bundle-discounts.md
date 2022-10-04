@@ -688,7 +688,7 @@ In such a case, make the following changes to the template liquid file that disp
 1. Nosto cannot provide support for the line item script if any customisations are made to it.
 2. Incorrect value used for SECRET_KEY. 
 3. Issue with Bundle script configuration.
-4. Not all the products from a bundle is added to cart.
+4. Not all the products from a bundle are added to cart.
 
 ### Solution
 
