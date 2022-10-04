@@ -8,10 +8,10 @@
   - [Important Note](#important-note)
   - [Nosto Bundle Script](#nosto-bundle-script)
   - [Troubleshooting](#troubleshooting)
-    - [Issue #1: When additional content displayed in cart page](#issue-1-when-additional-content-displayed-in-cart-page)
+    - [Issue #1: Additional content displayed on cart page](#issue-1-additional-content-displayed-on-cart-page)
     - [Cause](#cause)
     - [Solution](#solution)
-    - [Issue #2: When discount is not applied](#issue-2-when-discount-is-not-applied)
+    - [Issue #2: Discount is not applied](#issue-2-discount-is-not-applied)
     - [Cause](#cause-1)
     - [Solution](#solution-1)
 
@@ -19,8 +19,9 @@
 
 This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store. 
 
+{% hint style="info" %}
 This release of bundle discounts will work only when all products from a bundle are added to the cart. 
-{: .alert .alert-info}
+{% endhint %}
 
 ## Setup
 
@@ -81,8 +82,8 @@ Assume for example,
 
 | Product ID | Variant ID | Price |
 | :--------: | :--------: | :---: |
-|  123456789 | 4123456098 |  126$ |
-|  987654321 | 4897122347 |  100$ |
+| 123456789  | 4123456098 | 126$  |
+| 987654321  | 4897122347 | 100$  |
 
 **discount type** - percent **discount value** - 10
 
@@ -365,8 +366,9 @@ SECRET_KEY="GET_FROM_NOSTO"
 
 ## [Nosto Bundle Script](#nosto-bundle-script)
 
+{% hint style="danger" %}
 We offer support only when the script, given below, is used as-is. We don't offer support when the below script is modified, in any way. 
-{: .alert .alert-warning}
+{% endhint %}
 
 ```ruby
 # ================================ Script Code (do not edit) ================================
@@ -685,11 +687,11 @@ In such a case, make the following changes to the template liquid file that disp
 
 ### Cause
 
-1. Nosto cannot provide support for the line item script if any customisations are made to it.
-2. Incorrect value used for SECRET_KEY. 
+1. **Nosto provided line item script is customized** (_No support provided_).
+2. SECRET_KEY value is incorrect. 
 3. Issue with Bundle script configuration.
 4. Not all the products from a bundle are added to cart.
 
 ### Solution
 
-Contact Nosto support and share the line item script content for further analysis.
+Contact Nosto support and share the line item script content for further analysis. 
