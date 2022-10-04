@@ -681,7 +681,7 @@ In such a case, make the following changes to the template liquid file that disp
 {% endraw %}
 ```
 
-### Issue #2: When discount is not applied
+### Issue #2: Discount is not applied
 
 ### Cause
 
