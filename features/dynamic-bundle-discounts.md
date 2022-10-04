@@ -647,7 +647,7 @@ Output.cart = Input.cart
 
 ## Troubleshooting
 
-### Issue #1: When additional content displayed in cart page
+### Issue #1: Additional content displayed on cart page
 
 ![Properties Exposed](https://user-images.githubusercontent.com/82023195/168611801-666c24bc-c7f9-4edd-bdf5-2be32798391c.png)
 
