@@ -16,7 +16,9 @@ The Nosto Magento 2 module requires at least PHP version &gt;= 7.0.0 and Nosto's
 
 ## Installing the extension
 
-Currently the only way of installing the module is via [Composer](https://getcomposer.org/). If you don't have composer installed yet you can get it by following [these instructions](https://getcomposer.org/doc/00-intro.md). It's recommended to install composer globally. You will also need public key and private key from Magento Marketplace or Magento Connect in order to install packages to Magento 2 via Composer. Please follow these instructions to get public key and private key [http://devdocs.magento.com/guides/v2.2/install-gde/prereq/connect-auth.html](http://devdocs.magento.com/guides/v2.2/install-gde/prereq/connect-auth.html). Once you have composer installed you can install Nosto extension \(nosto/module-nostotagging-cmp\).
+> Link to GitHub repository: https://github.com/Nosto/nosto-magento2-cmp
+
+Currently, the only way of installing the module is via [Composer](https://getcomposer.org/). If you don't have composer installed you can get it by following [these instructions](https://getcomposer.org/doc/00-intro.md). It's recommended to install composer globally. You will also need public key and private key from Magento Marketplace or Magento Connect in order to install packages to Magento 2 via Composer. Please follow these instructions to get public key and private key [http://devdocs.magento.com/guides/v2.2/install-gde/prereq/connect-auth.html](http://devdocs.magento.com/guides/v2.2/install-gde/prereq/connect-auth.html). Once you have composer installed you can install Nosto extension \(nosto/module-nostotagging-cmp\).
 
 ```text
 composer require --no-update nosto/module-nostotagging-cmp:"@stable" && composer update --no-dev
