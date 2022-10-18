@@ -8,6 +8,8 @@ Nosto allows you to deliver every customer a personalized shopping experience th
 
 ### Getting started
 
+> Link to GitHub repository: https://github.com/Nosto/nosto-magento2
+
 #### How it works
 
 The extension automatically adds product recommendation elements to the store when installed. Empty `div` placeholder elements. These elements will appear on the home page, product pages, category pages, search result pages, the shopping cart page and the order confirmation page. These elements are automatically populated with product recommendations from your store.
