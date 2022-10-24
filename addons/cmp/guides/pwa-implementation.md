@@ -5,7 +5,11 @@ The merchandising rules are applied to the catalog by using the `nosto_personali
 
 ## Filters
 
-Currently the only filters supported for merchandising is the price filtering.
+CMP module is compatible with Magento 2 GraphQl filtering. You can filter through:
+
+* Price
+* Custom attributes (color, size etc.)
+* Brand
 
 ## Query example
 
@@ -13,12 +17,18 @@ Currently the only filters supported for merchandising is the price filtering.
 {
   products(
     filter: { 
-        category_id: { eq: "4" },
-         price: {
-          from:"10",
-          to: "100"
-        }
+      category_id: { eq: "4" },
+      price: {
+        from: "10",
+        to: "100"
+      },
+      color: {
+        in: [ "49", "50" ]
+      },
+      eco: {
+        eq: true
       }
+    }
     currentPage: 1
     pageSize: 5
     sort: {nosto_personalized: DESC}
