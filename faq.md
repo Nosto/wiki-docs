@@ -39,4 +39,4 @@ If the tagging or other Nosto features disappear, for example after Prestashop u
 
 ## Unable to reconnect Nosto to my shop
 
-If when trying to reconnect existing account you get "Invalid authentication token" or the "Remove Nosto" button does nothing, it is likely that you created multi shop setup after connecting Nosto to the main shop. Resetting the module will resolve the issues.
+If when trying to reconnect an existing account you get "Invalid authentication token" or the "Remove Nosto" button does nothing, it is likely that you created a multi shop setup after connecting Nosto to the main shop. Since Prestashop will reset some shop ID's in the database, you'll likely need to reset the Nosto module to resolve the issue.
