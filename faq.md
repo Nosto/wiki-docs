@@ -34,7 +34,7 @@ Use a free service such as [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) t
 
 ## How to reset Nosto module
 
-If the tagging or other Nosto features disappear for example after Prestashop update you need to reset Nosto module. Resetting a module can be done in your store admin. After logging in your store admin navigate to "Modules and service" and locate Nosto module. The location of Nosto module varies a bit depending on Prestashop version. Once you have located the module open the drop down in the module panel and choose "Reset" (see image below). Confirm the reset if prompted. After resetting re-connect Nosto account to your store.
+If the tagging or other Nosto features disappear, for example after Prestashop update, you need to reset Nosto module. Resetting a module can be done in your store admin. After logging in your store admin, navigate to "Modules and Service" and locate the Nosto module. The location of the Nosto module varies depending on which Prestashop version is installed. Once you have located the module, open the drop down in the module panel and choose "Reset" (see image below). Confirm the reset if prompted. After resetting, re-connect a Nosto account to your store.
 ![Reset Nosto module](https://user-images.githubusercontent.com/15191701/32780631-b4f75a7e-c94a-11e7-8de3-1761beb959f5.png)
 
 ## Unable to reconnect Nosto to my shop
