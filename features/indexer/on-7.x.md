@@ -12,9 +12,9 @@ To further optimise the process, the bulk operations can be configured to use [m
 
 You can run a full reindex of the product catalog by using Magento's built-in CLI indexer.
 
-To reindex all products, re-run both indexers:
+To reindex all products, re-run the indexer:
 
-* _nosto\_index\_product\_queue_ indexer
+* _nosto\_index\_product_ indexer
 
   ```bash
   bin/magento indexer:reset nosto_index_product
@@ -32,15 +32,15 @@ There are a few steps to be taken before enabling parallelisation:
 ```text
 bin/magento indexer:show-dimensions-mode
 Product Price:                                     none
-Nosto Product Queue :                              none
+Nosto Product Indexer :                            none
 ```
 
-#### Set the indexer mode for **both** to `store`
+#### Set the indexer mode to `store`
 
 ```bash
 bin/magento indexer:set-dimensions-mode nosto_index_product store
 ```
-> Dimensions mode for indexer "Nosto Product Queue" was changed from 'none' to 'store'
+> Dimensions mode for indexer "Nosto Product Indexer" was changed from 'none' to 'store'
 
 
 Make sure that the number of threads declared in the env variable `MAGE_INDEXER_THREADS_COUNT` is equal to the max number of stores.
@@ -71,8 +71,8 @@ For overriding the message queue configuration you can use for example [Magento'
 
 We recommend the following best practices for Nosto indexers.
 
-* We strongly advise that both indexer modes are set to `Update by Schedule` for better performance.  This will also make the product updates to Nosto more reliable. For example the scheduled catalog price rules would not be updated in real-time to Nosto unless the indexer mode is set to  `Update by Schedule` 
-* If you have multiple store views, we recommend that you enable multi-dimensional indexing for **both** indexers.
+* We strongly advise that the indexer mode is set to `Update by Schedule` for better performance. This will also make the product updates to Nosto more reliable. For example, the scheduled catalog price rules would not be updated in real-time to Nosto unless the indexer mode is set to  `Update by Schedule` 
+* If you have multiple store views, we recommend that you enable multi-dimensional indexing.
 
 ## Troubleshoot
 
@@ -94,7 +94,7 @@ If the product data is not synchronized to Nosto check the following steps:
   
 1. The `Product Updates via API` flag is enabled. The flag can be found under `Store > Settings > Configurations > Services > Nosto > Feature Flags`. If disabled, please enable the flag   
   
-2. Set both Nosto indexer mode to `Update by Schedule`. Check that `nosto_tagging_product_update_queue` is being populated.   
+2. Set the Nosto indexer mode to `Update by Schedule`.
   
 3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.   
 For testing purpose our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &`   
@@ -102,7 +102,7 @@ For testing purpose our consumers can be started by running `bin/magento queue:c
   
 4. Check that messages are being published. If your M2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.   
   
-5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table.   
+5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table. Check that `magento_operation` has entries with the topic named `nosto_product_sync.update`.      
   
 6. If you are using MySQL 8 or MariaDB &gt; 10.2.3, you can use the following query to have better visibility on the products that are being sent to Nosto
 
@@ -127,7 +127,7 @@ WHERE
 
 ### Bulk attribute updates not synchronized to Nosto <a id="bulk-attribute-updates-not-synchronized-to-nosto"></a>
 
-If you have the indexers running on mode "Update by save" the bulk operations are not automatically reflected to Nosto. This is due to how Magento processes bulk updates internally.‌
+If you have the indexer running on mode "Update by save" the bulk operations are not automatically reflected to Nosto. This is due to how Magento processes bulk updates internally.‌
 
 It is highly recommended to run all indexers in mode "Update by schedule".‌
 
