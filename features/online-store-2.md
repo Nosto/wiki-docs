@@ -9,7 +9,6 @@
       - [New liquid templates](#new-liquid-templates)
     - [Hybrid themes](#hybrid-themes)
   - [Migrating customers](#migrating-customers)
-  - [Limitations](#limitations)
 
 ## Summary
 
@@ -18,6 +17,10 @@ For more information Shopify side of changes, visit corresponding links below,
 1. [Online 2.0 themes](https://www.shopify.com/partners/blog/shopify-online-store)
 2. [JSON Templates](https://shopify.dev/themes/architecture/templates/json-templates)
 3. [Migration Guide](https://shopify.dev/themes/os20)
+
+{% hint style="info" %} 
+As per [this](https://help.shopify.com/en/manual/online-store/themes/theme-structure/sections-and-blocks) Shopify documentation, shopify has a limitation of a maximum of 25 sections per json template. 
+{% endhint %}
 
 ## Nosto's implementation
 
@@ -72,7 +75,3 @@ Assume a customer is on `version 1.0` and has Nosto installed already. When such
 
 The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of structureless json shema, it became little challenging to isolate Nosto content for easy installation or uninstallation. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitiagte the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents.
 In future, we will introduce other options to better handle this situation
-
-## Limitations
-
-As per [this](https://community.shopify.com/c/shopify-design/page-s-section-limit-on-2-0/m-p/1239775/highlight/true#M321332) discussion on Shopify Community, shopify has a limitation on number of sections allowed on homepage. Because of this, when `index.json` is configured with  20 sections, will cause issues during Nosto installation and eventually cause issues with rendering front page placements. In such scenario, modifying `templates/index.json` to use 19 sections and reinstalling Nosto will fix the issue. This approach has to be followed until either Shopify increases this limitation or removes the limitation altogether. 
