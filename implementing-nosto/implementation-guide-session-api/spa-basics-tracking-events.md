@@ -1,5 +1,7 @@
 # Tracking Events
 
+**Note:** When user loads a page, `load()` should be invoked. On a page refresh, `update()` should be invoked. This way, Nosto will have an accurate count of events tracked for the session.
+
 ## Upon viewing the homepage
 
 When viewing a home-page, there's no context to be provided, so invoking the `viewIndex` will suffice.
