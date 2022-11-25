@@ -3,6 +3,8 @@ Nosto supports supplier costs and inventory level. The supplier-cost and invento
 ![3.0.0](https://img.shields.io/badge/nosto-3.0.0-green.svg)
 
 The supplier-cost and inventory-level of a product are considered sensitive information and therefore does not exist in the page tagging, and instead, are sent over a secure API.
+This means that we do not update via crawler/tagging, only via API calls from Prestashop. The cron must be configured in order to send regular API calls. <br> 
+More information here: https://github.com/nosto/nosto-prestashop-cron
 
 #### Why don't all my products have the supplier-cost and inventory-level information?
 
