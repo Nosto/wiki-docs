@@ -2,71 +2,36 @@
 
 ## Nosto Account Setup
 
-The plugin creates a new menu item during installation, that is located under the Settings menu in the backend. Note that you may have to clear the cache and reload the backend for the menu item to show up.
+There are basic configuration fields and control buttons which are located in plugin configuration page (marked with digits on the screenshot):
 
-![](https://cloud.githubusercontent.com/assets/3352265/8984295/510b61aa-36d9-11e5-9077-35effe378b3e.png)
+**Note:** Plugin requires to setup global Nosto account credentials. If you need to disable plugin functionality on specific sales channels, you can disable account on specific channel by toggling off “Enable Account“ switch.
 
-By clicking the menu item, a window will open showing the Nosto account configuration per shop that is installed. You will need one Nosto account for each shop.
+![](.gitbook/assets/account-configuration.png)
 
-![](https://cloud.githubusercontent.com/assets/3352265/8984290/51044852-36d9-11e5-9198-672d82f326ce.png)
+1. Field which indicates if configured account is enabled for merchandising/product sync. 
+2. Required Field with account id. It can be retrieved in Nosto account (in account settings).
+3. Required Field with Product Token API key (_API_PRODUCTS_). It is used to synchronize products between Shopware and Nosto . The key must be requested from Nosto Technical Support, after which it will appear in authentication tokens section in the admin.
+4. Required Field with Email Token API key, (_API_EMAIL_). It is used to synchronize emails between Shopware and Nosto. The key must be requested from Nosto Technical Support, after which it will appear in authentication tokens section in the admin.
+5. Required Field with GraphQL Token API key, (_API_APPS_). It is used to synchronize orders, recommendations, segments, category merchandising products between Shopware and Nosto . The key must be requested from Nosto Technical Support, after which it will appear in authentication tokens section in the admin.
 
-Creating the account is as easy as clicking the install button on the page. Note the email field above it. You will need to enter your own email to be able to activate your account. After clicking install, the window will refresh and show the account configuration.
+Follow [this link](https://help.nosto.com/en/articles/613616-settings-authentication-tokens) for additional guide.
 
-![](https://cloud.githubusercontent.com/assets/3352265/8984298/512299ce-36d9-11e5-93f3-35a0d7df0ef3.png)
+## General Settings Overview
 
-You can also connect and existing Nosto account to a shop, by using the link below the install button. This will take you to Nosto where you choose the account to connect, and you will then be redirected back where you will see the same configuration screen as when having created a new account.
+![](.gitbook/assets/general-settings.png)
 
-You should now be able to view the default recommendations in your shops frontend by clicking the preview button on the page.
+1. By enabling this setting, Nosto tracking JS scripts will be initialized and loaded directly after guest’s very first interaction with storefront page. It can be used for prevent storefront performance issues during page loading. 
+2. By enabling this setting, Nosto Merchandising feature will be activated. Please make sure you have setup all necessary product merchandising rules before enabling this feature.
+**Note:** To prevent empty PLP displaying because of network issues or Nosto API unavailability, plugin will follow the fallback to native Shopware 6 search engine.
 
-## Plugin Configuration & Feature Flags
+## Tags Assignment Overview
 
-To access the plugin configuration page, head to `Configuration` on the top bar, then hit `Basic Settings` ![image](https://user-images.githubusercontent.com/2778820/44520912-09112500-a6da-11e8-8d09-4104a830f188.png)
+![](.gitbook/assets/tags-assignment.png)
 
-On the left bar, uncollapse the `Additional Settings` key, and hit the `Personalization For Shopware` item. On the right panel you can flick the feature flags.   
+All fields displayed in the “Tags assignment“ card are used to transfer product’s custom fields values to the associated Nosto product entity.
 
+## Feature Flags Overview
 
-### Customer tagging
+![](.gitbook/assets/feature-flags.png)
 
-If you don't want Nosto to collect email addresses or other personal data about the logged in users you can disable the customer tagging from Nosto module's settings
-
-![shopware\_5\_4\_0\_\_rev\_\_e5287519e6\_\_-\_backend\_\_c\_\_shopware\_ag](https://user-images.githubusercontent.com/15191701/53796909-c27c6d00-3f3d-11e9-850f-5dab84c9d43d.png)
-
-### Custom Fields
-
-This option enables sending product attributes as custom fields to Nosto. The information is present on the tagging and in the page source, but hidden. If this option is disabled, the information is removed from the page source code.
-
-![screen shot 2018-08-23 at 13 40 59](https://user-images.githubusercontent.com/2778820/44521103-9e141e00-a6da-11e8-90b6-1ea9650676d2.png)
-
-### SKU-Tagging
-
-#### What are SKU's?
-
-For example, you might sell a shoe with different sizes. The size option might have many options ranging from 37 to 42. The SKUs will be different single products with the desired size. Another common term for an SKU in this context is variation. To avoid confusion with Nosto price variations we use the term SKU in this document.
-
-Once SKUs are enabled, you will be able to preview by navigating to any product page and appending `nostodebug=true` to the URLs query string.
-
-![image](https://user-images.githubusercontent.com/2778820/46149650-72ed9300-c273-11e8-9a64-b4856ada17d3.png)
-
-#### Which fields are used?
-
-* **Availability**: The availability of each SKU is tracked individually while the availability of the whole products is defined by the cumulative availability of all SKUs. If all SKUs are out of stock, only then will the parent product be considered out of stock.
-* **Prices**: Prices are tagged on the SKU level. If the SKU doesn't have a customised price, the price and list price are that of the parent product.
-* **Name**: The name of the SKU is the normally autogenerated by Shopware and is what is used by Nosto. If the name is customised, then the customised name is automatically used.
-* **Item Code**: The identifier of the SKU is the internal Shopware ID of the product.
-
-#### Enabling / Disabling SKUs
-
-SKU's \(since `2.1.0`\) are enabled by default. You can toggle off the SKU's by navigating to the Configuration -&gt; Basic Settings -&gt; Additional Settings and toggling **Enable SKU Tagging** under the desired shop front.
-
-![image](https://user-images.githubusercontent.com/2778820/46150180-ac72ce00-c274-11e8-8086-525825b93ec8.png)
-
-#### Performance
-
-Enabling SKU tagging will impact performance as more queries are executed against the database to load all SKU data.
-
-It is recommended that you use a production-grade full-page caching mechanism \(FPC.\).
-
-### Multi-Currency
-
-See own article about multi-currency feature in [Multi-Currency](features/multi-currency-exchange-rates.md)
-
+This configuration card contains multiple feature toggles which enable/disable what information to send to Nosto with product data. Also there is possibility to enabling/disable ratings and reviews. Nosto supports tagging the rating and review metadata. The rating value and review count metadata can be used for creating advanced recommendation rules to promote products that are well reviewed.

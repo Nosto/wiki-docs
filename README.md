@@ -1,4 +1,4 @@
-# Personalization for Shopware
+# Personalization for Shopware 6
 
 Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
 
@@ -6,9 +6,9 @@ Nosto allows you to deliver every customer a personalized shopping experience th
 
 [http://www.nosto.com](http://www.nosto.com/)
 
-### Getting started
+## Getting started
 
-#### How it works
+### How it works
 
 The extension automatically adds product recommendation elements to the store when installed. Empty `div` placeholder elements. These elements will appear on the home page, product pages, category pages, search result pages, the shopping cart page and the order confirmation page. These elements are automatically populated with product recommendations from your store.
 
@@ -32,5 +32,5 @@ Open Software License \("OSL"\) v3.0
 
 ### Dependencies
 
-Nosto Tagging extension can be used with Shopware versions up to 5.6.x
+Nosto Tagging extension can be used with Shopware versions starting from 6.x
 
