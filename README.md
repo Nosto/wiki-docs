@@ -1,4 +1,4 @@
-# Personalization for Shopware
+# Personalization for Shopware 5
 
 Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
 
