@@ -26,10 +26,6 @@ Nosto also keeps track of the order statuses, i.e. when an order is changed to "
 
 All you need to take Nosto into use in your store is to install the extension and create a Nosto account for your store. This is as easy as clicking a button, so read on.
 
-### License
-
-Open Software License \("OSL"\) v3.0
-
 ### Dependencies
 
 Nosto Tagging extension can be used with Shopware versions starting from 6.x
