@@ -96,8 +96,8 @@ If the product data is not synchronized to Nosto check the following steps:
   
 2. Set the Nosto indexer mode to `Update by Schedule`.
   
-3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.   
-For testing purpose our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update & bin/magento queue:consumer:start nosto_product_sync.delete &`   
+3. Verify the message queue consumer `nosto_product_sync.update` is running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.   
+For testing purpose our consumer can be started by running `bin/magento queue:consumers:start nosto_product_sync.update &`   
 \(CAUTION! The process started by this command will not terminate and restart automatically\)   
   
 4. Check that messages are being published. If your M2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.   
