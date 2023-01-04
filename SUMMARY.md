@@ -64,5 +64,6 @@
     * [Overriding or Extending Functionalities](addons/cmp/guides/overriding-or-extending-functionalities/README.md)
       * [Customize Query Parameters](addons/cmp/guides/overriding-or-extending-functionalities/customize-query-parameters.md)
       * [Customize Page Size Limit](addons/cmp/guides/overriding-or-extending-functionalities/customize-page-size-limit.md)
+      * [Customize Exclude Filters](addons/cmp/guides/overriding-or-extending-functionalities/customize-exclude-filters.md)
     * [Debugging](addons/cmp/guides/debugging.md)
 
