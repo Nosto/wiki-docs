@@ -18,6 +18,8 @@ You will most likely see this warning in your Magento logs if you've installed M
 ## Products not synchronized to Nosto 
 If the product data is not synchronized to Nosto you must verify the message queue consumer `nosto_product_sync.update` is running. Magento cron should take care of running (and restarting if needed) the consumers automatically but you can verify this by checking the process list (`ps -ax` for example) on your server. 
 
+**Note:** message queue consumer `nosto_product_sync.delete` was removed starting from version 7.2.0
+
 You can also see the amount of products that are out of sync ("Products Out Of Sync") or needs to be rebuilt ("Products Marked As Dirty") in Magento's Nosto settings (Stores > Configuration > Services > Nosto).
  
 ![Configuration___Settings___Stores___Magento_Admin](https://user-images.githubusercontent.com/15191701/67567284-4f28a500-f732-11e9-976d-1c587d317b45.png)
