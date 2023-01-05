@@ -16,7 +16,9 @@ You can switch the product cache to to a cron from Nosto module's settings (Stor
 You will most likely see this warning in your Magento logs if you've installed MySQL using the defaults. To get rid of this warning we recommend increasing `innodb_buffer_pool_size` on you MySQL server configuration. You can find more info about indexer optimization from [the official Magento documentation](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/indexer-batch.html). 
 
 ## Products not synchronized to Nosto 
-If the product data is not synchronized to Nosto you must verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` are running. Magento cron should take care of running (and restarting if needed) the consumers automatically but you can verify this by checking the process list (`ps -ax` for example) on your server. 
+If the product data is not synchronized to Nosto you must verify the message queue consumer `nosto_product_sync.update` is running. Magento cron should take care of running (and restarting if needed) the consumers automatically but you can verify this by checking the process list (`ps -ax` for example) on your server. 
+
+**Note:** message queue consumer `nosto_product_sync.delete` was removed starting from version 7.2.0
 
 You can also see the amount of products that are out of sync ("Products Out Of Sync") or needs to be rebuilt ("Products Marked As Dirty") in Magento's Nosto settings (Stores > Configuration > Services > Nosto).
  
