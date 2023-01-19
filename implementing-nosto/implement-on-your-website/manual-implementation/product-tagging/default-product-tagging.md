@@ -70,6 +70,13 @@ The three tag fields, `tags1`, `tags2` and `tags3` are simply labels that can be
 
 Custom fields accept a key:value pair where the `class` of the attribute is the key. Common use cases are `material`, `color` or other similar unique identifiers.
 
+### Tagging the currently viewed sku
+
+It is possible to tag also the currently viewed product sku. 
+Typically, this would be done on a product detail page when the user chooses a specific color or siz,e and you would like to update recommendations to highlight other products with similar attributes.
+Most common approach would be to implement it by calling the [Session API](../../../implementation-guide-session-api/README.md) or the [JS API](../../../../apis/js-apis/README.md) from a click-listener to send the sku information and update the recommendations.
+If, however, the preference is to use tagging to specify the selected sku instead, that can be done through tagging by adding a span under product with the class name `selected_sku_id`, for example: `<span class="selected_sku_id">40822930473153</span>`
+
 ### Fields that are not exposable in tagging
 
 Nosto also supports two attributes that are not crawlable through tagging. This is due to the sensitive nature of the attributes. They are: `supplier_cost` and `inventory level`. To send these two values to Nosto you will need to use the [Products API](../../../../apis/rest/products/updating-products-using-the-products-api.md).

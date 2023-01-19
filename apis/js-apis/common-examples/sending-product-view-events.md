@@ -56,3 +56,19 @@ nostojs(function(api){
 
 **Note:** Failure to do will result in incorrect attribution statistics.
 
+### Sending Product SKU-view Events
+
+Optional event that can be sent to signal that a specific sku is being viewed. 
+Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. 
+For example "Other products also available in the same size".
+
+```javascript
+nostojs(function(api) {
+  api.createRecommendationRequest({includeTagging:true})
+    .setProducts([{product_id: '6961338417345', selected_sku_id: '40822930473153'}])
+    .load()
+    .then(response => {
+      console.log(response);
+    });
+});
+```
