@@ -32,6 +32,27 @@ nostojs(api => {
 });
 ```
 
+## Upon viewing a product sku
+
+Optional event that can be sent to signal that a specific sku is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size". Product sku views are added with the function `viewProductSku`:
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+    .setResponseMode('HTML')
+    .viewProductSku('product-id-x', 'sku-id-y')
+    .setPlacements( api.placements.getPlacements() )
+    .load()
+    .then(response => {
+      api.placements.injectCampaigns(response.recommendations)
+    })
+});
+```
+
+{% hint style="info" %}
+This example leverages dynamic placements and html rendering
+{% endhint %}
+
 ## Upon viewing a collection
 
 When viewing a category or collection, you should send the slash-delimited and fully-qualified path of the current category.
