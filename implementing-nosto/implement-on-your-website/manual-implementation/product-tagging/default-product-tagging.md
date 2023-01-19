@@ -73,7 +73,7 @@ Custom fields accept a key:value pair where the `class` of the attribute is the 
 ### Tagging the currently viewed sku
 
 It is possible to tag also the currently viewed product sku. 
-Typically, this would be done on a product detail page when the user chooses a specific color or siz,e and you would like to update recommendations to highlight other products with similar attributes.
+Typically, this would be done on a product detail page when the user chooses a specific color or size and you would like to update recommendations to highlight other products with similar attributes.
 Most common approach would be to implement it by calling the [Session API](../../../implementation-guide-session-api/README.md) or the [JS API](../../../../apis/js-apis/README.md) from a click-listener to send the sku information and update the recommendations.
 If, however, the preference is to use tagging to specify the selected sku instead, that can be done through tagging by adding a span under product with the class name `selected_sku_id`, for example: `<span class="selected_sku_id">40822930473153</span>`
 
