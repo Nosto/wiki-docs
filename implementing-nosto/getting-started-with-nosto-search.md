@@ -1,8 +1,8 @@
-# Getting Started with Nosto Search
+# Getting Started with Search
 
-To get started with Nosto Search on your website, navigate to the Search tab under 'On-site' within the Nosto UI. This is where everything for Nosto Search can be configured and controlled, including designing the templates for search pages and autocomplete dropdowns, as well as search analytics, query rules and other settings. Synonyms for search queries can also be configured here.&#x20;
+To get started with Search on your website, navigate to the Search tab under 'On-site' within the Nosto UI. This is where everything for Search can be configured and controlled, including designing the templates for search pages and autocomplete dropdowns, as well as search analytics, query rules and other settings. Synonyms for search queries can also be configured here.
 
-To begin implementing Search, navigate to the Templates tab under Search, and Click on “Open Code Editor”.&#x20;
+To begin implementing Search, navigate to the Templates tab under Search, and Click on “Open Code Editor”.
 
 <figure><img src="../.gitbook/assets/6082dc70-90b5-4bd2-b88f-87ad5ebb2437.png" alt=""><figcaption><p>Nosto Admin UI > Search</p></figcaption></figure>
 
@@ -18,11 +18,11 @@ There is a default design that allows merchants to get started with a pre-implem
 
 ## Setting Up
 
-`index.js` should be used to bind Nosto Search on your website.
+`index.js` should be used to bind Search on your website.
 
 The `inputCssSelector` param can be used for this purpose. If there is an existing Search on your website, you can copy the CSS selector for it by highlighting the search box through the developer tools on your browser, and then right-click and ‘Copy selector’.
 
-We will need to unbind any existing Search within the page first. To achieve this, a new function can be introduced (similar to the one below) that will help unbind the original Search functionality and replace it with Nosto Search. This can be done in `helpers.js`, for example.
+We will need to unbind any existing Search within the page first. To achieve this, a new function can be introduced (similar to the one below) that will help unbind the original Search functionality and replace it with Search. This can be done in `helpers.js`, for example.
 
 ```
 export function unbindOriginalSearch(selector) {
@@ -43,6 +43,41 @@ All sorting options can be controlled via `config.js`, where the field on which 
 This is also where the default page size can be changed.
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-09-21 at 15.17.08.png" alt=""><figcaption><p>config.js</p></figcaption></figure>
+
+## Category Merchandising
+
+Category merchandising can also be added through the same `init()` configuration. It is best to have already-existing category pages and disable or hide current results rendering in category pages to achieve the best results.&#x20;
+
+There are four different fields that need to be added to the `init()` function.
+
+`categoryCssSelector` is similar to `contentCssSelector`, it directs where to render the results.
+
+`categoryQuery` gets the category path from the document dynamically.
+
+`isCategoryPage` is the logic that determines whether the current page is a category page and whether category results should be rendered.
+
+```
+...
+    contentCssSelector: '#content',
+    categoryCssSelector: '#categoryContent',
+    categoryQuery: () => {
+        // In this example, the category path is placed in an HTML div element.
+        const categryPath = document.querySelector('div.category_path')
+        return {
+            name: 'category',
+            products: {
+                categoryPath: "Accueil/Militaire - Forces de l'ordre/Gendarmerie/Matériels/",
+            }
+        }
+    },
+    isCategoryPage: () => {
+        // Logic to check whether the current page is a category page.
+        return location.search.includes('/category/')
+    },
+...
+```
+
+Also included in the default design is a `categoryComponent`, which is responsible for rendering the results of categories.
 
 ## Components
 
@@ -77,6 +112,10 @@ Design of how the product listings show up on the search page. This can be used 
 ### Search Autocomplete (_`default-design/src/autocomplete`_)
 
 Design of the autocomplete box as the user enters their search query. This is usually shown just below the search box, and updates in real-time. It features product suggestions to help users view the top matches with their query, even before the search page loads.
+
+### Category Page (_`default-design/src/category`_)
+
+The category design mostly reuses serp components because they behave in a very similar manner. For designing results differently, it may be necessary to add additional components for rendering.
 
 ### Styling
 

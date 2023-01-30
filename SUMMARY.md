@@ -26,7 +26,7 @@
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
-* [Getting Started with Nosto Search](implementing-nosto/getting-started-with-nosto-search.md)
+* [Getting Started with Search](implementing-nosto/getting-started-with-nosto-search.md)
 
 ## APIs
 
