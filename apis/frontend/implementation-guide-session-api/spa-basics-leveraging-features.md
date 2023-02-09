@@ -4,7 +4,7 @@
 
 The `load` method returns a promise which can be consumed to get the raw recommendation data. The raw recommendation data is an object containing the recommendation data.
 
-### load() vs update()
+### Reporting correct page views - load() vs update()
 
 Recommendation results are returned in a promise by calling either `load()` or `update()`. The difference between these two methods is:
 
@@ -12,6 +12,40 @@ Recommendation results are returned in a promise by calling either `load()` or `
 * `update()` does not automatically increment the page load count.
 
 In order to achieve an accurate reach statistic for recommendations, `load()` should be called once per page view when fetching recommendations and all proceeding recommendation requests should use `update()`.
+
+### Reporting correct product views - requesting product recommendations outside product detail page
+
+Normally requesting product related recommendations happen in relation to viewing a product detail page, so a typical product related recommendation request looks like this:
+
+```
+nostojs(api => {
+  api.defaultSession()
+    .setResponseMode('HTML')
+    .viewProduct('product1') // id of product currently being viewed
+    .setPlacements(api.placements.getPlacements())
+    .load()
+    .then(response => {
+      api.placements.injectCampaigns(response.recommendations)
+    })
+});
+```
+
+The above will also add a product view event for the user. In some cases there are needs to request product related recommendations even when the user is not looking at a product. In these cases, to avoid reporting the user event, include a `{ trackEvents: false }` flag to the `load` function, for example:
+
+```
+nostojs(api => {
+  api.defaultSession()
+    .setResponseMode('HTML')
+    .viewProduct('product1') // id of product currently being viewed
+    .setPlacements(api.placements.getPlacements())
+    .load({ trackEvents: false })
+    .then(response => {
+      api.placements.injectCampaigns(response.recommendations)
+    })
+});
+```
+
+If for implementation specific reasons there are multiple calls for product related recommendations on the product page, only the first request should track the event and subsequent requests should have the `{ trackEvents: false }` flag include.
 
 ### Handling attribution
 
@@ -83,7 +117,7 @@ nostojs(api => {
 });
 ```
 
-&#x20; ⚠️ The api call is only for informing Nosto about the attribution (that the product was added from the recommendation), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
+⚠️ The api call is only for informing Nosto about the attribution (that the product was added from the recommendation), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
 
 ## Working with content
 
