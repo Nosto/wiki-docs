@@ -121,6 +121,10 @@ The category design mostly reuses serp components because they behave in a very 
 
 All these components can be customised further with the _.css_ files under `styles`.
 
+#### Using autocomplete up-down arrow keys
+
+To enable the use of up-down keys with Autocomplete, a special class defined for specifying the colour of the "current" or hovered element must be defined. `.ns-product-hovered` should be set to a colour to enable this behaviour.
+
 ## How to use Nosto’s debug toolbar to preview and test Search
 
 To preview an undeployed design on your website, and test your changes from the VSCode Editor:
