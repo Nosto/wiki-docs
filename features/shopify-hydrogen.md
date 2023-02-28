@@ -8,7 +8,7 @@ description: Using Nosto's React Component Library built specifically for Shopif
 
 ### Shopify Hydrogen React Component Library
 
-To further demonstrate the capabilities of our integration, we've created a React component library specifically tailored to Shopify Hydrogen. Our [component library](https://github.com/Nosto/shopify-hydrogen) utilizes [nosto-react](https://github.com/Nosto/nosto-react) under the hood, while also adding Hydrogen-specific hooks and logic to simplify Nosto integration.
+Our [component library](https://github.com/Nosto/shopify-hydrogen), specifically tailored to Shopify Hydrogen, utilizes [nosto-react](https://github.com/Nosto/nosto-react) under the hood, while adding Hydrogen-specific hooks and logic to simplify Nosto integration.
 
 Developers can easily install our library components via [npm](https://www.npmjs.com/package/@nosto/shopify-hydrogen) into their Hydrogen-based projects to access Nosto's extensive feature set, including recommendations, onsite content personalization, dynamic bundles, pop-ups, and more. Please see below for more details.
 
