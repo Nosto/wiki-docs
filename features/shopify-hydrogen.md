@@ -4,13 +4,13 @@ description: Using Nosto's React Component Library built specifically for Shopif
 
 # Shopify Hydrogen
 
-[Hydrogen](https://hydrogen.shopify.dev) is a powerful React-based framework designed to create custom storefronts on Shopify. We have created a React component library as well as a demo storefront showcasing how our solution can be integrated easily with a Hydrogen-based storefront.
+[Hydrogen](https://hydrogen.shopify.dev) is a powerful React-based framework designed to create custom storefronts on Shopify. We have created a React component library as well as a demo storefront showcasing our solution.
 
 ### Shopify Hydrogen React Component Library
 
 To further demonstrate the capabilities of our integration, we've created a React component library specifically tailored to Shopify Hydrogen. Our [component library](https://github.com/Nosto/shopify-hydrogen) utilizes [nosto-react](https://github.com/Nosto/nosto-react) under the hood, while also adding Hydrogen-specific hooks and logic to simplify Nosto integration.
 
-Developers can easily import our library components via NPM into their Hydrogen-based projects to access Nosto's extensive feature set, including recommendations, onsite content personalization, dynamic bundles, pop-ups, and more. Please see below for more details.
+Developers can easily install our library components via [npm](https://www.npmjs.com/package/@nosto/shopify-hydrogen) into their Hydrogen-based projects to access Nosto's extensive feature set, including recommendations, onsite content personalization, dynamic bundles, pop-ups, and more. Please see below for more details.
 
 ### Demo Store
 
