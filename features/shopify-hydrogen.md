@@ -14,7 +14,7 @@ Developers can easily install our library components via [npm](https://www.npmjs
 
 ### Demo Store
 
-We've also deployed a [live demo store](https://shopify-hydrogen-demo.nosto.com/) via Oxygen to showcase our integration in action. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo).
+Our [live demo store](https://shopify-hydrogen-demo.nosto.com/) is deployed via Oxygen to showcase our integration in action. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo).
 
 ### GitHub Repository
 
