@@ -14,7 +14,7 @@ Developers can easily import our library components via NPM into their Hydrogen-
 
 ### Demo Store
 
-We've also deployed a [live demo store](https://shopify-hydrogen-demo.nosto.com/) via Oxygen to showcase our integration in action. You can see the Hydrogen-based storefront with Nosto's features at work by visiting the store. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo).
+We've also deployed a [live demo store](https://shopify-hydrogen-demo.nosto.com/) via Oxygen to showcase our integration in action. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo).
 
 ### GitHub Repository
 
