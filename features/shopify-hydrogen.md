@@ -18,7 +18,7 @@ Our [live demo store](https://shopify-hydrogen-demo.nosto.com/) is deployed via 
 
 ### GitHub Repository
 
-For further information about our Shopify Hydrogen-specific extension of nosto-react, please visit our [GitHub repository](https://github.com/Nosto/shopify-hydrogen). Our repository contains detailed documentation about how to use the library, as well as any updates or patches that may have been made since its initial release.
+For further information about our Shopify Hydrogen-specific extension of nosto-react, please visit our [GitHub repository](https://github.com/Nosto/shopify-hydrogen). Our repository contains detailed documentation about how to use the library, as well as other information about how it works.
 
 ### Supported features
 
