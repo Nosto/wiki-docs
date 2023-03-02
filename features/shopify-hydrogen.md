@@ -39,6 +39,9 @@ For further information about our Shopify Hydrogen-specific extension of nosto-r
 
 * UGC widgets
 * Advanced use cases of the debug toolbar
+* Dynamic placements\*
+
+\*learn more [here](https://github.com/Nosto/shopify-hydrogen/blob/main/README.md#warning-dynamic-placements-and-shopify-hydrogen) about why the concept of dynamic placements does not apply to Hydrogen environments
 
 {% hint style="warning" %}
 We are actively working on achieving 100% compatibility with all Nosto features on Hydrogen.
