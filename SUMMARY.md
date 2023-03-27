@@ -85,7 +85,7 @@
     * [Recommendation Callbacks](apis/js-apis/recommendations/recommendation-callbacks.md)
     * [Setting up dynamic filtering](apis/js-apis/recommendations/setting-up-dynamic-filtering.md)
     * [Sending Product-View Events](apis/js-apis/recommendations/sending-product-view-events.md)
-    * [Including Add to Cart-buttons into Recommendations](apis/js-apis/recommendations/sending-add-to-cart-events.md)
+    * [Sending Add to Cart-Events](apis/js-apis/recommendations/sending-add-to-cart-events.md)
   * [Popups](apis/js-apis/popups/README.md)
     * [Listing Popup Campaigns](apis/js-apis/popups/listing-popup-campaigns.md)
     * [Opening a Popup](apis/js-apis/popups/opening-a-popup.md)
