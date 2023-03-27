@@ -84,18 +84,18 @@
     * [Loading Recommendations](apis/js-apis/recommendations/loading-recommendations.md)
     * [Recommendation Callbacks](apis/js-apis/recommendations/recommendation-callbacks.md)
     * [Setting up dynamic filtering](apis/js-apis/recommendations/setting-up-dynamic-filtering.md)
+    * [Sending Product-View Events](apis/js-apis/recommendations/sending-product-view-events.md)
+    * [Including Add to Cart-buttons into Recommendations](apis/js-apis/recommendations/sending-add-to-cart-events.md)
   * [Popups](apis/js-apis/popups/README.md)
     * [Listing Popup Campaigns](apis/js-apis/popups/listing-popup-campaigns.md)
     * [Opening a Popup](apis/js-apis/popups/opening-a-popup.md)
     * [Enabling & Disabling Popups](apis/js-apis/popups/enabling-and-disabling-popups.md)
     * [Popup Callbacks](apis/js-apis/popups/popup-callbacks.md)
-  * [Sending Product-View Events](apis/js-apis/sending-product-view-events.md)
-  * [Sending Customer Information](apis/js-apis/sending-customer-information.md)
   * [Advanced Usage](apis/js-apis/common-examples/README.md)
-    * [Including Add to Cart-buttons into Recommendations](apis/js-apis/common-examples/sending-add-to-cart-events.md)
     * [Sending email addresses to Nosto](apis/js-apis/common-examples/sending-email-addresses-to-nosto.md)
     * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)
     * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
+    * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
 
 ## 3rd party data integrations
 

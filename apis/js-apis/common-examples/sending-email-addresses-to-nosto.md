@@ -4,7 +4,7 @@ In this article, you will learn how to collect email addresses from other source
 
 ## Collecting email addresses from a form field
 
-If your website has a form field that accepts email address, you can [collect customer information using our JS API](../sending-customer-information.md). A more simplified way would be to add the class `nosto_email_capture` to any email field on the page whose addresses need to be captured. Having done that, include the following snippet into your site.
+If your website has a form field that accepts email address, you can [collect customer information using our JS API](sending-customer-information.md). A more simplified way would be to add the class `nosto_email_capture` to any email field on the page whose addresses need to be captured. Having done that, include the following snippet into your site.
 
 The script below binds every `input` field with the class `nosto_email_capture` and submits the collected information to Nosto when the parent form is submitted.
 

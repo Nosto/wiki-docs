@@ -26,7 +26,7 @@ nostojs(api => {
 });
 ```
 
-In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same colour \(`red`\):
+In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same colour (`red`):
 
 ```javascript
 nostojs(api => {
@@ -42,6 +42,10 @@ nostojs(api => {
 
 In many cases leveraging the existing tagging on the page and then overriding the specific parts is simpler and more robust.
 
+
+
+### Attribution for recommended Products
+
 In case the request is built completely manually, it needs to include also the attribution information for click tracking. Below is an example which shows how that can be done for product views that result from clicking on a Nosto recommendation slot.
 
 In the event that the product was viewed due to a click on a Nosto recommendation slot, you must send an additional parameter that denotes the identifier of the recommendation slot that was clicked. If this is done inside of recommendation template identifier of recommendation slot can be get from property `$!product.attributionKey`
@@ -56,11 +60,11 @@ nostojs(function(api){
 
 **Note:** Failure to do will result in incorrect attribution statistics.
 
+
+
 ### Sending Product SKU-view Events
 
-Optional event that can be sent to signal that a specific sku is being viewed. 
-Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. 
-For example "Other products also available in the same size".
+Optional event that can be sent to signal that a specific sku is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size".
 
 ```javascript
 nostojs(function(api) {
