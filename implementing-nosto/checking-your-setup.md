@@ -52,6 +52,7 @@ Click on a product recommendation and verify that the View Product event is trac
 
 If the product id and recommendation slot id don't appear in the session, these pages might help:
 
+* [JS API: Attribution for recommended Products](https://docs.nosto.com/techdocs/apis/js-apis/recommendations/sending-product-view-events#attribution-for-recommended-products)
 * [JS API: add-to-cart buttons in recommendations](https://docs.nosto.com/techdocs/apis/js-apis/common-examples/sending-add-to-cart-events)
 * [Session API: handling attribution](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#handling-attribution)
 
@@ -111,7 +112,7 @@ Chrome's [lighthouse](https://developers.google.com/web/tools/lighthouse) tool c
 3. Ensure the Performance category is enabled.
 4. Click Generate Report
 
-![](<../.gitbook/assets/image (5).png>)![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (5).png>) ![](<../.gitbook/assets/image (3).png>)
 
 Once the report is generated, you can expand the “User Timing marks and measures” section under the Diagnostics section to see some basic information like how long after the page started to load the measurements start and how long each measurement took.
 
