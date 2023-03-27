@@ -53,7 +53,7 @@ Click on a product recommendation and verify that the View Product event is trac
 If the product id and recommendation slot id don't appear in the session, these pages might help:
 
 * [JS API: Attribution for recommended Products](https://docs.nosto.com/techdocs/apis/js-apis/recommendations/sending-product-view-events#attribution-for-recommended-products)
-* [JS API: add-to-cart buttons in recommendations](https://docs.nosto.com/techdocs/apis/js-apis/common-examples/sending-add-to-cart-events)
+* [JS API: Sending Add to Cart-Events](https://docs.nosto.com/techdocs/apis/js-apis/common-examples/sending-add-to-cart-events)
 * [Session API: handling attribution](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#handling-attribution)
 
 ### Cart
