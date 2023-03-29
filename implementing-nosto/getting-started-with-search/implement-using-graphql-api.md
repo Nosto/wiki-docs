@@ -6,9 +6,9 @@
 GraphQL search endpoint: `https://search.nosto.com/v1/graphql`
 {% endhint %}
 
-The request body accepts `accountId` variable, available in the Nosto dashboard.
+The request body accepts `accountId` parameter, available in the Nosto dashboard.
 
-Replace `accountId` variable with your account id, retrieved from the Nosto dashboard, in the following example request:
+Replace `accountId` argument with your account id, retrieved from the Nosto dashboard, in the following example request:
 
 ```bash
 curl -0 -v -X POST 'https://search.nosto.com/v1/graphql' \
@@ -17,7 +17,7 @@ curl -0 -v -X POST 'https://search.nosto.com/v1/graphql' \
 {
   "query": "
     query {
-      search(accountId: "YOUR_ACCOUNT_ID", name: serp, query: "green") {
+      search(accountId: "YOUR_ACCOUNT_ID", query: "green") {
         products {
           hits {
             productId
@@ -93,13 +93,13 @@ Further examples will only include GraphQL queries.
 
 ## Search documents <a href="#search-documents" id="search-documents"></a>
 
-## Selecting fields <a href="#selecting-fields" id="selecting-fields"></a>
+### Selecting fields <a href="#selecting-fields" id="selecting-fields"></a>
 
-For a basic search, it’s enough to provide `accountId`, `name`, `query,` and select fields that GraphQL should return. You can control which product attributes to select through `products.hits` field. For example, if you want to return only `productId` and `name`, the query would be:
+For a basic search, it’s enough to provide `accountId`, `query,` and select fields that GraphQL should return. You can control which product attributes to select through `products.hits` field. For example, if you want to return only `productId` and `name`, the query would be:
 
 ```graphql
 query {
-  search(accountId: "YOUR_ACCOUNT_ID", name: serp, query: "green") {
+  search(accountId: "YOUR_ACCOUNT_ID", query: "green") {
     products {
       hits {
         productId
@@ -116,12 +116,7 @@ query {
 #### Query parameters
 
 * `accountId` - Nosto account id.
-* `name` - query name (`serp` or `autocomplete`).
 * `query` - search input.
-
-{% hint style="info" %}
-SERP stands for Search Engine Results Page
-{% endhint %}
 
 #### Query select fields
 
@@ -144,7 +139,6 @@ The **default** count of documents returned per page is `size = 5`, you can chan
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: serp
     query: "green"
     products: { size: 10, from: 10 }
   ) {
@@ -190,13 +184,12 @@ By default results are sorted by products relevance score. To change the sorting
 
 By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
 
-### Query
+#### Query
 
 ```graphql
 query {
     search(
       accountId: "YOUR_ACCOUNT_ID"
-      name: serp
       query: "green"
       sort: [
         {
@@ -220,7 +213,7 @@ query {
 
 ### Faceting <a href="#faceting" id="faceting"></a>
 
-Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard
+Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
 #### **Configuring facet**
 
@@ -249,7 +242,6 @@ One of the facet type is `type = terms` . Assume that we have configured facets 
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: serp
     query: "green"
   ) {
     products {
@@ -337,7 +329,6 @@ Another facet type is `stats`, which returns a numeric facet:
 query {
     search(
       accountId: "YOUR_ACCOUNT_ID"
-      name: serp
       query: "green"
   ) {
       products {
@@ -416,7 +407,6 @@ Filtering by `terms` facet, for example by _Adidas_ brand:
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: serp
     query: "green"
     products: {
       size: 10
@@ -459,7 +449,6 @@ Filtering by `stats` field, for example by price:
 query {
     search(
       accountId: "YOUR_ACCOUNT_ID"
-      name: serp
       query: "green"
       products: {
         filter: [{
@@ -496,7 +485,7 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
-#### Segments <a href="#segments" id="segments"></a>
+### Segments <a href="#segments" id="segments"></a>
 
 You may want to provide a segment to the request to match specific ranking rules that target specific users:
 
@@ -504,7 +493,6 @@ You may want to provide a segment to the request to match specific ranking rules
 query {
     search(
       accountId: "YOUR_ACCOUNT_ID"
-      name: serp
       query: "green"
       segments: ["segment-nikebuyers"]
   ) {
@@ -532,7 +520,6 @@ Autocomplete is an element shown under search input used to display products for
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: autocomplete
     query: "green"
     products: { size: 4 }
   ) {
@@ -570,23 +557,18 @@ query {
 }
 ```
 
-{% hint style="info" %}
-Differently than in the search results page, argument `name = autocomplete` is passed in autocomplete requests.
-{% endhint %}
-
 ## Category <a href="#category" id="category"></a>
 
 Nosto provides functionality to get all products from specific category. This is useful when you want to implement category merchandising through the same search GraphQL API.
 
 An empty search query should be provided and `categoryId`:
 
-### Query
+#### Query
 
 ```graphql
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: serp
     products: { categoryId: "123456789" }
   ) {
     products {
@@ -604,7 +586,7 @@ query {
 }
 ```
 
-### Response
+#### Response
 
 ```json
 {
@@ -637,7 +619,6 @@ You can also query by full category name using `categoryPath`:
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    name: serp
     products: { categoryPath: "T-Shirts" }
   ) {
     products {
