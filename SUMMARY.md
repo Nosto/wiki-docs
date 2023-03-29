@@ -26,7 +26,9 @@
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
-* [Getting Started with Search](implementing-nosto/getting-started-with-nosto-search.md)
+* [Getting started with Search](implementing-nosto/getting-started-with-search/README.md)
+  * [Implement using Code Editor](implementing-nosto/getting-started-with-search/getting-started-with-nosto-search.md)
+  * [Implement using GraphQL API](implementing-nosto/getting-started-with-search/implement-using-graphql-api.md)
 
 ## APIs
 
@@ -47,6 +49,7 @@
     * [Querying Orders](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-orders.md)
     * [Querying Recommendations](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-recommendations.md)
     * [Querying Segments](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-segments.md)
+    * [Querying Search](apis/graphql-an-introduction/graphql-using-queries/querying-search.md)
     * [Querying Category Merchandising Products](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-category-merchandising-products.md)
   * [For iOS & Android](apis/graphql-an-introduction/graphql-for-ios-and-android.md)
   * [For Headless](apis/graphql-an-introduction/graphql-for-headless.md)

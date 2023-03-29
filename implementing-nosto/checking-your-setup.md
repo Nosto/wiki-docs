@@ -120,4 +120,4 @@ Once the report is generated, you can expand the “User Timing marks and measur
 
 You can scroll back up and click the View Original Trace button to view a timeline of the measurements. You may need to expand the Timings section to view the client script’s recorded measurements. You can zoom in an out of this graph and swipe side to side to get a better view of things.
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2) (1).png>)
