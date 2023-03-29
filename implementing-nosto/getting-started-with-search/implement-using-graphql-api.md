@@ -55,6 +55,8 @@ curl -0 -v -X POST 'https://search.nosto.com/v1/graphql' \
 EOF
 ```
 
+
+
 API will return a response with a 200 status code, it may include an error with an explanation in the following format:
 
 ```json
@@ -113,6 +115,8 @@ query {
 }
 ```
 
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
 #### Query parameters
 
 * `accountId` - Nosto account id.
@@ -155,6 +159,8 @@ query {
 }
 ```
 
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
 #### Response
 
 ```json
@@ -191,25 +197,27 @@ query {
     search(
       accountId: "YOUR_ACCOUNT_ID"
       query: "green"
-      sort: [
-        {
-          field: "price"
-          order: asc
-        }
-      ]
+      products: {
+        sort: [
+          {
+            field: "price"
+            order: asc
+          }
+        ]
+      }   
   ) {
       products {
         hits {
           productId
           name
+          price
         }
-        total
-        size
-        from
       }
     }
   }
 ```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Faceting <a href="#faceting" id="faceting"></a>
 
@@ -248,11 +256,7 @@ query {
       hits {
         productId
         name
-        price
       }
-      total
-      size
-      from
       facets {
         ... on SearchTermsFacet {
           id
@@ -271,6 +275,8 @@ query {
 }
 ```
 
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+
 #### Response
 
 ```json
@@ -285,9 +291,6 @@ query {
             "price": 1.0
           }
         ],
-        "total": 300,
-        "size": 10,
-        "from": 10,
         "facets": [
           {
             "id": "345678901abc",
@@ -347,13 +350,12 @@ query {
             max
           }
         }
-        total
-        size
-        from
       }
     }
   }
 ```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%09search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%09%09products%20%7B%0A%09%09%09hits%20%7B%20productId%20name%20price%20%7D%0A%09%09%09facets%20%7B%0A%09%09%09%09...%20on%20SearchStatsFacet%20%7B%0A%09%09%09%09%09id%0A%09%09%09%09%09field%0A%09%09%09%09%09type%0A%09%09%09%09%09name%0A%09%09%09%09%09min%0A%09%09%09%09%09max%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%7D)
 
 #### **Response**
 
@@ -369,9 +371,6 @@ query {
             "price": 1.00
           }
         ],
-        "total": 300,
-        "size": 5,
-        "from": 0,
         "facets": [
             {
                 "id": "123456789abc",
@@ -418,9 +417,6 @@ query {
         productId
         name
       }
-      total
-      size
-      from
       facets {
         ... on SearchTermsFacet {
           id
@@ -439,6 +435,8 @@ query {
 }
 ```
 
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7B%20filter:%20%5B%7B%20field:%20%22customFields.brandname%22,%20value:%20%22Adidas%22%20%7D%5D%20%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchTermsFacet%20%7B%20field%20name%20data%20%7B%20value%20count%20selected%20%7D%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+
 When filtering by multiple same field items filters will be joined with OR operator and different fields with AND.
 
 If you wish to have more facets, you should configure it in the Nosto dashboard first.
@@ -447,41 +445,39 @@ Filtering by `stats` field, for example by price:
 
 ```graphql
 query {
-    search(
-      accountId: "YOUR_ACCOUNT_ID"
-      query: "green"
-      products: {
-        filter: [{
-          field: "price"
-          range: {
-            lt: "60"
-            gt: "50"
-          }
-        }]
-      }
-  ) {
-      products {
-        hits {
-          productId
-          name
-        },
-        facets {
-          ... on SearchStatsFacet {
-            id
-            field
-            type
-            name
-            min
-            max
-          }
+   search(
+    accountId: "YOUR_ACCOUNT_ID"
+    query: "green"
+    products: {
+      filter: [
+        {
+          field: "price",
+          range: {lt: "60", gt: "50"}
         }
-        total
-        size
-        from
+      ]
+    }
+  ) {
+    products {
+      hits {
+        productId
+        name
+      }
+      facets {
+        ... on SearchStatsFacet {
+          id
+          field
+          type
+          name
+          min
+          max
+        }
       }
     }
   }
+}
 ```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7Bfilter:%20%5B%7Bfield:%20%22price%22,%20range:%20%7Blt:%20%2260%22,%20gt:%20%2250%22%7D%7D%5D%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchStatsFacet%20%7B%20field%20name%20min%20max%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
@@ -491,24 +487,26 @@ You may want to provide a segment to the request to match specific ranking rules
 
 ```graphql
 query {
-    search(
-      accountId: "YOUR_ACCOUNT_ID"
-      query: "green"
-      segments: ["segment-nikebuyers"]
+  search(
+    accountId: "YOUR_ACCOUNT_ID"
+    query: "green"
+    segments: ["segment-nikebuyers"]
   ) {
-      products {
-        hits {
-          productId
-          name
-          price
-        }
-        total
-        size
-        from
+    products {
+      hits {
+        productId
+        name
+        price
       }
+      total
+      size
+      from
     }
   }
+}
 ```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20%20%20segments:%20%5B%22segment-nikebuyers%22%5D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Autocomplete <a href="#autocomplete" id="autocomplete"></a>
 
@@ -536,7 +534,9 @@ query {
 }
 ```
 
-#### Response
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22,%20products:%20%7Bsize:%204%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%20%20query%0A%20%20%7D%0A%7D)
+
+Response
 
 ```json
 {
@@ -586,6 +586,8 @@ query {
 }
 ```
 
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryId:%20%22123456789%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categoryIds%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20categoryId%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
 #### Response
 
 ```json
@@ -634,6 +636,8 @@ query {
   }
 }
 ```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryPath:%20%22T-Shirts%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categories%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 #### Response
 
