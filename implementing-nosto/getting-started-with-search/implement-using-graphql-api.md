@@ -89,9 +89,10 @@ Further examples will only include GraphQL queries.
 
 [GraphQL playground](https://search.nosto.com/v1/graphql) is an interactive GraphQL query tool where you can create queries interactively and send search requests straight to our search engine. It provides:
 
-1. GraphQL search request schema - you can see field types and inspect what fields are needed for a search request.
-2. Autocomplete - while forming a search request you can autocomplete necessary fields.
-3. Send search requests to your shop and preview the response.
+1. [GraphQL search request schema](https://search.nosto.com/v1/graphql?ref=Query) - you can see field types and inspect what fields are needed for a search request.
+2. [GraphQL search result schema](https://search.nosto.com/v1/graphql?ref=SearchResult) - you can see return field types with descriptions.
+3. Autocomplete - while forming a search request you can autocomplete necessary fields.
+4. Send search requests to your shop and preview the response.
 
 ## Search documents <a href="#search-documents" id="search-documents"></a>
 
@@ -277,6 +278,10 @@ query {
 
 [GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
+{% hint style="info" %}
+To use a facet for the specific field you need to configure it first in the Nosto dashboard.
+{% endhint %}
+
 #### Response
 
 ```json
@@ -397,6 +402,28 @@ Facets of type `stats` are displayed as slider filter.
 * `name` - facet name to render.
 * `min` - minimum value for products that match provided query.
 * `max` - maximum value for products that match provided query.
+
+#### Displaying facets
+
+Select group filter is `type = terms` facet. Its parts should be rendered from the search response's `facets` field where `type = terms`:
+
+1. The header should be rendered using `name` field.
+2. List items should be rendered using `data` array field.
+3. Each list item should be rendered using `data[].value`.
+4. Item's select state is rendered using `data[].selected`.
+5. It's good practice to render `count` of each item.&#x20;
+
+&#x20;
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Range filter is `type = stats` facet. Its parts should be rendered from the search response's `facets` field where `type = stats`:
+
+1. The header should be rendered using `name` field.
+2. Min. and max. ranges of the filter should be rendered from `min` and `max` fields.
+3. The slider position should be rendered from the current query `filter` values.
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Filter <a href="#filter" id="filter"></a>
 
