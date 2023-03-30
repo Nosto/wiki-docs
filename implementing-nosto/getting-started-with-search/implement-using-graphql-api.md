@@ -55,9 +55,11 @@ curl -0 -v -X POST 'https://search.nosto.com/v1/graphql' \
 EOF
 ```
 
+{% hint style="info" %}
+Further examples will only include GraphQL queries.
+{% endhint %}
 
-
-API will return a response with a 200 status code, it may include an error with an explanation in the following format:
+API on successful request will return a `200` status code response which includes search data:
 
 ```json
 {
@@ -69,9 +71,23 @@ API will return a response with a 200 status code, it may include an error with 
             "productId": "",
             ...
           }
-        ]
+        ],
+        "facets": [
+          ...
+        ],
+        ...
       }
     }
+  }
+}
+```
+
+It may include an error with an explanation, e.g. when partial product data was returned, in the following format:
+
+```json
+{
+  "data": {
+    ...
   },
   "errors": [
     {
@@ -81,9 +97,7 @@ API will return a response with a 200 status code, it may include an error with 
 }
 ```
 
-{% hint style="info" %}
-Further examples will only include GraphQL queries.
-{% endhint %}
+In case of `400` or `500` status code, `errors` will be returned. You may want to retry these requests.
 
 ## GraphQL playground <a href="#graphql-playground" id="graphql-playground"></a>
 
