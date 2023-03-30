@@ -55,10 +55,6 @@ curl -0 -v -X POST 'https://search.nosto.com/v1/graphql' \
 EOF
 ```
 
-{% hint style="info" %}
-Further examples will only include GraphQL queries.
-{% endhint %}
-
 API on successful request will return a `200` status code response which includes search data:
 
 ```json
@@ -99,13 +95,139 @@ It may include an error with an explanation, e.g. when partial product data was 
 
 In case of `400` or `500` status code, `errors` will be returned. You may want to retry these requests.
 
+### Production example <a href="#autocomplete" id="autocomplete"></a>
+
+In the search application you should use GraphQL variables instead of hardcoded arguments to pass search data, meaning `filters`, `sort`, `size`, `from` options should be passed in `products` variable (see [InputSearchProducts reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) for all available options):
+
+```graphql
+query (
+  $acountId: String,
+  $query: String,
+  $segments: [String!],
+  $products: InputSearchProducts
+) {
+  search(
+    acountId: $merchant
+    query: $query
+    segments: $segments
+    products: $products
+  ) {
+    query
+    products {
+      hits {
+        productId
+        url
+        name
+        imageUrl
+        thumbUrl
+        description
+        brand
+        variantId
+        availability
+        price
+        categoryIds
+        categories
+        categorySplit
+        tags1
+        tags2
+        tags3
+        priceCurrencyCode
+        attributes
+        datePublished
+        listPrice
+        unitPricingBaseMeasure
+        unitPricingUnit
+        unitPricingMeasure
+        googleCategory
+        gtin
+        ageGroup
+        gender
+        condition
+        alternateImageUrls
+        ratingValue
+        reviewCount
+        inventoryLevel
+        supplierCost
+        pid
+        isInStock
+        isExcluded
+        onDiscount
+        stats {
+          availabilityRatio
+        }
+      }
+      total
+      size
+      from
+      facets {
+        ... on SearchTermsFacet {
+          id
+          field
+          type
+          name
+          data {
+            value
+            count
+            selected
+          }
+        }
+        ... on SearchStatsFacet {
+          id
+          field
+          type
+          name
+          min
+          max
+        }
+      }
+      collapse
+      fuzzy
+      categoryId
+    }
+  }
+}
+```
+
+GraphQL request variables:
+
+```json
+{
+  "accountId": "YOUR_ACCOUNT_ID",
+  "query": "green",
+  "products": {
+    "size": 10,
+    "from": 10,
+    "sort": [
+      {
+        "field": "price",
+        "order": "asc"
+      }
+    ],
+    "filter": [
+      {
+        "field": "price",
+        "range": { "lt": "60", "gt": "50" }
+      },
+      { 
+        "field": "customFields.brandname",
+        "value": "Adidas"
+      }
+    ]
+  }
+}
+```
+
+{% hint style="info" %}
+Further examples will only include GraphQL queries with hardcoded arguments.
+{% endhint %}
+
 ## GraphQL playground <a href="#graphql-playground" id="graphql-playground"></a>
 
 [GraphQL playground](https://search.nosto.com/v1/graphql) is an interactive GraphQL query tool where you can create queries interactively and send search requests straight to our search engine. It provides:
 
 1. [GraphQL search request schema](https://search.nosto.com/v1/graphql?ref=Query) - you can see field types and inspect what fields are needed for a search request.
 2. [GraphQL search result schema](https://search.nosto.com/v1/graphql?ref=SearchResult) - you can see return field types with descriptions.
-3. Autocomplete - while forming a search request you can autocomplete necessary fields.
+3. Autocomplete - while forming a search request you can autocomplete available fields.
 4. Send search requests to your shop and preview the response.
 
 ## Search documents <a href="#search-documents" id="search-documents"></a>
@@ -238,28 +360,32 @@ query {
 
 Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
+{% hint style="info" %}
+To use facet for a specific field you need to configure it in the Nosto dashboard first.
+{% endhint %}
+
 #### **Configuring facet**
 
-You can configure new facet in Nosto dashboard Facet Manager. Before creating a facet you need to ensure that attribute is indexed. You can do this in [Nosto Dashboard](https://my.nosto.com/) → Search & Categories → Settings → Indexed Fields.
+You can configure a new facet in the Nosto dashboard Facet Manager. Before creating a facet you need to ensure that the attribute is indexed. You can do this in [Nosto Dashboard](https://my.nosto.com/) → Search & Categories → Settings → Indexed Fields.
 
-When attribute is marked as indexed you can create facet of that field:
+When an attribute is marked as indexed you can create a facet of that field:
 
 Go to [Nosto Dashboard](https://my.nosto.com/) → Search & Categories → Settings → Facet Manager
 
-> Before creating a facet you need to ensure that attribute is indexed.
+> Before creating a facet you need to ensure that the attribute is indexed.
 
-In Facet Manager page:
+On the Facet Manager page:
 
-1. Specify attribute upon which facet should be created.
-2. Create a name for facet which will be rendered in Search Page.
-3. Depending on field type a facet type will be selected:
+1. Specify the attribute upon which facet should be created.
+2. Create a name for the facet which will be rendered on Search Page.
+3. Depending on the field type a facet type will be selected:
    * Select group - when String type field will be selected.
    * Range - when Number type field will be selected.
-4. Select the sorting type that facet will be ordered by.
+4. Select the sorting type that the facet will be ordered by.
 
 **Querying facet**
 
-One of the facet type is `type = terms` . Assume that we have configured facets for `customFields.brandname` and `categories`
+One of the facet types is `type = terms`. Assume that we have configured facets for `customFields.brandname` and `categories`:
 
 ```graphql
 query {
@@ -600,7 +726,7 @@ Response
 
 ## Category <a href="#category" id="category"></a>
 
-Nosto provides functionality to get all products from specific category. This is useful when you want to implement category merchandising through the same search GraphQL API.
+Nosto provides functionality to get all products from a specific category. This is useful when you want to implement category merchandising through the same search GraphQL API.
 
 An empty search query should be provided and `categoryId`:
 
