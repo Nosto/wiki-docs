@@ -25,10 +25,14 @@
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
+* [Implement Search](implementing-nosto/implement-search/README.md)
+  * [Implement Search using Code Editor](implementing-nosto/implement-search/getting-started-with-nosto-search.md)
+  * [Implement Search using API](implementing-nosto/implement-search/implement-search-using-api/README.md)
+    * [Using the Search API](implementing-nosto/implement-search/implement-search-using-api/using-the-search-api.md)
+    * [Implementing Search page](implementing-nosto/implement-search/implement-search-using-api/implementing-search-page.md)
+    * [Implementing Autocomplete](implementing-nosto/implement-search/implement-search-using-api/implementing-autocomplete.md)
+    * [Implementing Category page](implementing-nosto/implement-search/implement-search-using-api/implementing-category-page.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
-* [Getting started with Search](implementing-nosto/getting-started-with-search/README.md)
-  * [Implement using Code Editor](implementing-nosto/getting-started-with-search/getting-started-with-nosto-search.md)
-  * [Implement using GraphQL API](implementing-nosto/getting-started-with-search/implement-using-graphql-api.md)
 
 ## APIs
 
