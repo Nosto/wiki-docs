@@ -31,7 +31,7 @@ curl -X POST 'https://search.nosto.com/v1/graphql' \
 -H 'Content-Type: application/json' \
 -d @- << EOF
 {
-  "query": "query (\$query: String) { search (accountId: \"ACCOUNT ID\", query: \$query) { products { hits { name } total } } }",
+  "query": "query (\$query: String) { search (accountId: \"YOUR_ACCOUNT_ID\", query: \$query) { products { hits { name } total } } }",
   "variables": {
     "query": "green"
   }
@@ -41,7 +41,7 @@ EOF
 
 
 
-Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
+Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 
 {% tab title="Javascript" %}
@@ -53,7 +53,7 @@ fetch('https://search.nosto.com/v1/graphql', {
   },
   body: JSON.stringify({
     query: `query ($query: String) {
-      search (accountId: "ACCOUNT ID", query: $query) {
+      search (accountId: "YOUR_ACCOUNT_ID", query: $query) {
         products {
           hits {
             name
@@ -73,7 +73,7 @@ fetch('https://search.nosto.com/v1/graphql', {
 
 
 
-Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
+Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 
 {% tab title="PHP" %}
@@ -87,7 +87,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
     "query" => <<<EOT
         query (\$query: String) {
-            search (accountId: "ACCOUNT ID", query: \$query) {
+            search (accountId: "YOUR_ACCOUNT_ID", query: \$query) {
                 products {
                 hits {
                     name
@@ -108,7 +108,7 @@ var_dump($result);
 
 
 
-Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
+Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 
 {% tab title="Python" %}
@@ -122,7 +122,7 @@ r = requests.post(
     },
     json={
         "query": """query ($query: String) {
-            search (accountId: "ACCOUNT ID", query: $query) {
+            search (accountId: "YOUR_ACCOUNT_ID", query: $query) {
                 products {
                 hits {
                     name
@@ -141,7 +141,7 @@ print(r.json())
 
 
 
-Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
+Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 {% endtabs %}
 
@@ -156,7 +156,7 @@ API on successful request will return a `200` status code response which include
       "products": {
         "hits": [
           {
-            "name": "My product name",
+            "name": "My Product",
           }
         ],
         "total": 1

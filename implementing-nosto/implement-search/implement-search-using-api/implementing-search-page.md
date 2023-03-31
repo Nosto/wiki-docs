@@ -1,8 +1,12 @@
 # Implementing Search page
 
-## Selecting fields <a href="#selecting-fields" id="selecting-fields"></a>
+## Searching <a href="#selecting-fields" id="selecting-fields"></a>
 
-For a basic search, it’s enough to provide `accountId`, `query,` and select fields that GraphQL should return. You can control which product attributes to select through `products.hits` field. For example, if you want to return only `productId` and `name`, the query would be:
+For a basic search, it’s enough to provide `accountId`, `query,` and select fields that should be returned. You can control which product attributes to select through `products.hits` field. See [all available fields](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+
+### Query
+
+For example, if you want to return only `productId` and `name`, the query would be:
 
 ```graphql
 query {
@@ -34,15 +38,13 @@ query {
 * `products.size` - the count of products returned per single request.
 * `products.from` - what is the offset of returned products.
 
-Other fields can be autocompleted once the GraphQL schema is fetched, or you can check the schema at `https://search.nosto.com/v1/graphql` playground.
-
 ## Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
 
 Products offset parameter `from` is used for pagination functionality.
 
 The **default** count of documents returned per page is `size = 5`, you can change it with `products.size`, and offset of products is controlled with `products.from` field:
 
-#### Query
+### Query
 
 ```graphql
 query {
@@ -53,7 +55,6 @@ query {
   ) {
     products {
       hits {
-        productId
         name
       }
       total
@@ -66,7 +67,7 @@ query {
 
 [GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
-#### Response
+### Response
 
 ```json
 {
@@ -75,14 +76,12 @@ query {
       "products": {
         "hits": [
           {
-            "productId": "",
-            ...
-          },
-          ...
+            "name": "My Product"
+          }
         ],
         "total": 300,
         "size": 10,
-        "from": 10,
+        "from": 10
       }
     }
   }
@@ -91,11 +90,13 @@ query {
 
 ## Sorting <a href="#sorting" id="sorting"></a>
 
-By default results are sorted by products relevance score. To change the sorting, use the sort parameter, where you would specify the field which should be sorted by, and order: `asc` for ascending and **** `desc` **** for descending.
+By default results are sorted by products relevance score. &#x20;
+
+To change the sorting, use the sort parameter, where you would specify the field which should be sorted by, and order: `asc` for ascending and **** `desc` **** for descending.
 
 By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
 
-#### Query
+### Query
 
 ```graphql
 query {
@@ -129,29 +130,10 @@ query {
 Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
 {% hint style="info" %}
-To use facet for a specific field you need to configure it in the Nosto dashboard first.
+To use facet for a specific field you need to [configure it in the Nosto dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets) first.
 {% endhint %}
 
-#### **Configuring facet**
-
-You can configure a new facet in the Nosto dashboard Facet Manager. Before creating a facet you need to ensure that the attribute is indexed. You can do this in [Nosto Dashboard](https://my.nosto.com/) → Search & Categories → Settings → Indexed Fields.
-
-When an attribute is marked as indexed you can create a facet of that field:
-
-Go to [Nosto Dashboard](https://my.nosto.com/) → Search & Categories → Settings → Facet Manager
-
-> Before creating a facet you need to ensure that the attribute is indexed.
-
-On the Facet Manager page:
-
-1. Specify the attribute upon which facet should be created.
-2. Create a name for the facet which will be rendered on Search Page.
-3. Depending on the field type a facet type will be selected:
-   * Select group - when String type field will be selected.
-   * Range - when Number type field will be selected.
-4. Select the sorting type that the facet will be ordered by.
-
-**Querying facet**
+### **Querying facet**
 
 One of the facet types is `type = terms`. Assume that we have configured facets for `customFields.brandname` and `categories`:
 
@@ -190,7 +172,7 @@ query {
 To use a facet for the specific field you need to configure it first in the Nosto dashboard.
 {% endhint %}
 
-#### Response
+### Response
 
 ```json
 {
