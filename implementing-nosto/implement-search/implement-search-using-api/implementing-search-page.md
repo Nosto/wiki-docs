@@ -1,6 +1,6 @@
 # Implementing Search page
 
-### Selecting fields <a href="#selecting-fields" id="selecting-fields"></a>
+## Selecting fields <a href="#selecting-fields" id="selecting-fields"></a>
 
 For a basic search, it’s enough to provide `accountId`, `query,` and select fields that GraphQL should return. You can control which product attributes to select through `products.hits` field. For example, if you want to return only `productId` and `name`, the query would be:
 
@@ -36,7 +36,7 @@ query {
 
 Other fields can be autocompleted once the GraphQL schema is fetched, or you can check the schema at `https://search.nosto.com/v1/graphql` playground.
 
-### Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
+## Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
 
 Products offset parameter `from` is used for pagination functionality.
 
@@ -333,7 +333,7 @@ Range filter is `type = stats` facet. Its parts should be rendered from the sear
 
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-### Filter <a href="#filter" id="filter"></a>
+## Filter <a href="#filter" id="filter"></a>
 
 Filtering by `terms` facet, for example by _Adidas_ brand:
 
@@ -416,30 +416,11 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
-### Segments <a href="#segments" id="segments"></a>
+## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
-You may want to provide a segment to the request to match specific ranking rules that target specific users:
+Nosto Search engine is relevant out of the box and search API can be used without any initial setup. Nosto Dashboard can be used to further tune search engine configuration:
 
-```graphql
-query {
-  search(
-    accountId: "YOUR_ACCOUNT_ID"
-    query: "green"
-    segments: ["segment-nikebuyers"]
-  ) {
-    products {
-      hits {
-        productId
-        name
-        price
-      }
-      total
-      size
-      from
-    }
-  }
-}
-```
-
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20%20%20segments:%20%5B%22segment-nikebuyers%22%5D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
-
+* [Searchable Fields](https://help.nosto.com/en/articles/7161528-search-engine-s-logic-and-searchable-fields) - manage which fields are used for search and their priorities,
+* [Facets](https://help.nosto.com/en/articles/7169091-setting-up-facets) - create facets (filtering options) for search results page,
+* [Ranking and Personalization](https://help.nosto.com/en/articles/7168969-merchandising-search-personalization-guide) Ranking and Personalization - manage how results are ranked,
+* Synonyms, Redirects, and other search features are also managed through Nosto Dashboard (my.nosto.com).

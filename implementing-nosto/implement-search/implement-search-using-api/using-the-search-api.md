@@ -1,33 +1,26 @@
 # Using the Search API
 
-## What is GraphQL? <a href="#graphql-playground" id="graphql-playground"></a>
+### Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
-GraphQL is a query language for APIs. What does this mean for you? Unlike regular SOAP or REST APIs, GraphQL gives you the ultimate flexibility in being able to specify in your API requests specifically what data you need and get back exactly that.
+Use [Search API Playground](https://search.nosto.com/v1/graphql) to try out search queries and browse API reference.
 
-As a query language, it provides you with a lot of flexibility that most normal APIs will not. Without needing to recreate endpoints, you can provide developers with the same functionality as a bulk endpoint. Your queries will be cleaner and easier to understand by combining multiple queries into one request.
+It provides:
 
-Lear more on [https://graphql.org/learn/](https://graphql.org/learn/).
-
-### What’s the difference between GraphQL API and the regular API?
-
-The regular API is very well structured and specifically defined. The endpoints have their set requests and responses and that’s what you get whether or not that matches your usage pattern. GraphQL lets you control all of this so that the way you consume the data matches exactly what you need.
-
-This is both a pro and a con. If your use case does not require all of the data, GraphQL can speed up your requests as we do less work on the server-side to fulfill those requests. Conversely, if you need all of the data in one request, your requests could slow down as we do more work to fulfill these requests.
-
-### GraphQL playground <a href="#graphql-playground" id="graphql-playground"></a>
-
-[GraphQL playground](https://search.nosto.com/v1/graphql) is an interactive GraphQL query tool where you can create queries interactively and send search requests straight to our search engine. It provides:
-
-1. [GraphQL search request schema](https://search.nosto.com/v1/graphql?ref=Query) - you can see field types and inspect what fields are needed for a search request.
-2. [GraphQL search result schema](https://search.nosto.com/v1/graphql?ref=SearchResult) - you can see return field types with descriptions.
-3. Autocomplete - while forming a search request you can autocomplete available fields.
-4. Send search requests to your shop and preview the response.
+1. [Search request schema](https://search.nosto.com/v1/graphql?ref=Query) - you can see field types and inspect what fields are needed for a search request.
+2. [Search result schema](https://search.nosto.com/v1/graphql?ref=SearchResult) - you can see return field types with descriptions.
+3. Send requests to the search engine and preview the response.
 
 ## Making search API requests <a href="#making-search-api-requests" id="making-search-api-requests"></a>
 
 ### API endpoint
 
-Search GraphQL use different API endpoint than other nosto queries: `https://search.nosto.com/v1/graphq`
+Search use different API endpoint than other Nosto queries: `https://search.nosto.com/v1/graphql`
+
+### Account ID
+
+All request requires account ID that you can find on top-right corner in Admin dashboard under shop name.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
 
 ### Request example
 
@@ -45,6 +38,8 @@ curl -X POST 'https://search.nosto.com/v1/graphql' \
 }
 EOF
 ```
+
+
 
 Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
 {% endtab %}
@@ -76,36 +71,7 @@ fetch('https://search.nosto.com/v1/graphql', {
   .then((result) => console.log(result))
 ```
 
-Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
-{% endtab %}
 
-{% tab title="Python" %}
-```python
-import requests
-
-r = requests.post(
-    "https://search.nosto.com/v1/graphql",
-    headers={
-        "Content-Type": "application/json"
-    },
-    json={
-        "query": """query ($query: String) {
-            search (accountId: "ACCOUNT ID", query: $query) {
-                products {
-                hits {
-                    name
-                }
-                total
-                }
-            }
-        }""",
-        "variables": {
-            "query": "green"
-        }
-    }
-)
-print(r.json())
-```
 
 Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
 {% endtab %}
@@ -140,6 +106,41 @@ $result = curl_exec($ch);
 var_dump($result);
 ```
 
+
+
+Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+
+r = requests.post(
+    "https://search.nosto.com/v1/graphql",
+    headers={
+        "Content-Type": "application/json"
+    },
+    json={
+        "query": """query ($query: String) {
+            search (accountId: "ACCOUNT ID", query: $query) {
+                products {
+                hits {
+                    name
+                }
+                total
+                }
+            }
+        }""",
+        "variables": {
+            "query": "green"
+        }
+    }
+)
+print(r.json())
+```
+
+
+
 Replace ACCOUNT ID with your account id, retrieved from the Nosto dashboard.
 {% endtab %}
 {% endtabs %}
@@ -165,7 +166,7 @@ API on successful request will return a `200` status code response which include
 }
 ```
 
-### Error handling
+## Error handling
 
 ### Error response
 
@@ -188,9 +189,11 @@ API returns list of errors with explanations. These errors should be logged inte
 
 API may return some errors even when data is returned. That means some part of response may be missing, but you should still display it instead of showing error to our user. These errors should be logged to internal logging.&#x20;
 
-### Production example <a href="#autocomplete" id="autocomplete"></a>
+## Production example <a href="#autocomplete" id="autocomplete"></a>
 
-In the search application you should use GraphQL variables instead of hardcoded arguments to pass search data, meaning `filters`, `sort`, `size`, `from` options should be passed in `products` variable (see [InputSearchProducts reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) for all available options):
+In the search application you should use variables instead of hardcoded arguments to pass search data, meaning `filters`, `sort`, `size`, `from` options should be passed in `products` variable (see [InputSearchProducts reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) for all available options)
+
+### Request query
 
 ```graphql
 query (
@@ -281,7 +284,7 @@ query (
 }
 ```
 
-GraphQL request variables:
+### Request variables
 
 ```json
 {
