@@ -1,6 +1,6 @@
-# Implementing Category page
+# Implementing Category pages
 
-Nosto provides functionality to get all products from a specific category. This is useful when you want to implement category merchandising through the same search GraphQL API.
+Nosto provides functionality to get all products from a specific category. This is useful when you want to implement category merchandising through the same search API.
 
 An empty search query should be provided and `categoryId`:
 
@@ -27,7 +27,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryId:%20%22123456789%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categoryIds%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20categoryId%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryId:%20%22123456789%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categoryIds%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20categoryId%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Response
 
@@ -78,7 +78,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryPath:%20%22T-Shirts%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categories%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryPath:%20%22T-Shirts%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categories%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Response
 

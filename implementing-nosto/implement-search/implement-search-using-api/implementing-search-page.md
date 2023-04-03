@@ -24,19 +24,13 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
-#### Query parameters
+#### Query parameters:
 
-* `accountId` - Nosto account id.
-* `query` - search input.
+<table data-header-hidden><thead><tr><th>name</th><th>description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>accountId</strong></td><td>Nosto account ID</td><td></td></tr><tr><td><strong>query</strong></td><td>search query text</td><td></td></tr></tbody></table>
 
-#### Query select fields
-
-* `products.hits` - used to specify which product fields should be returned.
-* `products.total` - how many products are found for query.
-* `products.size` - the count of products returned per single request.
-* `products.from` - what is the offset of returned products.
+See all [query parameters](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
 ## Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
 
@@ -65,28 +59,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
-
-### Response
-
-```json
-{
-  "data": {
-    "search": {
-      "products": {
-        "hits": [
-          {
-            "name": "My Product"
-          }
-        ],
-        "total": 300,
-        "size": 10,
-        "from": 10
-      }
-    }
-  }
-}
-```
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ## Sorting <a href="#sorting" id="sorting"></a>
 
@@ -123,19 +96,33 @@ query {
   }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ## Faceting <a href="#faceting" id="faceting"></a>
 
 Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
+<div>
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Terms facet</p></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Stats facet</p></figcaption></figure>
+
+</div>
+
 {% hint style="info" %}
 To use facet for a specific field you need to [configure it in the Nosto dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets) first.
 {% endhint %}
 
-### **Querying facet**
+### **Terms facet**
 
-One of the facet types is `type = terms`. Assume that we have configured facets for `customFields.brandname` and `categories`:
+One of the facet types is `type = terms`.  It returns list if common terms from found documents.
+
+#### **Query**
+
+Assume that we have configured facets for `customFields.brandname` and `categories:`
 
 ```graphql
 query {
@@ -144,10 +131,6 @@ query {
     query: "green"
   ) {
     products {
-      hits {
-        productId
-        name
-      }
       facets {
         ... on SearchTermsFacet {
           id
@@ -166,26 +149,15 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
-{% hint style="info" %}
-To use a facet for the specific field you need to configure it first in the Nosto dashboard.
-{% endhint %}
-
-### Response
+#### Response
 
 ```json
 {
   "data": {
     "search": {
       "products": {
-        "hits": [
-          {
-            "productId": "",
-            "name": "",
-            "price": 1.0
-          }
-        ],
         "facets": [
           {
             "id": "345678901abc",
@@ -213,13 +185,20 @@ To use a facet for the specific field you need to configure it first in the Nost
 
 ```
 
-#### Facet parameters
+#### Response parameters:
 
-* `value` - original facet value, it should be displayed in the user interface. If the full category path is provided then the last category should be displayed.
-* `count` - shows how many products will be returned if you select this facet, it should be displayed in the user interface.
-* `selected` - indicates if the filter is selected ( used in `filter` GraphQL parameter).
+| **id**            | internal facet ID, used to select [specific facets in query](https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets) |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **field**         | facet field, should be used for [filtering](https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter)                   |
+| **type**          | facet type, in this case `terms`                                                                                                 |
+| **name**          | user friendly facet name configured in the [dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets)             |
+| **data.value**    | original facet value, it should be displayed in the user interface                                                               |
+| **data.count**    | shows how many products will be returned if you select this facet, it should be displayed in the user interface                  |
+| **data.selected** | indicates if there is an active filter on this value                                                                             |
 
-Another facet type is `stats`, which returns a numeric facet:
+### Stats facet
+
+Stats facet returns minimum and maximum number field value from found documents. The most common usage is to render slider filter (e.g. price)/
 
 #### Query
 
@@ -230,11 +209,6 @@ query {
       query: "green"
   ) {
       products {
-        hits {
-          productId
-          name
-          price
-        }
         facets {
           ... on SearchStatsFacet {
             id
@@ -259,13 +233,6 @@ query {
   "data": {
     "search": {
       "products": {
-        "hits": [
-          {
-            "productId": "",
-            "name": "",
-            "price": 1.00
-          }
-        ],
         "facets": [
             {
                 "id": "123456789abc",
@@ -282,42 +249,21 @@ query {
 }
 ```
 
-Facets of type `stats` are displayed as slider filter.
+#### Response parameters:
 
-#### Stats facet fields
-
-* `id` - a facet identification string.
-* `field` - field for which facet is returned.
-* `type` - facet type (`stats` or `terms`).
-* `name` - facet name to render.
-* `min` - minimum value for products that match provided query.
-* `max` - maximum value for products that match provided query.
-
-#### Displaying facets
-
-Select group filter is `type = terms` facet. Its parts should be rendered from the search response's `facets` field where `type = terms`:
-
-1. The header should be rendered using `name` field.
-2. List items should be rendered using `data` array field.
-3. Each list item should be rendered using `data[].value`.
-4. Item's select state is rendered using `data[].selected`.
-5. It's good practice to render `count` of each item.&#x20;
-
-&#x20;
-
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
-
-Range filter is `type = stats` facet. Its parts should be rendered from the search response's `facets` field where `type = stats`:
-
-1. The header should be rendered using `name` field.
-2. Min. and max. ranges of the filter should be rendered from `min` and `max` fields.
-3. The slider position should be rendered from the current query `filter` values.
-
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+| **name**  | user friendly facet name configured in the [dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets)             |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **terms** | facet type, in this case `stats`                                                                                                 |
+| **field** | facet field, should be used for [filtering](https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter)                   |
+| **id**    | internal facet ID, used to select [specific facets in query](https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets) |
+| **min**   | minimum field value for documents that match provided query                                                                      |
+| **max**   | maximum field  value for documents that match provided query                                                                     |
 
 ## Filter <a href="#filter" id="filter"></a>
 
 Filtering by `terms` facet, for example by _Adidas_ brand:
+
+### Query
 
 ```graphql
 query {
