@@ -29,7 +29,7 @@ The API takes an Object `RecProductElementSelectors` as a single parameter. The 
 | listPriceElement | Optional | String | CSS selector of all elements within the `productSectionElement` element containing the product list price.  This is used only when the product has a discounted price and the recommendation displays both old & new price.  |
 | defaultVariantIdAttribute | Optional | String | Attribute name for selecting the product variant. The first product variant is used if this is not provided. This attribute has to be part of the same element referenced by `productSectionElement`. |
 | descriptionElement | Optional | String | CSS selector of all elements within the `productSectionElement` element containing the product description |
-| totalVariantOptions | Optional | Number | Total variant option levels displayed in the recommendation. Here variant level means, the selection of one variant value loads the immediate next variant and so on. More on this in the below sections. When not provided, actual product variant count is used. This value can be below the total actual product variants but not above that value. Currently, we support only a maxium of 5 variant option levels |
+| totalVariantOptions | Optional | Number | Number of variant options used in the recommendation template. Useful when the recommendation doesn't display all the product variant options in the recommendation  |
 | variantSelector | Optional | Object/VariantOptionSelector | Needed only when recommendations display variant options. More on this in the next section |
 
 The following table lists all the allowed mandatory and optional parameters of `VariantOptionSelector` Object. This parameter is required only when the recommendation displays variant options.
