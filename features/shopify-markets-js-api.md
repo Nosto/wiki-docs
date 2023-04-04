@@ -21,15 +21,14 @@ The API takes an Object `RecProductElementSelectors` as a single parameter. The 
 
 | Parameter Name | Required/Optional | Type | Description |
 | :-------------------: | :---------------------: | :----------: | :-------------- |
-| productSectionElement | Required | String | CSS classname/Id selector of the `div` or an equivalent wrapper element that encapsulates all the product details and the variant options  |
-| productUrlElement |  Required  | String |CSS classname selector of all <a> elements/Id of the <a> element hosting the product URL |
-| productTitleElement | Required | String | CSS classname selecror/Id of the element hosting the product title |
-| productHandleAttribute | Required | String | Attribute name for fetching the product handle. This value can be fetched in recommendation template using `$!product.lastPathOfProductUrl`. This attribute has to be part of the `div` or an equivalent wrapper element hosting the `productSectionElement` |
-| priceElement | Required | String | CSS classname selector of all elements or Id of the element displaying product `price` value. This parameter is required and is used to display the actual product price |
-| listPriceElement | Optional | String | CSS classname selector of all elements or Id of the element displaying product `compare_at_price` value. This is used only when the product has a discounted price and the recommendation displays both old & new price  |
-| listPriceElement | Optional | String | CSS classname selector of all elements or Id of the element displaying product `compare_at_price` value. This is used only when the product has a discounted price and the recommendation displays both old & new price  |
-| defaultVariantIdAttribute | Optional | String | This parameter is used only when the recommendation doesn't contain variant options. When not provided, first variant of product is used. It is an Attribute element and is used for determining the product pricing for the market. It should be part of the `div` or an equivalent wrapper element hosting the `productSectionElement` |
-| descriptionElement | Optional | String | CSS classname selector of all elements or Id of the element displaying product description. Needed only when the recommendation displays product description |
+| productSectionElement | Required | String | CSS selector of the element containing all the product details and the variant options  |
+| productUrlElement |  Required  | String | CSS selector of all `a` elements within `productSectionElement` containing the product URL |
+| productTitleElement | Required | String | CSS selector of all elements within the `productSectionElement` element containing the product title |
+| productHandleAttribute | Required | String | Attribute name for fetching the product handle. This value can be fetched in recommendation template using `$!product.lastPathOfProductUrl`. This attribute has to be part of the same element referenced by `productSectionElement` |
+| priceElement | Required | String | CSS selector of all elements within the `productSectionElement` element containing the product price |
+| listPriceElement | Optional | String | CSS selector of all elements within the `productSectionElement` element containing the product list price.  This is used only when the product has a discounted price and the recommendation displays both old & new price.  |
+| defaultVariantIdAttribute | Optional | String | Attribute name for selecting the product variant. The first product variant is used if this is not provided. This attribute has to be part of the same element referenced by `productSectionElement`. |
+| descriptionElement | Optional | String | CSS selector of all elements within the `productSectionElement` element containing the product description |
 | totalVariantOptions | Optional | Number | Total variant option levels displayed in the recommendation. Here variant level means, the selection of one variant value loads the immediate next variant and so on. More on this in the below sections. When not provided, actual product variant count is used. This value can be below the total actual product variants but not above that value. Currently, we support only a maxium of 5 variant option levels |
 | variantSelector | Optional | Object/VariantOptionSelector | Needed only when recommendations display variant options. More on this in the next section |
 
@@ -48,10 +47,9 @@ In case of any issues with the API call or element structuring, the API will pro
 
 #### Limitations
 1. Only allows upto 5 sub-level variants
-2. Only allows 1 primary variants
+2. Only allows 1 primary variant
 3. Strict structuring necessary. In other words, it's necessary to follow the rules defined in the description of each API parameters.
-4. This is just a workaround until the actual realease of complete Shopify Markets support. 
-5. While providing multiple variant options, it's not possible to pre-configure the option to be selected for sub-level variants. The API selects the first option automatically. 
+4. While providing multiple variant options, it's not possible to pre-configure the option to be selected for sub-level variants. The API selects the first option automatically. 
 
 
 #### Examples
