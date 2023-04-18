@@ -18,7 +18,7 @@ Our [live demo store](https://shopify-hydrogen-demo.nosto.com/) is deployed via 
 
 ### GitHub Repository
 
-For further information about our Shopify Hydrogen-specific extension of nosto-react, please visit our [GitHub repository](https://github.com/Nosto/shopify-hydrogen). Our repository contains detailed documentation about how to use the library, as well as other information about how it works.
+For further information about our Shopify Hydrogen-specific extension of nosto-react, please visit our [GitHub repository](https://github.com/Nosto/shopify-hydrogen). Our repository contains detailed [documentation](https://nosto.github.io/nosto-react/) about how to use the library, as well as other information about how it works.&#x20;
 
 ### Supported features
 
@@ -33,7 +33,7 @@ For further information about our Shopify Hydrogen-specific extension of nosto-r
 * Search\*\*
 
 \*except advanced use cases\
-\*\*when implemented via our [code editor](https://app.gitbook.com/s/-M4IGuGLvRTou2pTniuH/implementing-nosto/getting-started-with-nosto-search)
+\*\*when implemented via our [code editor](http://localhost:5000/s/-M4IGuGLvRTou2pTniuH/implementing-nosto/implement-search/getting-started-with-nosto-search)
 
 ### Features not currently supported
 
