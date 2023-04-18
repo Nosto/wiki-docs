@@ -1,6 +1,6 @@
 # Using the Search API
 
-### Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
+## Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
 Use [Search API Playground](https://search.nosto.com/v1/graphql) to try out search queries and browse API reference.
 
@@ -9,6 +9,23 @@ It provides:
 1. [Search request schema](https://search.nosto.com/v1/graphql?ref=Query) - you can see field types and inspect what fields are needed for a search request.
 2. [Search result schema](https://search.nosto.com/v1/graphql?ref=SearchResult) - you can see return field types with descriptions.
 3. Send requests to the search engine and preview the response.
+
+## Authentication
+
+In the majority of cases, **authentication is not a requirement** for using search APIs. However in rare case may need to:
+
+* **Access sensitive data**- all sensitive data is restricted for public access (e.g. sorting by & returning sales).
+* **Return all documents** - public access require to specify search query or category ID to avoid returning all documents.
+
+**Note**: Keep your API key secret and delete it immediately if you think someone untrusted might have had access to it.
+
+| HTTP Header   | Value               |
+| ------------- | ------------------- |
+| Authorization | `Bearer SEARCH_KEY` |
+
+{% hint style="info" %}
+[Authentication Token](https://help.nosto.com/en/articles/613616-settings-authentication-tokens) with `API_SEARCH` Role is available on dashboard settings page
+{% endhint %}
 
 ## Making search API requests <a href="#making-search-api-requests" id="making-search-api-requests"></a>
 
