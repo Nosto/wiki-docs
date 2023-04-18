@@ -44,7 +44,8 @@ query {
       "products": {
         "hits": [
           {
-            ...
+            "productId": "1",
+            "name": "My product"
           }
         ]
         "size": 4,

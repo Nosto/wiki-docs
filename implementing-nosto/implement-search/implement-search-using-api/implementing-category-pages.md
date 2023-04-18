@@ -1,60 +1,10 @@
 # Implementing Category pages
 
-Nosto provides functionality to get all products from a specific category. This is useful when you want to implement category merchandising through the same search API.
+Nosto provides functionality to retrieve all products from specific category. This is useful when you want to implement category merchandising using the same search API.
 
-An empty search query should be provided and `categoryId`:
+## Using category ID
 
-### Query
-
-```graphql
-query {
-  search(
-    accountId: "YOUR_ACCOUNT_ID"
-    products: { categoryId: "123456789" }
-  ) {
-    products {
-      hits {
-        productId
-        price
-        categoryIds
-        name
-      }
-      total
-      size
-      categoryId
-    }
-  }
-}
-```
-
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryId:%20%22123456789%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categoryIds%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20categoryId%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
-
-### Response
-
-```json
-{
-  "data": {
-    "search": {
-      "products": {
-        "hits": [
-          {
-            "productId": "",
-            "price": 12.99,
-            "categoryIds": ["123456789"],
-            "name": "Blue T-shirt"
-          },
-          ...
-        ],
-        "total": 370,
-        "size": 5,
-        "categoryId": "123456789"
-      }
-    }
-  }
-}
-```
-
-You can also query by full category name using `categoryPath`:
+By providing [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category.&#x20;
 
 ### Query
 
@@ -62,13 +12,13 @@ You can also query by full category name using `categoryPath`:
 query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
-    products: { categoryPath: "T-Shirts" }
+    products: {
+      categoryId: "123456789"
+    }
   ) {
     products {
       hits {
         productId
-        price
-        categories
         name
       }
       total
@@ -78,29 +28,71 @@ query {
 }
 ```
 
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20products:%20%7BcategoryPath:%20%22T-Shirts%22%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%20%20categories%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+## Using category path
 
-### Response
+By providing [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category. This parameter is the same as `categories` product field.
 
-```json
-{
-  "data": {
-    "search": {
-      "products": {
-        "hits": [
-          {
-            "productId": "",
-            "price": 12.99,
-            "categories": ["T-Shirts"],
-            "name": "Blue T-shirt"
-          }
-        ],
-        "total": 370,
-        "size": 5
+### Query
+
+```graphql
+query {
+  search(
+    accountId: "YOUR_ACCOUNT_ID"
+    products: {
+      categoryPath: "T-Shirts"
+    }
+  ) {
+    products {
+      hits {
+        productId
+        name
       }
+      total
+      size
     }
   }
 }
 ```
 
-An empty query should be sent when using category merchandising. Also, you must use the same category values as you provide in products data export.
+## Using custom filters
+
+In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
+
+{% hint style="info" %}
+[Authentication](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/using-the-search-api#authentication) is required when using custom filters for category pages
+{% endhint %}
+
+### Query
+
+```graphql
+query {
+  search(
+    accountId: "YOUR_ACCOUNT_ID"
+    products: {
+      preFilter: [
+        {
+          field: "productId",
+          value: [
+            "2276",
+            "2274"
+          ]
+        }
+      ],
+    }
+  ) {
+    products {
+      hits {
+        productId
+        name
+      }
+      total
+      size
+    }
+  }
+}
+```
+
+
+
+
+

@@ -196,7 +196,7 @@ API returns list of errors with explanations. These errors should be logged inte
   },
   "errors": [
     {
-      "message": ""
+      "message": "Error explanation"
     }
   ]
 }
