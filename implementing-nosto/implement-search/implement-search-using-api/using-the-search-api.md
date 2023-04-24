@@ -17,7 +17,7 @@ In the majority of cases, **authentication is not a requirement** for using sear
 * **Access sensitive data**- all sensitive data is restricted for public access (e.g. sorting by & returning sales).
 * **Return all documents** - public access require to specify search query or category ID to avoid returning all documents.
 
-**Note**: Keep your API key secret and delete it immediately if you think someone untrusted might have had access to it.
+**Note**: Keep your API key secret and do not expose it to the frontend!
 
 | HTTP Header   | Value               |
 | ------------- | ------------------- |
