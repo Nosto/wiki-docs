@@ -42,6 +42,7 @@
   * [Testing and Debugging](apis/graphql-an-introduction/graphql-testing-and-debugging.md)
   * [Using Mutations](apis/graphql-an-introduction/graphql-using-mutations/README.md)
     * [Updating Products](apis/graphql-an-introduction/graphql-using-mutations/graphql-updating-products.md)
+    * [Updating Categories](apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md)
     * [Updating Identities](apis/graphql-an-introduction/graphql-using-mutations/graphql-updating-identities.md)
     * [GraphQL: Onsite Sessions](apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md)
     * [Working with Orders](apis/graphql-an-introduction/graphql-using-mutations/working-with-orders/README.md)
