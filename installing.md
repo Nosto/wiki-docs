@@ -2,7 +2,7 @@
 
 ## PHP Requirements
 
-The Nosto Magento 2 extension requires at least PHP version 7.0.0.
+The Nosto Magento 2 extension requires at least PHP version 7.4
 
 ## Installing the extension
 
