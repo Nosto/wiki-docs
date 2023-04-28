@@ -265,9 +265,6 @@ query (
         isInStock
         isExcluded
         onDiscount
-        stats {
-          availabilityRatio
-        }
       }
       total
       size

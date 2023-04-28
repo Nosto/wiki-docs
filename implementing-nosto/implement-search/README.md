@@ -10,8 +10,8 @@ Your search engine will be ready after the Nosto representative enables the Sear
 
 By using a pre-built template that can be customized to fully match a website's design using built-in code editor directly in [https://my.nosto.com/](https://my.nosto.com/). In the code editor, you can fully customize the pre-built template's JavaScript, HTML, and CSS code. Changes to the template can be implemented either by client’s developers or Nosto team. Frontend integration uses Preact and JSX templates and renders search results page dynamically in website’s frontend, so no additional integration is needed to the backend. When using Nosto services, no development is needed from the client.
 
-{% content-ref url="getting-started-with-nosto-search.md" %}
-[getting-started-with-nosto-search.md](getting-started-with-nosto-search.md)
+{% content-ref url="getting-started-with-nosto-search/" %}
+[getting-started-with-nosto-search](getting-started-with-nosto-search/)
 {% endcontent-ref %}
 
 ### API
