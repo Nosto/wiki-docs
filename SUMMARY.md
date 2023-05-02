@@ -27,6 +27,7 @@
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
 * [Implement Search](implementing-nosto/implement-search/README.md)
   * [Implement Search using Code Editor](implementing-nosto/implement-search/getting-started-with-nosto-search/README.md)
+    * [Using the Code Editor](implementing-nosto/implement-search/getting-started-with-nosto-search/using-the-code-editor.md)
     * [Implementing Search page](implementing-nosto/implement-search/getting-started-with-nosto-search/implementing-search-page.md)
     * [Implementing Category pages](implementing-nosto/implement-search/getting-started-with-nosto-search/implementing-category-pages.md)
     * [Testing & deployment](implementing-nosto/implement-search/getting-started-with-nosto-search/testing-and-deployment.md)

@@ -71,3 +71,12 @@ All these components can be customised further with the _.css_ files under `styl
 #### Using autocomplete up-down arrow keys
 
 To enable the use of up-down keys with Autocomplete, a special class defined for specifying the colour of the "current" or hovered element must be defined. `.ns-product-hovered` should be set to a colour to enable this behaviour.
+
+## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
+
+Nosto Search engine is relevant out of the box and search API can be used without any initial setup. Nosto Dashboard can be used to further tune search engine configuration:
+
+* [Searchable Fields](https://help.nosto.com/en/articles/7161528-search-engine-s-logic-and-searchable-fields) - manage which fields are used for search and their priorities,
+* [Facets](https://help.nosto.com/en/articles/7169091-setting-up-facets) - create facets (filtering options) for search results page,
+* [Ranking and Personalization](https://help.nosto.com/en/articles/7168969-merchandising-search-personalization-guide) Ranking and Personalization - manage how results are ranked,
+* Synonyms, Redirects, and other search features are also managed through Nosto Dashboard (my.nosto.com).
