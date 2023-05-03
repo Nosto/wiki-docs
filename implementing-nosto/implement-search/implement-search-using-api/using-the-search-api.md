@@ -56,8 +56,6 @@ curl -X POST 'https://search.nosto.com/v1/graphql' \
 EOF
 ```
 
-
-
 Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 
@@ -88,9 +86,9 @@ fetch('https://search.nosto.com/v1/graphql', {
   .then((result) => console.log(result))
 ```
 
-
-
 Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
+
+JS API includes full-featured [search function](https://docs.nosto.com/techdocs/apis/js-apis/search) with tracking support.
 {% endtab %}
 
 {% tab title="PHP" %}
@@ -123,8 +121,6 @@ $result = curl_exec($ch);
 var_dump($result);
 ```
 
-
-
 Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}
 
@@ -155,8 +151,6 @@ r = requests.post(
 )
 print(r.json())
 ```
-
-
 
 Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboard.
 {% endtab %}

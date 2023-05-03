@@ -344,6 +344,22 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
+## Session params <a href="#selecting-fields" id="selecting-fields"></a>
+
+For some of the search features to work properly, such as personalised results and segments, the search function needs to be able to access information about the user's session from the front-end.
+
+It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
+
+```javascript
+nostojs(function(api) {
+    api.getSearchSessionParams().then(function(response) {
+        console.log(response);
+    });
+});
+```
+
+The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
+
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
 Nosto Search engine is relevant out of the box and search API can be used without any initial setup. Nosto Dashboard can be used to further tune search engine configuration:

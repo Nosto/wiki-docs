@@ -24,6 +24,8 @@ Search function also accepts the following options:
 | `redirect` | `false` | Automatically redirect if search returns a redirect |
 | `track`    | `null`  | Track search query by provided type                 |
 
+Function automatically loads session parameters required for personalisation & segments in the background.
+
 ### Search page
 
 For search page in most cases `facets` parameter should be provided.
@@ -93,6 +95,10 @@ nostojs(function(api) {
 ## Session params
 
 For some of the search features to work properly, such as personalised results and segments, the search function needs to be able to access information about the user's session from the front-end.
+
+{% hint style="info" %}
+Search function on JS API already includes session state automatically.
+{% endhint %}
 
 To get all session data the following snippet can be used:
 
