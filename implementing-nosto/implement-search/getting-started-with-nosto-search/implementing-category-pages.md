@@ -1,36 +1,40 @@
 # Implementing Category pages
 
-Category merchandising can also be added through the same `init()` configuration. It is best to have already-existing category pages and disable or hide current results rendering in category pages to achieve the best results.&#x20;
+Category pages can be rendered using search templates over existing category pages to .
 
-There are four different fields that need to be added to the `init()` function.
+{% hint style="info" %}
+It is best to have already-existing category pages and disable or hide current results rendering in category pages to achieve the best results.&#x20;
+{% endhint %}
 
-`categoryCssSelector` is similar to `contentCssSelector`, it directs where to render the results.
-
-`categoryQuery` gets the category path from the document dynamically.
-
-`isCategoryPage` is the logic that determines whether the current page is a category page and whether category results should be rendered.
-
-
+To render category page provide additional configuration parameters to `init` function on `index.js` entrypoint file:
 
 ```javascript
-...
-    contentCssSelector: '#content',
-    categoryCssSelector: '#categoryContent',
+import { init } from '@nosto/preact'
+import categoryComponent from './category'
+
+init({
+    ...window.nostoTemplatesConfig,
+    inputCssSelector: '#search',
+    contentCssSelector: '#content', // or categoryCssSelector
+    categoryComponent: categoryComponent,
     categoryQuery: () => {
-        // In this example, the category path is placed in an HTML div element.
-        const categryPath = document.querySelector('div.category_path')
+        // extract category ID or category name from current page
+        const categryPath = document.querySelector('.category_name')
         return {
-            name: 'category',
+            name: 'serp',
             products: {
-                categoryPath: "Accueil/Militaire - Forces de l'ordre/Gendarmerie/Matériels/",
+                categoryPath: categryPath?.textContent,
+                // or categoryId: categryPath?.textContent
+                size: 30,
+                from: 0
             }
         }
     },
     isCategoryPage: () => {
-        // Logic to check whether the current page is a category page.
-        return location.search.includes('/category/')
-    },
-...
+        // Detect if category page should be rendered here
+        return location.pathname.startsWith('/collections/')
+    }
+})
 ```
 
-Also included in the default design is a `categoryComponent`, which is responsible for rendering the results of categories.
+Category component should also be implemented. In most cases is the same component as search page component, just instead of search query should not be shown.&#x20;
