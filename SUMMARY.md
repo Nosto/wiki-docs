@@ -26,6 +26,8 @@
   * [Shopify Sections](features/shopify-sections.md)
   * [Dynamic Bundle Discounts](features/dynamic-bundle-discounts.md)
   * [Customer Reference](features/customer-reference.md)
+  * [Shopify Markets Workaround](features/shopify-markets-workaround/README.md)
+    * [Technical Details (how to use it)](features/shopify-markets-workaround/technical-details-how-to-use-it.md)
 * [Integrations](integrations/README.md)
   * [Using Yotpo](integrations/integration-yotpo.md)
   * [Using Stamped.IO](integrations/integration-stamped.md)
