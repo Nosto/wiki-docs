@@ -18,7 +18,7 @@ In order to workaround product procing for Shopify Markets, there are two small 
     {% endif %}
     {% endraw %}
     ```
-2.  You need to manually **add** the following snipped to your `theme.liquid`:\
+2.  You need to manually **add** the following snipped to your `theme.liquid`: \
 
 
     ```liquid
