@@ -21,11 +21,12 @@ In order to workaround product procing for Shopify Markets, there are two small 
 2.  You need to manually **add** the following snipped to your `theme.liquid`:\
 
 
-    <pre><code><strong>&#x3C;script>  
-    </strong>  var Shopify = Shopify || {};
+    ```liquid
+    <script>
+      var Shopify = Shopify || {};
       Shopify.money_format = {{ shop.money_format | json }};
-    &#x3C;/script
-    </code></pre>
+    </script
+    ```
 
 ### Usage
 
