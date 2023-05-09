@@ -2,19 +2,30 @@
 
 ### Before you start
 
-In order to workaround product pricing for Shopify Markets, there is a small manual change needed in `nosto-tagging.liquid`in Shopify. You will need to **manually remove** the following code-snipped from `nosto-tagging.liquid`:
+In order to workaround product procing for Shopify Markets, there are two small changes needed in your Shopify code
 
-```
-{% raw %}
-{% if shop.enabled_currencies.size > 1 %}
-{% for currency in shop.enabled_currencies %}
-{% if currency == cart.currency %}
-<div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
-{% endif %}
-{% endfor %}
-{% endif %}
-{% endraw %}
-```
+1.  You need to manually **remove** the following code-snipped from `nosto-tagging.liquid`:\
+
+
+    ```liquid
+    {% raw %}
+    {% if shop.enabled_currencies.size > 1 %}
+    {% for currency in shop.enabled_currencies %}
+    {% if currency == cart.currency %}
+    <div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endraw %}
+    ```
+2.  You need to manually **add** the following snipped to your `theme.liquid`:\
+
+
+    <pre><code><strong>&#x3C;script>  
+    </strong>  var Shopify = Shopify || {};
+      Shopify.money_format = {{ shop.money_format | json }};
+    &#x3C;/script
+    </code></pre>
 
 ### Usage
 
