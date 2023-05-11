@@ -8,7 +8,7 @@ For example, if you add a discount of -10% to all the products in your "Shirts" 
 
 Here's an example of a Curl request.
 
-```text
+```
 curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw -H "Content-Type: application/json" -X POST https://api.nosto.com/v1/products/upsert -d '
 [
   {
@@ -74,6 +74,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
         "url":"http://www.example.com/product/CANOE123#/1-size-s/14-color-blue",
         "image_url":"http://www.example.com/product/images/CANOE123-1.jpg",
         "availability":"InStock",
+        "inventory_level":35,
         "custom_fields":{
           "size":"S",
           "color":"Blue"
@@ -87,6 +88,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
         "url":"http://www.example.com/product/CANOE123#/1-size-s/13-color-orange",
         "image_url":"http://www.example.com/product/images/CANOE123-1.jpg",
         "availability":"InStock",
+        "inventory_level":42,
         "custom_fields":{
           "size":"S",
           "color":"Orange"
@@ -99,7 +101,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
 
 ## How can I get an API token?
 
-You can request an API token \(API\_PRODUCTS\) by getting in touch with our support personnel. Once the token has been granted, you will be able to find it listed in the [authentication tokens section in the admin.](https://help.nosto.com/settings-and-troubleshooting-faq/settings-authentication-tokens)
+You can request an API token (API\_PRODUCTS) by getting in touch with our support personnel. Once the token has been granted, you will be able to find it listed in the [authentication tokens section in the admin.](https://help.nosto.com/settings-and-troubleshooting-faq/settings-authentication-tokens)
 
 ## How many items can I update at a time?
 
@@ -115,7 +117,7 @@ You should make an API call when any product information changes. If a non-criti
 
 ## Is there any additional benefit of using the product API?
 
-While the product API contains the full superset of the information in the tagging, it also allows you to pass sensitive information to us. Sensitive information is fields such as the supplier cost \(margin\) and the inventory level. These fields are only mutable via the API.
+While the product API contains the full superset of the information in the tagging, it also allows you to pass sensitive information to us. Sensitive information is fields such as the supplier cost (margin) and the inventory level. These fields are only mutable via the API.
 
 ## What fields are required?
 
@@ -127,7 +129,6 @@ The following fields are required:
 * `image_url`
 * `availability`
 * `price`
-* `price_currency_code`
+*   `price_currency_code`
 
-  &lt;/div&gt;
-
+    \</div>
