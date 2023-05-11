@@ -4,7 +4,7 @@
 
 In order to workaround product procing for Shopify Markets, there are two small changes needed in your Shopify code.
 
-1.  You need to manually **remove** the following code-snipped from `nosto-tagging.liquid`:\
+1.  You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:\
 
 
     ```liquid
