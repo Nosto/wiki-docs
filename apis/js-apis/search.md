@@ -104,7 +104,7 @@ To get all session data the following snippet can be used:
 
 ```javascript
 nostojs(function(api) {
-    api.getSearchSessionParams().then(function(response) {
+    api.getSearchSessionParams(options).then(function(response) {
         console.log(response);
     });
 });
@@ -118,3 +118,101 @@ The function accepts the following options:
 | ---------------------- | ------- | ------------------------------ |
 | `maxWait`              | `2000`  | Maximum execution time in `MS` |
 | `cacheRefreshInterval` | `60000` | Maximum cache time             |
+
+## Analytics
+
+Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviours that should be tracked:
+
+* search submit (`type = serp`)
+* faceting, paginating, sorting (`type = serp/category`)
+* autocomplete input (`type = autocomplete)`
+* search results product click `(type = serp/autocomplete/category)`
+* category merchandising results `(type = category)`
+
+JS API library provides tracking helpers for all of these cases.
+
+### Search
+
+User actions that lead to search results should be tracked with `api.recordSearch()` after search request is done:
+
+* search submit (`type = serp`) - user submits search query in autocomplete component and is landed to SERP
+* faceting, paginating, sorting (`type = serp/category`) - user adjusts current search results by filtering (e.g. brand), selecting search page, sorting results
+* autocomplete input (`type = autocomplete)` - user sees partial results while typing in search input
+* category merchandising results `(type = category)` - user sees specific category results when category is selected (category merchandising must be implemented)
+
+{% hint style="danger" %}
+You don't need to execute `api.recordSearch()`if you call `api.search(query, { track: 'serp'|'autocomplete'|'category'})` function from JS API, because`api.search()`already calls `api.recordSearch()`when `track` option is provided.
+{% endhint %}
+
+```javascript
+nostojs(function (api) {
+    api.recordSearch(
+        type,
+        query,
+        response
+      )
+})
+```
+
+<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>response</td><td>Partial search API response containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr></tbody></table>
+
+Example:
+
+```javascript
+api.recordSearch(
+    "serp",
+    {
+        query: "shoes",
+        products: {
+            sort: [{ field: "price", order: "asc" }],
+            filter: [{ "field": "brand", "value": "Nike" }]
+        }
+    },
+    {
+        products: {
+            hits: [{ productId: "123" }, { productId: "124" }],
+            fuzzy: true,
+            total: 2,
+            size: 2,
+            from: 0
+        }
+    }
+)
+```
+
+### Search form submit
+
+Search queries are categorised into two groups: organic and non-organic searches.\
+\
+In order to mark search query as organic search you need to call `api.recordSearchSubmit()`. You should call it on search input submit only, before search request is sent.
+
+```javascript
+nostojs(function (api) {
+    api.recordSearchSubmit(query)
+})
+```
+
+{% hint style="info" %}
+Organic search - is a search query submitted through search input and which lead to SERP (search engine results page). Following faceting, paginating, sorting queries on organic query is also counted as organic.&#x20;
+{% endhint %}
+
+### Search product click
+
+Product clicks should be tracked in autocomplete component, SERP, category page with `api.recordSearchClick()` by providing component (type), where click occurred, and clicked product data:
+
+```javascript
+nostojs(function (api) {
+    api.recordSearchClick(type, hit)
+})
+```
+
+<table><thead><tr><th>Parameter</th><th></th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>hit</td><td>Object containing <code>productId</code> and <code>url</code>, collected from clicked product</td><td></td></tr></tbody></table>
+
+Example:
+
+```javascript
+api.recordSearchClick(
+    "autocomplete", 
+    { productId: "123", url: "https://myshop.com/product123" }
+)
+```

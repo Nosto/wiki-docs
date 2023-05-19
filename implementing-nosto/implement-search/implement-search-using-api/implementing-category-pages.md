@@ -92,7 +92,7 @@ query {
 }
 ```
 
+### Tracking
 
-
-
+Category page results and subsequent filtering, sorting, paginating events should be tracked with [JS API library helper](../../../apis/js-apis/search.md#search) where `type = category`. Click events should be tracked accordingly using [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = category`.
 

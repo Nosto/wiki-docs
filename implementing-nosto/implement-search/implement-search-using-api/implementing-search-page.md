@@ -32,6 +32,12 @@ query {
 
 See all [query parameters](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
+### Tracking
+
+Query above is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search). Additionally, query submit in autocomplete should tracked with [submit helper](../../../apis/js-apis/search.md#search-form-submit).
+
+Product clicks in SERP should be tracked with [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = serp`.
+
 ## Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
 
 Products offset parameter `from` is used for pagination functionality.
@@ -259,6 +265,10 @@ query {
 | **min**   | minimum field value for documents that match provided query                                                                      |
 | **max**   | maximum field  value for documents that match provided query                                                                     |
 
+### Tracking
+
+Sorting, paginating, faceting are considered as search events and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search).
+
 ## Filter <a href="#filter" id="filter"></a>
 
 Filtering by `terms` facet, for example by _Adidas_ brand:
@@ -343,6 +353,10 @@ query {
 [GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7Bfilter:%20%5B%7Bfield:%20%22price%22,%20range:%20%7Blt:%20%2260%22,%20gt:%20%2250%22%7D%7D%5D%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchStatsFacet%20%7B%20field%20name%20min%20max%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
+
+### Tracking
+
+Filtering is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search).
 
 ## Session params <a href="#selecting-fields" id="selecting-fields"></a>
 
