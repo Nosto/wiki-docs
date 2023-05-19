@@ -208,13 +208,13 @@ In the search application you should use variables instead of hardcoded argument
 
 ```graphql
 query (
-  $acountId: String,
+  $accountId: String,
   $query: String,
   $segments: [String!],
   $products: InputSearchProducts
 ) {
   search(
-    acountId: "ACCOUNT ID"
+    accountId: "ACCOUNT ID"
     query: $query
     segments: $segments
     products: $products
