@@ -31,6 +31,7 @@
     * [Implementing Search page](implementing-nosto/implement-search/getting-started-with-nosto-search/implementing-search-page.md)
     * [Implementing Category pages](implementing-nosto/implement-search/getting-started-with-nosto-search/implementing-category-pages.md)
     * [Testing & deployment](implementing-nosto/implement-search/getting-started-with-nosto-search/testing-and-deployment.md)
+    * [FAQ](implementing-nosto/implement-search/getting-started-with-nosto-search/faq.md)
   * [Implement Search using API](implementing-nosto/implement-search/implement-search-using-api/README.md)
     * [Using the Search API](implementing-nosto/implement-search/implement-search-using-api/using-the-search-api.md)
     * [Implementing Search page](implementing-nosto/implement-search/implement-search-using-api/implementing-search-page.md)
