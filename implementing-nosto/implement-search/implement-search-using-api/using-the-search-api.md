@@ -320,3 +320,10 @@ query (
 }.
 ```
 
+## Analytics
+
+To review search queries that have been made on your site, and to see how those queries are performing in terms of click-through rate, conversion rate, you want to implement analytics tracking along with Search implementation.
+
+[Analytics page](../../../apis/js-apis/search.md#analytics) describes how can you implement tracking utilising JS API library helpers.
+
+Tracking results can be reviewed in the Nosto Dashboard.
