@@ -597,3 +597,11 @@ mutation {
 #### Fetching Recos
 
 The `forOrderPage` field will return the result of all the recommendations that are configured for the order-confirmation page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
+
+Other page type fields are:
+
+`forNotFoundPage` - 404 page
+
+`forLandingPage` - landing page
+
+`forGeneralLayoutPage` - general layout page
