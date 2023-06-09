@@ -17,6 +17,7 @@ The current version is based on a new JS API `migrateToShopifyMarket.` Using thi
 3. Product Description - updates Product description, for every product in the recommendation, to reflect the language of the current market
 4. Product Category - updates Product category, for every product in the recommendation, to reflect the language of the current market. Please note that this only affects the main category (fetched from Shopify's "Product Type" field).
 5. Product Variant Options - For those recommendations containing variant selectors, this API translates all the variant options and title to reflect the language of the current market.&#x20;
+6. Product Price - updates Price & List-Price showing to match currency and price of customers location.
 
 ### Considerations
 
