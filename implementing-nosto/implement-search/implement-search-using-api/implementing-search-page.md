@@ -28,7 +28,7 @@ query {
 
 #### Query parameters:
 
-<table data-header-hidden><thead><tr><th>name</th><th>description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>accountId</strong></td><td>Nosto account ID</td><td></td></tr><tr><td><strong>query</strong></td><td>search query text</td><td></td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="177">name</th><th>description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>accountId</strong></td><td>Nosto account ID</td><td></td></tr><tr><td><strong>query</strong></td><td>search query text</td><td></td></tr></tbody></table>
 
 See all [query parameters](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
@@ -193,14 +193,7 @@ query {
 
 #### Response parameters:
 
-| **id**            | internal facet ID, used to select [specific facets in query](https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets) |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **field**         | facet field, should be used for [filtering](https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter)                   |
-| **type**          | facet type, in this case `terms`                                                                                                 |
-| **name**          | user friendly facet name configured in the [dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets)             |
-| **data.value**    | original facet value, it should be displayed in the user interface                                                               |
-| **data.count**    | shows how many products will be returned if you select this facet, it should be displayed in the user interface                  |
-| **data.selected** | indicates if there is an active filter on this value                                                                             |
+<table data-header-hidden><thead><tr><th width="161">name</th><th>description</th></tr></thead><tbody><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>type</strong></td><td>facet type, in this case <code>terms</code></td></tr><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>data.value</strong></td><td>original facet value, it should be displayed in the user interface</td></tr><tr><td><strong>data.count</strong></td><td>shows how many products will be returned if you select this facet, it should be displayed in the user interface</td></tr><tr><td><strong>data.selected</strong></td><td>indicates if there is an active filter on this value</td></tr></tbody></table>
 
 ### Stats facet
 
@@ -257,13 +250,7 @@ query {
 
 #### Response parameters:
 
-| **name**  | user friendly facet name configured in the [dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets)             |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **terms** | facet type, in this case `stats`                                                                                                 |
-| **field** | facet field, should be used for [filtering](https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter)                   |
-| **id**    | internal facet ID, used to select [specific facets in query](https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets) |
-| **min**   | minimum field value for documents that match provided query                                                                      |
-| **max**   | maximum field  value for documents that match provided query                                                                     |
+<table data-header-hidden><thead><tr><th width="112">name</th><th>description</th></tr></thead><tbody><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>terms</strong></td><td>facet type, in this case <code>stats</code></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>min</strong></td><td>minimum field value for documents that match provided query</td></tr><tr><td><strong>max</strong></td><td>maximum field  value for documents that match provided query</td></tr></tbody></table>
 
 ### Tracking
 

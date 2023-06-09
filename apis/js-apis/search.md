@@ -19,10 +19,7 @@ nostojs(function(api) {
 
 Search function also accepts the following options:
 
-| Option     | Default | Description                                         |
-| ---------- | ------- | --------------------------------------------------- |
-| `redirect` | `false` | Automatically redirect if search returns a redirect |
-| `track`    | `null`  | Track search query by provided type                 |
+<table><thead><tr><th width="148">Option</th><th width="94">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>redirect</code></td><td><code>false</code></td><td>Automatically redirect if search returns a redirect</td></tr><tr><td><code>track</code></td><td><code>null</code></td><td>Track search query by provided type</td></tr></tbody></table>
 
 Function automatically loads session parameters required for personalisation & segments in the background.
 
@@ -114,10 +111,7 @@ The results of this function should be passed to search query [sessionParams](ht
 
 The function accepts the following options:
 
-| Option                 | Default | Description                    |
-| ---------------------- | ------- | ------------------------------ |
-| `maxWait`              | `2000`  | Maximum execution time in `MS` |
-| `cacheRefreshInterval` | `60000` | Maximum cache time             |
+<table><thead><tr><th width="252">Option</th><th width="94">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>maxWait</code></td><td><code>2000</code></td><td>Maximum execution time in <code>MS</code></td></tr><tr><td><code>cacheRefreshInterval</code></td><td><code>60000</code></td><td>Maximum cache time</td></tr></tbody></table>
 
 ## Analytics
 

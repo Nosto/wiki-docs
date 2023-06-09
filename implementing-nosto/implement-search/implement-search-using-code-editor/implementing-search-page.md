@@ -1,76 +1,172 @@
 # Implementing Search page
 
-## Setting Up
+## Configuration
 
-`index.js` should be used to bind Search on your website.
+To create a search application, call the `init` function with your configuration. This will create a new Preact application that renders on the specified `contentCssSelector`. It will also bind to the input element identified by the provided `inputCssSelector` and execute a search upon form submission.&#x20;
 
-The `inputCssSelector` param can be used for this purpose. If there is an existing Search on your website, you can copy the CSS selector for it by highlighting the search box through the developer tools on your browser, and then right-click and ‘Copy selector’.
+<pre class="language-javascript" data-title="index.js"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
+</strong>
+import serpComponent from './serp'
 
-We will need to unbind any existing Search within the page first. To achieve this, a new function can be introduced (similar to the one below) that will help unbind the original Search functionality and replace it with Search. This can be done in `helpers.js`, for example.
+init({
+    ...window.nostoTemplatesConfig,
+    serpComponent,
+    inputCssSelector: '#search',
+    contentCssSelector: '#content',
+    serpPath: '/search',
+    serpUrlMapping: {
+        query: 'q',
+    },
+    serpQuery: {
+        name: 'serp',
+        products: {
+            size: 20,
+            from: 0,
+        },
+    },
+})
+</code></pre>
 
-```javascript
-export function unbindOriginalSearch(selector) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(el => {
-        var newElement = el.cloneNode(true);
-        el.parentNode.replaceChild(newElement, el);
-    })
+### Search page path
+
+When `serpPath` parameter is specified, the application will **redirect to the specified search** page after a search is conducted. Otherwise, the search will be **rendered** **on the same page** without changing the URL path.
+
+### Serp component
+
+Search results page component should render full search page using provided app state. Minimal example could look like:
+
+{% code title="serp/index.js" %}
+```jsx
+import { useAppState, SerpElement } from '@nosto/preact'
+
+export default () => {
+    const { response: { products }, loading } = useAppState()
+
+    return (
+        <div>
+            {loading && <div>Loading...</div>}
+            {products.total ? <div>
+                {products.hits.map(hit => <SerpElement as="a" hit={hit}>
+                    {hit.name}
+                    {hit.price} 
+                </SerpElement>)}
+            </div> : <div>
+                No results were found
+            </div>}
+        </div>
+    )
 }
 ```
+{% endcode %}
 
-This can then be called from within `index.js`, just before the `init()` function. The call can pass in the CSS selector that we copied earlier from the website, `unbindOriginalSearch('#search_form')`
+## Features
 
-## Sort options and other configurations
+### Faceted navigation
 
-All sorting options can be controlled via `config.js`, where the field on which the sorting is applied can be changed.
+#### Stats facet
 
-This is also where the default page size can be changed.
+The stats facet returns the minimum and maximum values of numerical fields. It is useful for creating sliders, such as a price slider.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-09-21 at 15.17.08.png" alt=""><figcaption><p>config.js</p></figcaption></figure>
+{% code title="serp/facets/stats.js" %}
+```jsx
+import { RangeSlider } from '@nosto/preact'
 
-## Components
+export default ({ facet }) => {
+    return (
+        <RangeSlider id={facet.id} />
+    )
+}
+```
+{% endcode %}
 
-Listed below are how the different components under `serp` and `autocomplete` will be used to render different sections on the Search Page and the Autocomplete box.
+### Pagination
 
-### Search Page (_`default-design/src/serp`)_
+Pagination can be created using `usePagination` helper and `updateSearch` action:
 
-#### **BottomToolbar.jsx**
+{% code title="serp/pagination.jsx" %}
+```jsx
+import { usePagination, useActions } from '@nosto/preact'
 
-Design of the toolbar at the button of the page. This can be used for displaying the number of pages, page count, items per page, etc.
+export default () => {
+    const pagination = usePagination({
+        width: 5
+    })
+    const { updateSearch } = useActions()
+    
+    const createCallback = (from) => () => {
+        updateSearch({
+            products: {
+                from,
+            },
+        })
+        scrollTo(0, 0)
+    }
 
-#### **Facet.jsx**
+    return (
+        <ul>
+            {pagination.prev && <li>
+                <a
+                    href="javascript:void(0)"
+                    onClick={createCallback(pagination.prev.size)}
+                >
+                    prev
+                </a>
+            </li>}
+            {pagination.first && <li>
+                <a
+                    href="javascript:void(0)"
+                    onClick={createCallback(pagination.first.from)}
+                >
+                    {pagination.first.page}
+                </a>
+            </li>}
+            {pagination.first && <li>...</li>}
+            {pagination.pages.map((page) => <li class={page.current ? "active" : ""}>
+                <a
+                    href="javascript:void(0)"
+                    onClick={createCallback(page.from)}
+                >
+                    {page.page}
+                </a>
+            </li>)}
+            {pagination.last && <li>...</li>}
+            {pagination.last && <li>
+                <a
+                    href="javascript:void(0)"
+                    onClick={createCallback(pagination.last.from)}
+                >
+                    {pagination.last.page}
+                </a>
+            </li>}
+            {pagination.next && <li>
+                <a
+                    href="javascript:void(0)"
+                    onClick={createCallback(pagination.next.offset)}
+                >
+                    <span aria-hidden="true">
+                        <i class="ns-icon ns-icon-arrow"></i>
+                    </span>
+                </a>
+            </li>}
+        </ul>
+    )
+}
+```
+{% endcode %}
 
-Design of the facets. For example, the product colour, size, and other filters the user may wish to apply to the search results.
+### Analytics
 
-#### **Loader.jsx**
+Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
 
-Design of the loading page, while search results are retrieved and rendered. This is shown while the search results load. By default, this will be a throbber/loading icon.
-
-#### **NoResults.jsx**
-
-Page to show that there were no results found.
-
-#### **Pagination.jsx**
-
-Design for changing pages, usually shown below the _BottomToolbar_. It can be used to design the way the user changes the page.
-
-#### **Products.jsx**
-
-Design of how the product listings show up on the search page. This can be used to control how many products are shown on the result page, as well as the design of how they are shown.
-
-### Search Autocomplete (_`default-design/src/autocomplete`_)
-
-Design of the autocomplete box as the user enters their search query. This is usually shown just below the search box, and updates in real-time. It features product suggestions to help users view the top matches with their query, even before the search page loads.
-
-
-
-### Styling
-
-All these components can be customised further with the _.css_ files under `styles`.
-
-#### Using autocomplete up-down arrow keys
-
-To enable the use of up-down keys with Autocomplete, a special class defined for specifying the colour of the "current" or hovered element must be defined. `.ns-product-hovered` should be set to a colour to enable this behaviour.
+```jsx
+export default ({ product }) => {
+    return (
+        <SerpElement as="a" hit={product}>
+            {product.name}
+        </SerpElement>
+    )
+}
+```
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
@@ -79,4 +175,4 @@ Nosto Search engine is relevant out of the box and search API can be used withou
 * [Searchable Fields](https://help.nosto.com/en/articles/7161528-search-engine-s-logic-and-searchable-fields) - manage which fields are used for search and their priorities,
 * [Facets](https://help.nosto.com/en/articles/7169091-setting-up-facets) - create facets (filtering options) for search results page,
 * [Ranking and Personalization](https://help.nosto.com/en/articles/7168969-merchandising-search-personalization-guide) Ranking and Personalization - manage how results are ranked,
-* Synonyms, Redirects, and other search features are also managed through Nosto Dashboard (my.nosto.com).
+* Synonyms, Redirects, and other search features are also managed through Nosto Dashboard ([my.nosto.com](https://my.nosto.com/)).

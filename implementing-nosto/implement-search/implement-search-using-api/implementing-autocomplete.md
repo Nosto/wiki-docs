@@ -4,7 +4,7 @@ Autocomplete is an element shown under search input used to display products for
 
 
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 17.28.40.png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 17.28.40 (1).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
