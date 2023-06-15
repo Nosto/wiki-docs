@@ -76,3 +76,25 @@ export default () => {
 }
 ```
 {% endcode %}
+
+### Other features & implemenation
+
+The category page shares a lot of similarities with the search page, so please refer to the search page documentation:
+
+{% content-ref url="../implement-search-using-code-editor/implementing-search-page.md" %}
+[implementing-search-page.md](../implement-search-using-code-editor/implementing-search-page.md)
+{% endcontent-ref %}
+
+## Analytics
+
+Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
+
+```jsx
+export default ({ product }) => {
+    return (
+        <SerpElement as="a" hit={product}>
+            {product.name}
+        </SerpElement>
+    )
+}
+```

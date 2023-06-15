@@ -154,7 +154,7 @@ export default () => {
 ```
 {% endcode %}
 
-### Analytics
+## Analytics
 
 Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
 
