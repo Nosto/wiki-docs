@@ -1,10 +1,12 @@
 # Implementing Search page
 
-## Searching <a href="#selecting-fields" id="selecting-fields"></a>
+## API Requests <a href="#autocomplete" id="autocomplete"></a>
+
+### Searching <a href="#selecting-fields" id="selecting-fields"></a>
 
 For a basic search, it’s enough to provide `accountId`, `query,` and select fields that should be returned. You can control which product attributes to select through `products.hits` field. See [all available fields](https://search.nosto.com/v1/graphql?ref=SearchProduct).
 
-### Query
+#### Query
 
 For example, if you want to return only `productId` and `name`, the query would be:
 
@@ -32,19 +34,13 @@ query {
 
 See all [query parameters](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
-### Tracking
-
-Query above is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search). Additionally, query submit in autocomplete should tracked with [submit helper](../../../apis/js-apis/search.md#search-form-submit).
-
-Product clicks in SERP should be tracked with [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = serp`.
-
-## Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
+### Pagination and size <a href="#pagination-and-size" id="pagination-and-size"></a>
 
 Products offset parameter `from` is used for pagination functionality.
 
 The **default** count of documents returned per page is `size = 5`, you can change it with `products.size`, and offset of products is controlled with `products.from` field:
 
-### Query
+#### Query
 
 ```graphql
 query {
@@ -67,7 +63,7 @@ query {
 
 [Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
-## Sorting <a href="#sorting" id="sorting"></a>
+### Sorting <a href="#sorting" id="sorting"></a>
 
 By default results are sorted by products relevance score. &#x20;
 
@@ -75,7 +71,7 @@ To change the sorting, use the sort parameter, where you would specify the field
 
 By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
 
-### Query
+#### Query
 
 ```graphql
 query {
@@ -104,7 +100,7 @@ query {
 
 [Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
-## Faceting <a href="#faceting" id="faceting"></a>
+### Faceting <a href="#faceting" id="faceting"></a>
 
 Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
@@ -122,7 +118,7 @@ Facets help the user to find products more easily. Faceted navigation is normall
 To use facet for a specific field you need to [configure it in the Nosto dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets) first.
 {% endhint %}
 
-### **Terms facet**
+#### **Terms facet**
 
 One of the facet types is `type = terms`.  It returns list if common terms from found documents.
 
@@ -195,7 +191,7 @@ query {
 
 <table data-header-hidden><thead><tr><th width="161">name</th><th>description</th></tr></thead><tbody><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>type</strong></td><td>facet type, in this case <code>terms</code></td></tr><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>data.value</strong></td><td>original facet value, it should be displayed in the user interface</td></tr><tr><td><strong>data.count</strong></td><td>shows how many products will be returned if you select this facet, it should be displayed in the user interface</td></tr><tr><td><strong>data.selected</strong></td><td>indicates if there is an active filter on this value</td></tr></tbody></table>
 
-### Stats facet
+#### Stats facet
 
 Stats facet returns minimum and maximum number field value from found documents. The most common usage is to render slider filter (e.g. price)/
 
@@ -252,11 +248,7 @@ query {
 
 <table data-header-hidden><thead><tr><th width="112">name</th><th>description</th></tr></thead><tbody><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>terms</strong></td><td>facet type, in this case <code>stats</code></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>min</strong></td><td>minimum field value for documents that match provided query</td></tr><tr><td><strong>max</strong></td><td>maximum field  value for documents that match provided query</td></tr></tbody></table>
 
-### Tracking
-
-Sorting, paginating, faceting are considered as search events and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search).
-
-## Filter <a href="#filter" id="filter"></a>
+### Filter <a href="#filter" id="filter"></a>
 
 Filtering by `terms` facet, for example by _Adidas_ brand:
 
@@ -341,9 +333,11 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
-### Tracking
+## Analytics
 
-Filtering is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search).
+### Nosto Analytics
+
+Search tracking should be implemented using [JS API library](../../../apis/js-apis/search.md#search) using `type = serp`.
 
 ## Session params <a href="#selecting-fields" id="selecting-fields"></a>
 

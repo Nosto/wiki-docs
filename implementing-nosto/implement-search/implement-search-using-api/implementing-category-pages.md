@@ -2,11 +2,13 @@
 
 Nosto provides functionality to retrieve all products from specific category. This is useful when you want to implement category merchandising using the same search API.
 
-## Using category ID
+## API Requests <a href="#autocomplete" id="autocomplete"></a>
+
+### Using category ID
 
 By providing [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category.&#x20;
 
-### Query
+#### Query
 
 ```graphql
 query {
@@ -28,11 +30,11 @@ query {
 }
 ```
 
-## Using category path
+### Using category path
 
 By providing [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category. This parameter is the same as `categories` product field.
 
-### Query
+#### Query
 
 ```graphql
 query {
@@ -54,7 +56,7 @@ query {
 }
 ```
 
-## Using custom filters
+### Using custom filters
 
 In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
 
@@ -62,7 +64,7 @@ In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchPr
 [Authentication](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/using-the-search-api#authentication) is required when using custom filters for category pages
 {% endhint %}
 
-### Query
+#### Query
 
 ```graphql
 query {
@@ -92,7 +94,17 @@ query {
 }
 ```
 
-### Tracking
+### Other features & implementation
+
+The category page shares a lot of similarities with the search page, so please refer to the search page documentation:
+
+{% content-ref url="implementing-search-page.md" %}
+[implementing-search-page.md](implementing-search-page.md)
+{% endcontent-ref %}
+
+## Analytics
+
+### Nosto Analytics
 
 Category page results and subsequent filtering, sorting, paginating events should be tracked with [JS API library helper](../../../apis/js-apis/search.md#search) where `type = category`. Click events should be tracked accordingly using [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = category`.
 

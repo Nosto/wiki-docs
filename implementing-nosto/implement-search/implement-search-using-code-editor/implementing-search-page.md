@@ -33,7 +33,7 @@ When `serpPath` parameter is specified, the application will **redirect to the s
 
 ### Serp component
 
-Search results page component should render full search page using provided app state. Minimal example could look like:
+The search results page component should render a full search page using the provided app state. A minimal example might look like this:
 
 {% code title="serp/index.js" %}
 ```jsx
@@ -65,23 +65,85 @@ export default () => {
 
 #### Stats facet
 
-The stats facet returns the minimum and maximum values of numerical fields. It is useful for creating sliders, such as a price slider.
+The [stats facet](https://search.nosto.com/v1/graphql?ref=SearchStatsFacet) returns the minimum and maximum values of numerical fields from search results. This functionality is especially useful when creating interactive elements like sliders. For instance, a price slider can leverage these min-max values to define its range, providing users a simple way to filter products within their desired price range.
 
 {% code title="serp/facets/stats.js" %}
 ```jsx
-import { RangeSlider } from '@nosto/preact'
+import { RangeSlider, useRangeSlider } from '@nosto/preact'
 
 export default ({ facet }) => {
-    return (
+    const {
+        min,
+        max,
+        range,
+        updateRange
+    } = useRangeSlider(facet.id)
+
+    return  <div>
+        <h2>{facet.name}</h2>
+        <label>
+            Min.
+            <input type="number" value={range[0]} min={min} max={max} onChange={(e) => {
+                const value = parseFloat(e.currentTarget.value) || undefined
+                updateRange([value, range[1]])
+            }}/>
+        </label>
+        <label>
+            Max.
+            <input type="number" value={range[1]} min={min} max={max} onChange={(e) => {
+                const value = parseFloat(e.currentTarget.value) || undefined
+                updateRange([range[0], value])
+            }} />
+        </label>
         <RangeSlider id={facet.id} />
-    )
+    </div>
 }
 ```
 {% endcode %}
 
+Utilize the useRangeSlider hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+
+#### Terms facet
+
+The [terms facet](https://search.nosto.com/v1/graphql?ref=SearchTermsFacet) returns field terms for all products found in the search. This feature analyzes the content of each product and extracts meaningful terms. These terms can then be used to filter or refine search results, providing users with a more accurate and targeted product search.
+
+```jsx
+import { useActions } from '@nosto/preact'
+
+export default ({ facet }) => {
+    const { toggleProductFilter } = useActions()
+
+    return <div>
+        <h2>{facet.name}</h2>
+        <ul>
+            {facet.data?.map((value) => <li>
+                <label>
+                    {value.value}
+                    <input
+                        type="checkbox"
+                        checked={value.selected}
+                        onChange={(e) => {
+                            e.preventDefault()
+                            toggleProductFilter(
+                                facet.field,
+                                value.value,
+                                !value.selected
+                            )
+                        }}
+                    />
+                </label>
+                ({value.count})
+            </li>)}
+        </ul>
+    </div>
+}
+```
+
+You can use the toggleProductFilter function to toggle any filter value. This function will either add the filter value if it's not already applied or remove it if it's currently active, thus providing an efficient way to manipulate product filters in your application.
+
 ### Pagination
 
-Pagination can be created using `usePagination` helper and `updateSearch` action:
+Use the `usePagination` hook to generate useful context for rendering any desired pagination. Utilize the width parameter to adjust how many page options should be visible. Also, remember to scroll to the top on each page change to ensure a seamless navigation experience for users.
 
 {% code title="serp/pagination.jsx" %}
 ```jsx

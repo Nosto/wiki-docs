@@ -77,7 +77,7 @@ export default () => {
 ```
 {% endcode %}
 
-### Other features & implemenation
+### Other features & implementation
 
 The category page shares a lot of similarities with the search page, so please refer to the search page documentation:
 

@@ -89,3 +89,31 @@ export default ({ product }) => {
 }
 ```
 
+## Use more than 100 facet values
+
+By default, the search API returns 100 values for each facet, and it's not possible to control that limit in the dashboard. However, it is possible to override [the facet configuration](https://search.nosto.com/v1/graphql?ref=InputSearchFacetConfig) directly from the code.
+
+### Get facet ID from the dashboard
+
+The first step is to know the facet ID of the facet you want to overwrite. The facet ID is stored in the dashboard URL. For example, if you open the facet in the facet manager, the URL should be `https://my.nosto.com/admin/shopify-123/search/settings/facetManager/6406df867f8beb629fc0dfb9`. This means the facet ID is `6406df867f8beb629fc0dfb9`.
+
+### Override facet settings
+
+Once the ID is known, it's possible to override any facet setting by specifying overwrite properties in the `customFacets` parameter:
+
+{% code title="index.js" %}
+```javascript
+init({
+    serpQuery: {
+        products: {
+            customFacets: [
+                {
+                    "id": "6406df867f8beb629fc0dfb9",
+                    "size": 10
+                }
+            ]
+        },
+    }
+})
+```
+{% endcode %}
