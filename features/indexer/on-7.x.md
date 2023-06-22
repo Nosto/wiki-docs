@@ -94,17 +94,17 @@ If the product data is not synchronized to Nosto check the following steps:
   
 2. Set the `Nosto Product Indexer` mode to `Update by Schedule`.
   
-3. Verify the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` both running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. Cron group name is `consumers`.   
-For testing purpose our consumer can be started by running `bin/magento queue:consumers:start nosto_product_sync.update &` or `bin/magento queue:consumers:start nosto_product_sync.delete &`
+3. Verify that the message queue consumers `nosto_product_sync.update` and `nosto_product_sync.delete` both are running. Magento cron should take care of running \(and restarting if needed\) the consumers automatically. The cron group name is `consumers`.   
+For testing purposes, our consumers can be started by running `bin/magento queue:consumers:start nosto_product_sync.update &` or `bin/magento queue:consumers:start nosto_product_sync.delete &`
 \(CAUTION! The process started by this command will not terminate and restart automatically\)   
   
-4. Check that messages are being published. If your Mage2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.   
+4. Check that messages are being published. If your Magento 2 instance is using MySQL for MQ, the messages can be found in `queue_message` table.   
   
-5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table. Check that `magento_operation` has entries with the topic is `nosto_product_sync.update` or `nosto_product_sync.delete`.      
+5. Check that the messages are being consumed. Magento operation results can be found in `magento_operation` table. Check that `magento_operation` have entries where the topic is `nosto_product_sync.update` or `nosto_product_sync.delete`.      
   
 6. If you are using MySQL 8 or MariaDB &gt; 10.2.3, you can use the following query to have better visibility on the products that are being sent to Nosto
 
-* Show products has been sent to Nosto for updating
+* Show products that has been sent to Nosto for update
 
 ```sql
 SELECT 
