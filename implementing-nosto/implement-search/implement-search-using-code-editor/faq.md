@@ -123,3 +123,14 @@ init({
 Due to performance optimization, the search function will calculate the total count up to 10,000. In this case the search page should display a count of `10,000+` to indicate that more than 10,000 products were found.
 
 Filters and sorting operations are executed on all found products, even if there are more than this limit. Therefore, it's still possible to find other products if you filter or sort them. This should not affect the user experience in any way because it's unlikely that someone would actually view more than 10,000 products with a single search.
+
+## SEO
+
+Although search engines can understand some JavaScript-rendered code, they often miss search templates. The reason for this is that the rendering of search templates is delayed in order not to hinder the page loading speed.
+
+However, it's still possible to achieve great SEO results while using the code editor:
+
+* **Category pages** - Ensure that the category page already returns the correct meta tags and page title according to [SEO recommendations](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), they bring the biggest impact to the SEO. In category page search templates render only products, so it doesn't significantly impact SEO. If you have concerns about search engines not seeing the products, it is possible to add [structured data ](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)to a page (the category page backend should generate these tags using original products). However, this does not guarantee to boost SEO because search engines may not favor the discrepancy between structured data and the actual rendered products.
+* **Search pages** - Most search engines don't index search pages, so no optimizations are needed.
+
+If you still have concerns regarding SEO, please consider using [API integration](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api).
