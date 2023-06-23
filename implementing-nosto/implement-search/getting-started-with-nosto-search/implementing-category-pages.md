@@ -3,7 +3,7 @@
 Category pages can be rendered using search templates over existing category pages.
 
 {% hint style="info" %}
-It is best to have already-existing category pages and disable or hide _(e.g. using CSS)_ current results rendering in category pages to achieve the best results.&#x20;
+It's recommended to disable or hide (for instance, using CSS) the original category page products to avoid displaying them while new results are loading. This prevents any possible confusion for users as the updated results are populated.
 {% endhint %}
 
 ## Configuration
