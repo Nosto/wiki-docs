@@ -38,6 +38,7 @@
     * [Implementing Search page](implementing-nosto/implement-search/implement-search-using-api/implementing-search-page.md)
     * [Implementing Autocomplete](implementing-nosto/implement-search/implement-search-using-api/implementing-autocomplete.md)
     * [Implementing Category pages](implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages.md)
+    * [FAQ](implementing-nosto/implement-search/implement-search-using-api/faq.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
 
 ## APIs
