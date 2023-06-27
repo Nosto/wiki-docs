@@ -131,4 +131,3 @@ The following fields are required:
 * `price`
 *   `price_currency_code`
 
-    \</div>
