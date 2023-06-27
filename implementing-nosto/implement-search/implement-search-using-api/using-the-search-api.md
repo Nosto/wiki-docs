@@ -2,7 +2,9 @@
 
 ## Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
+{% hint style="info" %}
 Use [Search API Playground](https://search.nosto.com/v1/graphql) to try out search queries and browse API reference.
+{% endhint %}
 
 It provides:
 
@@ -15,7 +17,7 @@ It provides:
 In the majority of cases, **authentication is not a requirement** for using search APIs. However in rare case may need to:
 
 * **Access sensitive data**- all sensitive data is restricted for public access (e.g. sorting by & returning sales).
-* **Return all documents** - public access require to specify search query or category ID to avoid returning all documents.
+* **Return all documents** - public access require to specify search query,  category ID or category path to avoid returning all documents.
 
 **Note**: Keep your API key secret and do not expose it to the frontend!
 
@@ -27,7 +29,7 @@ In the majority of cases, **authentication is not a requirement** for using sear
 [Authentication Token](https://help.nosto.com/en/articles/613616-settings-authentication-tokens) with `API_SEARCH` Role is available on dashboard settings page
 {% endhint %}
 
-## Making search API requests <a href="#making-search-api-requests" id="making-search-api-requests"></a>
+## Making requests <a href="#making-search-api-requests" id="making-search-api-requests"></a>
 
 ### API endpoint
 
@@ -35,7 +37,7 @@ Search use different API endpoint than other Nosto queries: `https://search.nost
 
 ### Account ID
 
-All request requires account ID that you can find on top-right corner in Admin dashboard under shop name.
+All requests require an account ID, which can be found in the top-right corner of the Admin dashboard, under the shop name.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
 
@@ -158,7 +160,7 @@ Replace `YOUR_ACCOUNT_ID` with your account id retrieved from the Nosto dashboar
 
 ### Response example
 
-API on successful request will return a `200` status code response which includes search data:
+Upon a successful request, the API will return a 200 status code response, which includes the search data:
 
 ```json
 {
@@ -181,7 +183,7 @@ API on successful request will return a `200` status code response which include
 
 ### Error response
 
-API returns list of errors with explanations. These errors should be logged internally and not displayed to end user.
+API returns a list of errors with explanations. These errors should be logged internally and not displayed to the end user. Instead, display a general message, such as `Search is unavailable at the moment, please try again`. This approach ensures that no sensitive information is leaked to the end user.
 
 ```json
 {
@@ -198,26 +200,41 @@ API returns list of errors with explanations. These errors should be logged inte
 
 ### Partial response
 
-API may return some errors even when data is returned. That means some part of response may be missing, but you should still display it instead of showing error to our user. These errors should be logged to internal logging.&#x20;
+The API may return some errors even when data is returned. This means that some parts of the response may be missing, but you should still display the available data instead of showing an error to the user. These errors should be logged internally for future reference and troubleshooting.
 
-## Production example <a href="#autocomplete" id="autocomplete"></a>
+## Session params <a href="#selecting-fields" id="selecting-fields"></a>
 
-In the search application you should use variables instead of hardcoded arguments to pass search data, meaning `filters`, `sort`, `size`, `from` options should be passed in `products` variable (see [InputSearchProducts reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) for all available options)
+For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 
-### Request query
+It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
+
+```javascript
+nostojs(function(api) {
+    api.getSearchSessionParams().then(function(response) {
+        console.log(response);
+    });
+});
+```
+
+The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
+
+## Using variables <a href="#autocomplete" id="autocomplete"></a>
+
+In the search application, you should use variables instead of hardcoded arguments to pass search data. This means that filters, sort, size, and 'from' options should be passed in the 'products' variable. For a full list of available options, please see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts).
+
+### Query
 
 ```graphql
 query (
-  $accountId: String,
   $query: String,
-  $segments: [String!],
-  $products: InputSearchProducts
+  $products: InputSearchProducts,
+  $sessionParams: InputSearchQuery
 ) {
   search(
-    accountId: "ACCOUNT ID"
+    accountId: "YOUR_ACCOUNT_ID"
     query: $query
-    segments: $segments
-    products: $products
+    products: $products,
+    sessionParams: $sessionParams
   ) {
     query
     products {
@@ -227,42 +244,22 @@ query (
         name
         imageUrl
         thumbUrl
-        description
         brand
-        variantId
         availability
         price
-        categoryIds
-        categories
-        categorySplit
-        tags1
-        tags2
-        tags3
-        priceCurrencyCode
-        attributes
-        datePublished
         listPrice
-        unitPricingBaseMeasure
-        unitPricingUnit
-        unitPricingMeasure
-        googleCategory
-        gtin
-        ageGroup
-        gender
-        condition
-        alternateImageUrls
-        ratingValue
-        reviewCount
-        inventoryLevel
-        supplierCost
-        pid
-        isInStock
-        isExcluded
-        onDiscount
+        customFields {
+          key
+          value
+        }
+        skus {
+          name
+          customFields {
+            key
+            value
+          }
+        }
       }
-      total
-      size
-      from
       facets {
         ... on SearchTermsFacet {
           id
@@ -284,40 +281,31 @@ query (
           max
         }
       }
-      collapse
+      total
+      size
+      from
       fuzzy
-      categoryId
     }
   }
 }
 ```
 
-### Request variables
+{% hint style="info" %}
+To optimize search speed and reduce network load, select only the necessary data when performing a search query.
+{% endhint %}
+
+### Variables
+
+Variables should encompass all dynamic query data because it is the most efficient method to pass data, and data is automatically escaped to prevent injection attacks. Avoid generating dynamic queries, as they can lead to security issues if user input is not properly escaped.
 
 ```json
 {
-  "query": "green",
+  "query": "red",
   "products": {
-    "size": 10,
-    "from": 10,
-    "sort": [
-      {
-        "field": "price",
-        "order": "asc"
-      }
-    ],
-    "filter": [
-      {
-        "field": "price",
-        "range": { "lt": "60", "gt": "50" }
-      },
-      { 
-        "field": "customFields.brandname",
-        "value": "Adidas"
-      }
-    ]
-  }
-}.
+    "size": 5
+  },
+  "sessionParams": {}
+}
 ```
 
 ## Analytics
