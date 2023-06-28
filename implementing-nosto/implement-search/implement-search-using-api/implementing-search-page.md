@@ -333,7 +333,7 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
-## Session params <a href="#selecting-fields" id="selecting-fields"></a>
+## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 

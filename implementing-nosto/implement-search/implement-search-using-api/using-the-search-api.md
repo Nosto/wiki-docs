@@ -29,7 +29,7 @@ In the majority of cases, **authentication is not a requirement** for using sear
 [Authentication Token](https://help.nosto.com/en/articles/613616-settings-authentication-tokens) with `API_SEARCH` Role is available on dashboard settings page
 {% endhint %}
 
-## Making requests <a href="#making-search-api-requests" id="making-search-api-requests"></a>
+## Making requests <a href="#making-requests" id="making-requests"></a>
 
 ### API endpoint
 
@@ -202,7 +202,7 @@ API returns a list of errors with explanations. These errors should be logged in
 
 The API may return some errors even when data is returned. This means that some parts of the response may be missing, but you should still display the available data instead of showing an error to the user. These errors should be logged internally for future reference and troubleshooting.
 
-## Session params <a href="#selecting-fields" id="selecting-fields"></a>
+## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 
@@ -218,7 +218,7 @@ nostojs(function(api) {
 
 The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
 
-## Using variables <a href="#autocomplete" id="autocomplete"></a>
+## Using variables <a href="#using-variables" id="using-variables"></a>
 
 In the search application, you should use variables instead of hardcoded arguments to pass search data. This means that filters, sort, size, and 'from' options should be passed in the 'products' variable. For a full list of available options, please see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts).
 
