@@ -8,13 +8,17 @@ description: Using Nosto's React Component Library built specifically for Shopif
 
 ### Shopify Hydrogen React Component Library
 
-Our [component library](https://github.com/Nosto/shopify-hydrogen), specifically tailored to Shopify Hydrogen, utilizes [nosto-react](https://github.com/Nosto/nosto-react) under the hood, while adding Hydrogen-specific hooks and logic to simplify Nosto integration.
+Our [component library](https://github.com/Nosto/shopify-hydrogen), specifically tailored to Shopify Hydrogen, utilizes [nosto-react](https://github.com/Nosto/nosto-react) under the hood, while adding Hydrogen-specific hooks and logic to simplify Nosto integration.&#x20;
+
+We now also support Hydrogen version 2 which is [built on Remix](https://hydrogen.shopify.dev/updates). Our [main](https://github.com/Nosto/shopify-hydrogen/tree/main) branch is dedicated to version 2, while the legacy version 1 is present on the [hydrogen-v1](https://github.com/Nosto/shopify-hydrogen/tree/hydrogen-v1) branch.
 
 Developers can easily install our library components via [npm](https://www.npmjs.com/package/@nosto/shopify-hydrogen) into their Hydrogen-based projects to access Nosto's extensive feature set, including recommendations, onsite content personalization, dynamic bundles, pop-ups, and more. Please see below for more details.
 
+There are two tags maintained on NPM. The `latest` version will follow`2.x.x`, while the `legacy` has version `1.x.x` to separate Hydrogen version 1 and version 2.
+
 ### Demo Store
 
-Our [live demo store](https://shopify-hydrogen-demo.nosto.com/) is deployed via Oxygen to showcase our integration in action. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo).
+Our [live demo store](https://shopify-hydrogen-demo.nosto.com/) is deployed via Oxygen to showcase our integration in action. You can also view the entire codebase for our store [on GitHub](https://github.com/Nosto/shopify-hydrogen-demo). This store is built on Remix using the latest version of the library.
 
 ### GitHub Repository
 
@@ -33,7 +37,7 @@ For further information about our Shopify Hydrogen-specific extension of nosto-r
 * Search\*\*
 
 \*except advanced use cases\
-\*\*when implemented via our [code editor](http://localhost:5000/s/-M4IGuGLvRTou2pTniuH/implementing-nosto/implement-search/getting-started-with-nosto-search)
+\*\*when implemented via our [code editor](http://localhost:5000/s/-M4IGuGLvRTou2pTniuH/implementing-nosto/implement-search/implement-search-using-code-editor)
 
 ### Features not currently supported
 
