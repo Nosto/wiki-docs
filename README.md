@@ -28,9 +28,8 @@ All you need to take Nosto into use in your shop is to install the extension and
 
 ### License
 
-Academic Free License \("AFL"\) v. 3.0
+Academic Free License ("AFL") v. 3.0
 
 ### Dependencies
 
-PrestaShop version 1.5.x - 1.7.x
-
+PrestaShop version 1.5.x - 1.7.x + 8.0
