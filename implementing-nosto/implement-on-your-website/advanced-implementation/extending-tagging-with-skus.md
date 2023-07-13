@@ -129,7 +129,7 @@ You can further verify that products are being indexed to the catalogue under th
 
 ![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png)
 
-![](<../../../.gitbook/assets/image (2).png>)
+![](<../../../.gitbook/assets/image (2) (2).png>)
 
 ## FAQ
 

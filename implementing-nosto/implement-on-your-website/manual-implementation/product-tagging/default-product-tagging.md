@@ -58,7 +58,7 @@ The availability of a product is represented by `InStock` or `http://schema.org/
 
 ### Tagging the Google Categories
 
-The category of your item based on the Google product taxonomy. Use the schema provided by Google here \([https://support.google.com/merchants/answer/6324436?hl=en](https://support.google.com/merchants/answer/6324436?hl=en)\)
+The category of your item based on the Google product taxonomy. Use the schema provided by Google here ([https://support.google.com/merchants/answer/6324436?hl=en](https://support.google.com/merchants/answer/6324436?hl=en))
 
 ### Tagging the Rating
 
@@ -72,14 +72,11 @@ Custom fields accept a key:value pair where the `class` of the attribute is the 
 
 ### Tagging the currently viewed sku
 
-It is possible to tag also the currently viewed product sku. 
-Typically, this would be done on a product detail page when the user chooses a specific color or size and you would like to update recommendations to highlight other products with similar attributes.
-Most common approach would be to implement it by calling the [Session API](../../../implementation-guide-session-api/README.md) or the [JS API](../../../../apis/js-apis/README.md) from a click-listener to send the sku information and update the recommendations.
-If, however, the preference is to use tagging to specify the selected sku instead, that can be done through tagging by adding a span under product with the class name `selected_sku_id`, for example: `<span class="selected_sku_id">40822930473153</span>`
+It is possible to tag also the currently viewed product sku. Typically, this would be done on a product detail page when the user chooses a specific color or size and you would like to update recommendations to highlight other products with similar attributes. Most common approach would be to implement it by calling the [Session API](../../../implementation-guide-session-api/) or the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/recommendations/sending-product-view-events#sending-product-sku-view-events) from a click-listener to send the sku information and update the recommendations. If, however, the preference is to use tagging to specify the selected sku instead, that can be done through tagging by adding a span under product with the class name `selected_sku_id`, for example: `<span class="selected_sku_id">40822930473153</span>`
 
 ### Fields that are not exposable in tagging
 
-Nosto also supports two attributes that are not crawlable through tagging. This is due to the sensitive nature of the attributes. They are: `supplier_cost` and `inventory level`. To send these two values to Nosto you will need to use the [Products API](../../../../apis/rest/products/updating-products-using-the-products-api.md).
+Nosto also supports two attributes that are not crawlable through tagging. This is due to the sensitive nature of the attributes. Those are: `supplier_cost` and `inventory_level`. To send these two values to Nosto you will need to use the [Products API](../../../../apis/rest/products/updating-products-using-the-products-api.md).
 
 ### Adding support for advanced use cases
 
@@ -93,11 +90,15 @@ If you want to use Nosto’s margin filter, you need to send supplier cost via [
 
 ## Troubleshooting
 
-Once included on all pages, you can review if the site is transmitting data using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see product attributes being picked up under "Tagging" then the product details are correctly set up. You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to Tools → Products: [https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)
+Once included on all pages, you can review if the site is transmitting data using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see product attributes being picked up under "Tagging" then the product details are correctly set up. You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to the Catalog Explorer: [https://my.nosto.com/admin/$accountID/products](https://my.nosto.com/admin/$accountID/campaigns/products/list)
 
-![Nosto debug toolbar / products](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-product-tagging.png)
+<div data-full-width="true">
 
-![Nosto product catalogue](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-product-catalogue.png)
+<img src="https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-product-tagging.png" alt="Nosto debug toolbar / products">
 
-![live-feed-product-view](https://nosto-campaign-assets.s3.amazonaws.com/images/live-feed-view.png)
+ 
+
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>The UI of the Catalog Explorer (CE)</p></figcaption></figure>
+
+</div>
 
