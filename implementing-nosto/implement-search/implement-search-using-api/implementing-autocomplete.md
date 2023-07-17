@@ -1,8 +1,6 @@
 # Implementing Autocomplete
 
-Autocomplete is an element shown under search input used to display products for a partial query.
-
-
+Autocomplete should provide keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with ability to see all products in search results page.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 17.28.40 (1).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
@@ -17,7 +15,8 @@ query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
     query: "green"
-    products: { size: 4 }
+    products: { size: 5 },
+    keywords: { size: 5 }
   ) {
     products {
       hits {
@@ -25,14 +24,16 @@ query {
         name
       }
       total
-      size
+    }
+    keywords {
+      hits {
+        keyword
+      }
     }
     query
   }
 }
 ```
-
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22,%20products:%20%7Bsize:%204%7D\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%7D%0A%20%20%20%20query%0A%20%20%7D%0A%7D)
 
 ### Response
 
@@ -48,8 +49,14 @@ query {
             "name": "My product"
           }
         ]
-        "size": 4,
-        "total": 300
+        "total": 1
+      },
+      "keywords": {
+        "hits": [
+          {
+            "keyword": "green"
+          }
+        ]
       }
     }
   }
