@@ -27,6 +27,9 @@ init({
         products: {
             size: 5,
         },
+        keywords: {
+            size: 5,
+        },
     }
 })
 ```
@@ -39,7 +42,7 @@ init({
 import { useAppState, AutocompleteElement } from '@nosto/preact'
 
 export default () => {
-    const { esponse: { products } } = useAppState()
+    const { response: { products } } = useAppState()
 
     if (!products?.hits?.length) {
         return

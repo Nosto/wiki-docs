@@ -4,13 +4,14 @@
 
 It is possible to call search API directly from javascript library to fetch search results directly on frontend.
 
-For most basic search `fields` parameter should be provided to specify what product fields should be returned. For all parameters, see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
+For most basic search `fields` parameter should be provided to specify what product/keyword fields should be returned. Both `products` and `keywords` can be used separately and together, depending on use case. For all parameters, see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
 ```javascript
 nostojs(function(api) {
     api.search({
         query: 'my search',
-        products: { fields: ["name"] }
+        products: { fields: ["name"] },
+        keywords: { fields: ["keyword"] }
     }).then(function(response) {
         console.log(response);
     });
@@ -57,6 +58,10 @@ nostojs(function(api) {
         products: {
             fields: ['name'],
             size: 10
+        },
+        keywords: {
+            fields: ['keyword'],
+            size: 5
         }
     }, {
         track: 'autocomplete'
@@ -115,12 +120,13 @@ The function accepts the following options:
 
 ## Analytics
 
-Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviours that should be tracked:
+Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product/keyword click`. These are user behaviours that should be tracked:
 
 * search submit (`type = serp`)
 * faceting, paginating, sorting (`type = serp/category`)
 * autocomplete input (`type = autocomplete)`
 * search results product click `(type = serp/autocomplete/category)`
+* autocomplete keyword click (`type = autocomplete)`
 * category merchandising results `(type = category)`
 
 JS API library provides tracking helpers for all of these cases.
@@ -190,7 +196,7 @@ nostojs(function (api) {
 Organic search - is a search query submitted through search input and which lead to SERP (search engine results page). Following faceting, paginating, sorting queries on organic query is also counted as organic.&#x20;
 {% endhint %}
 
-### Search product click
+### Search product/keyword click
 
 Product clicks should be tracked in autocomplete component, SERP, category page with `api.recordSearchClick()` by providing component (type), where click occurred, and clicked product data:
 
@@ -209,4 +215,21 @@ api.recordSearchClick(
     "autocomplete", 
     { productId: "123", url: "https://myshop.com/product123" }
 )
+```
+
+
+
+{% hint style="warning" %}
+Product and keyword clicks must be tracked separately by binding to two separate click events.
+{% endhint %}
+
+Keyword clicks should be tracked in autocomplete component with `api.recordSearchClick()` by providing `type = autocomplete` and keyword hit object:
+
+```javascript
+nostojs(function (api) {
+    api.recordSearchClick(
+        'autocomplete',
+        { keyword: 'green' }
+    )
+})
 ```
