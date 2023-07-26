@@ -250,7 +250,7 @@ query {
 
 ### Filter <a href="#filter" id="filter"></a>
 
-Filtering by `terms` facet, for example by _Adidas_ brand:
+Filtering by `terms` facet, for example by _Adidas, Converse_ brands:
 
 ### Query
 
@@ -261,7 +261,7 @@ query {
     query: "green"
     products: {
       size: 10
-      filter: [{ field: "brand", value: "Adidas" }]
+      filter: [{ field: "brand", value: ["Adidas", "Converse"] }]
     }
   ) {
     products {
@@ -289,7 +289,7 @@ query {
 
 [GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7B%20filter:%20%5B%7B%20field:%20%22customFields.brandname%22,%20value:%20%22Adidas%22%20%7D%5D%20%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchTermsFacet%20%7B%20field%20name%20data%20%7B%20value%20count%20selected%20%7D%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
-When filtering by multiple same field items filters will be joined with OR operator and different fields with AND.
+When filtering by multiple same field items, filters will be joined with OR operator and different fields with AND.
 
 If you wish to have more facets, you should configure it in the Nosto dashboard first.
 
