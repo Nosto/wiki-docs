@@ -216,7 +216,7 @@ export default () => {
 ```
 {% endcode %}
 
-## Product actions
+### Product actions
 
 Since the code editor utilizes the Preact framework, it offers significant flexibility in customizing behavior or integrating the search page with existing elements on your site. For instance, you can implement actions such as 'Add to Cart', 'Wishlist', or 'Quick View'.
 
