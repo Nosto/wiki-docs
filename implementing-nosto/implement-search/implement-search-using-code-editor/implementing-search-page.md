@@ -216,6 +216,54 @@ export default () => {
 ```
 {% endcode %}
 
+## Product actions
+
+Since the code editor utilizes the Preact framework, it offers significant flexibility in customizing behavior or integrating the search page with existing elements on your site. For instance, you can implement actions such as 'Add to Cart', 'Wishlist', or 'Quick View'.
+
+{% code title="serp/Product.jsx" %}
+```jsx
+import { SerpElement } from '@nosto/preact'
+import { useState } from 'preact/hooks'
+
+export default ({ product }) => {
+    const [addedToCart, setAddedToCart] = useState(false)
+    
+    return (
+        <SerpElement
+            as="a"
+            hit={product}
+        >
+            <img src={product.imageUrl} />
+            <div>
+                {product.name}
+            </div>
+            <button
+                // Allow the button to be clicked only once
+                disabled={addedToCart}
+                // Add the product to the cart when the button is clicked
+                onClick={(event) => {
+                    // Don't navigate to the product page
+                    event.stopImmediatePropagation()
+
+                    // Update the button text and disable it
+                    setAddedToCart(true)
+
+                    // Add the product to the cart, this depends on the cart implementation
+                    jQuery.post('/cart/add.js', {
+                        quantity: 1,
+                        id: product.productId,
+                    })
+                }}
+            >
+                // Show different text if product was added to the cart
+                {addedToCart ? 'Added to cart' : 'Add to cart'}
+            </button>
+        </SerpElement>
+    )
+}
+```
+{% endcode %}
+
 ## Analytics
 
 Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
