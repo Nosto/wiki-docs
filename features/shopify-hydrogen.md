@@ -26,18 +26,16 @@ For further information about our Shopify Hydrogen-specific extension of nosto-r
 
 ### Supported features
 
+* Search
+* Category Merchandising
 * Recommendations, including client-side rendering
-* Onsite content personalisation
-* Dynamic bundles
-* Debug toolbar\*
-* Pop-ups & personalised emails
-* A/B testing
-* Segmentation and Insights&#x20;
+* Content Personalisation
+* Dynamic Bundles
+* Personalized Emails
+* Pop-Ups&#x20;
+* A/B Testing
+* Segmentation & Insights&#x20;
 * Analytics
-* Search\*\*
-
-\*except advanced use cases\
-\*\*when implemented via our [code editor](http://localhost:5000/s/-M4IGuGLvRTou2pTniuH/implementing-nosto/implement-search/implement-search-using-code-editor)
 
 ### Features not currently supported
 
