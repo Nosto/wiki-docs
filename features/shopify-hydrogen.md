@@ -39,7 +39,7 @@ For further information about our Shopify Hydrogen-specific extension of nosto-r
 
 ### Features not currently supported
 
-* UGC widgets
+* Visual UGC
 * Advanced use cases of the debug toolbar
 * Dynamic placements\*
 
