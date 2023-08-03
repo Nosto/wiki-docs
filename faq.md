@@ -126,3 +126,8 @@ By default, disabled products will not be tagged by Nosto or will end up as `Dis
 Starting from version `5.4.0` there is also a possibility to send disabled product data to Nosto via API.
 The option can be enabled from Magento's Nosto settings (Stores > Configuration > Services > Nosto > Feature Flags > Index disabled products).‌
 With the option enabled Nosto will tag disabled products as `Invisible`.
+
+## Inventory level does not get updated or is out of sync
+
+Inventory level is an API only field, meaning that the crawler will not extract this information from the HTML rendered on the page. This is due to the HTML being public and this information would be exposed to clients.
+In order to fix this, make sure the indexer is running more frequently and you are using the latest version of our module, which has considerable indexing speed improvements.
