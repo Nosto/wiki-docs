@@ -218,6 +218,18 @@ nostojs(function(api) {
 
 The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
 
+It's also possible to save session data to [cookies](https://www.w3schools.com/js/js\_cookies.asp) on page load:
+
+```html
+<script>
+    nostojs(function(api) {
+        api.getSearchSessionParams().then(function(response) {
+            document.cookie = `nostoSearchSessionParams=${encodeURIComponent(JSON.stringify(response))};`;
+        });
+    })
+</script>
+```
+
 ## Using variables <a href="#using-variables" id="using-variables"></a>
 
 In the search application, you should use variables instead of hardcoded arguments to pass search data. This means that filters, sort, size, and 'from' options should be passed in the 'products' variable. For a full list of available options, please see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchProducts).
