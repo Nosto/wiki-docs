@@ -53,33 +53,37 @@ export default () => {
 
     return (
         <div>
-            <div>
-                Keywords
-            </div>
-            <div>
-                {keywords.hits.map((hit) => (
-                    <AutocompleteElement hit={hit}>
-                        {
-                            hit?._highlight?.keyword
-                                ? <span dangerouslySetInnerHTML={{ __html: hit._highlight.keyword }}></span>
-                                : <span>{hit.keyword}</span>
-                        }
-                    </AutocompleteElement>
-                ))}
-            </div>
-            <div>
-                Products
-            </div>
-            <div>
-                {products.hits.map((hit) => (
-                    <AutocompleteElement hit={hit}>
-                        <img src={hit.imageUrl}/>
-                        <div>
-                            {hit.name}
-                        </div>
-                    </AutocompleteElement>
-                ))}
-            </div>
+            {keywords?.hits?.length > 0 && <div>
+                <div>
+                    Keywords
+                </div>
+                <div>
+                    {keywords.hits.map((hit) => (
+                        <AutocompleteElement hit={hit} key={hit.keyword}>
+                            {
+                                hit?._highlight?.keyword
+                                    ? <span dangerouslySetInnerHTML={{ __html: hit._highlight.keyword }}></span>
+                                    : <span>{hit.keyword}</span>
+                            }
+                        </AutocompleteElement>
+                    ))}
+                </div>
+            </div>}
+            {products?.hits?.length > 0 && <div>
+                <div>
+                    Products
+                </div>
+                <div>
+                    {products.hits.map((hit) => (
+                        <AutocompleteElement hit={hit} key={hit.productId}>
+                            <img src={hit.imageUrl}/>
+                            <div>
+                                {hit.name}
+                            </div>
+                        </AutocompleteElement>
+                    ))}
+                </div>
+            </div>}
             <div>
                 <button type="submit">
                     See all search results

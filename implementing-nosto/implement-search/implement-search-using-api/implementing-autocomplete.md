@@ -2,7 +2,7 @@
 
 Autocomplete should provide keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with ability to see all products in search results page.&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 17.28.40 (1).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
@@ -28,6 +28,9 @@ query {
     keywords {
       hits {
         keyword
+        _highlight {
+          keyword
+        }
       }
     }
     query
@@ -54,7 +57,10 @@ query {
       "keywords": {
         "hits": [
           {
-            "keyword": "green"
+            "keyword": "green",
+            "_highlight": {
+              "keyword": "<em>green</em>"
+            }
           }
         ]
       }
