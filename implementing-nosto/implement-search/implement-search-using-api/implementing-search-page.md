@@ -338,7 +338,7 @@ You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte`
 Redirects can be used to forward users to special pages depending on their search keywords. For example, users searching for `shipping` could be forwarded to https://example.com/shipping.html.
 
 {% hint style="warning" %}
-For API integrations GraphQL can only return the target URL. The actual brwoser redirect must be implemented by the merchant.
+For API integrations GraphQL can only return the target URL. The actual browser redirect must be implemented by the merchant.
 {% endhint %}
 
 #### Query
