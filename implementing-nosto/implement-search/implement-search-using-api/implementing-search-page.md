@@ -333,6 +333,55 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
+### Redirects
+
+Redirects can be used to forward users to special pages depending on their search keywords. For example, users searching for `shipping` could be forwarded to https://example.com/shipping.html.
+
+{% hint style="warning" %}
+For API integrations GraphQL can only return the target URL. The actual browser redirect must be implemented by the merchant.
+{% endhint %}
+
+#### Query
+
+```graphql
+query {
+  search(
+    accountId: "YOUR_MERCHANT_ID",
+    query: "shipping"
+  ) {
+    redirect
+    products {
+      hits {
+        name
+      }
+    }
+    keywords {
+      hits {
+        keyword
+      }
+    }
+  }
+}
+```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_MERCHANT_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
+#### Response
+
+```json
+{
+  "data": {
+    "search": {
+      "redirect": "https://example.com/shipping.html",
+      "products": {
+        "hits": []
+      },
+      "keywords": null
+    }
+  }
+}
+```
+
 ## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
