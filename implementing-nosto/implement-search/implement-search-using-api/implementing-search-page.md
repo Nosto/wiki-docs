@@ -346,21 +346,25 @@ For API integrations GraphQL can only return the target URL. The actual browser 
 ```graphql
 query {
   search(
-    accountId: "YOUR_ACCOUNT_ID"
+    accountId: "YOUR_MERCHANT_ID",
     query: "shipping"
   ) {
     redirect
     products {
-      ...
+      hits {
+        name
+      }
     }
     keywords {
-      ...
+      hits {
+        keyword
+      }
     }
   }
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_ACCOUNT_ID%22%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_MERCHANT_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 #### Response
 
@@ -368,14 +372,11 @@ query {
 {
   "data": {
     "search": {
-      "query": "shipping",
       "redirect": "https://example.com/shipping.html",
       "products": {
-        ...
+        "hits": []
       },
-      "keywords": {
-        ...
-      }
+      "keywords": null
     }
   }
 }
