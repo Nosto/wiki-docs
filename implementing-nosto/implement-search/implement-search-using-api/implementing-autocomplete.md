@@ -8,7 +8,9 @@ Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/arti
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
-### Query <a href="#autocomplete" id="autocomplete"></a>
+### Example
+
+#### Query <a href="#autocomplete" id="autocomplete"></a>
 
 ```graphql
 query {
@@ -28,6 +30,7 @@ query {
     keywords {
       hits {
         keyword
+        _redirect
         _highlight {
           keyword
         }
@@ -38,7 +41,7 @@ query {
 }
 ```
 
-### Response
+#### Response
 
 ```json
 {
@@ -58,9 +61,16 @@ query {
         "hits": [
           {
             "keyword": "green",
+            "_redirect": "https://example.com/green.html",
             "_highlight": {
               "keyword": "<em>green</em>"
             }
+          },
+          {
+            "keyword": "green energy",
+            "_redirect": null,
+            "_highlight": {
+              "keyword": "<em>green</em> energy"
           }
         ]
       }
@@ -69,7 +79,17 @@ query {
 }
 ```
 
+### Highlight
 
+API can return highlights indicating which parts of a keyword match the search query. This HTML can be used to render and emphasize the matching sections during display.
+
+### Redirects
+
+Redirects are configured in the search dashboard and can be used to forward users to specific pages depending on what they type into the search field. For example, users searching for "shipping" could be directed to [https://example.com/shipping.html](https://example.com/shipping.html).
+
+{% hint style="info" %}
+API only returns redirect url, the actual browser redirect must be implemented by the merchant on keyword selection
+{% endhint %}
 
 ## Analytics
 
