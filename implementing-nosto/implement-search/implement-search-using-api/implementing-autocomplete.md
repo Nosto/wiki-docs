@@ -69,6 +69,61 @@ query {
 }
 ```
 
+### Redirects
+
+Redirects can be used to forward users to special pages depending on what they type into the search field. For example, users searching for shipping could be forwarded to https://example.com/shipping.html.
+
+{% hint style="warning" %}
+For API integrations GraphQL can only return the target URL. The actual browser redirect must be implemented by the merchant.
+{% endhint %}
+
+#### Query
+
+```graphql
+{
+  search(
+    accountId: "YOUR_ACCOUNT_ID"
+    query: "ship"
+    keywords: {}
+    products: {}
+  ) {
+    keywords {
+      hits {
+        keyword
+        _redirect
+      }
+    }
+    products {
+      hits {
+        productId
+        name
+      }
+    }
+  }
+}
+```
+
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_ACCOUNT_ID%22%0A%20%20%20%20query%3A%20%22ship%22%0A%20%20%20%20keywords%3A%20%7B%7D%0A%20%20%20%20products%3A%20%7B%7D%0A%20%20%29%20%7B%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%20%20_redirect%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
+#### Response
+
+```json
+{
+  "data": {
+    "search": {
+      "keywords": {
+        "hits": [
+          {
+            "keyword": "shipping",
+            "_redirect": "https://example.com/shipping.html"
+          }
+        ]
+      },
+      "products": {}
+    }
+  }
+}
+```
 
 
 ## Analytics
