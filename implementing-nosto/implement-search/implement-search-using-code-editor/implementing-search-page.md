@@ -14,6 +14,7 @@ init({
     inputCssSelector: '#search',
     contentCssSelector: '#content',
     serpPath: '/search',
+    serpPathRedirect: false,
     serpUrlMapping: {
         query: 'q',
     },
@@ -30,6 +31,10 @@ init({
 ### Search page path
 
 When `serpPath` parameter is specified, the application will **redirect to the specified search** page after a search is conducted. Otherwise, the search will be **rendered** **on the same page** without changing the URL path.
+
+### Search page redirect
+
+When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the  search page specified in `serpPath` and fetch the page. Default behaviour will rewrite browser history only to the specified path, without fetching the page.
 
 ### Serp component
 
