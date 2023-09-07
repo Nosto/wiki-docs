@@ -64,6 +64,89 @@ export default () => {
 ```
 {% endcode %}
 
+### Custom search URL parameters mapping
+
+Configuration accepts optional array of URL parameter mapping functions, which allow to change behaviour of any search parameter. `customUrlMappings` accepts objects which must contain `encode` and `decode` functions.
+
+`encode` function receives query object which contains properties equivalent to the URL parameters, and returns object in the desired format.
+
+Similarly, `decode` accepts mapped query object, returned from `encode` function, and it must return object in the original search format.
+
+<pre class="language-javascript"><code class="lang-javascript"><strong>import { init, mapOffsetToPage } from '@nosto/preact'
+</strong>
+import serpComponent from './serp'
+
+init({
+    ...window.nostoTemplatesConfig,
+    serpComponent,
+    inputCssSelector: '#search',
+    contentCssSelector: '#content',
+    serpPath: '/search',
+    serpPathRedirect: false,
+    serpUrlMapping: {
+        query: 'q',
+        'products.page': 'page'
+    },
+    customUrlMappings: [mapOffsetToPage],
+    serpQuery: {
+        name: 'serp',
+        products: {
+            size: 20,
+            from: 0,
+        },
+    },
+})
+</code></pre>
+
+With the mapper, provided in the example and `serpUrlMapping` adjustments, `products.from` search parameter is mapped to `page` number, e.g:&#x20;
+
+`https://myshop.com/search?products.from=20&q=shorts` becomes&#x20;
+
+`https://myshop.com/search?page=2&q=shorts`
+
+Implementation of `mapOffsetToPage:`
+
+```typescript
+const mapOffsetToPage = {
+    encode(query) {
+        if (query.products) {
+            const { from, ...rest } = query.products
+
+            return from
+                ? {
+                      ...query,
+                      products: {
+                          ...rest,
+                          page: Math.floor(from / rest.size) + 1,
+                      },
+                  }
+                : query
+        }
+
+        return query
+    },
+    decode(query) {
+        if (query.products) {
+            const { page, ...rest } = query.products
+
+            return page
+                ? {
+                      ...query,
+                      products: {
+                          ...rest,
+                          from:
+                              ((parseInt(page) || 1) - 1) *
+                              (parseInt(rest.size) || 0),
+                      },
+                  }
+                : query
+        }
+
+        return query
+    },
+}
+```
+
 ## Features
 
 ### Faceted navigation
