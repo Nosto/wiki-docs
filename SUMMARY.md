@@ -3,6 +3,7 @@
 * [Personalization for Shopify](README.md)
 * [Installing](installing.md)
 * [Uninstalling](uninstalling.md)
+* [Shopify Markets](shopify-markets.md)
 * [Guides](guides/README.md)
   * [Quicker recommendation loading](guides/quicker-recommendation-loading.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)
