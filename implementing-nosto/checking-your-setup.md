@@ -86,7 +86,7 @@ Wait 30 minutes for the session to expire and then verify that the order shows u
 If the order doesn't correctly show in the session view, these pages might help:
 
 * [Tagging: order](https://docs.nosto.com/techdocs/implementing-nosto/implement-on-your-website/manual-implementation/order-tagging)
-* [JS API: order](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-tracking-events#upon-placing-an-order)
+* [Session API: order](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-tracking-events#upon-placing-an-order)
 
 {% hint style="info" %}
 If it’s not possible to perform a test order, the Nosto admin UI's orders page can be used to review that orders link to known products in the catalogue and that some items have click attribution towards the visible recommendations.
