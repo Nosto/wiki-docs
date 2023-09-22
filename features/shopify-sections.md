@@ -15,7 +15,7 @@ Our implementation for sections is limited only to Shopify Online Store 2.0. Thi
 
 ## Enable sections feature
 
-To enable sections navigate to the `Shopify Settings` tab in your Nosto account . You can find it easily under `Dashboard > Go to Shopify Settings`. On the settings page click the enable button.
+To enable sections navigate to the `Shopify Settings` tab in your Nosto account. You can find it easily under `Dashboard > Go to Shopify Settings`. On the settings page click the enable button.
 
 {% hint style="info" %}
 To add sections to existing themes with Nosto please remove Nosto from the theme and install again.
