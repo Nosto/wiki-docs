@@ -49,6 +49,10 @@ The `isCategoryPage` function should detect whether the current page is a catego
 
 The `categoryQuery` should generate a category page query based on the current page. It must return either `categoryPath` (identical to the `categories` field filter) or `categoryId` to select the current category.&#x20;
 
+{% hint style="warning" %}
+Search rules targeting specific categories are not supported when using `categoryPath` parameter, they supported only for `categoryId` parameter
+{% endhint %}
+
 ### Category component
 
 The category component should also be implemented. In most cases, it is the same component as the search page component, except that the search query should not be displayed.

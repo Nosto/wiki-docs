@@ -32,6 +32,10 @@ query {
 
 ### Using category path
 
+{% hint style="warning" %}
+Search rules targeting specific categories are not supported when using `categoryPath` parameter, they supported only for `categoryId` parameter
+{% endhint %}
+
 By providing [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category. This parameter is the same as `categories` product field.
 
 #### Query
@@ -58,11 +62,11 @@ query {
 
 ### Using custom filters
 
-In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
-
-{% hint style="info" %}
-[Authentication](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/using-the-search-api#authentication) is required when using custom filters for category pages
+{% hint style="warning" %}
+Search rules targeting categories are not supported when using custom filters, they supported only for `categoryId` parameter
 {% endhint %}
+
+In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
 
 #### Query
 
