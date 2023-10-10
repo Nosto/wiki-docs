@@ -354,7 +354,7 @@ export default ({ product }) => {
 
 ## Analytics
 
-Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
+Search automatically tracks to Google Analytics & Nosto Analytics when using `<SerpElement />` component.&#x20;
 
 ```jsx
 export default ({ product }) => {
@@ -365,6 +365,17 @@ export default ({ product }) => {
     )
 }
 ```
+
+**Component parameters:**
+
+| **hit**                | Product object.                                                                                                                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **as**                 | <p>Element to render <code>&#x3C;SerpElement /></code> as. Recommended to use <strong>as="a"</strong>.<br>If <strong>a</strong> element is used, <strong>href</strong> attribute is added automatically.</p> |
+| **onClick** (optional) | Additional onClick callback (tracking callback is already implemented in the component).                                                                                                                     |
+
+{% hint style="info" %}
+SerpElement component supports any other HTML attribute, e.g. **class.**
+{% endhint %}
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
