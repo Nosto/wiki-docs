@@ -21,8 +21,10 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
     "rating_value":"3.8",
     "review_count":"15",
     "categories":[
+      "sale",
       "sale/summer",
-      "shirts"
+      "sale/summer/shirts",
+      "sale/summer/shirts/long-sleeve-shirts"
     ],
     "description":"Example description",
     "price":10.00,
@@ -34,6 +36,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
     ],
     "tag2":[
       "women"
+      "promo:mens"
     ],
     "tag3":[
       "Foldable"
@@ -67,7 +70,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
     },
     "skus":[
       {
-        "id":"2",
+        "id":"123-2",
         "name":"S-Blue",
         "price":1269.0,
         "list_price":1299.0,
@@ -81,7 +84,7 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
         }
       },
       {
-        "id":"1",
+        "id":"123-1",
         "name":"S-Orange",
         "price":1269.0,
         "list_price":1299.0,
@@ -98,6 +101,10 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
   }
 ]'
 ```
+
+## Sending the categories
+
+Categories must always be delimited by a slash. For example, `Home/Accessories` or `sale/summer/shirts/long-sleeve-shirts` is a valid category while `Home > Accessories` is not.
 
 ## How can I get an API token?
 
