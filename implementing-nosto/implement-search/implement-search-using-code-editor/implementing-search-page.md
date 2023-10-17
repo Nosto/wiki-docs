@@ -15,6 +15,8 @@ init({
     contentCssSelector: '#content',
     serpPath: '/search',
     serpPathRedirect: false,
+    formCssSelector: '#search-form',
+    formUnbindDelay: 1000, // 1 second
     serpUrlMapping: {
         query: 'q',
     },
@@ -35,6 +37,10 @@ When `serpPath` parameter is specified, the application will **redirect to the s
 ### Search page redirect
 
 When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the  search page specified in `serpPath` and fetch the page. Default behaviour will rewrite browser history only to the specified path, without fetching the page.
+
+### Unbinding existing search input
+
+To prevent events from firing on an existing input, you need to provide the CSS selector of the form that the input is in to the initialization configuration. When optional `fromCssSelector` is passed, it will unbind the form and the elements inside from existing events. Additionally, `formUnbindDelay` in milliseconds as value can be passed to delay the unbinding functionality.
 
 ### Serp component
 
