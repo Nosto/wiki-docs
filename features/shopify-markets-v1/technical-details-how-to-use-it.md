@@ -24,9 +24,8 @@ In order to workaround product procing for Shopify Markets, there are two small 
     ```liquid
     <script>
       var Shopify = Shopify || {};
-      Shopify.nosto = {
-        money_format: {{ shop.money_format | json }};
-      }
+      Shopify.nosto = {}
+      Shopify.nosto.money_format = {{ shop.money_format | json }};
     </script
     ```
 3.  **Deprecated Approach**: You need to manually **add** the following snipped to your `theme.liquid`: \
