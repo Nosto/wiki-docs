@@ -1,27 +1,27 @@
 # Dynamic Bundle Discounts
 
-- [Dynamic Bundle Discounts](#dynamic-bundle-discounts)
-  - [Introduction](#introduction)
-  - [Setup](#setup)
-    - [Nosto Dynamic Bundle template](#nosto-dynamic-bundle-template)
-    - [Shopify Line Item script](#shopify-line-item-script)
-    - [Debugging Line Item Script](#debugging-line-item-script)
-  - [Important Note](#important-note)
-  - [Nosto Bundle Script](#nosto-bundle-script)
-  - [Troubleshooting](#troubleshooting)
-    - [Issue #1: Additional content displayed on cart page](#issue-1-additional-content-displayed-on-cart-page)
-    - [Cause](#cause)
-    - [Solution](#solution)
-    - [Issue #2: Discount is not applied](#issue-2-discount-is-not-applied)
-    - [Cause](#cause-1)
-    - [Solution](#solution-1)
+* [Dynamic Bundle Discounts](dynamic-bundle-discounts.md#dynamic-bundle-discounts)
+  * [Introduction](dynamic-bundle-discounts.md#introduction)
+  * [Setup](dynamic-bundle-discounts.md#setup)
+    * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
+    * [Shopify Line Item script](dynamic-bundle-discounts.md#shopify-line-item-script)
+    * [Debugging Line Item Script](dynamic-bundle-discounts.md#debugging-line-item-script)
+  * [Important Note](dynamic-bundle-discounts.md#important-note)
+  * [Nosto Bundle Script](dynamic-bundle-discounts.md#nosto-bundle-script)
+  * [Troubleshooting](dynamic-bundle-discounts.md#troubleshooting)
+    * [Issue #1: Additional content displayed on cart page](dynamic-bundle-discounts.md#issue-1-additional-content-displayed-on-cart-page)
+    * [Cause](dynamic-bundle-discounts.md#cause)
+    * [Solution](dynamic-bundle-discounts.md#solution)
+    * [Issue #2: Discount is not applied](dynamic-bundle-discounts.md#issue-2-discount-is-not-applied)
+    * [Cause](dynamic-bundle-discounts.md#cause-1)
+    * [Solution](dynamic-bundle-discounts.md#solution-1)
 
 ## Introduction
 
-This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store. 
+This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store.
 
 {% hint style="info" %}
-This release of bundle discounts will work only when all products from a bundle are added to the cart. 
+This release of bundle discounts will work only when all products from a bundle are added to the cart.
 {% endhint %}
 
 ## Setup
@@ -29,25 +29,62 @@ This release of bundle discounts will work only when all products from a bundle 
 ### Nosto Dynamic Bundle template
 
 Nosto bundle templates needs the following mandatory variables (name intact) to be configured for proper functioning:
-1. discount type - Defines the type of discount offered (percent/dollar)
-2. discount value - Defines the amount/percent of discount offered on products
-3. secured - Enable (true)/Disable (false) `hash` based authentication for bundle discounts. 
-4. discountCurrentProduct - Defines whether the currently displayed product in PDP to be included & discounted when an associated bundle is added to cart. This flag is useful when bundles are displayed along with product details as depicted in image below:
+
+1. discount type - defines the type of discount offered (percent/dollar)
+2. discount value - defines the amount/percent of discount offered on products
+3. secured - Enable (true)/Disable (false) `hash` based authentication for bundle discounts.
+4. discount current product - Defines whether the currently displayed product in PDP to be included & discounted when an associated bundle is added to cart. This flag is useful when bundles are displayed along with product details as depicted in image below:
 
 ![PDP with Dynamic Bundle](https://user-images.githubusercontent.com/82023195/173544975-2b80f502-fe2c-41d8-b388-11ce8f951db2.png)
 
-In additional to these mandatory variables, any number of additional custom variables can be created and configured. A sample bundle template variable configuration is shown below
+A sample bundle template variable configuration is shown below
 
 ![Dynamic Bundle template variables](https://user-images.githubusercontent.com/82023195/173543873-dcbc9224-3410-4e52-8d72-4f60067fbcfa.png)
 
 In the above sample configuration, all the mandatory fields are highlighed and the "ATC button text" and "subtitle" are custom variables
+
+Variables can be added to the template using the following approach. Please note, this section only outlines the steps for adding variables and not creating the template end-to-end.
+
+1. Navigate to "Recommendations" > "Templates" and click "Create template" button.
+2. Select the "Variables" tab.&#x20;
+3. For adding "discount type" variable, populate the name and type field as shown below and click "Add"
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>"discount type" field</p></figcaption></figure>
+
+4. Click the <img src="../.gitbook/assets/image (8).png" alt="" data-size="line">icon next to the "discount type" field and make sure to add the details as given in the screenshot below
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+4. For adding "discount value" variable, populate the name and type field as shown below and click "Add"
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>"discount value" field</p></figcaption></figure>
+
+6. Click the <img src="../.gitbook/assets/image (8).png" alt="" data-size="line">icon next to "discount value" field and make sure to add the details as given in the screenshot below
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Adding "discount value" variable</p></figcaption></figure>
+
+7. For adding "secured" variable, populate the name and type field as shown below and click "Add"
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>"secured" field</p></figcaption></figure>
+
+8. Click the <img src="../.gitbook/assets/image (8).png" alt="" data-size="line">icon next to "secured" field and make sure to add the details as given in the screenshot below
+
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>Adding "secured" field</p></figcaption></figure>
+
+9. For adding "discount current product" variable, populate the name and type field as shown below and click "Add"
+
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>"discount current product" field</p></figcaption></figure>
+
+10. Click the <img src="../.gitbook/assets/image (8).png" alt="" data-size="line">icon next to "discount current product" field and make sure to add the details as given in the screenshot below
+
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Adding "discount current product" field</p></figcaption></figure>
 
 Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the selected bundle to the cart with the following parameters:
 
 1. Products selected in the bundle while adding to cart (_items parameter_)
 2. Discount (type & value) configuration (_discount parameter_)
 3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
-4. A hash value that is provided with the template out of the box (_hash parameter_). This hash value will later be used in conjuction with the secret key obtained from Nosto in order to authenticate the request for bundle discount. 
+4. A hash value that is provided with the template out of the box (_hash parameter_). This hash value will later be used in conjuction with the secret key obtained from Nosto in order to authenticate the request for bundle discount.
 
 Expanding _items parameter_, it should contain the following fields:
 
@@ -83,8 +120,8 @@ Assume for example,
 
 | Product ID | Variant ID | Price |
 | :--------: | :--------: | :---: |
-| 123456789  | 4123456098 | 126$  |
-| 987654321  | 4897122347 | 100$  |
+|  123456789 | 4123456098 |  126$ |
+|  987654321 | 4897122347 |  100$ |
 
 **discount type** - percent **discount value** - 10
 
@@ -117,19 +154,20 @@ _In the above example, quantity defaults to 1 and no discount is offered and the
 Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
 
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
-2. Copy the code from [here](#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
-3. Copy the Nosto bundle discount script from [here](#nosto-bundle-script) and add it to the line item script, below the authentication script (added from previous step)
+2. Copy the code from [here](dynamic-bundle-discounts.md#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.
+3. Copy the Nosto bundle discount script from [here](dynamic-bundle-discounts.md#nosto-bundle-script) and add it to the line item script, below the authentication script (added from previous step)
 4. The authentication logic has a GET\_FROM\_NOSTO variable. Value of this variable should be replaced with Nosto secret key. **To get your secret key, please contact Nosto support**
 5. Click"Save and Publish" to publish the script
 
 ### Debugging Line Item Script
 
-[Nosto Bundle Script](#nosto-bundle-script) includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
-   * Uncomment from `Input.cart.line_times` till `end`
-   * The hash value marked with (GET\_FROM\_DEV\_CONSOLE) can be retrieved from browser's network tab after adding a bundle to cart
-   * Replace "PROD\_1", "PROD\_2" etc., with the actual product IDs.
-   * `type` can be `percent` or `dollar`
-   * **Make sure to comment the lines after testing and before publishing the script again**. This is an important step. Skipping this could cause issues with applying discounts in real-time.
+[Nosto Bundle Script](dynamic-bundle-discounts.md#nosto-bundle-script) includes a commented testing section as shown below. This can be used to test the functionality of the bundle discount script. For testing, the script need to be unpublished in case if it's already published.
+
+* Uncomment from `Input.cart.line_times` till `end`
+* The hash value marked with (GET\_FROM\_DEV\_CONSOLE) can be retrieved from browser's network tab after adding a bundle to cart
+* Replace "PROD\_1", "PROD\_2" etc., with the actual product IDs.
+* `type` can be `percent` or `dollar`
+* **Make sure to comment the lines after testing and before publishing the script again**. This is an important step. Skipping this could cause issues with applying discounts in real-time.
 
 \# ================================================================\
 \# Testing block. Uncomment the following lines to test the script\
@@ -140,12 +178,12 @@ Please follow the steps below for setting up the line item script for handling t
 \# ================================================================
 
 ## Important Note
+
 Nosto Dynamic Bundle configuration involves two important keys, hash and secret key. Hash key is used within the bundle template and can be accessed using predefined variation `$hash`. Please avoid hard-coding this value anywhere inside the template. As dynamic bundle configurations are subjected to change, the hash key will also change accordingly. Hard-coding this key may break the functionality.
 
 Secret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
 
-
-```
+````
 ## [Authentication Script](#authentication-script)
 
 ```ruby
@@ -366,13 +404,12 @@ end
 
 # Secret Key can be anything but must be consistent between this script and the frontend
 SECRET_KEY="GET_FROM_NOSTO"
-```
+````
 
-
-## [Nosto Bundle Script](#nosto-bundle-script)
+## [Nosto Bundle Script](dynamic-bundle-discounts.md#nosto-bundle-script)
 
 {% hint style="danger" %}
-We offer support only when the script, given below, is used as-is. We don't offer support when the below script is modified, in any way. 
+We offer support only when the script, given below, is used as-is. We don't offer support when the below script is modified, in any way.
 {% endhint %}
 
 ```ruby
@@ -693,10 +730,10 @@ In such a case, make the following changes to the template liquid file that disp
 ### Cause
 
 1. **Nosto provided line item script is customized** (_No support provided_).
-2. SECRET_KEY value is incorrect. 
+2. SECRET\_KEY value is incorrect.
 3. Issue with Bundle script configuration.
 4. Not all the products from a bundle are added to cart.
 
 ### Solution
 
-Contact Nosto support and share the line item script content for further analysis. 
+Contact Nosto support and share the line item script content for further analysis.
