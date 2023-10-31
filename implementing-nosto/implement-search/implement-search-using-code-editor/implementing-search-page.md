@@ -1,6 +1,6 @@
 # Implementing Search page
 
-## Configuration
+Configuration
 
 To create a search application, call the `init` function with your configuration. This will create a new Preact application that renders on the specified `contentCssSelector`. It will also bind to the input element identified by the provided `inputCssSelector` and execute a search upon form submission.&#x20;
 
@@ -78,7 +78,7 @@ Configuration accepts optional array of URL parameter mapping functions, which a
 
 Similarly, `decode` accepts mapped query object, returned from `encode` function, and it must return object in the original search format.
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>import { init, mapOffsetToPage } from '@nosto/preact'
+<pre class="language-javascript"><code class="lang-javascript"><strong>import { init, compressFilterParameters, compressSortParameters } from '@nosto/preact'
 </strong>
 import serpComponent from './serp'
 
@@ -93,7 +93,7 @@ init({
         query: 'q',
         'products.page': 'page'
     },
-    customUrlMappings: [mapOffsetToPage],
+    customUrlMappings: [compressFilterParameters, compressSortParameters],
     serpQuery: {
         name: 'serp',
         products: {
@@ -104,54 +104,11 @@ init({
 })
 </code></pre>
 
-With the mapper, provided in the example and `serpUrlMapping` adjustments, `products.from` search parameter is mapped to `page` number, e.g:&#x20;
+`@nosto/preact` library has pre-built functions for changing search url format:
 
-`https://myshop.com/search?products.from=20&q=shorts` becomes&#x20;
 
-`https://myshop.com/search?page=2&q=shorts`
 
-Implementation of `mapOffsetToPage:`
-
-```typescript
-const mapOffsetToPage = {
-    encode(query) {
-        if (query.products) {
-            const { from, ...rest } = query.products
-
-            return from
-                ? {
-                      ...query,
-                      products: {
-                          ...rest,
-                          page: Math.floor(from / rest.size) + 1,
-                      },
-                  }
-                : query
-        }
-
-        return query
-    },
-    decode(query) {
-        if (query.products) {
-            const { page, ...rest } = query.products
-
-            return page
-                ? {
-                      ...query,
-                      products: {
-                          ...rest,
-                          from:
-                              ((parseInt(page) || 1) - 1) *
-                              (parseInt(rest.size) || 0),
-                      },
-                  }
-                : query
-        }
-
-        return query
-    },
-}
-```
+<table><thead><tr><th width="210">Function</th><th width="173.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>mapOffsetToPage</code></td><td>Replaces <code>from</code> parameter to page number.</td><td>Before:<br><code>/search?products.from=20&#x26;q=shorts</code><br><br>After:<br><code>/search?page=2&#x26;q=shorts</code></td></tr><tr><td><code>compressSortParameters</code></td><td>Returns shorter <code>sort</code> parameters.</td><td>Before:<br><code>/search?q=shorts&#x26;products.sort.0.field=price&#x26;products.sort.0.order=desc</code><br><br>After:<br><code>/search?q=shorts&#x26;products.sort.price=desc</code></td></tr><tr><td><code>compressFilterParameters</code></td><td>Compresses <code>filter</code> parameters.<br><br>Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td><td>Before:<br><code>/search?q=shorts&#x26;products.filter.0.field=customFields.producttype&#x26;products.filter.0.value.0=Shorts&#x26;products.filter.0.value.1=Swim</code><br><br>After:<br>/<code>search?q=shorts&#x26;products.filter.customFields%252Eproducttype=Shorts%257C%257CSwim</code></td></tr></tbody></table>
 
 ## Features
 
