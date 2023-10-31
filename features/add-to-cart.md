@@ -8,10 +8,16 @@ description: >-
 
 ### Reload Cart
 
-This function replaces the cart in Nosto with the contents of the cart from Shopify and then loads recommendations. This can be useful if you have an Add to Cart button that adds a product to cart via ajax and you want to subsequently show cart-based recommendations.
+This function replaces the cart in Nosto with the cart contents from Shopify and then loads recommendations. This can be useful if you have an Add to Cart button that adds a product to cart via AJAX and you want to subsequently show cart-based recommendations.
 
 ```markup
 Nosto.reloadCart()
+```
+
+Additionally, if event tracking for this call needs to be disabled, you can call the below function instead and pass in the `skipEvents: true` flag. This is particularly helpful in cases where other recommendations on the page should reflect cart content when the cart is changed without explicitly counting it as an additional page load. By default, the `skipPageViews` flag is `true` for both cases.
+
+```
+Nosto.reloadCartWithFlags({ skipEvents: true })
 ```
 
 ### Add Recommended Products to Cart
@@ -85,4 +91,3 @@ Here's an example of how to add an SKU to cart where your product has a single S
   Add to Cart
 </a>
 ```
-
