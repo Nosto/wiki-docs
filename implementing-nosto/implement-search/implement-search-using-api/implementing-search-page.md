@@ -67,7 +67,7 @@ query {
 
 By default results are sorted by products relevance score. &#x20;
 
-To change the sorting, use the sort parameter, where you would specify the field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
+To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
 By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
 
