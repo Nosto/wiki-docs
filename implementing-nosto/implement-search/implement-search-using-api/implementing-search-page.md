@@ -389,8 +389,8 @@ For features like personalised results and user segments to function effectively
 It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
 
 ```javascript
-nostojs(function(api) {
-    api.getSearchSessionParams().then(function(response) {
+nostojs(api => {
+    api.getSearchSessionParams().then(response => {
         console.log(response);
     });
 });

@@ -1,13 +1,13 @@
 ---
 description: >-
-  If you're on a site where the cart-content are not accessible when the page is
+  If you're on a site where the cart content is not accessible when the page is
   rendered, you might need to fetch the cart content over AJAX/CORS and send
   that information to Nosto.
 ---
 
 # Dynamically sending the cart content
 
-The example below illustrates how to fetch the fresh cart-content over CORS, leverage that to render the cart-tagging and then use the API to sent that information to Nosto.
+The example below illustrates how to fetch the fresh cart content over CORS, leverage that to render the cart tagging and then use the API to sent that information to Nosto.
 
 {% hint style="danger" %}
 This example uses advances constructs, leverages CORS, browser modules and may not have compatibility on older browsers.

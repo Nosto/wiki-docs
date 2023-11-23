@@ -7,7 +7,7 @@ You can use the JS API to conditionally enable or disable a popup.
 The following snippet enabled the specified popup.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.enablePopup("popupCampaignId");
 });
 ```
@@ -23,7 +23,7 @@ nostojs(function(api) {
 The following snippet disables the specified popup.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.disablePopup("popupCampaignId");
 });
 ```

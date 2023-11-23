@@ -5,7 +5,7 @@ Usually adding an Add to cart button directly into the recommendation which list
 Once the Add to cart button is pressed it should call that function to add the products to the cart, but it should also additionally let Nosto know that the button was pressed so Nosto can track the sales from the recommendation. When using the JS API this attribution can be done with the `recommendedProductsAddedToCart`-function as follows:
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.recommendedProductAddedToCart("productId1", "nosto-categorypage-1");
 });
 ```

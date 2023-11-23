@@ -3,7 +3,7 @@
 You can use the JS API to list all the popup campaigns. This may be handy in situations when you would like to fetch all campaigns and iterate them to decide whether they should be shown or not.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   console.log(api.popupCampaigns());
 });
 ```

@@ -114,3 +114,4 @@ customizable
 ecommerce
 endtabs
 params
+jQuery

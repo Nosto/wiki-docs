@@ -88,7 +88,7 @@ Add following javascript snippet as a custom html tag and configure the tag to b
 
 ```markup
 <script>
-nostoTrackAddToCart = function(product, list) {
+nostoTrackAddToCart = (product, list) => {
     dataLayer.push({
         'event': 'nostoAddToCart',
         'ecommerce': {
@@ -105,7 +105,7 @@ nostoTrackAddToCart = function(product, list) {
         }
     });
 }
-nostoTrackRecoClick = function(product, list) {
+nostoTrackRecoClick = (product, list) => {
     dataLayer.push({
         'event': 'nostoProductClick',
         'ecommerce': {
@@ -126,8 +126,8 @@ nostoTrackRecoClick = function(product, list) {
     });
 }
 
-nostojs(function(api){
-    api.listen("postrender", function(postRenderElements){
+nostojs(api => {
+    api.listen("postrender", postRenderElements => {
         if (typeof nostoGtmQueue != "undefined" && nostoGtmQueue != null && typeof nostoGtmQueue == "function" && typeof nostoGtmQueue.q == "object" ) {
 
             var impressions = [];

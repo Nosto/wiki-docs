@@ -3,7 +3,7 @@
 When you need to explicitly send an event to Nosto to tell it that the user has viewed a certain product, you must do so manually. A need for something like this arises when your website has a quick-view function on the category or search pages that enables the customer to preview the product in an overlay without actually navigating to the product page.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.createRecommendationRequest()
     .setProducts([{product_id: 'product-id-101'}])
     .load();
@@ -51,7 +51,7 @@ In case the request is built completely manually, it needs to include also the a
 In the event that the product was viewed due to a click on a Nosto recommendation slot, you must send an additional parameter that denotes the identifier of the recommendation slot that was clicked. If this is done inside of recommendation template identifier of recommendation slot can be get from property `$!product.attributionKey`
 
 ```javascript
-nostojs(function(api){
+nostojs(api => {
    var request = api.createRecommendationRequest()
      .setProducts([{product_id: 'product-id-101'}], 'recommendation-id')
      .load();
@@ -62,12 +62,12 @@ nostojs(function(api){
 
 
 
-### Sending Product SKU-view Events
+### Sending Product Variant-view Events
 
-Optional event that can be sent to signal that a specific sku is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size".
+Optional event that can be sent to signal that a specific product variant (SKU in Nosto terms) is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size".
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.createRecommendationRequest({includeTagging:true})
     .setProducts([{product_id: '6961338417345', selected_sku_id: '40822930473153'}])
     .load()

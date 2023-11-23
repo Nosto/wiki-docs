@@ -7,8 +7,8 @@ The JS API can be used to register callbacks to hook into the recommendation eve
 Called when Nosto has responded and finished recommendation placement.
 
 ```javascript
-nostojs(function(api) {
-  api.listen('postrender', function(event) {
+nostojs(api => {
+  api.listen('postrender', event => {
     console.log(event.filledElements);
     console.log(event.unFilledElements); 
   });
@@ -22,23 +22,17 @@ nostojs(function(api) {
 | filledElements | Array | Contains a list of recommendation slots that contain recommendations |
 | unFilledElements | Array | Contains a list of recommendations slots that did not have get recommendations. |
 
-
-
 ## Pre Render Callback <a id="pre-render-callback"></a>
-
-‌
 
 Called when Nosto has responded but not yet rendered content. The event contains information about the visitor's preferences. 
 
 ```text
-nostojs(function(api) {  
-  api.listen('prerender', function(event) {    
+nostojs(api => {  
+  api.listen('prerender', event => {    
     console.log(event);
   });
 });
 ```
-
-‌
 
 ### Fields <a id="fields"></a>
 

@@ -5,11 +5,11 @@ Use api.customer\(\) function to send information about the current customer to 
 Typical situation when manual update is needed if your site handles login with AJAX compared to regular implementation where login requires a page load and the following page includes customer tagging.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api.customer({
-    email:"jane.doe@example.com",
-    first_name:"Jane",
-    last_name:"Doe",
+    email: "jane.doe@example.com",
+    first_name: "Jane",
+    last_name: "Doe",
     marketing_permission: true,
     customer_reference: "5e3d4a9c-cf58-11ea-87d0-0242ac130003"
   })
