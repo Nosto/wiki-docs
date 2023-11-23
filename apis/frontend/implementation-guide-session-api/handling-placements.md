@@ -14,7 +14,7 @@ These are defined as empty hidden elements in the DOM with the class `nosto_elem
 <div class="nosto_element" id="home-1" style="display: none;"></div>
 ```
 
-The DIV remains hidden until Nosto injects content into it.
+The Div element remains hidden until Nosto injects content into it.
 
 ### Dynamic Placements
 
@@ -41,7 +41,7 @@ nostojs(api => {
 });
 ```
 
-To continue with the example, let's assume the `api.placements.getPlacements()` returned an array with 2 placements:` ['frontpage-center-1', 'frontpage-banner']` and then let's assume that we would have setup in the backend a recommendation campaign for `frontpage-center-1` and a content campaign for `frontpage-banner`.&#x20;
+To continue with the example, let's assume the `api.placements.getPlacements()` returned an array with 2 placements:` ['frontpage-center-1', 'frontpage-banner']` and then let's assume that we would have set up in the backend a recommendation campaign for `frontpage-center-1` and a content campaign for `frontpage-banner`.&#x20;
 
 Here is an example of a sample response.
 
@@ -50,18 +50,18 @@ Here is an example of a sample response.
     "campaigns": {
         "content": {
             "frontpage-banner": {
-                div_id: "frontpage-banner",
-                result_id: "5fc6390c60b2ecd3cc0c2d4f",
-                html: "< Campaign html content >",
-                params
+                "div_id": "frontpage-banner",
+                "result_id": "5fc6390c60b2ecd3cc0c2d4f",
+                "html": "< Campaign html content >",
+                "params": ...
             }
         },
         "recommendations": {
             "frontpage-center-1": {
-                div_id: "frontpage-center-1",
-                result_id: "frontpage-center-1",
-                products: [ /* Array of products */ ],
-                params
+                "div_id": "frontpage-center-1",
+                "result_id": "frontpage-center-1",
+                "products": [ /* Array of products */ ],
+                "params": ...
             }
         }
     }
@@ -78,11 +78,11 @@ Here is an example of rendering campaign results.&#x20;
 
 ```
 /* TODO for the application to implement */
-function createProductRecsHtml(recommendations){
+function createProductRecsHtml(recommendations) {
   return new Promise((resolve, reject) => {
     /* TODO your code to create the html for each recommendation 
      * with the placements identifiers as keys, example:
-     * recsHtml = { "frontpage-center-1":"html here" }
+     * recsHtml = { "frontpage-center-1": "html here" }
      */ 
     resolve(recsHtml);
   }

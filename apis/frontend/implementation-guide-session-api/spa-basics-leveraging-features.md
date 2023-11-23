@@ -15,7 +15,7 @@ In order to achieve an accurate reach statistic for recommendations, `load()` sh
 
 ### Reporting correct product views - requesting product recommendations outside product detail page
 
-Normally requesting product related recommendations happen in relation to viewing a product detail page, so a typical product related recommendation request looks like this:
+Normally requesting product related recommendations happens in relation to viewing a product detail page, so a typical product related recommendation request looks like this:
 
 ```
 nostojs(api => {

@@ -47,21 +47,21 @@ For example, on the site of a US-based retailer who sells in Euros \(EUR\) and S
 
 ## Sending the exchange-rates
 
-In order to send the exchange rate multipliers to Nosto, you will need to use [our exchange-rates API](../../../rest/other/updating-rates-using-the-rates-api.md). Below is a small snippet of what the payload looks like.
+In order to send the exchange rate multipliers to Nosto, you will need to use our [Exchange-Rates API](../../../rest/other/updating-rates-using-the-rates-api.md). Below is a small snippet of what the payload looks like.
 
 ```javascript
 {
-  "rates":{
-    "GBP":{
-      "rate":0.77,
-      "price_currency_code":"GBP"
+  "rates": {
+    "GBP": {
+      "rate": 0.77,
+      "price_currency_code": "GBP"
     },
-    "EUR":{
-      "rate":0.91,
-      "price_currency_code":"EUR"
+    "EUR": {
+      "rate": 0.91,
+      "price_currency_code": "EUR"
     }
   },
-  "valid_until":"2015-02-27T12:00:00Z"
+  "valid_until": "2015-02-27T12:00:00Z"
 }
 ```
 
@@ -93,5 +93,5 @@ You will see one or more drop-downs that contain the prices and price calculatio
 
 ![](https://user-images.githubusercontent.com/327432/36842669-15cb7412-1d55-11e8-8b48-5f769bb4ecd2.png)
 
-When you have reviewed your set-up, Nosto updates in real-time product prices for all the currencies and display the appropriate currency to the right target groups of users. You’re all set and ready to go live with our features.
+When you have reviewed your set-up, Nosto updates product prices in real-time for all the currencies and displays the appropriate currency to the right target groups of users. You’re all set and ready to go live with our features.
 

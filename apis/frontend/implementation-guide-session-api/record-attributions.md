@@ -2,11 +2,11 @@
 
 ## Summary
 
-Nosto already offers session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functionality to any event types, a new session API method `recordAttribution` has been introduced. Using JS API, this method can be utilised to update current visit with details of events for attribution.
+Nosto already offers the Session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functionality to any event types, a new Session API method `recordAttribution` has been introduced. Using the JS API, this method can be utilised to update current visit with details of events for attribution.
 
 ## Usage
 
-The Session API method `recordAttribution` accepts one event at a time, but use case chain multiple calls to `recordAttribution` and add as many events as they want.
+The Session API method `recordAttribution` accepts one event at a time, but users can chain multiple calls to `recordAttribution` and add as many events as they want.
 
 ### Method documentation
 
