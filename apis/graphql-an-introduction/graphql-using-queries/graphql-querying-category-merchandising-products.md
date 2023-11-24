@@ -102,7 +102,7 @@ mutation($sessionId: String!) {
 
 ## Event handling
 
-Graphql calls using CMP methods are treated as a category view by default. This behavior can be changed by including skipVCEvent: true into the graphql request. All product URLs on a category page must be appended with #nosto\_cmp fragment. An example of such a product URL would be www.test-store.com/product1#nosto\_cmp where #nosto\_cmp is the added fragment.
+Graphql calls using Category Merchandising methods are treated as a category view by default. This behavior can be changed by including `skipVCEvent: true` into the graphql request. All product URLs on a category page must be appended with `#nosto\_cmp` fragment. An example of such a product URL would be `www.test-store.com/product1#nosto\_cmp` where `#nosto\_cmp` is the added fragment.
 
 ## Pagination
 

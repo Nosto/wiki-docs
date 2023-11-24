@@ -2,15 +2,15 @@
 
 ## Summary
 
-Nosto already offers session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functonality to any event types, a new session API method `recordAttribution` has been introduced. Using JS API, this method can be utilised to update current visit with details of events for attribution.
+Nosto already offers session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functionality to any event types, a new session API method `recordAttribution` has been introduced. Using JS API, this method can be utilised to update current visit with details of events for attribution.
 
 ## Usage
 
-The session API mthod `recordAttribution` accepts one event at a time, but use case chain multiple calls to `recordAttribution` and add as many events as they want.
+The Session API method `recordAttribution` accepts one event at a time, but use case chain multiple calls to `recordAttribution` and add as many events as they want.
 
 ### Method documentation
 
-class: session.js name: recordAttribution parameters:
+class: `session.js` name: `recordAttribution` parameters:
 
 |  name  | field type | is required |                            description                           |
 | :----: | :--------: | :---------: | :--------------------------------------------------------------: |
@@ -21,7 +21,7 @@ class: session.js name: recordAttribution parameters:
 
 ### Event Types
 
-Nosto supports following pre-defined event types
+Nosto supports following predefined event types
 
 |               Type               | Description                                                                                                                                                                                                                                                                |
 | :------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

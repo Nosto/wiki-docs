@@ -17,7 +17,7 @@ As a first step, please check if your e-commerce platform or software is already
 
 Second, make sure that you have a Nosto account and if not, sign up on Nosto home page or contact Nosto sales.
 
-Every Nosto account has a unique identifier known as accountID, which is required in the implementation. If you know that you have an account, but don’t know your accountID, log-in to your Nosto admin panel and learn where you can find it!
+Every Nosto account has a unique identifier known as `accountID`, which is required in the implementation. If you know that you have an account, but don’t know your `accountID`, log-in to your Nosto admin panel and learn where you can find it!
 
 Third, if you first implement Nosto on a local device or on a development environment, bookmark this article about implementing Nosto on a test environment for later reading. No need to jump there yet, as it is also featured as the last article in this series.
 

@@ -1,6 +1,6 @@
 **Introduction**
 
-Implementing Nosto on a single-page application may seem like a daunting task but is actually trivial. The content below hinges on a clear understanding of a few key VueJS concepts:
+Implementing Nosto on a single-page application may seem like a daunting task but is actually trivial. The content below hinges on a clear understanding of a few key Vue.js concepts:
 
 * [Instance Lifecycle Hooks](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
 * [Inline Templates](https://vuejs.org/v2/guide/components-edge-cases.html#Inline-Templates)
@@ -101,7 +101,7 @@ Implementing recommendations on a single-page application requires careful orche
 
 On a regular site, each Nosto recommendation is identified by an empty DIV placeholder whereinto all the recommendations are injected. The Nosto script - upon DOM loaded - finds all elements having the class `nosto_element` ,fetches the content for those elements and then injects the raw markup into those placeholders. Both the styling and the configuration of the recommendations are configured via the Nosto administration interface
 
-In the context of a single-page application built atop a framework like VueJS, only the configuration of the recommendations should be maintained via the Nosto administration interface, while the actual styling could be maintained as a part of your application. This approached required structuring your project in a certain way to allow loading recommendations seamlessly.
+In the context of a single-page application built atop a framework like Vue.js, only the configuration of the recommendations should be maintained via the Nosto administration interface, while the actual styling could be maintained as a part of your application. This approached required structuring your project in a certain way to allow loading recommendations seamlessly.
 
 The project rough structure of a page with recommendations resembles this:
 

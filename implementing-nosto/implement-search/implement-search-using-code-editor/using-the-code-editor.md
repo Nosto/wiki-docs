@@ -20,7 +20,7 @@ You will then be redirected to the Code Editor window, where you can see and edi
 
 Project structure has the following requirements:
 
-* `index.js` - this is application entrypoint that is used when building project. When building project it will recursively scan this file for imports.
+* `index.js` - this is application entry point that is used when building project. When building project it will recursively scan this file for imports.
 * `build/` - this directory stores build output that will be used when deploying project.
 
 ## Saving, testing & deploying

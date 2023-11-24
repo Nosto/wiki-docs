@@ -56,7 +56,7 @@ EOF
 
 ## Using Fetch
 
-You can use the browser's fetch API to request data from GraqhQL. You will need to authenticate yourself and set the appropriate content-type headers.
+You can use the browser's fetch API to request data from GraphQL. You will need to authenticate yourself and set the appropriate content-type headers.
 
 ### Sending JSON GraphQL queries
 

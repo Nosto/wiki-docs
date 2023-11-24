@@ -2,7 +2,7 @@
 
 When using multi-currency, this endpoint is used to update the exchange rates for your account. When new rates are sent via this endpoint, the changes will reflect instantly on your store as the product prices are multiplied with the provided rates in real-time.
 
-**Note:** This endpoint should only be used when using multi-currency. Please refer to our multi-currency guide prior to using this endpoint. Incorrect usage of these endpoints will result in a total outage of your personalisation setup.
+**Note:** This endpoint should only be used when using multi-currency. Please refer to our multi-currency guide prior to using this endpoint. Incorrect usage of these endpoints will result in a total outage of your personalization setup.
 
 ### Token
 

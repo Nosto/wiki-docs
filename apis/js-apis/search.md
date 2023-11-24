@@ -22,7 +22,7 @@ Search function also accepts the following options:
 
 <table><thead><tr><th width="148">Option</th><th width="94">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>redirect</code></td><td><code>false</code></td><td>Automatically redirect if search returns a redirect</td></tr><tr><td><code>track</code></td><td><code>null</code></td><td>Track search query by provided type</td></tr></tbody></table>
 
-Function automatically loads session parameters required for personalisation & segments in the background.
+Function automatically loads session parameters required for personalization & segments in the background.
 
 ### Search page
 
@@ -94,7 +94,7 @@ nostojs(function(api) {
 });
 ```
 
-## Session params
+## Session parameters
 
 For some of the search features to work properly, such as personalised results and segments, the search function needs to be able to access information about the user's session from the front-end.
 

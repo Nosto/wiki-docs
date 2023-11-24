@@ -10,7 +10,7 @@ Nosto's GraphQL APIs can be used for simplified implementations for headless fro
 The following features are not available through GraphQL API:
 
 * Facebook Ads: As the pixel events aren't dispatched.
-* Content Personalisation: As the GraphQL API only handles the personalization and not onsite experiences.
+* Content Personalization: As the GraphQL API only handles the personalization and not onsite experiences.
 * Popups: As the GraphQL API only handle the personalization and not onsite experiences.
 * AB-testing & dynamic placements: Because the current GraphQL API works with recommendation identifiers directly and not through placements.
 
@@ -242,7 +242,7 @@ mutation {
 ```
 Note: `slotIds` accepts an array of String parameters
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forFrontPage` field will return the result of all the recommendations that are configured for the front page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
@@ -305,7 +305,7 @@ mutation {
 ```
 Note: `slotIds` accepts an array of String parameters
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forCategoryPage` field will return the result of all the recommendations that are configured for the category page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
@@ -369,7 +369,7 @@ mutation {
 }
 ```
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forProductPage` field will return the result of all the recommendations that are configured for the product page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
@@ -431,7 +431,7 @@ mutation {
 }
 ```
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forSearchPage` field will return the result of all the recommendations that are configured for the search page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
@@ -493,7 +493,7 @@ mutation {
 }
 ```
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forCartPage` field will return the result of all the recommendations that are configured for the front page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 
@@ -594,7 +594,7 @@ mutation {
 }
 ```
 
-#### Fetching Recos
+#### Fetching Recommendations
 
 The `forOrderPage` field will return the result of all the recommendations that are configured for the order-confirmation page. When `slotIds` filtering is used, the result will only contain the recommendations for the specified Slot Ids.
 

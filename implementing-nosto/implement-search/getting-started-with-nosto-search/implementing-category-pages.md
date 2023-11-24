@@ -8,7 +8,7 @@ It's recommended to disable or hide (for instance, using CSS) the original categ
 
 ## Configuration
 
-To render category page provide additional configuration parameters to `init` function on `index.js` entrypoint file.
+To render category page provide additional configuration parameters to `init` function on `index.js` entry point file.
 
 {% code title="index.js" %}
 ```javascript
@@ -91,7 +91,7 @@ The category page shares a lot of similarities with the search page, so please r
 
 ## Analytics
 
-Search automatically tracks to Google Analytics & Nosto Analytics when using `<`SerpElement `/>` component.&#x20;
+Search automatically tracks to Google Analytics & Nosto Analytics when using the `SerpElement` component.&#x20;
 
 ```jsx
 export default ({ product }) => {
