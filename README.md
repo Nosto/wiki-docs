@@ -30,12 +30,12 @@ All you need to take Nosto into use in your store is to install the extension an
 
 ### License
 
-Open Software License \("OSL"\) v3.0
+Open Software License ("OSL") v3.0
 
 ### Dependencies
 
-Magento Open Source &gt;= >v2.2.6 <v2.4.4
+Magento Open Source >= >v2.2.6 \<v2.4.6
 
-Magento Commerce &gt;= >v2.2.6 <v2.4.4
+Magento Commerce >= >v2.2.6 \<v2.4.6
 
-If you are using a version below 2.2.6 of Magento Commerce or Magento Open you must use version &lt; 4.0.0 of Nosto module. 
+If you are using a version below 2.2.6 of Magento Commerce or Magento Open you must use version < 4.0.0 of Nosto module.
