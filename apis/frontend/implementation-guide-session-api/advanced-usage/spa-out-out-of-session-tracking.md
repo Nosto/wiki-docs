@@ -1,6 +1,6 @@
 # Supporting opt-out and do-not-track
 
-you can disable Nosto for a given customer if they don't give consent for data processing or if legal reasons such as [COPPA](https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act) requires to disable Nosto for an individual. 
+You can disable Nosto for a given customer if they don't give consent for data processing or if legal reasons such as [COPPA](https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act) requires to disable Nosto for an individual. 
 
 This method disables the initialization of Nosto entirely, meaning that all associated Nosto features on your web store for that user are also disabled.
 

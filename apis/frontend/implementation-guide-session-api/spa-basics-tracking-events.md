@@ -32,9 +32,9 @@ nostojs(api => {
 });
 ```
 
-## Upon viewing a product sku
+## Upon viewing a product variant
 
-Optional event that can be sent to signal that a specific sku is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size". Product sku views are added with the function `viewProductSku`:
+Optional event that can be sent to signal that a specific product variant (SKU in Nosto terms) is being viewed. Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size. The recommendations can then be configured to update and give preference for products that have similar variants available. For example "Other products also available in the same size". Product variant views are added with the function `viewProductSku`:
 
 ```javascript
 nostojs(api => {
@@ -53,9 +53,9 @@ nostojs(api => {
 This example leverages dynamic placements and html rendering
 {% endhint %}
 
-## Upon viewing a collection
+## Upon viewing a category
 
-When viewing a category or collection, you should send the slash-delimited and fully-qualified path of the current category.
+When viewing a category, you should send the fully qualified name of the current category. This is not necessarily the same as the handle of the category used in the address of the category page.
 
 ```javascript
 nostojs(api => {
@@ -70,16 +70,16 @@ nostojs(api => {
 ```
 
 {% hint style="info" %}
-You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your product’s categories are.
+You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your products’ categories are.
 {% endhint %}
 
 {% hint style="info" %}
-On Shopify, the category name should be used, so in the snippet above, use simply "Dresses" instead of the fully qualified name.
+On Shopify, the collection title should be used, so in the snippet above, use simply "Dresses" instead of the collection handle.
 {% endhint %}
 
 ## Tagging the categories
 
-Categories must always be delimited by a slash. For example, `/Home/Accessories` is a valid category while `Home > Accessories` is not.
+Nested categories must always be delimited by a slash. For example, `/Home/Accessories` is a valid category while `Home > Accessories` is not.
 
 ## Upon doing a search
 

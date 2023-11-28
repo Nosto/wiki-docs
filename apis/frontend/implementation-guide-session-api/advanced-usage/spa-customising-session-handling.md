@@ -1,8 +1,8 @@
 # Using external session identifiers
 
-Nosto uses a cookie to set to identify browsers between their visits to the site. The purpose and usage of this cookie is very similar to how web analytics tools, such as Google Analytics, work.
+Nosto uses a cookie to identify browsers between their visits to the site. The purpose and usage of this cookie is very similar to how web analytics tools, such as Google Analytics, work.
 
-Each session is identified using a randomly generated 24-character secure string and persisted in a `2c.cId` cookie.
+Each session is identified using a randomly generated 24-character secure string and persisted in  `2c.cId` cookie.
 
 For privacy reasons, if you have the need to disallow any third-party tracking cookies, this feature can be used to achieve that.
 
@@ -14,7 +14,7 @@ This feature will not remove previously set `2c.cId` cookies and will only affec
 
 ## Changing the way sessions are handled
 
-You can opt-out of tracking by enabling using the `setCustomerIdentifierService`method.
+You can opt-out of tracking by using the `setCustomerIdentifierService` method.
 
 Assuming that your platform has a method called `platform.getSID()` that returns the current session identifier as offered by your platform - you would use:
 
