@@ -21,7 +21,7 @@ The JS comprises of three parts - the first is the default Nosto snippet, the se
 ```markup
 <script src="//connect.nosto.com/include/$accountID" async></script>
 <script type="text/javascript">
-  (() => {window.nostojs=window.nostojs||(cb => {(window.nostojs.q=window.nostojs.q||[]).push(cb);});})();
+  (() => {window.nostojs=window.nostojs||(function(cb){(window.nostojs.q=window.nostojs.q||[]).push(cb);});})();
 </script>
 <script type="text/javascript">
   nostojs(api => api.setAutoLoad(false));

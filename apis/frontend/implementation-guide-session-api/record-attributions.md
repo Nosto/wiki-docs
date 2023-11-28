@@ -43,7 +43,7 @@ Nosto supports following predefined event types
 1. Attributing a placement click to a `vp` (View Product) event
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api
   .defaultSession()
   .recordAttribution("vp", "12345678", "frontpage-nosto-1")
@@ -60,7 +60,7 @@ In the above example,
 1. Attributing a placement click to a `cc` (Custom Campaign) event
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api
   .defaultSession()
   .recordAttribution("cc", "12345678", "frontpage-nosto-1")
@@ -95,7 +95,7 @@ Here we are recording a `View Product` event for product 7513863258337 which was
 1. Attributing a click inside a content campaign to a `con` (Content Campaign) event
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   api
   .defaultSession()
   .recordAttribution("con", "6ef452da787623f2")

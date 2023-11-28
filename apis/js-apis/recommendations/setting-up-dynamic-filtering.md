@@ -67,8 +67,8 @@ The above method will receive references to all the "nosto\_custom\_field" eleme
 
 ```markup
 {
-  "gender":"male",
-  "material":"cotton"
+  "gender": "male",
+  "material": "cotton"
 }
 ```
 
@@ -81,7 +81,7 @@ The following example illustrates a simple way of modifying the current category
 ```javascript
 document.querySelector('.nosto_category').innerText = '/Shoes'
 
-nostojs(function(api) {
+nostojs(api => {
   api.loadRecommendations();
 });
 ```

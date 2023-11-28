@@ -2,36 +2,37 @@
 
 ## Searching
 
-It is possible to call search API directly from javascript library to fetch search results directly on frontend.
+It is possible to call the Search API directly from the JS library to fetch search results directly on frontend.
 
-For most basic search `fields` parameter should be provided to specify what product/keyword fields should be returned. Both `products` and `keywords` can be used separately and together, depending on use case. For all parameters, see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
+For the most basic search the `fields` parameter should be provided to specify what product/keyword fields should be returned. Both `products` and `keywords` can be used separately and together, depending on the use case. For all parameters, see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
     api.search({
         query: 'my search',
         products: { fields: ["name"] },
         keywords: { fields: ["keyword"] }
-    }).then(function(response) {
+    }).then(response => {
         console.log(response);
     });
 });
 ```
 
-Search function also accepts the following options:
+The api.search function also accepts the following options:
 
 <table><thead><tr><th width="148">Option</th><th width="94">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>redirect</code></td><td><code>false</code></td><td>Automatically redirect if search returns a redirect</td></tr><tr><td><code>track</code></td><td><code>null</code></td><td>Track search query by provided type</td></tr></tbody></table>
 
-Function automatically loads session parameters required for personalization & segments in the background.
+The function automatically loads session parameters required for personalization & segments in the background.
 
 ### Search page
 
-For search page in most cases `facets` parameter should be provided.
+For a search page in most cases the `facets` parameter should be provided.
 
 Also `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>nostojs(function(api) {
-</strong>    api.search({
+```javascript    
+nostojs(api => {
+    api.search({
         query: 'my search',
         products: {
             facets: ['*'],
@@ -41,18 +42,18 @@ Also `redirect` & `track` should be enabled to automatically track searches to N
     }, {
         redirect: true,
         track: 'serp'
-    }).then(function(response) {
+    }).then(response => {
         console.log(response);
     });
 });
-</code></pre>
+```
 
 ### Autocomplete
 
 `track` should be enabled to automatically track searches to Nosto analytics.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
     api.search({
         query: 'my search',
         products: {
@@ -65,7 +66,7 @@ nostojs(function(api) {
         }
     }, {
         track: 'autocomplete'
-    }).then(function(response) {
+    }).then(response => {
         console.log(response);
     });
 });
@@ -73,12 +74,12 @@ nostojs(function(api) {
 
 ### Category page
 
-For category page in most cases `facets` parameter should be provided. And either [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) should be also provided.
+For category pages in most cases the `facets` parameter should be provided. And either [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) should be also provided.
 
 Furthermore `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
     api.search({
         products: {
             categoryId: '12345',
@@ -88,7 +89,7 @@ nostojs(function(api) {
     }, {
         track: 'category',
         redirect: true
-    }).then(function(response) {
+    }).then(response => {
         console.log(response);
     });
 });
@@ -99,14 +100,14 @@ nostojs(function(api) {
 For some of the search features to work properly, such as personalised results and segments, the search function needs to be able to access information about the user's session from the front-end.
 
 {% hint style="info" %}
-Search function on JS API already includes session state automatically.
+The search function of the JS API already includes session state automatically.
 {% endhint %}
 
 To get all session data the following snippet can be used:
 
 ```javascript
-nostojs(function(api) {
-    api.getSearchSessionParams(options).then(function(response) {
+nostojs(api => {
+    api.getSearchSessionParams(options).then(response => {
         console.log(response);
     });
 });
@@ -141,11 +142,11 @@ User actions that lead to search results should be tracked with `api.recordSearc
 * category merchandising results `(type = category)` - user sees specific category results when category is selected (category merchandising must be implemented)
 
 {% hint style="danger" %}
-You don't need to execute `api.recordSearch()`if you call `api.search(query, { track: 'serp'|'autocomplete'|'category'})` function from JS API, because`api.search()`already calls `api.recordSearch()`when `track` option is provided.
+You don't need to execute `api.recordSearch()`if you call `api.search(query, { track: 'serp'|'autocomplete'|'category'})` function from JS API, because`api.search()`already calls `api.recordSearch()` when `track` option is provided.
 {% endhint %}
 
 ```javascript
-nostojs(function (api) {
+nostojs(api => {
     api.recordSearch(
         type,
         query,
@@ -184,10 +185,10 @@ api.recordSearch(
 
 Search queries are categorised into two groups: organic and non-organic searches.\
 \
-In order to mark search query as organic search you need to call `api.recordSearchSubmit()`. You should call it on search input submit only, before search request is sent.
+In order to mark a search query as an organic search you need to call `api.recordSearchSubmit()`. You should call it on search input submit only, before search request is sent.
 
 ```javascript
-nostojs(function (api) {
+nostojs(api => {
     api.recordSearchSubmit(query)
 })
 ```
@@ -201,7 +202,7 @@ Organic search - is a search query submitted through search input and which lead
 Product clicks should be tracked in autocomplete component, SERP, category page with `api.recordSearchClick()` by providing component (type), where click occurred, and clicked product data:
 
 ```javascript
-nostojs(function (api) {
+nostojs(api => {
     api.recordSearchClick(type, hit)
 })
 ```
@@ -226,7 +227,7 @@ Product and keyword clicks must be tracked separately by binding to two separate
 Keyword clicks should be tracked in autocomplete component with `api.recordSearchClick()` by providing `type = autocomplete` and keyword hit object:
 
 ```javascript
-nostojs(function (api) {
+nostojs(api => {
     api.recordSearchClick(
         'autocomplete',
         { keyword: 'green' }

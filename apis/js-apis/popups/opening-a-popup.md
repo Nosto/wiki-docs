@@ -7,7 +7,7 @@ Please note that some campaigns have active trigger types and can be opened auto
 You can also give a second, optional argument to the `api.openPopup()` function. The second argument is an object with the following fields:
 
 ```javascript
-nostojs(function(api) {
+nostojs(api => {
   var arrayOfPopupCampaigns = api.popupCampaigns();
 
   // arrayOfPopupCampaigns = [

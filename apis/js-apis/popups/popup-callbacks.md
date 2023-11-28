@@ -7,8 +7,8 @@ The JS API can be used to register callbacks to hook into the popup events. To r
 Whenever customer has input their email address into a Nosto behavioral pop-up that asked whether they want to subscribe to an email newsletter.
 
 ```javascript
-nostojs(function(api){
-  api.listen("emailgiven", function(emailSubscriptionEvent) {
+nostojs(api => {
+  api.listen("emailgiven", emailSubscriptionEvent => {
   console.log(emailSubscriptionEvent.email);
   console.log(emailSubscriptionEvent.newsletter);
   });
@@ -25,7 +25,7 @@ nostojs(function(api){
 ## Popup Opened Callback
 
 ```javascript
-api.listen("popupOpened", function(popupEvent) {
+api.listen("popupOpened", popupEvent => {
     if (popupEvent.error) {
       console.error(popupEvent.error);
     } else {
@@ -50,7 +50,7 @@ The customer can minimize a Nosto behavioral pop-up into a ribbon to be shown at
 This callback will be called whenever the ribbon is rendered onto screen after a page load.
 
 ```javascript
-  api.listen("popupRibbonShown", function(ribbonEvent) {
+  api.listen("popupRibbonShown", ribbonEvent => {
     console.log(ribbonEvent.campaignId);
   });
 ```
@@ -66,7 +66,7 @@ This callback will be called whenever the ribbon is rendered onto screen after a
 The customer can minimize a Nosto behavioral pop-up into a ribbon to be shown at the edge of the viewport. This callback will be called when the customer clicks the minimize button on the pop-up.
 
 ```javascript
-  api.listen("popupMinimized", function(popupEvent) {
+  api.listen("popupMinimized", popupEvent => {
     console.log(popupEvent.campaignId);
   });
 ```
@@ -82,7 +82,7 @@ The customer can minimize a Nosto behavioral pop-up into a ribbon to be shown at
 The customer can minimize a Nosto behavioral pop-up into a ribbon to be shown at the edge of the viewport. When they click on this ribbon, the pop-up will be maximized again to be shown in full size. This callback will be called when the customer clicks the ribbon to maximize the pop-up.
 
 ```javascript
-  api.listen("popupMaximized", function(popupEvent) {
+  api.listen("popupMaximized", popupEvent => {
     console.log(popupEvent.campaignId);
   });
 ```
@@ -98,7 +98,7 @@ The customer can minimize a Nosto behavioral pop-up into a ribbon to be shown at
 The customer can click a “close permanently” button or link in a Nosto behavioral pop-up to dismiss the pop-up permanently. This callback is called when the customer clicks on that button or link.
 
 ```javascript
-  api.listen("popupClosed", function(popupEvent) {
+  api.listen("popupClosed", popupEvent => {
     console.log(popupEvent.campaignId);
   });
 ```
@@ -114,7 +114,7 @@ The customer can click a “close permanently” button or link in a Nosto behav
 The callback will be called when a customer clicks a button inside a Nosto behavioral pop-up to get their discount coupon code.
 
 ```javascript
-  api.listen("couponGiven", function(couponEvent) {
+  api.listen("couponGiven", couponEvent => {
     if (couponEvent.error) {
       console.error(couponEvent.error);
     } else {
@@ -139,7 +139,7 @@ The callback will be called when a customer clicks a button inside a Nosto behav
 The callback will be called when a customer clicks a button inside a Nosto abandoned cart pop-up to get an abandoned cart email.
 
 ```javascript
-  api.listen("sendabandonedcartemail", function(sendMailEvent) {
+  api.listen("sendabandonedcartemail", sendMailEvent => {
     if (!sendMailEvent.sent) {
       console.error(sendMailEvent.message);
     } else {

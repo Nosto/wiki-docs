@@ -29,7 +29,7 @@ The JS comprises of three parts - the first is the "stub" (which allows API usag
 
 ```markup
 <script type="text/javascript">
-  (() => {window.nostojs=window.nostojs||(cb => {(window.nostojs.q=window.nostojs.q||[]).push(cb);});})();
+  (() => {window.nostojs=window.nostojs||(function(cb){(window.nostojs.q=window.nostojs.q||[]).push(cb);});})();
 </script>
 <script type="text/javascript">
   nostojs(api => api.setAutoLoad(false));
