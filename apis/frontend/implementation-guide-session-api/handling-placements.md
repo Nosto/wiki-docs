@@ -27,7 +27,7 @@ When using the Session API, the placements are set through a function call `setP
 ```
 api.placements.getPlacements()
 ```
-The function scans the current page (document object) for any valid placements at the time of execution and returns them in an array suitable for the setPlacements-function. As long as it is called after the targeted elements have been rendered into the document, it will return both the static and the dynamic CSS and URL rules based placements on the page. Dynamic placements are picked up regardless of them being rendered or not. Static placements are always obtained through scanning the page. Freshly created Nosto accounts come with static placements only. ( In case you have programmatic placement codes that are not in the page document at all, you can add them to the array to combine both manual and automatic approaches. )
+The function scans the current page (document object) for any valid placements at the time of execution and returns them in an array suitable for the `setPlacements`-function. As long as it is called after the targeted elements have been rendered into the document, it will return both the static and the dynamic CSS and URL rules based placements on the page. Dynamic placements are picked up regardless of them being rendered or not. Static placements are always obtained through scanning the page. Freshly created Nosto accounts come with static placements only. ( In case you have programmatic placement codes that are not in the page document at all, you can add them to the array to combine both manual and automatic approaches. )
 
 Here's an example call where placements are scanned automatically:
 
@@ -109,7 +109,7 @@ This example assumes the implementing application has a utility function to tran
 
 ## Offloading campaign rendering fully to Nosto&#x20;
 
-In the event that you would like to offload the campaign rendering fully to Nosto, you can skip transforming the products json to html and instead use the recommendation templates in the Nosto backend to produce html. In that case you would set the response mode in the Sessio API to be 'HTML', then the response will not have a `campaign` field and will instead contain a `recommendations` field which has the HTML content of all campaigns, regardless if they are content or recommendation campaigns. You can then pass that field to a utility method `api.placements.injectCampaigns` that will inject the HTML into the page.
+In the event that you would like to offload the campaign rendering fully to Nosto, you can skip transforming the products json to html and instead use the recommendation templates in the Nosto backend to produce html. In that case you would set the response mode in the Session API to be 'HTML', then the response will not have a `campaign` field and will instead contain a `recommendations` field which has the HTML content of all campaigns, regardless if they are content or recommendation campaigns. You can then pass that field to a utility method `api.placements.injectCampaigns` that will inject the HTML into the page.
 
 Here's an example call
 

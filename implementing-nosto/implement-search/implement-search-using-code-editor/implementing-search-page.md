@@ -152,7 +152,7 @@ export default ({ facet }) => {
 ```
 {% endcode %}
 
-Utilize the useRangeSlider hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+Utilize the `useRangeSlider` hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
 
 #### Terms facet
 
@@ -190,7 +190,7 @@ export default ({ facet }) => {
 }
 ```
 
-You can use the toggleProductFilter function to toggle any filter value. This function will either add the filter value if it's not already applied or remove it if it's currently active, thus providing an efficient way to manipulate product filters in your application.
+You can use the `toggleProductFilter` function to toggle any filter value. This function will either add the filter value if it's not already applied or remove it if it's currently active, thus providing an efficient way to manipulate product filters in your application.
 
 ### Pagination
 
@@ -317,7 +317,7 @@ export default ({ product }) => {
 
 ## Analytics
 
-Search automatically tracks to Google Analytics & Nosto Analytics when using `<SerpElement />` component.&#x20;
+Search automatically tracks to Google Analytics & Nosto Analytics when using `SerpElement` component.&#x20;
 
 ```jsx
 export default ({ product }) => {
@@ -337,7 +337,7 @@ export default ({ product }) => {
 | **onClick** (optional) | Additional onClick callback (tracking callback is already implemented in the component).                                                                                                                     |
 
 {% hint style="info" %}
-SerpElement component supports any other HTML attribute, e.g. **class.**
+The `SerpElement` component supports any other HTML attribute, e.g. **class.**
 {% endhint %}
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>

@@ -4,17 +4,17 @@ Nosto uses a cookie to set to identify browsers between their visits to the site
 
 Each session is identified using a randomly generated 24-character secure string and persisted in a `2c.cId` cookie.
 
-For privacy reasons, if you have the need to disallow any third-party tracking cookies, this feature can be used to acheive that.
+For privacy reasons, if you have the need to disallow any third-party tracking cookies, this feature can be used to achieve that.
 
 {% hint style="info" %}
-This feature will not remove previously set `2c.cId` cookies and will only affect sessions from the time of implementation onwards.
+This feature will not remove previously set `2c.cId` cookies and will only affect sessions from the time of implementation onward.
 {% endhint %}
 
 \`\`
 
 ## Changing the way sessions are handled
 
-You can opt-out of tracking by enabling uusing the `setCustomerIdentifierService`method.
+You can opt-out of tracking by enabling using the `setCustomerIdentifierService`method.
 
 Assuming that your platform has a method called `platform.getSID()` that returns the current session identifier as offered by your platform - you would use:
 

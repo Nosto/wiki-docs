@@ -8,7 +8,7 @@ You can use any combination of the different filtering mechanisms outlined below
 
 All category pages already leverage dynamic filtering. As documented in our guide to tagging categories, the `nosto_category` tagging constraints Nosto to show recommendations from only the current category.
 
-Tagging the current category is often for most retailers to add personalisation to the category pages. If your store uses faceting and you would like Nosto to respect the faceting constraints, you may need to use either the attribute or tag filtering mechanisms to achieve the desired result.
+Tagging the current category is often for most retailers to add personalization to the category pages. If your store uses faceting and you would like Nosto to respect the faceting constraints, you may need to use either the attribute or tag filtering mechanisms to achieve the desired result.
 
 ### **Filtering by categories**
 
@@ -63,7 +63,7 @@ These colon separated values are then parsed into an object with format { "key1"
 texts.keyValueTexts(nodes)
 ```
 
-The above method will receive references to all the "nosto\_custom\_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material cutom fields will be parsed to
+The above method will receive references to all the "nosto\_custom\_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material custom fields will be parsed to
 
 ```markup
 {

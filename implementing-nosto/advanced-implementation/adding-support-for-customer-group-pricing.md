@@ -29,7 +29,7 @@ An additional span tag must be placed within the product page tagging with a cla
   ...
   ...
   <!-- Variation ID for the primary currency --> 
-  <span class="variation_id">GENRAL</span>
+  <span class="variation_id">GENERAL</span>
   <!-- Variation block for a secondary currency -->
   <div class="variation">
     <span class="variation_id">LOYAL</span>

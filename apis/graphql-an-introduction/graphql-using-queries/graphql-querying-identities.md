@@ -2,7 +2,7 @@
 
 You can query identities using the GraphQL Identities endpoint. An "identity" is the personal information associated with an email address.
 
-So long as you are able to specify the email address, you will be able to query the identity, its associated customer aff and, the personalized recommendations for that identity.
+So long as you are able to specify the email address, you will be able to query the identity, its associated customer affinity and the personalized recommendations for that identity.
 
 ```graphql
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \

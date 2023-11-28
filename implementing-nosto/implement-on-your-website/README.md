@@ -53,7 +53,7 @@ When implementing in SPA and PWA environments, product updates must be done via 
 
 ## SPA / PWA on top of a platform that Nosto has extension for
 
-If you have implemented SPA / PWA on top a platform that Nosto has extension for you will still need to implement the frontend part using Session API. The extension will take care of the product updates, order confirmations, exchange rates and other background processes but displaying the recos, popups, etc. must be done using Session API.
+If you have implemented SPA / PWA on top a platform that Nosto has extension for you will still need to implement the frontend part using Session API. The extension will take care of the product updates, order confirmations, exchange rates and other background processes but displaying the recommendations, popups, etc. must be done using Session API.
 
 ## When dynamic functionality is needed / no page reload
 
