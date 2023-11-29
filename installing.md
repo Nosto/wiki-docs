@@ -29,7 +29,7 @@ You might need to change file permissions or ownership of the generated files af
 
 After running the commands above you can login to the store admin. You will find Nosto -link under Marketing section.
 
-#### Magento's repo does not contain the latest release
+#### Magento's repository does not contain the latest release
 
 In case you are pulling the dependencies from Magento's repository `repo.magento.com` and you encounter an error where the latest release is not present, 
 you can [exclude](https://getcomposer.org/doc/articles/repository-priorities.md#filtering-packages) Nosto packages and instead pull them from the default repository `https://repo.packagist.org/`. 

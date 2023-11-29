@@ -18,7 +18,7 @@ However you can also [Create a Storefront Child Theme](https://github.com/superc
 In order to identify which block, or which template is being used in Magento's front end blocks, we need to activate `Template Path Hints`
 
 * On the Magento 2 Admin Panel, click on `Stores`, then `Configuration` under the Settings tab
-* Scroll down and uncollapse the `Advanced` group, now select `Developer`
+* Scroll down and expand the `Advanced` group, now select `Developer`
 * Under the `Debug` group you will find `Enabled Template Path Hints for Storefront`, select `Yes` from the dropdown menu and hit the `Save Config` button.
 
 Your frontend now should look like this: ![screen shot 2018-02-26 at 11 52 47](https://user-images.githubusercontent.com/2778820/36664059-349c6272-1aec-11e8-9a8e-ecebd0a616d2.png)

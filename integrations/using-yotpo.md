@@ -24,7 +24,7 @@ Once you've enabled the rating and reviews metadata, you should be able to see t
 
 ![Verifying Rating &amp; Review Tagging](https://user-images.githubusercontent.com/44775916/48712817-65231100-ec17-11e8-91f4-ce53681c8d78.png)
 
-## Yoptpo reviews and ratings are cached for 24 hours.
+## Yotpo reviews and ratings are cached for 24 hours.
 
 Yotpo reviews and ratings are cached for 24 hours in Magento. This means that the review count and rating values are not updated to Nosto immediately after new reviews are posted
 

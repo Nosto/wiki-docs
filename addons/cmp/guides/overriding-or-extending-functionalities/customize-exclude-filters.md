@@ -1,6 +1,6 @@
 # Customizing exclude filters
 
-If custom product filtering is done on Magento's backend after receiving the GraphQL response from Nosto, this will cause the total counter of displayed products to be inacurate.
+If custom product filtering is done on Magento's backend after receiving the GraphQL response from Nosto, this will cause the total counter of displayed products to be inaccurate.
 To fix this, we recommend adding a custom field to the products and use exclude filters to be sent along with the GraphQL query
 
 ### Adding exclude filters to GraphQL query

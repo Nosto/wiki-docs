@@ -42,15 +42,15 @@ The feature-flags section can be used to toggle on/off different features. Certa
 
 ### Indexer Memory
 
-If you are running into issues with the indexer not finishing due to out of memory erros, in this flag you can configure the amount of memory that the Nosto Indexer is allowed to use.
+If you are running into issues with the indexer not finishing due to out of memory errors, in this flag you can configure the amount of memory that the Nosto Indexer is allowed to use.
 
 ### Send Customer Data To Nosto
 
 This option allow the merchant to enable/disable the sending of customer data to Nosto. If this option is disabled no customer tagging is done by Nosto.
 
-### Reload recs after reloading cart
+### Reload recommendations after reloading cart
 
-This option allows reloading recommendations after updating the cart. If you are using cart based recs, it is advised to enable this flag
+This option allows reloading recommendations after updating the cart. If you are using cart based recommendations, it is advised to enable this flag
 
 ### Add product published date to tagging
 

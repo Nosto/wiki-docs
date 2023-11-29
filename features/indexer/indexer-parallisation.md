@@ -1,2 +1,2 @@
-# Indexer Parallisation
+# Indexer Parallelisation
 
