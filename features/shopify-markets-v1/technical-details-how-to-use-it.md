@@ -2,7 +2,7 @@
 
 ### Before you start
 
-In order to workaround product procing for Shopify Markets, there are two small changes needed in your Shopify code.
+In order to workaround product pricing for Shopify Markets, there are two small changes needed in your Shopify code.
 
 1.  You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:\
 
@@ -60,7 +60,7 @@ In case of any issues with the API call or element structuring, the API will pro
 
 ### Limitations
 
-1. Only allows upto 5 sub-level variants
+1. Only allows up to 5 sub-level variants
 2. Only allows 1 primary variant
 3. Strict structuring necessary. In other words, it's necessary to follow the rules defined in the description of each API parameters.
 4. While providing multiple variant options, it's not possible to pre-configure the option to be selected for sub-level variants. The API selects the first option automatically.
