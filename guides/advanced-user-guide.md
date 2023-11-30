@@ -6,7 +6,7 @@ This guide is intended for advanced users and outlines and documents common ques
 
 Nosto thumbnails and serves all images from our Cloudfront-backed CDN. After the original image is fetched, all recommendations are served by Nosto. There is no additional load your instance.
 
-All images are thumbnailed into flattened JPEG images.
+All images are thumbnail into flattened JPEG images.
 
 **Why do the images lose the transparency?**
 
@@ -61,9 +61,9 @@ Our order-confirmation APIs allow for enhanced conversion tracking for payment-p
 
 Incorrect conversion tracking has a multitude of side effects:
 
-1. Incorrect post-purchase ad retargeting. Example, a customer who purchased a shoe may still be retargeted on Facebook to purchase the same shoe.
+1. Incorrect post-purchase ad retargeting. Example, a customer who purchased a shoe may still be re-targeted on Facebook to purchase the same shoe.
 2. Incorrect abandoned-cart emails. For example, a customer who purchased a shoe may be sent an abandoned-cart email.
-3. Incorrect conversion analytics. For example, underperforming recommendations statistics in the dashboard.
+3. Incorrect conversion analytics. For example, under performing recommendations statistics in the dashboard.
 
 If your site always shows an order-confirmation page, you may disable our order-confirmation API.
 

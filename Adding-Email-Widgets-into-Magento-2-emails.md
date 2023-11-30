@@ -10,7 +10,7 @@ You will only need to create email campaigns once.
 
 After you have created the email campaigns in Nosto you can add the widgets into your Magento 2 email templates.
 
-**Please note that the vistor's email variable may vary depeneding on the template type / template context.**
+**Please note that the visitor's email variable may vary depending on the template type / template context.**
 
 ### 1. Open email template editor
 Navigate to "Marketing > Email templates"

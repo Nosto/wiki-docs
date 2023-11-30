@@ -8,7 +8,7 @@ Nosto for Magento2 supports the Magento2 EE Content Staging feature. Magento's C
 
 ## Special Prices
 
-Nosto for Magento2 supports special prices. Special prices for products allow prices to be automatically changed during a timeframe. We recommend that you read [Magento's User Guide on Special Prices](http://docs.magento.com/m2/ce/user_guide/catalog/product-price-special.html)
+Nosto for Magento2 supports special prices. Special prices for products allow prices to be automatically changed during a time frame. We recommend that you read [Magento's User Guide on Special Prices](http://docs.magento.com/m2/ce/user_guide/catalog/product-price-special.html)
 
 ![](https://user-images.githubusercontent.com/327432/35088355-38686136-fc3c-11e7-8661-46f65f5193b8.png)
 

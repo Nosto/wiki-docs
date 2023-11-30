@@ -84,7 +84,7 @@ You can generate data for performance testing purposes. You can choose the amoun
 
 `<magento-2-installation>/setup/performance-toolkit/profiles/<ce or ee>`
 
-If you want to customize the amount of data generated, just modify the value inside the tags. Fo example the amount of simple-products is found inside the tags:
+If you want to customize the amount of data generated, just modify the value inside the tags. For example the amount of simple-products is found inside the tags:
 
 `<simple_products>{integer}</simple_products>`
 
