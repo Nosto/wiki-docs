@@ -11,7 +11,7 @@ Nosto follows the same tax calculation logic than Shopware. In short, if a tax c
 **Please note that Nosto does not take into account the country when applying tax rules. If a matching customer group is found Nosto will apply the tax rule regardless of the country**
 
 ## How does Nosto pickup the product data for configurable products
-As Nosto does not index variations separately, it uses one variation as a "main product". Nosto picks up the values from the preselected (see screenshot below) variation for the main product. In other words Nosto picks the product price and image url from the preselected variation.  
+As Nosto does not index variations separately, it uses one variation as a "main product". Nosto picks up the values from the pre selected (see screenshot below) variation for the main product. In other words Nosto picks the product price and image url from the pre selected variation.  
 
 ![shopware-preselection](https://user-images.githubusercontent.com/15191701/40541338-07acc27a-6024-11e8-8c0a-e0c7c809eecd.png)
 

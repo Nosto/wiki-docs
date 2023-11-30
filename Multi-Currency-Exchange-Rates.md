@@ -20,7 +20,7 @@ The customer's active currency is denoted by some embedded semantic markup on al
 
 Multi-currency comes disabled by default. To enable it, head to Shopware's backend, then Configuration -> Basic Settings.
 
-Once in the `Basic Settings` window, uncollapse `Additional Settings` key, then select `Personalization for Shopware`.
+Once in the `Basic Settings` window, expand `Additional Settings` key, then select `Personalization for Shopware`.
 
 Select the shop front you wish to enable Multi-currency by selecting the correct tab, then select `Exchange Rates` from the dropdown menu and hit the `Save` button.
 <img width="1349" alt="screenshot 2018-09-27 at 14 20 40" src="https://user-images.githubusercontent.com/2778820/46143286-28174f80-c262-11e8-9811-b4011f0b1dd2.png">

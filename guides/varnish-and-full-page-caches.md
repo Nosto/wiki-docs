@@ -6,7 +6,7 @@ Nosto injects the details of the currently logged in customer, the contents of t
 You must ensure that no sensitive personal-data is cached. In the event that personal-data is cached, it will leak across sessions and in cases, may even get indexed by search engine crawler.
 {% endhint %}
 
-Nosto for Shopware works out of the box with [Shopware's HTTP cache.](https://developers.shopware.com/developers-guide/http-cache/) Nosto does this by leveraging [Shopware's support for Action Tags](https://developers.shopware.com/blog/2016/07/11/on-action-tags/). Action Tags automatically hole-punch certain parts of the page and when used with Varnish, it autogenerates the necessery Edge Side Includes \(ESI\). 
+Nosto for Shopware works out of the box with [Shopware's HTTP cache.](https://developers.shopware.com/developers-guide/http-cache/) Nosto does this by leveraging [Shopware's support for Action Tags](https://developers.shopware.com/blog/2016/07/11/on-action-tags/). Action Tags automatically hole-punch certain parts of the page and when used with Varnish, it auto generates the necessary Edge Side Includes \(ESI\). 
 
 {% hint style="warning" %}
 This feature is only supported from version **2.4.8** onwards. If you are running an older version, we recommend you upgrade immediately.
