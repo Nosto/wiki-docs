@@ -5,7 +5,7 @@ When a customer is placing an order for any product, the checkout page will coll
 
 ![Consent during order confirmation](https://user-images.githubusercontent.com/82023195/136540098-3719ca4f-77e6-47d1-8dfa-525010885064.png)
 
-When the customer selects `Email me with news and offers` option and confims the order, the consent along with order information will be sent to Nosto through `/order/track` API in the following format,
+When the customer selects `Email me with news and offers` option and confirms the order, the consent along with order information will be sent to Nosto through `/order/track` API in the following format,
 
 ```json
 {
@@ -29,7 +29,7 @@ When the customer selects `Email me with news and offers` option and confims the
 ```
 
 ## Consent - Customer update
-A merchant will be able to update customer's information or their marketing constent from store management (Admin) page. 
+A merchant will be able to update customer's information or their marketing consent from store management (Admin) page. 
 
 ![Update Marketing Consent](https://user-images.githubusercontent.com/82023195/136540161-057d6c72-fa25-4785-aa56-19a48a016200.png)
 
@@ -46,7 +46,7 @@ During this process, Nosto will receive updated customer information, in followi
 ```
 
 ## Consent - Customer Tagging
-A thrid approach for sending customer information to Nosto is using `Page tagging`. For more information, please refer [Customer Information Tagging](https://docs.nosto.com/techdocs/implementing-nosto/implement-on-your-website/manual-implementation/adding-the-customer-information)
+A third approach for sending customer information to Nosto is using `Page tagging`. For more information, please refer [Customer Information Tagging](https://docs.nosto.com/techdocs/implementing-nosto/implement-on-your-website/manual-implementation/adding-the-customer-information)
 
 ### Note: 
 1. If your store has a custom process for gathering marketing permissions or the default logic explained above doesn't fit for your store, you can override Nosto's extension to amend the behaviour. Please read more detailed instructions in our guide on [Import customer data](https://help.nosto.com/en/articles/2884483-how-to-import-customer-data-to-nosto-via-api)

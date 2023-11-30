@@ -2,7 +2,7 @@
 
 ## Summary
 
-Shopify has recently released a version 2.0 of their online themes with numerous changes and enhancements, notably the migration from `.liquid` template files to `.json` template files. This impacted the process of installing Nosto in any of the version 2.0 themes as Nosto mostly expects and modifes `.liquid` files. Nosto has recently released support for version 2.0 themes and this documentation will discuss the details in-depth.
+Shopify has recently released a version 2.0 of their online themes with numerous changes and enhancements, notably the migration from `.liquid` template files to `.json` template files. This impacted the process of installing Nosto in any of the version 2.0 themes as Nosto mostly expects and modifies `.liquid` files. Nosto has recently released support for version 2.0 themes and this documentation will discuss the details in-depth.
 For more information Shopify side of changes, visit corresponding links below,
 1. [Online 2.0 themes](https://www.shopify.com/partners/blog/shopify-online-store)
 2. [JSON Templates](https://shopify.dev/themes/architecture/templates/json-templates)
@@ -59,7 +59,7 @@ Assume a customer is on `version 1.0` and has Nosto installed already. When such
 1. For every migration, uninstall Nosto, migrate your files and then reinstall Nosto from within the Nosto app
 2. Migrate everything excluding Nosto content
 
-The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of structureless json shema, it became little challenging to isolate Nosto content for easy installation or uninstallation. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitiagte the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents.
+The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of non structured json schema, it became little challenging to isolate Nosto content for easy installation or removal. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitigate the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents.
 In future, we will introduce other options to better handle this situation
 
 ## Limitations

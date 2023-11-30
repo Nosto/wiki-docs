@@ -41,7 +41,7 @@ A sample bundle template variable configuration is shown below
 
 ![Dynamic Bundle template variables](https://user-images.githubusercontent.com/82023195/173543873-dcbc9224-3410-4e52-8d72-4f60067fbcfa.png)
 
-In the above sample configuration, all the mandatory fields are highlighed and the "ATC button text" and "subtitle" are custom variables
+In the above sample configuration, all the mandatory fields are highlighted and the "ATC button text" and "subtitle" are custom variables
 
 Variables can be added to the template using the following approach. Please note, this section only outlines the steps for adding variables and not creating the template end-to-end.
 
@@ -83,8 +83,8 @@ Nosto JavaScript API **addBundleToCartWithDiscount** can be used to add the sele
 
 1. Products selected in the bundle while adding to cart (_items parameter_)
 2. Discount (type & value) configuration (_discount parameter_)
-3. All the product IDs from the bundle (both selected and unselected) (_bundleProducts parameter_)
-4. A hash value that is provided with the template out of the box (_hash parameter_). This hash value will later be used in conjuction with the secret key obtained from Nosto in order to authenticate the request for bundle discount.
+3. All the product IDs from the bundle (both selected and not selected) (_bundleProducts parameter_)
+4. A hash value that is provided with the template out of the box (_hash parameter_). This hash value will later be used in conjunction with the secret key obtained from Nosto in order to authenticate the request for bundle discount.
 
 Expanding _items parameter_, it should contain the following fields:
 
