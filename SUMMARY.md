@@ -93,6 +93,7 @@
       * [Adding support for multi-currency](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency.md)
       * [Adding support for customer group pricing](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-customer-group-pricing.md)
     * [FAQ](apis/frontend/implementation-guide-session-api/spa-faq.md)
+  * [Nosto React](apis/frontend/react-support/README.md)  
 * [JS API](apis/js-apis/README.md)
   * [Initializing Nosto](apis/js-apis/initializing-nosto.md)
   * [Recommendations](apis/js-apis/recommendations/README.md)
