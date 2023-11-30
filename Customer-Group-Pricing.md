@@ -76,7 +76,7 @@ If we consider our example in the previous section and configure the currency se
 
 ![](https://user-images.githubusercontent.com/82023195/154739514-8e5f078a-cf6d-45b1-b51b-dccc7a690396.png)
 
-### Product Reindexing
+### Product Re-indexing
 After completing the steps in previous section, re-index the products by following the below steps:
 1. Navigate to Catalog Explorer > Products page 
 2. Click "Update Catalog"
