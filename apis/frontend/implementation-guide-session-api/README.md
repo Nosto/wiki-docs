@@ -7,14 +7,3 @@ If you have a website, that is built atop JavaScript frameworks, such as Angular
 **Important**: You cannot mix [JS API](../../js-apis/) and Session API. You need to use either or. If you are not sure which one to use, please contact Nosto's support.
 
 **Note:** The examples in the documentation are written in [ES5](https://www.ecma-international.org/ecma-262/5.1/) and leverage advanced browser features such as [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Promise).
-
-* [Session API](./)
-  * [Terminology](session-api-terminology.md)
-  * [Setting up](spa-basics-setting-up.md)
-  * [Managing Sessions](spa-basics-managing-sessions.md)
-  * [Tracking Events](spa-basics-tracking-events.md)
-  * [Leveraging Features](spa-basics-leveraging-features.md)
-  * Advanced Usage
-    * [Adding support for multi-currency](advanced-usage/spa-adding-support-for-multi-currency.md)
-    * [Adding support for customer group pricing](advanced-usage/spa-adding-support-for-customer-group-pricing.md)
-  * [FAQ](spa-faq.md)
