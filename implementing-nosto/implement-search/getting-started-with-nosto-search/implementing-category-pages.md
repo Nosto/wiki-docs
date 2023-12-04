@@ -8,7 +8,10 @@ It's recommended to disable or hide (for instance, using CSS) the original categ
 
 ## Configuration
 
-To render category page provide additional configuration parameters to `init` function on `index.js` entry point file.
+To render the category page, provide additional configuration parameters to the `init` function in the `index.js` entry point file. Default configurations for `categoryQuery` and `isCategoryPage` are already provided. Custom configuration is necessary only if the default settings are not suitable for your application.
+
+The default `isCategoryPage` function checks for the presence of an element in the DOM and determines if the page should be considered a category page based on its content.
+
 
 {% code title="index.js" %}
 ```javascript
@@ -47,7 +50,7 @@ The `isCategoryPage` function should detect whether the current page is a catego
 
 ### Category query
 
-The `categoryQuery` should generate a category page query based on the current page. It must return either `categoryPath` (identical to the `categories` field filter) or `categoryId` to select the current category.&#x20;
+The `categoryQuery` should generate a category page query based on the current page. It must return either `categoryPath` (identical to the `categories` field filter) or `categoryId` to select the current category. The default implementation extracts the `categoryId` and `categoryPath` fields from the DOM.  &#x20;
 
 {% hint style="warning" %}
 Search rules targeting specific categories are not supported when using `categoryPath` parameter, they supported only for `categoryId` parameter
