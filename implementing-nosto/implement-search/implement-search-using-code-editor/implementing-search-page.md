@@ -72,11 +72,8 @@ export default () => {
 
 ### Custom search URL parameters mapping
 
-Manual URL Parameter Mapping (Deprecated)
-While the `customUrlMappings` array was previously used for manual configuration, it is now deprecated in favor of the `compressUrlParameters` flag. If you have specific custom mapping needs, consider updating your configuration to leverage the new flag.
-
 Automatic URL Parameter Compression
-The `compressUrlParameters` flag has been introduced to simplify the configuration process. When set to `true`, it automatically applies the URL parameter compression functions.
+When the `compressUrlParameters` flag is set to `true`, it automatically applies the URL parameter compression functions for filters, sort and pagination.
 
 <pre class="language-javascript"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
 </strong>

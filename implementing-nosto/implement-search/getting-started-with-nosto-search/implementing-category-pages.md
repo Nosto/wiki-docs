@@ -23,23 +23,20 @@ init({
     inputCssSelector: '#search',
     contentCssSelector: '#content', // or categoryCssSelector
     categoryComponent: categoryComponent,
-    categoryQuery: () => {
-        // extract category ID or category name from current page
-        const categryPath = document.querySelector('.category_name')
-        return {
-            name: 'serp',
-            products: {
-                categoryPath: categryPath?.textContent,
-                // or categoryId: categryPath?.textContent
-                size: 30,
-                from: 0
-            }
-        }
-    },
-    isCategoryPage: () => {
-        // Detect if category page should be rendered here
-        return location.pathname.startsWith('/collections/')
-    }
+    categoryCssSelector: '#MainContent',
+
+    // // There is a default implementation for categoryQuery, so use this custom configuration only if you need to customize it
+    // categoryQuery: () => {
+    //     return {
+    //         name: 'serp',
+    //         products: {
+    //             categoryId: "123456789",
+    //             categoryPath: 'xxx/yyy/zzz',
+    //             size: defaultConfig.serpSize,
+    //             from: 0,
+    //         }
+    //     };
+    // },
 })
 ```
 {% endcode %}
