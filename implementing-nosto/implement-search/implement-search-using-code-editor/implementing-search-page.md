@@ -104,7 +104,48 @@ init({
 
 
 
-<table><thead><tr><th width="210">Function</th><th width="173.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>mapOffsetToPage</code></td><td>Replaces <code>from</code> parameter to page number.</td><td>Before:<br><code>/search?products.from=20&#x26;q=shorts</code><br><br>After:<br><code>/search?page=2&#x26;q=shorts</code></td></tr><tr><td><code>compressSortParameters</code></td><td>Returns shorter <code>sort</code> parameters.</td><td>Before:<br><code>/search?q=shorts&#x26;products.sort.0.field=price&#x26;products.sort.0.order=desc</code><br><br>After:<br><code>/search?q=shorts&#x26;products.sort.price=desc</code></td></tr><tr><td><code>compressFilterParameters</code></td><td>Compresses <code>filter</code> parameters.<br><br>Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td><td>Before:<br><code>/search?q=shorts&#x26;products.filter.0.field=customFields.producttype&#x26;products.filter.0.value.0=Shorts&#x26;products.filter.0.value.1=Swim</code><br><br>After:<br>/<code>search?q=shorts&#x26;products.filter.customFields%252Eproducttype=Shorts%257C%257CSwim</code></td></tr></tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th width="210"></th>
+      <th width="173.33333333333331">Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Pagination</code></td>
+      <td>Replaces <code>from</code> parameter with page number.</td>
+      <td>
+        Before:<br>
+        <code>/search?products.from=20&amp;q=shorts</code><br><br>
+        After:<br>
+        <code>/search?page=2&amp;q=shorts</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>Sorting</code></td>
+      <td>Returns shorter <code>sort</code> parameters.</td>
+      <td>
+        Before:<br>
+        <code>/search?q=shorts&amp;products.sort.0.field=price&amp;products.sort.0.order=desc</code><br><br>
+        After:<br>
+        <code>/search?q=shorts&amp;products.sort.price=desc</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>Filtering</code></td>
+      <td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td>
+      <td>
+        Before:<br>
+        <code>/search?q=shorts&amp;products.filter.0.field=customFields.producttype&amp;products.filter.0.value.0=Shorts&amp;products.filter.0.value.1=Swim</code><br><br>
+        After:<br>
+        <code>/search?q=shorts&amp;products.filter.customFields%252Eproducttype=Shorts%257C%257CSwim</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Features
 
