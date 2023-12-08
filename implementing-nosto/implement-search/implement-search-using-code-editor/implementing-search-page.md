@@ -70,9 +70,8 @@ export default () => {
 ```
 {% endcode %}
 
-### Custom search URL parameters mapping
+### Automatic URL Parameter Compression
 
-Automatic URL Parameter Compression
 When the `compressUrlParameters` flag is set to `true`, it automatically applies the URL parameter compression functions for filters, sort and pagination.
 
 <pre class="language-javascript"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
