@@ -70,15 +70,11 @@ export default () => {
 ```
 {% endcode %}
 
-### Custom search URL parameters mapping
+### Automatic URL Parameter Compression
 
-Configuration accepts optional array of URL parameter mapping functions, which allow to change behaviour of any search parameter. `customUrlMappings` accepts objects which must contain `encode` and `decode` functions.
+When the `compressUrlParameters` flag is set to `true`, it automatically applies the URL parameter compression functions for filters, sort and pagination.
 
-`encode` function receives query object which contains properties equivalent to the URL parameters, and returns object in the desired format.
-
-Similarly, `decode` accepts mapped query object, returned from `encode` function, and it must return object in the original search format.
-
-<pre class="language-javascript"><code class="lang-javascript"><strong>import { init, compressFilterParameters, compressSortParameters } from '@nosto/preact'
+<pre class="language-javascript"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
 </strong>
 import serpComponent from './serp'
 
@@ -93,7 +89,7 @@ init({
         query: 'q',
         'products.page': 'page'
     },
-    customUrlMappings: [compressFilterParameters, compressSortParameters],
+    compressUrlParameters: true,
     serpQuery: {
         name: 'serp',
         products: {
