@@ -210,8 +210,8 @@ query {
       include: {
         customFields: [
           {
-            "attribute": "pattern"
-            "values": "Solid"
+            attribute: "pattern"
+            values: ["Solid"]
           }
         ]
         discounted: true
