@@ -24,7 +24,7 @@ The api.search function also accepts the following options:
 
 The function automatically loads session parameters required for personalization & segments in the background.
 
-In order to request custom fields, add the entries `"customFields.key", "customFields.value"` to the requested product fields.
+In order to request custom fields, add the entries `"customFields.key"` and `"customFields.value"` to the requested product fields.
 This changes the example above like this:
 
 ```javascript
