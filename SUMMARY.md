@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Personalization for Shopify](README.md)
-* [Installing](installing.md)
+* [Installing](Installing.md)
 * [Uninstalling](uninstalling.md)
 * [Shopify Markets](shopify-markets.md)
 * [Guides](guides/README.md)
@@ -36,7 +36,7 @@
   * [Using Okendo](integrations/integration-okendo.md)
 * [Articles](articles/README.md)
   * [Article: Leveraging Margin Data](articles/leveraging-margin-data.md)
-* [FAQ](faq.md)
+* [FAQ](FAQ.md)
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/nosto-shopify/issues)
 * [Releases](https://github.com/nosto/nosto-shopify/releases)
