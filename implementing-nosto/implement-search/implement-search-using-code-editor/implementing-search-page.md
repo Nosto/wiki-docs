@@ -30,6 +30,8 @@ init({
 })
 </code></pre>
 
+The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/library/interfaces/Config.html)
+
 ### Search page path
 
 When `serpPath` parameter is specified, the application will **redirect to the specified search** page after a search is conducted. Otherwise, the search will be **rendered** **on the same page** without changing the URL path.

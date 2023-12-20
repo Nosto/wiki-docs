@@ -16,6 +16,8 @@ You will then be redirected to the Code Editor window, where you can see and edi
 
 <figure><img src="../../../.gitbook/assets/57d98ca7-b54b-413a-9f2d-31192e02440e.png" alt=""><figcaption><p>Code Editor</p></figcaption></figure>
 
+The Code Editor ships with a library called `@nosto/preact` that contains functionality to interact with the Nosto Search product. API documentation for the library is available [here](https://nosto.github.io/search-templates/library/)
+
 ## Project structure
 
 Project structure has the following requirements:
