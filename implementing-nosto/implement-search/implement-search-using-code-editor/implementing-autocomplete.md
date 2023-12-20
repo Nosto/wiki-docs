@@ -38,6 +38,8 @@ init({
 ```
 {% endcode %}
 
+The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/library/interfaces/Config.html)
+
 ### Autocomplete component
 
 {% code title="autocomplete/index.jsx" %}
