@@ -173,7 +173,7 @@ nostojs(api => {
 
 ### Upon viewing a collection
 
-When viewing a category or collection, you should send the slash-delimited and fully-qualified path of the current category.
+When viewing a category or collection, you should send the fully-qualified name of the current category.
 
 ```js
 nostojs(api => {
@@ -187,7 +187,27 @@ nostojs(api => {
 });
 ```
 
-**Note:** You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your product’s categories are.
+When the category or collection id is available it can be provided via
+
+```js
+nostojs(api => {
+  api.defaultSession()
+    .viewCategory('/Womens/Dresses')
+    .setCategoryIds(['431783631'])
+    ...
+});
+```
+
+It is needed for accurate attribution in certain Nosto products such as Category Merchandising.
+
+{% hint style="info" %}
+You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your products’ categories are.
+{% endhint %}
+
+{% hint style="info" %}
+On Shopify, the collection title should be used, so in the snippet above, use simply "Dresses" instead of the collection handle.
+{% endhint %}
+
 
 ### Tagging the categories
 
@@ -284,6 +304,21 @@ nostojs(api => {
 });
 ```
 
+### Upon viewing any other type of page
+
+When viewing any other type of page / view the `viewOther` method can be used.
+
+```js
+nostojs(api => {
+  api.defaultSession()
+    .viewOther()
+    .setPlacements(['other-nosto-1', 'other-recs'])
+    .load()
+    .then(data => {
+      console.log(data.recommendations);
+    })
+});
+```
 
 ## Leveraging Features
 
