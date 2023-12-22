@@ -689,7 +689,7 @@ end
 Output.cart = Input.cart
 ```
 
-## Nosto recommendation template (Sample)
+## Nosto recommendation template sample
 
 Given below is an example of a Nosto recommendation template for Dynamic Bundle discount. It's only for reference purposes and can't be used in production as it is.&#x20;
 
