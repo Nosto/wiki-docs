@@ -69,6 +69,18 @@ nostojs(api => {
 });
 ```
 
+When the category or collection id is available it can be provided via
+
+```js
+nostojs(api => {
+  api.defaultSession()
+    .viewCategory('/Womens/Dresses')
+    .setCategoryIds(['431783631'])
+    ...
+});
+```
+It is needed for accurate attribution in certain Nosto products such as Category Merchandising.
+
 {% hint style="info" %}
 You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your products’ categories are.
 {% endhint %}
