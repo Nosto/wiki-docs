@@ -46,7 +46,7 @@ In the above sample configuration, all the mandatory fields are highlighted and 
 Variables can be added to the template using the following approach. Please note, this section only outlines the steps for adding variables and not creating the template end-to-end.
 
 1. Navigate to "Recommendations" > "Templates" and click "Create template" button.
-2. Select the "Variables" tab.&#x20;
+2. Select the "Variables" tab.
 3. For adding "discount type" variable, populate the name and type field as shown below and click "Add"
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>"discount type" field</p></figcaption></figure>
@@ -179,7 +179,7 @@ Please follow the steps below for setting up the line item script for handling t
 
 ## Important Note
 
-Nosto Dynamic Bundle configuration involves two important keys, hash and secret key. Hash key is used within the bundle template and can be accessed using predefined variation `$hash`. Please avoid hard-coding this value anywhere inside the template. As dynamic bundle configurations are subjected to change, the hash key will also change accordingly. Hard-coding this key may break the functionality.
+Nosto Dynamic Bundle configuration involves two important keys, hash and secret key. Hash key is used within the bundle template and can be accessed using predefined variable `$hash`. Please avoid hard-coding this value anywhere inside the template. As dynamic bundle configurations are subjected to change, the hash key will also change accordingly. Hard-coding this key may break the functionality.
 
 Secret key, on the other hand, can be retrieved from "Dynamic Bundle Key" field in Nosto Admin Settings > Platform page. This value replaces GET\_FROM\_NOSTO placeholder in the Shopify line item script.
 
@@ -688,6 +688,253 @@ end
 
 Output.cart = Input.cart
 ```
+
+## Nosto recommendation template (Sample)
+
+Given below is an example of a Nosto recommendation template for Dynamic Bundle discount. It's only for reference purposes and can't be used in production as it is.&#x20;
+
+### Points to consider
+
+1. **$Hash** value for bundle discount is generated following a particular order of values. The order goes like this
+   1. All the Product Ids returned from the Recommendation
+   2. Product ID of the currently viewed product (only if **discount current product** is **true**)
+   3. Value of **discount type** variable (percent or dollar)
+   4. Value of **discount value** variable
+2. The ordering above should be maintained while triggering the _**addBundleToCartWithDiscount**_ API call
+3. No hard coding of Product Ids. If we do, then the **$Hash** value verification will fail because it uses Product Ids returned from recommendation
+4. The sample below has comments highlighting these points
+
+<details>
+
+<summary>Dynamic Bundle recommendation template sample</summary>
+
+```velocity
+<!--
+
+Nosto Solutions Oy
+
+User will find comments along the document which can be helpful
+to tweak it and make it bespoke to different eCommerces' look&feel.
+
+-->
+  
+#if($products.size() > 0)
+#set($imgCount = 0)
+
+<div class="nosto-block">
+  <span class="nosto-header">$!title</span>
+  <ul class="nosto-list nosto-carousel">
+    #foreach($product in $products)
+        <li class="nosto-list-item nosto-product selected" nosto-price="$!product.price.asNumber()" nosto-handle="$!product.lastPathOfProductUrl()" nosto-id="$!product.productId" >
+          <div class="nosto-image-container img-$imgCount"></div>
+          <div class="nosto-product-info">
+            <a href="$!product.url" class="nosto-product-name">$!product.name.truncate(100)</a>
+            <div class="bottom-info">
+                <a href="$!product.url" class="nosto-product-price">
+                  <span class="nosto-oldprice">$!product.listPrice</span>
+                  <span class="nosto-newprice">$!product.price</span>
+                </a>
+                <div class="control tocart-qty">
+                    <span class="minus">-</span>
+                    <input type="number" name="qty" class="input-text shadow qty" min="0" maxlength="12" pattern="\d*" value="1" title="Qty">
+                    <span class="plus">+</span>
+                </div>
+            </div>
+          </div>
+        </li>
+        #set($imgCount = $imgCount + 1)
+        #if($!foreach.count < $!products.size())
+            <li class="nosto-plus #if($!foreach.count % 2 == 0) nosto-plus-even #end" style="border: none;">+</li>
+        #end
+    #end
+    <li class="nosto-list-item nosto-actions" style="border: none;">
+        <div class="price-box price-final_price" data-role="priceBox">
+            <span style="margin-right: 10px;font-weight:bold;font-size: 1.5em;">Total</span>
+            <span class="price-tag  color1">
+              <span class="price-container price-final_price tax weee" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                 <div class="nosto-total">
+                    <span class="nosto-product-price" data-price-type="finalPrice"></span>
+                    </div>
+                    <div class="nosto-discounted-total">
+                        <span class="nosto-product-price" data-price-type="finalDiscountedPrice">&nbsp;</span>
+                    </div>
+                 </span>   
+                 <meta itemprop="nosto-product-price" content="1">
+                 <meta itemprop="priceCurrency" content="$!product.currencyCode">
+              </span>
+            </span>
+        </div>
+        <!--span class="nosto-total"></span-->
+        <button class="action primary tocart button button--large button--full color " id="nosto-atc">ADD TO CART</button>
+    </li>
+  </ul>
+</div>
+#end
+  
+<script type="text/javascript" charset="utf-8">
+
+    (function() {
+        
+        const twd = _targetWindow.document;
+        const currencySymbol = "$!products[0].currencySymbol";
+        
+        const discountType = "$!props.discountType";
+        const discountValue = #if($!props.discountValue && $!props.discountValue != '') + "$!props.discountValue" #else 0 #end;
+
+        //SELECT ITEMS
+        const productCount = twd.querySelectorAll('#$divId .nosto-product').length;
+        
+        let processedCount = 0;
+        twd.querySelectorAll('#$divId .nosto-product').forEach((element, index) => {
+
+            let handle = element.getAttribute('nosto-handle');
+
+            request({url: '/products/' + handle + '.js'}).then(data => {
+                element.setAttribute('nosto-sku-id', data.variants[0].id);
+                element.setAttribute('nosto-sku-price', convertToDecimal(data.variants[0].price));
+                processedCount++;
+                if (processedCount === productCount) {
+                    updateTotal();
+                }
+            });
+        })
+
+        //REFER THIS SECTION FOR THE addBundleToCartWithDiscount API CALL
+        twd.querySelector('#$divId #nosto-atc').addEventListener('click', function(e) {
+            
+            e.stopPropagation();
+
+            const sourceElement = e.srcElement ? e.srcElement : e.target
+            const allBundleProductIds = [];
+
+            twd.querySelectorAll('#$divId .nosto-product').forEach(function(element, index) {
+                allBundleProductIds.push(element.getAttribute('nosto-id'));
+            })
+
+            const bundleItemsSelected = [];
+
+            // FIRST ADDING PRODUCT IDS OF ALL PRODUCTS RETURNED FROM THE RECOMMENDATION
+            twd.querySelectorAll('#$divId .nosto-product.selected').forEach(function(element, index) {
+                bundleItemsSelected.push({
+                    'productId': element.getAttribute('nosto-id'),
+                    'variantId': element.getAttribute('nosto-sku-id'),
+                    'quantity': parseInt(element.querySelector('.tocart-qty input.qty').value)
+                })
+            })
+            
+            // ADDING CURRENTLY VIEWED PRODUCT DETAILS TOWARDS THE END
+            if ("$!props.discountCurrentProduct" === "true") {
+                allBundleProductIds.push("$!context.viewedProduct.productId")
+                bundleItemsSelected.push({
+                    'productId': "$!context.viewedProduct.productId",
+                    'variantId': "$!context.viewedProduct.skus[0].id",
+                    'quantity': 1
+                })
+            }
+
+            _targetWindow.Nosto.addBundleToCartWithDiscount({
+                items: bundleItemsSelected,
+                discount: {
+                    type: discountType,
+                    value: discountValue
+                },
+                bundleProducts: allBundleProductIds,
+                hash: "$hash"
+            }, this).then(() => console.log("addBundleToCartWithDiscount completed"))
+
+        })
+        
+        twd.querySelectorAll("#$divId .tocart-qty").forEach(function(element) {
+          
+          element.querySelector(".minus").addEventListener("click", function(e){
+              e.stopPropagation();
+              const sourceElement = e.srcElement ? e.srcElement : e.target
+              const qtyElement = sourceElement.parentElement.querySelector(".qty");
+              const value = parseInt(qtyElement.value) - 1;
+              if (value < 1) {
+                  qtyElement.value = 1;
+              } else {
+                  qtyElement.value = value;
+                  updateTotal();
+              }
+          })
+          
+          element.querySelector(".plus").addEventListener("click", function(e){
+              const sourceElement = e.srcElement ? e.srcElement : e.target
+              const qtyElement = sourceElement.parentElement.querySelector(".qty");
+              qtyElement.value = parseInt(qtyElement.value) + 1;
+              e.stopPropagation();
+              updateTotal();
+          })
+        });
+        
+        
+        /* Functions */
+        
+        function convertToDecimal(price) {
+            const priceStr = price.toString();
+            const size = priceStr.length;
+            const result = priceStr.slice(0, size - 2) + "." + priceStr.slice(size - 2);
+            return Number(result).toFixed(2);
+        }
+        
+        function updateTotal() {
+            let total = 0;
+            let discounted = 0;
+            twd.querySelectorAll("#$divId .nosto-product.selected").forEach(function(element) {
+                total += parseFloat(element.getAttribute("nosto-sku-price")) * parseFloat(element.querySelector('.tocart-qty input.qty').value);
+            })
+            
+            if (discountType == 'percent') {
+                discounted = total - (total / 100 * discountValue);
+            } else {
+                discounted = total - (productCount * discountValue);
+            }
+            
+            total = total.toFixed(2).toString();
+            twd.querySelector("#$divId .nosto-total .nosto-product-price").innerHTML = currencySymbol + total;
+            
+            discounted = discounted.toFixed(2).toString();
+            
+            if (discounted === total || total === 0.00) {
+                twd.querySelector('#$divId .nosto-discounted-total').style.display = 'none';
+                twd.querySelector('#$divId .nosto-total').classList.remove('content-striked');
+            } else {
+                twd.querySelector('#$divId .nosto-discounted-total').style.display = '';
+                twd.querySelector('#$divId .nosto-total').classList.add('content-striked');
+                twd.querySelector("#$divId .nosto-discounted-total .nosto-product-price").innerHTML = currencySymbol + discounted;
+            }
+            
+        }
+        
+        function request(obj) {
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open(obj.method || "GET", obj.url, true);
+                xhr.setRequestHeader("Content-type", "application/json");
+                if (obj.headers) {
+                    Object.keys(obj.headers).forEach(key => {
+                        xhr.setRequestHeader(key, obj.headers[key]);
+                    });
+                }
+                xhr.onload = () => {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        resolve(JSON.parse(xhr.responseText));
+                    } else {
+                        reject(xhr.statusText);
+                    }
+                };
+                xhr.onerror = () => reject(xhr.statusText);
+                obj.body ? xhr.send(JSON.stringify(obj.body)) : xhr.send();
+            });
+        };
+        
+    })();
+
+</script>
+```
+
+</details>
 
 ## Troubleshooting
 
