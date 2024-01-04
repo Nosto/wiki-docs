@@ -39,6 +39,13 @@
     * [Implementing Autocomplete](implementing-nosto/implement-search/implement-search-using-api/implementing-autocomplete.md)
     * [Implementing Category pages](implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages.md)
     * [FAQ](implementing-nosto/implement-search/implement-search-using-api/faq.md)
+  * [Implement Autocomplete using library](implementing-nosto/implement-search/implement-autocomplete-using-library/README.md)
+    * [Installation](implementing-nosto/implement-search/implement-autocomplete-using-library/installation.md)
+    * [Initialization](implementing-nosto/implement-search/implement-autocomplete-using-library/initialization/README.md)
+      * [Render results](implementing-nosto/implement-search/implement-autocomplete-using-library/initialization/render-results.md)
+      * [Submit search](implementing-nosto/implement-search/implement-autocomplete-using-library/initialization/submit-search.md)
+    * [Create Autocomplete template](implementing-nosto/implement-search/implement-autocomplete-using-library/create-autocomplete-template.md)
+    * [Further reading](implementing-nosto/implement-search/implement-autocomplete-using-library/further-reading.md)
 * [Checking your setup](implementing-nosto/checking-your-setup.md)
 
 ## APIs
@@ -112,12 +119,10 @@
       * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)
       * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
       * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
-  * [Nosto React](apis/frontend/react-support/README.md)       
+  * [Nosto React](apis/frontend/react-support/README.md)
 
 ## 3rd party data integrations
 
-<!-- * [3rd party data integrations](3rd-party-data-integrations/3rd-party-data-integrations/README.md) -->
-  <!-- * [Tracking Nosto with Google Analytics Enhanced Ecommerce](3rd-party-data-integrations/3rd-party-data-integrations/tracking-nosto-with-google-analytics.md) -->
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/techdocs/issues)
 * [Magento](https://docs.nosto.com/magento/)
