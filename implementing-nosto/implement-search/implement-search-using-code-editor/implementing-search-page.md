@@ -130,7 +130,7 @@ init({
         Before:<br>
         <code>/search?q=shorts&amp;products.sort.0.field=price&amp;products.sort.0.order=desc</code><br><br>
         After:<br>
-        <code>/search?q=shorts&amp;products.sort.price=desc</code>
+        <code>/search?q=shorts&amp;sort=price~desc</code>
       </td>
     </tr>
     <tr>
@@ -138,9 +138,9 @@ init({
       <td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td>
       <td>
         Before:<br>
-        <code>/search?q=shorts&amp;products.filter.0.field=customFields.producttype&amp;products.filter.0.value.0=Shorts&amp;products.filter.0.value.1=Swim</code><br><br>
+        <code>/search?q=shorts&amp;products.filter.0.field=customFields.producttype&amp;products.filter.0.value.0=Shorts&amp;products.filter.0.value.1=Swim&amp;products.filter.1.field=price&amp;products.filter.1.range.0.gte=10&amp;products.filter.1.range.0.lte=30</code><br><br>
         After:<br>
-        <code>/search?q=shorts&amp;products.filter.customFields%252Eproducttype=Shorts%257C%257CSwim</code>
+        <code>/search?q=shorts&amp;filter.customFields.producttype=Shorts%7C%7CSwim&amp;filter.price=10~30</code>
       </td>
     </tr>
   </tbody>
