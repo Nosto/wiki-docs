@@ -130,7 +130,7 @@ init({
         Before:<br>
         <code>/search?q=shorts&amp;products.sort.0.field=price&amp;products.sort.0.order=desc</code><br><br>
         After:<br>
-        <code>/search?q=shorts&amp;sort=price~desc</code>
+        <code>/search?q=shorts&amp;products.sort=price~desc</code>
       </td>
     </tr>
     <tr>
