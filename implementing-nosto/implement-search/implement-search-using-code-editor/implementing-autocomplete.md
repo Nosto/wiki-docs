@@ -80,6 +80,28 @@ export default () => {
                             <div>
                                 {hit.name}
                             </div>
+                            <button
+                                // Allow the button to be clicked only once
+                                disabled={addedToCart}
+                                // Add the product to the cart when the button is clicked
+                                onClick={(event) => {
+                                    // Don't navigate to the product page
+                                    event.stopImmediatePropagation()
+                                    event.preventDefault()
+
+                                    // Update the button text and disable it
+                                    setAddedToCart(true)
+
+                                    // Add the product to the cart, this depends on the cart implementation
+                                    jQuery.post("/cart/add.js", {
+                                        quantity: 1,
+                                        id: product.productId
+                                    })
+                                }}
+                            >
+                                // Show different text if product was added to the cart
+                                {addedToCart ? "Added to cart" : "Add to cart"}
+                            </button>
                         </AutocompleteElement>
                     ))}
                 </div>
