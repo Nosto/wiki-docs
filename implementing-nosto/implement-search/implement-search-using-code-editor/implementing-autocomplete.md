@@ -75,7 +75,7 @@ export default () => {
                 </div>
                 <div>
                     {products.hits.map((hit) => (
-                        <AutocompleteElement hit={hit} key={hit.productId}>
+                        <AutocompleteElement hit={hit} key={hit.productId} as="a">
                             <img src={hit.imageUrl}/>
                             <div>
                                 {hit.name}
