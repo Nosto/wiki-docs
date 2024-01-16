@@ -1,9 +1,9 @@
 # Shopify Markets v1
 
 {% hint style="info" %}
-Our Shopify Markets integration v1 release is specifically designed to minimize the technical complexities associated with rendering products in different currencies and languages based on the end-customer's location. Our solution makes it easy for developers to integrate with Shopify Markets, allowing them to focus on other aspects of their application development.
+Our Shopify Markets integration v1 release is specifically designed to handle all Market related part on the Front End. This minimizes effort in setting Nosto up with Shopify Markets, but also limits your possibility of customise your setup per Market. For full controll please use our [end-to-end integration](https://docs.nosto.com/shopify/shopify-markets).
 
-Our team continues working tirelessly to develop a comprehensive end-to-end backend solution that will be available later this year.
+
 {% endhint %}
 
 ## Shopify Markets - JS API version
