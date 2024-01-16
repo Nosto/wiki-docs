@@ -331,7 +331,6 @@ export default ({ product }) => {
                 // Add the product to the cart when the button is clicked
                 onClick={(event) => {
                     // Don't navigate to the product page
-                    event.stopImmediatePropagation()
                     event.preventDefault()
 
                     // Update the button text and disable it
