@@ -171,3 +171,4 @@ RabbitMQ
 MQ
 Oauth
 plugintest
+elasticsuite
