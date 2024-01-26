@@ -133,11 +133,11 @@ The function accepts the following options:
 Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product/keyword click`. These are user behaviours that should be tracked:
 
 * search submit (`type = serp`)
-* faceting, paginating, sorting (`type = serp/category`)
-* autocomplete input (`type = autocomplete)`
-* search results product click `(type = serp/autocomplete/category)`
-* autocomplete keyword click (`type = autocomplete)`
-* category merchandising results `(type = category)`
+* faceting, paginating, sorting (`type = serp`) or (`type = category`)
+* autocomplete input (`type = autocomplete`)
+* search results product click (`type = serp`), (`type = autocomplete`) or (`type = category`)
+* autocomplete keyword click (`type = autocomplete`)
+* category merchandising results (`type = category`)
 
 JS API library provides tracking helpers for all of these cases.
 
@@ -146,9 +146,9 @@ JS API library provides tracking helpers for all of these cases.
 User actions that lead to search results should be tracked with `api.recordSearch()` after search request is done:
 
 * search submit (`type = serp`) - user submits search query in autocomplete component and is landed to SERP
-* faceting, paginating, sorting (`type = serp/category`) - user adjusts current search results by filtering (e.g. brand), selecting search page, sorting results
-* autocomplete input (`type = autocomplete)` - user sees partial results while typing in search input
-* category merchandising results `(type = category)` - user sees specific category results when category is selected (category merchandising must be implemented)
+* faceting, paginating, sorting (`type = serp`) or (`type = category`) - user adjusts current search results by filtering (e.g. brand), selecting search page, sorting results
+* autocomplete input (`type = autocomplete`) - user sees partial results while typing in search input
+* category merchandising results (`type = category`) - user sees specific category results when category is selected (category merchandising must be implemented)
 
 {% hint style="danger" %}
 You don't need to execute `api.recordSearch()`if you call `api.search(query, { track: 'serp'|'autocomplete'|'category'})` function from JS API, because`api.search()`already calls `api.recordSearch()` when `track` option is provided.
