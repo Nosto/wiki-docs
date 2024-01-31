@@ -14,7 +14,6 @@ curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 mutation {
   updateProducts(products: [
     {
-      id: "101"
       productId: "101"
       url: "http://mridang.dev.nos.to:8890/product.htm"
       imageUrl: "https://example.com/product/sku-1.jpg"
