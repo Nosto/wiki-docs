@@ -151,7 +151,7 @@ _In the above example, quantity defaults to 1 and no discount is offered and the
 
 ### Shopify Line Item script
 
-Please follow the steps below for setting up the line item script for handling the bundle discount request. (_This has to be done manually for now, until next Nosto release_)
+Please follow the steps below for setting up the line item script for handling the bundle discount request.
 
 1. Please follow the instructions [here](https://help.shopify.com/en/manual/checkout-settings/script-editor/create) for installing and setting up Shopify Script Editor (_make sure to select blank template and clear any existing code in the template_)
 2. Copy the code from [here](dynamic-bundle-discounts.md#authentication-script) and add it to the line item script that we created in step (1). This code authenticates bundle discount requests and applies the discount only for genuine requests.

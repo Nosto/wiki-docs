@@ -4,10 +4,10 @@
 
 In order to workaround product pricing for Shopify Markets, there are two small changes needed in your Shopify code.
 
-1.  You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:\
-
+1.  You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:\\
 
     ```liquid
+
     {% raw %}
     {% if shop.enabled_currencies.size > 1 %}
     {% for currency in shop.enabled_currencies %}
@@ -17,9 +17,10 @@ In order to workaround product pricing for Shopify Markets, there are two small 
     {% endfor %}
     {% endif %}
     {% endraw %}
-    ```
-2.  You need to manually **add** the following snipped to your `theme.liquid`: \
 
+
+    ```
+2.  You need to manually **add** the following snipped to your `theme.liquid`: \\
 
     ```liquid
     <script>
@@ -28,8 +29,7 @@ In order to workaround product pricing for Shopify Markets, there are two small 
       Shopify.nosto.money_format = {{ shop.money_format | json }};
     </script
     ```
-3.  **Deprecated Approach**: You need to manually **add** the following snipped to your `theme.liquid`: \
-
+3.  **Deprecated Approach**: You need to manually **add** the following snipped to your `theme.liquid`: \\
 
     ```liquid
     <script>

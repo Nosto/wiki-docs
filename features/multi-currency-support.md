@@ -14,9 +14,9 @@ If you do not have access to the store's settings, you can navigate to the store
 
 You may need to make some theme changes to ensure the active price variation is displayed in the debug toolbar. The debug toolbar can be activated by appending `nostodebug=true` to your store's URL.
 
-![The active price variation EUR matches the selected currency.](../.gitbook/assets/image.png)
+![The active price variation EUR matches the selected currency.](<../.gitbook/assets/image (2).png>)
 
-If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](../installing.md#theme-changes).
+If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](../Installing.md#theme-changes).
 
 If you prefer to manually edit your theme, you can to add the snippet below to the `nosto-tagging.liquid` file in your theme. You can read about how to edit your theme’s code in [Shopify’s help center](https://help.shopify.com/en/manual/using-themes/change-the-layout/theme-code).
 
@@ -79,7 +79,7 @@ Our client script has the function `Nosto.setPresentmentPricesUrl()` which has t
 * `priceElement` The CSS selector used to find elements where the presentment price should be inserted
 * `productUrl` The attribute name of the element that contains the product URL
 * `fetchListPrice`Fetch the list price (aka compare\_at\_price). Otherwise fetch the price.
-* `variantId`  (Optional) The attribute name of the element that contains the variant id.
+* `variantId` (Optional) The attribute name of the element that contains the variant id.
 
 This recommendation template snippet works with the function:
 

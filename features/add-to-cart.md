@@ -28,18 +28,18 @@ Nosto supports a quick-buy function straight from within its recommendations. Th
 
 In order to do this, you two arguments must be passed to the `Nosto.addSkuToCart` method.
 
-The first argument is a javascript object containing the id of the configurable product and the variation, and the second one being the element where the product was added to the cart. If configurable product's id is 123 and the id of the variation is 124 the method call in recommendations template would look like this
+The first argument is a javascript object containing the id of the configurable product and the variation, and the second one is the `resultId` value from the response of the  `ev1` request that rendered the product . If configurable product's id is 123, the id of the variation is 124 and the `resultId` is `frontpage-nosto-1` , the method call in recommendations template would look like this,
 
 ```javascript
-Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
+Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'frontpage-nosto-1')
 ```
 
 #### Leveraging Quantities
 
-It is possible to specify the quantity when adding products to cart.
+It is possible to specify the quantity when adding products to cart. The second parameter (`productpage-nosto-1`) is the `resultId` value form the `ev1` response.
 
 ```javascript
-Nosto.addSkuToCart({productId: '425', skuId: '310'}, this, 5)
+Nosto.addSkuToCart({productId: '425', skuId: '310'}, 'productpage-nosto-1', 5)
 ```
 
 #### Adding Multiple Products
@@ -52,7 +52,7 @@ Nosto.addMultipleProductsToCart(
         {productId:"1234", skuId:"4321", quantity: 1},
         {productId:"345", skuId:"543", quantity: 1}
     ], 
-    this 
+    'categorypage-nosto-1' 
 )
 ```
 
@@ -76,18 +76,50 @@ A common way to implement the functionality to add a variation directly to cart 
       </select>
     </label>
   </div>
-  <button onclick="Nosto.addSkuToCart({productId: '$!product.productId', skuId: document.getElementById('selected_sku').value}, this);return false;" class="nosto-btn">
+  <button onclick="Nosto.addSkuToCart({productId: '$!product.productId', skuId: document.getElementById('selected_sku').value}, '$!product.attributionKey'); return false;" class="nosto-btn">
     <img src="$!props.display.buyButtonIcon.url" width="15" height="15">
   </button>
 #end
 ```
 
-Here's an example of how to add an SKU to cart where your product has a single SKU or you want to simply add the product's first SKU to cart instead of allowing the user to select which SKU to add.
+Below is the example of how to add an SKU to cart where your product has a single SKU or you want to simply add the product's first SKU to cart instead of allowing the user to select which SKU to add.
 
-```markup
+```html
 <a
   href="#"
-  onclick="window.Nosto.addProductToCart('$!product.lastPathOfProductUrl()', this);">
+  onclick="window.Nosto.addProductToCart('$!product.lastPathOfProductUrl()', '$!product.attributionKey');">
   Add to Cart
 </a>
 ```
+
+## Migrating from the Legacy approach
+
+The older approach of APIs required `this` object representing the element that triggered the API call. For example, in the below example, `addSkuToCart` api takes `this`  object as second parameter. Nosto internally extracted the `resultId` from the object.
+
+```javascript
+Nosto.addSkuToCart({productId: '123', skuId: '124'}, this)
+```
+
+With the newer approach, the `addSkuToCart`  api has been updated to accept the `resultId` directly to improve effectiveness of the api and at the same time ensures proper attribution.
+
+```javascript
+Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'productpage-nosto-1')
+```
+
+Similarly, the second parameter for `addProductToCart` and `addMultipleProductsToCart` APIs  can be updated to send the `resultId` value instead of the `this` object
+
+```javascript
+Nosto.addProductToCart('$!product.lastPathOfProductUrl()', 'productpage-nosto-1')
+```
+
+```javascript
+Nosto.addMultipleProductsToCart(
+    [
+        {productId:"1234", skuId:"4321", quantity: 1},
+        {productId:"345", skuId:"543", quantity: 1}
+    ], 
+    'categorypage-nosto-1' 
+)
+```
+
+When invoking these APIs from Nosto's recommendation template, use the `$!product.attributionKey`  context value to send the `resultId` instead of the `this` object
