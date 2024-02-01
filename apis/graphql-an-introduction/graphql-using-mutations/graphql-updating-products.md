@@ -4,9 +4,9 @@ Mutations can be used to update the product catalog in Nosto. The `updateProduct
 
 Any validation errors in the product data are accessible in the response. The entire product object is accessible in the response too. In the event that a product validation error led to the product to not be updated, the response would contain the errors as well as the invalid product data.
 
-The given example updates the product \#101 and requests the details of the updated products and any associated errors.
+The given example updates the product #101 and requests the details of the updated products and any associated errors.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
@@ -14,7 +14,6 @@ curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 mutation {
   updateProducts(products: [
     {
-      id: "101"
       productId: "101"
       url: "http://mridang.dev.nos.to:8890/product.htm"
       imageUrl: "https://example.com/product/sku-1.jpg"
@@ -46,9 +45,9 @@ mutation {
 EOF
 ```
 
-The given example updates the price of \#101 and requests the details of the updated products and any associated errors.
+The given example updates the price of #101 and requests the details of the updated products and any associated errors.
 
-```text
+```
 curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 -u ":<token>" \
 -H 'Content-Type: application/graphql' \
@@ -56,7 +55,6 @@ curl -0 -v -X POST https://api.nosto.com/v1/graphql \
 mutation {
   updateProducts(products: [
     {
-      id: "101"
       productId: "101"
       url: "http://mridang.dev.nos.to:8890/product.htm"
       price: 10
@@ -75,4 +73,3 @@ mutation {
 }
 EOF
 ```
-
