@@ -24,8 +24,7 @@ The api.search function also accepts the following options:
 
 The function automatically loads session parameters required for personalization & segments in the background.
 
-In order to request custom fields, add the entries `"customFields.key"` and `"customFields.value"` to the requested product fields.
-This changes the example above like this:
+In order to request custom fields, add the entries `"customFields.key"` and `"customFields.value"` to the requested product fields. This changes the example above like this:
 
 ```javascript
 // ...
@@ -39,7 +38,7 @@ For a search page in most cases the `facets` parameter should be provided.
 
 Also `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
-```javascript    
+```javascript
 nostojs(api => {
     api.search({
         query: 'my search',
@@ -80,6 +79,10 @@ nostojs(api => {
     });
 });
 ```
+
+{% hint style="danger" %}
+Statistics for autocomplete are being gathered, but they are not currently visible in the Analytics Dashboard.
+{% endhint %}
 
 ### Category page
 
@@ -203,7 +206,7 @@ nostojs(api => {
 ```
 
 {% hint style="info" %}
-Organic search - is a search query submitted through search input and which lead to SERP (search engine results page). Following faceting, paginating, sorting queries on organic query is also counted as organic.&#x20;
+Organic search - is a search query submitted through search input and which lead to SERP (search engine results page). Following faceting, paginating, sorting queries on organic query is also counted as organic.
 {% endhint %}
 
 ### Search product/keyword click
@@ -227,8 +230,6 @@ api.recordSearchClick(
 )
 ```
 
-
-
 {% hint style="warning" %}
 Product and keyword clicks must be tracked separately by binding to two separate click events.
 {% endhint %}
@@ -243,3 +244,57 @@ nostojs(api => {
     )
 })
 ```
+
+
+
+***
+
+### :warning: Event Tracking Requirements :warning:
+
+When tracking events, adherence to the following criteria is essential for capturing detailed and valid data:
+
+* **`query` parameter**:
+  * The `query` string is an essential component for event tracking.
+  * If present, include `products.sort` to track sorting behavior.
+  * If applicable, incorporate `products.filter`.
+* **`response` parameter**:
+  * A `products.hits` array containing objects with a `productId` is mandatory.
+  * A `products.total` number to identify if search has results.
+  * For accurate pagination tracking, `products.from` and `product.size` must be included.
+  * For identifying if request was autocorrected include `products.fuzzy`.
+  * For category requests include either `products.categoryId` or `products.categoryPath`.
+
+> :bulb: **Tip:** If case API integration, use this example GraphQL partial query to integrate with the API and retrieve the necessary response data for precise event tracking.
+
+```graphql
+query {
+  search(
+    accountId: "YOUR_ACCOUNT_ID"
+    query: "green"
+    products: { size: 10, from: 10 }
+  ) {
+    products {
+      hits {
+        productId
+      }
+      total
+      size
+      from
+      fuzzy
+      categoryId
+      categoryPath
+    }
+  }
+}
+```
+
+#### :triangular\_flag\_on\_post: Search Form Submit
+
+Bear in mind that search queries are split between **organic** and **non-organic searches**. To classify a search as organic, it is crucial to invoke `api.recordSearchSubmit()` upon the search input submission, _before_ the actual search request is dispatched. This step is pivotal in ensuring the seamless tracking of organic searches through to the SERP.
+
+#### :mag: Accurate Click Tracking
+
+Tracking product and keyword clicks is fundamental for understanding user interaction. Use `api.recordSearchClick()` to monitor these actions correctly, specifying the `type` and relevant hit data. Remember, product and keyword clicks should be monitored distinctly—never combine the two!
+
+***
+
