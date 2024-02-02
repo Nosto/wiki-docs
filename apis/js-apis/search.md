@@ -258,13 +258,13 @@ When tracking events, adherence to the following criteria is essential for captu
   * If present, include `products.sort` to track sorting behavior.
   * If applicable, incorporate `products.filter`.
 * **`response` parameter**:
-  * A `products.hits` array containing objects with a `productId` is mandatory.
-  * A `products.total` number to identify if search has results.
+  * `products.hits` array containing objects with a `productId` is mandatory.
+  * `products.total` number to identify if the search has results.
   * For accurate pagination tracking, `products.from` and `product.size` must be included.
-  * For identifying if request was autocorrected include `products.fuzzy`.
+  * For identifying if the request was autocorrected include `products.fuzzy`.
   * For category requests include either `products.categoryId` or `products.categoryPath`.
 
-> :bulb: **Tip:** If case API integration, use this example GraphQL partial query to integrate with the API and retrieve the necessary response data for precise event tracking.
+> :bulb: **Tip:** In case of API integration, use this example GraphQL partial query to integrate with the API and retrieve the necessary response data for precise event tracking.
 
 ```graphql
 query {
