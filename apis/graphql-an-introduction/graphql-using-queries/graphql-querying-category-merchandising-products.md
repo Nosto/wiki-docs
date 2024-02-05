@@ -1,4 +1,6 @@
-# Querying Category Merchandising Products
+# Querying Category Merchandising Products (CM 1.0)
+
+_This documentation is only for the implementation of CM 1.0 and most likely this doc shouldn't be used anymore. If you'd like to implement CM 2.0, please check_ [_this documentation_](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages)_. If you're not sure which version you'd like to implement, please contact your technical solutions manager or our support._
 
 Nosto's category merchandising APIs are meant to be used for resorting your existing product listing pages. It has support for listing the products in the order defined within Nosto for different categories, including paging and filtering support. It doesn't support taking over the product listing pages fully as it doesn't include support for creating category specific filters and calculating their facet counts. The expected implementation leveraging these APIs would keep on using their current solution for building most of the product list pages, but swap the shown products with the information retrieved from this APIs results.
 
@@ -56,7 +58,7 @@ Product views resulting from clicking products of a category listing need to con
 * `ref`: (`resultId` from the category merchandising response)
 * `refType`: `CATEGORY_MERCHANDISING`
 
-&#x20;For example, given the following category merchandising response:
+For example, given the following category merchandising response:
 
 ```json
 {

@@ -69,7 +69,7 @@
     * [Querying Recommendations](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-recommendations.md)
     * [Querying Segments](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-segments.md)
     * [Querying Search](apis/graphql-an-introduction/graphql-using-queries/querying-search.md)
-    * [Querying Category Merchandising Products](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-category-merchandising-products.md)
+    * [Querying Category Merchandising Products (CM 1.0)](apis/graphql-an-introduction/graphql-using-queries/graphql-querying-category-merchandising-products.md)
   * [For iOS & Android](apis/graphql-an-introduction/graphql-for-ios-and-android.md)
   * [For Headless](apis/graphql-an-introduction/graphql-for-headless.md)
 * [REST](apis/rest/README.md)
