@@ -121,6 +121,10 @@
       * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
   * [Nosto React](apis/frontend/react-support/README.md)
 
+## User Generated Content
+
+* [UGC Techdocs](https://docs.nosto.com/ugc)
+
 ## 3rd party data integrations
 
 * [Shopify](https://docs.nosto.com/shopify)
