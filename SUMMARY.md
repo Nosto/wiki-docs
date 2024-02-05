@@ -25,7 +25,7 @@
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
-* [Implement Search](implementing-nosto/implement-search/README.md)
+* [Implement Search & Categories](implementing-nosto/implement-search/README.md)
   * [Implement Search using Code Editor](implementing-nosto/implement-search/implement-search-using-code-editor/README.md)
     * [Using the Code Editor](implementing-nosto/implement-search/implement-search-using-code-editor/using-the-code-editor.md)
     * [Implementing Search page](implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page.md)
