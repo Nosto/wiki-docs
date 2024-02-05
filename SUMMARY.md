@@ -8,7 +8,7 @@
 * [Configuring](configuring.md)
 * [Guides](guides/README.md)
   * [Migrating to Magento2](guides/migrating-to-magento2.md)
-  * [Upgrading to &gt;= 4.0.0](guides/upgrading-to-4.0.0.md)
+  * [Upgrading to >= 4.0.0](guides/upgrading-to-4.0.0.md)
   * [Varnish & Full-Page Caches](guides/varnish-and-full-page-caches.md)
   * [Advanced User Guide](guides/advanced-user-guide.md)
   * [Managing Blocks](guides/managing-blocks.md)
@@ -24,7 +24,7 @@
   * [Product data caching](features/product-data-caching/README.md)
     * [Built-in caching](features/product-data-caching/built-in-caching.md)
     * [Database caching](features/product-data-caching/cachingimprovements.md)
-  * [Variations \(Configurable Products\)](features/variations-configurable-products.md)
+  * [Variations (Configurable Products)](features/variations-configurable-products.md)
   * [Add to Cart](features/add-to-cart.md)
   * [Indexer](features/indexer/README.md)
     * [On 7.x](features/indexer/on-7.x.md)
@@ -35,7 +35,7 @@
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)
   * [Restore Cart Link](features/restore-cart-link.md)
   * [Ratings & Reviews](features/ratings-and-reviews.md)
-  * [Multi Currency \(Exchange Rates\)](features/multi-currency-exchange-rates.md)
+  * [Multi Currency (Exchange Rates)](features/multi-currency-exchange-rates.md)
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
   * [Content Staging & Special Prices](features/content-staging-and-special-prices.md)
 * [Integrations](integrations/README.md)
@@ -48,11 +48,11 @@
 
 ## Addons
 
-* [Multi Source Inventory \(MSI\)](addons/msi/README.md)
+* [Multi Source Inventory (MSI)](addons/msi/README.md)
   * [Installing](addons/msi/installing.md)
   * [Uninstalling](addons/msi/uninstalling.md)
   * [Configuring](addons/msi/configuring.md)
-* [Category Merchandising](addons/cmp/README.md)
+* [Category Merchandising (CM 1.0)](addons/cmp/README.md)
   * [Installing](addons/cmp/installing.md)
   * [Uninstalling](addons/cmp/uninstalling.md)
   * [Configuring](addons/cmp/configuring-1.md)
@@ -66,4 +66,3 @@
       * [Customize Page Size Limit](addons/cmp/guides/overriding-or-extending-functionalities/customize-page-size-limit.md)
       * [Customize Exclude Filters](addons/cmp/guides/overriding-or-extending-functionalities/customize-exclude-filters.md)
     * [Debugging](addons/cmp/guides/debugging.md)
-
