@@ -123,14 +123,12 @@
 
 ## 3rd party data integrations
 
-* [Visit Nosto](https://nosto.com)
-* [Issues](https://github.com/nosto/techdocs/issues)
-* [Magento](https://docs.nosto.com/magento/)
-* [Magento 2](https://docs.nosto.com/magento-2)
-* [Shopware 5](https://docs.nosto.com/shopware)
-* [Shopware 6](https://docs.nosto.com/shopware-6)
 * [Shopify](https://docs.nosto.com/shopify)
-* [Prestashop](https://docs.nosto.com/prestashop)
+* [Magento 2](https://docs.nosto.com/magento-2)
+* [Magento](https://docs.nosto.com/magento/)
 * [BigCommerce](https://docs.nosto.com/bigcommerce)
-* [PHP-SDK](https://docs.nosto.com/php-sdk)
+* [Shopware 6](https://docs.nosto.com/shopware-6)
+* [Shopware 5](https://docs.nosto.com/shopware)
+* [Prestashop](https://docs.nosto.com/prestashop)
 * [Salesforce](https://docs.nosto.com/salesforce/)
+* [PHP-SDK](https://docs.nosto.com/php-sdk)
