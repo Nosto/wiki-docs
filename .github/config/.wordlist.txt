@@ -115,3 +115,8 @@ ecommerce
 endtabs
 params
 jQuery
+npm
+examplenostoshop
+dropdown
+Stringified
+autocorrected
