@@ -4,7 +4,7 @@ By default, Nosto loads the recommendations as soon as the site’s DOM is loade
 
 ```javascript
 nostojs(api => {
-  api.loadRecommendations();
+  api.load();
 });
 ```
 
