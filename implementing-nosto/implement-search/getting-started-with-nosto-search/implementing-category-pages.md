@@ -30,8 +30,8 @@ init({
     //     return {
     //         name: 'serp',
     //         products: {
-    //             categoryId: "123456789",
-    //             categoryPath: 'xxx/yyy/zzz',
+    //             categoryId: this.categoryId(),
+    //             categoryPath: this.categoryPath(),
     //             size: defaultConfig.serpSize,
     //             from: 0,
     //         }
