@@ -22,7 +22,7 @@ The current version is based on a new JS API `migrateToShopifyMarket.` Using thi
 ### Considerations
 
 * At this point the integration supports the main account language within Nosto. This means, that some features might be limited, if you're utilising several languages in one Market. Still, using the API you can display correct language in your Front End f.e. in Product Recommendations.
-* As v1 is a pure Front End solution, analytics will appear in the main account currency
+* As v1 is a pure Front End solution, analytics will appear in the main account currency and may not be accurate to actual sales data
 * To personalise the user experience for different locations/markets, you can use our Segmentation & Insights feature
 
 {% hint style="info" %}
