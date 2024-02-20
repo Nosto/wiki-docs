@@ -1,11 +1,15 @@
 # Table of contents
 
-* [Personalization for Shopware](README.md)
-* [Installing](installing.md)
-* [Configuring](configuring.md)
-* [Features](features/README.md)
-  * [Nosto Plugin Job Scheduling Overview](features/job-scheduling.md)
-  * [Nosto Plugin Category Merchandising](features/cmp.md)
-* [Visit Nosto](https://nosto.com)
-* [Releases](https://store.shopware.com/en/overd73641583843f/nosto-personalization-for-shopware-6.html)
+* [Shopware 6 - Nosto](README.md)
 
+## Getting Started
+
+* [Installing](getting-started/installing.md)
+* [Configuration](getting-started/configuration.md)
+
+## Features
+
+* [Recommendations](features/recommendations.md)
+* [Job Scheduling Overview](features/job-scheduling-overview.md)
+* [Product Variant handling](features/product-variant-handling.md)
+* [Search and Category Merchandising](features/search-and-category-merchandising.md)
