@@ -2,7 +2,7 @@
 
 Configuration
 
-To create a search application, call the `init` function with your configuration. This will create a new Preact application that renders on the specified `contentCssSelector`. It will also bind to the input element identified by the provided `inputCssSelector` and execute a search upon form submission.&#x20;
+To create a search application, call the `init` function with your configuration. This will create a new Preact application that renders on the specified `contentCssSelector`. It will also bind to the input element identified by the provided `inputCssSelector` and execute a search upon form submission.
 
 <pre class="language-javascript" data-title="index.js"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
 </strong>
@@ -38,7 +38,7 @@ When `serpPath` parameter is specified, the application will **redirect to the s
 
 ### Search page redirect
 
-When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the  search page specified in `serpPath` and fetch the page. Default behaviour will rewrite browser history only to the specified path, without fetching the page.
+When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the search page specified in `serpPath` and fetch the page. Default behaviour will rewrite browser history only to the specified path, without fetching the page.
 
 ### Unbinding existing search input
 
@@ -104,50 +104,7 @@ init({
 
 `@nosto/preact` library has pre-built functions for changing search url format:
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th width="210"></th>
-      <th width="173.33333333333331">Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Pagination</code></td>
-      <td>Replaces <code>from</code> parameter with page number.</td>
-      <td>
-        Before:<br>
-        <code>/search?products.from=20&amp;q=shorts</code><br><br>
-        After:<br>
-        <code>/search?page=2&amp;q=shorts</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>Sorting</code></td>
-      <td>Returns shorter <code>sort</code> parameters.</td>
-      <td>
-        Before:<br>
-        <code>/search?q=shorts&amp;products.sort.0.field=price&amp;products.sort.0.order=desc</code><br><br>
-        After:<br>
-        <code>/search?q=shorts&amp;products.sort=price~desc</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>Filtering</code></td>
-      <td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td>
-      <td>
-        Before:<br>
-        <code>/search?q=shorts&amp;products.filter.0.field=customFields.producttype&amp;products.filter.0.value.0=Shorts&amp;products.filter.0.value.1=Swim&amp;products.filter.1.field=price&amp;products.filter.1.range.0.gte=10&amp;products.filter.1.range.0.lte=30</code><br><br>
-        After:<br>
-        <code>/search?q=shorts&amp;filter.customFields.producttype=Shorts%7C%7CSwim&amp;filter.price=10~30</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+<table><thead><tr><th width="210"></th><th width="173.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>Pagination</code></td><td>Replaces <code>from</code> parameter with page number.</td><td>Before:<br><code>/search?products.from=20&#x26;q=shorts</code><br><br>After:<br><code>/search?page=2&#x26;q=shorts</code></td></tr><tr><td><code>Sorting</code></td><td>Returns shorter <code>sort</code> parameters.</td><td>Before:<br><code>/search?q=shorts&#x26;products.sort.0.field=price&#x26;products.sort.0.order=desc</code><br><br>After:<br><code>/search?q=shorts&#x26;products.sort=price~desc</code></td></tr><tr><td><code>Filtering</code></td><td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td><td>Before:<br><code>/search?q=shorts&#x26;products.filter.0.field=customFields.producttype&#x26;products.filter.0.value.0=Shorts&#x26;products.filter.0.value.1=Swim&#x26;products.filter.1.field=price&#x26;products.filter.1.range.0.gte=10&#x26;products.filter.1.range.0.lte=30</code><br><br>After:<br><code>/search?q=shorts&#x26;filter.customFields.producttype=Shorts%7C%7CSwim&#x26;filter.price=10~30</code></td></tr></tbody></table>
 
 ## Features
 
@@ -356,7 +313,7 @@ export default ({ product }) => {
 
 ## Analytics
 
-Search automatically tracks to Google Analytics & Nosto Analytics when using `SerpElement` component.&#x20;
+Search automatically tracks to Google Analytics & Nosto Analytics when using `SerpElement` component.
 
 ```jsx
 export default ({ product }) => {
@@ -378,6 +335,63 @@ export default ({ product }) => {
 {% hint style="info" %}
 The `SerpElement` component supports any other HTML attribute, e.g. **class.**
 {% endhint %}
+
+## Fallback Functionality
+
+The search page incorporates built-in fallback functionality, allowing users to customize the behavior in case the search service encounters issues. To activate this feature, modify the initialization configuration to include the `fallback: true` key-value pair.
+
+### Enabling Fallback
+
+To enable fallback functionality, include the following code in the initialization configuration:
+
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    ...window.nostoTemplatesConfig,
+    fallback: true,
+})
+```
+
+Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the user will be redirected to the same page they are currently on.
+
+### Customizing Fallback Location
+
+Additionally, it's possible to customize the location to which users are redirected when the search functionality is unavailable. This customization involves specifying functions for both the search engine results page (SERP) and category pages.
+
+#### **SERP Fallback**
+
+To redirect users to a specific location when the search engine is down, define a function for `serpFallback`. This function accepts one parameter containing information about the current search query, including the query itself.
+
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    ...window.nostoTemplatesConfig,
+    fallback: true,
+    serpFallback: (searchQuery) => {
+        location.replace(`/search?q=${searchQuery.query}`);
+    },
+})
+```
+
+#### Category Fallback
+
+Similarly, for category pages, define a function for `categoryFallback`. This function also accepts one parameter containing information about the current query, including the category ID or Path.
+
+```javascript
+import { init } from '@nosto/preact';
+
+init({
+    ...window.nostoTemplatesConfig,
+    fallback: true,
+    categoryFallback: (query) => {
+        location.replace(`/categories/${query.products.categoryId}`);
+    },
+});
+```
+
+By customizing these fallback locations, you can enhance the user experience by providing them with alternative navigation options if the search functionality is temporarily unavailable.
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
