@@ -1,10 +1,14 @@
 # Implementing Autocomplete
 
-Autocomplete should provide keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with ability to see all products in search results page.&#x20;
+Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
+
+{% hint style="info" %}
+When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
+{% endhint %}
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
@@ -95,11 +99,11 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-Autocomplete input is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search) where `type = autocomplete`.
+Autocomplete input is considered as search event and it should be tracked using [JS API library helper](../../../../apis/js-apis/search.md#search) where `type = autocomplete`.
 
-Product clicks in autocomplete should be tracked with [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = autocomplete`.
+Product clicks in autocomplete should be tracked with [click helper](../../../../apis/js-apis/search.md#search-product-click) where `type = autocomplete`.
 
-When query is submitted, it should be tracked with [submit helper](../../../apis/js-apis/search.md#search-form-submit). Additionally, results of submitted query should be tracked with [search helper](../../../apis/js-apis/search.md#search) where `type = serp`.&#x20;
+When query is submitted, it should be tracked with [submit helper](../../../../apis/js-apis/search.md#search-form-submit). Additionally, results of submitted query should be tracked with [search helper](../../../../apis/js-apis/search.md#search) where `type = serp`.&#x20;
 
 ### Google Analytics
 
