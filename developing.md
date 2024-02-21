@@ -154,7 +154,7 @@ Your local Magento website should now be accessible via the Ngrok tunnel.
 
 
 ### Additional Tips:
-Ngrok URLs are temporary and change every time you restart Ngrok, therefore we recommend using a paid Ngrok account to ensure that the URL stays the same. You can, however, use a script to change your Magento domain everytime you restart Ngrok or your temporary domain changes.
+Ngrok URLs are temporary and change every time you restart Ngrok, therefore we recommend using a paid Ngrok account to ensure that the URL stays the same. You can, however, use a script to change your Magento domain every time you restart Ngrok or your temporary domain changes.
 
 Ngrok provides a secure tunnel with HTTPS support, allowing you to test features like order tracking, product updates via crawler and product image crawling as well on your local Magento site.
 
