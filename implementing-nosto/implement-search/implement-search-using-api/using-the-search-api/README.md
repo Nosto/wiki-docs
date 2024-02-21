@@ -1,4 +1,4 @@
-# Using the Search API
+# Use the Search API
 
 ## Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
@@ -17,7 +17,7 @@ It provides:
 In the majority of cases, **authentication is not a requirement** for using search APIs. However in rare case may need to:
 
 * **Access sensitive data**- all sensitive data is restricted for public access (e.g. sorting by & returning sales).
-* **Return all documents** - public access require to specify search query,  category ID or category path to avoid returning all documents.
+* **Return all documents** - public access require to specify search query, category ID or category path to avoid returning all documents.
 
 **Note**: Keep your API key secret and do not expose it to the frontend!
 
@@ -31,6 +31,10 @@ In the majority of cases, **authentication is not a requirement** for using sear
 
 ## Making requests <a href="#making-requests" id="making-requests"></a>
 
+{% hint style="info" %}
+When integrating Search you have the option to directly access the API, or you can use our existing [Search JavaScript library](search.md) that provides most of the required functionality out of the box.
+{% endhint %}
+
 ### API endpoint
 
 Search use different API endpoint than other Nosto queries: `https://search.nosto.com/v1/graphql`
@@ -39,7 +43,7 @@ Search use different API endpoint than other Nosto queries: `https://search.nost
 
 All requests require an account ID, which can be found in the top-right corner of the Admin dashboard, under the shop name.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
 
 ### Request example
 
@@ -324,6 +328,6 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 To review search queries that have been made on your site, and to see how those queries are performing in terms of click-through rate, conversion rate, you want to implement analytics tracking along with Search implementation.
 
-[Analytics page](../../../apis/js-apis/search.md#analytics) describes how can you implement tracking utilising JS API library helpers.
+[Analytics page](../../../../apis/js-apis/search.md#analytics) describes how can you implement tracking utilising JS API library helpers.
 
 Tracking results can be reviewed in the Nosto Dashboard.

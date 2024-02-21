@@ -1,4 +1,4 @@
-# Implement Autocomplete using library
+# Implement Autocomplete using Nosto JavaScript library
 
 **Nosto Autocomplete library is designed to simplify the implementation of Search Autocomplete functionality by providing:**\
 \
