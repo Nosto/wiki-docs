@@ -48,7 +48,7 @@ First set the primary currency to your store’s base currency. Then enable exch
 
 ![Setting the primary currency](https://user-images.githubusercontent.com/22770093/70220552-7457fc80-174f-11ea-93ae-908140bf5952.png)
 
-After you save, you will see a warning that no exchange rates have been sent yet. This warning will remain for a few hours (it can take up to 24 hours), when we have determined the exchange rates used by your store.
+After you save, you will see a warning that no exchange rates have been sent yet. This warning will remain for a few hours (it can take up to 24 hours), until we have determined the exchange rates used by your store.
 
 ### Product Reindex
 
