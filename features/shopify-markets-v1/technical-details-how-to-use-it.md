@@ -131,7 +131,7 @@ With all the parameters as below:
             defaultVariantIdAttribute: 'x-default-variant',
             productHandleAttribute: 'x-nosto-handle',
             priceElement: '.nosto-product-price > .nosto-newprice.money',
-            listPriceElement: '.nosto-product-price > .nosto-oldprice money.money',
+            listPriceElement: '.nosto-product-price > .nosto-oldprice.money',
             descriptionElement: 'x-nosto-desc',
         })
 ```
