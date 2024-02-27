@@ -25,10 +25,6 @@ The current version is based on a new JS API `migrateToShopifyMarket.` Using thi
 * As v1 is a pure Front End solution, analytics will appear in the main account currency and may not be accurate to actual sales data
 * To personalise the user experience for different locations/markets, you can use our Segmentation & Insights feature
 
-{% hint style="info" %}
-With v2 just around the corner, we will support the handling of multiple languages within the same market via the Nosto admin, splitting into one instance per market & language. This enhancement will allow you to fully utilize our Search and Email products and the whole Nosto platform. Additionally, you will be able to set up campaigns per market/language and view separate analytic boards, providing you with more detailed insights into your users' behavior and needs.
-{% endhint %}
-
 ### How to integrate
 
 For more technical information, needed changes, available parameters & code examples please also visit our [Technical Details (how to use it)](technical-details-how-to-use-it.md) page.
