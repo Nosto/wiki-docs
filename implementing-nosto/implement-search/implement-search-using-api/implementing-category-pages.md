@@ -1,4 +1,4 @@
-# Implementing Category pages
+# Implement Category pages
 
 Nosto provides functionality to retrieve all products from specific category. This is useful when you want to implement category merchandising using the same search API.
 
@@ -110,5 +110,8 @@ The category page shares a lot of similarities with the search page, so please r
 
 ### Nosto Analytics
 
-Category page results and subsequent filtering, sorting, paginating events should be tracked with [JS API library helper](../../../apis/js-apis/search.md#search) where `type = category`. Click events should be tracked accordingly using [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = category`.
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../apis/js-apis/search.md). You need to implement the following methods with `type = category`:
+
+* [recordSearch](../../../apis/js-apis/search.md#search) to track category page visits
+* [recordSearchClick](../../../apis/js-apis/search.md#search-product-keyword-click) to track clicks on category results
 

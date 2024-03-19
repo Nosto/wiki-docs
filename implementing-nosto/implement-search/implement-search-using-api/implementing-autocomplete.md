@@ -99,11 +99,12 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-Autocomplete input is considered as search event and it should be tracked using [JS API library helper](../../../apis/js-apis/search.md#search) where `type = autocomplete`.
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../apis/js-apis/search.md). You need to implement the following methods with `type = autocomplete`:
 
-Product clicks in autocomplete should be tracked with [click helper](../../../apis/js-apis/search.md#search-product-click) where `type = autocomplete`.
+* [recordSearch](../../../apis/js-apis/search.md#search) to track users typing in the search field and viewing suggestions
+* [recordSearchClick](../../../apis/js-apis/search.md#search-product-keyword-click) to track clicks on autocomplete suggestions
 
-When query is submitted, it should be tracked with [submit helper](../../../apis/js-apis/search.md#search-form-submit). Additionally, results of submitted query should be tracked with [search helper](../../../apis/js-apis/search.md#search) where `type = serp`.&#x20;
+Additionally, see the [tracking instructions for search form submissions](using-the-search-api/#analytics).
 
 ### Google Analytics
 

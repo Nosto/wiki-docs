@@ -1,4 +1,4 @@
-# Implementing Search page
+# Implement Search results page
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
@@ -65,7 +65,7 @@ query {
 
 ### Sorting <a href="#sorting" id="sorting"></a>
 
-By default results are sorted by products relevance score. &#x20;
+By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
@@ -120,7 +120,7 @@ To use facet for a specific field you need to [configure it in the Nosto dashboa
 
 #### **Terms facet**
 
-One of the facet types is `type = terms`.  It returns list if common terms from found documents.
+One of the facet types is `type = terms`. It returns list if common terms from found documents.
 
 #### **Query**
 
@@ -246,7 +246,7 @@ query {
 
 #### Response parameters:
 
-<table data-header-hidden><thead><tr><th width="112">name</th><th>description</th></tr></thead><tbody><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>terms</strong></td><td>facet type, in this case <code>stats</code></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>min</strong></td><td>minimum field value for documents that match provided query</td></tr><tr><td><strong>max</strong></td><td>maximum field  value for documents that match provided query</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="112">name</th><th>description</th></tr></thead><tbody><tr><td><strong>name</strong></td><td>user friendly facet name configured in the <a href="https://help.nosto.com/en/articles/7169091-setting-up-facets">dashboard</a></td></tr><tr><td><strong>terms</strong></td><td>facet type, in this case <code>stats</code></td></tr><tr><td><strong>field</strong></td><td>facet field, should be used for <a href="https://search.nosto.com/v1/graphql?ref=InputSearchTopLevelFilter">filtering</a></td></tr><tr><td><strong>id</strong></td><td>internal facet ID, used to select <a href="https://search.nosto.com/v1/graphql?ref=InputSearchProducts.facets">specific facets in query</a></td></tr><tr><td><strong>min</strong></td><td>minimum field value for documents that match provided query</td></tr><tr><td><strong>max</strong></td><td>maximum field value for documents that match provided query</td></tr></tbody></table>
 
 ### Filter <a href="#filter" id="filter"></a>
 
@@ -364,7 +364,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_MERCHANT_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR\_MERCHANT\_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 #### Response
 
@@ -402,7 +402,10 @@ The results of this function should be passed to search query [sessionParams](ht
 
 ### Nosto Analytics
 
-Search tracking should be implemented using [JS API library](../../../apis/js-apis/search.md#search) using `type = serp`.
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../apis/js-apis/search.md). You need to implement the following methods with `type = serp`:
+
+* [recordSearch](../../../apis/js-apis/search.md#search) to track search result interactions like filtering and pagination
+* [recordSearchClick](../../../apis/js-apis/search.md#search-product-keyword-click) to track result clicks
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 

@@ -326,8 +326,7 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 ## Analytics
 
-To review search queries that have been made on your site, and to see how those queries are performing in terms of click-through rate, conversion rate, you want to implement analytics tracking along with Search implementation.
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../../apis/js-apis/search.md). You need to implement the following methods:
 
-[Analytics page](../../../../apis/js-apis/search.md#analytics) describes how can you implement tracking utilising JS API library helpers.
+* [recordSearchSubmit](../../../../apis/js-apis/search.md#search-form-submit) to track search form submissions
 
-Tracking results can be reviewed in the Nosto Dashboard.
