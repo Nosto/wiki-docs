@@ -7,7 +7,7 @@ Autocomplete provides keyword suggestions to assist users in completing their qu
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
 {% hint style="info" %}
-When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
+When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
 {% endhint %}
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
@@ -99,12 +99,12 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../apis/js-apis/search.md). You need to implement the following methods with `type = autocomplete`:
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = autocomplete`:
 
-* [recordSearch](../../../apis/js-apis/search.md#search) to track users typing in the search field and viewing suggestions
-* [recordSearchClick](../../../apis/js-apis/search.md#search-product-keyword-click) to track clicks on autocomplete suggestions
+* [recordSearch](../search/#search-1) to track users typing in the search field and viewing suggestions
+* [recordSearchClick](../search/#search-product-keyword-click) to track clicks on autocomplete suggestions
 
-Additionally, see the [tracking instructions for search form submissions](using-the-search-api/#analytics).
+Additionally, see the [tracking instructions for search form submissions](../search/#search-form-submit).
 
 ### Google Analytics
 

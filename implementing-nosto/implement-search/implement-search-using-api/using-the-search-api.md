@@ -32,7 +32,7 @@ In the majority of cases, **authentication is not a requirement** for using sear
 ## Making requests <a href="#making-requests" id="making-requests"></a>
 
 {% hint style="info" %}
-When integrating Search you have the option to directly access the API, or you can use our existing [Search JavaScript library](search.md) that provides most of the required functionality out of the box.
+When integrating Search you have the option to directly access the API, or you can use our existing [Search JavaScript library](../search/) that provides most of the required functionality out of the box.
 {% endhint %}
 
 ### API endpoint
@@ -43,7 +43,7 @@ Search use different API endpoint than other Nosto queries: `https://search.nost
 
 All requests require an account ID, which can be found in the top-right corner of the Admin dashboard, under the shop name.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-03-31 at 16.04.11.png" alt=""><figcaption><p><a href="https://my.nosto.com/">https://my.nosto.com</a></p></figcaption></figure>
 
 ### Request example
 
@@ -326,7 +326,6 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 ## Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../../apis/js-apis/search.md). You need to implement the following methods:
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods:
 
-* [recordSearchSubmit](../../../../apis/js-apis/search.md#search-form-submit) to track search form submissions
-
+* [recordSearchSubmit](../search/#search-form-submit) to track search form submissions

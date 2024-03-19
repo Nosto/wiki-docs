@@ -1,6 +1,6 @@
-# Implement Search using Nosto JavaScript library
+# Using JavaScript Library
 
-## Search
+## Search <a href="#search" id="search"></a>
 
 For client-side/frontend integrations, Nosto's JavaScript library can be used to simplify the integration. It provides a programming interface to access the Search & Categories API.
 
@@ -18,13 +18,17 @@ nostojs(api => {
 });
 ```
 
-The api.search function also accepts the following options:
+The `api.search` function also accepts the following options:​
 
-<table><thead><tr><th width="148">Option</th><th width="94">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>redirect</code></td><td><code>false</code></td><td>Automatically redirect if search returns a redirect</td></tr><tr><td><code>track</code></td><td><code>null</code></td><td>Track search query by provided type</td></tr></tbody></table>
+| Option     | Default | Description                                         |
+| ---------- | ------- | --------------------------------------------------- |
+| `redirect` | `false` | Automatically redirect if search returns a redirect |
+| `track`    | `null`  | Track search query by provided type                 |
+|            |         |                                                     |
 
 The function automatically loads session parameters required for personalization & segments in the background.
 
-In order to request custom fields, add the entries `"customFields.key"` and `"customFields.value"` to the requested product fields. This changes the example above like this:
+In order to request custom fields, add the entries `"customFields.key"` and `"customFields.value"` to the requested product fields. This changes the example above like this
 
 ```javascript
 // ...
@@ -32,7 +36,7 @@ In order to request custom fields, add the entries `"customFields.key"` and `"cu
 // ...
 ```
 
-### Search page
+### Search page <a href="#search-page" id="search-page"></a>
 
 For a search page in most cases the `facets` parameter should be provided.
 

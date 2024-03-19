@@ -110,8 +110,8 @@ The category page shares a lot of similarities with the search page, so please r
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../../../apis/js-apis/search.md). You need to implement the following methods with `type = category`:
+To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = category`:
 
-* [recordSearch](../../../apis/js-apis/search.md#search) to track category page visits
-* [recordSearchClick](../../../apis/js-apis/search.md#search-product-keyword-click) to track clicks on category results
+* [recordSearch](../search/#search-1) to track category page visits
+* [recordSearchClick](../search/#search-product-keyword-click) to track clicks on category results
 
