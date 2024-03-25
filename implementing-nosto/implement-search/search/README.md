@@ -163,15 +163,17 @@ You don't need to execute `api.recordSearch()`if you call `api.search(query, { t
 
 ```javascript
 nostojs(api => {
+    const searchResult = response.data.search
+
     api.recordSearch(
         type,
         query,
-        response
+        searchResult
       )
 })
 ```
 
-<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>response</td><td>Partial search API response containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>searchResult</td><td>Partial search API results containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr></tbody></table>
 
 Example:
 
@@ -261,7 +263,7 @@ When tracking events, adherence to the following criteria is essential for captu
   * The `query` string is an essential component for event tracking.
   * If present, include `products.sort` to track sorting behavior.
   * If applicable, incorporate `products.filter`.
-* **`response` parameter**:
+* **`searchResults` parameter**:
   * `products.hits` array containing objects with a `productId` is mandatory.
   * `products.total` number to identify if the search has results.
   * For accurate pagination tracking, `products.from` and `product.size` must be included.
