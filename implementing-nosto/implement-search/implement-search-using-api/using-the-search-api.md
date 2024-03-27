@@ -1,4 +1,8 @@
-# Use the Search API
+# Use the Search & Categories API
+
+{% hint style="info" %}
+Note that both Search & Categories are built on the same technical foundation and use the same API and product data. For simplicity, we will just refer to _Search API_ in the following documentation.
+{% endhint %}
 
 ## Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
