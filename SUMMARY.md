@@ -9,7 +9,11 @@
 
 ## Features
 
-* [Placements](features/placements.md)
+* [Placements](features/recommendations.md)
 * [Job Scheduling Overview](features/job-scheduling-overview.md)
 * [Product Variant handling](features/product-variant-handling.md)
 * [Search and Category Merchandising](features/search-and-category-merchandising.md)
+
+***
+
+* [Additional Features](additional-features.md)
