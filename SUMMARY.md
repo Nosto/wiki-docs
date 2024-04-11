@@ -24,3 +24,4 @@
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/nosto-shopware/issues)
 * [Releases](https://github.com/nosto/nosto-shopware/releases)
+* [Shopware 6](https://docs.nosto.com/shopware-6)
