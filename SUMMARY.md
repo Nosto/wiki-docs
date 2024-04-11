@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Personalization for Shopware](README.md)
+* [Personalization for Shopware 5](README.md)
 * [Installing](installing.md)
 * [Disconnecting](disconnecting.md)
 * [Uninstalling](uninstalling.md)
@@ -12,16 +12,15 @@
     * [Overriding Product Data](guides/overriding-or-extending-functionalities/overriding-product-data.md)
     * [Overriding Customer Data](guides/overriding-or-extending-functionalities/overriding-customer-data.md)
 * [Features](features/README.md)
-  * [Variations \(Configurable Products\)](features/variations-configurable-products.md)
+  * [Variations (Configurable Products)](features/variations-configurable-products.md)
   * [Add to Cart](features/add-to-cart.md)
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)
   * [Restore Cart Link](features/restore-cart-link.md)
   * [Ratings & Reviews](features/ratings-and-reviews.md)
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
-  * [Multi Currency \(Exchange Rates\)](features/multi-currency-exchange-rates.md)
+  * [Multi Currency (Exchange Rates)](features/multi-currency-exchange-rates.md)
 * [FAQ](faq.md)
-* [Developing & Contributing](developing.md)
+* [Developing & Contributing](developing-and-contributing.md)
 * [Visit Nosto](https://nosto.com)
 * [Issues](https://github.com/nosto/nosto-shopware/issues)
 * [Releases](https://github.com/nosto/nosto-shopware/releases)
-

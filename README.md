@@ -1,3 +1,9 @@
+---
+description: >-
+  Note: For Shopware 6, visit the documentation available here:
+  https://docs.nosto.com/shopware-6
+---
+
 # Personalization for Shopware 5
 
 Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
@@ -28,9 +34,8 @@ All you need to take Nosto into use in your store is to install the extension an
 
 ### License
 
-Open Software License \("OSL"\) v3.0
+Open Software License ("OSL") v3.0
 
 ### Dependencies
 
 Nosto Tagging extension can be used with Shopware versions up to 5.6.x
-
