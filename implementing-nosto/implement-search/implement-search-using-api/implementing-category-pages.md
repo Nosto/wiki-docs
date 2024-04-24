@@ -1,12 +1,12 @@
 # Implement Category pages
 
-Nosto provides functionality to retrieve all products from specific category. This is useful when you want to implement category merchandising using the same search API.
+Nosto provides functionality to retrieve all products for a specific category. This is useful when you want to implement category merchandising using the same API as for Search.
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
 ### Using category ID
 
-By providing [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category.&#x20;
+Provide the [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category.&#x20;
 
 #### Query
 
@@ -32,11 +32,7 @@ query {
 
 ### Using category path
 
-{% hint style="warning" %}
-Search rules targeting specific categories are not supported when using `categoryPath` parameter, they supported only for `categoryId` parameter
-{% endhint %}
-
-By providing [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) parameter API will return all products associated with that category. This parameter is the same as `categories` product field.
+Provide the [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category. This parameter is the same as the `categories` product field.
 
 #### Query
 
@@ -45,7 +41,7 @@ query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
     products: {
-      categoryPath: "T-Shirts"
+      categoryPath: "Pants"
     }
   ) {
     products {
@@ -60,13 +56,15 @@ query {
 }
 ```
 
+#### Child category handling
+
+Depending on your configuration, fetching a parent category will also include products from the child categories. For example, fetching products for the category `Pants` would also include products from the categories `Pants -> Shorts` and `Pants -> Khakis`.
+
+This is an admin-only setting. Please contact your Nosto representative to adjust this setting.
+
 ### Using custom filters
 
-{% hint style="warning" %}
-Search rules targeting categories are not supported when using custom filters, they supported only for `categoryId` parameter
-{% endhint %}
-
-In rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
+In some rare cases [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) is not enough. In these cases [custom filters](https://search.nosto.com/v1/graphql?ref=InputSearchFilter) can be used to build any query for category & landing pages.
 
 #### Query
 
