@@ -32,14 +32,18 @@ For frontend integrations you can also use our JavaScript library. This library 
 
 ## Compare implementations
 
-|                                                | Code Editor | API       | JavaScript Library |
-| ---------------------------------------------- | ----------- | --------- | ------------------ |
-| Can be implemented by Nosto team               | Yes         | No        | No                 |
-| Expected time to launch live                   | 1-3 weeks   | 4-8 weeks | 3-6 weeks          |
-| Headless compatible                            | Yes         | Yes       | Yes                |
-| Fully customizable frontend                    | Yes         | Yes       | Yes                |
-| Customized and managed only in Nosto dashboard | Yes         | No        | No                 |
-| Suitable for complex use cases                 | Sometimes   | Yes       | Yes                |
+|                                                | Code Editor     | API       | JavaScript Library |
+| ---------------------------------------------- | --------------- | --------- | ------------------ |
+| Can be implemented by Nosto team               | Yes             | No        | No                 |
+| Expected time to launch live                   | 1-3 weeks**\*** | 4-8 weeks | 3-6 weeks          |
+| Headless compatible                            | Yes             | Yes       | Yes                |
+| Fully customizable frontend                    | Yes             | Yes       | Yes                |
+| Customized and managed only in Nosto dashboard | Yes             | No        | No                 |
+| Suitable for complex use cases                 | Sometimes       | Yes       | Yes                |
+
+{% hint style="info" %}
+\* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.&#x20;
+{% endhint %}
 
 If you are looking for a fast launch without much effort we recommend going with the fully customizable pre-built templates. This type of integration does not support full API access but comes complete with an out-of-the-box search result page and autocomplete templates that can easily be customized to match most website designs and integrate even advanced custom functionality.
 
