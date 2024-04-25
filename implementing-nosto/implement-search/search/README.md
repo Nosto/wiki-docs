@@ -1,4 +1,4 @@
-# Using JavaScript Library
+# Using the JavaScript Library
 
 ## Search <a href="#search" id="search"></a>
 
@@ -42,6 +42,8 @@ For a search page in most cases the `facets` parameter should be provided.
 
 Also `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
+`isKeyword` should be set to `true` if search is submitted by clicking a keyword, suggested in the autocomplete.&#x20;
+
 ```javascript
 nostojs(api => {
     api.search({
@@ -53,7 +55,8 @@ nostojs(api => {
         }
     }, {
         redirect: true,
-        track: 'serp'
+        track: 'serp',
+        isKeyword: true
     }).then(response => {
         console.log(response);
     });
@@ -168,12 +171,13 @@ nostojs(api => {
     api.recordSearch(
         type,
         query,
-        searchResult
+        searchResult,
+        options
       )
 })
 ```
 
-<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>searchResult</td><td>Partial search API results containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>searchResult</td><td>Partial search API results containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr><tr><td>options (optional)</td><td><p>Record search options. Currently is accepts:<br></p><p><code>isKeyword: boolean</code> - should be set when keyword in autocomplete is clicked (search is submitted via keyword)</p></td><td></td></tr></tbody></table>
 
 Example:
 
@@ -195,6 +199,9 @@ api.recordSearch(
             size: 2,
             from: 0
         }
+    },
+    {
+        isKeyword: false
     }
 )
 ```
@@ -251,8 +258,6 @@ nostojs(api => {
 })
 ```
 
-
-
 ***
 
 ### :warning: Event Tracking Requirements :warning:
@@ -303,4 +308,3 @@ Bear in mind that search queries are split between **organic** and **non-organic
 Tracking product and keyword clicks is fundamental for understanding user interaction. Use `api.recordSearchClick()` to monitor these actions correctly, specifying the `type` and relevant hit data. Remember, product and keyword clicks should be monitored distinctly—never combine the two!
 
 ***
-
