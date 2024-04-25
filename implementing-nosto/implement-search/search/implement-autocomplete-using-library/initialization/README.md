@@ -49,7 +49,7 @@ export function Search() {
 
                 reactRoot.render(<Autocomplete {...state} />)
             },
-            submit: async (query, config) => {
+            submit: async (query, config, options) => {
                 if (query.length >= config.minQueryLength) {
                     const response = await search(
                         {
@@ -58,6 +58,7 @@ export function Search() {
                         {
                             redirect: true,
                             track: config.nostoAnalytics ? "serp" : undefined,
+                            ...options
                         }
                     )
                     // Do something with response. For example, update Search Engine Results Page products state.

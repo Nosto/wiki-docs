@@ -11,7 +11,7 @@ By default `submit` checks if query/keyword length satisfies `minQueryLength`, s
 In the usual scenario, you want to render Search Results on submit, so you should override `submit` function:
 
 ```js
-submit: async (query, config) => {
+submit: async (query, config, options) => {
     if (
         query.length >= config.minQueryLength
     ) {
@@ -22,6 +22,7 @@ submit: async (query, config) => {
             {
                 redirect: true,
                 track: config.nostoAnalytics ? "serp" : undefined,
+                ...options
             }
         )
         // Do something with response. For example, update Search Engine Results Page products state.
