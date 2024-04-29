@@ -34,8 +34,8 @@ Open Software License ("OSL") v3.0
 
 ### Dependencies
 
-Magento Open Source >= >v2.2.6 \<v2.4.6
+Magento Open Source >= v2.2.6 <=v2.4.7
 
-Magento Commerce >= >v2.2.6 \<v2.4.6
+Magento Commerce >= v2.2.6 <=v2.4.7
 
 If you are using a version below 2.2.6 of Magento Commerce or Magento Open you must use version < 4.0.0 of Nosto module.
