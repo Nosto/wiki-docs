@@ -25,6 +25,12 @@
    * Nosto will recommend you the default set placements, but you can add every placementID you want, as long as there is a corresponding placement in Nosto.&#x20;
 3. As with every Block in Shopify, you now can move around your placement freely, allowing you to position Nosto exactly where you want.&#x20;
 
+
+
+{% hint style="info" %}
+Please note that this approach only can be used with 2.0 Themes. In case you're using an 1.0 Theme, please reach out to Nosto Support.&#x20;
+{% endhint %}
+
 #### Need Help?
 
 If you have any questions or need further assistance during the setup process, don’t hesitate to reach out to Nosto Support from your Nosto admin UI or via support@nosto.com.
