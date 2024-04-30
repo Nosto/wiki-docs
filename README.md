@@ -1,26 +1,22 @@
 # Personalization for Shopify
 
-Increase your conversion rate and average order value by delivering your customers personalized product recommendations throughout their shopping journey.
+### Overview
 
-Nosto allows you to deliver every customer a personalized shopping experience through recommendations based on their unique user behavior - increasing conversion, average order value and customer retention as a result.
+Enrich, understand, and activate all your customer, product, and content data in our Commerce Experience Platform (CXP) to personalize every shopping experience and increase your online revenue.
 
-[http://www.nosto.com](http://www.nosto.com/)
+Named the “preferred solution” for Shopify merchants by the Shopify App Review and Quality Assurance team, our out-of-the-box integration leaves nothing behind, ensuring no Shopify brand has to sacrifice their ability to deliver exceptional commerce experiences that increase online revenue.\
+
+
+Find out more at [nosto.com](http://www.nosto.com/)
 
 ### Getting started
 
 #### How it works
 
-The app automatically adds product recommendation elements to the store when installed. Empty `div` placeholder elements. These elements will appear on the home page, product pages, category pages, search result pages, the shopping cart page and the order confirmation page. These elements are automatically populated with product recommendations from your store.
+After installation, the Nosto App provides you with Theme App Extensions, which allow you to easily add & move Nosto Placements in your Shopify theme. Placements are used to allow Nosto to understand where a campaign should be positioned. Also included are "App Embedds", which contain the Nosto script (needed to load Nosto on your site) as well as Multi-Currency scrips. You will find more detailed information in this documentation.&#x20;
 
-This is possible by mining data from the store when the user visits the pages. For example, when the user is browsing a product page, the product information sent to Nosto, that in turn delivers product recommendations based on that product to the store and displays them to the user.
+To collect data about customer behaviour in your store, Nosto will add page tracking across your site. This data will be utilised by Nostos [EXPERIENCE.AI™](https://www.nosto.com/commerce-experience-platform/experience-ai/), and can be used for all products Nosto has to offer.&#x20;
 
-The more users that are visiting the site, and the more page views they create, the better and more accurate the recommendations become.
+In addition to the information collected from the Front End of your store, the Nosto app also contains a direct connection to your Shopify backend, in order to sync Product & Collection data, receive order information & more. Together, you will be able to drastically enhance the experience your customers have on site, and make every impression relevant.
 
-In addition to the recommendation elements and the real-time data gathering, the app also includes features for keeping the product information up to date and keeping track of orders in the store.
-
-Every time a product is updated in the store, e.g. the price is changed, the information is sent to Nosto over an API. This will sync the data across all the users visiting the store that will see up to date recommendations.
-
-All orders that are placed in the store are also sent to Nosto. This is done to keep track of the orders that were a direct result of the product recommendations, i.e. when a user clicks a product in the recommendation, adds it to the shopping cart and places the order.
-
-All you need to take Nosto into use in your store is to install the app and create a Nosto account for your store. This is as easy as clicking a button, so read on.
-
+Nosto also integrates with Shopify Markets, being the first Personalization solution to do so. This allows you to bring your international concept to the next level, by utilising Nosto across all of your Markets. Build unique experiences for every Market, streamline the experience, or go a way anywhere in the middle - it's up to you!

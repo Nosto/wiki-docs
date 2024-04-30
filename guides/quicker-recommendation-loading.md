@@ -1,5 +1,9 @@
 # Quicker recommendation loading
 
+{% hint style="info" %}
+Attention: This is our old approach, and not available anymore for merchants who install Nosto in May 2024 or later!
+{% endhint %}
+
 This documentation walks you through the steps for setting up `nostojs` client script on your theme for avoiding delays in loading recommendations
 
 ## Approach
@@ -19,8 +23,7 @@ Please follow the steps outlined below for setting up your theme:
 
     This accomplishes two results:\
     i. Initializes `nostojs` JavaScript api\
-    ii. Stops Nosto from loading recommendations by default\
-
+    ii. Stops Nosto from loading recommendations by default\\
 2.  Place the following snippet, in the theme liquid template files that contains `nosto_element` elements, below all the `nosto_element` snippets:
 
     ```javascript

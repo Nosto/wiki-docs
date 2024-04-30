@@ -10,7 +10,6 @@
   * [Adding/Moving Recommendations](guides/adding-removing-or-moving-recommendations.md)
   * [Customizing Product Metadata](guides/customising-product-metadata.md)
   * [How Nosto modifies your theme](guides/how-nosto-modifies-your-theme.md)
-  * [Working with Multiple Themes](guides/working-with-multiple-themes.md)
   * [Version Controlled Themes](guides/working-with-version-controlled-themes.md)
   * [Implementing enhanced conversion tracking](guides/implementing-enhanced-conversion-tracking.md)
 * [Features](features/README.md)

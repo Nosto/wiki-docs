@@ -1,5 +1,9 @@
 # How Nosto modifies your theme
 
+{% hint style="info" %}
+Attention: This is our old approach, and not available anymore for merchants who install Nosto in May 2024 or later!
+{% endhint %}
+
 Upon installing the Nosto for Shopify app, choosing a theme to edit, Nosto amends the core theme file called `layout/theme.liquid` and amends it to include the Nosto tagging snippet. To better understand snippets and the Shopify theme structure, we recommend reading [Shopify's theme development guide](https://help.shopify.com/themes/development/templates#snippets).
 
 ## Amendments to include the Nosto tagging

@@ -1,5 +1,9 @@
 # Version Controlled Themes
 
+{% hint style="info" %}
+Attention: This is our old approach, and not available anymore for merchants who install Nosto in May 2024 or later!
+{% endhint %}
+
 In the event that you are using source-control for your themes, you may need to follow some steps to ensure that Nosto functions as expected whenever you re-deploy your theme. Prior to proceeding, we recommend that you read up on the following:
 
 → Learn more about [How Nosto modifies your theme](how-nosto-modifies-your-theme.md)
@@ -10,4 +14,3 @@ In the event that you are using source-control for your themes, you may need to 
 4. Use the Git tool to inspect all the changes made to your theme and commit them to the version control
 
 If you have multiple themes, the same procedure can be used. We recommend that you read up on [Working with multiple themes](https://docs.nosto.com/shopify/guides/working-with-multiple-themes)
-
