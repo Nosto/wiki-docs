@@ -10,6 +10,12 @@ You can determine if a store is using Shopify multi-currency by checking if mult
 
 If you do not have access to the store's settings, you can navigate to the store and [open Chrome's developer tools](https://developers.google.com/web/tools/chrome-devtools#open). If you switch currencies, entering `Shopify.currency` in the console should reflect the currency change. If it doesn't, the chances are a 3rd party is being used.
 
+
+
+{% hint style="info" %}
+For all merchants integrating Nosto starting May 2024, there are no theme changes needed anymore. All the below can be handled using the "Multi Currency" toggle in the App Embeds within the theme editor.&#x20;
+{% endhint %}
+
 ## Theme Changes
 
 You may need to make some theme changes to ensure the active price variation is displayed in the debug toolbar. The debug toolbar can be activated by appending `nostodebug=true` to your store's URL.
