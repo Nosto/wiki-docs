@@ -26,4 +26,4 @@ Welcome to the future of e-commerce personalization! Our latest Nosto plugin for
 
 ### Dependencies
 
-Nosto Tagging extension can be used with Shopware versions starting from 6.x
+Nosto Plugin can be used with Shopware versions starting from 6.5.4.0
