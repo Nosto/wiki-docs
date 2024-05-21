@@ -27,16 +27,10 @@ In order to workaround product pricing for Shopify Markets, there are two small 
       var Shopify = Shopify || {};
       Shopify.nosto = {}
       Shopify.nosto.money_format = {{ shop.money_format | json }};
-    </script
+    </script>
     ```
-3.  **Deprecated Approach**: You need to manually **add** the following snipped to your `theme.liquid`: \\
 
-    ```liquid
-    <script>
-      var Shopify = Shopify || {};
-      Shopify.money_format = {{ shop.money_format | json }};
-    </script
-    ```
+
 
 ### Usage
 
