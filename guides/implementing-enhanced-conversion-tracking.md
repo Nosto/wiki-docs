@@ -7,7 +7,7 @@ In order to add the conversion tracking snippet, we recommend reading up on Shop
 In the conversion tracking box, simply paste the following snippet.
 
 ```
-<script type="text/javascript" src="//connect.nosto.com/include/shopify-xxxxxxxxxxxx" async></script>
+<script type="text/javascript" src="//connect.nosto.com/script/shopify/nosto.js?merchant=shopify-xxxxxxxx" async></script>
 <div class="nosto_page_type" style="display:none">order</div>
 <div class="nosto_purchase_order" style="display:none">
   <span class="order_number">{{ order_id }}</span>

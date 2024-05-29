@@ -118,27 +118,27 @@ For the template above, you can call the JS API
 With all the parameters as below:
 
 ```javascript
-    _targetWindow.Nosto.migrateToShopifyMarket({
-            productSectionElement: '.nosto-product-info',
-            productTitleElement: '.x-nosto-title',
-            productUrlElement: '.nosto-product-url',
-            defaultVariantIdAttribute: 'x-default-variant',
-            productHandleAttribute: 'x-nosto-handle',
-            priceElement: '.nosto-product-price > .nosto-newprice.money',
-            listPriceElement: '.nosto-product-price > .nosto-oldprice.money',
-            descriptionElement: 'x-nosto-desc',
-        })
+  _targetWindow.Nosto.migrateToShopifyMarket({
+        productSectionElement: '.nosto-product-info',
+        productTitleElement: '.x-nosto-title',
+        productUrlElement: '.nosto-product-url',
+        defaultVariantIdAttribute: 'x-default-variant',
+        productHandleAttribute: 'x-nosto-handle',
+        priceElement: '.nosto-product-price > .nosto-newprice.money',
+        listPriceElement: '.nosto-product-price > .nosto-oldprice.money',
+        descriptionElement: 'x-nosto-desc',
+  })
 ```
 
 With only the necessary parameters as below:
 
 ```javascript
-_targetWindow.Nosto.migrateToShopifyMarket({
-            productSectionElement: '.nosto-product-info',
-            productUrlElement: '.nosto-product-url',
-            productHandleAttribute: 'x-nosto-handle',
-            priceElement: '.nosto-product-price > .money',
-        })
+  _targetWindow.Nosto.migrateToShopifyMarket({
+        productSectionElement: '.nosto-product-info',
+        productUrlElement: '.nosto-product-url',
+        productHandleAttribute: 'x-nosto-handle',
+        priceElement: '.nosto-product-price > .money',
+  })
 ```
 
 **Using API with variant options**
@@ -290,8 +290,8 @@ For the template above, you can call the JS API
 With all the parameters as below:
 
 ```javascript
-function triggerMigration() {
-    return win.Nosto.migrateToShopifyMarket({
+  function triggerMigration() {
+      return win.Nosto.migrateToShopifyMarket({
         productSectionElement: '.nosto-sm-product-info',
         productTitleElement: '.x-nosto-title',
         descriptionElement: 'x-nosto-desc',
@@ -315,14 +315,14 @@ function triggerMigration() {
             }
         }
     })
-}
+  }
 ```
 
 With only the necessary parameters as below:
 
 ```javascript
-function triggerMigration() {
-        return win.Nosto.migrateToShopifyMarket({
+  function triggerMigration() {
+      return win.Nosto.migrateToShopifyMarket({
         productSectionElement: '.nosto-sm-product-info',
         productHandleAttribute: 'x-nosto-handle',
         priceElement: '.nosto-product-price > .nosto-newprice.money',
@@ -341,6 +341,7 @@ function triggerMigration() {
                 }
             }
         }
-    })
-}
+      })
+  }
+
 ```
