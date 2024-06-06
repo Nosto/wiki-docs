@@ -153,9 +153,12 @@ init({
 
 #### Stats facet
 
-The [stats facet](https://search.nosto.com/v1/graphql?ref=SearchStatsFacet) returns the minimum and maximum values of numerical fields from search results. This functionality is especially useful when creating interactive elements like sliders. For instance, a price slider can leverage these min-max values to define its range, providing users a simple way to filter products within their desired price range.
+The [stats facet](https://search.nosto.com/v1/graphql?ref=SearchStatsFacet) returns the minimum and maximum values of numerical fields from search results. This functionality is especially useful when creating interactive elements such as sliders and range selectors. For instance, a price slider can use these min-max values to define its adjustable range, providing a simple way for users to filter products within a specific price range. Similarly, these values are utilized in the RangeSelector to define the overall scope of range selections, allowing for the configuration of selection precision through the range size parameter.
 
-{% code title="serp/facets/stats.js" %}
+##### Range Slider
+
+Utilize the `useRangeSlider` hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the interactive slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+
 ```jsx
 import { RangeSlider, useRangeSlider } from '@nosto/preact'
 
@@ -187,9 +190,98 @@ export default ({ facet }) => {
     </div>
 }
 ```
-{% endcode %}
 
-Utilize the `useRangeSlider` hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+##### Range Selector
+
+If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style that may be preferable in certain contexts. 
+The range size parameter in `useRangeSelector` hook, such as 100, sets the number of intervals between the min and max values. 
+
+```jsx
+import { useRangeSelector } from "@nosto/preact"
+import { useState } from "preact/hooks"
+import RangeInput from "./elements/RangeInput"
+import Icon from "./elements/Icon"
+import RadioButton from "./elements/RadioButton"
+
+export default function RangeSelector({ facet }) {
+    const {
+        min,
+        max,
+        range,
+        ranges,
+        updateRange,
+        handleMinChange,
+        handleMaxChange,
+        isSelected
+    } = useRangeSelector(facet.id, 100)
+    const [active, setActive] = useState(false)
+
+    return (
+        <li class={`ns-sidebar-dropdown ${active ? "ns-active" : ""}`}>
+            <a
+                class="ns-d-inline-block ns-relative ns-w-100 ns-border-box ns-text-undecorated ns-p-4"
+                href="javascript:void(0)"
+                onClick={() => setActive(!active)}
+            >
+                <span class="ns-color-black ns-font-4">{facet.name}</span>
+                {isSelected && (
+                    <span class="ns-total-count ns-d-inline-block ns-text-align-center ns-font-3 ns-font-bold ns-color-white ns-background-primary ns-ml-1">
+                        {1}
+                    </span>
+                )}
+                <Icon name="arrow" className="ns-absolute" />
+            </a>
+            <div class="ns-sidebar-submenu ns-d-none ns-p-4">
+                <ul class="ns-list-unstyled ns-p-0 ns-m-0">
+                    {ranges.map(({ min, max, selected }, index) => {
+                        return (
+                            <li
+                                class="ns-d-flex ns-justify-content-between ns-font-3"
+                                data-nosto-element="facet-setting"
+                            >
+                                <RadioButton
+                                    key={index}
+                                    value={`${min} - ${max}`}
+                                    selected={selected}
+                                    onChange={() => updateRange([min, max])}
+                                />
+                            </li>
+                        )
+                    })}
+                    <div class="ns-d-flex ns-justify-content-between ns-font-4">
+                        <div class="ns-col-6 flex-shrink-1 ns-mr-2">
+                            <label for={`ns-${facet.id}-min`} class="ns-form-label">
+                                Min.
+                            </label>
+                            <RangeInput
+                                id={`ns-${facet.id}-min`}
+                                min={min}
+                                max={max}
+                                range={range}
+                                value={range[0] ?? min}
+                                onChange={e => handleMinChange(parseFloat(e.currentTarget.value) || min)}
+                            />
+                        </div>
+                        <div class="ns-col-6 flex-shrink-1">
+                            <label for={`ns-${facet.id}-max`} class="ns-form-label">
+                                Max.
+                            </label>
+                            <RangeInput
+                                id={`ns-${facet.id}-max`}
+                                min={min}
+                                max={max}
+                                range={range}
+                                value={range[1] ?? max}
+                                onChange={e => handleMaxChange(parseFloat(e.currentTarget.value) || max)}
+                            />
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </li>
+    )
+}
+```
 
 #### Terms facet
 
