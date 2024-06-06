@@ -193,8 +193,19 @@ export default ({ facet }) => {
 
 ##### Range Selector
 
-If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style that may be preferable in certain contexts. 
-The range size parameter in `useRangeSelector` hook, such as 100, sets the number of intervals between the min and max values. 
+If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style.
+The range size parameter in the `useRangeSelector` hook specifies the size of each interval in the range and determines the total number of range items displayed. Additionally, it automatically rounds the minimum value down to ensure intervals are aligned with the specified range size. 
+For example, if the minimum product price in the current catalog is 230,
+And the maximum product price is 2000, the range size of 200 will adjust the starting point to 200 and create intervals displayed under the "Price" filter as follows:
+200 - 400
+400 - 600
+600 - 800
+800 - 1000
+1000 - 1200
+1200 - 1400
+1400 - 1600
+1600 - 1800
+1800 - 2000
 
 ```jsx
 import { useRangeSelector } from "@nosto/preact"
