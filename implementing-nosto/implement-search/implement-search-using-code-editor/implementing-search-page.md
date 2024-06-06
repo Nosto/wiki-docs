@@ -114,7 +114,7 @@ init({
 
 The [stats facet](https://search.nosto.com/v1/graphql?ref=SearchStatsFacet) returns the minimum and maximum values of numerical fields from search results. This functionality is especially useful when creating interactive elements such as sliders and range selectors. For instance, a price slider can use these min-max values to define its adjustable range, providing a simple way for users to filter products within a specific price range. Similarly, these values are utilized in the RangeSelector to define the overall scope of range selections, allowing for the configuration of selection precision through the range size parameter.
 
-##### Range Slider
+**Range Slider**
 
 Utilize the `useRangeSlider` hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the interactive slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
 
@@ -150,7 +150,7 @@ export default ({ facet }) => {
 }
 ```
 
-##### Range Selector
+**Range Selector**
 
 If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style.
 
@@ -158,13 +158,10 @@ The range size parameter in the `useRangeSelector` hook specifies the size of ea
 
 For example, if the minimum product price in the current catalog is 230, and the maximum product price is 1000, the range size of 200 will adjust the starting point to 200 and create intervals displayed under the "Price" filter as follows:
 
-200 - 400
-
-400 - 600
-
-600 - 800
-
-800 - 1000
+* 200 - 400
+* 400 - 600
+* 600 - 800
+* 800 - 1000
 
 ```jsx
 import { useRangeSelector } from "@nosto/preact"
