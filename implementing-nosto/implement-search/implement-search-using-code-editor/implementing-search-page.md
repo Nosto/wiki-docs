@@ -194,11 +194,17 @@ export default ({ facet }) => {
 ##### Range Selector
 
 If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style.
-The range size parameter in the `useRangeSelector` hook specifies the size of each interval in the range and determines the total number of range items displayed. Additionally, it automatically rounds the minimum value down to ensure intervals are aligned with the specified range size. 
+
+The range size parameter in the `useRangeSelector` hook specifies the size of each interval in the range and determines the total number of range items displayed. Additionally, it automatically rounds the minimum value down to ensure intervals are aligned with the specified range size.
+
 For example, if the minimum product price in the current catalog is 230, and the maximum product price is 1000, the range size of 200 will adjust the starting point to 200 and create intervals displayed under the "Price" filter as follows:
+
 200 - 400
+
 400 - 600
+
 600 - 800
+
 800 - 1000
 
 ```jsx
@@ -222,27 +228,12 @@ export default function RangeSelector({ facet }) {
     const [active, setActive] = useState(false)
 
     return (
-        <li class={`ns-sidebar-dropdown ${active ? "ns-active" : ""}`}>
-            <a
-                class="ns-d-inline-block ns-relative ns-w-100 ns-border-box ns-text-undecorated ns-p-4"
-                href="javascript:void(0)"
-                onClick={() => setActive(!active)}
-            >
-                <span class="ns-color-black ns-font-4">{facet.name}</span>
-                {isSelected && (
-                    <span class="ns-total-count ns-d-inline-block ns-text-align-center ns-font-3 ns-font-bold ns-color-white ns-background-primary ns-ml-1">
-                        {1}
-                    </span>
-                )}
-                <Icon name="arrow" className="ns-absolute" />
-            </a>
-            <div class="ns-sidebar-submenu ns-d-none ns-p-4">
-                <ul class="ns-list-unstyled ns-p-0 ns-m-0">
+        <li>
+            <div>
+                <ul>
                     {ranges.map(({ min, max, selected }, index) => {
                         return (
                             <li
-                                class="ns-d-flex ns-justify-content-between ns-font-3"
-                                data-nosto-element="facet-setting"
                             >
                                 <RadioButton
                                     key={index}
@@ -253,9 +244,9 @@ export default function RangeSelector({ facet }) {
                             </li>
                         )
                     })}
-                    <div class="ns-d-flex ns-justify-content-between ns-font-4">
-                        <div class="ns-col-6 flex-shrink-1 ns-mr-2">
-                            <label for={`ns-${facet.id}-min`} class="ns-form-label">
+                    <div>
+                        <div>
+                            <label for={`ns-${facet.id}-min`}>
                                 Min.
                             </label>
                             <RangeInput
@@ -267,8 +258,8 @@ export default function RangeSelector({ facet }) {
                                 onChange={e => handleMinChange(parseFloat(e.currentTarget.value) || min)}
                             />
                         </div>
-                        <div class="ns-col-6 flex-shrink-1">
-                            <label for={`ns-${facet.id}-max`} class="ns-form-label">
+                        <div>
+                            <label for={`ns-${facet.id}-max`}>
                                 Max.
                             </label>
                             <RangeInput
