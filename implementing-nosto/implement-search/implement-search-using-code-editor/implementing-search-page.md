@@ -195,8 +195,7 @@ export default ({ facet }) => {
 
 If you require an alternative method where values are selected through radio buttons rather than a slider, consider using `useRangeSelector` hook. This tool allows users to choose from predefined range intervals with radio buttons, offering a different interaction style.
 The range size parameter in the `useRangeSelector` hook specifies the size of each interval in the range and determines the total number of range items displayed. Additionally, it automatically rounds the minimum value down to ensure intervals are aligned with the specified range size. 
-For example, if the minimum product price in the current catalog is 230,
-And the maximum product price is 2000, the range size of 200 will adjust the starting point to 200 and create intervals displayed under the "Price" filter as follows:
+For example, if the minimum product price in the current catalog is 230, and the maximum product price is 2000, the range size of 200 will adjust the starting point to 200 and create intervals displayed under the "Price" filter as follows:
 200 - 400
 400 - 600
 600 - 800
