@@ -1,5 +1,7 @@
 # Using RabbitMQ
 
+**NOTE:** From 7.6.0 the extension uses RabbitMQ as a default message broker, this manual must be used only by older extension versions.
+
 Nosto module uses [Magento's Bulk Operations](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/bulk-operations.html) and [Message Queues](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/message-queues/message-queues.html) for rebuilding the product data, populating the product cache and synchronising the product data to Nosto over API. By default the message queues are backed by MySQL but Magento also supports [using RabbitMQ](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/install-rabbitmq.html) for message queues.  
 
 ### Configuring RabbitMQ for Message Queues
@@ -15,4 +17,5 @@ We recommend also deleting the file [queue.xml](https://github.com/Nosto/nosto-m
 After the configuration files have been overridden you must run `bin/magento setup:upgrade`.
 
 For overriding the message queue configuration you can use for example [Magento's patches.](https://devdocs.magento.com/guides/v2.3/comp-mgr/patching.html) 
+
 
