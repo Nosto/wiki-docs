@@ -106,6 +106,42 @@ mutation MySession {
 }
 ```
 
+#### Adding to cart with attribution
+
+If you want to add a new item to the cart, without any page changes you should pass a new parameter of `skipEvents`this will prevent analytics to count new page view event while still adding product to the cart.
+
+if the add to cart happens as a result of a click on a recommendation element, you must pass the attribution along with the event as the `ref` parameter.
+
+```graphql
+mutation MySession {
+  updateSession(by: BY_CID, id: "ad8f0d0e-1156-4df2-b385-10e03f8f8a44",
+    params: {
+      skipEvents: true
+      event: {
+        type: VIEWED_PAGE
+        target: "9150249402681"
+        ref: "frontpage-bestseller"
+      }
+      cart: {
+        items: [
+          {
+            productId: "100",
+            skuId: "100-1",
+            name: "#100",
+            unitPrice: 199,
+            priceCurrencyCode: "EUR",
+            quantity: 1
+          }
+        ]
+      }
+    }
+  ) {
+    id
+  }
+}
+
+```
+
 #### Sending the customer
 
 When you mutate a session, it is imperative that you send the details of the currently logged-in customer. If no customer if currently logged in, this can be omitted.
@@ -214,6 +250,7 @@ mutation {
   }
 }
 ```
+
 The pages query for home page also supports filtering recommendation for a specific Slot ID using the `slotIds` parameter in `forFrontPage` request, as shown below:
 
 ```graphql
@@ -240,6 +277,7 @@ mutation {
   }
 }
 ```
+
 Note: `slotIds` accepts an array of String parameters
 
 #### Fetching Recommendations
@@ -303,6 +341,7 @@ mutation {
   }
 }
 ```
+
 Note: `slotIds` accepts an array of String parameters
 
 #### Fetching Recommendations
