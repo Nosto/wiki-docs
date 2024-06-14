@@ -1,15 +1,16 @@
 # Console Commands
 
 It is possible to use a console command to reconnect or remove the account. This process can be handy when your deployments are automated.
+From `7.6.0` it is also possible to clear Nosto message queues with a console command. This might be helpful in debugging.
 
 ![3.0.0](https://img.shields.io/badge/nosto-3.0.0-green.svg)
 
-## Getting tokens from the Nosto Admin Panel.
+### Getting tokens from the Nosto Admin Panel.
 
 Log-in into [Nosto Admin](https://my.nosto.com) with your already existing account, select the store you want to reconnect and head to `Settings -> Authentication Tokens`.  
  To obtain the tokens, just hit the decrypt button. ![cropper](https://user-images.githubusercontent.com/2778820/44570846-cf96f300-a787-11e8-952e-0fc1950ea77e.png)
 
-## Getting Store View Scope Code From Magento's Backend
+### Getting Store View Scope Code From Magento's Backend
 
 Since you need a different Nosto account for each store view, you need to get the store scope code. You can find in: `Stores -> All stores`
 
@@ -83,3 +84,12 @@ bin/magento nosto:account:remove \
 
 ![image](https://user-images.githubusercontent.com/44775916/49924701-9a8de800-febf-11e8-8789-6ab37d4a8f6c.png)
 
+## Using the Console To Clear Messages on RabbitMQ
+
+* Open the terminal in your Magento root directory and run
+
+  `bin/magento nosto:clear:message-queue`
+
+![image](clear-queues.png)
+
+This will clear all messages on both update and delete queues.
