@@ -14,3 +14,9 @@ This is both a pro and a con. If your use case does not require all of the data,
 
 If you would like to access our intelligence engine, you must use GraphQL. The legacy REST APIs are primarily used for sending orders, products and exchange rates.
 
+## Limitations
+
+Geo Segments:
+
+Geo segments rely on the ability to determine the geographical location of the end customer.
+This typically requires a client-side script that can access the user's IP address. Without a JS API or Session API implementation on the website, these mechanisms cannot be activated, thus preventing the use of geo segments.
