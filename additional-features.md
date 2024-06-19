@@ -46,6 +46,12 @@ Shopware includes an integrated review system, found under **Shopware 6 > Produc
 
 The plugin includes a `customerDataToNosto` configuration option for customization of customer tagging.
 
+More Information can be found under the following pages:
+
+[Marketing permission and GDPR compatibility](https://docs.nosto.com/shopware/features/marketing-permission-and-gdpr-compatibility)
+
+[Overriding Customer Data](https://docs.nosto.com/shopware/guides/overriding-or-extending-functionalities/overriding-customer-data)
+
 ### Alternate Image URLs
 
 Support for multiple image exports can be enabled within the plugin configuration.
