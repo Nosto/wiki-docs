@@ -17,7 +17,7 @@ In order to achieve an accurate reach statistic for recommendations, `load()` sh
 
 Normally requesting product related recommendations happens in relation to viewing a product detail page, so a typical product related recommendation request looks like this:
 
-```
+```javascript
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')
@@ -32,7 +32,7 @@ nostojs(api => {
 
 The above will also add a product view event for the user. In some cases there are needs to request product related recommendations even when the user is not looking at a product. In these cases, to avoid reporting the user event, include a `{ trackEvents: false }` flag to the `load` function, for example:
 
-```
+```javascript
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')

@@ -31,7 +31,7 @@ The function scans the current page (document object) for any valid placements a
 
 Here's an example call where placements are scanned automatically:
 
-```
+```javascript
 nostojs(api => {
   api.defaultSession()
     .viewFrontPage()
@@ -113,7 +113,7 @@ In the event that you would like to offload the campaign rendering fully to Nost
 
 Here's an example call
 
-```
+```javascript
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')

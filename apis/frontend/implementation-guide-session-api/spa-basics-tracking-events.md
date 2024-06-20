@@ -71,7 +71,7 @@ nostojs(api => {
 
 When the category or collection id is available it can be provided via
 
-```js
+```javascript
 nostojs(api => {
   api.defaultSession()
     .viewCategory('/Womens/Dresses')
