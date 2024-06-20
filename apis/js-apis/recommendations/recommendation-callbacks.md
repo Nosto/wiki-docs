@@ -26,7 +26,7 @@ nostojs(api => {
 
 Called when Nosto has responded but not yet rendered content. The event contains information about the visitor's preferences. 
 
-```text
+```javascript
 nostojs(api => {  
   api.listen('prerender', event => {    
     console.log(event);

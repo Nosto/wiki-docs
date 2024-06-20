@@ -10,7 +10,7 @@ By default `submit` checks if query/keyword length satisfies `minQueryLength`, s
 
 In the usual scenario, you want to render Search Results on submit, so you should override `submit` function:
 
-```js
+```javascript
 submit: async (query, config, options) => {
     if (
         query.length >= config.minQueryLength
@@ -52,7 +52,7 @@ By default we send `pageview` events to existing GA tag, found in shop site. To 
 
 For example, if search results URL is https://examplenostoshop.com/search-results?query=shoes, then configuration should be:
 
-```js
+```javascript
 googleAnalytics: {
     serpPath: "search-results",
     queryParamName: "query",

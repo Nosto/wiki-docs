@@ -8,7 +8,7 @@ Alternatively you can define the recommendation \(`result_id`\) after an [action
 
 Example when productId 123 was clicked on a recommendation _nosto-frontpage-1_:
 
-```text
+```javascript
 nostojs(api => {
     api
         .defaultSession()

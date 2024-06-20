@@ -24,7 +24,7 @@ List of `autocomplete` initialization examples:
 1. **Liquid**\
    Example below uses `fromLiquidTemplate` helper which renders string template. Library provides default autocomplete template via `defaultLiquidTemplate` and default css for default template:
 
-```js
+```javascript
 import {
     autocomplete,
     search,
@@ -71,7 +71,7 @@ autocomplete({
 
 The template also can be loaded from a file. The library includes a default template, equivalent to string template in above example:
 
-```js
+```javascript
 import {
     autocomplete,
     search,
@@ -90,7 +90,7 @@ autocomplete({
 2. **Mustache**\
    Mustache template is rendered similarly as Liquid template in the above example:
 
-```js
+```javascript
 import {
     autocomplete,
     search,
@@ -107,7 +107,7 @@ autocomplete({
 
 Or from a file:
 
-```js
+```javascript
 import {
     autocomplete,
     search,
