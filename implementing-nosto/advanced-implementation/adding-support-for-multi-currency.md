@@ -17,7 +17,7 @@ For example, a US-based retailer who sells in Euros \(EUR\) and Sterling Pounds 
 An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
 
 ```markup
-<div class="nosto_product" style="display: none;">
+<div class="nosto_product" style="display: none;" translate="no">
   ...
   ...
   ...
@@ -41,7 +41,7 @@ The cart and order tagging can be left as-is but the prices must be in the custo
 Once you have amended the product tagging, an additional DIV element must be added to all the other pages \(including the product page itself\). The tag should not be encapsulated in the `nosto_product` DIV tag. The information sent in the tag refers to the currency active of the customer.
 
 ```markup
-<div class="nosto_variation" style="display: none;">USD</div>
+<div class="nosto_variation" style="display: none;" translate="no">USD</div>
 ```
 
 For example, on the site of a US-based retailer who sells in Euros \(EUR\) and Sterling Pounds \(GBP\), if the customer changes the currency to Sterling Pounds \(GBP\), the `nosto_variation` element should show `GBP`. If the customer changes the currency to Euros \(EUR\), the `nosto_variation` element should show `EUR`.
