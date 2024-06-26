@@ -17,7 +17,7 @@ For example, a US-based retailer who sells in Euros \(EUR\) and Sterling Pounds 
 An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
 
 ```markup
-<div class="nosto_product" style="display: none;">
+<div class="nosto_product" style="display: none;" translate="no">
   ...
   ...
   ...
@@ -95,4 +95,3 @@ You will see one or more dropdowns that contain the prices and price calculation
 ![](https://user-images.githubusercontent.com/327432/36842669-15cb7412-1d55-11e8-8b48-5f769bb4ecd2.png)
 
 When you have reviewed your set-up, Nosto updates in real-time product prices for all the currencies and display the appropriate currency to the right target groups of users. You’re all set and ready to go live with our features.
-

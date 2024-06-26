@@ -24,7 +24,7 @@ For example, a retailer who has different prices for normal and loyal customers 
 An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
 
 ```markup
-<div class="nosto_product" style="display: none;">
+<div class="nosto_product" style="display: none;" translate="no">
   ...
   ...
   ...
@@ -86,4 +86,3 @@ You will see one or more dropdowns that contain the prices and the availability 
 ![](https://user-images.githubusercontent.com/327432/36842669-15cb7412-1d55-11e8-8b48-5f769bb4ecd2.png)
 
 When you have reviewed your set-up, you’re all set and ready to go live with our features. Nosto will automatically handle the different customer groups across its feature set.
-

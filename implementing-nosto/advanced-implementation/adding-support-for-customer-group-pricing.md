@@ -24,7 +24,7 @@ For example, a retailer who has different prices for normal and loyal customers 
 An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
 
 ```markup
-<div class="nosto_product" style="display: none;">
+<div class="nosto_product" style="display: none;" translate="no">
   ...
   ...
   ...
@@ -60,7 +60,7 @@ The cart and order tagging can be left as-is but the prices must be in the custo
 Once you have amended the product tagging, an additional DIV element must be added to all the other pages \(including the product page itself\). The tag should not be encapsulated in the `nosto_product` DIV tag. The information sent in the tag refers to the segment of the customer.
 
 ```markup
-<div class="nosto_variation" style="display: none;">GENERAL</div>
+<div class="nosto_variation" style="display: none;" translate="no">GENERAL</div>
 ```
 
 For example, on the site of a retailer, who has different prices for normal \(GENERAL\) and loyal \(LOYAL\) customers, if the customer is a logged in customer and is a known loyalty customer, the `nosto_variation` element should show `LOYAL`. If the customer logs out or a new customer visits, and there is no way to identify him as a loyal customer, the `nosto_variation` element should show `GENERAL`.
@@ -86,4 +86,3 @@ You will see one or more dropdowns that contain the prices and the availability 
 ![](https://user-images.githubusercontent.com/327432/36842669-15cb7412-1d55-11e8-8b48-5f769bb4ecd2.png)
 
 When you have reviewed your set-up, you’re all set and ready to go live with our features. Nosto will automatically handle the different customer groups across its feature set.
-

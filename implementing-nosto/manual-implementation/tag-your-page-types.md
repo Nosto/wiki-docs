@@ -13,6 +13,5 @@ Here is a list of all the valid page types:
 * All no-found pages should be tagged as `notfound`.
 
 ```markup
- <div class="nosto_page_type" style="display:none">product</div>
+ <div class="nosto_page_type" style="display:none" translate="no">product</div>
 ```
-

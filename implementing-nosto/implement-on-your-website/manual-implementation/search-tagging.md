@@ -7,6 +7,6 @@ Nosto utilizes tracks what a customer is searching for by reading the search que
 
 
 ```markup
-<div class="nosto_page_type" style="display:none">search</div>
-<div class="nosto_search_term" style="display:none">green shoes</div>
+<div class="nosto_page_type" style="display:none" translate="no">search</div>
+<div class="nosto_search_term" style="display:none" translate="no">green shoes</div>
 ```
