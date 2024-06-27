@@ -5,7 +5,7 @@ On every page, the customer information _should_ be tagged if the customer is lo
 The customer information is primarily used for sending personalised triggered emails and for building multi-channel experiences.
 
 ```markup
-<div class="nosto_customer" style="display:none">
+<div class="nosto_customer" style="display:none" translate="no">
   <span class="email">john.doe@example.com</span>
   <span class="first_name">John</span>
   <span class="last_name">Doe</span>
