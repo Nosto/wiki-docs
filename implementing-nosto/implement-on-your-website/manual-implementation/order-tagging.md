@@ -5,8 +5,8 @@ All thank-you and order-confirmation pages _must_ have the conversion tracking m
 The conversion metadata is used for sending personalised order-followup emails, personalise the recommendations e.g. order-related, for segmentation insights and conversion statistics.
 
 ```markup
-<div class="nosto_page_type" style="display:none">order</div>
-<div class="nosto_purchase_order" style="display:none">
+<div class="nosto_page_type" style="display:none" translate="no">order</div>
+<div class="nosto_purchase_order" style="display:none" translate="no">
     <span class="order_number">1445</span>
 
     <div class="buyer">
@@ -71,3 +71,6 @@ You can further verify your session in the Nosto admin by using the live feed un
 
 ![Nosto debug toolbar order](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-debug-toolbar-order.png) ![live-feed-product-order](https://nosto-campaign-assets.s3.amazonaws.com/images/live-feed-order.png)
 
+### Translate attribute
+
+The translate attribute is a [HTML5 standard attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate) which specifies whether the value of the element and it's `Text` node children should be translated. If your tagging elements are being translated by e.g. Google Translator then this is the way to opt out elements being translated by Google and possibly other vendors.

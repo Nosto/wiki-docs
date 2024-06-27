@@ -3,8 +3,8 @@
 Basic tagging
 
 ```markup
-<div class="nosto_page_type" style="display:none">product</div>
-<div class="nosto_product" style="display:none"> 
+<div class="nosto_page_type" style="display:none" translate="no">product</div>
+<div class="nosto_product" style="display:none" translate="no"> 
   <span class="product_id">Canoe123</span>
   <span class="name">Acme Canoe</span>
   <span class="url">https://example.com/canoe123</span>
@@ -102,3 +102,6 @@ Once included on all pages, you can review if the site is transmitting data usin
 
 </div>
 
+### Translate attribute
+
+The translate attribute is a [HTML5 standard attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate) which specifies whether the value of the element and it's `Text` node children should be translated. If your tagging elements are being translated by e.g. Google Translator then this is the way to opt out elements being translated by Google and possibly other vendors.

@@ -6,7 +6,7 @@ Nosto utilizes tracks what a customer is searching for by reading the search que
 * When the search term exists as a part of the URL e.g. `https://www.example.com/searchterm`, Nosto is unable to read it from the URL and you will need to tag as a part of the page source.
 
 ```markup
-<div class="nosto_page_type" style="display:none">search</div>
-<div class="nosto_search_term" style="display:none">green shoes</div>
+<div class="nosto_page_type" style="display:none" translate="no">search</div>
+<div class="nosto_search_term" style="display:none" translate="no">green shoes</div>
 ```
 
