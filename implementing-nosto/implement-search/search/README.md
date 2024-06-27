@@ -140,7 +140,7 @@ The function accepts the following options:
 
 ## Analytics
 
-Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product/keyword click`. These are user behaviours that should be tracked:
+Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviours that should be tracked:
 
 * search submit (`type = serp`)
 * faceting, paginating, sorting (`type = serp`) or (`type = category`)
@@ -241,21 +241,6 @@ api.recordSearchClick(
     "autocomplete", 
     { productId: "123", url: "https://myshop.com/product123" }
 )
-```
-
-{% hint style="warning" %}
-Product and keyword clicks must be tracked separately by binding to two separate click events.
-{% endhint %}
-
-Keyword clicks should be tracked in autocomplete component with `api.recordSearchClick()` by providing `type = autocomplete` and keyword hit object:
-
-```javascript
-nostojs(api => {
-    api.recordSearchClick(
-        'autocomplete',
-        { keyword: 'green' }
-    )
-})
 ```
 
 ***
