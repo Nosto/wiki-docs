@@ -5,8 +5,8 @@ In the event that you are unable to expose the entire subset of the product tagg
 **Note:** The product tagging _must_ be server-side rendered as the Nosto crawler does not execute Javascript.
 
 ```markup
-<div class="nosto_page_type" style="display:none" translate="no">product</div>
-<div class="nosto_product nosto_basic" style="display:none" translate="no"> 
+<div class="nosto_page_type" style="display:none">product</div>
+<div class="nosto_product nosto_basic" style="display:none"> 
   <span class="product_id">Canoe123</span>
 </div>
 ```
@@ -33,19 +33,3 @@ Once included on all pages, you can review if the site is transmitting data usin
 
 ![live-feed-product-view](https://nosto-campaign-assets.s3.amazonaws.com/images/live-feed-view.png)
 
-### Translate attribute
-
-The translate attribute is a [HTML5 standard attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate) which specifies whether the value of the element and it's `Text` node children should be translated. If your tagging elements are being translated by e.g. Google Translator then this is the way to opt out elements being translated.
-
-```markup
-<div class="nosto_page_type" style="display:none" translate="no">product</div>
-<div class="nosto_product" style="display:none" translate="no"> 
-  <span class="product_id">Canoe123</span>
-  <span class="name">Acme Canoe</span>
-  <span class="url">https://example.com/canoe123</span>
-  <span class="image_url">https://image.example.com/canoe1.jpg</span>
-  <span class="availability">InStock</span>
-  <span class="price">999.50</span>
-  <span class="price_currency_code">USD</span>
-</div>
-```

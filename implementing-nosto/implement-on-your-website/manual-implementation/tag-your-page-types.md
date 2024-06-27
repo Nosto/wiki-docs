@@ -15,6 +15,6 @@ Here is a list of all the valid page types:
 * Other pages should be tagged as `other`.
 
 ```markup
- <div class="nosto_page_type" style="display:none" translate="no">product</div>
+ <div class="nosto_page_type" style="display:none">product</div>
 ```
 

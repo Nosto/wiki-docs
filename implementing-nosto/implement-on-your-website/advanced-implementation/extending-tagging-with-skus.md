@@ -9,7 +9,7 @@ The SKU attributes should be listed on the last row of the `nosto_product` block
 Many e-commerce stores have a parent product with individual child products. The parent product is usually something along the lines of "Ski Jacket" whereas the SKUs would then be "Ski Jacket, Blue, Small", "Ski Jacket, Red, Medium". If your store uses SKUs you should add the following attributes to extend your product tagging.
 
 ```markup
-<div class="nosto_product" style="display:none" translate="no">
+<div class="nosto_product" style="display:none">
   ...
   ...
   ...
@@ -53,7 +53,7 @@ Many e-commerce stores have a parent product with individual child products. The
 When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute.
 
 ```markup
-<div class="nosto_cart" style="display:none" translate="no">
+<div class="nosto_cart" style="display:none">
 
     <div class="line_item">
         <span class="product_id">Canoe123</span>
@@ -90,7 +90,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
 
 ```markup
-<div class="nosto_purchase_order" style="display:none" translate="no">
+<div class="nosto_purchase_order" style="display:none">
     <span class="order_number">1445</span>
 
     <div class="buyer">
