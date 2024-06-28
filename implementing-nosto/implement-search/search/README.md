@@ -213,14 +213,8 @@ Example:
 ```javascript
 api.recordSearch(
     'autocomplete', 
-    { 
-        keywords: 'shirt'
-    },
-    { 
-        products: {
-                total: 476
-        },
-    },
+    searchQuery,
+    searchResult,
     { 
         isKeyword: true
     } 
