@@ -206,6 +206,21 @@ api.recordSearch(
 )
 ```
 
+#### Keyword click tracking
+
+Example: 
+
+```javascript
+api.recordSearch(
+    'autocomplete', 
+    searchQuery,
+    searchResult,
+    { 
+        isKeyword: true
+    } 
+)
+```
+
 ### Search form submit
 
 Search queries are categorised into two groups: organic and non-organic searches.\
@@ -222,7 +237,7 @@ nostojs(api => {
 Organic search - is a search query submitted through search input and which lead to SERP (search engine results page). Following faceting, paginating, sorting queries on organic query is also counted as organic.
 {% endhint %}
 
-### Search product/keyword click
+### Search product click
 
 Product clicks should be tracked in autocomplete component, SERP, category page with `api.recordSearchClick()` by providing component (type), where click occurred, and clicked product data:
 
@@ -290,6 +305,6 @@ Bear in mind that search queries are split between **organic** and **non-organic
 
 #### :mag: Accurate Click Tracking
 
-Tracking product and keyword clicks is fundamental for understanding user interaction. Use `api.recordSearchClick()` to monitor these actions correctly, specifying the `type` and relevant hit data. Remember, product and keyword clicks should be monitored distinctly—never combine the two!
+Tracking product clicks is fundamental for understanding user interaction. Use `api.recordSearchClick()` to monitor this actions correctly, specifying the `type` and relevant hit data.
 
 ***
