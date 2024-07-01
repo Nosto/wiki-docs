@@ -6,6 +6,10 @@ Nosto provides functionality to retrieve all products for a specific category. T
 
 ### Using category ID
 
+{% hint style="info" %}
+Using the category ID is only fully supported for Shopify merchants. Others should use the category path instead to benefit from full functionality.
+{% endhint %}
+
 Provide the [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category.&#x20;
 
 #### Query
