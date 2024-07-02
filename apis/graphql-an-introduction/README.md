@@ -19,4 +19,4 @@ If you would like to access our intelligence engine, you must use GraphQL. The l
 Geo Segments:
 
 Geo segments rely on the ability to determine the geographical location of the end customer.
-This typically requires a client-side script that can access the user's IP address. Without a JS API or Session API implementation on the website, these mechanisms cannot be activated, thus preventing the use of geo segments.
+This typically requires a client-side script that can access the user's IP address. In case of a GraphQL only implementation, this should still be possible if the GraphQL calls are made directly from the end user to Nosto. If the calls are being proxied to a backend server and subsequently forwarded to Nosto, this will essentially hide the end-user's IP from the request and instead, send the backend server IP to Nosto, making it impossible to determine the geolocation of the end user.
