@@ -123,3 +123,5 @@ autocorrected
 Parameterless
 htmlContent
 RangeSelector
+geolocation
+proxied
