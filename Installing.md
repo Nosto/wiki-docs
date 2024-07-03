@@ -15,7 +15,7 @@
 
 1. **In Shopify admin navigate to your Theme settings.** Go to 'Online Store' -> 'Themes' -> 'Customize'.
 2. **Find the Nosto module under 'App embeds'**
-   * Ensure that **Nosto Script** is enabled.
+   * Ensure that **Nosto Script** & **Nosto Tagging** is enabled.
    * Depending on your needs, enable [**Multi-Currency**](https://docs.nosto.com/shopify/features/multi-currency-support) Tagging as well.&#x20;
 
 ### Step 4: Add Nosto-Placements to your Theme
