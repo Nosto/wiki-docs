@@ -43,7 +43,7 @@
 {% hint style="info" %}
 Enabling **Auto Load** will refresh the listed data automatically once per minute.
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (2).png>)
 {% endhint %}
 
 ### **Jobs Handled**

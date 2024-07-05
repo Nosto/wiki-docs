@@ -39,7 +39,9 @@ All API Tokens mentioned in this section have to be created by Nosto, and are sp
 <figure><img src="../.gitbook/assets/general-settings.png" alt=""><figcaption></figcaption></figure>
 
 1. By enabling this setting, Nosto tracking JS scripts will be initialized and loaded directly after guest’s very first interaction with storefront page. It can be used for prevent storefront performance issues during page loading.
-2. **Channel specific -** The selected domain will be used for the product URLs during the product sync.
+2. <mark style="color:red;">**Channel specific -**</mark> <mark style="color:red;"></mark><mark style="color:red;">The selected domain will be used for the product URLs during the product sync. Please make sure that the domain is set accordingly, as whenever you choose a different sales channel the domain for generating product URL's is</mark> <mark style="color:red;"></mark><mark style="color:red;">**NOT**</mark> <mark style="color:red;"></mark><mark style="color:red;">automatically updated and is populated with with the domain from the previous selected sales channel.</mark>&#x20;
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Tags Assignment Overview
 
