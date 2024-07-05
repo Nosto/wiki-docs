@@ -20,8 +20,8 @@
 
 This documentation explains the process of setting up **Nosto - Dynamic Bundles** for automatic discount, when a bundle is added to the cart on a Shopify store.
 
-{% hint style="info" %}
-This release of bundle discounts will work only when all products from a bundle are added to the cart.
+{% hint style="warning" %}
+This functionality can only be used by Shopify Plus merchants.&#x20;
 {% endhint %}
 
 ## Setup
