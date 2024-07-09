@@ -26,6 +26,9 @@ query {
       hits {
         productId
         name
+        url
+        imageUrl
+        price
       }
       total
       size
@@ -33,6 +36,10 @@ query {
   }
 }
 ```
+
+{% hint style="info" %}
+Based on the provided and indexed fields, we can modify the requested fields included in the response. This adjustment, whether expanding or reducing the fields, is guided by the available options listed [here](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+{% endhint %}
 
 ### Using category path
 
@@ -52,6 +59,9 @@ query {
       hits {
         productId
         name
+        url
+        imageUrl
+        price
       }
       total
       size
@@ -59,6 +69,10 @@ query {
   }
 }
 ```
+
+{% hint style="info" %}
+Based on the provided and indexed fields, we can modify the requested fields included in the response. This adjustment, whether expanding or reducing the fields, is guided by the available options listed [here](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+{% endhint %}
 
 #### Child category handling
 
