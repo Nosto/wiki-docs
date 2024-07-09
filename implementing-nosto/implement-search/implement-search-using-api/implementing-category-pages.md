@@ -26,6 +26,9 @@ query {
       hits {
         productId
         name
+        url
+        imageUrl
+        price
       }
       total
       size
@@ -33,6 +36,10 @@ query {
   }
 }
 ```
+
+{% hint style="info" %}
+Product fields that can be requested in the `hits` object are documented [here](https://search.nosto.com/v1/graphql?ref=SearchProduct). All indexed fields are accessible via the API.
+{% endhint %}
 
 ### Using category path
 
@@ -52,6 +59,9 @@ query {
       hits {
         productId
         name
+        url
+        imageUrl
+        price
       }
       total
       size
@@ -59,6 +69,10 @@ query {
   }
 }
 ```
+
+{% hint style="info" %}
+Product fields that can be requested in the `hits` object are documented [here](https://search.nosto.com/v1/graphql?ref=SearchProduct). All indexed fields are accessible via the API.
+{% endhint %}
 
 #### Child category handling
 
