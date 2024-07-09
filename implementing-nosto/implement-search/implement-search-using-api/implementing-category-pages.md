@@ -38,7 +38,7 @@ query {
 ```
 
 {% hint style="info" %}
-Based on the provided and indexed fields, we can modify the requested fields included in the response. This adjustment, whether expanding or reducing the fields, is guided by the available options listed [here](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+Product fields that can be requested in the `hits` object are documented [here](https://search.nosto.com/v1/graphql?ref=SearchProduct). All indexed fields are accessible via the API.
 {% endhint %}
 
 ### Using category path
@@ -71,7 +71,7 @@ query {
 ```
 
 {% hint style="info" %}
-Based on the provided and indexed fields, we can modify the requested fields included in the response. This adjustment, whether expanding or reducing the fields, is guided by the available options listed [here](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+Product fields that can be requested in the `hits` object are documented [here](https://search.nosto.com/v1/graphql?ref=SearchProduct). All indexed fields are accessible via the API.
 {% endhint %}
 
 #### Child category handling
