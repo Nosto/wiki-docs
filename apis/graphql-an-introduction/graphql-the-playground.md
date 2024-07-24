@@ -4,7 +4,7 @@ Start exploring Nosto's GraphQL API on your account. GraphiQL is an in-browser I
 
 Toy around, use the API and when you'd like API access to the endpoint for use through a library such as Apollo, please contact support.
 
-Use the embedded GraphiQL explorer below to run queries. The GraphiQL Explorer is accessible at **https://my.nosto.com/\[account-id]/graphql** (please add your account ID).
+Use the embedded GraphiQL explorer below to run queries. The GraphiQL Explorer is accessible at ```https://my.nosto.com/\[account-id]/graphql``` (please add your account ID).
 
 ![screen shot 2018-08-26 at 12 06 07](https://user-images.githubusercontent.com/327432/44626637-75816380-a928-11e8-8367-8905a5d8fb32.png)
 
