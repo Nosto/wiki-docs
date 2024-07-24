@@ -71,7 +71,7 @@ app
 
 Before the module begins to work, you will need to explicitly enable the module by running a series of commands.
 
-```text
+```
 bin/magento module:enable --clear-static-content My_Nosto
 bin/magento setup:upgrade
 ```
@@ -80,7 +80,7 @@ bin/magento setup:upgrade
 
 In order to disable the module without removing the code, you will need to run a series of commands.
 
-```text
+```
 bin/magento module:disable --clear-static-content My_Nosto
 bin/magento setup:upgrade
 ```
@@ -91,11 +91,10 @@ The changes you make will be taken into use instantly both in the shop.
 
 Once you have overridden the associated model and customised whatever fields you may need, you should verify that it, in fact, working as expected.
 
-A simple way to verify that the changes are working would be to log in as a customer and view any page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://support.nosto.com/get-started/nosto-debug-toolbar/) in our Support Center.
+A simple way to verify that the changes are working would be to log in as a customer and view any page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://help.nosto.com/en/articles/1441625-how-to-use-the-nosto-debug-toolbar) in our Support Center.
 
 **NOTE:** Please note that in order to verify the changes using the debug-toolbar, you must have a Nosto account for the given store.
 
 ## Using the module in production environment
 
-Before using your custom module in production environment we strongly recommend that you follow the instructions how to package a Magento 2 module. If you are familiar with creating packages for composer, creating a package for M2 is a simple. You can find the instructions from [here](http://devdocs.magento.com/guides/v2.0/extension-dev-guide/package/package_module.html)
-
+Before using your custom module in production environment we strongly recommend that you follow the instructions how to package a Magento 2 module. If you are familiar with creating packages for composer, creating a package for M2 is a simple. You can find the instructions from [here](http://devdocs.magento.com/guides/v2.0/extension-dev-guide/package/package\_module.html)
