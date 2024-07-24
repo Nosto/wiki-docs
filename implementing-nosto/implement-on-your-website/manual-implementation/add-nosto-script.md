@@ -15,7 +15,6 @@ To start tracking visits and content the Nosto script needs to be active on all 
 
 ## Troubleshooting Nosto script:
 
-Once included on all pages, you can review if the site is transmitting data using the Nosto Debug Toolbar. If the debug toolbar executes and shows up on the page Nosto can track visits on the page. You can further verify your session in the Nosto admin by using the live feed under [https://my.nosto.com/admin/$accountID/liveFeed](https://my.nosto.com/admin/$accountID/liveFeed)
+Once included on all pages, you can review if the site is transmitting data using the Nosto Debug Toolbar. If the debug toolbar executes and shows up on the page Nosto can track visits on the page. You can further verify your session in the Nosto admin by using the live feed under **https://my.nosto.com/admin/$accountID/liveFeed**
 
 ![Nosto debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-embed-script-debug.png)
-
