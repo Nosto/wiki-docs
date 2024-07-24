@@ -8,7 +8,7 @@ In order to extend Nosto module, you must create a small Prestashop module. This
 
 You need two configuration files for your custom module - the main module file and the actual module configuration that defines the overrides.
 
-Below you can find an example module which you can simply copy&paste into your PrestaShop `modules` folder inside your installation. Let's call the module `My Nosto`. First create a folder, `mynosto`, inside your PrestaShop `modules` folder. Then copy paste these 2 files below into that new folder.
+Below you can find an example module which you can simply copy\&paste into your PrestaShop `modules` folder inside your installation. Let's call the module `My Nosto`. First create a folder, `mynosto`, inside your PrestaShop `modules` folder. Then copy paste these 2 files below into that new folder.
 
 **Note:** if you cannot make changes directly inside your PrestaShop installation, you can create the `mynosto` folder locally on your own computer and put the files inside it, after which you create a zip archive of the whole folder that you can then upload in your PrestaShop backend like any other module.
 
@@ -105,7 +105,7 @@ class MyNosto extends Module
 
 ## Enabling the plugin
 
-Once you've got the module into your PrestaShop installation, you should see it inside your PrestaShop backend module listing. Click the `Install` button next to the module to install it. Now you can start modifying the product information. The changes you make will be taken into use instantly both in the shop frontend \(you can view the changes in the handy Nosto debug toolbar when navigating the product pages\) and in the backend API requests.
+Once you've got the module into your PrestaShop installation, you should see it inside your PrestaShop backend module listing. Click the `Install` button next to the module to install it. Now you can start modifying the product information. The changes you make will be taken into use instantly both in the shop frontend (you can view the changes in the handy Nosto debug toolbar when navigating the product pages) and in the backend API requests.
 
 If you are using PrestaShop 1.7 you should install the plugin through the command line using the command `bin/console prestashop:module install mynosto`.
 
@@ -115,7 +115,7 @@ Please note that if you add or remove registered hooks you need to Reset the cus
 
 Once you have overridden the associated model and customised whatever fields you may need, you should verify that it, in fact, working as expected.
 
-A simple way to verify that the changes are working would be to log in as a customer and view any page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://help.nosto.com/get-started/nosto-debug-toolbar/) in our Support Center.
+A simple way to verify that the changes are working would be to log in as a customer and view any page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://help.nosto.com/en/articles/1441625-how-to-use-the-nosto-debug-toolbar) in our Support Center.
 
 **NOTE:** Please note that in order to verify the changes using the debug-toolbar, you must have a Nosto account for the given store.
 
@@ -123,24 +123,23 @@ A simple way to verify that the changes are working would be to log in as a cust
 
 Nosto module dispatches following hooks.
 
-| Object | Hook |
-| :--- | :--- |
-| `NostoBrand` | `actionNostoBrandLoadAfter` |
-| `NostoCart` | `actionNostoCartLoadAfter` |
-| `NostoCategory` | `actionNostoCategoryLoadAfter` |
-| `NostoCurrentUser` | `actionNostoCurrentUserLoadAfter` |
-| `NostoCurrentVariation` | `actionNostoCurrentVariationLoadAfter` |
-| `NostoCustomer` | `actionNostoCustomerLoadAfter` |
-| `NostoExchangeRates` | `actionNostoExchangeRatesLoadAfter` |
-| `NostoIframe` | `actionNostoIframeLoadAfter` |
-| `NostoOauth` | `actionNostoOAuthLoadAfter` |
-| `NostoOrder` | `actionNostoOrderLoadAfter` |
-| `NostoProduct` | `actionNostoProductLoadAfter` |
-| `NostoSearch` | `actionNostoBrandLoadAfter` |
-| `NostoAccountBilling` | `actionNostoAccountBillingLoadAfter` |
-| `NostoAccountOwner` | `actionNostoAccountOwnerLoadAfter` |
-| `NostoAccountSignup` | `actionNostoAccountSignupLoadAfter` |
-| `NostoOrderBuyer` | `actionNostoOrderBuyerLoadAfter` |
-| `NostoOrderStatus` | `actionNostoOrderStatusLoadAfter` |
+| Object                        | Hook                                    |
+| ----------------------------- | --------------------------------------- |
+| `NostoBrand`                  | `actionNostoBrandLoadAfter`             |
+| `NostoCart`                   | `actionNostoCartLoadAfter`              |
+| `NostoCategory`               | `actionNostoCategoryLoadAfter`          |
+| `NostoCurrentUser`            | `actionNostoCurrentUserLoadAfter`       |
+| `NostoCurrentVariation`       | `actionNostoCurrentVariationLoadAfter`  |
+| `NostoCustomer`               | `actionNostoCustomerLoadAfter`          |
+| `NostoExchangeRates`          | `actionNostoExchangeRatesLoadAfter`     |
+| `NostoIframe`                 | `actionNostoIframeLoadAfter`            |
+| `NostoOauth`                  | `actionNostoOAuthLoadAfter`             |
+| `NostoOrder`                  | `actionNostoOrderLoadAfter`             |
+| `NostoProduct`                | `actionNostoProductLoadAfter`           |
+| `NostoSearch`                 | `actionNostoBrandLoadAfter`             |
+| `NostoAccountBilling`         | `actionNostoAccountBillingLoadAfter`    |
+| `NostoAccountOwner`           | `actionNostoAccountOwnerLoadAfter`      |
+| `NostoAccountSignup`          | `actionNostoAccountSignupLoadAfter`     |
+| `NostoOrderBuyer`             | `actionNostoOrderBuyerLoadAfter`        |
+| `NostoOrderStatus`            | `actionNostoOrderStatusLoadAfter`       |
 | `NostoVariationKeyCollection` | `actionVariationKeyCollectionLoadAfter` |
-
