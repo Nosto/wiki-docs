@@ -42,7 +42,7 @@ For a search page in most cases the `facets` parameter should be provided.
 
 Also `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
-`isKeyword` should be set to `true` if search is submitted by clicking a keyword, suggested in the autocomplete.&#x20;
+`isKeyword` should be set to `true` if search is submitted by clicking a keyword, suggested in the autocomplete.
 
 ```javascript
 nostojs(api => {
@@ -86,10 +86,6 @@ nostojs(api => {
     });
 });
 ```
-
-{% hint style="danger" %}
-Statistics for autocomplete are being gathered, but they are not currently visible in the Analytics Dashboard.
-{% endhint %}
 
 ### Category page
 
@@ -208,7 +204,7 @@ api.recordSearch(
 
 #### Keyword click tracking
 
-Example: 
+Example:
 
 ```javascript
 api.recordSearch(
