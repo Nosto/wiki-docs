@@ -221,10 +221,11 @@ api.recordSearch(
 
 Search queries are categorised into two groups: organic and non-organic searches.\
 \
-In order to mark a search query as an organic search you need to call `api.recordSearchSubmit()`. You should call it on search input submit only, before search request is sent.
+In order to mark a search query as an organic search you need to call `api.recordSearchSubmit(query: string)`. You should call it on search input submit only, before search request is sent.
 
 ```javascript
 nostojs(api => {
+    const query = 'shoes'
     api.recordSearchSubmit(query)
 })
 ```
