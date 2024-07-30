@@ -217,6 +217,37 @@ api.recordSearch(
 )
 ```
 
+#### Category results tracking
+
+Example:
+
+```javascript
+api.recordSearch(
+    'category',
+    {
+        products: {
+            categoryId: "123456",
+            sort: [{ field: "price", order: "asc" }]
+            size: 24,
+            from: 0,
+        }
+    },
+    {
+        products: {
+            categoryId: "123456",
+            hits: [{ productId: "123" }, { productId: "124" }],
+            fuzzy: true,
+            total: 18,
+            size: 24,
+            from: 0
+        }
+    },
+    {
+        isKeyword: false
+    }
+)
+```
+
 ### Search form submit
 
 Search queries are categorised into two groups: organic and non-organic searches.\
@@ -270,7 +301,7 @@ When tracking events, adherence to the following criteria is essential for captu
   * `products.total` number to identify if the search has results.
   * For accurate pagination tracking, `products.from` and `product.size` must be included.
   * For identifying if the request was autocorrected include `products.fuzzy`.
-  * For category requests include either `products.categoryId` or `products.categoryPath`.
+  * For category requests, either `products.categoryId` or `products.categoryPath`is mandatory.
 
 > :bulb: **Tip:** In case of API integration, use this example GraphQL partial query to integrate with the API and retrieve the necessary response data for precise event tracking.
 
