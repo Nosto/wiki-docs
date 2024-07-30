@@ -1,23 +1,15 @@
-# Shopify Markets
+# Shopify International
 
 ## **Overview**
 
-Nosto fully supports the complete functionality of Shopify Markets, allowing you to precisely target specific markets individually, unify the experience across all markets, or even employ a combination of both approaches. All of this is accomplished while ensuring language, pricing, currency, and product availability are respected.
+Nosto fully supports the complete functionality of Shopify International (formerly called Shopify Markets), allowing you to precisely target specific markets individually, unify the experience across all markets, or even employ a combination of both approaches. All of this is accomplished while ensuring language, pricing, currency, and product availability are respected.
 
 ## Before you start
 
 Before you begin setting up your Shopify Markets personalization with Nosto follow these initial steps:&#x20;
 
-{% hint style="warning" %}
-If you already have Nosto installed, please upgrade the app to grant needed Markets permissions through your Shopify admin portal.
-{% endhint %}
-
 1. **Get Access to Shopify Markets through Nosto Team:** Reach out to your Nosto contact person or to [Nosto Support](mailto:support@nosto.com). Please give them your nosto account ID, and wait for confirmation that Shopify Markets has been enabled for you.
 2. **Enable Shopify Markets** by pressing the similarly named button in your Nosto account (via Settings -> Integrations -> Shopify "Manage"). This step might take a couple of minutes.&#x20;
-
-{% hint style="info" %}
-In order to allow Nosto to pull Market information and products, a Market must be activated in Shopify. It doesn't have to be visible though, so you can consider to activate but hide the Market in order to bring information to Nosto.&#x20;
-{% endhint %}
 
 ## Implementation Process
 
@@ -32,15 +24,15 @@ Once you completed all steps outlined in our "before you start" section, you can
 * **For New Clients or Tailored Markets:** Set up your campaigns, templates, rulesets, and other details within your Nosto Market accounts to precisely target individual Markets.
 * **For Existing Clients:** If you don't wish to tailor campaigns for each Market, you can reach out to the Nosto team, who can copy the configurations to your Market accounts.
 
-{% hint style="info" %}
-If you have used our v1 Integration of Shopify Markets, please reach out to your main contact person, as there potentially is need for some adjustment in your templates.
-{% endhint %}
-
 **Verification:**&#x20;
 
 * Utilize the "[Debug Toolbar](https://help.nosto.com/en/articles/1441625-how-to-use-the-nosto-debug-toolbar)" or the Preview-link in your Markets overview to ensure that everything is correctly configured.
 * Verify exchange rates and translations.
 * Make final adjustments as needed before launching Nosto for your Market.
+
+## Global-E & Markets Pro
+
+In some cases you might encounter incorrect prices showing up in the Front End (e.g. in Recommendations). This can happen when Nosto grabs exchange rates for multiple currencies from Shopify, but in fact prices are set through Global-E or in Markets Pro). In that case it can be needed to add an additional functionality to your templates. in order to ensure prices in the FE are always showing correctly. Please check here, or reach out to you Nosto contact and ask for help.&#x20;
 
 ## Technical Details
 

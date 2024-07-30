@@ -1,36 +1,17 @@
-# Technical Details (how to use it)
+# Shopify International - Front End addition
 
-### Before you start
+## Shopify International - JS API version
 
-In order to workaround product pricing for Shopify Markets, there are two small changes needed in your Shopify code.
+### How it works
 
-1.  You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:\\
+This approach is based on a new JS API `migrateToShopifyMarket.` Using this API, you can load Nosto campaigns with following details updated for the current market, automatically.
 
-    ```liquid
-
-    {% raw %}
-    {% if shop.enabled_currencies.size > 1 %}
-    {% for currency in shop.enabled_currencies %}
-    {% if currency == cart.currency %}
-    <div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-    {% endraw %}
-
-
-    ```
-2.  You need to manually **add** the following snipped to your `theme.liquid`: \\
-
-    ```liquid
-    <script>
-      var Shopify = Shopify || {};
-      Shopify.nosto = {}
-      Shopify.nosto.money_format = {{ shop.money_format | json }};
-    </script>
-    ```
-
-
+1. Product URL - updates Product URL for every product in the recommendation to match the URL of the store's market. At the same time, the URL will retain all the attribution parameters from the original URL
+2. Product Title - updates Product Title, for every product in the recommendation, to reflect the language of the current market
+3. Product Description - updates Product description, for every product in the recommendation, to reflect the language of the current market
+4. Product Category - updates Product category, for every product in the recommendation, to reflect the language of the current market. Please note that this only affects the main category (fetched from Shopify's "Product Type" field).
+5. Product Variant Options - For those recommendations containing variant selectors, this API translates all the variant options and title to reflect the language of the current market.&#x20;
+6. Product Price - updates Price & List-Price showing to match currency and price of customers location.
 
 ### Usage
 
