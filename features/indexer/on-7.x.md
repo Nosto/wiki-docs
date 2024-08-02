@@ -171,6 +171,32 @@ WHERE
     op.topic_name = "nosto_product_sync.delete"
 ```
 
+### Slow Message Queue Consumption To Send Products To Nosto <a id="slow-queue-consumption"></a>
+
+If you have a large enough catalog where processing and sending products to Nosto seems to take a long time, you may try to spawn multiple consumer processes:
+
+
+https://experienceleague.adobe.com/en/docs/commerce-operations/configuration-guide/message-queues/manage-message-queues#configuration
+
+**NOTE:** Keep in mind that this will require more resources from your MySQL and PHP servers. Monitor and adjust the values as needed to avoid out of memory and locking tables errors.
+
+
+```php
+...
+'cron_consumers_runner' => [
+    'cron_run' => true,
+    'max_messages' => 1000,
+    'consumers' => [
+        'nosto_product_sync.update',
+        'nosto_product_sync.delete',
+    ],
+    'multiple_processes' => [
+        'nosto_product_sync.update' => 4,
+        'nosto_product_sync.delete' => 1,
+    ]
+],
+```
+
 ### Bulk attribute updates not synchronized to Nosto <a id="bulk-attribute-updates-not-synchronized-to-nosto"></a>
 
 If you have the indexer running on mode "Update by save" the bulk operations are not automatically reflected to Nosto. This is due to how Magento processes bulk updates internally.‌
