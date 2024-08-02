@@ -30,6 +30,12 @@ Once you completed all steps outlined in our "before you start" section, you can
 * Verify exchange rates and translations.
 * Make final adjustments as needed before launching Nosto for your Market.
 
+## Fulfillable Inventory
+
+Nosto supports Fulfillable Inventory for international sales channels. To activate, please reach out to us directly, and share the IDs of your inventory locations per Market. There IDs you can find when navigating to your location in Shopify - the ID will be at the end of your URL in the browser. \
+\
+The Nosto team will enable the functionality for you, and assign the locations to you Market accounts. After this, a full Product Sync will be started. Please note that the initial sync will take more time than usual, with around 250 products per hour (seperately for your Markets). The process will speed up while it's running, and every sync afterwards will be within normal product sync expectations.&#x20;
+
 ## Global-E & Markets Pro
 
 In some cases you might encounter incorrect prices showing up in the Front End (e.g. in Recommendations). This can happen when Nosto grabs exchange rates for multiple currencies from Shopify, but in fact prices are set through Global-E or in Markets Pro). In that case it can be needed to add an additional functionality to your templates. in order to ensure prices in the FE are always showing correctly. Please check here, or reach out to you Nosto contact and ask for help.&#x20;
@@ -52,7 +58,6 @@ There are some limitations to the data that Nosto can receive
   Usage examples include Filters on Search- & Category pages and badges in Product Recommendations, among others.
 * To allow Nosto to pull your metafields, those need to be accessible through the storefront. See also: [Shopify documentation](https://help.shopify.com/en/manual/custom-data/access-options)
 * The integration is only compatible with the new version of Category Merchandising (through [code editor](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-code-editor/implementing-category-pages) or [API](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages))
-* Products included/excluded to a specific Market after initial sync do not get synced automatically. When a product gets excluded from a specific Market, please trigger a product update from your Nosto dashboard.
 
 ## Deactivating Shopify Markets
 
