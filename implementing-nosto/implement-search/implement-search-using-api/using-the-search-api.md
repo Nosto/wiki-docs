@@ -1,13 +1,22 @@
 # Use the Search & Categories API
 
+{% hint style="warning" %}
+Not all of Nosto's functionality is available for pure API integrations. The following features require [search](../search/ "mention"):
+
+* Analytics
+* Segmentation
+* A/B testing
+* Debug toolbar
+{% endhint %}
+
 {% hint style="info" %}
-Note that both Search & Categories are built on the same technical foundation and use the same API and product data. For simplicity, we will just refer to _Search API_ in the following documentation.
+Both Search and Categories are built on the same technical foundation and use the same API and product data. For simplicity, we will just refer to _Search API_ in the following documentation.
 {% endhint %}
 
 ## Playground and API reference <a href="#graphql-playground" id="graphql-playground"></a>
 
-{% hint style="info" %}
-Use [Search API Playground](https://search.nosto.com/v1/graphql) to try out search queries and browse API reference.
+{% hint style="success" %}
+Use the [Search API Playground](https://search.nosto.com/v1/graphql) to try out search queries and browse API reference.
 {% endhint %}
 
 It provides:
