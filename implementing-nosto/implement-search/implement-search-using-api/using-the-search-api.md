@@ -1,7 +1,7 @@
 # Use the Search & Categories API
 
 {% hint style="warning" %}
-Not all of Nosto's functionality is available for pure API integrations. The following features require [search](../search/ "mention"):
+Not all of Nosto's functionality is available for pure **GraphQL** API integrations. The following features require [search](../search/ "mention"):
 
 * Analytics
 * Segmentation
