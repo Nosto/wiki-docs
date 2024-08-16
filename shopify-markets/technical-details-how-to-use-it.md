@@ -13,6 +13,34 @@ This approach is based on a new JS API `migrateToShopifyMarket.` Using this API,
 5. Product Variant Options - For those recommendations containing variant selectors, this API translates all the variant options and title to reflect the language of the current market.&#x20;
 6. Product Price - updates Price & List-Price showing to match currency and price of customers location.
 
+### Before you start
+
+There are two small changes needed in your Shopify code.
+
+1. You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:
+
+```
+{% raw %}
+{% if shop.enabled_currencies.size > 1 %}
+{% for currency in shop.enabled_currencies %}
+{% if currency == cart.currency %}
+<div class="nosto_variation" style="display: none;">{{ currency.iso_code }}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endraw %}
+```
+
+2. You need to manually **add** the following snipped to your `theme.liquid`:&#x20;
+
+```
+<script>
+  var Shopify = Shopify || {};
+  Shopify.nosto = {}
+  Shopify.nosto.money_format = {{ shop.money_format | json }};
+</script>
+```
+
 ### Usage
 
 The API takes an Object `RecProductElementSelectors` as a single parameter. The following table lists all the allowed mandatory and optional parameters of `RecProductElementSelectors` Object
