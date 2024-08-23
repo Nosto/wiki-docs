@@ -2,6 +2,7 @@
 
 * [Personalization for Shopify](README.md)
 * [Installing](Installing.md)
+* [Shopify Pixel](shopify-pixel.md)
 * [Uninstalling](uninstalling.md)
 * [Shopify International](shopify-markets/README.md)
   * [Shopify International - Front End addition](shopify-markets/technical-details-how-to-use-it.md)
