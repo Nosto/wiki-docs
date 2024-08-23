@@ -10,6 +10,7 @@ Before you begin setting up your Shopify Markets personalization with Nosto foll
 
 1. **Get Access to Shopify Markets through Nosto Team:** Reach out to your Nosto contact person or to [Nosto Support](mailto:support@nosto.com). Please give them your nosto account ID, and wait for confirmation that Shopify Markets has been enabled for you.
 2. **Enable Shopify Markets** by pressing the similarly named button in your Nosto account (via Settings -> Integrations -> Shopify "Manage"). This step might take a couple of minutes.&#x20;
+3. Please be aware, that it is needed to use Shopify's new Checkout (including new Thank You page) in order to ensure orders get mapped correctly to your matching Nosto instances.
 
 ## Implementation Process
 
