@@ -239,3 +239,10 @@ mutation {
 }
 ```
 
+## GraphQL from mobile applications
+
+When making GraphQL queries from mobile applications, it's essential to define the user agent string in your HTTP headers. 
+Ideally, the user agent should represent the mobile environment, including details such as the platform, device type, and application version.
+Avoid using terms like "bot" in the user agent string, as this might lead to unintended behavior or rejection of the query/session.
+Sending an empty user agent will also lead to be catch by the bot detection mechanism.
+
