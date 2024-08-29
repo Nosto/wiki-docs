@@ -82,7 +82,7 @@ function getSku(query, product) {
 }
 
 export default ({ product }) => {
-    const { query: { query }} = useAppState()
+    const query = useAppStateSelector((state) => state.query.query)
     const sku = getSku(query, product)
 
     return <a href={sku?.url || product.url}>
