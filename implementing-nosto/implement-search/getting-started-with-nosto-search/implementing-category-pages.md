@@ -2,10 +2,6 @@
 
 Category pages can be rendered using search templates over existing category pages.
 
-{% hint style="info" %}
-It's recommended to disable or hide (for instance, using CSS) the original category page products to avoid displaying them while new results are loading. This prevents any possible confusion for users as the updated results are populated.
-{% endhint %}
-
 ## Configuration
 
 To render the category page, provide additional configuration parameters to the `init` function in the `index.js` entry point file. Default configurations for `categoryQuery` and `isCategoryPage` are already provided. Custom configuration is necessary only if the default settings are not suitable for your application.
@@ -46,6 +42,23 @@ init({
     // historyComponent,
     // autocompleteComponent,
 })
+```
+{% endcode %}
+
+### Handling native results
+
+Nosto will attempt to display the original category page products in case Nosto service is unavailable or can't be reached. In addition, the original products are made available for the SEO crawlers, improving the page's ranking in the search engines. To make it possible, it's recommended to hide the original category page products instead of removing or blocking them.
+
+The best approach is to add `ns-content-hidden` class name to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This class name will be stripped away by Nosto automatically as soon as the script is initialized.
+
+In addition, you should define CSS to hide the target element:
+
+{% code title="css" %}
+```css
+.ns-content-hidden {
+    display: none;
+    /* Or other styles as needed */
+}
 ```
 {% endcode %}
 
