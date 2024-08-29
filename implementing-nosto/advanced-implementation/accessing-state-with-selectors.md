@@ -1,6 +1,6 @@
 # Accessing state with selectors
 
-In Nosto, accessing the app state is simple. `useAppState` hook provides you full access to the entire application state.
+`useAppState` hook provides you full access to the entire application state.
 
 {% code title="State example" %}
 ```jsx
@@ -13,7 +13,7 @@ export default () => {
 ```
 {% endcode %}
 
-While simple, this approach has a number of disadvantages. Namely, any change to the state will trigger a re-render on every component that uses the state; and it may be awkward to access data that does not reside in a top level property.
+While simple, this approach has a number of disadvantages. Namely, any change to the state will trigger a re-render on every component that uses the state; and it may be complicated to access nested data. For better performance and usability, consider the `useAppStateSelector` hook described in the next section
 
 {% code title="Example" %}
 ```jsx
@@ -22,8 +22,6 @@ const { response: { products }} = useAppState()
 {% endcode %}
 
 ## Selector hook
-
-The solution to the issues describe above is the `useAppStateSelector` hook. If you have used selectors from other popular state management libraries, then you are already familiar with the concept.
 
 `useAppStateSelector` hook accepts one argument, which is a function taking a part (also known as a slice) of the state. The hook will then trigger a component render only when this slice changes.
 
@@ -46,7 +44,7 @@ const { query, response } = useAppStateSelector(state => ({
 ```
 {% endcode %}
 
-The code above is valid and does not have any issues. However, Nosto provides a shorthand for this case, allowing you to select multiple properties from the object a bit easier.
+Nosto also offers a shorthand version for selecting multiple properties, the `Pick` function. With this function, selecting multiple properties from the object becomes easier.
 
 {% code title="Example" %}
 ```jsx
@@ -57,5 +55,5 @@ const { query, response } = useAppStateSelector(state => pick(state, "query", "r
 {% endcode %}
 
 {% hint style="info" %}
-The Pick utility is fully type-safe and independent from proprietary logic, allowing you to freely use it on any object in your code.
+The Pick utility is fully independent from proprietary logic, allowing you to freely use it on any object in your code.
 {% endhint %}

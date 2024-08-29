@@ -398,7 +398,7 @@ export default ({ product }) => {
 
 ### Handling native results
 
-It's recommended to hide the original search results to avoid displaying them while Nosto is initializing. This prevents any possible confusion for users and avoids visual flickering of the page.
+Nosto will attempt to display the original search results in case Nosto service is unavailable or can't be reached. In addition, the original products are made available for the SEO crawlers, improving the page's ranking in the search engines. To make it possible, it's recommended to hide the original search results instead of removing or blocking them.
 
 The best approach is to add `ns-content-hidden` class name to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This class name will be stripped away by Nosto automatically as soon as the script is initialized.
 
@@ -408,15 +408,10 @@ In addition, you should define CSS to hide the target element:
 ```css
 .ns-content-hidden {
     display: none;
+    /* Or other styles as needed */
 }
 ```
 {% endcode %}
-
-{% hint style="info" %}
-You are free to change the exact styles use as long as they hide the content from view and the class name matches the one Nosto is looking for.
-{% endhint %}
-
-It is not recommended to completely block or remove native results from the page as Nosto will attempt to display the original search results or page content in case Nosto service is unavailable or can't be reached. In addition, the original content is made available for the SEO crawlers, improving your page's ranking in the search engines.
 
 ## Analytics
 
@@ -460,11 +455,11 @@ init({
 })
 ```
 
-Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the native content Nosto has overridden will be restored.
+Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for 10 minutes, and the original content Nosto has overridden will be restored.
 
 ### Alternative Fallback Behaviour
 
-If the behaviour described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails.
+If the behaviour described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails. After that, Nosto will not attempt to override the original search results or category pages for 10 minutes.
 
 {% hint style="info" %}
 This behaviour has been the default fallback behaviour before August 20, 2024.

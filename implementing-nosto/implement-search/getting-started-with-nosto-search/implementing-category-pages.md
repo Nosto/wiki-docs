@@ -47,7 +47,7 @@ init({
 
 ### Handling native results
 
-It's recommended to hide the original category page products to avoid displaying them while Nosto is initializing. This prevents any possible confusion for users and avoids visual flickering of the page.
+Nosto will attempt to display the original category page products in case Nosto service is unavailable or can't be reached. In addition, the original products are made available for the SEO crawlers, improving the page's ranking in the search engines. To make it possible, it's recommended to hide the original category page products instead of removing or blocking them.
 
 The best approach is to add `ns-content-hidden` class name to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This class name will be stripped away by Nosto automatically as soon as the script is initialized.
 
@@ -57,15 +57,10 @@ In addition, you should define CSS to hide the target element:
 ```css
 .ns-content-hidden {
     display: none;
+    /* Or other styles as needed */
 }
 ```
 {% endcode %}
-
-{% hint style="info" %}
-You are free to change the exact styles use as long as they hide the content from view and the class name matches the one Nosto is looking for.
-{% endhint %}
-
-It is not recommended to completely block or remove native results from the page as Nosto will attempt to display the original category page products in case Nosto service is unavailable or can't be reached. In addition, the original products are made available for the SEO crawlers, improving your page's ranking in the search engines.
 
 ### Detect search page
 
