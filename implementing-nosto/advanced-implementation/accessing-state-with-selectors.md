@@ -2,7 +2,7 @@
 
 Deprecated `useAppState` hook provides you full access to the entire application state.
 
-While simple, this hook has a number of disadvantages. Namely, any change to the state will trigger a re-render on every component that uses the state; and it may be complicated to access nested data. For better performance and usability, consider the `useAppStateSelector` hook described in the next section
+While simple, this hook has a number of disadvantages. Namely, any change to the state will trigger a re-render on every component that uses the state; and it may be complicated to access nested data. For better performance and usability, the `useAppStateSelector` hook described in the next section should be used instead.
 
 ## Selector hook
 
