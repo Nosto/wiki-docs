@@ -396,6 +396,28 @@ export default ({ product }) => {
 ```
 {% endcode %}
 
+### Handling native results
+
+It's recommended to hide the original search results to avoid displaying them while Nosto is initializing. This prevents any possible confusion for users and avoids visual flickering of the page.
+
+The best approach is to add `ns-content-hidden` classname to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This classname will be stripped away by Nosto automatically as soon as the script is initialized.
+
+In addition, you should define CSS to hide the target element:
+
+{% code title="css" %}
+```css
+.ns-content-hidden {
+    display: none;
+}
+```
+{% endcode %}
+
+{% hint style="info" %}
+You are free to change the exact styles use as long as they hide the content from view and the class name matches the one Nosto is looking for.
+{% endhint %}
+
+It is not recommended to completely block or remove native results from the page as Nosto will attempt to display the original search results or page content in case Nosto service is unavailable or can't be reached. In addition, the original content is made available for the SEO crawlers, improving your page's ranking in the search engines.
+
 ## Analytics
 
 Search automatically tracks to Google Analytics & Nosto Analytics when using `SerpElement` component.
@@ -438,7 +460,24 @@ init({
 })
 ```
 
-Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the user will be redirected to the same page they are currently on.
+Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the native content Nosto has overriden will be restored.
+
+### Alternative Fallback Behaviour
+
+If the behaviour described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails.
+
+{% hint style="info" %}
+This behaviour has been the default fallback behaviour before August 20, 2024.
+{% endhint %}
+
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    ...window.nostoTemplatesConfig,
+    fallback: 'legacy',
+})
+```
 
 ### Customizing Fallback Location
 
