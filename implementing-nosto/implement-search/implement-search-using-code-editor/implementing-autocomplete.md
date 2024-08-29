@@ -44,10 +44,13 @@ The full list of Configuration options is documented [here](https://nosto.github
 
 {% code title="autocomplete/index.jsx" %}
 ```jsx
-import { useAppState, AutocompleteElement } from '@nosto/preact'
+import { useAppStateSelector, AutocompleteElement } from '@nosto/preact'
 
 export default () => {
-    const { response: { products, keywords } } = useAppState()
+    const { products, keywords } = useAppStateSelector((state) => ({
+        products: state.response.products,
+        keywords: state.response.keywords
+    }))
 
     if (!products?.hits?.length && !keywords?.hits?.length) {
         return
@@ -132,10 +135,10 @@ History component renders user search history. It is displayed when user clicks 
 
 {% code title="history/index.jsx" %}
 ```jsx
-import { useAppState, HistoryElement } from '@nosto/preact'
+import { useAppStateSelector, HistoryElement } from '@nosto/preact'
 
 export default () => {
-    const { historyItems } = useAppState()
+    const historyItems = useAppStateSelector((state) => state.historyItems)
 
     if (!historyItems || !historyItems.length) {
         return

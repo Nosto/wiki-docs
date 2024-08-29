@@ -80,10 +80,13 @@ The category component should also be implemented. In most cases, it is the same
 
 {% code title="category/index.jsx" %}
 ```jsx
-import { useAppState } from '@nosto/preact'
+import { useAppStateSelector } from '@nosto/preact'
 
 export default () => {
-    const { response: { products }, loading } = useAppState()
+    const { products, loading } = useAppStateSelector((state) => ({
+        products: state.response.products,
+        loading: state.loading,
+    }))
 
     return (
         <div>

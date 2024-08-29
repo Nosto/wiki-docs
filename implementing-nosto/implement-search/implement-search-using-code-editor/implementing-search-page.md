@@ -50,10 +50,13 @@ The search results page component should render a full search page using the pro
 
 {% code title="serp/index.js" %}
 ```jsx
-import { useAppState, SerpElement } from '@nosto/preact'
+import { useAppStateSelector, SerpElement } from '@nosto/preact'
 
 export default () => {
-    const { response: { products }, loading } = useAppState()
+    const { products, loading } = useAppStateSelector((state) => ({
+        products: state.response.products,
+        loading: state.loading,
+    }))
 
     return (
         <div>
