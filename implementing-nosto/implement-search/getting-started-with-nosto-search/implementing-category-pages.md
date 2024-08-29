@@ -49,7 +49,7 @@ init({
 
 It's recommended to hide the original category page products to avoid displaying them while Nosto is initializing. This prevents any possible confusion for users and avoids visual flickering of the page.
 
-The best approach is to add `ns-content-hidden` classname to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This classname will be stripped away by Nosto automatically as soon as the script is initialized.
+The best approach is to add `ns-content-hidden` class name to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This class name will be stripped away by Nosto automatically as soon as the script is initialized.
 
 In addition, you should define CSS to hide the target element:
 

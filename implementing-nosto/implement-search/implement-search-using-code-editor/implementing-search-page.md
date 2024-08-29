@@ -400,7 +400,7 @@ export default ({ product }) => {
 
 It's recommended to hide the original search results to avoid displaying them while Nosto is initializing. This prevents any possible confusion for users and avoids visual flickering of the page.
 
-The best approach is to add `ns-content-hidden` classname to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This classname will be stripped away by Nosto automatically as soon as the script is initialized.
+The best approach is to add `ns-content-hidden` class name to the same element you are targeting with `contentCssSelector` or `categoryCssSelector`. This class name will be stripped away by Nosto automatically as soon as the script is initialized.
 
 In addition, you should define CSS to hide the target element:
 
@@ -460,7 +460,7 @@ init({
 })
 ```
 
-Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the native content Nosto has overriden will be restored.
+Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for a short period, and the native content Nosto has overridden will be restored.
 
 ### Alternative Fallback Behaviour
 
