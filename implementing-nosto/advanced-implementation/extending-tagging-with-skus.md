@@ -55,7 +55,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 
     <div class="line_item">
         <span class="product_id">Canoe123</span>
-        <span class="sku_id">201-1</span>
+        <span class="sku_id">1</span>
         <span class="quantity">1</span>
         <span class="name">Acme Canoe</span>
         <span class="unit_price">999.00</span>
@@ -64,7 +64,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 
     <div class="line_item">
         <span class="product_id">Canoe123</span>
-        <span class="sku_id">201-2</span>
+        <span class="sku_id">2</span>
         <span class="quantity">1</span>
         <span class="name">Acme Canoe</span>
         <span class="unit_price">999.00</span>
@@ -73,7 +73,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 
     <div class="line_item">
         <span class="product_id">Canoe245</span>
-        <span class="sku_id">101-1</span>
+        <span class="sku_id">1</span>
         <span class="quantity">3</span>
         <span class="name">Acme Large Canoe</span>
         <span class="unit_price">19.00</span>
@@ -100,7 +100,7 @@ When tagging the order contents as outlined here, you can also tag information o
     <div class="purchased_items">
         <div class="line_item">
             <span class="product_id">Canoe123</span>
-            <span class="sku_id">101-1</span>
+            <span class="sku_id">1</span>
             <span class="quantity">1</span>
             <span class="name">Acme Canoe</span>
             <span class="unit_price">999.00</span>
@@ -109,7 +109,7 @@ When tagging the order contents as outlined here, you can also tag information o
 
         <div class="line_item">
             <span class="product_id">Canoe245</span>
-            <span class="sku_id">101-1</span>
+            <span class="sku_id">2</span>
             <span class="quantity">3</span>
             <span class="name">Acme Large Canoe</span>
             <span class="unit_price">19.00</span>
