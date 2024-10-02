@@ -2,7 +2,7 @@
 
 ## **Why use Search Templates?**
 
-Search Templates allows you to add a search function to your website quickly and easily without the need to use an API. You can customize the design of your search pages and autocomplete boxes to match your brand's look and feel. This saves you a lot of time compared to implementing search functionality through an API.
+Search Templates allow you to add a search function to your website quickly and easily without the need to use an API. You can customize the design of your search pages and autocomplete boxes to match your brand's look and feel. This saves you a lot of time compared to implementing search functionality through an API.
 
 ## Get Started
 
@@ -16,7 +16,7 @@ You will then be redirected to the Code Editor window, where you can see and edi
 
 <figure><img src="../../../.gitbook/assets/57d98ca7-b54b-413a-9f2d-31192e02440e.png" alt=""><figcaption><p>Code Editor</p></figcaption></figure>
 
-Search Templates ships with a library called `@nosto/preact` that contains functionality to interact with the Nosto Search product. API documentation for the library is available [here](https://nosto.github.io/search-templates/library/)
+Search Templates ship with a library called `@nosto/preact` that contains functionality to interact with the Nosto Search product. API documentation for the library is available [here](https://nosto.github.io/search-templates/library/)
 
 ## Project structure
 
