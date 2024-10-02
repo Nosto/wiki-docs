@@ -147,6 +147,10 @@ Tracking search events to analytics can be divided into three parts: `search`, `
 
 JS API library provides tracking helpers for all of these cases.
 
+### Error Handling
+
+On errors from `api.search` calls the error object contains a status field that has the HTTP response status which can be used to determine the cause of the error in addition to the error message. The ranges of the status codes used for errors are 400-499 and 500-599. For details on these error codes, go to [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
+
 ### Search
 
 User actions that lead to search results should be tracked with `api.recordSearch()` after search request is done:
