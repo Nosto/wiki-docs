@@ -6,7 +6,7 @@ Your search engine will be ready after the Nosto representative enables the Sear
 
 ## Implementation methods
 
-### Code Editor
+### Search Templates
 
 By using a pre-built template that can be customized to fully match a website's design using built-in code editor directly in [https://my.nosto.com/](https://my.nosto.com/). In the code editor, you can fully customize the pre-built template's JavaScript, HTML, and CSS code. Changes to the template can be implemented either by client’s developers or Nosto team. Frontend integration uses Preact and JSX templates and renders search results page dynamically in website’s frontend, so no additional integration is needed to the backend. When using Nosto services, no development is needed from the client.
 
@@ -32,14 +32,14 @@ For frontend integrations you can also use our JavaScript library. This library 
 
 ## Compare implementations
 
-|                                                | Code Editor     | API       | JavaScript Library |
-| ---------------------------------------------- | --------------- | --------- | ------------------ |
-| Can be implemented by Nosto team               | Yes             | No        | No                 |
-| Expected time to launch live                   | 1-3 weeks**\*** | 4-8 weeks | 3-6 weeks          |
-| Headless compatible                            | Yes             | Yes       | Yes                |
-| Fully customizable frontend                    | Yes             | Yes       | Yes                |
-| Customized and managed only in Nosto dashboard | Yes             | No        | No                 |
-| Suitable for complex use cases                 | Sometimes       | Yes       | Yes                |
+|                                                | Search Templates | API       | JavaScript Library |
+| ---------------------------------------------- | ---------------- | --------- | ------------------ |
+| Can be implemented by Nosto team               | Yes              | No        | No                 |
+| Expected time to launch live                   | 1-3 weeks**\***  | 4-8 weeks | 3-6 weeks          |
+| Headless compatible                            | Yes              | Yes       | Yes                |
+| Fully customizable frontend                    | Yes              | Yes       | Yes                |
+| Customized and managed only in Nosto dashboard | Yes              | No        | No                 |
+| Suitable for complex use cases                 | Sometimes        | Yes       | Yes                |
 
 {% hint style="info" %}
 \* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.&#x20;
