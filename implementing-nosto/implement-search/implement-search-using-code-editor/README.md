@@ -1,2 +1,2 @@
-# Implement Search using Code Editor
+# Implement Search using Search Templates
 

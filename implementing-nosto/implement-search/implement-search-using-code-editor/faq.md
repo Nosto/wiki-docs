@@ -1,7 +1,7 @@
 # FAQ
 
 {% hint style="info" %}
-Since the Code Editor utilizes the Search API under the hood, please also check the [Search API FAQ](../implement-search-using-api/faq.md)
+Since Search Templates utilize the Search API under the hood, please also check the [Search API FAQ](../implement-search-using-api/faq.md)
 {% endhint %}
 
 ## Share search templates code between multiple accounts
