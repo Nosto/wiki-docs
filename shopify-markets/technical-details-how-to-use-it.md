@@ -67,6 +67,7 @@ In case of any issues with the API call or element structuring, the API will pro
 2. Only allows 1 primary variant
 3. Strict structuring necessary. In other words, it's necessary to follow the rules defined in the description of each API parameters.
 4. While providing multiple variant options, it's not possible to pre-configure the option to be selected for sub-level variants. The API selects the first option automatically.
+5. Currency conversion is _not_ compatible with Search and Category Merchandising (Universal).
 
 ### Examples
 
