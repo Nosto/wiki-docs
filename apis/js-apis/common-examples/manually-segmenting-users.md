@@ -16,5 +16,6 @@ nostojs(api => {
 });
 ```
 
-Once you have done so, read our guide on [segmenting users via custom events](https://help.nosto.com/articles/2398016-visit-custom-event).
+Once you have done so, read our guide on [segmenting users via custom events](#user-content-fn-1)[^1].
 
+[^1]: 
