@@ -4,13 +4,13 @@ Nosto provides functionality to retrieve all products for a specific category. T
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
-### Using category ID
+### Using category ID and category path
 
 {% hint style="info" %}
 Using the category ID is only fully supported for Shopify merchants. Others should use the category path instead to benefit from full functionality.
 {% endhint %}
 
-Provide the [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category.&#x20;
+Provide the [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category. Additionally [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) should be provided for better analytics data.
 
 #### Query
 
@@ -19,7 +19,8 @@ query {
   search(
     accountId: "YOUR_ACCOUNT_ID"
     products: {
-      categoryId: "123456789"
+      categoryId: "123456789",
+      categoryPath: "Pants"
     }
   ) {
     products {
@@ -41,7 +42,7 @@ query {
 Product fields that can be requested in the `hits` object are documented [here](https://search.nosto.com/v1/graphql?ref=SearchProduct). All indexed fields are accessible via the API.
 {% endhint %}
 
-### Using category path
+### Using only category path
 
 Provide the [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) API parameter to fetch all products associated with that category. This parameter is the same as the `categories` product field.
 
