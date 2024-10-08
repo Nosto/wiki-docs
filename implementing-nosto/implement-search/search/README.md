@@ -89,7 +89,7 @@ nostojs(api => {
 
 ### Category page
 
-For category pages in most cases the `facets` parameter should be provided. And either [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) or [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) should be also provided.
+For category pages in most cases the `facets` parameter should be provided. Additionally [categoryId](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) (for Shopify) and [categoryPath](https://search.nosto.com/v1/graphql?ref=InputSearchProducts) should be also provided.
 
 Furthermore `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
 
@@ -98,6 +98,7 @@ nostojs(api => {
     api.search({
         products: {
             categoryId: '12345',
+            categoryPath: 'Pants',
             fields: ['name'],
             size: 10
         }
@@ -231,6 +232,7 @@ api.recordSearch(
     {
         products: {
             categoryId: "123456",
+            categoryPath: "Pants",
             sort: [{ field: "price", order: "asc" }]
             size: 24,
             from: 0,
@@ -239,6 +241,7 @@ api.recordSearch(
     {
         products: {
             categoryId: "123456",
+            categoryPath: "Pants",
             hits: [{ productId: "123" }, { productId: "124" }],
             fuzzy: true,
             total: 18,
@@ -251,6 +254,8 @@ api.recordSearch(
     }
 )
 ```
+
+The tracking metadata is primarily taken from the third parameter. A good practice is to provide the full query and response objects in the `api.recordSearch` call instead of partials.
 
 ### Search form submit
 
