@@ -194,12 +194,12 @@ nostojs(api => {
     </tr>
     <tr>
       <td>query</td>
-      <td>Full search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td>
+      <td>Full search API query containing a.o.: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td>
       <td></td>
     </tr>
     <tr>
       <td>searchResult</td>
-      <td>Full search API result containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td>
+      <td>Full search API result containing a.o.: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td>
       <td></td>
     </tr>
     <tr>
