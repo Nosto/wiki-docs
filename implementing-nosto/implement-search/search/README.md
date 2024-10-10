@@ -166,19 +166,58 @@ You don't need to execute `api.recordSearch()`if you call `api.search(query, { t
 {% endhint %}
 
 ```javascript
-nostojs(api => {
+nostojs(async (api) => {
+
+    const searchRequest = {
+      query: "shoes",
+      products: {
+        sort: [{ field: "price", order: "asc" }],
+        filter: [{ "field": "brand", "value": "Nike" }]
+      }
+    }
+    const response = await sendGraphQlRequest(searchRequest)
     const searchResult = response.data.search
 
     api.recordSearch(
         type,
-        query,
+        searchRequest,
         searchResult,
         options
       )
 })
 ```
 
-<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>query</td><td>Partial search API query containing: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td><td></td></tr><tr><td>searchResult</td><td>Partial search API results containing: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td><td></td></tr><tr><td>options (optional)</td><td><p>Record search options. Currently is accepts:<br></p><p><code>isKeyword: boolean</code> - should be set when keyword in autocomplete is clicked (search is submitted via keyword)</p></td><td></td></tr></tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th data-hidden></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>request</td>
+      <td><a href="https://search.nosto.com/v1/graphql?ref=Query">Full search API request</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>result</td>
+      <td><a href="https://search.nosto.com/v1/graphql?ref=SearchResult">Full search API result</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>options (optional)</td>
+      <td><p>Record search options. Currently is accepts:<br></p><p><code>isKeyword: boolean</code> - should be set when keyword in autocomplete is clicked (search is submitted via keyword)</p></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 Example:
 
@@ -214,7 +253,7 @@ Example:
 ```javascript
 api.recordSearch(
     'autocomplete', 
-    searchQuery,
+    searchRequest,
     searchResult,
     { 
         isKeyword: true
@@ -255,7 +294,7 @@ api.recordSearch(
 )
 ```
 
-The tracking metadata is primarily taken from the third parameter. A good practice is to provide the full query and response objects in the `api.recordSearch` call instead of partials.
+The tracking metadata is primarily taken from the third parameter. The [full request](https://search.nosto.com/v1/graphql?ref=Query) and [full result](https://search.nosto.com/v1/graphql?ref=SearchResult) objects must be provided in the `api.recordSearch` call instead of partials.
 
 ### Search form submit
 
