@@ -166,12 +166,21 @@ You don't need to execute `api.recordSearch()`if you call `api.search(query, { t
 {% endhint %}
 
 ```javascript
-nostojs(api => {
+nostojs(async (api) => {
+
+    const searchRequest = {
+      query: "shoes",
+      products: {
+        sort: [{ field: "price", order: "asc" }],
+        filter: [{ "field": "brand", "value": "Nike" }]
+      }
+    }
+    const response = await sendGraphQlRequest(searchRequest)
     const searchResult = response.data.search
 
     api.recordSearch(
         type,
-        query,
+        searchRequest,
         searchResult,
         options
       )
@@ -193,13 +202,13 @@ nostojs(api => {
       <td></td>
     </tr>
     <tr>
-      <td>query</td>
-      <td>Full search API query containing a.o.: <code>query</code>, <code>products.sort</code>, <code>products.filter</code></td>
+      <td>request</td>
+      <td><a href="https://search.nosto.com/v1/graphql?ref=Query">Full search API request</a></td>
       <td></td>
     </tr>
     <tr>
-      <td>searchResult</td>
-      <td>Full search API result containing a.o.: <code>products.hits.productId[]</code>, <code>products.fuzzy</code>, <code>products.total</code>, <code>products.size</code>, <code>products.from</code></td>
+      <td>result</td>
+      <td><a href="https://search.nosto.com/v1/graphql?ref=SearchResult">Full search API result</a></td>
       <td></td>
     </tr>
     <tr>
@@ -244,7 +253,7 @@ Example:
 ```javascript
 api.recordSearch(
     'autocomplete', 
-    searchQuery,
+    searchRequest,
     searchResult,
     { 
         isKeyword: true
@@ -285,7 +294,7 @@ api.recordSearch(
 )
 ```
 
-The tracking metadata is primarily taken from the third parameter. The [full query](https://search.nosto.com/v1/graphql?ref=Query) and [full result](https://search.nosto.com/v1/graphql?ref=SearchResult) objects should be provided in the `api.recordSearch` call instead of partials.
+The tracking metadata is primarily taken from the third parameter. The [full request](https://search.nosto.com/v1/graphql?ref=Query) and [full result](https://search.nosto.com/v1/graphql?ref=SearchResult) objects must be provided in the `api.recordSearch` call instead of partials.
 
 ### Search form submit
 
