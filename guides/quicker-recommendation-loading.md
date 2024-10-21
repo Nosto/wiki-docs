@@ -1,10 +1,6 @@
-# Quicker recommendation loading
+# Quicker loading times
 
-{% hint style="info" %}
-Attention: This is our old approach, and not available anymore for merchants who install Nosto in May 2024 or later!
-{% endhint %}
-
-This documentation walks you through the steps for setting up `nostojs` client script on your theme for avoiding delays in loading recommendations
+This documentation walks you through the steps for setting up `nostojs` client script on your theme with higher priority, which aims to loading Nosto faster.&#x20;
 
 ## Approach
 
@@ -31,3 +27,4 @@ Please follow the steps outlined below for setting up your theme:
     ```
 
     This line will make sure Nosto loads recommendations on after the `nosto_element` elements are loaded.
+
