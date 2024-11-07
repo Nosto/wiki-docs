@@ -178,3 +178,5 @@ CSM
 randomstring
 SSL
 experienceleague
+Hyvä
+PWAs
