@@ -131,3 +131,10 @@ With the option enabled Nosto will tag disabled products as `Invisible`.
 
 Inventory level is an API only field, meaning that the crawler will not extract this information from the HTML rendered on the page. This is due to the HTML being public and this information would be exposed to clients.
 In order to fix this, make sure the indexer is running more frequently and you are using the latest version of our module, which has considerable indexing speed improvements.
+
+## SPA, PWA and Hyvä based themes support
+
+This extension is not compatible with Progressive Web Applications (PWAs), Single Page Applications (SPAs), or Hyvä-based themes.
+The incompatibility stems from the extension's implementation using Magento's default Knockout.js for rendering tagging elements.
+The extension utilizes Knockout.js data bindings and templates to dynamically render and update Nosto tracking elements in the DOM, which conflicts with the modern JavaScript frameworks and rendering approaches used in PWAs, SPAs, and Hyvä themes.
+For these modern implementations, you would need to override the extension, remove all front-end related tagging and implement our [Session API manually](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api)
