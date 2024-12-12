@@ -554,6 +554,13 @@ init({
 
 Once fallback is enabled, if the search request fails to retrieve data, the search functionality will be temporarily disabled for 10 minutes, and the original content Nosto has overridden will be restored.
 
+{% hint style="info" %}
+The `fallback: true` setting only works out of the box if the path is the same for both the dedicated Nosto search page and the native search page, as well as for category pages.
+
+If the paths differ, you must configure the `serpFallback` or `categoryFallback` function to ensure proper redirection. See: [Customizing Fallback Location](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page#customizing-fallback-location)
+{% endhint %}
+
+
 ### Alternative Fallback Behaviour
 
 If the behaviour described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails. After that, Nosto will not attempt to override the original search results or category pages for 10 minutes.
