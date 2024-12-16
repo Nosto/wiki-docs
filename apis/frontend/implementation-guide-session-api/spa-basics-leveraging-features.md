@@ -126,3 +126,49 @@ The `load` method returns a promise which can be consumed to get the raw placeme
 ## Working with popups
 
 Popups are handled automatically and you do not need to control the rendering of the popups. As events are dispatched, popups will show and hide automatically. If you would like to have programmatic control over the popups, see [our guide on the Popup JS API](../../js-apis/popups/).
+
+## Working with affinities
+
+Customer affinities are taken into account by the recommendation engine and matched with the affinities defined on the products. The affinities are determined automatically, but the API allows for a more granular manual control when required.
+
+In case `setAffinity` is called multiple times, the provided values will all be merged together.
+
+**Note:** If the same key is provided more than once, the latest encountered value is used, and the earlier keys are overridden.
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+      .viewFrontPage()
+      .setAffinity({ brand: ["nike"] })
+      .setAffinity({ productType: ["shoes"] })
+      .load()
+      .then(handleResponse)
+})
+```
+
+It's possible to provide multiple affinities in a single call to `setAffinity`.
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+      .viewFrontPage()
+      .setAffinity({ productType: ["shoes"], "sku.size": ["42"] })
+      .load()
+      .then(handleResponse)
+})
+```
+
+If the current state of the request needs to be cleared, a second parameter can be provided to the `setAffinity` call. In the example below, `sku.size` key will be removed from the request.
+
+**Note:** This only affects the current local state of the request. It will not remove user's affinities already saved on the backend.
+
+```javascript
+nostojs(api => {
+  api.defaultSession()
+      .viewFrontPage()
+      .setAffinity({ "sku.size": ["42"] })
+      .setAffinity({ productType: ["shoes"] }, { clear: true })
+      .load()
+      .then(handleResponse)
+})
+```
