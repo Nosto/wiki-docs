@@ -133,7 +133,7 @@ Customer affinities are taken into account by the recommendation engine and matc
 
 In case `setAffinity` is called multiple times, the provided values will all be merged together.
 
-**Note:** If the same key is provided more than once, the latest encountered value is used, and the earlier keys are overriden.
+**Note:** If the same key is provided more than once, the latest encountered value is used, and the earlier keys are overridden.
 
 ```javascript
 nostojs(api => {
