@@ -13,6 +13,7 @@ To implement Nosto manually you will need to go through the following steps to e
   * [Adding the Category/Brand Tagging](category-and-brand-tagging.md)
   * [Adding the Search Tagging](search-tagging.md)
   * [Adding the Order Tagging](order-tagging.md)
+  * [Adding the Affinity Tagging](affinity-tagging.md)
   * [Defining Nosto placements](defining-nosto-placements.md)
   * [Tagging your page types](tag-your-page-types.md)
 * [Advanced Usage](../advanced-implementation/)
