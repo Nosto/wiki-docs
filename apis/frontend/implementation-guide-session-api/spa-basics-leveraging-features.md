@@ -172,3 +172,11 @@ nostojs(api => {
       .then(handleResponse)
 })
 ```
+
+As an alternative to the session API, it is possible to provide values directly in the DOM.
+
+```html
+<div class="nosto_affinity_signals" style="display:none">size:42</div>
+<div class="nosto_affinity_signals" style="display:none">brand:nike</div>
+<div class="nosto_affinity_signals" style="display:none">brand:adidas</div>
+```
