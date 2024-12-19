@@ -4,17 +4,33 @@
 
 Nosto fully supports the complete functionality of Shopify International (formerly called Shopify Markets), allowing you to precisely target specific markets individually, unify the experience across all markets, or even employ a combination of both approaches. All of this is accomplished while ensuring language, pricing, currency, and product availability are respected.
 
-## Before you start
+## Preperation
 
-Before you begin setting up your Shopify Markets personalization with Nosto follow these initial steps:&#x20;
+Before you begin setting up your Shopify Markets personalization with Nosto, Please have a chat with your Nosto contact person. The integration has been designed to flexibly adjust to your needs, so planning this ahead of time allows integrating in a way that is tailored to you.&#x20;
 
-1. **Get Access to Shopify Markets through Nosto Team:** Reach out to your Nosto contact person or to [Nosto Support](mailto:support@nosto.com). Please give them your nosto account ID, and wait for confirmation that Shopify Markets has been enabled for you.
-2. **Enable Shopify Markets** by pressing the similarly named button in your Nosto account (via Settings -> Integrations -> Shopify "Manage"). This step might take a couple of minutes.&#x20;
-3. Please be aware, that it is needed to use Shopify's new Checkout (including new Thank You page) in order to ensure orders get mapped correctly to your matching Nosto instances.
+For your planning, please think about the following questions:
 
-## Implementation Process
+**Languages**
 
-Once you completed all steps outlined in our "before you start" section, you can continue by following these step-by-step instructions, starting in Nosto via Settings -> Integrations -> Shopify "Manage":
+* How many languages do you support accross your Markets? Write them down, as every language will get it's own Instance for easier campaign management.&#x20;
+
+**Market Availability**
+
+* Do you have Markets with different product sets? Identify them beforehand, so that these exceptions can be respected.&#x20;
+
+**Dedicated Targeting**
+
+* Do you have Key-Markets that are handled by different teams, have specific needs in merchandising or require dedicated strategy? Let us know, and we will make it happen!
+
+### Implementation Process
+
+Once you shared the above list with your TSM or CSM, the team will set up your instance-strategy for you. Once done, you can find everything in your Nosto account under: Settings -> Integrations -> Shopify "Manage" -> Shopify Markets.&#x20;
+
+Here you can:&#x20;
+
+**Link and unlink Markets**
+
+* All your Markets will be linked to your Nosto instances for you - but of course you have full flexibility, in case your strategy changes down the line. You will be able to change the linking at any point, or ask the Nosto team to do it for you.&#x20;
 
 **Product Syncing Process:**
 
@@ -22,14 +38,9 @@ Once you completed all steps outlined in our "before you start" section, you can
 
 **General Setup:**
 
-* **For New Clients or Tailored Markets:** Set up your campaigns, templates, rulesets, and other details within your Nosto Market accounts to precisely target individual Markets.
-* **For Existing Clients:** If you don't wish to tailor campaigns for each Market, you can reach out to the Nosto team, who can copy the configurations to your Market accounts.
-
-**Verification:**&#x20;
-
-* Utilize the "[Debug Toolbar](https://help.nosto.com/en/articles/1441625-how-to-use-the-nosto-debug-toolbar)" or the Preview-link in your Markets overview to ensure that everything is correctly configured.
-* Verify exchange rates and translations.
-* Make final adjustments as needed before launching Nosto for your Market.
+* Set up your campaigns, templates, rulesets, and other details within your Nosto Market accounts to precisely target individual Markets. All linked Markets will utilise the Main Accounts campaigns automatically\
+  \--> Unlinked Markets will fall back to your Master Account&#x20;
+* If you don't wish to tailor campaigns for each Main Account specifically, you can reach out to the Nosto team, who can copy the configurations to your accounts.
 
 ## Fulfillable Inventory
 
@@ -60,10 +71,3 @@ There are some limitations to the data that Nosto can receive
 * To allow Nosto to pull your metafields, those need to be accessible through the storefront. See also: [Shopify documentation](https://help.shopify.com/en/manual/custom-data/access-options)
 * The integration is only compatible with the new version of Category Merchandising (through [code editor](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-code-editor/implementing-category-pages) or [API](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages))
 
-## Deactivating Shopify Markets
-
-If you choose not to target a specific Market, or if you encounter any issues, you have the option to deactivate a Market account in Nosto. You can do this from the overview within your main account by navigating to Settings -> Integrations, and then clicking on "Manage" next to the Shopify logo. Doing so will halt the loading of the Market-specific script, and instead, the script for your main account will be loaded.
-
-{% hint style="info" %}
-Be aware, that instead your main account will load in your store, which will fully rely on pricing & language information of your main market.
-{% endhint %}
