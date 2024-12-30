@@ -4,7 +4,7 @@
 
 Nosto fully supports the complete functionality of Shopify International (formerly called Shopify Markets), allowing you to precisely target specific markets individually, unify the experience across all markets, or even employ a combination of both approaches. All of this is accomplished while ensuring language, pricing, currency, and product availability are respected.
 
-## Preperation
+## Preparation
 
 Before you begin setting up your Shopify Markets personalization with Nosto, Please have a chat with your Nosto contact person. The integration has been designed to flexibly adjust to your needs, so planning this ahead of time allows integrating in a way that is tailored to you.&#x20;
 
