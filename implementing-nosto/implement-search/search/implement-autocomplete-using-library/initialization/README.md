@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import {
     autocomplete,
     search,
+    priceDecorator,
     Autocomplete,
 } from "@nosto/autocomplete/react"
 import { createRoot } from "react-dom/client"
@@ -42,6 +43,10 @@ export function Search() {
             },
             inputSelector: "#search",
             dropdownSelector: "#search-results",
+            hitDecorators: [
+                // adds priceText & listPrice fields based on Nosto currency formatting rules
+                priceDecorator({ defaultCurrency: "USD" })
+            ],
             render: function (container, state) {
                 if (!reactRoot) {
                     reactRoot = createRoot(container)
@@ -91,4 +96,4 @@ export function Search() {
 | historySize      | No       | `5`                                                              | Max number of history items to show                                                                                          |
 | nostoAnalytics   | No       | `true`                                                           | Enable Nosto Analytics                                                                                                       |
 | googleAnalytics  | No       | `{ serpPath: "search", queryParamName: "query", enabled: true }` | Google Analytics configuration. Set to `false` to disable                                                                    |
-
+| hitDecorators    | No       | N/A                                                              | Decorate each search hit before rendering | 
