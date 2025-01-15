@@ -73,6 +73,39 @@ init({
 ```
 {% endcode %}
 
+#### Customizing dropdown position
+
+When the autocomplete component is injected, by default it will become the next sibling of the input field. It is possible to override that behaviour by specifying the `dropdownCssSelector` value. If this selector is specified, the dropdown will be injected as the last child of the specified element.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    // ...
+    inputCssSelector: '#search',
+    dropdownCssSelector: 'body',
+})
+```
+{% endcode %}
+
+It can also be set to be the first child of the element by using the object selector syntax.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    // ...
+    inputCssSelector: '#search',
+    dropdownCssSelector: {
+        selector: 'body',
+        position: 'first', // 'first' or 'last'
+    },
+})
+```
+{% endcode %}
+
 The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/library/interfaces/Config.html)
 
 ### Autocomplete component
