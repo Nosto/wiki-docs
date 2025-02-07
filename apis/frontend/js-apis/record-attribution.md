@@ -1,22 +1,26 @@
+---
+description: >-
+  The `recordAttribution` API combines the functionality of triggering `vp`
+  event and a `src` event.
+---
+
 # Record Attribution
 
-## Summary
+Input parameters to this API is similar to the Session API version with one minor difference. JS API version accepts an \`Event\` object as a parameter whereas the former version accepts them as individual parameters
 
-Nosto already offers the Session API, for recording attribution. But it's limited to `vp` events so far. In an attempt to expand this functionality to any event types, a new Session API method `recordAttribution` has been introduced. This method can be utilized to update current visit with details of events for attribution.
-
-{% hint style="warning" %}
-Deprecated
-
-The \`recodAttribution\` usage with Session API is deprecated and no longer recommended. The API will continue to work without any issues but we recommend using the JS API version. For more info on JS API, please refer [JS API/Record Attribution](https://app.gitbook.com/o/-LRMLajnypnqWOUawk2L/s/-M4IGuGLvRTou2pTniuH/~/changes/230/apis/frontend/js-apis/record-attribution)
-{% endhint %}
-
-## Usage
-
-The Session API method `recordAttribution` accepts one event at a time, but users can chain multiple calls to `recordAttribution` and add as many events as they want.
+```typescript
+nostojs(api => api.recordAttribution({ 
+  type: "vp",
+  target: "6829460553806", 
+  ref: "191666803", 
+  refType: "cmp" })
+  .done() 
+)
+```
 
 ### Parameters
 
-<table><thead><tr><th width="271" align="center">name</th><th align="center">field type</th><th align="center">is required</th><th align="center">description</th></tr></thead><tbody><tr><td align="center">type</td><td align="center">string</td><td align="center">yes</td><td align="center">type of event to which a placement (ref) should be attributed</td></tr><tr><td align="center">target</td><td align="center">string</td><td align="center">yes</td><td align="center">id of the element that's been loaded as a result of the event</td></tr><tr><td align="center">ref</td><td align="center">string</td><td align="center">no</td><td align="center">id of the element that hosted the link which triggered the event</td></tr><tr><td align="center">refSrc</td><td align="center">string</td><td align="center">no</td><td align="center">id of parent element of the link that triggered the event</td></tr></tbody></table>
+<table><thead><tr><th width="271" align="center">name</th><th align="center">field type</th><th align="center">is required</th><th align="center">description</th></tr></thead><tbody><tr><td align="center">type</td><td align="center">string</td><td align="center">yes</td><td align="center">type of event to which a placement (ref) should be attributed. Refer <a data-mention href="record-attribution.md#event-types">#event-types</a></td></tr><tr><td align="center">target</td><td align="center">string</td><td align="center">yes</td><td align="center">id of the element that's been loaded as a result of the event</td></tr><tr><td align="center">ref</td><td align="center">string</td><td align="center">no</td><td align="center">id of the element that hosted the link which triggered the event</td></tr><tr><td align="center">refSrc</td><td align="center">string</td><td align="center">no</td><td align="center">id of parent element of the link that triggered the event</td></tr><tr><td align="center">targetFragment</td><td align="center">string</td><td align="center">no</td><td align="center">the `skuId` in case of `<code>vp`</code>events </td></tr><tr><td align="center">refType</td><td align="center">string</td><td align="center">no</td><td align="center">Refer <a data-mention href="record-attribution.md#event-ref-types">#event-ref-types</a></td></tr></tbody></table>
 
 ### Event Types
 
@@ -37,74 +41,17 @@ Nosto supports following predefined event types
 |          Page Load (PL)          | An event associated with a page load merchant's website                                                                                                                                                                                                                    |
 |      Content Campaign (CON)      | Event triggered when a customer performs an action inside a content campaign                                                                                                                                                                                               |
 
-### Examples
+### Event Ref Types
 
-1. Attributing a placement click to a `vp` (View Product) event
+The refType (reference types) parameter is introduced as a replacement for Nosto's legacy `src`event. It's specifies the type of source (Nosto feature) that contributed to the attribution. The table below lists all possible reference types
 
-```javascript
-nostojs(api => {
-  api
-  .defaultSession()
-  .recordAttribution("vp", "12345678", "frontpage-nosto-1")
-  .done()
-});
-```
+| Ref Type | Description                                           |
+| -------- | ----------------------------------------------------- |
+| email    | Triggered email                                       |
+| imgrec   | Email widgets                                         |
+| rec      | Onsite recommendation (Nosto recommendation template) |
+| api      | API recommendations (Session/JS API)                  |
+| oc       | Onsite campaigns                                      |
+| cmp      | Category merchandising                                |
+| os       | Onsite search                                         |
 
-In the above example,
-
-* `vp` specifies the type of event and it corresponds to View Product
-* `12345678` specifies the target and it corresponds to the ID of the product that's being viewed
-* `frontpage-nosto-1` specifies the slot’s ID from the placement that hosted the product that’s being clicked
-
-1. Attributing a placement click to a `cc` (Custom Campaign) event
-
-```javascript
-nostojs(api => {
-  api
-  .defaultSession()
-  .recordAttribution("cc", "12345678", "frontpage-nosto-1")
-  .done()
-});
-```
-
-In the above example,
-
-* `cc` specifies the type of event and it corresponds to Custom Campaign
-* `12345678` specifies the target and it corresponds to the ID of the product that's being viewed
-* `frontpage-nosto-1` specifies the slot’s ID from the placement that hosted the product that’s being clicked
-
-1. Adding the fourth `refSrc` parameter
-
-```javascript
-nostojs(api => api
-.defaultSession()
-.recordAttribution("vp", "7513863258337", "productpage-nosto-3", "7513872007393")
-.done()
-```
-
-In the above example,
-
-* `vp` specifies the type of event and it corresponds to View Product
-* `7513863258337` specifies the target and it corresponds to the ID of the product that's being viewed
-* `productpage-nosto-3` specifies the slot’s ID from the placement that hosted the product that’s being clicked
-* `7513872007393` specifies the reference source and it corresponds to the ID of the product displayed in current page (PDP), that contained the `ref` element, (`productpage-nosto-3`)
-
-Here we are recording a `View Product` event for product 7513863258337 which was clicked from the recommendation slot `productpage-nosto-3` while on another product page `7513872007393`
-
-1. Attributing a click inside a content campaign to a `con` (Content Campaign) event
-
-```javascript
-nostojs(api => {
-  api
-  .defaultSession()
-  .recordAttribution("con", "6ef452da787623f2")
-  .done()
-});
-```
-
-In the above example,
-
-* `con` specifies the type of event and it corresponds to Content Campaign
-* `6ef452da787623f2` specifies the target and it corresponds to the ID of the content campaign inside which a customer performs an action
-
-In similar way, we will be able to record attribution for all the event types listed under `Event Types` section of this documentation.

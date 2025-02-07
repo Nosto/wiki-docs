@@ -120,6 +120,7 @@
       * [Manually segmenting users](apis/js-apis/common-examples/manually-segmenting-users.md)
       * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
       * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
+    * [Record Attribution](apis/frontend/js-apis/record-attribution.md)
   * [Nosto React](apis/frontend/react-support/README.md)
 
 ## User Generated Content
