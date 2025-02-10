@@ -139,6 +139,55 @@ init({
 
 <table><thead><tr><th width="210"></th><th width="173.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>Pagination</code></td><td>Replaces <code>from</code> parameter with page number.</td><td>Before:<br><code>/search?products.from=20&#x26;q=shorts</code><br><br>After:<br><code>/search?page=2&#x26;q=shorts</code></td></tr><tr><td><code>Sorting</code></td><td>Returns shorter <code>sort</code> parameters.</td><td>Before:<br><code>/search?q=shorts&#x26;products.sort.0.field=price&#x26;products.sort.0.order=desc</code><br><br>After:<br><code>/search?q=shorts&#x26;products.sort=price~desc</code></td></tr><tr><td><code>Filtering</code></td><td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td><td>Before:<br><code>/search?q=shorts&#x26;products.filter.0.field=customFields.producttype&#x26;products.filter.0.value.0=Shorts&#x26;products.filter.0.value.1=Swim&#x26;products.filter.1.field=price&#x26;products.filter.1.range.0.gte=10&#x26;products.filter.1.range.0.lte=30</code><br><br>After:<br><code>/search?q=shorts&#x26;filter.customFields.producttype=Shorts%7C%7CSwim&#x26;filter.price=10~30</code></td></tr></tbody></table>
 
+### Product thumbnails and currency formatting
+
+Product thumbnails and currency formatting are supported via decorators that augment the product data returned by the Nosto Search service.
+
+The following example shows modifications to the `init` call to make formatted price texts and product thumbnails available in the result data:
+
+```js
+import { init, thumbnailDecorator, priceDecorator } from "@nosto/preact"
+
+init({
+    ...window.nostoTemplatesConfig,
+    ...
+    hitDecorators: [
+        thumbnailDecorator({ size: "9" })
+        priceDecorator()
+    ]
+})
+
+The `thumbnailDecorator` takes a size argument requires the following additional fields to be made available in the result set for accurate thumbnails:
+
+* `imageHash` for `imageUrl` thumbnails
+* `thumbHash` for `thumbUrl` thumbnails
+* `alternateImageHashes` for `alternateImageUrls` thumbnails
+* `sku.imageHash` for `sku.imageUrl` thumbnails
+
+The supported sizes are
+
+* 1: 170x170 px
+* 2: 100x100 px
+* 3: 90x70 px
+* 4: 50x50 px
+* 5: 30x30 px
+* 6: 100x140 px
+* 7: 200x200 px
+* 8: 400x400 px
+* 9: 750x750 px
+* 10: Original (Square)
+* 11: 200x200 px (Square)
+* 12: 400x400 px (Square)
+* 13: 750x750 px (Square)
+
+The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are
+
+* `price` will be formatted to `priceText`
+* `listPrice` will be formatted to `listPriceText`
+* `priceCurrencyCode` will be used to get the curreny code
+
+The same mapping will also be attempted for SKU level data
+
 ### Query parameter mapping
 
 In addition to the `compressUrlParameters` flag the `serpUrlMapping` should be used to control the mapping from URL parameter keys to paths in the internal query object. The default looks like this:
