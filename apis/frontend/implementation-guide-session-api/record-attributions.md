@@ -7,7 +7,7 @@ Nosto already offers the Session API, for recording attribution. But it's limite
 {% hint style="warning" %}
 Deprecated
 
-The \`recodAttribution\` usage with Session API is deprecated and no longer recommended. The API will continue to work without any issues but we recommend using the JS API version. For more info on JS API, please refer [JS API/Record Attribution](https://docs.nosto.com/techdocs/apis/frontend/js-apis/record-attribution)
+The `recordAttribution` usage with Session API is deprecated and no longer recommended. The API will continue to work without any issues but we recommend using the JS API version. For more info on JS API, please refer [JS API/Record Attribution](https://docs.nosto.com/techdocs/apis/frontend/js-apis/record-attribution)
 {% endhint %}
 
 ## Usage
