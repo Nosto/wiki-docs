@@ -43,7 +43,7 @@ Nosto supports following predefined event types
 
 ### Event Ref Types
 
-The refType (reference types) parameter is introduced as a replacement for Nosto's legacy `src`event. It's specifies the type of source (Nosto feature) that contributed to the attribution. The table below lists all possible reference types
+The `refType` (reference types) parameter is introduced as a replacement for Nosto's legacy `src`event. It's specifies the type of source (Nosto feature) that contributed to the attribution. The table below lists all possible reference types
 
 | Ref Type | Description                                           |
 | -------- | ----------------------------------------------------- |
