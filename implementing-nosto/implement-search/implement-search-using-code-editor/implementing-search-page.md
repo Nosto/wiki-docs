@@ -151,6 +151,32 @@ import { init, thumbnailDecorator, priceDecorator } from "@nosto/preact"
 init({
     ...window.nostoTemplatesConfig,
     ...
+    serpQuery: {
+        products: {
+            fields: [
+                "productId",
+                "url",
+                "name",
+                "imageUrl",
+                // needed for thumbnailDecorator
+                "imageHash",
+                "description",
+                "brand",
+                "availability",
+                // needed for priceDecorator
+                "price", 
+                // needed for priceDecorator
+                "listPrice",
+                // needed for priceDecorator
+                "priceCurrencyCode",
+                "ratingValue",
+                "reviewCount"
+            ],
+            facets: ["*"],
+            size: defaultConfig.serpSize,
+            from: 0
+        }
+    },    
     hitDecorators: [
         thumbnailDecorator({ size: "9" })
         priceDecorator()
