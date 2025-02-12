@@ -183,19 +183,27 @@ The `thumbnailDecorator` takes a size argument and requires the following additi
 
 The supported sizes are
 
-* 1: 170x170 px
-* 2: 100x100 px
-* 3: 90x70 px
-* 4: 50x50 px
-* 5: 30x30 px
-* 6: 100x140 px
-* 7: 200x200 px
-* 8: 400x400 px
-* 9: 750x750 px
-* 10: Original (Square)
-* 11: 200x200 px (Square)
-* 12: 400x400 px (Square)
-* 13: 750x750 px (Square)
+<table>
+  <thead>
+    <tr><th>Code</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>170x170 px</td></tr>
+    <tr><td>2</td><td>100x100 px</td></tr>
+    <tr><td>3</td><td>90x70 px</td></tr>
+    <tr><td>4</td><td>50x50 px</td></tr>
+    <tr><td>5</td><td>30x30 px</td></tr>
+    <tr><td>6</td><td>100x140 px</td></tr>
+    <tr><td>7</td><td>200x200 px</td></tr>
+    <tr><td>8</td><td>400x400 px</td></tr>
+    <tr><td>9</td><td>750x750 px</td></tr>
+    <tr><td>10</td><td>Original (Square)</td></tr>
+    <tr><td>11</td><td>200x200 px (Square)</td></tr>
+    <tr><td>12</td><td>400x400 px (Square)</td></tr>
+    <tr><td>13</td><td>750x750 px (Square)</td></tr> 
+  </tbody>
+</table>
+
 
 The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are
 
