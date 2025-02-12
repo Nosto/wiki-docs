@@ -154,23 +154,13 @@ init({
     serpQuery: {
         products: {
             fields: [
-                "productId",
-                "url",
-                "name",
-                "imageUrl",
+                ...
                 // needed for thumbnailDecorator
                 "imageHash",
-                "description",
-                "brand",
-                "availability",
                 // needed for priceDecorator
                 "price", 
-                // needed for priceDecorator
                 "listPrice",
-                // needed for priceDecorator
                 "priceCurrencyCode",
-                "ratingValue",
-                "reviewCount"
             ],
             facets: ["*"],
             size: defaultConfig.serpSize,
@@ -182,8 +172,9 @@ init({
         priceDecorator()
     ]
 })
+```
 
-The `thumbnailDecorator` takes a size argument requires the following additional fields to be made available in the result set for accurate thumbnails:
+The `thumbnailDecorator` takes a size argument and requires the following additional fields to be made available in the result set for accurate thumbnails:
 
 * `imageHash` for `imageUrl` thumbnails
 * `thumbHash` for `thumbUrl` thumbnails
@@ -210,7 +201,7 @@ The `priceDecorator` uses the currency formatting definitions of the Nosto accou
 
 * `price` will be formatted to `priceText`
 * `listPrice` will be formatted to `listPriceText`
-* `priceCurrencyCode` will be used to get the curreny code
+* `priceCurrencyCode` will be used as the currency code
 
 The same mapping will also be attempted for SKU level data
 
