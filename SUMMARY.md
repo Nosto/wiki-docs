@@ -121,6 +121,7 @@
       * [Dynamically sending the cart content](apis/js-apis/common-examples/dynamically-sending-the-cart-content.md)
       * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
     * [Record Attribution](apis/frontend/js-apis/record-attribution.md)
+  * [Open Source](apis/frontend/oss/README.md)
   * [Nosto React](apis/frontend/react-support/README.md)
 
 ## User Generated Content
