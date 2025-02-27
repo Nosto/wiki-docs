@@ -4,6 +4,8 @@
 
 For client-side/frontend integrations, Nosto's JavaScript library can be used to simplify the integration. It provides a programming interface to access the Search & Categories API.
 
+The functionality is available via the `nostojs` function in the browser window context when Nosto has been installed, or via the dedicated wrapper library [search-js](https://github.com/Nosto/search-js) for use in app builds.
+
 For the most basic search the `fields` parameter should be provided to specify what product/keyword fields should be returned. Both `products` and `keywords` can be used separately and together, depending on the use case. For all parameters, see the [reference](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 
 ```javascript
