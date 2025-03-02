@@ -204,8 +204,7 @@ import { NostoCheckout, NostoPlacement } from "@nosto/nosto-react"
 
 You can personalise not found pages by using the `Nosto404` component. The component does not require any props.
 
-By default, your account, when created, has three 404-page placements named `notfound-nosto-1`, `notfound-nosto-2` and `notfound-nosto-2`. You may omit these and use any identifier you need. The identifiers used here are simply provided to illustrate the example.
-
+By default, your account, when created, has three 404-page placements named `notfound-nosto-1`, `notfound-nosto-2` and `notfound-nosto-3`. You may omit these and use any identifier you need. The identifiers used here are simply provided to illustrate the example.
 ```jsx
 import { Nosto404, NostoPlacement } from "@nosto/nosto-react"
 <div className="notfound-page">
