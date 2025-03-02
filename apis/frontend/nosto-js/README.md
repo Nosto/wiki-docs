@@ -62,8 +62,7 @@ Use the `mockNostojs` function to mock the Nosto API in unit tests. The function
 
 ```js
 import { mockNostojs } from "@nosto/nosto-js/testing"
-import dummyTaggging from "./dummyTagging"
-
+import dummyTagging from "./dummyTagging"
 describe("Nosto integration", () => {
 
   beforeAll(() => {
