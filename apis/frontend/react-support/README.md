@@ -38,23 +38,6 @@ _\*\*Note: The search feature is available when implemented via our code editor.
 - ✓ Full support for the JS API.
 - ✓ Full support for placements.
 
-### Building
-
-#### Required versions
-
-- npm: 10.9.0
-- node: v22.12.0
-
-### Installation
-
-##### Yarn:
-
-    yarn add @nosto/nosto-react
-
-##### NPM:
-
-    npm install @nosto/nosto-react
-
 ### Getting Started
 
 ##### The root widget

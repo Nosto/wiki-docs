@@ -4,25 +4,6 @@
 
 For more information about JS API, see [Our documentation](https://docs.nosto.com/techdocs/apis/frontend/js-apis).
 
-## Installation
-
-To install the package, use your preferred package manager:
-
-```bash
-yarn add @nosto/nosto-js
-# or
-npm install @nosto/nosto-js --save
-```
-
-## Modules
-
-| Module | Description |
-|-|-|
-| . | Core functionality |
-| ./client | Client Script types |
-| ./performance | Performance tracking utils |
-| ./testing | Mocking utils |
-
 ## Nosto stub
 
 When using this library, it is not necessary to create the Nosto stub. It will be created automatically as soon as the library is imported for the first time.

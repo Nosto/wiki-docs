@@ -11,16 +11,6 @@ For more information about Nosto platform, see [Our documentation](https://docs.
 
 For sources, issues and contributions, see the [GitHub repository](https://github.com/Nosto/search-js).
 
-## Installation
-
-To install the package, use your preferred package manager:
-
-```bash
-yarn add @nosto/search-js
-# or
-npm install @nosto/search-js --save
-```
-
 ## Nosto stub
 
 When using this library, it is not necessary to create the Nosto stub. It will be created automatically as soon as the library is imported for the first time.
