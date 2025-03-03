@@ -32,11 +32,11 @@ _\*\*Note: The search feature is available when implemented via our code editor.
 
 ### Additional features
 
-- ✓ Lightweight. Almost zero bloat.
-- ✓ Full support for the Facebook Pixel and Google Analytics.
-- ✓ Full support for leveraging overlays.
-- ✓ Full support for the JS API.
-- ✓ Full support for placements.
+- Lightweight. Almost zero bloat.
+- Full support for the Facebook Pixel and Google Analytics.
+- Full support for leveraging overlays.
+- Full support for the JS API.
+- Full support for placements.
 
 ### Getting Started
 
