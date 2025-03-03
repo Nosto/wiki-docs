@@ -122,7 +122,9 @@
       * [Sending Customer Information](apis/js-apis/common-examples/sending-customer-information.md)
     * [Record Attribution](apis/frontend/js-apis/record-attribution.md)
   * [Open Source](apis/frontend/oss/README.md)
-  * [Nosto React](apis/frontend/react-support/README.md)
+    * [Nosto JS](apis/frontend/nosto-js/README.md)
+    * [Search JS](apis/frontend/search-js/README.md)
+    * [Nosto React](apis/frontend/react-support/README.md)
 
 ## User Generated Content
 
