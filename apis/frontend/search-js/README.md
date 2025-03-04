@@ -5,12 +5,6 @@
 * Nosto product thumbnails
 * Retry logic
 
-For @nosto/search-js specific API documentation, see [Our Typedoc](https://nosto.github.io/search-js/).
-
-For more information about Nosto platform, see [Our documentation](https://docs.nosto.com/techdocs).
-
-For sources, issues and contributions, see the [GitHub repository](https://github.com/Nosto/search-js).
-
 ## Nosto stub
 
 When using this library, it is not necessary to create the Nosto stub. It will be created automatically as soon as the library is imported for the first time.
