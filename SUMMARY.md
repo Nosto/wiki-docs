@@ -40,7 +40,7 @@
     * [Implement Category pages](implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages.md)
     * [FAQ](implementing-nosto/implement-search/implement-search-using-api/faq.md)
   * [Using the JavaScript Library](implementing-nosto/implement-search/search/README.md)
-    * [Implement Autocomplete using Nosto JavaScript library](implementing-nosto/implement-search/search/implement-autocomplete-using-library/README.md)
+    * [Implement Autocomplete using the Nosto Autocomplete library](implementing-nosto/implement-search/search/implement-autocomplete-using-library/README.md)
       * [Installation](implementing-nosto/implement-search/search/implement-autocomplete-using-library/installation.md)
       * [Initialization](implementing-nosto/implement-search/search/implement-autocomplete-using-library/initialization/README.md)
         * [Render results](implementing-nosto/implement-search/search/implement-autocomplete-using-library/initialization/render-results.md)
