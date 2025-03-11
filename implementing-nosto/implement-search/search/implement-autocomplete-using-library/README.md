@@ -11,4 +11,4 @@
 
 The Nosto Autocomplete library is independent from the Search Templates offering which covers Search, Category Merchandising and Autocomplete. 
 
-Search Templates offers a hosted development environment based on Visual Studio Web using Preact components for the development of Search and Category Merchandising result pages as well as Autocomplete experiences. Nosto Autocomplete covers only the Autocomplete part as a NPM library and provides integration into various rendering technologies such as React/Preact, Mustache and Liquid.
+Search Templates offers a hosted development environment based on Visual Studio Web using Preact components for the development of Search and Category Merchandising result pages, as well as Autocomplete experiences. Nosto Autocomplete covers only the Autocomplete part as an independent NPM package and provides integration into various rendering technologies such as React/Preact, Mustache and Liquid.
