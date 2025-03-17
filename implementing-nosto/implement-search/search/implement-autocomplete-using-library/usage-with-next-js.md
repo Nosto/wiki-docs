@@ -1,10 +1,10 @@
 # Usage with Next.js
 
-Due to the nature of Next.js being an SSR-first framework, using nosto-autocomplete with Next.js requires a few special considerations.
+Due to the nature of Next.js being a server side rendering framework, using nosto-autocomplete with Next.js requires a few special considerations.
 
 ## Client-side components
 
-Next.js is very particular about how and when the components are rendered. Many parts of the Nosto ecosystem rely on the `window` object being available, which is not the case in SSR environment. For best results, we recommend rendering the nosto-autocomplete as a dynamic client side component.
+Next.js is very particular about how and when the components are rendered. Many parts of the Nosto ecosystem rely on the `window` object being available, which is not the case in the `SSR` environment. For best results, we recommend rendering the nosto-autocomplete as a dynamic client side component.
 
 ```jsx
 import dynamic from 'next/dynamic';
@@ -16,7 +16,7 @@ export const ClientOnlySearch = dynamic(() => import('./components/search').then
 
 ## Rendering results
 
-Our examples show injecting the results into your page using React.createRoot, but with Next.js you will want to avoid that. Instead, you should opt for a React Portal based solution, or just a simple conditional render. Importantly, you should always render the results in the same React context as your main app.
+Our examples show injecting the results into your page using `React.createRoot`, but with Next.js you will want to avoid that. Instead, you should opt for a React Portal based solution, or just a simple conditional render. Importantly, you should always render the results in the same React context as your main app.
 
 For a simple use case, you could extract the state from the `render` function and render the results in the same component.
 
@@ -47,7 +47,7 @@ export function SearchComponent() {
 }
 ```
 
-If you would like to render the results in a different part of your app, consider using [React Portal](https://react.dev/reference/react-dom/createPortal), notifying the relevant component using an event bus, or saving the extracted state object into your state management solution, such as Redux.
+If you would like to render the results in a different part of your app, consider using [React Portal](https://react.dev/reference/react-dom/createPortal), notifying the relevant component using an event bus, or saving the extracted state object into your state management solution, such as `Redux`.
 
 ## Routing
 
