@@ -1,6 +1,6 @@
 # Implement Autocomplete using the Nosto Autocomplete library
 
-**Nosto Autocomplete library is designed to simplify the implementation of Search Autocomplete functionality by providing:**\
+**Nosto Autocomplete library is designed to simplify the implementation of Search Autocomplete functionality by providing:**
 
 * Autocomplete products, keywords and history visualization.
 * Automatic bindings to Nosto Search API.
