@@ -22,6 +22,8 @@ For a simple use case, you could extract the state from the `render` function an
 
 ```jsx
 export function SearchComponent() {
+    import { useState, useEffect } from "react"
+
     const [autocompleteState, setAutocompleteState] = useState()
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export function SearchComponent() {
                 setAutocompleteState(state)
             },
         })
-    })
+    }, [])
 
     return (
         <form id="search-form">
