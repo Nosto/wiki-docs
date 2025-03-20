@@ -29,8 +29,10 @@ The tagging provider system consists of three main components:
 
 ## Data Structure
 
-The tagging provider data follows this basic structure:
+For more details, refer to the Nosto API documentation:
+https://nosto.github.io/nosto-js/interfaces/client.TaggingData.html
 
+The tagging provider data follows this basic structure:
 ```javascript
 {
   "pageType": "product", // product, category, frontpage, cart, search, notfound, order
