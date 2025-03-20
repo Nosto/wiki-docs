@@ -405,4 +405,6 @@ Bear in mind that search queries are split between **organic** and **non-organic
 
 Tracking product clicks is fundamental for understanding user interaction. Use `api.recordSearchClick()` to monitor this actions correctly, specifying the `type` and relevant hit data.
 
+In case of an SPA based integration the `api.recordSearchClick` calls should be complemented with Session API or `api.createRecommendationRequest()` usage to couple the search analytics events to generic Nosto events for accurate attribution.
+
 ***
