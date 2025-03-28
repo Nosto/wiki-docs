@@ -179,4 +179,9 @@ randomstring
 SSL
 experienceleague
 Hyvä
+Hyva
+Luma
+graphqls
 PWAs
+webapi
+TaggingData

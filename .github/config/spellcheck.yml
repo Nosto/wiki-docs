@@ -19,6 +19,7 @@ matrix:
         - code
         - pre
         - a
+        - htmlcontent
   sources:
   - '**/*.md'
   default_encoding: utf-8
