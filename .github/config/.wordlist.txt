@@ -184,3 +184,4 @@ Luma
 graphqls
 PWAs
 webapi
+TaggingData
