@@ -25,7 +25,7 @@ The tagging provider system consists of three main components:
 
 1. **Data Generation**: Magento backend prepares structured data for Nosto
 2. **Data Delivery**: Methods to deliver this data to the frontend
-3. **Provider Registration**: JavaScript that registers the data with Nosto
+3. **Provider Registration**: JavaScript that registers the data with Nosto 
 
 ## Data Structure
 
