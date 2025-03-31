@@ -20,6 +20,7 @@
       * [Resizing Images](guides/overriding-or-extending-functionalities/overriding-product-data/resizing-images.md)
     * [Overriding Customer Data](guides/overriding-or-extending-functionalities/overriding-customer-data.md)
   * [Console Commands](guides/console-commands.md)
+  * [Nosto Tagging Providers Integration Guide](guides/nosto-tagging-providers-integration-guide.md)
 * [Features](features/README.md)
   * [Product data caching](features/product-data-caching/README.md)
     * [Built-in caching](features/product-data-caching/built-in-caching.md)
