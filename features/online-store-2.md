@@ -1,30 +1,31 @@
 # Online Store 2.0
 
-- [Online Store 2.0](#online-store-20)
-  - [Summary](#summary)
-  - [Nosto's implementation](#nostos-implementation)
-    - [Existing Shopify themes](#existing-shopify-themes)
-    - [Online 2.0 themes](#online-20-themes)
-      - [Existing JSON templates](#existing-json-templates)
-      - [New liquid templates](#new-liquid-templates)
-    - [Hybrid themes](#hybrid-themes)
-  - [Migrating customers](#migrating-customers)
+* [Online Store 2.0](online-store-2.md#online-store-20)
+  * [Summary](online-store-2.md#summary)
+  * [Nosto's implementation](online-store-2.md#nostos-implementation)
+    * [Existing Shopify themes](online-store-2.md#existing-shopify-themes)
+    * [Online 2.0 themes](online-store-2.md#online-20-themes)
+      * [Existing JSON templates](online-store-2.md#existing-json-templates)
+      * [New liquid templates](online-store-2.md#new-liquid-templates)
+    * [Hybrid themes](online-store-2.md#hybrid-themes)
+  * [Migrating customers](online-store-2.md#migrating-customers)
 
 ## Summary
 
-Shopify has recently released a version 2.0 of their online themes with numerous changes and enhancements, notably the migration from `.liquid` template files to `.json` template files. This impacted the process of installing Nosto in any of the version 2.0 themes as Nosto mostly expects and modifies `.liquid` files. Nosto has recently released support for version 2.0 themes and this documentation will discuss the details in-depth.
-For more information Shopify side of changes, visit corresponding links below,
+Shopify has recently released a version 2.0 of their online themes with numerous changes and enhancements, notably the migration from `.liquid` template files to `.json` template files. This impacted the process of installing Nosto in any of the version 2.0 themes as Nosto mostly expects and modifies `.liquid` files. Nosto has recently released support for version 2.0 themes and this documentation will discuss the details in-depth. For more information Shopify side of changes, visit corresponding links below,
+
 1. [Online 2.0 themes](https://www.shopify.com/partners/blog/shopify-online-store)
 2. [JSON Templates](https://shopify.dev/themes/architecture/templates/json-templates)
 3. [Migration Guide](https://shopify.dev/themes/os20)
 
-{% hint style="info" %} 
-As per [this](https://help.shopify.com/en/manual/online-store/themes/theme-structure/sections-and-blocks) Shopify documentation, shopify has a limitation of a maximum of 25 sections per json template. 
+{% hint style="info" %}
+As per [this](https://help.shopify.com/en/manual/online-store/themes/theme-structure/sections-and-blocks) Shopify documentation, shopify has a limitation of a maximum of 25 sections per json template.
 {% endhint %}
 
 ## Nosto's implementation
 
 After the recent update, Nosto supports for the following,
+
 1. Existing Shopify themes (let's call it version 1.0 themes)
 2. Online store 2.0 themes (let's call it version 2.0 themes)
 3. Hybrid themes (will discuss more shortly)
@@ -35,7 +36,7 @@ Support and process for version 1.0 of shopify themes will remain unchanged
 
 ### Online 2.0 themes
 
-In order to support the new `JSON` templates and inject Nosto snippet, following changes will be made to the installed theme (For e.g, the [Dawn](https://themes.shopify.com/themes/dawn/styles/default) theme). 
+In order to support the new `JSON` templates and inject Nosto snippet, following changes will be made to the installed theme (For e.g, the [Dawn](https://themes.shopify.com/themes/dawn/styles/default) theme).
 
 #### Existing JSON templates
 
@@ -65,7 +66,6 @@ In order to support the new `JSON` templates and inject Nosto snippet, following
 
 As per their migration guide, Shopify allows the option of migrating their themes one file at a time, meaning a customer can migrate `templates/404.liquid` to `templates/404.json` today and leave the rest of their theme setup as it is and continue using the liquid template files. In that case, a customer will be using scheme structure of both `version 1.0` and `version 2.0` themes. Nosto has implemented support for this scenario under the recent release. It will automatically identify those files that are still using `version 1.0` liquid templates and injects content, into the liquid template, using the existing logic. Also identifies those that belongs to `version 2.0` json templates and injects content, into those json templates, using the approach discussed in above sections.
 
-
 ## Migrating customers
 
 Assume a customer is on `version 1.0` and has Nosto installed already. When such a customer is migrating to `version 2.0`, they can do either of the following,
@@ -73,5 +73,4 @@ Assume a customer is on `version 1.0` and has Nosto installed already. When such
 1. For every migration, uninstall Nosto, migrate your files and then reinstall Nosto from within the Nosto app
 2. Migrate everything excluding Nosto content
 
-The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of non structured json schema, it became little challenging to isolate Nosto content for easy installation or removal. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitigate the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents.
-In future, we will introduce other options to better handle this situation
+The reason is Nosto uses unique logic for injecting contents into Shopify themes. With the introduction of non structured json schema, it became little challenging to isolate Nosto content for easy installation or removal. In case if the Nosto contents are copied over during manual migration, this could result in duplication on Nosto sections on screen. In those scenarios, we will be able to identify and mitigate the issue by removing the duplicated contents from liquid templates. We can avoid this issue, if we follow the points above and use Nosto app to install or uninstall Nosto contents. In future, we will introduce other options to better handle this situation

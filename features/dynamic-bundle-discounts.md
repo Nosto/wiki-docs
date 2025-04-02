@@ -1,5 +1,9 @@
 # Dynamic Bundle Discounts
 
+{% hint style="info" %}
+As Shopify is depricating Scripts in August 2025, this feature will not be supported anymore. A new version is not planned currently.&#x20;
+{% endhint %}
+
 * [Dynamic Bundle Discounts](dynamic-bundle-discounts.md#dynamic-bundle-discounts)
   * [Introduction](dynamic-bundle-discounts.md#introduction)
   * [Setup](dynamic-bundle-discounts.md#setup)
