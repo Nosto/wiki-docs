@@ -5,11 +5,20 @@ description: >-
   of the available options and how to configure the
 ---
 
-# Checkout UI Extension – Configuration Guide
+# Visual Configuration
 
-#### Available Settings
+#### How to configure your Extension
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+1. Open the **Shopify Checkout Editor** from your admin.
+2. Click on the **extension block** you added to the checkout.
+3. In the right-side panel, locate the **Block settings** section.
+4. Adjust the available configuration fields such as **Aspect Ratio**, **Fit**, and **Font Size**.
+5. Preview your changes live in the checkout editor.
+6. Save when you're happy with the result.
+
+#### What can be configured
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 **1. Aspect Ratio**
 
@@ -53,11 +62,3 @@ Adjusts the size of the text used in the extension. Useful for matching your sto
 
 **Default:** `medium`
 
-#### How to Configure
-
-1. Open the **Shopify Checkout Editor** from your admin.
-2. Click on the **extension block** you added to the checkout.
-3. In the right-side panel, locate the **Block settings** section.
-4. Adjust the available configuration fields such as **Aspect Ratio**, **Fit**, and **Font Size**.
-5. Preview your changes live in the checkout editor.
-6. Save when you're happy with the result.
