@@ -1,14 +1,13 @@
 # Console Commands
 
-It is possible to use a console command to reconnect or remove the account. This process can be handy when your deployments are automated.
-From `7.6.0` it is also possible to clear Nosto message queues with a console command. This might be helpful in debugging.
+It is possible to use a console command to reconnect or remove the account. This process can be handy when your deployments are automated. From `7.6.0` it is also possible to clear Nosto message queues with a console command. This might be helpful in debugging.
 
 ![3.0.0](https://img.shields.io/badge/nosto-3.0.0-green.svg)
 
 ### Getting tokens from the Nosto Admin Panel.
 
-Log-in into [Nosto Admin](https://my.nosto.com) with your already existing account, select the store you want to reconnect and head to `Settings -> Authentication Tokens`.  
- To obtain the tokens, just hit the decrypt button. ![cropper](https://user-images.githubusercontent.com/2778820/44570846-cf96f300-a787-11e8-952e-0fc1950ea77e.png)
+Log-in into [Nosto Admin](https://my.nosto.com) with your already existing account, select the store you want to reconnect and head to `Settings -> Authentication Tokens`.\
+To obtain the tokens, just hit the decrypt button. ![cropper](https://user-images.githubusercontent.com/2778820/44570846-cf96f300-a787-11e8-952e-0fc1950ea77e.png)
 
 ### Getting Store View Scope Code From Magento's Backend
 
@@ -28,13 +27,13 @@ Copy the value from de `code` field
 
 ### Using the interactive mode
 
-* Open the terminal and head to you Magento installation path directory
+*   Open the terminal and head to you Magento installation path directory
 
-  You can run:
+    You can run:
 
-  `bin/magento nosto:account:connect` and enter the interactive mode, where you will input the required tokens.
+    `bin/magento nosto:account:connect` and enter the interactive mode, where you will input the required tokens.
 
-  ![image](https://user-images.githubusercontent.com/2778820/44572711-5d291180-a78d-11e8-99c7-f6468621156a.png)
+    ![image](https://user-images.githubusercontent.com/2778820/44572711-5d291180-a78d-11e8-99c7-f6468621156a.png)
 
 ### Using the non-interactive mode
 
@@ -63,13 +62,13 @@ This command is used to disconnect an existing account from your store.
 
 ### Using the interactive mode
 
-* Open the terminal and head to you Magento installation path directory
+*   Open the terminal and head to you Magento installation path directory
 
-  You can run:
+    You can run:
 
-  `bin/magento nosto:account:remove` and enter the interactive mode, where you will input the store view scope code.
+    `bin/magento nosto:account:remove` and enter the interactive mode, where you will input the store view scope code.
 
-  ![image](https://user-images.githubusercontent.com/44775916/49924280-8a293d80-febe-11e8-8230-bf816efc1784.png)
+    ![image](https://user-images.githubusercontent.com/44775916/49924280-8a293d80-febe-11e8-8230-bf816efc1784.png)
 
 ### Using the non-interactive mode
 
@@ -86,9 +85,9 @@ bin/magento nosto:account:remove \
 
 ## Using the Console To Clear Messages on RabbitMQ
 
-* Open the terminal in your Magento root directory and run
+*   Open the terminal in your Magento root directory and run
 
-  `bin/magento nosto:clear:message-queue`
+    `bin/magento nosto:clear:message-queue`
 
 ![image](clear-queues.png)
 

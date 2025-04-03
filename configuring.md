@@ -1,6 +1,6 @@
 # Configuring
 
-The extension can be configured by navigating to Stores &gt; Configuration &gt; Services &gt; Nosto.
+The extension can be configured by navigating to Stores > Configuration > Services > Nosto.
 
 ## Image Options
 
@@ -60,14 +60,13 @@ Set this to `Yes` if you want to send the date a product has been added to Magen
 
 ![image](https://user-images.githubusercontent.com/2778820/44519745-9bafc500-a6d6-11e8-91a0-5726b3601280.png)
 
-If the attribute is not a system attribute (user defined attribute) and is either set to be "Visible on Catalog Pages on Storefront" or "Used in Layered Navigation" it will be added to the list of custom fields. 
-If the attribute does not meet the above-mentioned conditions, it can still be tagged by adding it to either of the three `Attributes to tags` columns (See [Attributes To Tags](https://docs.nosto.com/magento-2/configuring#attributes-to-tags) section for more information).
+If the attribute is not a system attribute (user defined attribute) and is either set to be "Visible on Catalog Pages on Storefront" or "Used in Layered Navigation" it will be added to the list of custom fields. If the attribute does not meet the above-mentioned conditions, it can still be tagged by adding it to either of the three `Attributes to tags` columns (See [Attributes To Tags](https://docs.nosto.com/magento-2/configuring#attributes-to-tags) section for more information).
 
 This option comes enabled by default. In case the merchant wants to completely hide, including from the page source code, he can disable using this feature flag.
 
 ## Attributes To Tags
 
-The `attributes to tags` section can be used to add certain product attributes into the tags field of the product tagging. Doing so, will allow those properties to be used when building a recommendation template.  
+The `attributes to tags` section can be used to add certain product attributes into the tags field of the product tagging. Doing so, will allow those properties to be used when building a recommendation template.\
 You can select multiple attributes holding control key.
 
 These attributes will be also sent as custom fields to Nosto.
@@ -76,8 +75,8 @@ These attributes will be also sent as custom fields to Nosto.
 
 ## Currency Setup
 
-If you store view make use of Magento's exchange rates, you may select `Exchange rates` option on the dropdown menu.  
-In case the store view uses only one currency, you may set this value to `Single currency`.  
+If you store view make use of Magento's exchange rates, you may select `Exchange rates` option on the dropdown menu.\
+In case the store view uses only one currency, you may set this value to `Single currency`.\
 The `Disabled` option will prevent Nosto to do any currency conversion. This option should be used if you have a custom pricing handling setup.
 
 ![image](https://user-images.githubusercontent.com/2778820/42555862-4a901824-84f2-11e8-8105-c7a92bf1c25d.png)
@@ -87,4 +86,3 @@ The `Disabled` option will prevent Nosto to do any currency conversion. This opt
 ![image](https://user-images.githubusercontent.com/2778820/53960203-54c37300-40ee-11e9-9740-28a54b4a959e.png)
 
 After version `3.1.0` is now possible to retrieve all tokens and account id's used by Nosto via Magento admin panel.
-

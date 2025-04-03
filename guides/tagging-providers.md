@@ -5,20 +5,20 @@ description: >-
   Hyva.
 ---
 
-# Nosto Tagging Providers Integration Guide
+# Tagging Providers
 
 ### Table of Contents
 
-* [Introduction](nosto-tagging-providers-integration-guide.md#introduction)
-* [Architecture Overview](nosto-tagging-providers-integration-guide.md#architecture-overview)
-* [Data Structure](nosto-tagging-providers-integration-guide.md#data-structure)
-* [Integration Methods](nosto-tagging-providers-integration-guide.md#integration-methods)
-  * [Method 1: REST API](nosto-tagging-providers-integration-guide.md#method-1-rest-api)
-  * [Method 2: GraphQL](nosto-tagging-providers-integration-guide.md#method-2-graphql)
-  * [Method 3: Direct JavaScript Implementation](nosto-tagging-providers-integration-guide.md#method-3-direct-javascript-implementation)
-* [Implementing Tagging Providers](nosto-tagging-providers-integration-guide.md#implementing-tagging-providers)
-* [Testing Your Implementation](nosto-tagging-providers-integration-guide.md#testing-your-implementation)
-* [Troubleshooting](nosto-tagging-providers-integration-guide.md#troubleshooting)
+* [Introduction](tagging-providers.md#introduction)
+* [Architecture Overview](tagging-providers.md#architecture-overview)
+* [Data Structure](tagging-providers.md#data-structure)
+* [Integration Methods](tagging-providers.md#integration-methods)
+  * [Method 1: REST API](tagging-providers.md#method-1-rest-api)
+  * [Method 2: GraphQL](tagging-providers.md#method-2-graphql)
+  * [Method 3: Direct JavaScript Implementation](tagging-providers.md#method-3-direct-javascript-implementation)
+* [Implementing Tagging Providers](tagging-providers.md#implementing-tagging-providers)
+* [Testing Your Implementation](tagging-providers.md#testing-your-implementation)
+* [Troubleshooting](tagging-providers.md#troubleshooting)
 
 ### Introduction
 

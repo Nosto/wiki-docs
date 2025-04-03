@@ -2,7 +2,7 @@
 
 ## Minimum PHP Version
 
-Nosto extension supports Magento &gt;= 2.2, which requires at least PHP `7.0.13` to run.
+Nosto extension supports Magento >= 2.2, which requires at least PHP `7.0.13` to run.
 
 ## Required PHP 7 extensions
 
@@ -39,9 +39,8 @@ To run the dev scripts from Nosto you are required to install the following PHP 
     pcntl
 ```
 
-In order to install the `ast` extension using PECL, run `pecl install ast` and the ast.so extension will be added to load in you php.ini configuration file.   
- The `pcntl` comes by default if you install PHP via Homebrew. If you compiled PHP yourself, you need to recompile the sources with the `--enable-pcntl` flag and load the extension in the php.ini file.   
-
+In order to install the `ast` extension using PECL, run `pecl install ast` and the ast.so extension will be added to load in you php.ini configuration file.\
+The `pcntl` comes by default if you install PHP via Homebrew. If you compiled PHP yourself, you need to recompile the sources with the `--enable-pcntl` flag and load the extension in the php.ini file.
 
 #### Checking Extensions
 
@@ -53,22 +52,21 @@ curl https://gist.githubusercontent.com/supercid/fbf020ed8bdb15f5f72fd45a820703c
 
 ## Local Code Quality Check
 
-In order to maintain code quality we use PHPCS and PHAN to analyse the extension code. If your code does not follow the custom rules described in the `ruleset.xml` file \(Mostly PSR-2\), the CI will reject your code and you will not be able to merge until the violations are fixed.   
- We recommend to run the checks, both PHAN and PHPCS, before pushing and opening a pull-request.
+In order to maintain code quality we use PHPCS and PHAN to analyse the extension code. If your code does not follow the custom rules described in the `ruleset.xml` file (Mostly PSR-2), the CI will reject your code and you will not be able to merge until the violations are fixed.\
+We recommend to run the checks, both PHAN and PHPCS, before pushing and opening a pull-request.
 
 ### Running Phan Locally
 
-Install the dev dependencies by running `composer install` on Nosto root directory:   
-`%Magento2Root%/vendor/nosto/module-nostotagging`   
+Install the dev dependencies by running `composer install` on Nosto root directory:\
+`%Magento2Root%/vendor/nosto/module-nostotagging`
 
-
-After which you will be able to run Phan:   
- `./vendor/bin/phan --config-file=phan.php --output-mode=checkstyle`
+After which you will be able to run Phan:\
+`./vendor/bin/phan --config-file=phan.php --output-mode=checkstyle`
 
 ### Running PHP Code Sniffer Locally
 
-You can check the style by running the following command on your Nosto installation root:  
- `./vendor/bin/phpcs --standard=ruleset.xml --report=checkstyle`
+You can check the style by running the following command on your Nosto installation root:\
+`./vendor/bin/phpcs --standard=ruleset.xml --report=checkstyle`
 
 ## Symlinking Extension Directory
 
@@ -113,51 +111,43 @@ For more detailed setup you can follow the Magento 2 [documentation](https://dev
 ## Connecting your local Magento instance to Nosto
 
 ### Install Ngrok
+
 Visit the Ngrok website and sign up for an account if you haven't already.
 
-Download the Ngrok binary for your operating system.
-Extract the downloaded file to a directory of your choice.
-Open a terminal or command prompt and navigate to the directory where you extracted the Ngrok binary.
+Download the Ngrok binary for your operating system. Extract the downloaded file to a directory of your choice. Open a terminal or command prompt and navigate to the directory where you extracted the Ngrok binary.
 
 ### Valid Domains
+
 We need a valid TLD domain, meaning that `.test` domains are not accepted by Nosto and your updates will be discarded by our crawler.
 
 ### Start Ngrok Tunnel
+
 In the terminal, run the following command to start an HTTP tunnel:
+
 ```bash
 ./ngrok http 80
 ```
+
 or if you're using a local SSL certificate:
+
 ```bash
 ./ngrok http 443
 ```
-Replace 80/443 with the port number your Magento local instance is running on if it's different.
-Ngrok will generate a public URL that forwards requests to your local Magento server. You'll see the forwarding URL displayed in the terminal window.
+
+Replace 80/443 with the port number your Magento local instance is running on if it's different. Ngrok will generate a public URL that forwards requests to your local Magento server. You'll see the forwarding URL displayed in the terminal window.
 
 ### Configure Magento
-Log in to your Magento Admin Panel.
-Go to Stores > Configuration.
-Under General, select Web.
-Update the Base URLs to use the Ngrok forwarding URL. Set both the Base URL and Secure Base URL to the Ngrok HTTPS URL (e.g., https://randomstring.ngrok.io/).
-Save the configuration.
-You can now connect your Nosto account from Magento by going in Marketing -> Nosto -> Connect
-<img width="608" alt="Screenshot 2024-02-21 at 11 42 25" src="https://github.com/Nosto/wiki-docs/assets/2778820/784659cc-11c3-4de5-9362-1d3d86259356">
-You should notice that in Nosto's account setting, the Ngrok domain has been set as main URL. If you are using multiple domains, you can add them in extra hosts
-<img width="902" alt="Screenshot 2024-02-21 at 11 42 42" src="https://github.com/Nosto/wiki-docs/assets/2778820/e5aa20c9-eb38-4307-bedd-3a3a98813113">
-Next you should notice on Ngrok logs our crawling indexing your local database:
-<img width="852" alt="Screenshot 2024-02-21 at 11 42 14" src="https://github.com/Nosto/wiki-docs/assets/2778820/c6a7fea1-803c-47d4-b9a7-9b7bb00f839b">
+
+Log in to your Magento Admin Panel. Go to Stores > Configuration. Under General, select Web. Update the Base URLs to use the Ngrok forwarding URL. Set both the Base URL and Secure Base URL to the Ngrok HTTPS URL (e.g., https://randomstring.ngrok.io/). Save the configuration. You can now connect your Nosto account from Magento by going in Marketing -> Nosto -> Connect ![Screenshot 2024-02-21 at 11 42 25](https://github.com/Nosto/wiki-docs/assets/2778820/784659cc-11c3-4de5-9362-1d3d86259356) You should notice that in Nosto's account setting, the Ngrok domain has been set as main URL. If you are using multiple domains, you can add them in extra hosts ![Screenshot 2024-02-21 at 11 42 42](https://github.com/Nosto/wiki-docs/assets/2778820/e5aa20c9-eb38-4307-bedd-3a3a98813113) Next you should notice on Ngrok logs our crawling indexing your local database: ![Screenshot 2024-02-21 at 11 42 14](https://github.com/Nosto/wiki-docs/assets/2778820/c6a7fea1-803c-47d4-b9a7-9b7bb00f839b)
 
 ### Access Your Magento Site
-With Ngrok running and configured, you can now access your local Magento site via the Ngrok forwarding URL.
-Open a web browser and enter the Ngrok HTTPS URL generated in the terminal (e.g., https://randomstring.ngrok.io/).
-Your local Magento website should now be accessible via the Ngrok tunnel.
 
+With Ngrok running and configured, you can now access your local Magento site via the Ngrok forwarding URL. Open a web browser and enter the Ngrok HTTPS URL generated in the terminal (e.g., https://randomstring.ngrok.io/). Your local Magento website should now be accessible via the Ngrok tunnel.
 
 ### Additional Tips:
+
 Ngrok URLs are temporary and change every time you restart Ngrok, therefore we recommend using a paid Ngrok account to ensure that the URL stays the same. You can, however, use a script to change your Magento domain every time you restart Ngrok or your temporary domain changes.
 
 Ngrok provides a secure tunnel with HTTPS support, allowing you to test features like order tracking, product updates via crawler and product image crawling as well on your local Magento site.
 
 Remember to stop Ngrok when you're finished testing to prevent unauthorized access to your local server.
-
-
