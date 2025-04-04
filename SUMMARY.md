@@ -48,6 +48,10 @@
       * [Create Autocomplete template](implementing-nosto/implement-search/search/implement-autocomplete-using-library/create-autocomplete-template.md)
       * [Further reading](implementing-nosto/implement-search/search/implement-autocomplete-using-library/further-reading.md)
 * [Check your setup](implementing-nosto/checking-your-setup.md)
+* [Template customizations](implementing-nosto/template-customizations/README.md)
+  * [Starting points](implementing-nosto/template-customizations/starting-points.md)
+  * [Styling](implementing-nosto/template-customizations/styling.md)
+  * [Scripting](implementing-nosto/template-customizations/scriping.md)
 
 ## APIs
 
