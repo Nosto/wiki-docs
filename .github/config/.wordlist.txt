@@ -133,3 +133,4 @@ iframe
 namespace
 transpilation
 polyfill
+Swiper

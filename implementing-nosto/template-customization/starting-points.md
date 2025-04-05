@@ -2,7 +2,7 @@
 
 Each new Nosto account comes with three base recommendation templates to customize
 
-## <platform>-default
+## Default
 
 The base template has the following features
 * recommended products in a grid
@@ -11,12 +11,12 @@ The base template has the following features
 * highlighting of discounts
 * add to cart functionality
 
-## <platform>-swiper
+## Swiper
 
 The `Swiper` template extends the base template with a `Swiper` based carousel to cycle between the recommended products.
 The library dependency is loaded via a script module, but a locally available version of the library can be used as well
 
-## <platform>-skus
+## SKUs
 
 The SKUs template should be applied in cases where product variant data should be incorporated in the product cards.
 With it's default configuration this template works best for fashion products by breaking the variant into two dimensions:
