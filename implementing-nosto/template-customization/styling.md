@@ -61,12 +61,12 @@ Example conversion:
 </style>
 ```
 
-becomes
+becomes the following with `divId` as `nosto-product1`
 
 ```markup
 <style nested data-transpiled="true">
-#dsfsadcxfsafds .wrapper .blue { color:blue; }
-#dsfsadcxfsafds .wrapper .red { color:red; }
+#nosto-product1 .wrapper .blue { color:blue; }
+#nosto-product1 .wrapper .red { color:red; }
 </style>
 ```
 
