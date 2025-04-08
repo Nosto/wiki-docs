@@ -1,26 +1,24 @@
 # Starting points
 
-Each new Nosto account comes with three base recommendation templates to customize
+Each new Nosto account comes with two base recommendation templates to customize
 
 ## Default
 
-The base template has the following features
+The `Default` template has the following features
+
 * recommended products in a grid
 * alternate image on hover
 * ribbons for new, most viewed and top selling products
 * highlighting of discounts
 * add to cart functionality
 
-## Swiper
+## Carousel
 
-The `Swiper` template extends the base template with a `Swiper` based carousel to cycle between the recommended products.
+The `Carousel` template extends the base template with a `Swiper` based carousel to cycle between the recommended products.
 The library dependency is loaded via a script module, but a locally available version of the library can be used as well
 
-## SKUs
-
-The SKUs template should be applied in cases where product variant data should be incorporated in the product cards.
-With it's default configuration this template works best for fashion products by breaking the variant into two dimensions:
-* colors - shown in the bottom of the product card
-* sizes - show as an overlay on top of the image
-
-The size elements act as add to cart buttons and will add the chosen combination of color and size to the cart
+* Carousel implementation via Swiper
+* Swiper is loaded via cdn url into script module scope
+* Swiper default styles are injected into DOM
+* Navigation module is loaded and navigation button provided in DOM
+* Basic mobile break points are provided
