@@ -1,5 +1,12 @@
 # Scripting
 
+{% hint style="info" %}
+The content of this page only applies to templates used within:
+* Product Recommendations
+* Onsite Content Personalization
+* Pop-Ups
+{% endhint %}
+
 Nosto campaign templates support two ways to define Javascript script elements as part of the templates. 
 
 In the legacy mode the script contents are evaluated in the scope of the Nosto iframe and can refer to the main window via the global `_targetWindow` variable.

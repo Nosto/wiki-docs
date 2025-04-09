@@ -1,1 +1,4 @@
-This section describes supported recommendation and onsite content template customization tools and best practices
+This section describes customization tools and best practices for the following Nosto products:
+* Product Recommendations
+* Onsite Content Personalization
+* Pop-Ups

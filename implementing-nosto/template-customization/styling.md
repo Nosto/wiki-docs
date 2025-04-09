@@ -1,5 +1,12 @@
 # Styling
 
+{% hint style="info" %}
+The content of this page only applies to templates used within:
+* Product Recommendations
+* Onsite Content Personalization
+* Pop-Ups
+{% endhint %}
+
 Styling the recommendations is generally quite straightforward. Just add a style block to the template and use CSS to style the recommendation elements as you would style any HTML content.
 
 ## Encapsulating styles
