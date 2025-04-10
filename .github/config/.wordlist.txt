@@ -127,3 +127,10 @@ geolocation
 proxied
 liveFeed
 accountID
+sandboxing
+sandboxed
+iframe
+namespace
+transpilation
+polyfill
+Swiper
