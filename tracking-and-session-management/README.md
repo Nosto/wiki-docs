@@ -30,9 +30,7 @@ This cookie stores the unique customer session ID. It is essential for tracking 
 
 ### Shopify Pixel
 
-Shopify doesn’t allow third-party scripts inside checkout. The Shopify Web Pixel API is the official way to track customer activity during checkout and on the order confirmation page.
-
-Nosto’s Pixel uses this API to bridge the session into checkout by sending a token update to our backend when checkout begins.
+Shopify doesn’t allow third-party scripts inside checkout. Nosto Shopify Pixel uses a 2c.cId cookie and the checkout token, to personalise the Checkout with the Nosto Checkout extensions.
 
 ## Required Permissions
 
