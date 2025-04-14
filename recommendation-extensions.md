@@ -12,19 +12,13 @@ Extensions are added as native app blocks via Shopify’s Checkout Editor and re
 
 The Recommendation Extensions are available for:
 
-### Checkout page&#x20;
-
-{% hint style="info" %}
-Shopify Plus only!
-{% endhint %}
+### Checkout page (Shopify Plus only)
 
 → Shopify's Checkout page, where customer enters payment details & shipping information
 
 ### Thank You page
 
 → Appears after Checkout is done, confirming the order
-
-
 
 Each extension shows up as a Nosto app block and supports standard Shopify layout controls.
 
@@ -39,6 +33,14 @@ To use the extensions, you’ll need:
 * Access to the Checkout Editor in your Shopify Admin
 
 Once these are in place, you can add and customize the Nosto blocks directly.
+
+## How to Set Up in Nosto
+
+Before setting the Extensions up in Shopify, ensure they are set and enabled correctly in Nosto.&#x20;
+
+To ensure the Recommendation Extensions always follow your desired strategy, adjust your Recommendation logics accordingly. This can be done in your Nosto account, and follows the general rules and possibilities of Product Recommendation.&#x20;
+
+You can find your Extension Recommendations already pre-set under _Nosto Admin → Product Recommendations,_ listed under page types "Shopify Checkout Page" & "Shopify Thank You Page".
 
 ## How to Set Up in Shopify
 
@@ -65,12 +67,6 @@ Nosto Recommendation Extensions will automatically adjust their design, based on
 <table data-header-hidden><thead><tr><th>Setting</th><th width="208.92578125">What it does</th><th>Values</th></tr></thead><tbody><tr><td><strong>Aspect Ratio</strong></td><td>Sets the image ratio</td><td>1, 1.5, 0.75</td></tr><tr><td>I<strong>mage Fit</strong></td><td>Controls image scaling</td><td>cover, contain, fill</td></tr><tr><td><strong>Font Size</strong></td><td>Adjusts text size</td><td>small, medium, large</td></tr></tbody></table>
 
 ![](<.gitbook/assets/image (20).png>)
-
-## Recommendation Settings
-
-To ensure the Recommendation Extensions always follow your desired strategy, ensure to adjust your Recommendation logics accordingly. This can be done in your Nosto account, and follows the general rules and possibilities of Product Recommendation.&#x20;
-
-You can find your Extension Recommendations already pre-set under _Nosto Admin → Product Recommendations,_ listed under page types "Shopify Checkout Page" & "Shopify Thank You Page".
 
 ## Known Limitations
 
