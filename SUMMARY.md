@@ -6,7 +6,7 @@
   * [Headless, Hydrogen & GraphQL Setups](tracking-and-session-management/headless-hydrogen-and-graphql-setups.md)
 * [Shopify International](shopify-markets/README.md)
   * [Shopify International - Front End addition](shopify-markets/technical-details-how-to-use-it.md)
-* [Recommendation Extensions: Checkout & Thank You Pages](recommendation-extensions-checkout-and-thank-you-pages.md)
+* [Recommendation Extensions](recommendation-extensions.md)
 * [Guides](guides/README.md)
   * [Quicker loading times](guides/quicker-recommendation-loading.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)

@@ -4,7 +4,7 @@ description: >-
   journey directly inside the Shopify Checkout and Thank You pages.
 ---
 
-# Recommendation Extensions: Checkout & Thank You Pages
+# Recommendation Extensions
 
 ## Overview
 
@@ -74,12 +74,11 @@ You can find your Extension Recommendations already pre-set under _Nosto Admin â
 
 ## Known Limitations
 
-| **Checkout Extension**       | Requires Shopify Plus                                        |
-| ---------------------------- | ------------------------------------------------------------ |
-| **Max Products**             | Only 2 products will be shown per block                      |
-| "**Buy Now" buttons on PDP** | Skip checkout â†’ no blocks shown                              |
-| **Pixel dependency**         | The Nosto Pixel must be active and session cookie present    |
-| **Cookie Consent**           | If customer declines tracking, recommendations will not load |
+| **Checkout Extension** | Requires Shopify Plus                                        |
+| ---------------------- | ------------------------------------------------------------ |
+| **Max Products**       | Only 2 products will be shown per block                      |
+| **Pixel dependency**   | The Nosto Pixel must be active and session cookie present    |
+| **Cookie Consent**     | If customer declines tracking, recommendations will not load |
 
 
 
