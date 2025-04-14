@@ -24,8 +24,6 @@ Here’s what powers Nosto’s personalization engine:
 
 The Nosto script loads on your storefront and sets the 2c.cId cookie. This cookie is the basis for identifying a user session.
 
-📸 _Placeholder: Screenshot of browser cookies showing 2c.cId present_
-
 ### The 2c.cId Cookie
 
 This cookie stores the unique customer session ID. It is essential for tracking page views, clicks, and enabling personalization across the store.
@@ -35,8 +33,6 @@ This cookie stores the unique customer session ID. It is essential for tracking 
 Shopify doesn’t allow third-party scripts inside checkout. The Shopify Web Pixel API is the official way to track customer activity during checkout and on the order confirmation page.
 
 Nosto’s Pixel uses this API to bridge the session into checkout by sending a token update to our backend when checkout begins.
-
-📸 _Placeholder: Illustration or flow showing cookie → pixel → checkout events_
 
 ## Required Permissions
 
