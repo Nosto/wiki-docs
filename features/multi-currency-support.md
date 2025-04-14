@@ -20,7 +20,7 @@ For all merchants integrating Nosto starting May 2024, there are no theme change
 
 You may need to make some theme changes to ensure the active price variation is displayed in the debug toolbar. The debug toolbar can be activated by appending `nostodebug=true` to your store's URL.
 
-![The active price variation EUR matches the selected currency.](<../.gitbook/assets/image (2).png>)
+![The active price variation EUR matches the selected currency.](<../.gitbook/assets/image (2) (1).png>)
 
 If the active price variation is not displayed, you can apply Nosto to your theme by following our [installation guide](../Installing.md#theme-changes).
 
