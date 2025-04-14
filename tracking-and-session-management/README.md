@@ -83,10 +83,9 @@ For tracking to work, the customer must accept cookies — especially in markets
 
 ## Troubleshooting
 
-| Pixel request fails (404 / token not found) | - Open DevTools → Network tab- Look for a request like /pixel/token/{shop}/{cid}/{checkout-token}- Confirm the cookie + token are passed        |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixel doesn’t show up at all                | - _Go to Shopify Admin → Settings → Customer Events_- Make sure the Nosto Pixel is listed and active                                            |
-| Nothing seems to track                      | - Is Nosto script loaded on the storefront?- Does your consent tool properly trigger script loading and cookie creation?                        |
-| Recommendations don’t appear in Checkout    | - Is the Nosto Pixel enabled?- Is the 2c.cId cookie present?- Did the user accept cookies?- Are you using “Buy Now”? That flow isn’t supported. |
+| Pixel request fails (404 / token not found) | - Open DevTools → Network tab- Look for a request like /pixel/token/{shop}/{cid}/{checkout-token}- Confirm the cookie + token are passed |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Pixel doesn’t show up at all                | - _Go to Shopify Admin → Settings → Customer Events_- Make sure the Nosto Pixel is listed and active                                     |
+| Nothing seems to track                      | - Is Nosto script loaded on the storefront?- Does your consent tool properly trigger script loading and cookie creation?                 |
 
 If unsure, please reach out to your Nosto team via support@nosto.com!
