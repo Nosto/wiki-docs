@@ -28,7 +28,7 @@ The library dependency is loaded via a script module, but a locally available ve
 The `Swatches` template extends the base template with SKU selection aware product cards with swatches for color and size selection.
 
 * Color and size swatch rendering
-* NostoProduct and NostoSkuOptions web components to maintain swatch selection state and abstract the ATC logic away
+* `NostoProduct` and `NostoSkuOptions` web components to maintain swatch selection state and abstract the add to cart logic away
 * Web components library is loaded via cdn url into script module scope
 * Product image is updated based on color swatch selection
 * Add to cart button becomes visible when color and size values have been chosen
