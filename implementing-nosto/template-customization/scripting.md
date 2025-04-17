@@ -40,7 +40,7 @@ Module scripts
 becomes
 
 ```markup
-<script type=”module”>
+<script type="module">
   jQuery(…
 </script>
 ```
