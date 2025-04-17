@@ -5,7 +5,7 @@ It is to be used for standalone attribution submission that are not covered by t
 * Parameterless attribution
 * Usage of attribution url parameters
 * Session API
-* Request API (api.createRecommendationRequest)
+* Request API (`api.createRecommendationRequest`)
 
 ```typescript
 nostojs(api => api.recordAttribution({ 
