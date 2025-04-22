@@ -6,7 +6,7 @@ This guide explains how Nosto tracks sessions in Shopify, how the Shopify Pixel 
 
 ## Overview <a href="#h_7b4795e59f" id="h_7b4795e59f"></a>
 
-[Shopify’s checkout is sandboxed, meaning most scripts and cookies from your storefront can’t be accessed once the user enters the checkout flow.](#user-content-fn-1)[^1]
+Nosto tracks user session with the a session cookie. Due to the fact that Shopify’s checkout is sandboxed, most scripts and cookies from your storefront can’t be accessed once the user enters the checkout flow.
 
 **To keep tracking working across this barrier, Nosto uses:**
 
@@ -100,5 +100,3 @@ For tracking to work, the customer must accept cookies — especially in markets
 
 
 If unsure, please reach out to your Nosto team via support@nosto.com!
-
-[^1]: Maybe before this lets add that we track user session with the cookie, then for the Shopify checkout is sandboxed is already covered?&#x20;
