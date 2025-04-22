@@ -1,0 +1,2 @@
+# Rights via Registration
+
