@@ -84,6 +84,7 @@
         * [Configuring your widget](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/configuring-your-widget.md)
         * [Building your widget](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/building-your-widget.md)
         * [Shipping to production](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/shipping-to-production.md)
+        * [How to open and close expanded tiles](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/how-to-open-and-close-expanded-tiles.md)
 * [Widgets](widgets.md)
 * [API Docs](api-docs/README.md)
   * [JavaScript API](api-docs/javascript/README.md)
