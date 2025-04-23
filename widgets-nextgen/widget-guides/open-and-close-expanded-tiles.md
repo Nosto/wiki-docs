@@ -1,4 +1,4 @@
-# How to open and close expanded tiles
+# Open and close expanded tiles
 
 ## How to open and close expanded tiles <a href="#how-to-open-and-close-expanded-tiles" id="how-to-open-and-close-expanded-tiles"></a>
 
@@ -10,7 +10,6 @@ You can utilise sdk.openExpandedTile() to open an expanded tile. This method acc
 
 ```
 sdk.openExpandedTile(tileId)
-Copy
 ```
 
 ### Closing an expanded tile <a href="#closing-an-expanded-tile" id="closing-an-expanded-tile"></a>
@@ -19,7 +18,6 @@ You can utilise sdk.closeExpandedTile() to close an expanded tile. This method d
 
 ```
 sdk.closeExpandedTile()
-Copy
 ```
 
 ### Example <a href="#example" id="example"></a>
