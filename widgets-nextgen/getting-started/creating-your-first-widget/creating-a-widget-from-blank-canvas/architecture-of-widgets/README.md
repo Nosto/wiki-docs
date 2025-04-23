@@ -51,12 +51,6 @@ Each tile is rendered using a **.ugc-tile** div. These elements can be mutated a
 
 Tiles are rendered by utilising the [tiles service](https://github.com/Stackla/widget-utils/blob/master/src/types/services/tiles.service.ts), and users can access the tiles service by utilising sdk.tiles.
 
-The amount of tiles loaded at a given time can be updated by utilising **sdk.tiles.setVisibleTilesCount()**.&#x20;
-
-Before utilising this method, please be sure that there are no side effects being performed by the base boilerplate code, otherwise you may find that your visibleTilesCount is mutated and no longer matches the value you are looking for.
-
-
-
 **Advanced Usage**
 
 **Globals**
@@ -65,7 +59,7 @@ Before utilising this method, please be sure that there are no side effects bein
 
 Globals are located in the window.ugc namespace - this is where all widgets can be accessed if required.
 
-To access a widget's SDK outside of the widget tsx, a user can utilise **window.ugc.getWidgetBySelector().sdk.**&#x20;
+To access a widget's SDK outside of the widget tsx, a user can utilise **window.ugc.getWidgetBySelector().sdk.** This is only recommended when testing the widget within the browser, or checking the values of properties in the global object.
 
 **Placement**
 
