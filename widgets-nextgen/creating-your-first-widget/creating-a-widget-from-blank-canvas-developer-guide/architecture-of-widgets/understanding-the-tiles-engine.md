@@ -1,2 +1,0 @@
-# Understanding the tiles engine
-

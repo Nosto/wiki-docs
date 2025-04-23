@@ -61,4 +61,4 @@ There are a few helpers you can utilise in your templating, they are the followi
 * \{{#if\}} - Check if a value is true.
 * \{{#tiles\}} - Loop through each tile
 
-To understand how to best utilise the attributes available to you, please have a look at the [Composition of tiles](architecture-of-widgets/composition-of-tiles.md) information sheet.
+To understand how to best utilise the attributes available to you, please have a look at the [Composition of tiles](creating-a-new-widget/architecture-of-widgets/composition-of-tiles.md) information sheet.

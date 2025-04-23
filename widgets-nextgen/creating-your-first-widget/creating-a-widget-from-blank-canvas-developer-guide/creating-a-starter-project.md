@@ -16,16 +16,21 @@ This project has been created with the sole purpose of:
 
 ### Getting started with the activity
 
-1. Run npm run start & access http://localhost:4003/preview?widgetType=starter-project
-2. You will notice this widget is bouncing without end! Its driving us mad. Please stop the circle from bouncing.
-3. Why is the widget in a circle? Please remove the circle and ensure it is in a grid format, covering the entire screen.
-4. The border of the circle is based on the mood given to the method. Please update it so that it is using 'nosto' mood with a pink border to represent Nosto.
-5. Every time I expand a tile, a dog appears. Please change this to the actual tile image.
-6. Every time an event is emitted, an annoying toast message appears, please remove this!
+* You will notice this widget is bouncing. Please stop the circle from bouncing.
+* Why is the widget in a circle? Please remove the circle and ensure it is in a grid format, covering the entire screen.
+* The border of the circle is based on the mood given to the method. Please update it so that it is using 'nosto' mood with a pink border to represent Nosto.
+* Every time I expand a tile, a dog appears. Please change this to the actual tile image.
+* Every time an event is emitted, a toast message appears, please remove this.
 
 A successful attempt at this activity will be something like the following.&#x20;
 
 <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-But most importantly, have fun!
+**Answers:**
+
+* To stop the circle from bouncing, remove `@keyframes bounce { }` in extras.scss
+* To remove the circle, remove the `border-radius` property in `extras.scss`
+* To update the border color to the Nosto mood, update the `"--my-mood-border"` variable in the widget.tsx file.
+* To change the dog image to the actual tile image, update the `tile.template` file to instead use the `tile.image` property.
+* To remove the toast message, remove the eventListener in widget.tsx
 

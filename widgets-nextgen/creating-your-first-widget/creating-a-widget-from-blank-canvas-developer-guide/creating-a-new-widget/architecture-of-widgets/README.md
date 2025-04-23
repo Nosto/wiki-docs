@@ -29,7 +29,7 @@ A shadow root is defined for the widget, which enables the widget to remain isol
 
 The Shadow Root is accessible for mutation from external JS manipulation if required, as its an **'open'** Shadow Root.
 
-![](<../../../../.gitbook/assets/image (16).png>)
+![](<../../../../../.gitbook/assets/image (16).png>)
 
 To mutate the shadow root, users can either utilise the prebuilt **SDK** or manually target the ugc-widget div.&#x20;
 
@@ -45,7 +45,7 @@ An initial request is made to the widget server which retrieves the configuratio
 
 Depending on the widget you utilise, tiles are automatically rendered on the screen based on a predetermined algorithm.
 
-<figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 Each tile is rendered using a **.ugc-tile** div. These elements can be mutated as necessary.
 
@@ -55,7 +55,7 @@ Tiles are rendered by utilising the [tiles service](https://github.com/Stackla/w
 
 **Globals**
 
-<figure><img src="../../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 Globals are located in the window.ugc namespace - this is where all widgets can be accessed if required.
 
