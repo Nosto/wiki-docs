@@ -8,7 +8,7 @@ To get started, follow the instructions below
 
 `git clone https://your-github-repo-here`
 
-<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 2\) Utilise a code editor such as [VSCode](https://code.visualstudio.com/) to prepare your IDE for development
 
@@ -16,7 +16,7 @@ To get started, follow the instructions below
 
 **NOTE:** If you would like to use your own widget utilities fork, you can also update the **.gitmodules** file and place the URL to your git repository there.
 
-<figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 **Execute the following;**
 

@@ -2,7 +2,7 @@
 
 In-order to ship your widget to production, you can utilise the assets built in the dist folder.
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 There are a few ways you can utilise these to ensure your widget is production ready:
 
@@ -26,5 +26,5 @@ This should be performed inside the Javascript box and css box of the widget edi
 
 Place the dist file contents into the corresponding boxes on the widget editor and click Preview Changes.
 
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 

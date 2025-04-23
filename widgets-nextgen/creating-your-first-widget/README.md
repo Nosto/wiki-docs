@@ -12,7 +12,7 @@ By selecting a widget from the widget gallery, you are automatically receiving t
 
 
 
-[Utilise our widget engine to build your own widget, via the **Blank Canvas** widget offering. (Advanced)](creating-a-widget-from-blank-canvas/)
+[Utilise our widget engine to build your own widget, via the **Blank Canvas** widget offering. (Advanced)](creating-a-widget-from-blank-canvas-developer-guide/)
 
 This is the more advanced route, as it requires prior experience as a developer to build out your dream template.
 

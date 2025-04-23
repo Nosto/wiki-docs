@@ -15,7 +15,7 @@ When developing a widget, you can copy a simple widget to begin with, i.e. grid 
 The basic composition of a widget looks like this:
 
 \
-![](<../../../../.gitbook/assets/image (11).png>)
+![](<../../../.gitbook/assets/image (11).png>)
 
 * widget.scss - This is the root styles file, where all necessary style changes will be made. You can follow SCSS conventions to import other files as required.
 * layout.hbs, tile.hbs are utilised for the server side rendered HTML associated with the tiles.
@@ -27,4 +27,4 @@ This utilities package is where we handle most of the complexities for the devel
 
 In the case that you have changes that you'd like to recommend, please do open a pull request to help us improve our product and the experience for other engineers.
 
-<div align="left"><figure><img src="../../../../.gitbook/assets/image (12).png" alt="" width="254"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (12).png" alt="" width="254"><figcaption></figcaption></figure></div>

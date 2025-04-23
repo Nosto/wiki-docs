@@ -12,4 +12,4 @@ When building for production, you can utilise `npm run build`  which will automa
 
 All changes to assets will be available in the dist folder
 
-<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

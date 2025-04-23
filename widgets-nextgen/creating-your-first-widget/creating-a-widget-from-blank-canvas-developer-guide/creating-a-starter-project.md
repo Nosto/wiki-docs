@@ -25,7 +25,7 @@ This project has been created with the sole purpose of:
 
 A successful attempt at this activity will be something like the following.&#x20;
 
-<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 But most importantly, have fun!
 
