@@ -89,6 +89,7 @@
     * [Open and close expanded tiles](widgets-nextgen/widget-guides/open-and-close-expanded-tiles.md)
     * [How to use the SDK](widgets-nextgen/widget-guides/how-to-use-the-sdk.md)
     * [How to make expanded tiles vertical](widgets-nextgen/widget-guides/how-to-make-expanded-tiles-vertical.md)
+  * [API Docs](https://widget-ui.stackla.com/docs/modules.html)
 * [Widgets](widgets.md)
 * [API Docs](api-docs/README.md)
   * [JavaScript API](api-docs/javascript/README.md)
