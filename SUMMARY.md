@@ -52,6 +52,7 @@
   * [Starting points](implementing-nosto/template-customization/starting-points.md)
   * [Styling](implementing-nosto/template-customization/styling.md)
   * [Scripting](implementing-nosto/template-customization/scripting.md)
+  * [Web Components](implementing-nosto/template-customization/web-components.md)
 
 ## APIs
 

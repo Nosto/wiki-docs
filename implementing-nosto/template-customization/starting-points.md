@@ -32,3 +32,5 @@ The `Swatches` template extends the base template with SKU selection aware produ
 * Web components library is loaded via cdn url into script module scope
 * Product image is updated based on color swatch selection
 * Add to cart button becomes visible when color and size values have been chosen
+
+More info on the available Nosto web components is available [here](https://github.com/Nosto/web-components).
