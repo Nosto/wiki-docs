@@ -53,7 +53,7 @@ Render Product with SKU selection dropdown and an "Add to cart" button:
 
 **Example #2**:
 
-Render Product with individual SKU item acting as "Add to cart" button. When using this approach, the structure
+Render Product with individual SKU item acting as "Add to cart" button.
 
 ```html
 <nosto-product product-id="123456" reco-id="789011">
@@ -214,7 +214,7 @@ Usage with select elements
 | `n-price`      | Price for SKU option which will be applied to NostoProduct wrapper on click |
 | `n-list-price` | List price for SKU option which will be applied to NostoProduct wrapper price on click |
 
-Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctly.
+Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
 
 ### `NostoSwiper`
 
@@ -270,7 +270,7 @@ In order to use Swiper modules the module names to be loaded must be passed as a
 
 ### `NostoShopify`
 
-A component wrapper for performing Shopify specific APIs.
+A component wrapper for performing Shopify specific APIs. Variant options are not yet supported.
 
 **Example**:
 
@@ -350,7 +350,7 @@ The component does not handle styling for selected options and it has to be appl
 
 ## Default disabled
 
-Similarly, cases where some options are be disabled by default is also supported. This is useful when SKU options that are Out-Of-Stock needs to be hidden or greyed out. By default, the `disabled` attribute is added to all unsupported SKU options. For example, when there is no `M` size in `Blue` color, on selection of `Blue` color, the component adds `disabled` attribute to option `M`.
+This is useful when some SKU options are to be hidden or greyed out. The `disabled` attribute represents an unsupported option and is added to all unsupported SKU options on SKU selections. This is useful when SKU options that are Out-Of-Stock needs to be hidden or greyed out. By default, the `disabled` attribute is added to all unsupported SKU options. For example, when there is no `M` size in `Blue` color, on selection of `Blue` color, the component adds `disabled` attribute to option `M`.
 
 Note:
 This functionality is applicable only when using `nosto-sku-options` component
