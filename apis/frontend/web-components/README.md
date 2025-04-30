@@ -2,20 +2,20 @@
 
 Nosto web components provide the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
 
-**Note**:
+**Note**:\
 This package doesn't render HTML markups on its own and the template should be provided by the user.
 
 ## Components
 
 This package provides the following web components:
 
-| Component         | Status            |
-| ----------------- | ----------------- |
-| `NostoProduct`      | PRODUCTION        |
-| `NostoProductCard`  | ALPHA             |
-| `NostoSkuOptions`   | PRODUCTION        |
-| `NostoShopify`      | ALPHA             |
-| `NostoSwiper`       | BETA              |
+| Component                               | Status     |
+| --------------------------------------- | ---------- |
+| [NostoProduct](./#nostoproduct)         | PRODUCTION |
+| [NostoProductCard](./#nostoproductcard) | ALPHA      |
+| [NostoSkuOptions](./#nostoskuoptions)   | PRODUCTION |
+| [NostoShopify](./#nostoshopify)         | ALPHA      |
+| [NostoSwiper](./#nostoswiper)           | BETA       |
 
 ### `NostoProduct`
 
@@ -25,13 +25,13 @@ When markup (HTML) for rendering a product is wrapped with the `NostoProduct` co
 
 Two mandatory component attributes:
 
-| Attribute    | Description                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `product-id` | Id of the product being rendered. `$!product.productId` provides the Product Id in templates.                        |
-| `reco-id`    | The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates. |
+| Attribute    | Description                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `product-id` | Id of the product being rendered. `$!product.productId` provides the Product Id in templates.                              |
+| `reco-id`    | The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates.       |
 | `n-sku-data` | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries |
 
-**Note**:
+**Note**:\
 The following examples of rendering product SKUs are applicable only for simple use-cases. For complex cases, like multi-directional SKU selections where selecting color renders the matching size and vice-versa, consider using the `NostoSkuOptions` component.
 
 **Example #1**:
@@ -76,10 +76,10 @@ This component requires the following attributes to parse the markup, extract pr
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `n-sku-selector` | Marks the SKU select dropdown. Attaches an `onchange` event to the element. Clicking on the "Add to cart" button adds the SKU value selected from the dropdown to the cart. |
 | `n-sku-id`       | Relevant when SKU options are rendered as "Add to cart" button. Supplies the ID of the SKU option value and should be supplied on the parent of "Add to cart" button.       |
-| `n-img`        | Image URL for SKU which will be applied to NostoProduct wrapper on click |
-| `n-alt-img`    | Alternate image URL for SKU which will be applied to NostoProduct wrapper on |
-| `n-price`      | Price for SKU which will be applied to NostoProduct wrapper on click |
-| `n-list-price` | List price for SKU which will be applied to NostoProduct wrapper price on click |
+| `n-img`          | Image URL for SKU which will be applied to NostoProduct wrapper on click                                                                                                    |
+| `n-alt-img`      | Alternate image URL for SKU which will be applied to NostoProduct wrapper on                                                                                                |
+| `n-price`        | Price for SKU which will be applied to NostoProduct wrapper on click                                                                                                        |
+| `n-list-price`   | List price for SKU which will be applied to NostoProduct wrapper price on click                                                                                             |
 
 ```html
 <div n-sku-id="456">
@@ -87,7 +87,7 @@ This component requires the following attributes to parse the markup, extract pr
 </div>
 ```
 
-`n-atc`
+`n-atc`\
 Marks an element as Add to cart trigger and attaches click event to the element. Clicking on this element triggers `addSkuToCart` API and supplies the selected SKU Id.
 
 ### `NostoProductCard`
@@ -204,15 +204,15 @@ Usage with select elements
 
 #### Markup Attributes
 
-| Attribute    | Description                                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `n-option`   | Marks an element as SKU option element                                                                                                                                                           |
-| `n-skus`     | Comma-separated value of linked available SKU Ids. `$!product.getSkuAggregateOptions` method in templates provides the Sku aggregates for the supplied custom field (color/size/material etc...) |
-| `n-skus-oos` | Comma-separated value of linked unavailable SKU Ids. The usage of this parameter is optional and should be considered when Out of stock SKUs should be considered.                               |
-| `n-img`     | Image URL for SKU option which will be applied to NostoProduct wrapper on click  |
-| `n-alt-img` | Alternate image URL for SKU option which will be applied to NostoProduct wrapper on click  |
-| `n-price`      | Price for SKU option which will be applied to NostoProduct wrapper on click |
-| `n-list-price` | List price for SKU option which will be applied to NostoProduct wrapper price on click |
+| Attribute      | Description                                                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `n-option`     | Marks an element as SKU option element                                                                                                                                                           |
+| `n-skus`       | Comma-separated value of linked available SKU Ids. `$!product.getSkuAggregateOptions` method in templates provides the Sku aggregates for the supplied custom field (color/size/material etc...) |
+| `n-skus-oos`   | Comma-separated value of linked unavailable SKU Ids. The usage of this parameter is optional and should be considered when Out of stock SKUs should be considered.                               |
+| `n-img`        | Image URL for SKU option which will be applied to NostoProduct wrapper on click                                                                                                                  |
+| `n-alt-img`    | Alternate image URL for SKU option which will be applied to NostoProduct wrapper on click                                                                                                        |
+| `n-price`      | Price for SKU option which will be applied to NostoProduct wrapper on click                                                                                                                      |
+| `n-list-price` | List price for SKU option which will be applied to NostoProduct wrapper price on click                                                                                                           |
 
 Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
 
@@ -263,10 +263,10 @@ In order to use Swiper modules the module names to be loaded must be passed as a
 
 #### Markup attributes
 
-| Attribute            | Description                                                                 |
-| -------------------- | --------------------------------------------------------------------------- |
-| `swiper-config`      | Marks the `<script type="application/json">` child block as Swiper configuration. |
-| `inject-css`         | To be used on NostoSwiper level to trigger loading of Swiper CSS |
+| Attribute       | Description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| `swiper-config` | Marks the `<script type="application/json">` child block as Swiper configuration. |
+| `inject-css`    | To be used on NostoSwiper level to trigger loading of Swiper CSS                  |
 
 ### `NostoShopify`
 
@@ -345,15 +345,15 @@ with `nosto-sku-options` component
 </nosto-product>
 ```
 
-Note:
+Note:\
 The component does not handle styling for selected options and it has to be applied from the template.
 
 ## Default disabled
 
 This is useful when some SKU options are to be hidden or greyed out. The `disabled` attribute represents an unsupported option and is added to all unsupported SKU options on SKU selections. This is useful when SKU options that are Out-Of-Stock needs to be hidden or greyed out. By default, the `disabled` attribute is added to all unsupported SKU options. For example, when there is no `M` size in `Blue` color, on selection of `Blue` color, the component adds `disabled` attribute to option `M`.
 
-Note:
-This functionality is applicable only when using `nosto-sku-options` component
+Note:\
+This functionality is applicable only when using `nosto-sku-options` component\
 The component does not handle styling for disabled options and it has to be applied from the template.
 
 ```html
