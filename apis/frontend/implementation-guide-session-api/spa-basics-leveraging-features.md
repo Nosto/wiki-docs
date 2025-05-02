@@ -2,7 +2,7 @@
 
 ## Working with recommendations
 
-The `load` method returns a promise which can be consumed to get the raw recommendation data. The raw recommendation data is an object containing the recommendation data.
+The `load` method returns a promise, which can be consumed to get the raw recommendation data. The raw recommendation data is an object containing the recommendation data.
 
 ### Reporting correct page views - load() vs update()
 

@@ -129,8 +129,8 @@
     * [Nosto JS](apis/frontend/nosto-js/README.md)
     * [Search JS](apis/frontend/search-js/README.md)
     * [Nosto React](apis/frontend/react-support/README.md)
-    * [Web Components](apis/frontend/oss/web-components/README.md)
-      * [Loading Web components](apis/frontend/oss/web-components/loading-web-components.md)
+    * [Web Components](apis/frontend/web-components/README.md)
+      * [Loading Web components](apis/frontend/web-components/loading-web-components.md)
 
 ## User Generated Content
 

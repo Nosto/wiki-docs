@@ -1,11 +1,11 @@
 # Record Attribution
 
-The `recordAttribution` method provides a low-level standalone API to submit events to Nosto for processing in the backend.
-It is to be used for standalone attribution submission that are not covered by the alternatives:
-* Parameterless attribution
-* Usage of attribution url parameters
-* Session API
-* Request API (`api.createRecommendationRequest`)
+The `recordAttribution` method provides a low-level standalone API to submit events to Nosto for processing in the backend. It is to be used for a standalone attribution submission that is not covered by the alternatives:
+
+* Parameterless attribution usage
+* The usage of attribution URL parameters
+* The Session API
+* The Request API (`api.createRecommendationRequest`)
 
 ```typescript
 nostojs(api => api.recordAttribution({ 
@@ -21,7 +21,7 @@ The API method `recordAttribution` accepts one event at a time, but users can ch
 
 ## Parameters
 
-<table><thead><tr><th width="271" align="center">name</th><th align="center">field type</th><th align="center">is required</th><th align="center">description</th></tr></thead><tbody><tr><td align="center">type</td><td align="center">string</td><td align="center">yes</td><td align="center">type of event to which a placement (ref) should be attributed. Refer <a data-mention href="record-attribution.md#event-types">#event-types</a></td></tr><tr><td align="center">target</td><td align="center">string</td><td align="center">yes</td><td align="center">id of the element that's been loaded as a result of the event</td></tr><tr><td align="center">ref</td><td align="center">string</td><td align="center">no</td><td align="center">id of the element that hosted the link which triggered the event</td></tr><tr><td align="center">refSrc</td><td align="center">string</td><td align="center">no</td><td align="center">id of parent element of the link that triggered the event</td></tr><tr><td align="center">targetFragment</td><td align="center">string</td><td align="center">no</td><td align="center">the <code>skuId</code> in case of `<code>vp`</code>events </td></tr><tr><td align="center">refType</td><td align="center">string</td><td align="center">no</td><td align="center">Refer <a data-mention href="record-attribution.md#event-ref-types">#event-ref-types</a></td></tr></tbody></table>
+<table><thead><tr><th width="271" align="center">name</th><th align="center">field type</th><th align="center">is required</th><th align="center">description</th></tr></thead><tbody><tr><td align="center">type</td><td align="center">string</td><td align="center">yes</td><td align="center">type of event to which a placement (ref) should be attributed. Refer <a data-mention href="record-attribution.md#event-types">#event-types</a></td></tr><tr><td align="center">target</td><td align="center">string</td><td align="center">yes</td><td align="center">id of the element that's been loaded as a result of the event</td></tr><tr><td align="center">ref</td><td align="center">string</td><td align="center">no</td><td align="center">id of the element that hosted the link which triggered the event</td></tr><tr><td align="center">refSrc</td><td align="center">string</td><td align="center">no</td><td align="center">id of parent element of the link that triggered the event</td></tr><tr><td align="center">targetFragment</td><td align="center">string</td><td align="center">no</td><td align="center">the <code>skuId</code> in case of `<code>vp</code>events </td></tr><tr><td align="center">refType</td><td align="center">string</td><td align="center">no</td><td align="center">Refer <a data-mention href="record-attribution.md#event-ref-types">#event-ref-types</a></td></tr></tbody></table>
 
 ## Event Types
 

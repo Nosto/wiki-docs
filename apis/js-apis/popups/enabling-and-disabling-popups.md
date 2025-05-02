@@ -4,7 +4,7 @@ You can use the JS API to conditionally enable or disable a popup.
 
 ## Enabling a Popup
 
-The following snippet enabled the specified popup.
+The following snippet enables the specified popup.
 
 ```javascript
 nostojs(api => {

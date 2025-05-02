@@ -1,6 +1,6 @@
 # Listing Popup Campaigns
 
-You can use the JS API to list all the popup campaigns. This may be handy in situations when you would like to fetch all campaigns and iterate them to decide whether they should be shown or not.
+You can use the JS API to list all the popup campaigns. This may be handy in situations when you would like to fetch all the campaigns and iterate through them to decide whether they should be shown or not.
 
 ```javascript
 nostojs(api => {
