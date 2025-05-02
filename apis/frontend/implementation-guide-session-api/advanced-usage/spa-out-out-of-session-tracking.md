@@ -48,7 +48,7 @@ nostojs(api => console.log(api.visit.isDoNotTrack()));
 
 ## Impact on features
 
-This section lists the impact of enabled `doNoTrack` mode on various Nosto products
+This section lists the impact of enabled `doNoTrack` mode on various Nosto features
 
 | Feature                                         | Impact                                          |
 |-------------------------------------------------|-------------------------------------------------|
