@@ -46,3 +46,22 @@ Having done so, you can also verify that you have opted out by using the `isDoNo
 nostojs(api => console.log(api.visit.isDoNotTrack()));
 ```
 
+## Impact on features
+
+This section lists the impact of enabled `doNoTrack` mode on various Nosto products
+
+### Recommendations and Onsite Content Personalization
+
+Recommendations and Onsite Content Personalization are normally served
+
+### Popups
+
+The popups feature is fully disabled
+
+### Search and Category Merchandising (Universal)
+
+Search and Category Merchandising analytics tracking is disabled
+
+### Category Merchandising (Platform)
+
+The segmentation capabilities are fully disabled
