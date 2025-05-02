@@ -50,18 +50,9 @@ nostojs(api => console.log(api.visit.isDoNotTrack()));
 
 This section lists the impact of enabled `doNoTrack` mode on various Nosto products
 
-### Recommendations and Onsite Content Personalization
-
-Recommendations and Onsite Content Personalization are normally served
-
-### Popups
-
-The popups feature is fully disabled
-
-### Search and Category Merchandising (Universal)
-
-Search and Category Merchandising analytics tracking is disabled
-
-### Category Merchandising (Platform)
-
-The segmentation capabilities are fully disabled
+| Feature                                         | Impact                                          |
+|-------------------------------------------------|-------------------------------------------------|
+| Recommendations and Onsite Content Personalization  | Normally served                                  |
+| Popups                                          | Fully disabled                                  |
+| Search and Category Merchandising (Universal)   | Analytics tracking disabled                     |
+| Category Merchandising (Platform)               | Segmentation capabilities are fully disabled    |
