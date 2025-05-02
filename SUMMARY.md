@@ -85,7 +85,6 @@
         * [Building your widget](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/building-your-widget.md)
         * [Shipping to production](widgets-nextgen/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/shipping-to-production.md)
   * [Widget Guides](widgets-nextgen/widget-guides/README.md)
-    * [Loading more tiles](widgets-nextgen/widget-guides/loading-more-tiles.md)
     * [Open and close expanded tiles](widgets-nextgen/widget-guides/open-and-close-expanded-tiles.md)
     * [How to use the SDK](widgets-nextgen/widget-guides/how-to-use-the-sdk.md)
     * [How to make expanded tiles vertical](widgets-nextgen/widget-guides/how-to-make-expanded-tiles-vertical.md)
