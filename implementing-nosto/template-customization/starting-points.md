@@ -10,7 +10,7 @@ The `Default` template has the following features:
 * Alternate image on hover
 * Ribbons for new, most viewed, and top-selling products
 * Highlighting of discounts
-* Add-to-cart functionality
+* Add to cart functionality
 
 ## Carousel
 
@@ -31,4 +31,4 @@ The `Swatches` template extends the base template with SKU selection-aware produ
 * `NostoProduct` and `NostoSkuOptions` web components to maintain swatch selection state and abstract the add-to-cart logic away
 * Web components library is loaded via CDN URL into script module scope
 * Product image is updated based on color swatch selection
-* Add-to-cart button becomes visible when color and size values have been chosen
+* Add to cart button becomes visible when color and size values have been chosen

@@ -11,7 +11,7 @@ Nosto campaign templates support two ways to define JavaScript script elements a
 
 In the legacy mode, the script contents are evaluated in the scope of the nosto iframe and can refer to the main window via the global `_targetWindow` variable.
 
-To support ES module loading in placement and popup script elements, the client script also supports the usage of `script[type='module']` elements in both of these contexts. This newer module mode is evaluated in the main window but uses module scope for sandboxing. To write variables to the global scope, you will need to do so explicitly by declaring fields in the window object.
+To support ES module loading in placement and popup script elements, the client script supports the usage of `script[type='module']` elements in both of these contexts. This newer module mode is evaluated in the main window but uses module scope for sandboxing. To write variables to the global scope, you will need to do so explicitly by declaring fields in the window object.
 
 For new accounts, we recommend the use of ES module scripts. For older accounts with existing templates, the legacy script mode works as well, but interaction with the main window is a bit more verbose.
 
