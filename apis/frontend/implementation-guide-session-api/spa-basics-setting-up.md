@@ -2,7 +2,7 @@
 
 ## Setting up your account
 
-You must use a valid domain for your website. If you are creating a test account and running your store locally, you must use valid TLD as using `localhost` is not supported.
+You must use a valid domain for your website. If you are creating a test account and running your store locally, you must use a valid TLD as using `localhost` is not supported.
 
 {% hint style="warning" %}
 You cannot use the following domains as they are reserved by the IANA.&#x20;

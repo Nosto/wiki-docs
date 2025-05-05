@@ -1,6 +1,6 @@
 # Web Components
 
-Nosto web components provide the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
+[Nosto Web Components](https://github.com/Nosto/web-components) provides the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
 
 **Note**:\
 This package doesn't render HTML markups on its own and the template should be provided by the user.

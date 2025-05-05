@@ -1,8 +1,6 @@
 # Nosto React
 
-[Nosto React](https://github.com/Nosto/nosto-react) is a React component library to make it even easier to implement Nosto.
-
-The library provides you everything to get started with personalization on your React site. It's dead simple, and beginner friendly.
+[Nosto React](https://github.com/Nosto/nosto-react) is a React component library to make it even easier to implement Nosto. The library provides you with everything to get started with personalization on your React site.
 
 ## Why?
 
