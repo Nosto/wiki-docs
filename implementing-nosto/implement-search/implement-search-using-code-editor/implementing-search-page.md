@@ -201,7 +201,7 @@ The supported sizes are
 
 The same mapping will also be attempted for SKU level data
 
-### Setting up Multi-Currency for Search Templates
+### Multi-Currency
 
 To enable multi-currency functionality in search templates, follow these steps:
 
