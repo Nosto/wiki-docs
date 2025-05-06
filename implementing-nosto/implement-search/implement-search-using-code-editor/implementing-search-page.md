@@ -201,6 +201,44 @@ The supported sizes are
 
 The same mapping will also be attempted for SKU level data
 
+### Price decorators
+
+* **Include Required Fields**
+  The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are:
+  * `price` will be formatted to `priceText`
+  * `listPrice` will be formatted to `listPriceText`
+  * `priceCurrencyCode` will be used as the currency code
+* **Use the `priceDecorator`**
+  The `priceDecorator` is responsible for formatting prices into text fields using above mentioned fields.
+ 
+A complete example of the Search-templates configuration:
+
+```javascript
+import { init, priceDecorator } from "@nosto/preact";
+
+init({
+    ...window.nostoTemplatesConfig,
+    ...
+    serpQuery {
+        products: {
+            variationId: this.variationId(),
+            fields: [
+                // needed for priceDecorator
+                "price", 
+                "listPrice",
+                "priceCurrencyCode",
+            ],
+            size: 20,
+            from: 0
+        }
+    },
+    hitDecorators: [
+        priceDecorator()
+    ]
+});
+```
+> For the `priceDecorator` to function correctly, the Multi-Currency setup outlined below must be properly configured.
+
 ### Multi-Currency
 
 To enable multi-currency functionality in search templates, follow these steps:
@@ -221,39 +259,6 @@ To enable multi-currency functionality in search templates, follow these steps:
                 variationId: this.variationId()
             }
         }
-    });
-    ```
-* **Include Required Fields**
-  The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are:
-  * `price` will be formatted to `priceText`
-  * `listPrice` will be formatted to `listPriceText`
-  * `priceCurrencyCode` will be used as the currency code
-
-* **Use the priceDecorator**
-  The `priceDecorator` is responsible for formatting prices into text fields (`priceText` and `listPriceText`). It uses the fields mentioned above to generate the formatted text. Here's an example of how to use the `priceDecorator`:
-
-     ```javascript
-   import { init, priceDecorator } from "@nosto/preact";
-
-   init({
-        ...window.nostoTemplatesConfig,
-        ...
-        serpQuery {
-            products: {
-                variationId: this.variationId(),
-                fields: [
-                    // needed for priceDecorator
-                    "price", 
-                    "listPrice",
-                    "priceCurrencyCode",
-                ],
-                size: 20,
-                from: 0
-            }
-        },
-        hitDecorators: [
-            priceDecorator()
-        ]
     });
     ```
 
