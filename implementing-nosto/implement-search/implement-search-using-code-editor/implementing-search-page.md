@@ -202,9 +202,10 @@ The supported sizes are
 The same mapping will also be attempted for SKU level data
 
 ### Price decorators
+The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. 
 
 * **Include Required Fields**
-  The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are:
+  * The fields required for this mapping are:
   * `price` will be formatted to `priceText`
   * `listPrice` will be formatted to `listPriceText`
   * `priceCurrencyCode` will be used as the currency code
@@ -237,7 +238,6 @@ init({
     ]
 });
 ```
-> For the `priceDecorator` to function correctly, the Multi-Currency setup outlined below must be properly configured.
 
 ### Multi-Currency
 
@@ -246,7 +246,7 @@ To enable multi-currency functionality in search templates, follow these steps:
 * **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
 
 * **Provide the `variationId`**  
-  The `variationId` is essential for converting prices to the correct currency. It should be included in the search query to ensure accurate price conversion. Below is an example of how to include the `variationId` in your search query:
+  The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion. Below is an example of how to include the `variationId` in your search query:
 
    ```js
    import { init } from "@nosto/preact";
