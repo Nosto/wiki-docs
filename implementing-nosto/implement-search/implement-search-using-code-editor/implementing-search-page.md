@@ -141,7 +141,7 @@ init({
 
 ### Product thumbnails
 
-Product thumbnails is supported via decorators that augment the product data returned by the Nosto Search service.
+Product thumbnails are supported via decorators that augment the product data returned by the Nosto Search service.
 
 The following example shows modifications to the `init` call to make product thumbnails available in the result data:
 
@@ -165,7 +165,6 @@ init({
     },    
     hitDecorators: [
         thumbnailDecorator({ size: "9" })
-        priceDecorator()
     ]
 })
 ```
@@ -211,12 +210,13 @@ To enable multi-currency functionality in search templates, follow these steps:
 * **Provide the `variationId`**  
   The `variationId` is essential for converting prices to the correct currency. It should be included in the search query to ensure accurate price conversion. Below is an example of how to include the `variationId` in your search query:
 
-   ```javascript
+   ```js
    import { init } from "@nosto/preact";
 
    init({
         ...window.nostoTemplatesConfig,
-        serpQuery() {
+        ...
+        serpQuery {
             products: {
                 variationId: this.variationId()
             }
@@ -237,10 +237,8 @@ To enable multi-currency functionality in search templates, follow these steps:
 
    init({
         ...window.nostoTemplatesConfig,
-        hitDecorators: [
-            priceDecorator()
-        ]
-        serpQuery() {
+        ...
+        serpQuery {
             products: {
                 variationId: this.variationId(),
                 fields: [
@@ -252,7 +250,10 @@ To enable multi-currency functionality in search templates, follow these steps:
                 size: 20,
                 from: 0
             }
-        }
+        },
+        hitDecorators: [
+            priceDecorator()
+        ]
     });
     ```
 
