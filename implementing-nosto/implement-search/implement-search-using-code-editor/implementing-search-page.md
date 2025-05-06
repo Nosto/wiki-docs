@@ -243,7 +243,7 @@ init({
 
 To enable multi-currency functionality in search templates, follow these steps:
 
-* **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
+* **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
 
 * **Provide the `variationId`**  
   The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion. Below is an example of how to include the `variationId` in your search query:
