@@ -14,7 +14,6 @@ This package provides the following web components:
 | [NostoProduct](./#nostoproduct)         | PRODUCTION |
 | [NostoProductCard](./#nostoproductcard) | ALPHA      |
 | [NostoSkuOptions](./#nostoskuoptions)   | PRODUCTION |
-| [NostoShopify](./#nostoshopify)         | ALPHA      |
 | [NostoSwiper](./#nostoswiper)           | BETA       |
 
 ### `NostoProduct`
@@ -267,52 +266,6 @@ In order to use Swiper modules the module names to be loaded must be passed as a
 | --------------- | --------------------------------------------------------------------------------- |
 | `swiper-config` | Marks the `<script type="application/json">` child block as Swiper configuration. |
 | `inject-css`    | To be used on NostoSwiper level to trigger loading of Swiper CSS                  |
-
-### `NostoShopify`
-
-A component wrapper for performing Shopify specific APIs. Variant options are not yet supported.
-
-**Example**:
-
-Migrate to Shopify market
-
-```html
-<div id="frontpage-nosto-1" class="nosto-element">
-  <nosto-shopify markets>
-    <nosto-product product-id="123456" reco-id="789011">
-      <div class="product-card nosto-item" n-handle="5-pocket-jean">
-        <span n-url="https://shopeasy-local.myshopify.com/products/5-pocket-jean"></span>
-        <h3 n-title>5 Pocket Jean</h3>
-        <span n-description> The 5 Pocket Jean by Nigel Cabourn is your denim go-to for every occasion. </span>
-        <span class="product-price" n-price> 110$ </span>
-        <span class="product-list-price" n-list-price> 110$ </span>
-        <nosto-sku-options name="colors">
-          <span n-option n-skus="123,145">Black</span>
-          <span n-option n-skus="223,234,245">White</span>
-          <span n-option n-skus="334,345">Blue</span>
-        </nosto-sku-options>
-        <nosto-sku-options name="sizes">
-          <span n-option n-skus="123,223">L</span>
-          <span n-option n-skus="234,334">M</span>
-          <span n-option n-skus="145,245,345">S</span>
-        </nosto-sku-options>
-        <span n-atc>Add to cart</span>
-      </div>
-    </nosto-product>
-  </nosto-shopify>
-</div>
-```
-
-#### Markup attributes
-
-| Attribute       | Description                                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------------ |
-| `n-url`         | Product URL. `$product.url` provides the product URL in templates                                            |
-| `n-title`       | Product name. `$product.name` provides the product name in templates                                         |
-| `n-handle`      | The last segment of product URL. `$!product.lastPathOfProductUrl()` provides the product handle in templates |
-| `n-price`       | Product price. `$!product.price` provides the product price in templates                                     |
-| `n-list-price`  | Product list price. `$!product.listPrice` provides the product list price in templates                       |
-| `n-description` | Product description. `$!product.description` provides the product description in templates                   |
 
 ## Pre-selected options
 
