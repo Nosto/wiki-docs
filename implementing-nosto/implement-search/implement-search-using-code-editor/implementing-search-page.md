@@ -202,7 +202,7 @@ The supported sizes are
 The same mapping will also be attempted for SKU level data
 
 ### Price decorators
-The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. 
+The `priceDecorator` utilizes the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields, covering both product and SKU level data.
 
 * **Include Required Fields**
   * The fields required for this mapping are:
