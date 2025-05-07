@@ -139,11 +139,11 @@ init({
 
 <table><thead><tr><th width="210"></th><th width="173.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>Pagination</code></td><td>Replaces <code>from</code> parameter with page number.</td><td>Before:<br><code>/search?products.from=20&#x26;q=shorts</code><br><br>After:<br><code>/search?page=2&#x26;q=shorts</code></td></tr><tr><td><code>Sorting</code></td><td>Returns shorter <code>sort</code> parameters.</td><td>Before:<br><code>/search?q=shorts&#x26;products.sort.0.field=price&#x26;products.sort.0.order=desc</code><br><br>After:<br><code>/search?q=shorts&#x26;products.sort=price~desc</code></td></tr><tr><td><code>Filtering</code></td><td>Compresses <code>filter</code> parameters. Multiple <code>filter</code> values are separated by a comma, which is encoded. This is because <code>filter</code> values can contain non-alphanumeric letters themselves.</td><td>Before:<br><code>/search?q=shorts&#x26;products.filter.0.field=customFields.producttype&#x26;products.filter.0.value.0=Shorts&#x26;products.filter.0.value.1=Swim&#x26;products.filter.1.field=price&#x26;products.filter.1.range.0.gte=10&#x26;products.filter.1.range.0.lte=30</code><br><br>After:<br><code>/search?q=shorts&#x26;filter.customFields.producttype=Shorts%7C%7CSwim&#x26;filter.price=10~30</code></td></tr></tbody></table>
 
-### Product thumbnails and currency formatting
+### Product thumbnails
 
-Product thumbnails and currency formatting are supported via decorators that augment the product data returned by the Nosto Search service.
+Product thumbnails are supported via decorators that augment the product data returned by the Nosto Search service.
 
-The following example shows modifications to the `init` call to make formatted price texts and product thumbnails available in the result data:
+The following example shows modifications to the `init` call to make product thumbnails available in the result data:
 
 ```js
 import { init, thumbnailDecorator, priceDecorator } from "@nosto/preact"
@@ -156,11 +156,7 @@ init({
             fields: [
                 ...
                 // needed for thumbnailDecorator
-                "imageHash",
-                // needed for priceDecorator
-                "price", 
-                "listPrice",
-                "priceCurrencyCode",
+                "imageHash"
             ],
             facets: ["*"],
             size: defaultConfig.serpSize,
@@ -169,7 +165,6 @@ init({
     },    
     hitDecorators: [
         thumbnailDecorator({ size: "9" })
-        priceDecorator()
     ]
 })
 ```
@@ -204,14 +199,68 @@ The supported sizes are
   </tbody>
 </table>
 
-
-The `priceDecorator` uses the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields. The fields required for this mapping are
-
-* `price` will be formatted to `priceText`
-* `listPrice` will be formatted to `listPriceText`
-* `priceCurrencyCode` will be used as the currency code
-
 The same mapping will also be attempted for SKU level data
+
+### Price decorators
+The `priceDecorator` utilizes the currency formatting definitions of the Nosto account to format prices into `priceText` and `listPriceText` fields, covering both product and SKU level data.
+
+* **Include Required Fields**
+  * The fields required for this mapping are:
+  * `price` will be formatted to `priceText`
+  * `listPrice` will be formatted to `listPriceText`
+  * `priceCurrencyCode` will be used as the currency code
+* **Use the `priceDecorator`**
+  The `priceDecorator` is responsible for formatting prices into text fields using above mentioned fields.
+ 
+A complete example of the Search-templates configuration:
+
+```javascript
+import { init, priceDecorator } from "@nosto/preact";
+
+init({
+    ...window.nostoTemplatesConfig,
+    ...
+    serpQuery {
+        products: {
+            variationId: this.variationId(),
+            fields: [
+                // needed for priceDecorator
+                "price", 
+                "listPrice",
+                "priceCurrencyCode",
+            ],
+            size: 20,
+            from: 0
+        }
+    },
+    hitDecorators: [
+        priceDecorator()
+    ]
+});
+```
+
+### Multi-Currency
+
+To enable multi-currency functionality in search templates, follow these steps:
+
+* **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
+
+* **Provide the `variationId`**  
+  The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion. Below is an example of how to include the `variationId` in your search query:
+
+   ```js
+   import { init } from "@nosto/preact";
+
+   init({
+        ...window.nostoTemplatesConfig,
+        ...
+        serpQuery {
+            products: {
+                variationId: this.variationId()
+            }
+        }
+    });
+    ```
 
 ### Query parameter mapping
 
