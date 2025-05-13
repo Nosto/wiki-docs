@@ -29,7 +29,7 @@ Nosto offers several web components designed to simplify product card integratio
 - **NostoProductCard**  
     Provides a platform-agnostic custom element that delegates rendering to a shop side templates (Handlebars and Liquid are currently supported).
 
-Nosto's web component offering is documented [here](../../apis/frontend/oss/web-components)
+Nosto's web component offering is documented [here](../../apis/frontend/web-components)
 
 ## Style Reuse
 
