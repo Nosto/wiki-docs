@@ -9,12 +9,35 @@ This package doesn't render HTML markups on its own and the template should be p
 
 This package provides the following web components:
 
-| Component                               | Status     |
-| --------------------------------------- | ---------- |
-| [NostoProduct](./#nostoproduct)         | PRODUCTION |
-| [NostoProductCard](./#nostoproductcard) | ALPHA      |
-| [NostoSkuOptions](./#nostoskuoptions)   | PRODUCTION |
-| [NostoSwiper](./#nostoswiper)           | BETA       |
+| Component                               | Category                  |
+| --------------------------------------- | ------------------------- |
+| [NostoDynamicCard](./#nostodynamiccard) | Templating (Shopify only) |
+| [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
+| [NostoProductCard](./#nostoproductcard) | Templating                |
+| [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
+| [NostoSwiper](./#nostoswiper)           | Progressive Enhancement   |
+
+### `NostoDynamicCard``
+
+`NostoDynamicCard` is a custom element that delegates the product card rendering fully to Shopify with a given product handle and a reference to an alternate template to use. We recommend to skip the layout rendering in the alternative template.
+
+This custom element is the recommended choice to use when the product card markup should be fully managed in Shopify templates instead of being spread to Shopify themes and Nosto templates.
+
+#### Component attributes
+
+| Attribute    | Description |
+| ------------ | ----------- |
+| `handle`     | Handle of the product |
+| `template`   | Name of the alternate template to use |
+| `variant-id` | Optional reference to variant id |
+
+**Example**
+
+```html
+<nosto-dynamic-card handle="awesome-product" template="product-card" variant-id="123456">
+  Placeholder content while loading...
+</nosto-dynamic-card>
+``` 
 
 ### `NostoProduct`
 
@@ -24,8 +47,8 @@ When markup (HTML) for rendering a product is wrapped with the `NostoProduct` co
 
 Two mandatory component attributes:
 
-| Attribute    | Description                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| Attribute    | Description |
+| ------------ | ----------- |
 | `product-id` | Id of the product being rendered. `$!product.productId` provides the Product Id in templates.                              |
 | `reco-id`    | The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates.       |
 | `n-sku-data` | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries |
