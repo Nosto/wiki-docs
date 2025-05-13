@@ -50,6 +50,7 @@
 * [Check your setup](implementing-nosto/checking-your-setup.md)
 * [Template customization](implementing-nosto/template-customization/README.md)
   * [Starting points](implementing-nosto/template-customization/starting-points.md)
+  * [Product cards](implementing-nosto/template-customization/product-cards.md)
   * [Styling](implementing-nosto/template-customization/styling.md)
   * [Scripting](implementing-nosto/template-customization/scripting.md)
 
