@@ -59,16 +59,15 @@ If the Pixel doesn’t appear in your Customer Events section, check if permissi
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p><em>Screenshot of Shopify’s permission prompt</em></p></figcaption></figure>
 
-## Enabling the Shopify Pixel
+## Checking the Shopify Pixel
 
-To activate the Nosto Pixel in Shopify:
+Nosto activated the Pixel automatically, but in cases of issues or if you're unsure if it works, you can check the status:&#x20;
 
 1. Go to Shopify Admin → Settings → Customer Events
 2. Click Manage Pixels
 3. Look for the Nosto Pixel
-4. Enable it (or accept new access permissions if prompted)
 
-That’s it — no manual code needed.
+In case the status is not "Connected", please reach out to us!
 
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -76,7 +75,7 @@ That’s it — no manual code needed.
 
 ## Cookie Consent & Legal Compliance
 
-For tracking to work, the customer must accept cookies — especially in markets with strict privacy laws.
+For tracking to work, the customer must accept cookies — especially in regions with strict privacy laws.
 
 ### What’s required:
 
@@ -86,10 +85,10 @@ For tracking to work, the customer must accept cookies — especially in markets
 
 ## Troubleshooting
 
-| Pixel request fails (404 / token not found) | - Open DevTools → Network tab- Look for a request like /pixel/token/{shop}/{cid}/{checkout-token}- Confirm the cookie + token are passed |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixel doesn’t show up at all                | - _Go to Shopify Admin → Settings → Customer Events_- Make sure the Nosto Pixel is listed and active                                     |
-| Nothing seems to track                      | - Is Nosto script loaded on the storefront?- Does your consent tool properly trigger script loading and cookie creation?                 |
+| Pixel request fails (404 / Cookie not found) | - Open DevTools → Network tab- Look for a request like /pixel/token/{shop}/{cid}/{checkout-token}- Confirm the cookie + token are passed |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Pixel doesn’t show up at all                 | - _Go to Shopify Admin → Settings → Customer Events_- Make sure the Nosto Pixel is listed and active                                     |
+| Nothing seems to track                       | - Is Nosto script loaded on the storefront?- Does your consent tool properly trigger script loading and cookie creation?                 |
 
 **Still not working?**
 
