@@ -34,10 +34,17 @@ This custom element is the recommended choice to use when the product card marku
 **Example**
 
 ```html
-<nosto-dynamic-card handle="awesome-product" template="product-card" variant-id="123456">
+<nosto-dynamic-card handle="awesome-product" template="card" variant-id="123456">
   Placeholder content while loading...
 </nosto-dynamic-card>
 ``` 
+
+Shopify side template: `product.card.liquid`
+
+```html
+{% layout none %}
+{% render 'card-product', card_product: product %}
+```
 
 ### `NostoProduct`
 
