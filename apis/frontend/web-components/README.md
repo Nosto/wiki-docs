@@ -39,7 +39,7 @@ This custom element is the recommended choice to use when the product card marku
 </nosto-dynamic-card>
 ``` 
 
-Shopify side template: `product.cart.liquid`
+Shopify side template: `product.card.liquid`
 
 ```html
 {% layout none %}
