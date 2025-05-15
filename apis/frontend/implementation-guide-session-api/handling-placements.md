@@ -72,7 +72,7 @@ The response object will contain a campaigns field which has both content and re
 
 ## Rendering campaign results
 
-By default the API returns campaigns data in JSON notation. Product campaigns contain an array of recommended products and content campaigns contain an html field. The implementing application can decide how it does the rendering in the application, but Nosto does provide a utility function to help with injecting the html content campaigns into the right place: `api.placements.injectCampaigns()`. The function expects an object where the field keys are the placements to be injected and values are either a string or an object with a string field named `html`. The function will scan the document to find the active placements and insert the html to the right location. Any javascript blocks within the html content will be executed as well.
+By default the API returns campaigns data in JSON format. Product recommendation campaigns contain an array of recommended products and content campaigns contain an `html` field. To ensure correct attribution HTML campaign results should always be injected via Nosto API functions. Nosto provides a function to inject the HTML based campaign results into the right place: `api.placements.injectCampaigns()`. The function expects an object where the field keys are the placements to be injected and values are either a string or an object with a string field named `html`. The function will scan the document to find the active placements and insert the HTML to the right location. Any javascript blocks within the HTML content will be executed as well.
 
 Here is an example of rendering campaign results.&#x20;
 
@@ -80,9 +80,9 @@ Here is an example of rendering campaign results.&#x20;
 /* TODO for the application to implement */
 function createProductRecsHtml(recommendations) {
   return new Promise((resolve, reject) => {
-    /* TODO your code to create the html for each recommendation 
+    /* TODO your code to create the HTML for each recommendation 
      * with the placements identifiers as keys, example:
-     * recsHtml = { "frontpage-center-1": "html here" }
+     * recsHtml = { "frontpage-center-1": "HTML here" }
      */ 
     resolve(recsHtml);
   }
@@ -97,7 +97,7 @@ nostojs(api => {
       /* Render content campaigns */ 
       api.placements.injectCampaigns(response.campaigns.content);
       
-      /* Transform products json to html and render */
+      /* Transform products JSON to HTML and render */
       createProductRecsHtml(response.campaigns.recommendations).then(recsHtml => {
         api.placements.injectCampaigns(recsHtml);  
       });
@@ -105,11 +105,11 @@ nostojs(api => {
 });
 ```
 
-This example assumes the implementing application has a utility function to transform products json into html to be inserted, alternatively there could also be a function that gets the product json and renders them itself directly.
+This example assumes the implementing application has a utility function to transform products JSON into HTML to be inserted, alternatively there could also be a function that gets the product JSON and renders them itself directly.
 
-## Offloading campaign rendering fully to Nosto&#x20;
+## Offloading campaign rendering and injection fully to Nosto&#x20;
 
-In the event that you would like to offload the campaign rendering fully to Nosto, you can skip transforming the products json to html and instead use the recommendation templates in the Nosto backend to produce html. In that case you would set the response mode in the Session API to be 'HTML', then the response will not have a `campaign` field and will instead contain a `recommendations` field which has the HTML content of all campaigns, regardless if they are content or recommendation campaigns. You can then pass that field to a utility method `api.placements.injectCampaigns` that will inject the HTML into the page.
+For HTML based campaign results we recommend to offload the campaign injection fully to Nosto. For HTML based results you can skip transforming the products JSON to HTML and instead use the recommendation templates in the Nosto backend to produce HTML. In that case you would set the response mode in the Session API to be 'HTML', then the response will not have a `campaign` field and will instead contain a `recommendations` field which has the HTML content of all campaigns, regardless if they are content or recommendation campaigns. You can then pass that field to a utility method `api.placements.injectCampaigns` that will inject the HTML into the page and apply correct attribution logic to it.
 
 Here's an example call
 
