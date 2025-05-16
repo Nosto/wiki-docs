@@ -16,7 +16,7 @@ You will then be redirected to the Code Editor window, where you can see and edi
 
 <figure><img src="../../../.gitbook/assets/57d98ca7-b54b-413a-9f2d-31192e02440e.png" alt=""><figcaption><p>Code Editor</p></figcaption></figure>
 
-Search Templates ship with a library called `@nosto/preact` that contains functionality to interact with the Nosto Search product. API documentation for the library is available [here](https://nosto.github.io/search-templates/library/)
+Search Templates ship with a library called `@nosto/preact` that contains functionality to interact with the Nosto Search product. API documentation for the library is available [here](https://nosto.github.io/search-templates/)
 
 ## Project structure
 

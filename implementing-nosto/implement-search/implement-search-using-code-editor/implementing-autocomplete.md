@@ -106,7 +106,7 @@ init({
 ```
 {% endcode %}
 
-The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/library/interfaces/Config.html)
+The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/interfaces/Config.html)
 
 ### Autocomplete component
 
