@@ -17,7 +17,7 @@ This package provides the following web components:
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
 | [NostoSwiper](./#nostoswiper)           | Progressive Enhancement   |
 
-### `NostoDynamicCard``
+### `NostoDynamicCard`
 
 `NostoDynamicCard` is a custom element that delegates the product card rendering fully to Shopify with a given product handle and a reference to an alternate template to use. We recommend to skip the layout rendering in the alternative template.
 
@@ -41,7 +41,7 @@ This custom element is the recommended choice to use when the product card marku
 
 Shopify side template: `product.card.liquid`
 
-```html
+```liquid
 {% layout none %}
 {% render 'card-product', card_product: product %}
 ```
