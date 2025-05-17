@@ -41,7 +41,7 @@ This custom element is the recommended choice to use when the product card marku
 
 Shopify side template: `product.card.liquid`
 
-```liquid
+```
 {% layout none %}
 {% render 'card-product', card_product: product %}
 ```
