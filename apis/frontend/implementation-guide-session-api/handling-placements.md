@@ -123,5 +123,3 @@ nostojs(api => {
     .load()
 });
 ```
-
-The `injectCampaigns` method automatically handles the injection of both the recommendations and the content. If there is no response for a specified placement, the element (into which to be injected), remains as-is.
