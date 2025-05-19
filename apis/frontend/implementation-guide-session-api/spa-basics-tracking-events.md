@@ -40,12 +40,10 @@ Optional event that can be sent to signal that a specific product variant (SKU i
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')
+    .enableCampaignInjection()
     .viewProductSku('product-id-x', 'sku-id-y')
     .setPlacements( api.placements.getPlacements() )
     .load()
-    .then(response => {
-      api.placements.injectCampaigns(response.recommendations)
-    })
 });
 ```
 
