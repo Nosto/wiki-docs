@@ -109,7 +109,7 @@ This example assumes the implementing application has a utility function to tran
 
 ## Offloading campaign rendering and injection fully to Nosto&#x20;
 
-For HTML based campaign results we recommend to offload the campaign injection fully to Nosto. For HTML based results you can skip transforming the products JSON to HTML and instead use the recommendation templates in the Nosto backend to produce HTML. In that case you would set the response mode in the Session API to be 'HTML', then the response will not have a `campaign` field and will instead contain a `recommendations` field which has the HTML content of all campaigns, regardless if they are content or recommendation campaigns. Also campaign injection will need to be enabled via `enableCampaignInjection()`.
+For HTML based campaign results we recommend to offload the campaign injection fully to Nosto. For HTML based results you can skip transforming the products JSON to HTML and instead use the recommendation templates in the Nosto backend to produce HTML. In that case you would set the response mode in the Session API to be 'HTML' and enable campaign injection via `enableCampaignInjection()`.
 
 Here's an example call
 
