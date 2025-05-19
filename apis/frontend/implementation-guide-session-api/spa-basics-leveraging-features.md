@@ -21,12 +21,10 @@ Normally requesting product related recommendations happens in relation to viewi
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')
+    .enableCampaignInjection()
     .viewProduct('product1') // id of product currently being viewed
     .setPlacements(api.placements.getPlacements())
     .load()
-    .then(response => {
-      api.placements.injectCampaigns(response.recommendations)
-    })
 });
 ```
 
@@ -36,12 +34,10 @@ The above will also add a product view event for the user. In some cases there a
 nostojs(api => {
   api.defaultSession()
     .setResponseMode('HTML')
+    .enableCampaignInjection()
     .viewProduct('product1') // id of product currently being viewed
     .setPlacements(api.placements.getPlacements())
     .load({ trackEvents: false })
-    .then(response => {
-      api.placements.injectCampaigns(response.recommendations)
-    })
 });
 ```
 
