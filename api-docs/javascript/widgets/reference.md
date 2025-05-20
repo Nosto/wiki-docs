@@ -178,7 +178,7 @@ we recommend you use the Expanded Tile Code Editor in our Nosto Admin Portal.
 #### More Details
 
 Take a look at our[\
-How to use “Filter and search” in a Widget](guides/onsite-widgets/how-to-use-filter-and-search-in-widget.md) article for more examples.
+How to use “Filter and search” in a Widget](../../../guides/onsite-widgets/how-to-use-filter-and-search-in-widget.md) article for more examples.
 
 Looking for some help with CSS widget customisations? Check out our CSS guides\
 for styling the[\
