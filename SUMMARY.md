@@ -97,6 +97,7 @@
       * [API Reference for Content Widgets](api-docs/javascript/widgets/reference.md)
       * [API Reference for Blank Canvas](api-docs/javascript/widgets/blank-canvas.md)
       * [API Reference for Map Widget](api-docs/javascript/widgets/map-widget.md)
+      * [How to use "Filter and search" in a Widget](api-docs/javascript/widgets/how-to-use-filter-and-search-in-a-widget.md)
     * [Digital Screens](api-docs/javascript/digital-screens/README.md)
       * [Introduction](api-docs/javascript/digital-screens/eventscreen.md)
       * [API Reference](api-docs/javascript/digital-screens/api-reference.md)
