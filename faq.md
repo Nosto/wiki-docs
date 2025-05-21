@@ -2,7 +2,9 @@
 
 ## How does Nosto treat tax settings?
 
-As of version 2.10.3 Nosto extension tags the products according to the store's Price Display Settings (see screenshot) below. ![configuration\_\_\_settings\_\_\_stores\_\_\_magento\_admin](https://user-images.githubusercontent.com/15191701/40839884-0825538c-65ad-11e8-9e77-14445b42b877.png)
+As of version 2.10.3 Nosto extension tags the products according to the store's Price Display Settings (see screenshot) below.
+
+&#x20;![configuration\_\_\_settings\_\_\_stores\_\_\_magento\_admin](https://user-images.githubusercontent.com/15191701/40839884-0825538c-65ad-11e8-9e77-14445b42b877.png)
 
 If the value of this setting is "Including Tax" Nosto will use the prices with taxes. If the value is "Excluding Tax" or "Including and Excluding Tax" Nosto will use prices without taxes.
 
@@ -127,6 +129,3 @@ By default, disabled products will not be tagged by Nosto or will end up as `Dis
 
 Inventory level is an API only field, meaning that the crawler will not extract this information from the HTML rendered on the page. This is due to the HTML being public and this information would be exposed to clients. In order to fix this, make sure the indexer is running more frequently and you are using the latest version of our module, which has considerable indexing speed improvements.
 
-## SPA, PWA and Hyvä based themes support
-
-This extension is not compatible with Progressive Web Applications (PWAs), Single Page Applications (SPAs), or Hyvä-based themes. The incompatibility stems from the extension's implementation using Magento's default Knockout.js for rendering tagging elements. The extension utilizes Knockout.js data bindings and templates to dynamically render and update Nosto tracking elements in the DOM, which conflicts with the modern JavaScript frameworks and rendering approaches used in PWAs, SPAs, and Hyvä themes. For these modern implementations, you would need to override the extension, remove all front-end related tagging and implement our [Session API manually](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api)
