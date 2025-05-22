@@ -38,6 +38,7 @@
     * [How to localize the load more button on widgets](guides/onsite-widgets/how-to-localise-the-load-more-button-on-widgets.md)
     * [How to overlay existing Google Map with the UGC Map Widget](guides/onsite-widgets/how-to-overlay-existing-google-map-with-stackla-map-widget.md)
     * [How to use Filter and search in a Widget](guides/onsite-widgets/how-to-use-filter-and-search-in-widget.md)
+    * [How to change click on inline tile behaviour to redirect to PDP in a Widget](guides/onsite-widgets/how-to-click-inline-direct-to-pdp-on-widgets.md)
     * [Styling cross-sellers on Grid and Carousel Widgets](guides/onsite-widgets/how-to-style-cross-sellers-on-grid-and-carousel-widgets.md)
     * [How to Load External JS and CSS into Widgets](guides/onsite-widgets/loading-external-js-and-css-libraries-to-widgets.md)
     * [Profiling Widget Performance](guides/onsite-widgets/profiling-widget-performance.md)
