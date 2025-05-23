@@ -51,7 +51,10 @@ nostojs(api => console.log(api.visit.isDoNotTrack()));
 This section lists the impact of enabled `doNoTrack` mode on various Nosto features.
 
 ### Recommendations and Onsite Content Personalization
-Normally served
+Normally served but taking only the current request information into account (Shopper history or profile won't be available)
+
+### Segments
+Taking only the current request information into account (Shopper history or profile won't be available)
 
 ### Popups
 Fully disabled
