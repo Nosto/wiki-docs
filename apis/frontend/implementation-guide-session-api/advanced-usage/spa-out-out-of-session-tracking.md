@@ -60,4 +60,6 @@ Fully disabled
 Analytics tracking disabled
 
 ### Category Merchandising (Platform)
-Segmentation logic is disabled for this feature
+Segmentation and A/B testing logic is disabled for CM (Platform)
+Only the main sorting will be applied to categories
+
