@@ -55,4 +55,4 @@ This section lists the impact of enabled `doNoTrack` mode on various Nosto featu
 | Recommendations and Onsite Content Personalization  | Normally served                                  |
 | Popups                                          | Fully disabled                                  |
 | Search and Category Merchandising (Universal)   | Analytics tracking disabled                     |
-| Category Merchandising (Platform)               | Segmentation capabilities are fully disabled    |
+| Category Merchandising (Platform)               | Segmentation logic is disabled                  |
