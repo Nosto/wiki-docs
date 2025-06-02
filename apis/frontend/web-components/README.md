@@ -38,7 +38,7 @@ The `NostoDynamicCard` component relies on alternate product card templates to b
   `main-collection-product-grid in Dawn`
 * Identify the product card snippet in the product grid section
   `card-product in Dawn`
-* Copy the card snippet usage into a new product template (e.g. `product.card.liquid`)
+* Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
 
 ```markup
   {% layout none %}
