@@ -4,7 +4,6 @@
 As Shopify is depricating Scripts on **June 30, 2026**, this feature will not be supported anymore.&#x20;
 {% endhint %}
 
-* [Dynamic Bundle Discounts](dynamic-bundle-discounts.md#dynamic-bundle-discounts)
 * [Introduction](dynamic-bundle-discounts.md#introduction)
 * [Setup](dynamic-bundle-discounts.md#setup)
   * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
