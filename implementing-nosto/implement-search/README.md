@@ -41,11 +41,16 @@ For frontend integrations you can also use our JavaScript library. This library 
 | Customized and managed only in Nosto dashboard | Yes              | No        | No                 |
 | Suitable for complex use cases                 | Sometimes        | Yes       | Yes                |
 | Merchandising rules applied automatically\*\*  | Yes              | Yes       | Yes                |
+| Analytics                                      | Yes              | Yes\*\*\* | Yes                |
+| Segmentation                                   | Yes              | Yes\*\*\* | Yes                |
+| A/B testing                                    | Yes              | No        | Yes                |
 
 {% hint style="info" %}
 \* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.&#x20;
 
 \*\* Matching merchandising rules are applied automatically based on requested search queries, categories, and segments, without the need to request them in API requests.
+
+\*\*\* Full functionality is only possible as a hybrid solution in combination with the JavaScript library for manual segment retrieval and analytics reporting.
 {% endhint %}
 
 If you are looking for a fast launch without much effort we recommend going with the fully customizable pre-built templates. This type of integration does not support full API access but comes complete with an out-of-the-box search result page and autocomplete templates that can easily be customized to match most website designs and integrate even advanced custom functionality.
