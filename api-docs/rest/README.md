@@ -44,9 +44,24 @@ The Nosto's UGC REST API supports basic authentication and authorization as an O
 
 Each use of the REST API requires a valid client token, provided by the _access\_token_ URL query parameter or the _x-access-token_ header parameter. Each client token will perform actions on behalf of the user that has authorized its use.
 
-Generating a client token can be done either in the Admin Portal by configuring the REST API Plugin (as each admin, individually) or by implementing the authorization protocol of the REST API application yourself. You will most likely perform the former, however,r if you need to implement it yourself, our [SDK](https://github.com/Stackla/docs/blob/master/api-docs/sdk/README.md) may be of use to get you started.
+Generating a client token can be done either in the Admin Portal (as each admin, individually) or by implementing the authorization protocol of the REST API application yourself. You will most likely perform the former, however, if you need to implement it yourself, our [SDK](https://github.com/Stackla/docs/blob/master/api-docs/sdk/README.md) may be of use to get you started.
 
-Note that Stacks created before October 2015 may also have an API Key parameter generated. The key is most often a random hash and will be appended to REST requests as a URL query parameter _api\_key_. **As of 2015, the REST API is supporting OAuth2 as the main method and will be deprecating the API key method over time.**
+#### How to Generate an Client Token via the Admin Portal&#x20;
+
+Follow these steps to generate your API key:
+
+1. **Log in to your Nosto account**
+2. **Go to Tools > REST API Console.**\
+   From the left-hand navigation menu, select **Tools**, then click on **REST API Console**.
+3. **Generate an Access Token.**\
+   Scroll to the **Access Token** section and click **Generate Token**.\
+   Copy and store the generated token securely — it will be required for authenticating your API requests.
+
+> ⚠️ Keep your access token secure. Do not share it or expose it in client-side code.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 5.56.40 pm.png" alt=""><figcaption></figcaption></figure>
+
+#### How to find your REST API Details )&#x20;
 
 ### Content Type and Accept Headers
 
