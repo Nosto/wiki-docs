@@ -5,8 +5,9 @@ Not all of Nosto's functionality is available for pure **GraphQL** API integrati
 
 * Analytics
 * Segmentation
-* A/B testing
 * Debug toolbar
+
+To use A/B testing, search requests must be sent using the JavaScript library or templates.
 {% endhint %}
 
 {% hint style="info" %}
