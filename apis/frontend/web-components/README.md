@@ -15,7 +15,6 @@ This package provides the following web components:
 | [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
 | [NostoProductCard](./#nostoproductcard) | Templating                |
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
-| [NostoSwiper](./#nostoswiper)           | Progressive Enhancement   |
 
 ### `NostoDynamicCard`
 
@@ -244,58 +243,6 @@ Usage with select elements
 | `n-list-price` | List price for SKU option which will be applied to NostoProduct wrapper price on click                                                                                                           |
 
 Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
-
-### `NostoSwiper`
-
-Lightweight [Swiper](https://swiperjs.com/get-started) wrapper. The `NostoSwiper` component will load Swiper library on demand from CDN unless it is available as a direct dependency.
-
-**Example**:
-
-```html
-<nosto-swiper>
-  <div class="swiper-wrapper">
-    <nosto-product product-id="123456" reco-id="78901"> ... </nosto-product>
-  </div>
-  <script type="application/json" swiper-config>
-    {
-      "direction": "horizontal",
-      "loop": true,
-      "slidesPerView": 3
-    }
-  </script>  
-</nosto-swiper>
-```
-
-#### Modules
-
-In order to use Swiper modules the module names to be loaded must be passed as an array.
-
-```html
-<nosto-swiper>
-  <div class="swiper-wrapper">
-    <!-- Swiper slides -->
-  </div>  
-  <script type="application/json" swiper-config>
-    {
-      "direction": "horizontal",
-      "loop": true,
-      "slidesPerView": 3,
-      "modules": ["navigation"]
-      "navigation": {
-        "nextEl": ".swiper-button-next",
-        "prevEl": ".swiper-button-prev"
-      }
-    }
-  </script>
-</nosto-swiper>
-```
-
-#### Markup attributes
-
-| Attribute       | Description                                                                       |
-| --------------- | --------------------------------------------------------------------------------- |
-| `swiper-config` | Marks the `<script type="application/json">` child block as Swiper configuration. |
-| `inject-css`    | To be used on NostoSwiper level to trigger loading of Swiper CSS                  |
 
 ## Pre-selected options
 
