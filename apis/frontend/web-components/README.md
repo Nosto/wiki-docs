@@ -30,19 +30,30 @@ This custom element is the recommended choice to use when the product card marku
 | `template`   | Name of the alternate template to use |
 | `variant-id` | Optional reference to variant id |
 
-**Example**
+#### Usage example
 
-```html
-<nosto-dynamic-card handle="awesome-product" template="card" variant-id="123456">
-  Placeholder content while loading...
-</nosto-dynamic-card>
-``` 
+The `NostoDynamicCard` component relies on alternate product card templates to be exposed from Shopify. Here are example instructions for the Dawn theme:
 
-Shopify side template: `product.card.liquid`
+* Identify the product grid section of the collection template
+  `main-collection-product-grid in Dawn`
+* Identify the product card snippet in the product grid section
+  `card-product in Dawn`
+* Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
 
+```markup
+  {% layout none %}
+  {% render 'card-product', card_product: product %}
 ```
-{% layout none %}
-{% render 'card-product', card_product: product %}
+
+Make sure that web components are enabled in the Nosto Recommendation Settings after completion of the Shopify side changes.
+After that the component can be used in Nosto templates like this
+
+```markup
+#foreach($product in $products)
+<nosto-dynamic-card handle="$!product.handle" template="card">
+  <div class="product-card-skeleton"></div>
+</nosto-dynamic-card>
+#end
 ```
 
 ### `NostoProduct`
