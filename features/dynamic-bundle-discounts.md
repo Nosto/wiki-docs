@@ -1,24 +1,24 @@
 # Dynamic Bundle Discounts
 
 {% hint style="info" %}
-As Shopify is depricating Scripts in August 2025, this feature will not be supported anymore. A new version is not planned currently.&#x20;
+As Shopify is depricating Scripts on **June 30, 2026**, this feature will not be supported anymore.&#x20;
 {% endhint %}
 
 * [Dynamic Bundle Discounts](dynamic-bundle-discounts.md#dynamic-bundle-discounts)
-  * [Introduction](dynamic-bundle-discounts.md#introduction)
-  * [Setup](dynamic-bundle-discounts.md#setup)
-    * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
-    * [Shopify Line Item script](dynamic-bundle-discounts.md#shopify-line-item-script)
-    * [Debugging Line Item Script](dynamic-bundle-discounts.md#debugging-line-item-script)
-  * [Important Note](dynamic-bundle-discounts.md#important-note)
-  * [Nosto Bundle Script](dynamic-bundle-discounts.md#nosto-bundle-script)
-  * [Troubleshooting](dynamic-bundle-discounts.md#troubleshooting)
-    * [Issue #1: Additional content displayed on cart page](dynamic-bundle-discounts.md#issue-1-additional-content-displayed-on-cart-page)
-    * [Cause](dynamic-bundle-discounts.md#cause)
-    * [Solution](dynamic-bundle-discounts.md#solution)
-    * [Issue #2: Discount is not applied](dynamic-bundle-discounts.md#issue-2-discount-is-not-applied)
-    * [Cause](dynamic-bundle-discounts.md#cause-1)
-    * [Solution](dynamic-bundle-discounts.md#solution-1)
+* [Introduction](dynamic-bundle-discounts.md#introduction)
+* [Setup](dynamic-bundle-discounts.md#setup)
+  * [Nosto Dynamic Bundle template](dynamic-bundle-discounts.md#nosto-dynamic-bundle-template)
+  * [Shopify Line Item script](dynamic-bundle-discounts.md#shopify-line-item-script)
+  * [Debugging Line Item Script](dynamic-bundle-discounts.md#debugging-line-item-script)
+* [Important Note](dynamic-bundle-discounts.md#important-note)
+* [Nosto Bundle Script](dynamic-bundle-discounts.md#nosto-bundle-script)
+* [Troubleshooting](dynamic-bundle-discounts.md#troubleshooting)
+  * [Issue #1: Additional content displayed on cart page](dynamic-bundle-discounts.md#issue-1-additional-content-displayed-on-cart-page)
+  * [Cause](dynamic-bundle-discounts.md#cause)
+  * [Solution](dynamic-bundle-discounts.md#solution)
+  * [Issue #2: Discount is not applied](dynamic-bundle-discounts.md#issue-2-discount-is-not-applied)
+  * [Cause](dynamic-bundle-discounts.md#cause-1)
+  * [Solution](dynamic-bundle-discounts.md#solution-1)
 
 ## Introduction
 
