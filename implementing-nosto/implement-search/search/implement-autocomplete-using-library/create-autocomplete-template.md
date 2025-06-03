@@ -10,8 +10,8 @@ This attribute should be used on clickable `keyword`, `product`, `history` list 
 
 Following table shows value for this attribute depending on the rendering context.
 
-<table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript"><strong>const { keywords } = response.data.search
-</strong>const contentToRender = keywords.map(keyword => 
+<table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { keywords } = response.data.search
+const contentToRender = keywords.map(keyword => 
     `
     &#x3C;div data-ns-hit="${JSON.stringify(keyword)}" ....>
         ....
