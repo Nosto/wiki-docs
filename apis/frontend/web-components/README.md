@@ -24,28 +24,30 @@ This custom element is the recommended choice to use when the product card marku
 
 #### Component attributes
 
-| Attribute    | Description |
-| ------------ | ----------- |
-| `handle`     | Handle of the product |
+| Attribute    | Description                           |
+| ------------ | ------------------------------------- |
+| `handle`     | Handle of the product                 |
 | `template`   | Name of the alternate template to use |
-| `variant-id` | Optional reference to variant id |
+| `variant-id` | Optional reference to variant id      |
 
 #### Usage example
 
 The `NostoDynamicCard` component relies on alternate product card templates to be exposed from Shopify. Here are example instructions for the Dawn theme:
 
 * Identify the product grid section of the collection template
-  `main-collection-product-grid in Dawn`
+  * `main-collection-product-grid in Dawn`
 * Identify the product card snippet in the product grid section
-  `card-product in Dawn`
+  * `card-product in Dawn`
 * Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
 
 ```markup
-  {% layout none %}
-  {% render 'card-product', card_product: product %}
+{% raw %}
+{% layout none %}
+{% render 'card-product', card_product: product %}
+{% endraw %}
 ```
 
-Make sure that web components are enabled in the Nosto Recommendation Settings after completion of the Shopify side changes.
+Make sure that web components are enabled in the Nosto Recommendation Settings after completion of the Shopify side changes.\
 After that the component can be used in Nosto templates like this
 
 ```markup
@@ -64,8 +66,8 @@ When markup (HTML) for rendering a product is wrapped with the `NostoProduct` co
 
 Two mandatory component attributes:
 
-| Attribute    | Description |
-| ------------ | ----------- |
+| Attribute    | Description                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | `product-id` | Id of the product being rendered. `$!product.productId` provides the Product Id in templates.                              |
 | `reco-id`    | The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates.       |
 | `n-sku-data` | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries |
