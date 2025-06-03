@@ -1,28 +1,61 @@
 # Create Autocomplete template
 
-### Requirements
+## Attributes
 
-The library handles events through `dataset` properties to avoid handling logic in a template. These `data-*` attributes are used:
+The following `data-*`  attributes are required by the library to handle attributions (click events) for products/keywords/history items rendered in the autocomplete result:
 
-1. `data-ns-hit` - this attribute should be used on clickable `keyword`, `product`, `history` list elements. Stringified unmodified JSON object (_**product**_, _**keyword**_ or _**history**_ hit) from the search response should be provided as a value. You will need to escape it in Liquid and Mustache templates.\
-   This attribute handles submit keyword/history as search, redirect to product, analytics (if enabled) request.
-2. `data-ns-remove-history` - should be used to delete history entries in the autocomplete.\
+`data-ns-hit`
 
+This attribute should be used on clickable `keyword`, `product`, `history` list elements. This attribute handles submit keyword/history as search, redirect to product, analytics (if enabled) request.
 
-* To make an element delete a single history entry when clicked, add `data-ns-remove-history={hit.item}` to an element.
-* To delete all history entries, add `data-ns-remove-history="all"` to clear button.
+Following table shows value for this attribute depending on the rendering context.
 
-### Template reference
+<table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript"><strong>const { keywords } = response.data.search
+</strong>const contentToRender = keywords.map(keyword => 
+    `
+    &#x3C;div data-ns-hit="${JSON.stringify(keyword)}" ....>
+        ....
+        ....
+    &#x3C;/div>
+    `
+)
+</code></pre><p>Value example:</p><pre class="language-json"><code class="lang-json">{
+    "keyword": "midi dresses",
+    "_highlight": { "keyword": "midi &#x3C;strong>dress&#x3C;/strong>es" }
+}
+</code></pre></td></tr><tr><td>product</td><td><p>productId and url from <code>response.data.search.products.hits</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { hits } = response.data.search.products
+const contentToRender = hits.map(({ productId, url }) => 
+    `
+    &#x3C;div data-ns-hit="${JSON.stringify({ productId, url })}" ....>
+        ....
+        ....
+    &#x3C;/div>
+    `
+)
+</code></pre><p>Value example:</p><pre class="language-json"><code class="lang-json">{
+    "productId": 123456,
+    "url": "https://example.com/products/example-product-handle"
+}
+</code></pre></td></tr><tr><td>history</td><td>historyEnabled &#x26; historySize config. Refer <a href="initialization/">Initialization</a></td></tr></tbody></table>
+
+`data-ns-remove-history`
+
+This attribute should be used to delete history entries in the autocomplete
+
+To make an element delete a single history entry when clicked, add `data-ns-remove-history={hit.item}` to an element. In order to delete all history entries, add `data-ns-remove-history="all"` to clear button.
+
+## Starter templates
 
 This section provides links to default startup templates for different rendering frameworks. These templates can be copied and customized as needed.&#x20;
 
 [Handlebars](https://github.com/Nosto/nosto-autocomplete/blob/main/src/handlebars/autocomplete.handlebars), [Mustache](https://github.com/Nosto/nosto-autocomplete/blob/main/src/mustache/autocomplete.mustache), [Liquid](https://github.com/Nosto/nosto-autocomplete/blob/main/src/liquid/autocomplete.liquid), [React/Preact (HTML)](https://github.com/Nosto/nosto-autocomplete/blob/main/src/react/Autocomplete.tsx)
 
-### Additional information
+{% hint style="info" %}
+#### Mustache helpers
 
 _**Mustache is based on logic-less templates which can be enhanced with helpers, e.g `toJson`, `imagePlaceholder`, `showListPrice` in example template**_.
 
-```js
+```javascript
 import { fromMustacheTemplate } from '@nosto/autocomplete/mustache'
 
 fromMustacheTemplate(template, {
@@ -33,3 +66,4 @@ fromMustacheTemplate(template, {
     },
 })
 ```
+{% endhint %}
