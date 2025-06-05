@@ -128,7 +128,7 @@ The following Tile template will be included by the **\{{>tpl-tile\}}** syntax. 
 
 ## Step 5 - Coding for CSS
 
-All the CSS rules reside within the iframe, so you don't need to worry about any conflicts with your page.
+All the CSS rules reside within the Shadow DOM, so you don't need to worry about any conflicts with your page.
 
 Please make use of the **@import** directive to import the external CSS stylesheets you need.
 

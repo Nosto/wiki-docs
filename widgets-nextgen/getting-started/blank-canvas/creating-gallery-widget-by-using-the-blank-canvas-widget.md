@@ -106,7 +106,7 @@ Click on the button "Update Preview", you should see plain stacked images and ca
 
 ## Step 3 - Coding for CSS
 
-All of the CSS rules reside within the iframe, so you don't need to worry about any conflicts with your page. Please make use of the **@import** directive to import the external CSS stylesheets you need.
+All of the CSS rules reside within the Shadow DOM, so you don't need to worry about any conflicts with your page. Please make use of the **@import** directive to import the external CSS stylesheets you need.
 
 ### Sample Code
 
