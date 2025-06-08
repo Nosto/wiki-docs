@@ -19,15 +19,17 @@ Nosto offers several web components designed to simplify product card integratio
 - **NostoDynamicCard**  
     Renders product cards entirely on the Shopify side.  
     *Requires alternate product card templates to be available within Shopify themes.*
+    Choose this approach if the shop has existing product card markup in liquid templates that should be reused in Nosto campaign rendering.
+
+- **NostoProductCard**  
+    Provides a platform-agnostic custom element that delegates rendering to shop side Vue templates.
+    Choose this approach for non-Shopify merchants that wish to maintain the product card templates in Shop side templates instead of Nosto's own templates.
 
 - **NostoProduct**  
     Enhances static product card markup with interactive features such as:  
     - Swatch selection
     - Add-to-cart interactions  
     - Dynamic product image updates based on swatch and SKU selections
-
-- **NostoProductCard**  
-    Provides a platform-agnostic custom element that delegates rendering to a shop side templates (Handlebars and Liquid are currently supported).
 
 Nosto's web component offering is documented [here](../../apis/frontend/web-components)
 
