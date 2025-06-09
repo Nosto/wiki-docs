@@ -8,15 +8,17 @@ The implementation of Nosto on a web-site maps out an original product image use
 
 Some image versions are processed slightly by resizing, cropping and zooming the image a bit. Applicable image versions in Nosto’s CDN are:
 
-1 – 170x170 pixels
-2 – 100x100 pixels
-3 – 90x70 pixels
-4 – 50x50 pixels
-5 – 30x30 pixels
-6 – 100x140 pixels
-7 – 200x200 pixels (original aspect ratio)
-8 – 400x400 pixels (original aspect ratio)
-9 - 750x750 pixels (original aspect ratio)
+| Version | Dimensions                                  |
+|---------|---------------------------------------------|
+| 1       | 170x170 pixels                              |
+| 2       | 100x100 pixels                              |
+| 3       | 90x70 pixels                                |
+| 4       | 50x50 pixels                                |
+| 5       | 30x30 pixels                                |
+| 6       | 100x140 pixels                              |
+| 7       | 200x200 pixels (original aspect ratio)      |
+| 8       | 400x400 pixels (original aspect ratio)      |
+| 9       | 750x750 pixels (original aspect ratio)      |
 
 These are the the available image sizes via Nosto's CDN. Alternatively you can use original image , but in this case an image is loaded from your servers possibly affecting site load times, entirely depending on how images are hosted on your servers. Use following variable to use the original image.
 
