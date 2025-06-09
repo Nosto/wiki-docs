@@ -222,6 +222,7 @@ The `@nosto/preact` package exports two useful utilities:
 - **useSpeechToText** – A hook to control the voice-to-text functionality.
 - **speechToTextSupported** – A variable indicating whether the current environment supports the feature.
 
+>Note: Some additional styling may be required depending on the merchant’s input setup to ensure proper alignment and positioning of the voice search button.
 
 #### Element selection
 
