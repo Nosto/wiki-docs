@@ -31,7 +31,7 @@ This means:
 
 ***
 
-### 5 Troubleshooting
+### 3 Troubleshooting
 
 | Symptom                                   | Checklist                                                                                                                              |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,7 +41,7 @@ This means:
 
 ***
 
-### 3 Further reading
+### 4 Further reading
 
 * **Nosto Help Center** “Setting up facets” – [https://help.nosto.com/en/articles/7169091-setting-up-facets](https://help.nosto.com/en/articles/7169091-setting-up-facets)
 * **Shopware Docs** Custom Fields & Properties – https://docs.shopware.com (search: “custom fields”)
