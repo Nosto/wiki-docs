@@ -15,6 +15,7 @@
   * [Product Visibility](getting-started/guides/product-visibility.md)
   * [Caching](getting-started/guides/caching.md)
   * [Fallback mechanism for Search and Categories](getting-started/guides/fallback-mechanism-for-search-and-categories.md)
+  * [Filters](getting-started/guides/filters.md)
 
 ## Features
 
