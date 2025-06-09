@@ -6,6 +6,15 @@
 
 * [Installing](getting-started/installing.md)
 * [Configuration](getting-started/configuration.md)
+* [Guides](getting-started/guides/README.md)
+  * [Cookies](getting-started/guides/cookies.md)
+  * [Sorting](getting-started/guides/sorting.md)
+  * [Dynamic Product Grouping](getting-started/guides/dynamic-product-grouping.md)
+  * [Clearance Sale & Hide products after clearance](getting-started/guides/clearance-sale-and-hide-products-after-clearance.md)
+  * [Product Synchornization](getting-started/guides/product-synchornization.md)
+  * [Product Visibility](getting-started/guides/product-visibility.md)
+  * [Caching](getting-started/guides/caching.md)
+  * [Fallback mechanism for Search and Categories](getting-started/guides/fallback-mechanism-for-search-and-categories.md)
 
 ## Features
 
