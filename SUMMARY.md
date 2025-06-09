@@ -51,6 +51,7 @@
 * [Template customization](implementing-nosto/template-customization/README.md)
   * [Starting points](implementing-nosto/template-customization/starting-points.md)
   * [Product cards](implementing-nosto/template-customization/product-cards.md)
+  * [Product images](implementing-nosto/template-customization/product-images.md)
   * [Styling](implementing-nosto/template-customization/styling.md)
   * [Scripting](implementing-nosto/template-customization/scripting.md)
 
