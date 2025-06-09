@@ -192,7 +192,7 @@ export default () => {
 
 #### Voice to text search
 
-To implement voice to text search in search templates, additional configuration params needs to be sent:
+To implement voice to text search in search templates, additional configuration params needs to be provided:
 
 {% code title="index.js" %}
 ```javascript
@@ -209,7 +209,7 @@ init({
 ```
 {% endcode %}
 
-##### Configuration Parameters:
+##### Configuration parameters:
 
 - **speechToTextComponent** – The component that renders the voice search button.
 - **speechToTextEnabled** – A flag to enable or disable the voice search feature.
@@ -221,8 +221,6 @@ Within the button component, the `useSpeechToText` hook is used to toggle voice 
 The `@nosto/preact` package exports two useful utilities:
 - **useSpeechToText** – A hook to control the voice-to-text functionality.
 - **speechToTextSupported** – A variable indicating whether the current environment supports the feature.
-
->Note: Some additional styling may be required depending on the merchant’s input setup to ensure proper alignment and positioning of the voice search button.
 
 #### Element selection
 
