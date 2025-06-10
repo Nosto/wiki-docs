@@ -189,6 +189,39 @@ export default () => {
 ```
 {% endcode %}
 
+
+#### Voice to text search
+
+To implement voice to text search in search templates, additional configuration params need to be provided:
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import speechToTextComponent from "./SpeechToTextComponent"
+
+init({
+    ...window.nostoTemplatesConfig,
+    speechToTextComponent,
+    speechToTextEnabled: true,
+    ...
+})
+```
+{% endcode %}
+
+##### Configuration parameters:
+
+- **speechToTextComponent** – The component that renders the voice search button.
+- **speechToTextEnabled** – A flag to enable the voice search feature, disabled by default
+
+The voice search button will be injected adjacent to the search input field, positioned as an overlay on the right end of the input.
+
+Within the button component, the `useSpeechToText` hook is used to toggle voice input on and off.
+
+The `@nosto/preact` package exports two useful utilities:
+- **useSpeechToText** – A hook to control the voice-to-text functionality.
+- **speechToTextSupported** – A variable indicating whether the current environment supports the feature.
+
 #### Element selection
 
 Wrap each keywords and product to `AutocompleteElement` element - it will allow clicking or selecting the element directly with keyboard.
