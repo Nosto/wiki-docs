@@ -192,7 +192,7 @@ export default () => {
 
 #### Voice to text search
 
-To implement voice to text search in search templates, additional configuration params needs to be provided:
+To implement voice to text search in search templates, additional configuration params need to be provided:
 
 {% code title="index.js" %}
 ```javascript
@@ -212,7 +212,7 @@ init({
 ##### Configuration parameters:
 
 - **speechToTextComponent** – The component that renders the voice search button.
-- **speechToTextEnabled** – A flag to enable or disable the voice search feature.
+- **speechToTextEnabled** – A flag to enable the voice search feature, disabled by default
 
 The voice search button will be injected adjacent to the search input field, positioned as an overlay on the right end of the input.
 
