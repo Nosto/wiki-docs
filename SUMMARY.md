@@ -5,9 +5,9 @@
 * [Tracking & Session Management](tracking-and-session-management/README.md)
   * [Standard Shopify Storefronts](tracking-and-session-management/standard-shopify-storefronts.md)
   * [Custom Storefronts (Hydrogen, Headless & more)](tracking-and-session-management/custom-storefronts-hydrogen-headless-and-more.md)
+* [Recommendation Extensions](recommendation-extensions.md)
 * [Shopify International (Markets)](shopify-markets/README.md)
   * [Front End addition](shopify-markets/technical-details-how-to-use-it.md)
-* [Recommendation Extensions](recommendation-extensions.md)
 * [Guides](guides/README.md)
   * [Quicker loading times](guides/quicker-recommendation-loading.md)
   * [Granting Access to your Store](guides/granting-access-to-your-store.md)
@@ -40,5 +40,10 @@
 * [FAQ](FAQ.md)
 * [Uninstalling](uninstalling.md)
 * [Visit Nosto](https://nosto.com)
-* [Issues](https://github.com/nosto/nosto-shopify/issues)
-* [Releases](https://github.com/nosto/nosto-shopify/releases)
+
+## Post Purchase Upsell Extension
+
+* [Overview & Requirements](post-purchase-upsell-extension/overview-and-requirements.md)
+* [How It Works](post-purchase-upsell-extension/how-it-works.md)
+* [Known Shopify Limitations](post-purchase-upsell-extension/known-shopify-limitations.md)
+* [Handling Partially Paid Orders](post-purchase-upsell-extension/handling-partially-paid-orders.md)
