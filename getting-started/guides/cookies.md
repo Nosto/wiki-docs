@@ -44,8 +44,6 @@ The toolbar allows developers to inspect page-level Nosto events, placements, an
 
 **If you find the page load speeds a little slow, you can enable Nosto script initializiation on the page interaction, that means that Nosto will only run after the user interacts with the page (scroll, click etc)**
 
-#### Plugin prerequisites
-
 1. Navigate to **Settings → Plugins → Nosto → All Sales Channels**.
 2. In **General Settings**, enable **Initialize Nosto Script After First Page Iteration**.
 
