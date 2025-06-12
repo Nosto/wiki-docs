@@ -8,6 +8,31 @@ The following `data-*`  attributes are required by the library to handle attribu
 
 This attribute should be used on clickable `keyword`, `product`, `history` list elements. This attribute handles submit keyword/history as search, redirect to product, analytics (if enabled) request.
 
+{% hint style="info" %}
+### Encode HTML content
+
+**This is specific to cases where no template language like liquid/handlebars is used and the content is rendered using plain HTML.**
+
+Make sure to HTML encode content passed to this attribute. Bacause `JSON.stringify` may produce result that can't be directly used in HTML especially when the content includes special characters.
+
+For example, consider the below example
+
+```json
+{
+  "keyword": "new year's eve",
+  "_highlight": { "keyword": "new year's eve" }
+}
+```
+
+can be encoded as
+
+{% code overflow="wrap" %}
+```
+{&quot;keyword&quot;:&quot;year's eve&quot;,&quot;_highlight&quot;:{&quot;keyword&quot;:&quot;<strong>year</strong>'s eve&quot;}}
+```
+{% endcode %}
+{% endhint %}
+
 Following table shows value for this attribute depending on the rendering context.
 
 <table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { keywords } = response.data.search
