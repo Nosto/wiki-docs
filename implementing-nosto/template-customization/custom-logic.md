@@ -1,6 +1,6 @@
 # Custom logic
 
-If you want to attach stateful logic as event handlers to your template elements, [Petite Vue](https://github.com/vuejs/petite-vue) is a useful tool. petite-vue is an alternative distribution of Vue optimized for progressive enhancement. It provides the same template syntax and reactivity mental model as standard Vue. However, it is specifically optimized for "sprinkling" a small amount of interactions on an existing HTML page rendered by a server framework.
+If you want to attach stateful logic as event handlers to your template elements, [petite-vue](https://github.com/vuejs/petite-vue) is a useful tool. petite-vue is an alternative distribution of Vue optimized for progressive enhancement. It provides the same template syntax and reactivity mental model as standard Vue. However, it is specifically optimized for "sprinkling" a small amount of interactions on an existing HTML page rendered by a server framework.
 
 Some rules/constraints to consider:
 * Leave the HTML rendering primarily to Velocity
@@ -8,7 +8,9 @@ Some rules/constraints to consider:
 * Use a single Vue app context for the whole template
 * Make sure that the recommendation template renders correctly without the Vue layer
 
-Some use cases where Petite Vue is useful are listed below
+These rules will guide you to use petite-vue within it's intended use cases, for Progressive Enhancement, and not like Vue, a SPA framework.
+
+Some use cases where petite-vue is useful are listed below
 
 ## Event handlers to call external APIs and libraries
 
@@ -34,7 +36,7 @@ Usage from template
 
 ## Product selection for bundle creation and related total
 
-In this case the selection state is kept in Petite vue and hooked into the template
+In this case the selection state is kept in petite-vue and hooked into the template
 
 ```markup
 <script type="module">
