@@ -54,6 +54,7 @@
   * [Product images](implementing-nosto/template-customization/product-images.md)
   * [Styling](implementing-nosto/template-customization/styling.md)
   * [Scripting](implementing-nosto/template-customization/scripting.md)
+  * [Custom logic](implementing-nosto/template-customization/custom-logic.md)
 
 ## APIs
 
