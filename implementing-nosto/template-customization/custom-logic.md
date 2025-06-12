@@ -2,7 +2,13 @@
 
 If you want to attach stateful logic as event handlers to your template elements, [Petite Vue](https://github.com/vuejs/petite-vue) is a useful tool. petite-vue is an alternative distribution of Vue optimized for progressive enhancement. It provides the same template syntax and reactivity mental model as standard Vue. However, it is specifically optimized for "sprinkling" a small amount of interactions on an existing HTML page rendered by a server framework.
 
-Some use cases where Petite Vue is useful will be listed below
+Some rules/constraints to consider:
+* Leave the HTML rendering primarily to Velocity
+* Maintain minimal state in the Vue context, enough to satisfy your use case
+* Use a single Vue app context for the whole template
+* Make sure that the recommendation template renders correctly without the Vue layer
+
+Some use cases where Petite Vue is useful are listed below
 
 ## Event handlers to call external APIs and libraries
 
