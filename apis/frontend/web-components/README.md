@@ -16,6 +16,53 @@ This package provides the following web components:
 | [NostoProductCard](./#nostoproductcard) | Templating                |
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
 
+### `NostoCampaign`
+
+`NostoCampaign` component renders a contextual campaign container using a specified placement ID. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
+
+#### Component attributes
+
+| Attribute    | Description                                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                            |
+| `product-id` | Optional. Product ID for contextual recommendations                                                             |
+| `variant-id` | Optional reference to variant id                                                                                |
+| `template`   |  Name of the template to use                                                                                    |
+| `init`       | Optional. If set to `"false"`, disables auto-loading. Use `.load()` manually to fetch and render the campaign.  |
+
+#### Usage example
+
+**Example #1**:
+
+Static campaign rendering:
+
+```html
+<nosto-campaign placement="best-sellers"></nosto-campaign>
+```
+
+**Example #2**:
+
+Product-specific campaign:
+
+```html
+<nosto-campaign
+  placement="best-sellers"
+  product-id="123456"
+  variant-id="sku-789">
+</nosto-campaign>
+```
+
+**Example #3**:
+
+Template-based rendering:
+
+```html
+<nosto-campaign
+  placement="best-sellers"
+  template="custom-campaign-template">
+</nosto-campaign>
+```
+
 ### `NostoDynamicCard`
 
 `NostoDynamicCard` is a custom element that delegates the product card rendering fully to Shopify with a given product handle and a reference to an alternate template to use. We recommend to skip the layout rendering in the alternative template.
