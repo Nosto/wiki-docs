@@ -3,7 +3,7 @@
 [Nosto Web Components](https://github.com/Nosto/web-components) provides the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
 
 **Note**:\
-This package doesn't render HTML markups on its own and the template should be provided by the user.
+This package provides headless web components. Templates must be provided by the user.
 
 ## Components
 
@@ -15,6 +15,53 @@ This package provides the following web components:
 | [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
 | [NostoProductCard](./#nostoproductcard) | Templating                |
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
+
+### `NostoCampaign`
+
+`NostoCampaign` component a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
+
+#### Component attributes
+
+| Attribute    | Description                                                                                                                                                                                                                      |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                                                                                                                                             |
+| `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                   |
+| `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                              |
+| `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component.  |
+| `init`       | For disabling automatic campaign loading on page load, set to `false `                                                                                                                                                           |
+
+#### Usage example
+
+**Example #1**:
+
+Static campaign rendering:
+
+```html
+<nosto-campaign placement="best-sellers"></nosto-campaign>
+```
+
+**Example #2**:
+
+Product-specific campaign:
+
+```html
+<nosto-campaign
+  placement="best-sellers"
+  product-id="123456"
+  variant-id="sku-789">
+</nosto-campaign>
+```
+
+**Example #3**:
+
+Template-based rendering:
+
+```html
+<nosto-campaign
+  placement="best-sellers"
+  template="custom-campaign-template">
+</nosto-campaign>
+```
 
 ### `NostoDynamicCard`
 
