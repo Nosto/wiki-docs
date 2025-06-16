@@ -18,7 +18,7 @@ This package provides the following web components:
 
 ### `NostoCampaign`
 
-`NostoCampaign` component renders a contextual campaign container using a specified placement ID. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
+`NostoCampaign` component a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
 
 #### Component attributes
 
