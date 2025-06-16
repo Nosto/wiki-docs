@@ -3,7 +3,7 @@
 [Nosto Web Components](https://github.com/Nosto/web-components) provides the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
 
 **Note**:\
-This package doesn't render HTML markups on its own and the template should be provided by the user.
+This package provides headless web components. Templates must be provided by the user.
 
 ## Components
 
@@ -22,13 +22,13 @@ This package provides the following web components:
 
 #### Component attributes
 
-| Attribute    | Description                                                                                                     |
-| ------------ | --------------------------------------------------------------------------------------------------------------- |
-| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                            |
-| `product-id` | Optional. Product ID for contextual recommendations                                                             |
-| `variant-id` | Optional. Reference to variant id                                                                               |
-| `template`   | Optional. Name of the template to use                                                                           |
-| `init`       | Optional. For disabling auto-loading, set to `false`                                                            |
+| Attribute    | Description                                                                                                                                                                                                                      |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                                                                                                                                             |
+| `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                   |
+| `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                              |
+| `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component.  |
+| `init`       | For disabling automatic campaign loading on page load, set to `false `                                                                                                                                                           |
 
 #### Usage example
 
