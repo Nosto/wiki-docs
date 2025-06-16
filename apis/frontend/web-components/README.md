@@ -26,9 +26,9 @@ This package provides the following web components:
 | ------------ | --------------------------------------------------------------------------------------------------------------- |
 | `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                            |
 | `product-id` | Optional. Product ID for contextual recommendations                                                             |
-| `variant-id` | Optional reference to variant id                                                                                |
-| `template`   | Name of the template to use                                                                                    |
-| `init`       | Optional. If set to `"false"`, disables auto-loading.                                                           |
+| `variant-id` | Optional. Reference to variant id                                                                               |
+| `template`   | Optional. Name of the template to use                                                                           |
+| `init`       | Optional. For disabling auto-loading, set to `false`                                                            |
 
 #### Usage example
 
