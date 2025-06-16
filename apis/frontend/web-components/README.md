@@ -28,7 +28,7 @@ This package provides the following web components:
 | `product-id` | Optional. Product ID for contextual recommendations                                                             |
 | `variant-id` | Optional reference to variant id                                                                                |
 | `template`   |  Name of the template to use                                                                                    |
-| `init`       | Optional. If set to `"false"`, disables auto-loading. Use `.load()` manually to fetch and render the campaign.  |
+| `init`       | Optional. If set to `"false"`, disables auto-loading.                                                           |
 
 #### Usage example
 
