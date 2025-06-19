@@ -336,7 +336,7 @@ api.recordSearchClick(
 
 ### Search add to cart additions
 
-When shopping cart additions happen directly as part of the search or autocomplete results **without a navigation to the product page**, the `api.recordSearchAddToCart()` method should be called with the component (type), where addition occurred and the product data:
+When shopping cart additions happen directly as part of the search, category or autocomplete results **without a navigation to the product page**, the `api.recordSearchAddToCart()` method should be called with the component (type), where addition occurred and the product data:
 
 
 ```javascript
