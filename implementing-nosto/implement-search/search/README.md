@@ -129,7 +129,7 @@ nostojs(api => {
 });
 ```
 
-The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
+The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)).
 
 The function accepts the following options:
 
@@ -187,37 +187,7 @@ nostojs(async (api) => {
 })
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-      <th data-hidden></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>type</td>
-      <td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>request</td>
-      <td><a href="https://search.nosto.com/v1/graphql?ref=Query">Full search API request</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>result</td>
-      <td><a href="https://search.nosto.com/v1/graphql?ref=SearchResult">Full search API result</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>options (optional)</td>
-      <td><p>Record search options. Currently is accepts:<br></p><p><code>isKeyword: boolean</code> - should be set when keyword in autocomplete is clicked (search is submitted via keyword)</p></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<table><thead><tr><th>Parameter</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td>type</td><td>Search type: <code>serp</code>, <code>autocomplete</code>, <code>category</code></td><td></td></tr><tr><td>request</td><td><a href="https://search.nosto.com/v1/graphql?ref=Query">Full search API request</a></td><td></td></tr><tr><td>result</td><td><a href="https://search.nosto.com/v1/graphql?ref=SearchResult">Full search API result</a></td><td></td></tr><tr><td>options (optional)</td><td><p>Record search options. Currently is accepts:<br></p><p><code>isKeyword: boolean</code> - should be set when keyword in autocomplete is clicked (search is submitted via keyword)</p></td><td></td></tr></tbody></table>
 
 Example:
 
@@ -336,8 +306,7 @@ api.recordSearchClick(
 
 ### Search add to cart additions
 
-When shopping cart additions happen directly as part of the search, category or autocomplete results **without a navigation to the product page**, the `api.recordSearchAddToCart()` method should be called with the component (type), where addition occurred and the product data:
-
+When shopping cart additions happen directly as part of the **search**, **category** or **autocomplete** results **without a navigation to the product page**, the `api.recordSearchAddToCart()` method should be called with the component (type), where addition occurred and the product data:
 
 ```javascript
 nostojs(api => {
