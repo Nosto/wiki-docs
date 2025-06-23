@@ -382,6 +382,90 @@ query {
 }
 ```
 
+### Price Formatting and Currency Display <a href="#price-formatting" id="price-formatting"></a>
+
+You can request specific currency formatting settings for prices returned in the search results. This is done by specifying the `currencyFormat` parameter within the `products` input. The actual formatting details (like currency symbol, placement, decimal places) are then returned in the `priceFormat` field within the `products` object of the response.
+
+#### Query
+
+To select which *pre-configured* currency settings to retrieve, include the `currencyFormat` parameter within the `products` input. Additionally, ensure you request the `priceFormat` field in your query to receive these details.
+
+```graphql
+query (
+  $accountId: String,
+  $products: InputSearchProducts,
+) {
+   search(
+    accountId: $accountId
+    products: $products
+  ) {
+     products {
+      # This selects the specific currency format configured in Nosto.
+      # Example: "EUR", "USD", "GBP"
+      currencyFormat
+
+      # This field will contain the details of the selected currency format
+      priceFormat {
+        currencySymbol
+        placement
+        decimalPlaces
+        decimalSeparator
+        thousandSeparator
+      }
+    }
+  }
+}
+```
+
+**Variables Example:**
+
+```json
+{
+  "accountId": "shopify-55872454679-538837015-fi",
+  "products": {
+    "currencyFormat": "EUR"
+  }
+}
+```
+
+#### Behavior and Error Handling:
+
+  * If `currencyFormat` is not provided in the `products` input, the default currency format configured for the account will be used for the `priceFormat` field.
+  * If `currencyFormat` is provided but corresponds to a currency for which no settings are configured, an error will be returned.
+  * If `currencyFormat` is not provided and no default currency format exists for the account, an error will be returned.
+
+#### Response Example:
+
+```json
+{
+  "data": {
+    "search": {
+      "products": {
+        "priceFormat": {
+          "currencySymbol": "€",
+          "placement": "after",
+          "decimalPlaces": 2,
+          "decimalSeparator": ",",
+          "thousandSeparator": " "
+        }
+      }
+    }
+  }
+}
+```
+
+#### `priceFormat` Response Parameters:
+
+These parameters describe how the prices should be formatted on the frontend based on the selected `currencyFormat`.
+
+| Name | Description |
+| :---------------- | :--------------------------------------------------------------------------------------------- |
+| **currencySymbol** | The symbol for the currency (e.g., "$", "€"). |
+| **placement** | Indicates where the currency symbol is placed relative to the price ("before" or "after"). |
+| **decimalPlaces** | The number of decimal places to display for the price. |
+| **decimalSeparator** | The character used to separate the decimal part of the price (e.g., ".", ","). |
+| **thousandSeparator** | The character used to separate thousands in the price (e.g., ",", " "). |
+
 ## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
