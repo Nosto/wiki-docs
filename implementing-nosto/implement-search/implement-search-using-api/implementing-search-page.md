@@ -400,10 +400,6 @@ query (
     products: $products
   ) {
      products {
-      # This selects the specific currency format configured in Nosto.
-      # Example: "EUR", "USD", "GBP"
-      currencyFormat
-
       # This field will contain the details of the selected currency format
       priceFormat {
         currencySymbol
