@@ -195,6 +195,18 @@ However, if you wish to map a color instead of utilizing a custom image, you can
 
 If you wish to change the label of the mapping, you can utilize the "displayName" property. This is how it will be displayed, but will default to the name property value.
 
+### Implementing Add To Cart callback function to update mini cart
+
+How the mini cart is updated depends on the client's set up. On the UGC side, a callback function is available that can be used to update the mini cart after a successful Add To Cart action. You can achieve this by adding the following code to the UGC Widget's Expanded Tile code editor.
+
+```
+    window.ugc.options.shopify = {
+        onAddToCart: function(selectedVariant) {
+            //add custom logic here to update mini carts, e.g., window.sideCart.handleAddToCartEvent() 
+        }
+    }
+```
+
 ### Adding Shopify Add To Cart To Blank Canvas Widgets
 
 In-order to load add to cart on a blank canvas widget, you will need to load this JS file in your widget: https://stackla.com/media/js/dist/shopify-add-to-cart.bundle.js
