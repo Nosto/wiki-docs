@@ -559,7 +559,7 @@ function SerpInfiniteScroll() {
 
 **Observer options**
 
-To achieve a smoother scrolling experience, the `InfiniteScroll` component accepts an optional prop called `observerOptions`. This prop allows you to customize the behavior of the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver), which is used internally to detect when the scroll trigger comes into view.
+To achieve a smoother scrolling experience, the `InfiniteScroll` component accepts an optional prop called `observerOptions`. This prop allows you to customize the behavior of the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver), which is used to detect when the scroll trigger comes into view.
 
 {% code title="serp.jsx" %}
 ```jsx
@@ -571,13 +571,7 @@ To achieve a smoother scrolling experience, the `InfiniteScroll` component accep
 ```
 {% endcode %}
 
-The `observerOptions` object mirrors the options available for the native `IntersectionObserver` constructor. The supported properties are:
-- `root` *Element or null*:
-The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target. If *null* or *undefined*, the browser viewport is used.
-- `rootMargin` *string*:
-Margin around the root. Can have values similar to CSS margin property (e.g., "100px 0px"). This can be used to start loading new content before the user reaches the bottom.
-- `thresholds` *number[]*:
-An array of numbers indicating at what percentage of the target's visibility the observer’s callback should be executed. A value of 0 means as soon as even one pixel is visible, and 1.0 means when 100% of the target is visible.
+The `observerOptions` prop accepts the same parameters as the `IntersectionObserver` [options](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#options).
 
 #### Persistent Search Cache
 
