@@ -27,4 +27,4 @@ If you have implemented SPA / PWA on top a platform that Nosto has extension for
 
 ## When dynamic functionality is needed / no page reload
 
-In case your website implement some dynamic functionality, you can use the [JS API](../../apis/js-apis/). Note that you can not mix Session API and JS API.
+In case your website implement some dynamic functionality, you can use the [JS API](../../apis/js-apis/). Note that you cannot mix Session API and Page Tagging.
