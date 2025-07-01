@@ -557,6 +557,22 @@ function SerpInfiniteScroll() {
 ```
 {% endcode %}
 
+**Observer options**
+
+To achieve a smoother scrolling experience, the `InfiniteScroll` component accepts an optional prop called `observerOptions`. This prop allows you to customize the behavior of the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver), which is used to detect when the scroll trigger comes into view.
+
+{% code title="serp.jsx" %}
+```jsx
+    <InfiniteScroll observerOptions={{
+        rootMargin: "100px"
+    }}>
+        <Products />
+    </InfiniteScroll>
+```
+{% endcode %}
+
+The `observerOptions` prop accepts the same parameters as the `IntersectionObserver` [options](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#options).
+
 #### Persistent Search Cache
 
 When using infinite scroll, consider enabling persistent search cache as well. When this feature is enabled, the latest search API response will be automatically cached and stored in the browser's session storage.
