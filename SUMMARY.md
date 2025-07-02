@@ -5,6 +5,7 @@
 * [Tracking & Session Management](tracking-and-session-management/README.md)
   * [Standard Shopify Storefronts](tracking-and-session-management/standard-shopify-storefronts.md)
   * [Custom Storefronts (Hydrogen, Headless & more)](tracking-and-session-management/custom-storefronts-hydrogen-headless-and-more.md)
+* [Styling Options - Dynamic Product Cards](styling-options-dynamic-product-cards.md)
 * [Post-Purchase Upsell](post-purchase-upsell/README.md)
   * [Requirements](post-purchase-upsell/requirements.md)
   * [How It Works](post-purchase-upsell/how-it-works.md)
