@@ -17,8 +17,7 @@ In the conversion tracking box, simply paste the following snippet.
     <span class="last_name">{{ customer.last_name }}</span>
   </div>
   <div class="purchased_items">
-  {% raw %}
-{% for line_item in line_items %}
+  {% for line_item in line_items %}
     <div class="line_item">
         <span class="product_id">{{ line_item.product_id }}</span>
         <span class="sku_id">{{ line_item.variant_id }}</span>
@@ -28,7 +27,6 @@ In the conversion tracking box, simply paste the following snippet.
         <span class="price_currency_code">{{ currency }}</span>
     </div>
   {% endfor %}
-{% endraw %}
   </div>
 </div>
 ```

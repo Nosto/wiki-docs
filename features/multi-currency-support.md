@@ -31,7 +31,6 @@ Please note that recommendations will not be visible after editing the theme unt
 The snippet:
 
 ```
-{% raw %}
 {% if shop.enabled_currencies.size > 1 %}
 {% for currency in shop.enabled_currencies %}
 {% if currency == cart.currency %}
@@ -39,7 +38,6 @@ The snippet:
 {% endif %}
 {% endfor %}
 {% endif %}
-{% endraw %}
 ```
 
 ![Editing theme file in Shopify](https://user-images.githubusercontent.com/22770093/70220546-6f934880-174f-11ea-812d-94356e47ae36.png)

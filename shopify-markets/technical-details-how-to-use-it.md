@@ -20,7 +20,6 @@ There are two small changes needed in your Shopify code.
 1. You need to manually **remove** or **comment out** the following code-snipped from `nosto-tagging.liquid`:
 
 ```
-{% raw %}
 {% if shop.enabled_currencies.size > 1 %}
 {% for currency in shop.enabled_currencies %}
 {% if currency == cart.currency %}
@@ -28,7 +27,6 @@ There are two small changes needed in your Shopify code.
 {% endif %}
 {% endfor %}
 {% endif %}
-{% endraw %}
 ```
 
 2. You need to manually **add** the following snipped to your `theme.liquid`:&#x20;

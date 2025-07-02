@@ -954,7 +954,6 @@ Nosto implementation uses a private property field for sharing discount informat
 In such a case, make the following changes to the template liquid file that displays the cart information (usually cart.liquid or cart-template.liquid).
 
 ```html
-{% raw %}
 {% for p in item.properties %}
   {% assign first_character_in_key = p.first | truncate: 1, '' %} <== new line
   {% unless p.last == blank or first_character_in_key == '_' %} <== new line
@@ -972,7 +971,6 @@ In such a case, make the following changes to the template liquid file that disp
   </small><br />
   {% endunless %} <== new line
 {% endfor %}
-{% endraw %}
 ```
 
 ### Issue #2: Discount is not applied
