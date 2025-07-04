@@ -12,8 +12,8 @@ The category tagging should be exposed whenever a user is viewing a certain cate
 The brand tagging should be exposed whenever a user is viewing a certain brand or vendor.
 
 ```markup
-<div class="nosto_page_type" style="display:none" translate="no">category</div>
-<div class="nosto_category" style="display:none" translate="no">Acme</div>
+<div class="nosto_page_type" style="display:none" translate="no">brand</div>
+<div class="nosto_brand" style="display:none" translate="no">Acme</div>
 ```
 
 ### Tagging the categories
