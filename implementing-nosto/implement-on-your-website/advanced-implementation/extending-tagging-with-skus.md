@@ -8,6 +8,44 @@ The SKU attributes should be listed on the last row of the `nosto_product` block
 
 Many e-commerce stores have a parent product with individual child products. The parent product is usually something along the lines of "Ski Jacket" whereas the SKUs would then be "Ski Jacket, Blue, Small", "Ski Jacket, Red, Medium". If your store uses SKUs you should add the following attributes to extend your product tagging.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("products", [{
+    ...
+    skus: [
+      {
+        id: "1",
+        name: "S-Orange",
+        price: 1269.00,
+        list_price: 1299.00,
+        url: "http://www.example.com/product/CANOE123#/1-size-s/13-color-orange",
+        image_url: "http://www.example.com/product/images/CANOE123-1.jpg",
+        availability: "InStock",
+        custom_fields: {
+          size: "S",
+          color: "Orange"
+        }
+      }
+      {
+        id: "2",
+        name: "S-Blue",
+        price: 1269.00,
+        list_price: 1299.00,
+        url: "http://www.example.com/product/CANOE123#/1-size-s/14-color-blue",
+        image_url: "http://www.example.com/product/images/CANOE123-2.jpg",
+        availability: "InStock",
+        custom_fields: {
+          size: "S",
+          color: "Blue"
+        }
+      }
+    ]
+  }])
+})
+```
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_product" style="display:none" translate="no">
   ...
@@ -18,7 +56,6 @@ Many e-commerce stores have a parent product with individual child products. The
       <span class="name">S-Orange</span>
       <span class="price">1269.00</span>
       <span class="list_price">1299.00</span>
-      <span class="inventory_level">55</span>
       <span class="url">http://www.example.com/product/CANOE123#/1-size-s/13-color-orange</span>
       <span class="image_url">http://www.example.com/product/images/CANOE123-1.jpg</span>
       <span class="availability">InStock</span>
@@ -33,7 +70,6 @@ Many e-commerce stores have a parent product with individual child products. The
       <span class="name">S-Blue</span>
       <span class="price">1269.00</span>
       <span class="list_price">1299.00</span>
-      <span class="inventory_level">12</span>
       <span class="url">http://www.example.com/product/CANOE123#/1-size-s/14-color-blue</span>
       <span class="image_url">http://www.example.com/product/images/CANOE123-2.jpg</span>
       <span class="availability">InStock</span>
@@ -46,18 +82,44 @@ Many e-commerce stores have a parent product with individual child products. The
 </div>
 ```
 
-**Note:** The attribute `custom_fields` can contain whatever unique information for individual SKUs that you can >consider helpful. Frequently used attributes would be size, color, material.
+**Note:** The attribute `custom_fields` can contain whatever unique information for individual SKUs that you can consider helpful. Frequently used attributes would be size, color, material.
 
 **Extending the cart tagging with SKU metadata**
 
-When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute.
+When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("cart", {
+    [
+      {
+        product_id: "Canoe123",
+        sku_id: "1",
+        ...
+      },
+      {
+        product_id: "Canoe123",
+        sku_id: "2",
+        ...
+      },
+      {
+        product_id: "Canoe245",
+        sku_id: "1",
+        ...
+      }
+    ]
+  })
+})
+```
+
+or via DOM tagging
 
 ```markup
 <div class="nosto_cart" style="display:none" translate="no">
 
     <div class="line_item">
         <span class="product_id">Canoe123</span>
-        <span class="sku_id">201-1</span>
+        <span class="sku_id">1</span>
         <span class="quantity">1</span>
         <span class="name">Acme Canoe</span>
         <span class="unit_price">999.00</span>
@@ -66,7 +128,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 
     <div class="line_item">
         <span class="product_id">Canoe123</span>
-        <span class="sku_id">201-2</span>
+        <span class="sku_id">2</span>
         <span class="quantity">1</span>
         <span class="name">Acme Canoe</span>
         <span class="unit_price">999.00</span>
@@ -75,7 +137,7 @@ When tagging the cart contents as outlined here, you can also tag information of
 
     <div class="line_item">
         <span class="product_id">Canoe245</span>
-        <span class="sku_id">101-1</span>
+        <span class="sku_id">1</span>
         <span class="quantity">3</span>
         <span class="name">Acme Large Canoe</span>
         <span class="unit_price">19.00</span>
@@ -85,9 +147,40 @@ When tagging the cart contents as outlined here, you can also tag information of
 </div>
 ```
 
+Notice the extra `<span class="sku_id">` attribute.
+
+
 **Extending the order tagging with SKU metadata**
 
-When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
+When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("order", {
+    info: {
+      order_number: "1445",
+      email: "john.doe@example.com",
+      first_name: "John",
+      last_name: "Doe"
+    },
+    items: [
+      {
+        product_id: "Canoe123",
+        sku_id: "1",
+        ...
+      },
+      {
+        product_id: "Canoe245",
+        sku_id: "2",
+        ...
+      }
+    ]
+  })
+})
+```
+
+or via DOM tagging
+
 
 ```markup
 <div class="nosto_purchase_order" style="display:none" translate="no">
@@ -102,7 +195,7 @@ When tagging the order contents as outlined here, you can also tag information o
     <div class="purchased_items">
         <div class="line_item">
             <span class="product_id">Canoe123</span>
-            <span class="sku_id">101-1</span>
+            <span class="sku_id">1</span>
             <span class="quantity">1</span>
             <span class="name">Acme Canoe</span>
             <span class="unit_price">999.00</span>
@@ -111,7 +204,7 @@ When tagging the order contents as outlined here, you can also tag information o
 
         <div class="line_item">
             <span class="product_id">Canoe245</span>
-            <span class="sku_id">101-1</span>
+            <span class="sku_id">2</span>
             <span class="quantity">3</span>
             <span class="name">Acme Large Canoe</span>
             <span class="unit_price">19.00</span>
@@ -121,15 +214,15 @@ When tagging the order contents as outlined here, you can also tag information o
 </div>
 ```
 
+Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
+
 ## Validating
 
 Once included you can review if the SKUs are picked up by using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see individual SKUs being picked up below the original product details then this is correctly set up.
 
-You can further verify that products are being indexed to the catalogue under the Nosto admin by navigating to Tools → Products ([https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list))
+You can further verify that products are being indexed to the catalogue under the Nosto admin by navigating to Tools → Products \([https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)\)
 
-![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png)
-
-![](<../../../.gitbook/assets/image (2) (2).png>)
+![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalogue](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png)
 
 ## FAQ
 
@@ -138,3 +231,4 @@ You can further verify that products are being indexed to the catalogue under th
 No, Nosto does no recommend individual SKUs. While this is something on our roadmap, at the moment, you do not need to send any events when an SKU is selected.
 
 For example, assume you had a product page selling a shoe. In this case, the product tagging would always point to the id of the shoe. No events should be dispatched when the customer selects a particular size such as S, M, L.
+
