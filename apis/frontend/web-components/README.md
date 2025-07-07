@@ -133,7 +133,7 @@ Marks an element as Add to cart trigger and attaches click event to the element.
 
 ### `NostoProductCard`
 
-The `NostoProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue compiler using an external template element.
+The `NostoProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
 
 Unlike `NostoProduct`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup. For side effects the `wrap` attribute can be used to wrap the inner content in a `NostoProduct` instance.
 

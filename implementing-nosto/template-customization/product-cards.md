@@ -22,7 +22,7 @@ Nosto offers several web components designed to simplify product card integratio
     Choose this approach if the shop has existing product card markup in liquid templates that should be reused in Nosto campaign rendering.
 
 - **NostoProductCard**  
-    Provides a platform-agnostic custom element that delegates rendering to shop side Vue templates.
+    Provides a platform-agnostic custom element that delegates rendering to shop side Vue-like templates.
     Choose this approach for non-Shopify merchants that wish to maintain the product card templates in Shop side templates instead of Nosto's own templates.
 
 - **NostoProduct**  
