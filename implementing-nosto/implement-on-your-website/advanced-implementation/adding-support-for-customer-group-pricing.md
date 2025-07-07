@@ -21,7 +21,7 @@ The product page tagging must be amended to denote the primary variation code of
 
 For example, a retailer who has different prices for normal and loyal customers would have `GENERAL` as the default variation id and `LOYAL` as an extra variation.
 
-An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
+Ensure that a span element with the class `variation_id` is added as a child of the `nosto_product` element within the product page tagging.
 
 ```markup
 <div class="nosto_product" style="display: none;" translate="no">

@@ -35,7 +35,7 @@ or via DOM tagging
 </div>
 ```
 
-An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
+Ensure that a span element with the class `variation_id` is added as a child of the `nosto_product` element within the product page tagging.
 
 > **Note:** The code in the `variation_id` element must remain static, regardless of the currency active on-site. This is the primary currency of your catalog. Although `variation_id` element often has the same currency code as in the `price_currency_code` element and may seem redundant, they support different use cases and both need to be tagged.
 

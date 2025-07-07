@@ -82,7 +82,7 @@ or via DOM tagging
 </div>
 ```
 
-**Note:** The attribute `custom_fields` can contain whatever unique information for individual SKUs that you can &gt;consider helpful. Frequently used attributes would be size, color, material.
+**Note:** The attribute `custom_fields` can contain whatever unique information for individual SKUs that you can consider helpful. Frequently used attributes would be size, color, material.
 
 **Extending the cart tagging with SKU metadata**
 
