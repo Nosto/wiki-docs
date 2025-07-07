@@ -14,7 +14,16 @@ The product page tagging must be amended to denote the primary currency code of 
 
 For example, a US-based retailer who sells in Euros \(EUR\) and Sterling Pounds \(GBP\) would have US Dollar \(USD\) as the primary currency while Euro \(EUR\) and Sterling Pounds \(GBP\) would be secondary currencies whose exchange rates would need to be sent via an API.
 
-An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
+```js
+nostojs(api => {
+  api.setTaggingProvider("products", [{
+    ...
+    variation_id: "USD"
+  }])
+})
+```
+
+or via DOM tagging
 
 ```markup
 <div class="nosto_product" style="display: none;" translate="no">
@@ -25,6 +34,8 @@ An additional span tag must be placed within the product page tagging with a cla
   <span class="variation_id">USD</span>
 </div>
 ```
+
+An additional span tag must be placed within the product page tagging with a class name `variation_id`. The tag is a child element of the `nosto_product` element.
 
 > **Note:** The code in the `variation_id` element must remain static, regardless of the currency active on-site. This is the primary currency of your catalog. Although `variation_id` element often has the same currency code as in the `price_currency_code` element and may seem redundant, they support different use cases and both need to be tagged.
 

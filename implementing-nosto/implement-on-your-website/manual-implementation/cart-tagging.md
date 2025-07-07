@@ -67,6 +67,15 @@ If the platform itself has support for persistent shopping cart or other technol
 
 The following piece of code is just a rough example on how a restore cart could look like. The idea of the example is to document how this is tagged to Nosto.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("restoreLink", "https://example.com/cart/restore?cart=4D5C3060-1334-4C63-B6FA-D9D342D88B08")
+})
+```
+
+or via DOM tagging
+
+
 ```markup
 <div class="restore_link">https://example.com/cart/restore?cart=4D5C3060-1334-4C63-B6FA-D9D342D88B08</div>
 ```
