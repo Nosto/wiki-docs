@@ -21,7 +21,31 @@ The product page tagging must be amended to denote the primary variation code of
 
 For example, a retailer who has different prices for normal and loyal customers would have `GENERAL` as the default variation id and `LOYAL` as an extra variation.
 
-Ensure that a span element with the class `variation_id` is added as a child of the `nosto_product` element within the product page tagging.
+```js
+nostojs(api => {
+  api.setTaggingProvider("products", [{
+    variation_id: "GENERAL", // Primary variation
+    variations: {
+      LOYAL: {
+        variation_id: "LOYAL",
+        price_currency_code: "EUR",
+        price: "27.00",
+        list_price: "45.19",
+        availability: "InStock"
+      },
+      B2B: {
+        variation_id: "B2B",
+        price_currency_code: "GBP",
+        price: "24.00",
+        list_price: "41.55",
+        availability: "OutOfStock"
+      }
+    }
+  }])
+});
+```
+
+or using DOM tagging
 
 ```markup
 <div class="nosto_product" style="display: none;" translate="no">
@@ -48,6 +72,8 @@ Ensure that a span element with the class `variation_id` is added as a child of 
   </div>
 </div>
 ```
+
+Ensure that a span element with the class `variation_id` is added as a child of the `nosto_product` element within the product page tagging.
 
 > **Note:** The code in the `variation_id` element must remain static, regardless of the current context. For example, if a loyal customer is logged in, the `variation_id` field would still `GENERAL` and not change.
 
