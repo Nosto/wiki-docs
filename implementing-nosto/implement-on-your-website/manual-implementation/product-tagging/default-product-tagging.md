@@ -2,6 +2,27 @@
 
 Basic tagging
 
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("pageType", "product")
+  api.setTaggingProvider("products", [
+    {
+      product_id: "Canoe123",
+      name: "Acme Canoe",
+      url: "https://example.com/canoe123",
+      image_url: "https://image.example.com/canoe1.jpg",
+      availability: "InStock",
+      price: 999.5,
+      price_currency_code: "USD"
+    }
+  ])
+})
+```
+
+The full schema for product tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.PushedProduct.html)
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">product</div>
 <div class="nosto_product" style="display:none" translate="no"> 

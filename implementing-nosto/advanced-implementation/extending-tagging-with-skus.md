@@ -48,7 +48,33 @@ Many e-commerce stores have a parent product with individual child products. The
 
 **Extending the cart tagging with SKU metadata**
 
-When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute.
+When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("cart", {
+    [
+      {
+        product_id: "Canoe123",
+        sku_id: "1",
+        ...
+      },
+      {
+        product_id: "Canoe123",
+        sku_id: "2",
+        ...
+      },
+      {
+        product_id: "Canoe245",
+        sku_id: "1",
+        ...
+      }
+    ]
+  })
+})
+```
+
+or via DOM tagging
 
 ```markup
 <div class="nosto_cart" style="display:none" translate="no">
@@ -83,9 +109,40 @@ When tagging the cart contents as outlined here, you can also tag information of
 </div>
 ```
 
+Notice the extra `<span class="sku_id">` attribute.
+
+
 **Extending the order tagging with SKU metadata**
 
-When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
+When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("order", {
+    info: {
+      order_number: "1445",
+      email: "john.doe@example.com",
+      first_name: "John",
+      last_name: "Doe"
+    },
+    items: [
+      {
+        product_id: "Canoe123",
+        sku_id: "1",
+        ...
+      },
+      {
+        product_id: "Canoe245",
+        sku_id: "2",
+        ...
+      }
+    ]
+  })
+})
+```
+
+or via DOM tagging
+
 
 ```markup
 <div class="nosto_purchase_order" style="display:none" translate="no">
@@ -118,6 +175,8 @@ When tagging the order contents as outlined here, you can also tag information o
     </div>
 </div>
 ```
+
+Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
 
 ## Validating
 

@@ -4,6 +4,43 @@ All thank-you and order-confirmation pages _must_ have the conversion tracking m
 
 The conversion metadata is used for sending personalised order-followup emails, personalise the recommendations e.g. order-related, for segmentation insights and conversion statistics.
 
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("pageType", "order")
+  api.setTaggingProvider("order", {
+    payment_provider: "checkmo",
+    order_status: "pending",
+    info: {
+      order_number: "1445",
+      email: "john.doe@example.com",
+      first_name: "John",
+      last_name: "Doe",
+      type: "order"
+    },
+    items: [
+      {
+        product_id: "Canoe123",
+        quantity: 1,
+        name: "Acme Canoe",
+        unit_price: 999.0,
+        price_currency_code: "EUR"
+      },
+      {
+        product_id: "Canoe245",
+        quantity: 3,
+        name: "Acme Large Canoe",
+        unit_price: 19.00,
+        price_currency_code: "EUR"
+      }
+    ]
+  })
+})
+```
+
+The full schema for order tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.WebsiteOrder.html)
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">order</div>
 <div class="nosto_purchase_order" style="display:none" translate="no">
