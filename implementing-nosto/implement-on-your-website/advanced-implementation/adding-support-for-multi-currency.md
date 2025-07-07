@@ -51,6 +51,14 @@ The cart and order tagging can be left as-is but the prices must be in the custo
 
 Once you have amended the product tagging, an additional DIV element must be added to all the other pages \(including the product page itself\). The tag should not be encapsulated in the `nosto_product` DIV tag. The information sent in the tag refers to the currency active of the customer.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("variation", "USD")
+})
+```
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_variation" style="display: none;">USD</div>
 ```
