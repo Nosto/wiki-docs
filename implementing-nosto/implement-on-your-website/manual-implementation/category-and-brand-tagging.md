@@ -4,6 +4,15 @@ Nosto utilizes meta tags to track what category or brand a certain visitor is vi
 
 The category tagging should be exposed whenever a user is viewing a certain category.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("pageType", "category")
+  api.setTaggingProvider("categories", ["/Mens/Jackets/Ski Jackets"]) 
+})
+```
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">category</div>
 <div class="nosto_category" style="display:none" translate="no">/Mens/Jackets/Ski Jackets</div>
@@ -24,14 +33,30 @@ Categories must always be delimited by a slash. For example, `/Home/Accessories`
 
 With Nosto you can also expose other attributes that should be used for category/brand page filtering. For example when a user clicks on a certain color, only products with that certain color attribute should be exposed by both the category list, and Nosto Onsite Recommendations. Available values correspond to custom fields tagged as part of the [Product Tagging](product-tagging/default-product-tagging.md).
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("tags", ["color: Red", "gender: Men"])
+})
+```
+
+or via DOM tagging
+
 ```markup
 <span class="nosto_tag" style="display:none" translate="no">color: Red</span>
-<span class="nosto_tag" style="display:none" translate="no">gender: Mens</span>
+<span class="nosto_tag" style="display:none" translate="no">gender: Men</span>
 ```
 
 ### Tagging the current page type
 
 Page type tagging should be exposed whenever a user is interacting with a page so Nosto understands what kind of page this is.
+
+```js
+nostojs(api => {
+  api.setTaggingProvider("pageType", "category")    
+})
+```
+
+or via DOM tagging
 
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">category</div>

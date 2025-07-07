@@ -14,6 +14,14 @@ Here is a list of all the valid page types:
 * All no-found pages should be tagged as `notfound`.
 * Other pages should be tagged as `other`.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("pageType", "product")
+})
+```
+
+or via DOM tagging
+
 ```markup
  <div class="nosto_page_type" style="display:none" translate="no">product</div>
 ```

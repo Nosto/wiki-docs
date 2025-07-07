@@ -4,6 +4,34 @@ On every page load, the cart content must be tagged. The cart contents are the 1
 
 The cart information is used by the Nosto to tailor the recommendations, dispatch abandoned cart emails and fire Facebook pixel events for retargeting purposes.
 
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("cart", {
+    items: [
+      {
+        product_id: "Canoe123",
+        quantity: 1,
+        name: "Acme Canoe",
+        unit_price: 999.0,
+        price_currency_code: "EUR"
+      },
+      {
+        product_id: "Canoe245",
+        quanity: 3,
+        name: "Acme Large Canoe",
+        unit_price: 19.0,
+        price_currency_code: "EUR"
+      }
+    ]
+  })
+})
+```
+
+The full schema for cart tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.Cart.html)
+
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_cart" style="display:none" translate="no">
 

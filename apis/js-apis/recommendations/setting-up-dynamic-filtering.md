@@ -14,15 +14,18 @@ Tagging the current category is often for most retailers to add personalization 
 
 You can filter by categories to narrow down the recommendation results to only show products from the specified category or categories. If multiple categories are specified, the products must be in each of those categories.
 
-```markup
-<div class="nosto_category" style="display:none">/Men's/Shirts</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("categories", ["/Men's/Shirts"])
+})
 ```
 
 You can even use multiple
 
-```markup
-<div class="nosto_category" style="display:none">/Men's/Shirts</div>
-<div class="nosto_category" style="display:none">/Men's/Sale</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("categories", ["/Men's/Shirts", "/Men's/Sale"])
+})
 ```
 
 **Note:** Remember to tag the categories exactly as they are tagged in your product pages. If you've omitted the leading `/Home` from your category tagging on the product pages, you'll need to tag them in a similar format here.
@@ -31,30 +34,36 @@ You can even use multiple
 
 You can filter by tags to narrow down the recommendation results to only show products containing the specified tag or tags. If multiple tags are specified, the products must contain all the specified tags.
 
-```markup
-<div class="nosto_tag" style="display:none">colourful</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("tags", ["colourful"])
+})
 ```
 
 You can even use multiple
 
-```markup
-<div class="nosto_tag" style="display:none">colourful</div>
-<div class="nosto_tag" style="display:none">shiny</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("tags", ["colourful", "shiny"])
+})
 ```
 
 ### Filtering by attributes
 
 You can filter by attributes to narrow down the recommendation results to only show products containing the specified attributes. If multiple attributes are specified, the products must contain all the attributes.
 
-```markup
-<div class="nosto_custom_field" style="display:none">gender:male</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("customFields", { gender: ["male"] })
+});
 ```
 
 You can even use multiple
 
-```markup
-<div class="nosto_custom_field" style="display:none">gender:male</div>
-<div class="nosto_custom_field" style="display:none">material:cotton</div>
+```javascript
+nostojs(api => {
+  api.setTaggingProvider("customFields", { gender: ["male"], material: ["cotton"] })
+})
 ```
 
 These colon separated values are then parsed into an object with format { "key1":"value1,value2", "key2":"value1" }.
@@ -79,10 +88,9 @@ If you want to refresh the recommendations with new facet constraints, the simpl
 The following example illustrates a simple way of modifying the current category tagging and then using the JS API to reload the recommendations.
 
 ```javascript
-document.querySelector('.nosto_category').innerText = '/Shoes'
-
 nostojs(api => {
-  api.loadRecommendations();
-});
+  api.setTaggingProvider("categories", ["/Shoes"])
+  api.loadRecommendations()
+})
 ```
 

@@ -2,7 +2,14 @@
 
 In the event that you are unable to expose the entire subset of the product tagging, you can simply tag the product-id.
 
-**Note:** The product tagging _must_ be server-side rendered as the Nosto crawler does not execute Javascript.
+```js
+nostojs(api => {
+  api.setTaggingProvider("pageType", "product")
+  api.setTaggingProvider("products", [{ product_id: "Canoe123" }])
+})
+```
+
+or via DOM tagging
 
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">product</div>
