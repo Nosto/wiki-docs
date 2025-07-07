@@ -29,7 +29,6 @@ nostojs(api => {
 
 The full schema for cart tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.Cart.html)
 
-
 or via DOM tagging
 
 ```markup
