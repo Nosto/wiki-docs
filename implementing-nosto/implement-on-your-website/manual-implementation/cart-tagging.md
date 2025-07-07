@@ -17,7 +17,7 @@ nostojs(api => {
       },
       {
         product_id: "Canoe245",
-        quanity: 3,
+        quantity: 3,
         name: "Acme Large Canoe",
         unit_price: 19.0,
         price_currency_code: "EUR"
