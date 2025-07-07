@@ -23,3 +23,10 @@ To implement Nosto manually you will need to go through the following steps to e
 
 If the store is built on explicitly supported platforms like Magento, Magento 2, Shopify, Prestashop or Shopware you should go through their platform specific guides instead.
 
+The tagging context can be provided in two ways
+* programmatically via tagging providers
+* as dedicated Nosto elements in page markup
+
+We recommend to utilize tagging providers due to the following benefits
+* tagging can be dynamically changed in JS without writing to the DOM
+* tagging context can be provided much earlier, since script tags can also be placed in head element

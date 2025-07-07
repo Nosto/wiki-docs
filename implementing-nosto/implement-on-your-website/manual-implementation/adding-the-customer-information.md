@@ -4,6 +4,23 @@ On every page, the customer information _should_ be tagged if the customer is lo
 
 The customer information is primarily used for sending personalised triggered emails and for building multi-channel experiences.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("customer", {
+    email: "john.doe@example.com",
+    first_name: "John",
+    last_name: "Doe",
+    customer_reference: "e18daf14-d715-4d77-82f2-93eceb4ae1ef",
+    type: "loggedin",
+    newsletter: false
+  })
+})
+```
+
+The full schema for customer tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.PushedCustomer.html)
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_customer" style="display:none" translate="no">
   <span class="email">john.doe@example.com</span>
