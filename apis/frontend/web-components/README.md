@@ -370,13 +370,18 @@ The component does not handle styling for disabled options and it has to be appl
 
 `NostoCampaign` and `NostoProductCard` support a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
 
+* [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
+* [v-html](https://vuejs.org/api/built-in-directives.html#v-html)
+* [v-show](https://vuejs.org/api/built-in-directives.html#v-show)
 * [v-if](https://vuejs.org/api/built-in-directives.html#v-if)
 * [v-else](https://vuejs.org/api/built-in-directives.html#v-else)
+* [v-else-if](https://vuejs.org/api/built-in-directives.html#v-else-if)
 * [v-for](https://vuejs.org/api/built-in-directives.html#v-for)
-  * only simple `for a in b` syntax is supported
 * [v-bind](https://vuejs.org/api/built-in-directives.html#v-bind) (including shorthand syntax)
   * modifiers are not supported
-* [v-html](https://vuejs.org/api/built-in-directives.html#v-html)
-* [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
+* [v-on](https://vuejs.org/api/built-in-directives.html#v-on)
+  * modifiers are not supported
+* [v-pre](https://vuejs.org/api/built-in-directives.html#v-pre)    
+* [v-cloak](https://vuejs.org/api/built-in-directives.html#v-cloak)
 
 For the documentation of these directives the [Vue reference docs](https://vuejs.org/api/built-in-directives.html) is a good starting point.
