@@ -58,11 +58,20 @@ Product-specific campaign:
 Template-based rendering:
 
 ```html
-<nosto-campaign
-  placement="best-sellers"
-  template="custom-campaign-template">
+<nosto-campaign placement="best-sellers">
+  <template>
+    <div class="product-card" v-for="product in products">
+      <a :href="product.url">
+        <img :src="product.imageUrl" />
+      </a>
+      <span class="product-name">{{ product.name }}</span>
+      <span class="product-price">{{ product.price }}</span>
+    </div>  
+  </template>
 </nosto-campaign>
 ```
+
+A subset of Vue is used as the templating language. The template support is described in detail below.
 
 ### `NostoDynamicCard`
 
@@ -200,27 +209,15 @@ Unlike `NostoProduct`, this component doesn't include any side effects or platfo
 
 <template id="product-card-template">
   <img :src="product.image" :alt="product.title" class="product-image" />
-  <h1 v-text="product.title"></h1>
+  <h1>{{ product.title }}</h1>
   <p class="price">
-    <span n-price v-text="product.price"></span>
+    <span n-price>{{ product.price }}</span>
   </p>
   <p class="list-price" v-if="product.price !== product.listPrice">
-    <span n-list-price v-text="product.listPrice"></span>
+    <span n-list-price>{{ product.listPrice }}</span>
   </p>
 </template>
 ```
-
-`NostoProductCard` supports a subset of Vue templating using directive only syntax to make sure that the Vue templates can easily be embedded into a host templating language like Liquid or Handlebars. The supported directives are:
-
-* [v-if](https://vuejs.org/api/built-in-directives.html#v-if)
-* [v-else](https://vuejs.org/api/built-in-directives.html#v-else)
-* [v-for](https://vuejs.org/api/built-in-directives.html#v-for)
-  * only simple `for a in b` syntax is supported
-* [v-bind](https://vuejs.org/api/built-in-directives.html#v-bind) (including shorthand syntax)
-  * modifiers are not supported
-* [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
-
-For the documentation of these directives the [Vue reference docs](https://vuejs.org/api/built-in-directives.html) is a good starting point.
 
 ### `NostoSkuOptions`
 
@@ -370,3 +367,18 @@ The component does not handle styling for disabled options and it has to be appl
   ...
 </nosto-product>
 ```
+
+## Vue-like templating
+
+`NostoCampaign` and `NostoProductCard` support a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
+
+* [v-if](https://vuejs.org/api/built-in-directives.html#v-if)
+* [v-else](https://vuejs.org/api/built-in-directives.html#v-else)
+* [v-for](https://vuejs.org/api/built-in-directives.html#v-for)
+  * only simple `for a in b` syntax is supported
+* [v-bind](https://vuejs.org/api/built-in-directives.html#v-bind) (including shorthand syntax)
+  * modifiers are not supported
+* [v-html](https://vuejs.org/api/built-in-directives.html#v-html)
+* [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
+
+For the documentation of these directives the [Vue reference docs](https://vuejs.org/api/built-in-directives.html) is a good starting point.
