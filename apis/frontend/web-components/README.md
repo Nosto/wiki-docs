@@ -23,13 +23,13 @@ This package provides the following web components:
 
 #### Component attributes
 
-| Attribute    | Description                                                                                                                                                                                                                      |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                                                                                                                                             |
-| `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                   |
-| `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                              |
-| `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component.  |
-| `init`       | For disabling automatic campaign loading on page load, set to `false `                                                                                                                                                           |
+| Attribute    | Description                                                                                                                                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                                                                                                                                            |
+| `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
+| `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
+| `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
+| `init`       | For disabling automatic campaign loading on page load, set to `false`                                                                                                                                                           |
 
 #### Usage example
 
@@ -98,10 +98,8 @@ The `NostoDynamicCard` component relies on alternate product card templates to b
 * Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
 
 ```markup
-{% raw %}
 {% layout none %}
 {% render 'card-product', card_product: product %}
-{% endraw %}
 ```
 
 Make sure that web components are enabled in the Nosto Recommendation Settings after completion of the Shopify side changes.\
