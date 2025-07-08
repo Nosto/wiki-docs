@@ -181,7 +181,7 @@ Marks an element as Add to cart trigger and attaches click event to the element.
 
 ### `NostoProductCard`
 
-The `NostoProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via Liquid or Handlebars using an external template element.
+The `NostoProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
 
 Unlike `NostoProduct`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup. For side effects the `wrap` attribute can be used to wrap the inner content in a `NostoProduct` instance.
 
@@ -198,17 +198,29 @@ Unlike `NostoProduct`, this component doesn't include any side effects or platfo
   </script>
 </nosto-product-card>
 
-<script id="product-card-template" type="text/x-liquid-template">
-  <img src="{{ product.image }}" alt="{{ product.title }}" class="product-image" />
-  <h1>{{ product.title }}</h1>
+<template id="product-card-template">
+  <img :src="product.image" :alt="product.title" class="product-image" />
+  <h1 v-text="product.title"></h1>
   <p class="price">
-    <span n-price>{{ product.price }}</span>
+    <span n-price v-text="product.price"></span>
   </p>
-  <p class="list-price">
-    <span n-list-price>{{ product.listPrice }}</span>
+  <p class="list-price" v-if="product.price !== product.listPrice">
+    <span n-list-price v-text="product.listPrice"></span>
   </p>
-</script>
+</template>
 ```
+
+`NostoProductCard` supports a subset of Vue templating using directive only syntax to make sure that the Vue templates can easily be embedded into a host templating language like Liquid or Handlebars. The supported directives are:
+
+* [v-if](https://vuejs.org/api/built-in-directives.html#v-if)
+* [v-else](https://vuejs.org/api/built-in-directives.html#v-else)
+* [v-for](https://vuejs.org/api/built-in-directives.html#v-for)
+  * only simple `for a in b` syntax is supported
+* [v-bind](https://vuejs.org/api/built-in-directives.html#v-bind) (including shorthand syntax)
+  * modifiers are not supported
+* [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
+
+For the documentation of these directives the [Vue reference docs](https://vuejs.org/api/built-in-directives.html) is a good starting point.
 
 ### `NostoSkuOptions`
 
