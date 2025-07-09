@@ -43,23 +43,63 @@ When this is rendered inside a Nosto template, Shopify is responsible for fetchi
 
 To give you full context, let's use an example of how this could be set up.&#x20;
 
+1.  **Identify the product grid section of the collection template**
 
+    Search for the type of the product grid section in `templates/collection.{json|liquid}`
+    
+    ```
+    {
+      "sections": {
+        "banner": {
+          "type": "main-collection-banner",
+          "settings": {
+            ...
+          }
+        },
+        "product-grid": {
+          "type": "main-collection-product-grid",
+          ...
+        }
+      }
+    }      
+    ```
 
-1.  **Create an alternate template**
+    The type is `main-collection-product-grid` in the Dawn theme
+2.  **Identify the product card snippet in the product grid section**
 
-    In your Shopify theme, create a new product template (e.g. `templates/product.card.liquid`) with the following content:
+    Open the file for the section found in the previous step, `sections/main-collection-product-grid.liquid` in Dawn.
+    Search for the snippet usage that renders the product card:
+
+    ```
+    {% render 'card-product',
+      card_product: product,
+      media_aspect_ratio: section.settings.image_ratio,
+      image_shape: section.settings.image_shape,
+      show_secondary_image: section.settings.show_secondary_image,
+      show_vendor: section.settings.show_vendor,
+      show_rating: section.settings.show_rating,
+      lazy_load: lazy_load,
+      skip_styles: skip_card_product_styles,
+      quick_add: section.settings.quick_add,
+      section_id: section.id
+    %}
+    ```
+
+    The correct snippet is `card-product` in the Dawn theme
+3.  **Create an alternate template**
+
+    Create a new product template (e.g. `templates/product.card.liquid`) with the following content:
 
     ```
     {% layout none %}
     {% render 'card-product', card_product: product %}
     ```
-2.  **Ensure the card snippet exists**
 
-    The snippet `card-product` is commonly used in themes like Dawn. If your theme uses a different one, adjust accordingly.
-3.  **Enable Web Components in Nosto**
+    Replace `card-product` and the parameters with the snippet usage you found in the previous step. The parameters for the snippet will need to be replaced with the relevant section settings.
+4.  **Enable Web Components in Nosto**
 
     In the Nosto admin, go to **Settings > Recommendations** and enable **Web Components**.
-4.  **Use in Nosto Template**
+5.  **Use in Nosto Template**
 
     In your Nosto template (e.g., for recommendations), use the component like this:
 
