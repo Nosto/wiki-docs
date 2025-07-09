@@ -223,18 +223,20 @@ import { init, priceDecorator } from "@nosto/preact";
 init({
     ...window.nostoTemplatesConfig,
     ...
-    serpQuery {
-        products: {
-            variationId: this.variationId(),
-            fields: [
-                // needed for priceDecorator
-                "price", 
-                "listPrice",
-                "priceCurrencyCode",
-            ],
-            size: 20,
-            from: 0
-        }
+    serpQuery() {
+        return {
+            products: {
+                variationId: this.variationId(),
+                fields: [
+                    // needed for priceDecorator
+                    "price", 
+                    "listPrice",
+                    "priceCurrencyCode",
+                ],
+                size: 20,
+                from: 0
+            }
+        }    
     },
     hitDecorators: [
         priceDecorator()
