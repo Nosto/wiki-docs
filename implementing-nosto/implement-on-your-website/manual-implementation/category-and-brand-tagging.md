@@ -20,9 +20,18 @@ or via DOM tagging
 
 The brand tagging should be exposed whenever a user is viewing a certain brand or vendor.
 
+```js
+nostojs(api => {
+  api.setTaggingProvider("pageType", "category")
+  api.setTaggingProvider("brands", ["Acme"]) 
+})
+```
+
+or via DOM tagging
+
 ```markup
 <div class="nosto_page_type" style="display:none" translate="no">category</div>
-<div class="nosto_category" style="display:none" translate="no">Acme</div>
+<div class="nosto_brand" style="display:none" translate="no">Acme</div>
 ```
 
 ### Tagging the categories
