@@ -134,6 +134,7 @@
     * [Nosto React](apis/frontend/react-support/README.md)
     * [Web Components](apis/frontend/web-components/README.md)
       * [Loading Web components](apis/frontend/web-components/loading-web-components.md)
+      * [Shopify Integration](apis/frontend/web-components/shopify-integration.md)
 
 ## User Generated Content
 
