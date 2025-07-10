@@ -2,7 +2,7 @@
 
 By default Nosto tracks campaign attribution without additional url parameters. The tracking happens by registering click listeners to the campaign elements that detect product url clicks and associate them with the attribution metadata of the rendered campaign. The pair of url and campaign attribution is stored in the local storage of the Browser. 
 
-In most of the cases this will work out of the box, but in certain scenarious adjustments need to be made.
+In most cases this will work out of the box, but in certain scenarious adjustments need to be made.
 
 ## Product url redirects
 
