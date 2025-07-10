@@ -13,6 +13,7 @@ This package provides the following web components:
 | --------------------------------------- | ------------------------- |
 | [NostoCampaign](./#nostocampaign)       | Progressive Enhancement   |
 | [NostoDynamicCard](./#nostodynamiccard) | Templating (Shopify only) |
+| [NostoImage](./#nostoimage).            | Progressive Enhancement   | 
 | [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
 | [NostoProductCard](./#nostoproductcard) | Templating                |
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
@@ -111,6 +112,37 @@ After that the component can be used in Nosto templates like this
   <div class="product-card-skeleton"></div>
 </nosto-dynamic-card>
 #end
+```
+
+### `NostoImage`
+
+`NostoImage` is a web component that provides response image rendering capabilities using the [unpic](https://unpic.pics/about/) library. It supports Shopify and BigCommerce thumbnails out of the box and uses the same configuration model and unpic's own web components. It can be used as a `img` element replacement with smart rendering capabilities.
+
+#### Component attributes
+
+| Attribute    | Description                           |
+| ------------ | ------------------------------------- |
+| `src`        | The source URL of the image.          |
+| `width`      | The width of the image in pixels.     |
+| `height`     | The height of the image in pixels.    |
+| `aspect-ratio`  | The aspect ratio of the image (width / height value).      |
+| `crop`       | Shopify only. The crop of the image. Can be "center", "left", "right", "top", or "bottom".      |
+| `layout`     | The layout of the image. Can be "fixed", "constrained", or "fullWidth". |
+
+**Example #1**:
+
+Usage with Shopify image URL:
+
+```html
+<nosto-image src="https://cdn.shopify.com/static/sample-images/bath.jpeg" width="800" height="600" layout="constrained" crop="center"></nosto-image>
+```
+
+**Example #2**:
+
+Usage with BigCommerce image URL:
+
+```html
+<nosto-image src="https://cdn11.bigcommerce.com/s-hm8pjhul3k/products/4055/images/23603/7-15297__04892.1719977920.1280.1280.jpg" width="800" height="600" layout="constrained"></nosto-image>
 ```
 
 ### `NostoProduct`
