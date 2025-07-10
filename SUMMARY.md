@@ -19,6 +19,7 @@
     * [Defining Nosto placements](implementing-nosto/implement-on-your-website/manual-implementation/defining-nosto-placements.md)
     * [Tagging your page types](implementing-nosto/implement-on-your-website/manual-implementation/tag-your-page-types.md)
   * [Advanced Usage](implementing-nosto/implement-on-your-website/advanced-implementation/README.md)
+    * [Parameterless Attribution](implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution.md)
     * [Extending tagging with SKUs](implementing-nosto/implement-on-your-website/advanced-implementation/extending-tagging-with-skus.md)
     * [Adding support for multi-currency](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-multi-currency.md)
     * [Adding support for customer group pricing](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md)
