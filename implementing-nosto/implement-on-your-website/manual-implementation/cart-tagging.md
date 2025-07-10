@@ -55,6 +55,10 @@ or via DOM tagging
 
 > **Note:** The product ID of the product tagging, cart tagging and order tagging must match. Failure to do so will lead to a mismatch in both attribution and statistics across the Nosto product.
 
+### Dynamic cart changes
+
+Cart content changes should be reflected to Nosto by either calling `api.setTaggingProvider("cart", data)` with updated cart contents or updating the cart tagging in the DOM.
+
 ### Adding support for advanced use cases
 
 Many e-commerce stores utilize SKU:s or "child" products that are sorted under the same "parent" product. To extend the above example with SKU support refer to [this article](../advanced-implementation/extending-tagging-with-skus.md)
