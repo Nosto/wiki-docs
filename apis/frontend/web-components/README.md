@@ -13,7 +13,7 @@ This package provides the following web components:
 | --------------------------------------- | ------------------------- |
 | [NostoCampaign](./#nostocampaign)       | Progressive Enhancement   |
 | [NostoDynamicCard](./#nostodynamiccard) | Templating (Shopify only) |
-| [NostoImage](./#nostoimage).            | Progressive Enhancement   | 
+| [NostoImage](./#nostoimage)             | Progressive Enhancement   | 
 | [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
 | [NostoProductCard](./#nostoproductcard) | Templating                |
 | [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
