@@ -6,20 +6,6 @@ description: >-
 
 # Managing the Cart
 
-### Reload Cart
-
-This function replaces the cart in Nosto with the cart contents from Shopify and then loads recommendations. This can be useful if you have an Add to Cart button that adds a product to cart via AJAX and you want to subsequently show cart-based recommendations.
-
-```markup
-Nosto.reloadCart()
-```
-
-Additionally, if event tracking for this call needs to be disabled, you can call the below function instead and pass in the `skipEvents: true` flag. This is particularly helpful in cases where other recommendations on the page should reflect cart content when the cart is changed without explicitly counting it as an additional page load. By default, the `skipPageViews` flag is `true` for both cases.
-
-```
-Nosto.reloadCartWithFlags({ skipEvents: true })
-```
-
 ### Add Recommended Products to Cart
 
 Nosto supports a quick-buy function straight from within its recommendations. This feature will be referred to as the add-to-cart feature henceforth.
@@ -32,6 +18,29 @@ The first argument is a javascript object containing the id of the configurable 
 
 ```javascript
 Nosto.addSkuToCart({productId: '123', skuId: '124'}, 'frontpage-nosto-1')
+```
+
+If you wish to combine cart mutation and recommendation reloading the following pattern should be used:
+
+```javascript
+async function addToCart(productId, skuId, attribution) {
+  await Nosto.addSkuToCart({ productid, skuId }, attribution)
+  const api = await new Promise(nostojs)
+  await api.loadRecommendations()
+}
+```
+
+or to reload only a specific recommendation
+
+```javascript
+async function addToCart(productId, skuId, attribution, toReload) {
+  await Nosto.addSkuToCart({ productid, skuId }, attribution)
+  const api = await new Promise(nostojs)
+  await api.createRecommendationRequest({ includeTagging: true })
+    .setElements([toReload])
+    .load()
+
+}
 ```
 
 #### Leveraging Quantities
