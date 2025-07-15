@@ -30,3 +30,5 @@ The tagging context can be provided in two ways
 We recommend to utilize tagging providers due to the following benefits
 * tagging can be dynamically changed in JS without writing to the DOM
 * tagging context can be provided much earlier, since script tags can also be placed in head element
+
+It is possible to mix DOM based tagging and tagging providers in case the main tagging is provided as HTML elements, but individual parts should be managed via Javascript code dynamically. Also both DOM and tagging provider based tagging are treated in the same way in the client script and debug toolbar.
