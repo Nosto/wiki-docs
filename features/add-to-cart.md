@@ -29,7 +29,13 @@ async function addToCart(productId, skuId, attribution) {
   await api.loadRecommendations()
 }
 
-addToCart("5637201", "7420583", "frontpage-1")
+// usage example
+try {
+  await addToCart("5637201", "7420583", "frontpage-1")
+} catch (e) {
+  console.warn("Cart addition failed", e)
+}
+
 ```
 
 The `attribution` parameter would be the recommendation result id to be used for attribution
@@ -46,7 +52,12 @@ async function addToCart(productId, skuId, attribution, toReload) {
 
 }
 
-addToCart("5637201", "7420583", "frontpage-1", "minicart-1")
+// usage example
+try {
+  await addToCart("5637201", "7420583", "frontpage-1", "minicart-1")
+} catch (e) {
+  console.warn("Cart addition failed", e)
+}
 
 ```
 
