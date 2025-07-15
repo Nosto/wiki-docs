@@ -40,7 +40,7 @@ const response = await api
 
 const recommendation = response.recommendations[placementId]
 const container = document.getElementById(placementId)
-if (campaignResult && container) {
+if (recommendation && container) {
   renderProductsToContainer(containerElement, recommendation)
   api.attributeProductClicksInCampaign(container, recommendation)
 }
