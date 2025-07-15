@@ -28,6 +28,8 @@ async function addToCart(productId, skuId, attribution) {
   const api = await new Promise(nostojs)
   await api.loadRecommendations()
 }
+
+addToCart("5637201", "7420583", "frontpage-1")
 ```
 
 The `attribution` parameter would be the recommendation result id to be used for attribution
@@ -43,6 +45,9 @@ async function addToCart(productId, skuId, attribution, toReload) {
     .load()
 
 }
+
+addToCart("5637201", "7420583", "frontpage-1", "minicart-1")
+
 ```
 
 Like in the previous example `attribution` refers to the recommendation result id this cart addition should be attributed to and `toReload` is a placement id for a campaign to be reloaded based on cart changes.
