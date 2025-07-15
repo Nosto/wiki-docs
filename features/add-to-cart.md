@@ -30,6 +30,8 @@ async function addToCart(productId, skuId, attribution) {
 }
 ```
 
+The `attribution` parameter would be the recommendation result id to be used for attribution
+
 or to reload only a specific recommendation
 
 ```javascript
@@ -42,6 +44,8 @@ async function addToCart(productId, skuId, attribution, toReload) {
 
 }
 ```
+
+Like in the previous example `attribution` refers to the recommendation result id this cart addition should be attributed to and `toReload` is a placement id for a campaign to be reloaded based on cart changes.
 
 #### Leveraging Quantities
 
