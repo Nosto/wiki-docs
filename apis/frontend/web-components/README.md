@@ -86,7 +86,9 @@ This custom element is the recommended choice to use when the product card marku
 | ------------ | ------------------------------------- |
 | `handle`     | Handle of the product                 |
 | `template`   | Name of the alternate template to use |
+| `section`    | Name of the product level section to use |
 | `variant-id` | Optional reference to variant id      |
+| `lazy`       | Optional lazy loading mode to delay loading until element is visible in viewport |
 
 #### Usage example
 
@@ -97,6 +99,8 @@ The `NostoDynamicCard` component relies on alternate product card templates to b
 * Identify the product card snippet in the product grid section
   * `card-product in Dawn`
 * Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
+
+In addition to template targeting `NostoDynamicCard` supports also the targeting of sections, in case you want to expose the product card as a section instead of a custom template.
 
 ```markup
 {% layout none %}
