@@ -18,13 +18,11 @@ nostojs(api => {
 });
 ```
 
-The `api.search` function also accepts the following options:​
+> **Note:** The first parameter of `api.search` generally corresponds to the graphql schema accepted by the search backend. The second parameter includes more frontend-specific logic like tracking or following redirects.
 
-| Option     | Default | Description                                         |
-| ---------- | ------- | --------------------------------------------------- |
-| `redirect` | `false` | Automatically redirect if search returns a redirect |
-| `track`    | `null`  | Track search query by provided type                 |
-|            |         |                                                     |
+The second parameter of the `api.search` function also accepts the following optional fields:​
+
+<table><thead><tr><th width="128.140625">Option</th><th width="174.92578125">Accepted values</th><th width="154.78515625">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>redirect</code></td><td><p><code>true</code></p><p><code>false</code></p></td><td><code>false</code><br>(Ignore redirects)</td><td>Automatically follow page redirects if instructed by the backend response</td></tr><tr><td><code>track</code></td><td><p><code>"autocomplete"</code></p><p><code>"category"</code></p><p><code>"serp"</code></p><p><code>undefined</code></p></td><td><code>undefined</code><br>(No tracking)</td><td>Track the search query as coming from the provided page type</td></tr><tr><td><code>isKeyword</code></td><td><code>true</code><br><code>false</code></td><td><code>false</code><br>(Not a keyword)</td><td>Indicates that the search is triggered by a keyword click in autocomplete</td></tr></tbody></table>
 
 The function automatically loads session parameters required for personalization & segments in the background.
 
@@ -38,11 +36,11 @@ In order to request custom fields, add the entries `"customFields.key"` and `"cu
 
 ### Search page <a href="#search-page" id="search-page"></a>
 
-For a search page in most cases the `facets` parameter should be provided.
+For a search page, the `facets` parameter should generally be provided. In many cases, `*` is sufficient as a wildcard to include all facets.
 
-Also `redirect` & `track` should be enabled to automatically track searches to Nosto analytics & redirect if API returns a redirect request.
+In order to automatically track search request to Nosto analytics, `track` parameter should be provided with the correct page type.
 
-`isKeyword` should be set to `true` if search is submitted by clicking a keyword, suggested in the autocomplete.
+`isKeyword` should be set to `true` if search is triggered by selecting a keyword suggested in the autocomplete.&#x20;
 
 ```javascript
 nostojs(api => {
@@ -62,6 +60,20 @@ nostojs(api => {
     });
 });
 ```
+
+#### Redirects
+
+The `redirect` parameter, if set to true, causes the JS library to automatically follow any redirects returned by the backend. These are triggered by the merchant's configuration, redirecting certain user queries to specific pages. For example, query "summer" may get redirected to the "summer sale" collection.
+
+The default redirection mechanism simply updates the window location:
+
+```
+window.location.href = response.redirect
+```
+
+> **Note:** Do mix up `response.redirect` with the query's `redirect` property. The former contains the redirected target URL, while the latter is a boolean parameter on the query.
+
+You may want to set `query.redirect` to `false` when this redirection mechanism is insufficient and you want to use another method, such as your framework's routing library. You may obtain the redirect target from `response.redirect` field and act accordingly.
 
 ### Autocomplete
 
