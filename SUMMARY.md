@@ -20,7 +20,7 @@
     * [Caching REST API results for optimization](guides/rest-api/caching-rest-api-results-for-optimization.md)
     * [Posting content into Nosto via Tile API](guides/rest-api/posting-content-into-stackla-via-tile-api.md)
     * [Posting images into Nosto via Tile API](guides/rest-api/posting-images-into-stackla-via-tile-api.md)
-  * [Onsite Widgets (2.0)](guides/onsite-widgets/README.md)
+  * [Onsite Widgets (Classic)](guides/onsite-widgets/README.md)
     * [Blank Canvas](guides/onsite-widgets/blank-canvas/README.md)
       * [How to Use the Blank Canvas to Create a Twitter Count Widget](guides/onsite-widgets/blank-canvas/blank-canvas-to-create-a-twitter-count-widget.md)
       * [Creating an Auto-Scrolling Carousel using Blank Canvas](guides/onsite-widgets/blank-canvas/creating-auto-scrolling-carousel-using-blank-canvas.md)
