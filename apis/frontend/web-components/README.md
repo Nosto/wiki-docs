@@ -12,6 +12,7 @@ This package provides the following web components:
 | Component                               | Category                  |
 | --------------------------------------- | ------------------------- |
 | [NostoCampaign](./#nostocampaign)       | Progressive Enhancement   |
+| [NostoControl](./#nostocontrol)         | Templating   |
 | [NostoDynamicCard](./#nostodynamiccard) | Templating (Shopify only) |
 | [NostoImage](./#nostoimage)             | Progressive Enhancement   | 
 | [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
@@ -20,7 +21,7 @@ This package provides the following web components:
 
 ### `NostoCampaign`
 
-`NostoCampaign` component a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
+The `NostoCampaign` custom element is a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
 
 #### Component attributes
 
@@ -73,6 +74,23 @@ Template-based rendering:
 ```
 
 A subset of Vue is used as the templating language. The template support is described in detail below.
+
+### `NostoControl`
+
+The `NostoControl` custom element provides conditional content rendering capabilities to inject customer segment specific content to the web page. The segment specific injections are defined as template children of the custom element.
+
+The default content can be defined as follow up children of the custom element.
+
+#### Usage example
+
+```html
+<nosto-control>
+ <template segment="5a497a000000000000000001">New visitor content</template>,
+ <template segment="5b71f1500000000000000006">Returning visitor content</template>
+</nosto-control>
+```
+
+The content of the element will become `New visitor content` for new visitors and `Returning visitor content` for returning visitors.
 
 ### `NostoDynamicCard`
 
