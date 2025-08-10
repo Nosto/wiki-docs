@@ -4,7 +4,7 @@
 
 This is done automatically by Nosto as long as you follow the [Handling attribution- topic](spa-basics-leveraging-features.md#handling-attribution-1).
 
-Alternatively you can define the recommendation \(`result_id`\) after an [action](session-api-terminology.md#action) by adding `.setRef(productId, result_id)` to your call. In practise you would only do this when performing [the action for product view](spa-basics-tracking-events.md#upon-viewing-a-product).
+Alternatively you can define the recommendation \(`result_id`\) after an [action](session-api-terminology.md#action) by adding `.setRef(productId, result_id)` to your call. In practice you would only do this when performing [the action for product view](spa-basics-tracking-events.md#upon-viewing-a-product).
 
 Example when productId 123 was clicked on a recommendation _nosto-frontpage-1_:
 

@@ -129,7 +129,7 @@ nostojs(api => {
 
 On all thank-you and order-confirmation views, the order confirmation metadata _must_ be passed.
 
-The order confirmation metadata is used for sending personalised order-followup emails, personalise the recommendations e.g. order-related, for segmentation insights and conversion statistics.
+The order confirmation metadata is used for sending personalized order-followup emails, personalize the recommendations e.g. order-related, for segmentation insights and conversion statistics.
 
 **Important** Even if you would not display any recommendations in your order-confirmation view you must still set placements (`.setPlacements(...)`) and load (`.load()`) the results. Setting the order works in a similar manner than [cart](spa-basics-managing-sessions.md#setting-the-cart) and [customer](spa-basics-managing-sessions.md#setting-the-customer) and an [action](session-api-terminology.md#action) must be performed for the data to be sent to Nosto.
 

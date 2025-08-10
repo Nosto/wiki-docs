@@ -12,7 +12,7 @@ nostojs(api => {
 
 **Note:** The example above creates a new request, adds view product event for `product-id-101` and sends the event to Nosto. Since the request did not specify any recommendation slots, this request only submits view event to Nosto.
 
-You can either create an empty request as in the above example and add only the wanted parts to it, or you can create a request based on the tagging on the page by using the `includeTagging` field and then modify it. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour to update the recommendation with id `productpage-nosto-2` to show only products with the same colour:
+You can either create an empty request as in the above example and add only the wanted parts to it, or you can create a request based on the tagging on the page by using the `includeTagging` field and then modify it. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom color to update the recommendation with id `productpage-nosto-2` to show only products with the same color:
 
 ```javascript
 nostojs(api => {
@@ -26,7 +26,7 @@ nostojs(api => {
 });
 ```
 
-In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom colour `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same colour (`red`):
+In addition to the filtering by product tags, you're also able to filter using product attributes. Here is an example that creates a request using the tagging on the page and then overrides the current tag to be custom color `red`, to update the recommendation with id `productpage-nosto-3` and to show only `cotton` material products for `men` of the same color (`red`):
 
 ```javascript
 nostojs(api => {

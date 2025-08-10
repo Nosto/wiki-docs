@@ -69,7 +69,7 @@ When `serpPath` parameter is specified, the application will **redirect to the s
 
 ### Search page redirect
 
-When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the search page specified in `serpPath` and fetch the page. Default behaviour will rewrite browser history only to the specified path, without fetching the page.
+When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the search page specified in `serpPath` and fetch the page. Default behavior will rewrite browser history only to the specified path, without fetching the page.
 
 ### Unbinding existing search input
 
@@ -710,12 +710,12 @@ If the paths differ, you must configure the `serpFallback` or `categoryFallback`
 {% endhint %}
 
 
-### Alternative Fallback Behaviour
+### Alternative Fallback Behavior
 
-If the behaviour described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails. After that, Nosto will not attempt to override the original search results or category pages for 10 minutes.
+If the behavior described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails. After that, Nosto will not attempt to override the original search results or category pages for 10 minutes.
 
 {% hint style="info" %}
-This behaviour has been the default fallback behaviour before August 20, 2024.
+This behavior has been the default fallback behavior before August 20, 2024.
 {% endhint %}
 
 ```javascript

@@ -5,7 +5,7 @@ Nosto's GraphQL APIs can be used for simplified implementations for headless fro
 * [Using the API](graphql-using-the-api.md)
 * [Testing & Debugging](graphql-testing-and-debugging.md)
 
-🚨Implementing Nosto over GraphQL will not allow you to leverage the entire Nosto suite. When Nosto is implemented over tagging and/or Javascript APIs it can modify web-pages automatically with Javascript, which means many things can work out of the box. For example inserting recommendations dynamically onto a webpage, rendering of templates, tracking of user behaviour. GraphQL instead is only an API which can be called from anywhere, so it cannot directly run Javascript or modify web-pages, instead those need to be implemented by the caller of the API.\
+🚨Implementing Nosto over GraphQL will not allow you to leverage the entire Nosto suite. When Nosto is implemented over tagging and/or Javascript APIs it can modify web-pages automatically with Javascript, which means many things can work out of the box. For example inserting recommendations dynamically onto a webpage, rendering of templates, tracking of user behavior. GraphQL instead is only an API which can be called from anywhere, so it cannot directly run Javascript or modify web-pages, instead those need to be implemented by the caller of the API.\
 \
 The following features are not available through GraphQL API:
 

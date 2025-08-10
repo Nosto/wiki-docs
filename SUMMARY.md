@@ -105,7 +105,7 @@
     * [Record Attribution](apis/frontend/implementation-guide-session-api/record-attributions.md)
     * [Advanced Usage](apis/frontend/implementation-guide-session-api/advanced-usage/README.md)
       * [Supporting opt-out and do-not-track](apis/frontend/implementation-guide-session-api/advanced-usage/spa-out-out-of-session-tracking.md)
-      * [Using external session identifiers](apis/frontend/implementation-guide-session-api/advanced-usage/spa-customising-session-handling.md)
+      * [Using external session identifiers](apis/frontend/implementation-guide-session-api/advanced-usage/spa-customizing-session-handling.md)
       * [Adding support for multi-currency](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency.md)
       * [Adding support for customer group pricing](apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-customer-group-pricing.md)
     * [FAQ](apis/frontend/implementation-guide-session-api/spa-faq.md)
