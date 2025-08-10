@@ -1,0 +1,268 @@
+# Implementing Autocomplete
+
+Autocomplete is an element shown under search input used to display keywords and products for a partial query.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-04 at 12.36.22.png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
+
+Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
+
+## Configuration
+
+To enable autocomplete, additional configuration should be passed to `init` function.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import autocompleteComponent from './autocomplete'
+import historyComponent from './history'
+
+init({
+    ...window.nostoTemplatesConfig,
+    historyComponent,
+    autocompleteComponent,
+    inputCssSelector: '#search',
+    autocompleteQuery: {
+        name: 'autocomplete',
+        products: {
+            size: 5,
+        },
+        keywords: {
+            size: 5,
+            fields: [
+                'keyword', '_highlight.keyword'
+            ],
+        },
+    }
+})
+```
+{% endcode %}
+
+#### Autocomplete query parameter as function&#x20;
+
+In the example above, we supply autocomplete query parameters as an object. Additionally, the `autocompleteQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters. Section below shows an example of `autocompleteQuery` supplied as a function which  provides the product variation id by accessing the pre-defined `variationId` method from the default configuration.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import autocompleteComponent from './autocomplete'
+import historyComponent from './history'
+
+init({
+    ...window.nostoTemplatesConfig,
+    historyComponent,
+    autocompleteComponent,
+    inputCssSelector: '#search',
+    autocompleteQuery() {
+        return {
+            name: 'autocomplete',
+            products: {
+                size: 5,
+                variationId: this.variationId()
+            },
+            keywords: {
+                size: 5,
+                fields: [
+                    'keyword', '_highlight.keyword'
+                ],
+            },
+        }
+    }
+})
+```
+{% endcode %}
+
+#### Customizing dropdown position
+
+When the autocomplete component is injected, by default it will become the next sibling of the input field. It is possible to override that behaviour by specifying the `dropdownCssSelector` value. If this selector is specified, the dropdown will be injected as the last child of the specified element.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    // ...
+    inputCssSelector: '#search',
+    dropdownCssSelector: 'body',
+})
+```
+{% endcode %}
+
+It can also be set to be the first child of the element by using the object selector syntax.
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+init({
+    // ...
+    inputCssSelector: '#search',
+    dropdownCssSelector: {
+        selector: 'body',
+        position: 'first', // 'first' or 'last'
+    },
+})
+```
+{% endcode %}
+
+The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/interfaces/Config.html)
+
+### Autocomplete component
+
+{% code title="autocomplete/index.jsx" %}
+```jsx
+import { useAppStateSelector, AutocompleteElement } from '@nosto/preact'
+
+export default () => {
+    const { products, keywords } = useAppStateSelector((state) => ({
+        products: state.response.products,
+        keywords: state.response.keywords
+    }))
+
+    if (!products?.hits?.length && !keywords?.hits?.length) {
+        return
+    }
+
+    return (
+        <div>
+            {keywords?.hits?.length > 0 && <div>
+                <div>
+                    Keywords
+                </div>
+                <div>
+                    {keywords.hits.map((hit) => (
+                        <AutocompleteElement hit={hit} key={hit.keyword}>
+                            {
+                                hit?._highlight?.keyword
+                                    ? <span dangerouslySetInnerHTML={{ __html: hit._highlight.keyword }}></span>
+                                    : <span>{hit.keyword}</span>
+                            }
+                        </AutocompleteElement>
+                    ))}
+                </div>
+            </div>}
+            {products?.hits?.length > 0 && <div>
+                <div>
+                    Products
+                </div>
+                <div>
+                    {products.hits.map((hit) => (
+                        <AutocompleteElement hit={hit} key={hit.productId} as="a">
+                            <img src={hit.imageUrl}/>
+                            <div>
+                                {hit.name}
+                            </div>
+                            <button
+                                // Allow the button to be clicked only once
+                                disabled={addedToCart}
+                                // Add the product to the cart when the button is clicked
+                                onClick={(event) => {
+                                    // Don't navigate to the product page
+                                    event.preventDefault()
+
+                                    // Update the button text and disable it
+                                    setAddedToCart(true)
+
+                                    // Add the product to the cart, this depends on the cart implementation
+                                    jQuery.post("/cart/add.js", {
+                                        quantity: 1,
+                                        id: product.productId
+                                    })
+                                }}
+                            >
+                                // Show different text if product was added to the cart
+                                {addedToCart ? "Added to cart" : "Add to cart"}
+                            </button>
+                        </AutocompleteElement>
+                    ))}
+                </div>
+            </div>}
+            <div>
+                <button type="submit">
+                    See all search results
+                </button>
+            </div>
+        </div>
+    )
+}
+```
+{% endcode %}
+
+
+#### Voice to text search
+
+To implement voice to text search in search templates, additional configuration params need to be provided:
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import speechToTextComponent from "./SpeechToTextComponent"
+
+init({
+    ...window.nostoTemplatesConfig,
+    speechToTextComponent,
+    speechToTextEnabled: true,
+    ...
+})
+```
+{% endcode %}
+
+##### Configuration parameters:
+
+- **speechToTextComponent** – The component that renders the voice search button.
+- **speechToTextEnabled** – A flag to enable the voice search feature, disabled by default
+
+The voice search button will be injected adjacent to the search input field, positioned as an overlay on the right end of the input.
+
+Within the button component, the `useSpeechToText` hook is used to toggle voice input on and off.
+
+The `@nosto/preact` package exports two useful utilities:
+- **useSpeechToText** – A hook to control the voice-to-text functionality.
+- **speechToTextSupported** – A variable indicating whether the current environment supports the feature.
+
+#### Element selection
+
+Wrap each keywords and product to `AutocompleteElement` element - it will allow clicking or selecting the element directly with keyboard.
+
+#### Search submit
+
+To submit a search directly from the autocomplete, use the `<button type="submit">` element. This will submit the search form.
+
+### History component
+
+History component renders user search history. It is displayed when user clicks on empty search box.
+
+{% code title="history/index.jsx" %}
+```jsx
+import { useAppStateSelector, HistoryElement } from '@nosto/preact'
+
+export default () => {
+    const historyItems = useAppStateSelector((state) => state.historyItems)
+
+    if (!historyItems || !historyItems.length) {
+        return
+    }
+
+    return (
+        <div>
+            <div>Recently Searched</div>`
+            <div>
+                {historyItems.map((item) => (
+                    <HistoryElement query={{ query: item }}>
+                        {item}
+                    </HistoryElement>
+                ))}
+            </div>
+        </div>
+    )
+}
+```
+{% endcode %}
+
+`HistoryElement` renders clickable element that triggers search event with provided query.
+
+## Analytics
+
+Autocomplete automatically tracks to Google Analytics & Nosto Analytics when using `<AutocompleteElement />` component.

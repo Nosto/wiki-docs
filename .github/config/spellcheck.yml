@@ -1,0 +1,24 @@
+matrix:
+- name: Markdown
+  aspell:
+    lang: en
+    ignore-case: true
+  dictionary:
+    wordlists:
+    - .github/config/.wordlist.txt
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.markdown:
+      markdown_extensions:
+        - markdown.extensions.fenced_code
+        - markdown.extensions.tables
+  - pyspelling.filters.html:
+      comments: false
+      ignores:
+        - table
+        - code
+        - pre
+        - a
+  sources:
+  - '**/*.md'
+  default_encoding: utf-8
