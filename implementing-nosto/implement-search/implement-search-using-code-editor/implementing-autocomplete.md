@@ -75,7 +75,7 @@ init({
 
 #### Customizing dropdown position
 
-When the autocomplete component is injected, by default it will become the next sibling of the input field. It is possible to override that behaviour by specifying the `dropdownCssSelector` value. If this selector is specified, the dropdown will be injected as the last child of the specified element.
+When the autocomplete component is injected, by default it will become the next sibling of the input field. It is possible to override that behavior by specifying the `dropdownCssSelector` value. If this selector is specified, the dropdown will be injected as the last child of the specified element.
 
 {% code title="index.js" %}
 ```javascript

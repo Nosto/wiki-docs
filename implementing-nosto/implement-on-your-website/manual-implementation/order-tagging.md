@@ -2,7 +2,7 @@
 
 All thank-you and order-confirmation pages _must_ have the conversion tracking markup.
 
-The conversion metadata is used for sending personalised order-followup emails, personalise the recommendations e.g. order-related, for segmentation insights and conversion statistics.
+The conversion metadata is used for sending personalized order-followup emails, personalize the recommendations e.g. order-related, for segmentation insights and conversion statistics.
 
 ```javascript
 nostojs(api => {

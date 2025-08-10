@@ -28,7 +28,7 @@ In order to keep your product catalog in Nosto up to date, you must leverage the
 
 ### Via a Feed
 
-Nosto does not support a product feed and you must leverage the API in order to synchronise your product catalog.
+Nosto does not support a product feed and you must leverage the API in order to synchronize your product catalog.
 
 ## Troubleshooting
 

@@ -17,7 +17,7 @@ We recommend using a valid TLD that is aliased to `localhost` for testing purpos
 
 ## Setting up the catalog sync
 
-While Nosto crawls sites to replicate the product catalog, it is unable to do so on SPAs. In order to synchronise your product catalog with Nosto, you'll need to [leverage the product API](../../rest/products/updating-products-using-the-products-api.md) to keep the Nosto catalog in sync.
+While Nosto crawls sites to replicate the product catalog, it is unable to do so on SPAs. In order to synchronize your product catalog with Nosto, you'll need to [leverage the product API](../../rest/products/updating-products-using-the-products-api.md) to keep the Nosto catalog in sync.
 
 **Note:** This step must be completed prior to proceeding with the implementation. Without this step, it will be troublesome to preview and debug the recommendations.
 
@@ -37,7 +37,7 @@ The JS comprises of three parts - the first is the "stub" (which allows API usag
 <script src="//connect.nosto.com/include/$accountID" async></script>
 ```
 
-**Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialised as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
+**Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialized as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
 
 **Note:** This needs to exist on every page.
 

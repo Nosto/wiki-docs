@@ -125,7 +125,7 @@ nostojs(api => {
 
 ## Session parameters
 
-For some of the search features to work properly, such as personalised results and segments, the search function needs to be able to access information about the user's session from the front-end.
+For some of the search features to work properly, such as personalized results and segments, the search function needs to be able to access information about the user's session from the front-end.
 
 {% hint style="info" %}
 The search function of the JS API already includes session state automatically.
@@ -149,7 +149,7 @@ The function accepts the following options:
 
 ## Analytics
 
-Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviours that should be tracked:
+Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviors that should be tracked:
 
 * search submit (`type = serp`)
 * faceting, paginating, sorting (`type = serp`) or (`type = category`)

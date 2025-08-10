@@ -464,7 +464,7 @@ These parameters describe how the prices should be formatted on the frontend bas
 
 ## Session params <a href="#session-params" id="session-params"></a>
 
-For features like personalised results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
+For features like personalized results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 
 It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
 
