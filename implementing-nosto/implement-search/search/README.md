@@ -149,7 +149,7 @@ The function accepts the following options:
 
 ## Analytics
 
-Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviours that should be tracked:
+Tracking search events to analytics can be divided into three parts: `search`, `search submit`, `search product click`. These are user behaviors that should be tracked:
 
 * search submit (`type = serp`)
 * faceting, paginating, sorting (`type = serp`) or (`type = category`)

@@ -710,7 +710,7 @@ If the paths differ, you must configure the `serpFallback` or `categoryFallback`
 {% endhint %}
 
 
-### Alternative Fallback Behaviour
+### Alternative Fallback Behavior
 
 If the behavior described above is undesirable, the configuration supports an alternative option. Fallback mode can be set to `fallback: 'legacy'`, in which case the user will see a page reload if the search request fails. After that, Nosto will not attempt to override the original search results or category pages for 10 minutes.
 
