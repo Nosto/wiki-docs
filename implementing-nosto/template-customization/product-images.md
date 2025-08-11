@@ -70,7 +70,7 @@ In any case, please review markup-example in tagging guide and then use the Nost
 
 If image tagging is correct, there might have been an unusual error with Nosto’s image processing. In this case a manual reindex of product details is required which is launched from the Nosto admin.
 
-In case Nosto is implemented on a site unaccessible from the Internet, this is expected behaviour. Read about implementing Nosto on test environments.
+In case Nosto is implemented on a site unaccessible from the Internet, this is expected behavior. Read about implementing Nosto on test environments.
 
 ### New Product Image Doesn’t Update
 

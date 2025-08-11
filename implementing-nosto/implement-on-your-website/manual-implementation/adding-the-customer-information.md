@@ -2,7 +2,7 @@
 
 On every page, the customer information _should_ be tagged if the customer is logged in. If the customer isn't logged in, this but can be omitted.
 
-The customer information is primarily used for sending personalised triggered emails and for building multi-channel experiences.
+The customer information is primarily used for sending personalized triggered emails and for building multi-channel experiences.
 
 ```js
 nostojs(api => {

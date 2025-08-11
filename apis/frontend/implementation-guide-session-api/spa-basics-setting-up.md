@@ -37,7 +37,7 @@ The JS comprises of three parts - the first is the "stub" (which allows API usag
 <script src="//connect.nosto.com/include/$accountID" async></script>
 ```
 
-**Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialised as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
+**Note:** The script and the snippet should be added as high up in the `<head>` portion of the page so the connection is initialized as soon as possible. As the script is flagged `async`, the page load isn’t delayed.
 
 **Note:** This needs to exist on every page.
 

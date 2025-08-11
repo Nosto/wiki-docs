@@ -39,7 +39,7 @@ You may safely use this even before the `init` function has been called. Any ear
 
 ## Mocking
 
-Use the `mockNostojs` function to mock the Nosto API in unit tests. The function accepts partial API mocks and merges them with default mock API behaviour:
+Use the `mockNostojs` function to mock the Nosto API in unit tests. The function accepts partial API mocks and merges them with default mock API behavior:
 
 ```js
 import { mockNostojs } from "@nosto/nosto-js/testing"

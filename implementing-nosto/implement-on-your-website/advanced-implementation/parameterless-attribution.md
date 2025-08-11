@@ -23,7 +23,7 @@ api.defaultSession()
 
 ## Reliance on the legacy nosto parameters
 
-Parameterless attribution became the default attribution mechanism on May 26th 2025. If your setup relies on the legacy nosto parameters being present you can enable the legacy behaviour in your main account settings page.
+Parameterless attribution became the default attribution mechanism on May 26th 2025. If your setup relies on the legacy nosto parameters being present you can enable the legacy behavior in your main account settings page.
 
 ## Rendering of campaign markup in non managed elements
 

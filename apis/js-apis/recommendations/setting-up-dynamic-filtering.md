@@ -4,7 +4,7 @@ In this article, you will learn to use certain tags and fields to dynamically fi
 
 You can use any combination of the different filtering mechanisms outlined below. For example, you can use category and the tag filtering to constrain the recommendation results.
 
-**Note:** In order to leverage dynamic filtering please read our guide on configuring the filtering behaviour.
+**Note:** In order to leverage dynamic filtering please read our guide on configuring the filtering behavior.
 
 All category pages already leverage dynamic filtering. As documented in our guide to tagging categories, the `nosto_category` tagging constraints Nosto to show recommendations from only the current category.
 
@@ -36,7 +36,7 @@ You can filter by tags to narrow down the recommendation results to only show pr
 
 ```javascript
 nostojs(api => {
-  api.setTaggingProvider("tags", ["colourful"])
+  api.setTaggingProvider("tags", ["colorful"])
 })
 ```
 
@@ -44,7 +44,7 @@ You can even use multiple
 
 ```javascript
 nostojs(api => {
-  api.setTaggingProvider("tags", ["colourful", "shiny"])
+  api.setTaggingProvider("tags", ["colorful", "shiny"])
 })
 ```
 

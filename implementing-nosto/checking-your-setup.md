@@ -89,7 +89,7 @@ If the order doesn't correctly show in the session view, these pages might help:
 * [Session API: order](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/spa-basics-tracking-events#upon-placing-an-order)
 
 {% hint style="info" %}
-If it’s not possible to perform a test order, the Nosto admin UI's orders page can be used to review that orders link to known products in the catalogue and that some items have click attribution towards the visible recommendations.
+If it’s not possible to perform a test order, the Nosto admin UI's orders page can be used to review that orders link to known products in the catalog and that some items have click attribution towards the visible recommendations.
 {% endhint %}
 
 ### Measuring Performance
