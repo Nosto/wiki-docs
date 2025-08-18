@@ -140,10 +140,8 @@ Creates a Leaflet Map object.
 
 **Parameters**
 
-| Name    | Type                       | Description |
-| ------- | -------------------------- | ----------- |
-| summary | <pre><code>{
-</code></pre> |             |
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>summary</td><td><pre><code>{
+</code></pre></td><td></td></tr></tbody></table>
 
 ```
 geohash:String,––
