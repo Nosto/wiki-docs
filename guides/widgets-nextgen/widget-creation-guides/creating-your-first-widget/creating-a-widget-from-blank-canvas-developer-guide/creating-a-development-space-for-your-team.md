@@ -10,6 +10,6 @@ Forking allows engineers to utilise our widget templates repository in their own
 
 This is the ideal way to encourage your developers to contribute in a [linted](https://eslint.org/), [typechecked](https://www.typescriptlang.org/) & [tested](https://www.cypress.io/) environment.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 So what are you waiting for? Click that Fork button and build some amazing widget templates!
