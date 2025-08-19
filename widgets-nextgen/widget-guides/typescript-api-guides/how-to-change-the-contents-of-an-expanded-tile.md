@@ -1,4 +1,4 @@
-# How to Change the Contents of an Expanded Tile in Nosto UGC NextGen Widgets
+# How to change the contents of an expanded tile
 
 This guide will explain how to customize the content displayed within an expanded tile in Nosto UGC NextGen widgets.
 
@@ -8,7 +8,7 @@ As an IDE user, you will directly interact with the widget's codebase, primarily
 
 1. Understanding the Expanded Tile Structure
 
-The expanded tile's content is rendered through the expanded-tiles web component. A sample template is located in samples/expanded-tile.template.tsx. This template dictates what information from the tile is displayed when it expands. When a tile is expanded, the SDK triggers the EVENT_TILE_EXPAND event. The expanded-tiles component then renders the content based on its internal logic and the provided template.
+The expanded tile's content is rendered through the expanded-tiles web component. A sample template is located in samples/expanded-tile.template.tsx. This template dictates what information from the tile is displayed when it expands. When a tile is expanded, the SDK triggers the EVENT\_TILE\_EXPAND event. The expanded-tiles component then renders the content based on its internal logic and the provided template.
 
 2. Modifying the Expanded Tile Template
 
@@ -23,7 +23,7 @@ import { ExpandedTiles } from "./expanded-tile.template"; // Import your custom 
 
 declare const sdk: ISdk;
 
-loadWidget({
+loadWidget(sdk, {
   config: {
     ...config,
   },
@@ -34,13 +34,14 @@ loadWidget({
   },
 });
 ```
+
 (Create this file if it doesn't exist, and copy the content from samples/expanded-tile.template.tsx as a starting point.)
 
 Within this file, you have full control over the HTML structure of the expanded tile. You can add, remove, or reorder elements to suit your needs.
 
 Here's an example of how you might modify the ExpandedTile function to add a custom header and reorder some elements:
 
-```tsx
+````tsx
 /// File: blankcanvas/expanded-tile.template.tsx
 
 import { ISdk, Tile } from "@stackla/widget-utils/types";
@@ -271,16 +272,14 @@ expanded-tiles {
     /* Add your specific styles here */
   }
 }
-```
+````
 
 ## For Web Editor Users:
 
 As a web editor user, you'll typically interact with the widget through the Nosto Admin Portal's "Custom Code" section. This means you'll be working with compiled HTML, CSS, and JavaScript.
 
-1. Understanding the Expanded Tile
-   When a user clicks on a tile, it can expand to show more details. This "expanded tile" is a special overlay that appears. To change what's inside it, you'll need to modify the underlying code that controls its appearance.
-2. How to Modify the Expanded Tile Content
-   You'll make your changes in four key boxes within the Custom Code editor:
+1. Understanding the Expanded Tile When a user clicks on a tile, it can expand to show more details. This "expanded tile" is a special overlay that appears. To change what's inside it, you'll need to modify the underlying code that controls its appearance.
+2. How to Modify the Expanded Tile Content You'll make your changes in four key boxes within the Custom Code editor:
 
 Box 1: Custom JS
 
