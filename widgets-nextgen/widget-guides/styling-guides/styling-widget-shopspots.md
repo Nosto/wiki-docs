@@ -42,6 +42,7 @@ shopspot-icon .fs-tag:hover {
 ```
 
 ### Result
-![](../../.gitbook/assets/nextgen/rainbow-shopspots.png)
+
+![](../../../.gitbook/assets/nextgen/rainbow-shopspots.png)
 
 Congratulations! You have successfully styled your shopspots in tiles.

@@ -19,7 +19,7 @@ This guide provides a few examples as to how a user can create their custom even
 
 Now for this guide, we are going to focus on tracking the Left / Right arrows that are available on the Carousel Widget on the In-Line tile.
 
-![](../../.gitbook/assets/nextgen/carousel-widget.png)
+![](../../../.gitbook/assets/nextgen/carousel-widget.png)
 
 In this use case, we want to understand whether or not people are clicking on these buttons to see either new content or previous content.
 

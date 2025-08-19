@@ -1,4 +1,4 @@
-# Dynamically specify what Tile to display in a Widget
+# Dynamically specify tile to display in widget
 
 * [Introduction](dynamically-specify-tile-to-display-in-widget.md#introduction)
 * [Key Concepts](dynamically-specify-tile-to-display-in-widget.md#key-concepts)
@@ -62,11 +62,11 @@ For this guide, we are just going to collect it manually via the Curate Content 
 
 To source, simply find the tile you wish to get the ID for, click on the overflow menu and select ‘Data’.
 
-![](../../.gitbook/assets/screen1-1.png)
+![](../../../.gitbook/assets/screen1-1.png)
 
 This will load up the Tile Data and we can grab the ID from the Data modal. In the below example, the ID of the tile is `599e0c3de09ca7e44bf290f1`
 
-![](../../.gitbook/assets/screen2-1.png)
+![](../../../.gitbook/assets/screen2-1.png)
 
 [Back to Top](dynamically-specify-tile-to-display-in-widget.md#top)
 
