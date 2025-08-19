@@ -1,4 +1,4 @@
-# Bind your own Events
+# Bind your own events
 
 * [Introduction](bind-your-own-events.md#introduction)
 * [Creating your Custom Event](bind-your-own-events.md#custom-events)
@@ -23,22 +23,22 @@ Now for this guide, we are going to focus on tracking the Left / Right arrows th
 
 In this use case, we want to understand whether or not people are clicking on these buttons to see either new content or previous content.
 
-Now as these buttons aren’t offered as part of Nosto's UGC standard [Widgets Event API], we are going to create our Events by binding a click function to the CSS classes associated with these buttons (`.swiper-inline-carousel-button-prev` & `.swiper-inline-carousel-button-next`)
+Now as these buttons aren’t offered as part of Nosto's UGC standard \[Widgets Event API], we are going to create our Events by binding a click function to the CSS classes associated with these buttons (`.swiper-inline-carousel-button-prev` & `.swiper-inline-carousel-button-next`)
 
 To do this, we can take two routes.
 
-Either : 
+Either :
 
 1. We append Custom JS to the code editor of the widget itself with the following contents:
 
 ```
-    sdk.querySelector('.swiper-inline-carousel-button-prev').addEventListener('click', function () {
-		console.log('Click Previous');
-	});
+sdk.querySelector('.swiper-inline-carousel-button-prev').addEventListener('click', function () {
+	console.log('Click Previous');
+});
 
-	sdk.querySelector('.swiper-inline-carousel-button-next').addEventListener('click', function () {
-		console.log('Click Next');
-	});
+sdk.querySelector('.swiper-inline-carousel-button-next').addEventListener('click', function () {
+	console.log('Click Next');
+});
 
 ```
 
@@ -59,7 +59,7 @@ sdk.querySelector('.swiper-inline-carousel-button-next').addEventListener('click
 
 Once added, we can then simply save and test.
 
-We also offer other event bindings, which can be found in the Event Listeners section of the NextGen widgets documentation. 
+We also offer other event bindings, which can be found in the Event Listeners section of the NextGen widgets documentation.
 
 We suggest that you familiarise yourself with these events, as they can be useful for tracking other interactions within your widgets.
 
