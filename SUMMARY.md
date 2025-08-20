@@ -151,3 +151,7 @@
 * [Prestashop](https://docs.nosto.com/prestashop)
 * [Salesforce](https://docs.nosto.com/salesforce/)
 * [PHP-SDK](https://docs.nosto.com/php-sdk)
+
+## Nosto Default Service Limits
+
+* [Nosto Service Limits](nosto-default-service-limits/nosto-service-limits.md)
