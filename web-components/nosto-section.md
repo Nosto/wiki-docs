@@ -129,5 +129,4 @@ Ensure these are available in your target browsers or include appropriate polyfi
 
 ## Related Components
 
-- [NostoCampaign](nosto-campaign.md) - For campaign-based recommendations
-- [NostoElement](nosto-element.md) - Base class for Nosto components
+This component extends `NostoElement` and works alongside other Nosto web components. Documentation for additional components will be added as they become available.
