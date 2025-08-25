@@ -44,7 +44,7 @@ For frontend integrations you can also use our JavaScript library. This library 
 | Analytics                                      | Yes              | Yes\*\*\* | Yes                |
 | Segmentation                                   | Yes              | Yes\*\*\* | Yes                |
 | A/B testing                                    | Yes              | No        | Yes                |
-| SPA suitability                                | Depends\*\*\*\*  | Good      | Good               |
+| SPA suitability                                | Limited\*\*\*\*  | Good      | Good               |
 
 {% hint style="info" %}
 \* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.&#x20;
