@@ -25,6 +25,35 @@ api.defaultSession()
 
 Parameterless attribution became the default attribution mechanism on May 26th 2025. If your setup relies on the legacy nosto parameters being present you can enable the legacy behavior in your main account settings page.
 
+## Attribution in custom element based Nosto campaign rendering
+
+Below is an example of a custom element that fetches JSON results based on the placement attribute, renders them and register parameterless attribution for product link clicks:
+
+```js
+export class NostoRenderer extends HTMLElement {
+  async connectedCallback() {
+    const api = await new Promise(nostojs)
+    const placement = this.getAttribute("placement")
+    if (placement) {
+      const results = await api
+        .createRecommendationRequest({ includeTagging: true })
+        .setElements([placement])
+        .setResponseMode("JSON_ORIGINAL")
+        .load()
+      if (results.recommendations[placement]) {
+        const rec = results.recommendations[placement]
+        // TODO render results
+        api.attributeProductClicksInCampaign(this, rec)
+      }
+    }
+  }
+}
+
+if (!customElements.get("nosto-renderer")) {
+  customElements.define("nosto-renderer", NostoRenderer)
+}
+```
+
 ## Rendering of campaign markup in non managed elements
 
 In case the campaign markup is rendered into a non-placement element the element will need to be registered with parameterless attribution handling via `api.attributeProductClicksInCampaign`:
