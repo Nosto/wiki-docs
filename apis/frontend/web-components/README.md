@@ -11,17 +11,17 @@ This package provides the following web components:
 
 | Component                               | Category                  |
 | --------------------------------------- | ------------------------- |
-| [NostoCampaign](./#nostocampaign)       | Progressive Enhancement   |
-| [NostoControl](./#nostocontrol)         | Templating   |
-| [NostoDynamicCard](./#nostodynamiccard) | Templating (Shopify only) |
-| [NostoImage](./#nostoimage)             | Progressive Enhancement   | 
-| [NostoProduct](./#nostoproduct)         | Progressive Enhancement   |
-| [NostoProductCard](./#nostoproductcard) | Templating                |
-| [NostoSkuOptions](./#nostoskuoptions)   | Progressive Enhancement   |
+| [Campaign](./#campaign)       | Progressive Enhancement   |
+| [Control](./#control)         | Templating   |
+| [DynamicCard](./#dynamiccard) | Templating (Shopify only) |
+| [Image](./#image)             | Progressive Enhancement   | 
+| [Product](./#product)         | Progressive Enhancement   |
+| [ProductCard](./#productcard) | Templating                |
+| [SkuOptions](./#skuoptions)   | Progressive Enhancement   |
 
-### `NostoCampaign`
+### `Campaign`
 
-The `NostoCampaign` custom element is a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
+The `Campaign` custom element is a general-purpose solution for injecting or templating campaign results dynamically. It supports both HTML and JSON response modes and is designed for dynamic use cases like rendering nested campaign results.
 
 #### Component attributes
 
@@ -75,9 +75,9 @@ Template-based rendering:
 
 A subset of Vue is used as the templating language. The template support is described in detail below.
 
-### `NostoControl`
+### `Control`
 
-The `NostoControl` custom element provides conditional content rendering capabilities to inject customer segment specific content to the web page. The segment specific injections are defined as template children of the custom element.
+The `Control` custom element provides conditional content rendering capabilities to inject customer segment specific content to the web page. The segment specific injections are defined as template children of the custom element.
 
 The default content can be defined as follow up children of the custom element.
 
@@ -92,9 +92,9 @@ The default content can be defined as follow up children of the custom element.
 
 The content of the element will become `New visitor content` for new visitors and `Returning visitor content` for returning visitors.
 
-### `NostoDynamicCard`
+### `DynamicCard`
 
-`NostoDynamicCard` is a custom element that delegates the product card rendering fully to Shopify with a given product handle and a reference to an alternate template to use. We recommend to skip the layout rendering in the alternative template.
+`DynamicCard` is a custom element that delegates the product card rendering fully to Shopify with a given product handle and a reference to an alternate template to use. We recommend to skip the layout rendering in the alternative template.
 
 This custom element is the recommended choice to use when the product card markup should be fully managed in Shopify templates instead of being spread to Shopify themes and Nosto templates.
 
@@ -110,7 +110,7 @@ This custom element is the recommended choice to use when the product card marku
 
 #### Usage example
 
-The `NostoDynamicCard` component relies on alternate product card templates to be exposed from Shopify. Here are example instructions for the Dawn theme:
+The `DynamicCard` component relies on alternate product card templates to be exposed from Shopify. Here are example instructions for the Dawn theme:
 
 * Identify the product grid section of the collection template
   * `main-collection-product-grid in Dawn`
@@ -118,7 +118,7 @@ The `NostoDynamicCard` component relies on alternate product card templates to b
   * `card-product in Dawn`
 * Copy the card snippet usage into a new product template (e.g. `product.card.liquid` under `templates`)
 
-In addition to template targeting `NostoDynamicCard` supports also the targeting of sections, in case you want to expose the product card as a section instead of a custom template.
+In addition to template targeting `DynamicCard` supports also the targeting of sections, in case you want to expose the product card as a section instead of a custom template.
 
 ```markup
 {% layout none %}
@@ -136,9 +136,9 @@ After that the component can be used in Nosto templates like this
 #end
 ```
 
-### `NostoImage`
+### `Image`
 
-`NostoImage` is a web component that provides response image rendering capabilities using the [unpic](https://unpic.pics/about/) library. It supports Shopify and BigCommerce thumbnails out of the box and uses the same configuration model and unpic's own web components. It can be used as a `img` element replacement with smart rendering capabilities.
+`Image` is a web component that provides response image rendering capabilities using the [unpic](https://unpic.pics/about/) library. It supports Shopify and BigCommerce thumbnails out of the box and uses the same configuration model and unpic's own web components. It can be used as a `img` element replacement with smart rendering capabilities.
 
 #### Component attributes
 
@@ -167,9 +167,9 @@ Usage with BigCommerce image URL:
 <nosto-image src="https://cdn11.bigcommerce.com/s-hm8pjhul3k/products/4055/images/23603/7-15297__04892.1719977920.1280.1280.jpg" width="800" height="600" layout="constrained"></nosto-image>
 ```
 
-### `NostoProduct`
+### `Product`
 
-When markup (HTML) for rendering a product is wrapped with the `NostoProduct` component, the APIs for SKU selection and Add to cart functionality are automatically handled by the component. By encapsulating the necessary APIs, this component reduces any JavaScript logic that would otherwise be included in the template and helps the team to concentrate only on building the template rather than implementing the JavaScript logic.
+When markup (HTML) for rendering a product is wrapped with the `Product` component, the APIs for SKU selection and Add to cart functionality are automatically handled by the component. By encapsulating the necessary APIs, this component reduces any JavaScript logic that would otherwise be included in the template and helps the team to concentrate only on building the template rather than implementing the JavaScript logic.
 
 #### Component attributes
 
@@ -182,7 +182,7 @@ Two mandatory component attributes:
 | `n-sku-data` | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries |
 
 **Note**:\
-The following examples of rendering product SKUs are applicable only for simple use-cases. For complex cases, like multi-directional SKU selections where selecting color renders the matching size and vice-versa, consider using the `NostoSkuOptions` component.
+The following examples of rendering product SKUs are applicable only for simple use-cases. For complex cases, like multi-directional SKU selections where selecting color renders the matching size and vice-versa, consider using the `SkuOptions` component.
 
 **Example #1**:
 
@@ -226,10 +226,10 @@ This component requires the following attributes to parse the markup, extract pr
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `n-sku-selector` | Marks the SKU select dropdown. Attaches an `onchange` event to the element. Clicking on the "Add to cart" button adds the SKU value selected from the dropdown to the cart. |
 | `n-sku-id`       | Relevant when SKU options are rendered as "Add to cart" button. Supplies the ID of the SKU option value and should be supplied on the parent of "Add to cart" button.       |
-| `n-img`          | Image URL for SKU which will be applied to NostoProduct wrapper on click                                                                                                    |
-| `n-alt-img`      | Alternate image URL for SKU which will be applied to NostoProduct wrapper on                                                                                                |
-| `n-price`        | Price for SKU which will be applied to NostoProduct wrapper on click                                                                                                        |
-| `n-list-price`   | List price for SKU which will be applied to NostoProduct wrapper price on click                                                                                             |
+| `n-img`          | Image URL for SKU which will be applied to Product wrapper on click                                                                                                    |
+| `n-alt-img`      | Alternate image URL for SKU which will be applied to Product wrapper on                                                                                                |
+| `n-price`        | Price for SKU which will be applied to Product wrapper on click                                                                                                        |
+| `n-list-price`   | List price for SKU which will be applied to Product wrapper price on click                                                                                             |
 
 ```html
 <div n-sku-id="456">
@@ -240,11 +240,11 @@ This component requires the following attributes to parse the markup, extract pr
 `n-atc`\
 Marks an element as Add to cart trigger and attaches click event to the element. Clicking on this element triggers `addSkuToCart` API and supplies the selected SKU Id.
 
-### `NostoProductCard`
+### `ProductCard`
 
-The `NostoProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
+The `ProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
 
-Unlike `NostoProduct`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup. For side effects the `wrap` attribute can be used to wrap the inner content in a `NostoProduct` instance.
+Unlike `Product`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup. For side effects the `wrap` attribute can be used to wrap the inner content in a `Product` instance.
 
 ```html
 <nosto-product-card reco-id="789011" template="product-card-template">
@@ -271,9 +271,9 @@ Unlike `NostoProduct`, this component doesn't include any side effects or platfo
 </template>
 ```
 
-### `NostoSkuOptions`
+### `SkuOptions`
 
-The `NostoSkuOptions` component is recommended for cases rendering multiple SKU option groups (color, size). It manages the state and interactions of SKU options, including pre-selection, state changes, and click events.
+The `SkuOptions` component is recommended for cases rendering multiple SKU option groups (color, size). It manages the state and interactions of SKU options, including pre-selection, state changes, and click events.
 
 #### Component attribute
 
@@ -359,10 +359,10 @@ Usage with select elements
 | `n-option`     | Marks an element as SKU option element                                                                                                                                                           |
 | `n-skus`       | Comma-separated value of linked available SKU Ids. `$!product.getSkuAggregateOptions` method in templates provides the Sku aggregates for the supplied custom field (color/size/material etc...) |
 | `n-skus-oos`   | Comma-separated value of linked unavailable SKU Ids. The usage of this parameter is optional and should be considered when Out of stock SKUs should be considered.                               |
-| `n-img`        | Image URL for SKU option which will be applied to NostoProduct wrapper on click                                                                                                                  |
-| `n-alt-img`    | Alternate image URL for SKU option which will be applied to NostoProduct wrapper on click                                                                                                        |
-| `n-price`      | Price for SKU option which will be applied to NostoProduct wrapper on click                                                                                                                      |
-| `n-list-price` | List price for SKU option which will be applied to NostoProduct wrapper price on click                                                                                                           |
+| `n-img`        | Image URL for SKU option which will be applied to Product wrapper on click                                                                                                                  |
+| `n-alt-img`    | Alternate image URL for SKU option which will be applied to Product wrapper on click                                                                                                        |
+| `n-price`      | Price for SKU option which will be applied to Product wrapper on click                                                                                                                      |
+| `n-list-price` | List price for SKU option which will be applied to Product wrapper price on click                                                                                                           |
 
 Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
 
@@ -422,7 +422,7 @@ The component does not handle styling for disabled options and it has to be appl
 
 ## Vue-like templating
 
-`NostoCampaign` and `NostoProductCard` support a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
+`Campaign` and `ProductCard` support a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
 
 * [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
 * [v-html](https://vuejs.org/api/built-in-directives.html#v-html)
