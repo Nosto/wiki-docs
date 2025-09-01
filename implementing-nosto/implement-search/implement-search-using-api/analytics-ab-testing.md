@@ -2,11 +2,14 @@
 
 ```mermaid
 flowchart TD
-    Sess[Create Sesion] -.-> Search
-    Search --> Imp[Track search impression]
-    Search --> AB["Store A/B variations\n(if applicable)"]
-    Imp --> Display[Display results]
-    AB --> Display
+    Session[Create Session] -.-> Segments[Fetch segments]
+    Segments --> Search
+    Search --> Impression[Track search impression]
+    Search --> ABTO["Store A/B variations\n(if applicable)"]
+    Impression --> Display[Display results]
+    ABTO --> Display
 
     Display -.->|on result click| Click[Track search click]
+    Click -.-> Segments
+    Display -.-> Segments
 ```
