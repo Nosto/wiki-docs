@@ -51,7 +51,7 @@ For frontend integrations you can also use our JavaScript library. This library 
 
 \*\* Matching merchandising rules are applied automatically based on requested search queries, categories, and segments, without the need to request them in API requests.
 
-\*\*\* Full functionality is only possible as a hybrid solution in combination with the JavaScript library for manual segment retrieval and analytics reporting.
+\*\*\* Full functionality is only possible as a hybrid solution in combination with the JavaScript library for manual segment retrieval.
 
 \*\*\*\* Using search templates with SPAs comes with challenges related to routing and dynamic content injection that tend to be solvable, but are more technically involved. We highly recommend using the JavaScript library instead.
 {% endhint %}
