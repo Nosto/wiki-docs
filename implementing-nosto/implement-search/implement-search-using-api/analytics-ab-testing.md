@@ -14,20 +14,8 @@ If this is a critical requirement, consider using the [JavaScript library](../se
 
 The search request lifecycle looks like this:
 
-```mermaid
-flowchart TD
-    Start --> Session
-    Session["Create Session\n(if none active)"] -.-> Segments[Fetch segments]
-    Segments --> Search["Search with segments\n& A/B variations"]
-    Search --> Impression[Track search impression]
-    Search --> ABTO["Store A/B variations\n(returned by API)"]
-    Impression --> Display[Display results]
-    ABTO --> Display
+<figure><img src="../../../.gitbook/assets/search_api_only_workflow.png" alt="Implementation steps of a search request lifecycle"><figcaption></figcaption></figure>
 
-    Display -.->|on result click| Click[Track search click]
-    Click -.-> Start
-    Display -.-> Start
-```
 
 The key points are:
 

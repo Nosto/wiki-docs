@@ -1,0 +1,13 @@
+%% This is the source for search_api_only_workflow.png
+flowchart TD
+    Start --> Session
+    Session["Create Session\n(if none active)"] -.-> Segments[Fetch segments]
+    Segments --> Search["Search with segments\n& A/B variations"]
+    Search --> Impression[Track search impression]
+    Search --> ABTO["Store A/B variations\n(returned by API)"]
+    Impression --> Display[Display results]
+    ABTO --> Display
+
+    Display -.->|on result click| Click[Track search click]
+    Click -.-> Start
+    Display -.-> Start
