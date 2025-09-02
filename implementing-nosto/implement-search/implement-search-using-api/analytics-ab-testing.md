@@ -4,6 +4,12 @@ Template and JavaScript integrations come with tracking- and A/B testing support
 For pure API integrations, some extra steps need to be performed on the integration side
 to ensure that user interactions are tracked and attributed appropriately.
 
+## Limitations
+
+* Individual personalization with user-specific affinities is currently not available with a pure API approach to search.
+If this is a critical requirement, consider using the [JavaScript library](../search/README.md).
+* An `API_APPS` token is necessary to implement API requests related to session management and tracking.
+
 ## General workflow
 
 The search request lifecycle looks like this:
@@ -78,7 +84,7 @@ query {
 
 ### Session management and tracking
 
-Session creation, segment retrieval, and analytics tracking is handled by the [Nosto platform GraphQL API](../../../apis/graphql-an-introduction).
+Session creation, segment retrieval, and analytics tracking is handled by the [Nosto platform GraphQL API](../../../apis/graphql-an-introduction/README.md).
 
 {% hint style="warning" %}
 This API requires authentication using an API token with scope `API_APPS`.
