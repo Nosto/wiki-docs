@@ -4,7 +4,6 @@
 Not all of Nosto's functionality is available for pure **GraphQL** API integrations. The following features require [search](../search/ "mention"):
 
 * Personalization
-* Segmentation
 * Debug toolbar
 {% endhint %}
 
