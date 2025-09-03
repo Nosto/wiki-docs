@@ -79,6 +79,31 @@ This API requires authentication using an API token with scope `API_APPS`.
 Learn more about the authentication workflow [here](../../../apis/graphql-an-introduction/graphql-using-the-api.md).
 {% endhint %}
 
+
+#### Using external session IDs instead of Nosto-generated session IDs
+
+Examples on this page use explicit session creation using the `newSession` mutation, and other API requests reference this session using the session ID and the parameter `by: BY_CID`.
+
+If some form of session ID is already available, creating a new session with the `newSession` mutation can be skipped.
+Use the already available session ID and replace `by: BY_CID` with `by: BY_REF`.
+
+Example for what segment retrieval looks like with an externally provided session ID:
+
+```graphql
+query {
+  session(by: BY_REF, id: "1b3fed4c-8c0b-4445-9d7d-8809412b26db") {
+    segments {
+      id
+    }
+  }
+}
+```
+
+{% hint style="warning" %}
+When using non-Nosto session IDs, it is no less important to maintain limited 30-minute session durations.
+This includes deleting stored A/B test variation assignments at the end of the session.
+{% endhint %}
+
 #### Mutation `newSession`
 
 Creates a new session and returns that session's ID, which should be used in further interactions with this API.
@@ -104,25 +129,6 @@ mutation {
 Store the value of the `newSession` property for 30 minutes and include it in the following API interactions for the duration of the session.
 
 Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
-
-##### Using external customer IDs instead of session IDs
-
-Examples on this page use explicit session creation using the `newSession` mutation, and other API requests reference this session using the session ID and the parameter `by: BY_CID`.
-
-If some form of session ID is already available, creating a new session with the `newSession` mutation can be skipped.
-Use the already available session ID and replace `by: BY_CID` with `by: BY_REF`.
-
-Example for what segment retrieval looks like with an externally provided session ID:
-
-```graphql
-query {
-  session(by: BY_REF, id: "1b3fed4c-8c0b-4445-9d7d-8809412b26db") {
-    segments {
-      id
-    }
-  }
-}
-```
 
 #### Query `session`
 
