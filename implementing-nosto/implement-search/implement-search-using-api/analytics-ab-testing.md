@@ -13,7 +13,7 @@ This article describes the necessary steps mostly from a search perspective but 
 
 * Individual personalization with user-specific affinities is currently not available with a pure API approach to search.
 If this is a critical requirement, consider using the [JavaScript library](../search/README.md).
-* An `API_APPS` token is necessary to implement API requests related to session management and tracking.
+* An `API_APPS` authentication token is necessary to implement API requests related to session management and tracking.
 
 ## General workflow
 
@@ -32,26 +32,26 @@ Storing the session ID for the duration of the session (30 minutes) is essential
 ### Keeping track of assigned A/B test variations
 
 When requesting search results subject to an A/B test without supplying any A/B testing parameters,
-the search API applies a random A/B variation and includes it in the search result.
+the search API assigns a random A/B variation and includes it in the search result.
 It is vital to include the returned A/B variations in following search requests within the same session to ensure a consistent experience.
-Failing to do so results in the user being assigned a new A/B variation for equivalent search requests.
+Failing to do so results in the user being assigned a new A/B variation for equivalent search requests, potentially leading to the user seeing different results, corresponding to the different A/B variations, for the same search.
 
 The following graphic uses a fictional scenario to illustrate which A/B testing information needs to be stored, sent to search, and tracked.
 
 <figure><img src="../../../.gitbook/assets/search_ab_test_handling.png" alt="Diagram of which A/B variations to store and include in search requests."><figcaption></figcaption></figure>
 
-* In search 1, the session starts without any A/B tests, so no A/B testing information is included in the search request.
+* In *search 1*, the session starts without any A/B tests, so no A/B testing information is included in the search request.
   The request is affected by an A/B test, so the test ID and affected variation are returned.
   It must be tracked and stored.
-* In search 2, all known A/B assignments are included in the search request.
+* In *search 2*, all known A/B assignments are included in the search request.
   This request is affected by a different A/B test, so the response contains information about *this* A/B test.
   Now, both of these A/B test's information should be stored for future searches within the session, but only the A/B test(s) affecting the latest search request should be included in the corresponding tracking requests.
-* In search 3, all known A/B assignments (now two) are included in the search request.
+* In *search 3*, all known A/B assignments (now two) are included in the search request.
   The search isn't affected by any A/B tests, so the response doesn't contain any, and none should be tracked.
-* In search 4, the same known A/B tests are included in the search request.
-  The request is affected by `Test 1`, and included the known assignment for `Test 1` in the request ensures that the assignment remains the same as before in the same session.
-* The session ends after search 4.
-  Search 5 represents a search in a new session, which starts with fresh A/B variation assignments and fresh storage.
+* In *search 4*, the same known A/B tests are included in the search request.
+  The request is affected by `Test 1`, and includes the known assignment for `Test 1` in the request, ensuring that the assignment remains the same as before in the same session.
+* The session ends after *search 4*.
+  *Search 5* represents a search in a new session, which starts with fresh A/B variation assignments and fresh storage.
 
 ## Search API
 
@@ -65,6 +65,11 @@ query {
   search(
     accountId: "your merchant ID"
     query: "what the user typed"
+    # In case of a category request, include categoryPath or categoryId *instead* of query, like so:
+    # products: {
+    #  categoryPath: "Tops and Shirts"
+    #  categoryId: "AB1337"
+    #}
     segments: ["array", "of", "segment", "IDs", "from", "session", "API"]
     # For the first search in a session, this can be an empty array. All following searches should contain an array
     # of all A/B variation assignments returned by search within the same session.
@@ -247,7 +252,7 @@ Provide the same one(s) that are included in category requests sent to the searc
 
 #### A/B testing properties
 
-A/B test properties are also the same for both impression and click tracking.
+A/B test properties are the same for both impression and click tracking for both search and categories.
 They should contain all A/B variations that applied to the search request this tracking request is associated with.
 
 If the search API returns A/B test data like this:
@@ -321,10 +326,10 @@ mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAn
       type: CATEGORY
       timestamp: "2025-09-02T13:56:08.890Z"
         categoryImpression: {
-        metadata: $metadata
-        page: 1
-        productIds: ["0", "1", "2"],
-        properties: $properties
+          metadata: $metadata
+          page: 1
+          productIds: ["0", "1", "2"],
+          properties: $properties
       }
     }
   ) {
@@ -384,7 +389,7 @@ mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAn
     params: {
       type: CATEGORY
       timestamp: "2025-09-02T13:56:08.890Z"
-      searchClick: {
+      categoryClick: {
         metadata: $metadata
         productId: "<ID of the clicked product>",
         properties: $properties
