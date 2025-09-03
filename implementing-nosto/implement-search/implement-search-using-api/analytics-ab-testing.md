@@ -4,6 +4,11 @@ Template and JavaScript integrations come with tracking- and A/B testing support
 For pure API integrations, some extra steps need to be performed on the integration side
 to ensure that user interactions are tracked and attributed appropriately.
 
+{% hint style="info" %}
+The workflow for search and categories is generally the same.
+This article describes the necessary steps mostly from a search perspective but provides additional information where deviation for category support is necessary. 
+{% endhint %}
+
 ## Limitations
 
 * Individual personalization with user-specific affinities is currently not available with a pure API approach to search.
@@ -15,7 +20,6 @@ If this is a critical requirement, consider using the [JavaScript library](../se
 The search request lifecycle looks like this:
 
 <figure><img src="../../../.gitbook/assets/search_api_only_workflow.png" alt="Implementation steps of a search request lifecycle"><figcaption></figcaption></figure>
-
 
 The key points are:
 
@@ -122,6 +126,7 @@ This includes deleting stored A/B test variation assignments at the end of the s
 #### Mutation `newSession`
 
 Creates a new session and returns that session's ID, which should be used in further interactions with this API.
+This step can be skipped if [externally provided session IDs are used](#using-external-session-ids-instead-of-nosto-generated-session-ids).
 
 ##### Request example
 
@@ -184,7 +189,11 @@ Learn more about session handling [here](../../../apis/graphql-an-introduction/g
 Tracks search impressions (immediately upon displaying search results) and search clicks (upon clicking a product).
 The exact structure varies between impressions and clicks, but search metadata is the same for both.
 
-Search metadata example (used in following examples as `$metadata`):
+The specific structure of metadata depends on whether the user is searching or visiting a category.
+
+##### Search tracking metadata
+
+Here is an example of what metadata looks like for search requests:
 
 ```json
 {
@@ -218,7 +227,29 @@ Properties:
 * `resultId`: Unique ID for this interaction.
   UUID4 is particularly useful for this.
 
-A/B test properties are also the same for both impression- and click tracking.
+##### Category tracking metadata
+
+Here is an example of what the (much simpler) category tracking metadata looks like:
+
+```json
+{
+  "category": "Tops and Shirts",
+  "categoryId": "AB1337"
+}
+```
+
+Properties:
+* `category`: Human-readable category name.
+  This should be the same as the `categoryPath` parameter in category requests sent to the search API.
+* `categoryId`: Machine-readable category ID.
+  This should be the same as the `categoryId` parameter in category requests sent to the search API.
+
+At least one of these parameter is required.
+Provide the same one(s) that are included in category requests sent to the search API.
+
+##### A/B testing properties
+
+A/B test properties are also the same for both impression and click tracking.
 They should contain all A/B variations that applied to the search request this tracking request is associated with.
 
 If the search API returns A/B test data like this:
@@ -249,13 +280,13 @@ The corresponding tracking properties should look like:
 }
 ```
 
-The object above is referred to in following examples as `$properties`.
+The object above is referred to in the following examples as `$properties`.
 
 ##### Impression tracking request example
 
-This request must be sent immediately upon displaying search results.
+This request must be sent immediately upon displaying search or category results.
 
-Using previous examples for search metadata as `$metadata` and A/B test properties as `$properties`.
+Example for *search* using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -263,7 +294,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
     id: "68b6f028a49067459453e89b"
     by: BY_CID
     params: {
-      type: "SEARCH"
+      type: SEARCH
       timestamp: "2025-09-02T13:56:08.890Z"
       searchImpression: {
         metadata: $metadata
@@ -272,12 +303,43 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
         properties: $properties
       }
     }
-  )
+  ) {
+    errors {
+      message
+    }
+    message
+  }
+}
+```
+
+Example for *categories* using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`:
+
+```graphql
+mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
+  recordAnalyticsEvent(
+    id: "68b6f028a49067459453e89b"
+    by: BY_CID
+    params: {
+      type: CATEGORY
+      timestamp: "2025-09-02T13:56:08.890Z"
+        categoryImpression: {
+        metadata: $metadata
+        page: 1
+        productIds: ["0", "1", "2"],
+        properties: $properties
+      }
+    }
+  ) {
+    errors {
+      message
+    }
+    message
+  }
 }
 ```
 
 Properties:
-* `type`: Always `SEARCH` for search events.
+* `type`: `SEARCH` for search events, `CATEGORY` for category events.
 * `timestamp`: Time of event must be formatted as ISO 8601 date.
 * `page`: 1-based page number.
 * `productIds`: The product IDs (`productId` property in search response) that are shown on this result page.
@@ -289,7 +351,7 @@ The response contains a generic success message that is not necessary for furthe
 This request must be sent when a search result is clicked.
 The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
 
-Using previous examples for search metadata as `$metadata` and A/B test properties as `$properties`.
+Search example using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -297,7 +359,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
     id: "68b6f028a49067459453e89b"
     by: BY_CID
     params: {
-      type: "SEARCH"
+      type: SEARCH
       timestamp: "2025-09-02T13:56:08.890Z"
       searchClick: {
         metadata: $metadata
@@ -305,12 +367,42 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
         properties: $properties
       }
     }
-  )
+  ) {
+    errors {
+      message
+    }
+    message
+  }
+}
+```
+
+Category example using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`.
+
+```graphql
+mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
+  recordAnalyticsEvent(
+    id: "68b6f028a49067459453e89b"
+    by: BY_CID
+    params: {
+      type: CATEGORY
+      timestamp: "2025-09-02T13:56:08.890Z"
+      searchClick: {
+        metadata: $metadata
+        productId: "<ID of the clicked product>",
+        properties: $properties
+      }
+    }
+  ) {
+    errors {
+      message
+    }
+    message
+  }
 }
 ```
 
 Properties:
-* `type`: Always `SEARCH` for search events.
+* `type`: `SEARCH` for search events, `CATEGORY` for category events.
 * `timestamp`: Time of event must be formatted as ISO 8601 date.
 * `productId`: The product ID (`productId` property in search response) of the product that was clicked.
 
@@ -318,7 +410,7 @@ The response contains a generic success message that is not necessary for furthe
 
 ## Putting it all together
 
-The small JavaScript program below implements the complete workflow of session maintenance, segment retrieval, search, and tracking with support for A/B testing.
+The JavaScript program below implements the complete workflow of session maintenance, segment retrieval, search, and tracking with support for A/B testing.
 The general flow and data structures can be translated to any language.
 
 Error handling is largely omitted to focus on the more interesting bits.
@@ -427,7 +519,7 @@ async function track(event) {
       eventParams: {
         timestamp: new Date().toISOString(),
         // Event type is the same for all search tracking.
-        type: "SEARCH",
+        type: SEARCH,
         ...event
       }
     })
