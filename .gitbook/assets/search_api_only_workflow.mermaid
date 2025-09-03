@@ -1,13 +1,27 @@
 %% This is the source for search_api_only_workflow.png
-flowchart TD
-    Start --> Session
-    Session["Create Session\n(if none active)"] -.-> Segments[Fetch segments]
-    Segments --> Search["Search with segments\n& A/B variations"]
-    Search --> Impression[Track search impression]
-    Search --> ABTO["Store A/B variations\n(returned by API)"]
-    Impression --> Display[Display results]
-    ABTO --> Display
-
-    Display -.->|on result click| Click[Track search click]
-    Click -.-> Start
-    Display -.-> Start
+---
+config:
+  theme: default
+---
+flowchart TB
+start([Start])
+create["Create Session
+(if none active)"]
+fetch["Fetch segments"]
+search["Search with segments
+& A/B variations"]
+store["Store A/B variations
+(returned by API)"]
+display["Display results"]
+track_click["Track search click"]
+impression["Track search impression"]
+start --> create
+create --> fetch
+fetch --> search
+search --> impression
+impression --> display
+search --> store
+store --> display
+display -. on result click .-> track_click
+display -.-> start
+track_click -.-> start
