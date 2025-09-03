@@ -284,7 +284,7 @@ The object above is referred to in the following examples as `$properties`.
 
 This request must be sent immediately upon displaying search or category results.
 
-Example for *search* using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`:
+Example for *search* using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -310,7 +310,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Example for *categories* using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`:
+Example for *categories* using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -349,7 +349,7 @@ The response contains a generic success message that is not necessary for furthe
 This request must be sent when a search result is clicked.
 The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
 
-Search example using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`.
+Search example using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -374,7 +374,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Category example using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#ab-testing-properties) as `$properties`.
+Category example using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
