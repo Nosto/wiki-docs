@@ -53,9 +53,7 @@ The following graphic uses a fictional scenario to illustrate which A/B testing 
 * The session ends after search 4.
   Search 5 represents a search in a new session, which starts with fresh A/B variation assignments and fresh storage.
 
-## Relevant APIs
-
-### Search
+## Search API
 
 Search is handled by the [Nosto search GraphQL API](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
 Its use is documented [elsewhere](./using-the-search-api.md) in great detail.
@@ -89,7 +87,7 @@ query {
 }
 ```
 
-### Session management and tracking
+## Session management and tracking API
 
 Session creation, segment retrieval, and analytics tracking is handled by the [Nosto platform GraphQL API](../../../apis/graphql-an-introduction/README.md).
 
@@ -99,7 +97,7 @@ Learn more about the authentication workflow [here](../../../apis/graphql-an-int
 {% endhint %}
 
 
-#### Using external session IDs instead of Nosto-generated session IDs
+### Using external session IDs instead of Nosto-generated session IDs
 
 Examples on this page use explicit session creation using the `newSession` mutation, and other API requests reference this session using the session ID and the parameter `by: BY_CID`.
 
@@ -123,12 +121,12 @@ When using non-Nosto session IDs, it is no less important to maintain limited 30
 This includes deleting stored A/B test variation assignments at the end of the session.
 {% endhint %}
 
-#### Mutation `newSession`
+### Mutation `newSession`
 
 Creates a new session and returns that session's ID, which should be used in further interactions with this API.
 This step can be skipped if [externally provided session IDs are used](#using-external-session-ids-instead-of-nosto-generated-session-ids).
 
-##### Request example
+#### Request example
 
 ```graphql
 mutation {
@@ -136,7 +134,7 @@ mutation {
 }
 ```
 
-##### Response example
+#### Response example
 
 ```json
 {
@@ -150,12 +148,12 @@ Store the value of the `newSession` property for 30 minutes and include it in th
 
 Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
 
-#### Query `session`
+### Query `session`
 
 Retrieves segments that have been assigned to this session.
 Segments must be included in search requests to leverage segmentation in rules.
 
-##### Request example
+#### Request example
 
 ```graphql
 query {
@@ -167,7 +165,7 @@ query {
 }
 ```
 
-##### Response example
+#### Response example
 
 ```json
 {
@@ -184,14 +182,14 @@ Note that segments can change during the course of the session based on user int
 
 Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
 
-#### Mutation `recordAnalyticsEvent`
+### Mutation `recordAnalyticsEvent`
 
 Tracks search impressions (immediately upon displaying search results) and search clicks (upon clicking a product).
 The exact structure varies between impressions and clicks, but search metadata is the same for both.
 
 The specific structure of metadata depends on whether the user is searching or visiting a category.
 
-##### Search tracking metadata
+#### Search tracking metadata
 
 Here is an example of what metadata looks like for search requests:
 
@@ -227,7 +225,7 @@ Properties:
 * `resultId`: Unique ID for this interaction.
   UUID4 is particularly useful for this.
 
-##### Category tracking metadata
+#### Category tracking metadata
 
 Here is an example of what the (much simpler) category tracking metadata looks like:
 
@@ -247,7 +245,7 @@ Properties:
 At least one of these parameter is required.
 Provide the same one(s) that are included in category requests sent to the search API.
 
-##### A/B testing properties
+#### A/B testing properties
 
 A/B test properties are also the same for both impression and click tracking.
 They should contain all A/B variations that applied to the search request this tracking request is associated with.
@@ -282,7 +280,7 @@ The corresponding tracking properties should look like:
 
 The object above is referred to in the following examples as `$properties`.
 
-##### Impression tracking request example
+#### Impression tracking request example
 
 This request must be sent immediately upon displaying search or category results.
 
@@ -346,7 +344,7 @@ Properties:
 
 The response contains a generic success message that is not necessary for further processing.
 
-##### Click tracking request example
+#### Click tracking request example
 
 This request must be sent when a search result is clicked.
 The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
