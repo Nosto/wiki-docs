@@ -105,6 +105,25 @@ Store the value of the `newSession` property for 30 minutes and include it in th
 
 Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
 
+##### Using external customer IDs instead of session IDs
+
+Examples on this page use explicit session creation using the `newSession` mutation, and other API requests reference this session using the session ID and the parameter `by: BY_CID`.
+
+If some form of session ID is already available, creating a new session with the `newSession` mutation can be skipped.
+Use the already available session ID and replace `by: BY_CID` with `by: BY_REF`.
+
+Example for what segment retrieval looks like with an externally provided session ID:
+
+```graphql
+query {
+  session(by: BY_REF, id: "1b3fed4c-8c0b-4445-9d7d-8809412b26db") {
+    segments {
+      id
+    }
+  }
+}
+```
+
 #### Query `session`
 
 Retrieves segments that have been assigned to this session.
@@ -114,7 +133,7 @@ Segments must be included in search requests to leverage segmentation in rules.
 
 ```graphql
 query {
-  session(by: BY_REF, id: "68b6f028a49067459453e89b") {
+  session(by: BY_CID, id: "68b6f028a49067459453e89b") {
     segments {
       id
     }
@@ -221,7 +240,7 @@ Using previous examples for search metadata as `$metadata` and A/B test properti
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
   recordAnalyticsEvent(
     id: "68b6f028a49067459453e89b"
-    by: BY_REF
+    by: BY_CID
     params: {
       type: "SEARCH"
       timestamp: "2025-09-02T13:56:08.890Z"
@@ -255,7 +274,7 @@ Using previous examples for search metadata as `$metadata` and A/B test properti
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
   recordAnalyticsEvent(
     id: "68b6f028a49067459453e89b"
-    by: BY_REF
+    by: BY_CID
     params: {
       type: "SEARCH"
       timestamp: "2025-09-02T13:56:08.890Z"
@@ -380,7 +399,7 @@ function clearSession() {
 async function track(event) {
   await graphql(config.platformGraphqlUrl, `
     mutation ($sessionId: String!, $eventParams: InputRecordAnalyticsEventParams!) {
-      recordAnalyticsEvent(id: $sessionId, by: BY_REF, params: $eventParams)
+      recordAnalyticsEvent(id: $sessionId, by: BY_CID, params: $eventParams)
     }`,
     {
       sessionId: store.sessionId,
@@ -396,7 +415,7 @@ async function track(event) {
 async function fetchSegments() {
   const result = await graphql(config.platformGraphqlUrl, `
     query ($sessionId: String!) {
-      session(by: BY_REF, id: $sessionId) {
+      session(by: BY_CID, id: $sessionId) {
         segments {
           id
         }
