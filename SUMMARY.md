@@ -15,6 +15,7 @@
 * [Shopify International (Markets)](shopify-markets/README.md)
   * [Front End addition](shopify-markets/technical-details-how-to-use-it.md)
 * [Guides & Features](features/README.md)
+  * [Migration to Theme App Extensions](features/migration-to-theme-app-extensions.md)
   * [Variations (Configurable Products)](features/variations-configurable-product.md)
   * [Managing the Cart](features/add-to-cart.md)
   * [Supplier Cost & Inventory Level](features/supplier-cost-and-inventory-level.md)

@@ -57,7 +57,7 @@ These are necessary to create, manage, and respond to Shopify Pixel events — e
 If the Pixel doesn’t appear in your Customer Events section, check if permission scopes are up to date. You may need to re-authorize the Nosto app.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p><em>Screenshot of Shopify’s permission prompt</em></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p><em>Screenshot of Shopify’s permission prompt</em></p></figcaption></figure>
 
 ## Checking the Shopify Pixel
 
@@ -69,7 +69,7 @@ Nosto activated the Pixel automatically, but in cases of issues or if you're uns
 
 In case the status is not "Connected", please reach out to us!
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > The Pixel will now automatically send a session update when a customer begins checkout.
 

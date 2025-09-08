@@ -72,7 +72,7 @@ These settings appear within your Theme Editor, when selecting the Nosto Extensi
 Some of these options are only available for the **Checkout Extension**, not for the Thank You Extension.
 {% endhint %}
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Extension - Visual Customization</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Extension - Visual Customization</p></figcaption></figure>
 
 ## Known Limitations
 
