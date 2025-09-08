@@ -6,6 +6,16 @@
 * [Customize Expanded Tile](howto.md#expanded-tile)
 * [Create Your Widget - Blank Canvas](howto.md#blank-canvas)
 
+### ⚠️ Important Note
+
+This documentation applies to versions of the **UGC Onsite Widgets** created **before September 1, 2025**.\
+For information about the latest version, please refer to [**NextGen Widgets**](https://docs.nosto.com/ugc/~/revisions/RgpISoa1jph2yqm46Sba/api-docs/javascript/onsite-widgets-nextgen).
+
+You can verify your widget version in the **Nosto Admin Portal**:
+
+* Look for the **Classic** label to identify Classic Widgets (covered in this documentation).
+* Look for the **NextGen** label to identify NextGen Widgets (refer to the updated documentation).
+
 ## Debugging Mode
 
 Sometimes it’s easier for you, as a developer, to investigate Custom JavaScript issues by viewing the widgets through the Debugging Mode in your browser. Our developers add debugging logs for almost all methods that widgets execute. You can view these logs in your Developer Console using the following methods.
