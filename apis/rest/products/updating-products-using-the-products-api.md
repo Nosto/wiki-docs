@@ -26,6 +26,14 @@ curl -v --user :WI0j2oN7TgG42tlblX3yzOQ5xvCYc2oYj9eWg79lghVq8R0nKQXlVE9wvihBUFOw
       "sale/summer/shirts",
       "sale/summer/shirts/long-sleeve-shirts"
     ],
+    "categoryIds":[
+      "1234",
+      "1235"
+    ],
+    "parentCategoryIds":[
+      "1236",
+      "1237"
+    ],
     "description":"Example description",
     "price":10.00,
     "list_price":12.34,
