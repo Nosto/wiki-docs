@@ -22,6 +22,10 @@ Following this, Nosto launched Theme App Extensions support in spring 2024 as th
 
 ☑️ Following this, we're now migrating also existing merchants to Theme App Extensions completely.&#x20;
 
+{% hint style="info" %}
+You of course can still **use** hard-coded Placements that you add to your files, call Nosto APIs for results and more. It's just the "how we interact with your theme" that changes!
+{% endhint %}
+
 ## Before you start
 
 Before proceeding, please verify the following conditions to avoid issues or downtimes when in the process. App Embeds are per Theme which means if you enable Nosto Script on one theme, it will not be automatically enabled on other themes.&#x20;
