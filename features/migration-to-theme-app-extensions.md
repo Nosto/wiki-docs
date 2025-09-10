@@ -20,17 +20,11 @@ Following this, Nosto launched Theme App Extensions support in spring 2024 as th
 * **Full Control**: Nosto Placements are fully embedded, allowing control and previewing in Shopify's Theme Editor.
 * **Future-proof**: Script Tags are no longer considered a supported or recommended method. All new features will be built with Theme App Extensions in mind.
 
-{% hint style="success" %}
-Following this, we're now migrating also existing merchants to Theme App Extensions completely.&#x20;
-{% endhint %}
+☑️ Following this, we're now migrating also existing merchants to Theme App Extensions completely.&#x20;
 
 ## Before you start
 
 Before proceeding, please verify the following conditions to avoid issues or downtimes when in the process. App Embeds are per Theme which means if you enable Nosto Script on one theme, it will not be automatically enabled on other themes.&#x20;
-
-{% hint style="success" %}
-Enabling Nosto Script on a Live Theme can be done out of the box which would provide faster script loading, even without migration of placements!
-{% endhint %}
 
 1. **Navigate to "App Embeds" in your Theme**
    * In Shopify, open your Theme Editor
@@ -51,23 +45,29 @@ If you can't find this App Embed in your Theme, or in case either of these Toggl
 
 ## Starting the Migration
 
-There are two main paths to complete your migration. You can choose between a **Quick Version** or a **Clean Version** (Recommended). Your choice depends on whether you’re aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.
-
-{% hint style="warning" %}
-Make sure that any migration attempts are made on **unpublished theme** (make a copy of a Live theme if needed)
+{% hint style="success" %}
+**We highly suggest to do prepare your Migration on a non-live Theme (e.g. on a copy of your current Theme)**
 {% endhint %}
+
+There are two main paths to complete your migration. You can choose between a **Quick Version** or a **Clean Version** (Recommended). Your choice depends on whether you’re aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.
 
 ### Quick Version
 
 This version is for you, if you want to migrate with the least possible effort.&#x20;
 
-Using this approach, you will **retain all** out-of-the box & hard-coded placements, that initially have been added for you when you first installed Nosto to your theme, and only remove the old Tagging- and Script-Version.  \
-\
-Be mindful that this will **remove** "nosto-tagging.liquid" and "nosto-element.liquid"  files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". Please make sure that your theme is not dependant on these files (search for the reference of these files within your theme to be sure), and that these files weren't modified by you for custom placements before proceeding.&#x20;
+Using this approach, you will **retain all** out-of-the box & hard-coded placements, that initially have been added for you when you first installed Nosto to your theme, and only remove the old Tagging- and Script-Version. &#x20;
 
 <details>
 
 <summary><strong>Quick Version - Details</strong></summary>
+
+{% hint style="warning" %}
+Removing Nosto will also delete the files `nosto-tagging.liquid` and `nosto-element.liquid`, which were added to your theme during installation. It will also remove their references in theme.liquid.
+
+**Before proceeding, make sure that**:\
+• Your theme is not dependent on these files (search within your theme to confirm).\
+• You have not modified these files for custom placements.
+{% endhint %}
 
 **Upsides:**&#x20;
 
@@ -101,13 +101,27 @@ Be mindful that this will **remove** "nosto-tagging.liquid" and "nosto-element.l
 
 This version is for you, if you want to migrate in a structured way, that allows you full control and easy usability going forward.&#x20;
 
-Using this approach, you will **replace** all hard-coded/static placements manually, and instead fully migrate to App-Sections, embedding Nosto Placements in Theme Blocks. This ensures a consistent integration, removing unclarity on where a placement actually sits going forward. \
-\
-Be mindful that this will **remove** all nosto files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". This include "nosto-placement.liquid", "nosto-element.liquid", "nosto-tagging.liquid" etc as well as all references to these files within your themes pages (such as index, product etc). Please make sure that your theme is not dependant on these files (search for the reference of these files within your theme to be sure), and that these files weren't modified by you for custom placements before proceeding.&#x20;
+Using this approach, you will **replace** all hard-coded/static placements manually, and instead fully migrate to App-Sections, embedding Nosto Placements in Theme Blocks. This ensures a consistent integration, removing unclarity on where a placement actually sits going forward.&#x20;
 
 <details>
 
 <summary><strong>Clean Version - Details</strong></summary>
+
+{% hint style="warning" %}
+Removing Nosto will also **delete all Nosto files** that were added to your theme during installation, as well as their references in theme.liquid.
+
+**This includes files such as**:\
+• `nosto-placement.liquid`\
+• `nosto-element.liquid`\
+• `nosto-tagging.liquid`
+
+It will also remove **all references to these files** within your theme’s pages (for example: `index`, `product`, etc.).
+
+Before proceeding, make sure that:\
+\
+• Your theme does not depend on these files (search your theme for references to them).\
+• You have not modified these files for custom placements.
+{% endhint %}
 
 **Upsides:**&#x20;
 
