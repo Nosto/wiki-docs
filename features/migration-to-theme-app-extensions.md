@@ -51,9 +51,11 @@ If you can't find this App Embed in your Theme, or in case either of these Toggl
 
 ## Starting the Migration
 
-There are two main paths to complete your migration. You can choose between a **Quick Version** or a **Clean Version** (Recommended). Your choice depends on whether you’re aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.\
-\
-Make sure that any migration attempts are done on **unpublished theme** (make a copy of a Live theme if needed)
+There are two main paths to complete your migration. You can choose between a **Quick Version** or a **Clean Version** (Recommended). Your choice depends on whether you’re aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.
+
+{% hint style="warning" %}
+Make sure that any migration attempts are made on **unpublished theme** (make a copy of a Live theme if needed)
+{% endhint %}
 
 ### Quick Version
 
