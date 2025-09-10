@@ -63,7 +63,7 @@ This version is for you, if you want to migrate with the least possible effort.&
 
 Using this approach, you will **retain all** out-of-the box & hard-coded placements, that initially have been added for you when you first installed Nosto to your theme, and only remove the old Tagging- and Script-Version.  \
 \
-Be mindful that this will **remove** "nosto-tagging.liquid" and "nosto-element.liquid"  files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". Please make sure that your theme and other files are not calling these files, and that these files weren't modified by you for custom placements before proceeding.&#x20;
+Be mindful that this will **remove** "nosto-tagging.liquid" and "nosto-element.liquid"  files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". Please make sure that your theme is not dependant on these files (search for the reference of these files within your theme to be sure), and that these files weren't modified by you for custom placements before proceeding.&#x20;
 
 <details>
 
@@ -103,7 +103,7 @@ This version is for you, if you want to migrate in a structured way, that allows
 
 Using this approach, you will **replace** all hard-coded/static placements manually, and instead fully migrate to App-Sections, embedding Nosto Placements in Theme Blocks. This ensures a consistent integration, removing unclarity on where a placement actually sits going forward. \
 \
-Be mindful that this will **remove** all nosto files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". This include "nosto-placement.liquid", "nosto-element.liquid", "nosto-tagging.liquid" etc as well as all references to these files within your themes pages (such as index, product etc). Please make sure that your theme and other files are not calling these files, and that these files weren't modified by you for custom placements before proceeding.&#x20;
+Be mindful that this will **remove** all nosto files that were created by Nosto when it was installed to your theme as well as these files reference in "theme.liquid". This include "nosto-placement.liquid", "nosto-element.liquid", "nosto-tagging.liquid" etc as well as all references to these files within your themes pages (such as index, product etc). Please make sure that your theme is not dependant on these files (search for the reference of these files within your theme to be sure), and that these files weren't modified by you for custom placements before proceeding.&#x20;
 
 <details>
 
