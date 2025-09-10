@@ -26,10 +26,11 @@ Following this, we're now migrating also existing merchants to Theme App Extensi
 
 ## Before you start
 
-Before proceeding, please verify the following conditions to avoid issues or downtimes when in the process. App Embeds are per Theme which means if you enable Nosto Script on one theme, it will not be automatically enabled on other themes. \
-\
-Enabling Nosto Script on a Live Theme can be done out of the box which would provide faster script loading, even without migration of placements!\
+Before proceeding, please verify the following conditions to avoid issues or downtimes when in the process. App Embeds are per Theme which means if you enable Nosto Script on one theme, it will not be automatically enabled on other themes.&#x20;
 
+{% hint style="success" %}
+Enabling Nosto Script on a Live Theme can be done out of the box which would provide faster script loading, even without migration of placements!
+{% endhint %}
 
 1. **Navigate to "App Embeds" in your Theme**
    * In Shopify, open your Theme Editor
