@@ -1,5 +1,13 @@
 # Creating Gallery Widget by Using the Blank Canvas Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](creating-gallery-widget-by-using-the-blank-canvas-widget.md#overview)
 * [Step 1 - Settings](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step1)
 * [Step 2 - Coding for Layout and Tile Templates](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step2)

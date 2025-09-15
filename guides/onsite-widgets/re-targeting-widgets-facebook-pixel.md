@@ -7,6 +7,14 @@
 * [Track a Custom Event](re-targeting-widgets-facebook-pixel.md#customevent)
 * [Conclusion](re-targeting-widgets-facebook-pixel.md#conclusion)
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Overview
 
 Behaviour Re-Targeting (also known as behavioural re-marketing, or simply, retargeting) is an important and regularly use component of most brand's online advertising strategy. Through Behaviour Re-Targeting, brands will target specific advertising to users based upon their previous Internet actions, such as going to a particular page, clicking on a certain link or engaging with a Nosto's UGC Widget.

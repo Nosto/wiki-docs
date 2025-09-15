@@ -1,5 +1,13 @@
 # How to Use the Blank Canvas to Create a Twitter Count Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../widgets-nextgen/).
+{% endhint %}
+
 * [Introduction](blank-canvas-to-create-a-twitter-count-widget.md#introduction)
 * [The common approach](blank-canvas-to-create-a-twitter-count-widget.md#common-approach)
 * [Blank canvas approach](blank-canvas-to-create-a-twitter-count-widget.md#bc-approach)

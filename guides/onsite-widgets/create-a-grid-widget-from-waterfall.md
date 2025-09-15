@@ -1,5 +1,13 @@
 # Creating a Grid Widget from Waterfall
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](create-a-grid-widget-from-waterfall.md#overview)
 * [Step 1 - Widget Settings](create-a-grid-widget-from-waterfall.md#step-1)
 * [Step 2 - Understanding the Waterfall widget](create-a-grid-widget-from-waterfall.md#step-2)

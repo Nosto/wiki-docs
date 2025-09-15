@@ -4,6 +4,14 @@ description: Nosto's UGC enables engaging social media-driven creations with lit
 
 # Introduction
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](guides/widgets-nextgen/).
+{% endhint %}
+
 Since the early days of [Nosto](https://www.nosto.com/), we've tried to make it easy to customize the look and feel of integrations with out-of-the-box features. There are many websites, apps, and engaging experiences that utilize rich, social media awesomeness via Nosto without writing an additional line of code.
 
 For those who need that extra bit, or who have an uber dev team who is itching to apply their craft, Nosto has exposed some of its internal components for customer consumption.

@@ -4,6 +4,14 @@ description: JavaScript API for Blank Canvas Widget
 
 # API Reference for Blank Canvas
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+{% endhint %}
+
 * [Setting Object](blank-canvas.md#setting-object)
 * [Methods](blank-canvas.md#methods)
   * [Sample Usage](blank-canvas.md#helper-methods-sample-usage)

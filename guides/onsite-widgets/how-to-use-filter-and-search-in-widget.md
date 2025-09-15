@@ -1,4 +1,12 @@
-# How to use "Filter and search" in a Widget
+# How to use Filter and search in a Widget
+
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
 
 ## Overview
 
@@ -14,15 +22,15 @@ In your Stack, the name Tile is given to a piece of content that has been saved 
 
 ### Widget
 
-A Stackla Widget will be created to demonstrate the use of the [JavaScript API](/api-docs/javascript/) to switch the filters being displayed.
+A Stackla Widget will be created to demonstrate the use of the [JavaScript API](../../api-docs/javascript/) to switch the filters being displayed.
 
 ### Filter
 
-Stackla Filters drive the content being displayed in the Widget, so they are a key resource used for the menu. The [REST API](/api-docs/rest/) will be used to grab them from
+Stackla Filters drive the content being displayed in the Widget, so they are a key resource used for the menu. The [REST API](../../api-docs/rest/) will be used to grab them from
 
 ### JavaScript API
 
-The [JavaScript API](/api-docs/javascript/) is will be used to talk to the Widget on the site and get it to switch the Filter being displayed.
+The [JavaScript API](../../api-docs/javascript/) is will be used to talk to the Widget on the site and get it to switch the Filter being displayed.
 
 ## The Fun Part
 
@@ -138,6 +146,6 @@ $('#search-form').submit(function(event){
 
 This was a very basic example to demonstrate some use of the Widgets Filtering on the same page. You can expand this example to:
 
-- Build a better menu for switching
-- Use dynamic generated filters for flexibility
-- Use keyword validation
+* Build a better menu for switching
+* Use dynamic generated filters for flexibility
+* Use keyword validation

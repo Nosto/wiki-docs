@@ -1,5 +1,13 @@
 # How to overlay existing Google Map with the UGC Map Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](how-to-overlay-existing-google-map-with-stackla-map-widget.md#overview)
 * [Creating a Map Widget](how-to-overlay-existing-google-map-with-stackla-map-widget.md#creating-your-first-map-widget)
 * [Changing the look and feel](how-to-overlay-existing-google-map-with-stackla-map-widget.md#changing-look-and-feel)

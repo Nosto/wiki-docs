@@ -1,4 +1,12 @@
-# How to change click on inline tile behaviour to redirect to PDP
+# How to change click on inline tile behaviour to redirect to PDP in a Widget
+
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
 
 ## Overview
 
@@ -46,6 +54,7 @@ $.extend(Callbacks.prototype, {
     }
 });
 ```
+
 * Then click **Save**.
 
 In the code above, the first product's url of each tile is used to redirect the user to the PDP page. If you want to use a different product url by product name, please change the way of how to get productTags variable by:

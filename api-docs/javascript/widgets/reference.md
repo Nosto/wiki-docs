@@ -4,6 +4,14 @@ description: Onsite Widgets JavaScript API Reference
 
 # API Reference for Content Widgets
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+{% endhint %}
+
 * [Inline Tiles API](reference.md#inline-tiles)
   * [Events](reference.md#inline-tiles-events)
   * [Legacy Callbacks](reference.md#inline-tiles-callbacks)

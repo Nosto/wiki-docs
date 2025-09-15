@@ -1,5 +1,13 @@
 # How to localize the load more button on widgets
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Pre-Requisites
 
 * If you are not familiar with customizing widgets using CSS & Javascript, we suggest you start [here](https://developer.stackla.com/guides/styling-widget-expanded-tile/) first as some of those details will come in handy.

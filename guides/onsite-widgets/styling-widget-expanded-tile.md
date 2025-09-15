@@ -7,6 +7,14 @@
 * [Sample](styling-widget-expanded-tile.md#sample)
 * [Helpful Resource](styling-widget-expanded-tile.md#helpful-resource)
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Overview
 
 This article will instruct you on how to custom style the Expanded Tile for our Widgets using Custom CSS. If you're looking to customise a widget using our Javascript API - you can find the documentation [here](../../api-docs/rest/reference/widgets.md).

@@ -1,5 +1,13 @@
 # Creating Your Widget by Using the Blank Canvas
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#overview)
 * [Step 1 - Getting a Canvas with Single Click!](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#step1)
 * [Step 2 - Super Simple Settings!](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#step2)

@@ -1,5 +1,13 @@
 # Using Web Fonts in Widgets
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](using-webfonts-in-widgets.md#overview)
 * [Step 1 - Load Fonts](using-webfonts-in-widgets.md#step1)
   * [Via the Custom CSS](using-webfonts-in-widgets.md#via-css)

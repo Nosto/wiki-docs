@@ -1,5 +1,13 @@
 # Create a Q\&A Widget using Data Templates
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Introduction](create-qa-widget-using-data-templates.md#introduction)
 * [Build the Data Template](create-qa-widget-using-data-templates.md#build-the-template)
 * [Setup In-Line Tile](create-qa-widget-using-data-templates.md#setup-inline-tile)

@@ -1,5 +1,13 @@
 # Displaying a Widget in a Mobile App
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Overview
 
 In this guide we explore the general concept of displaying a Nosto's UGC Widget into within an Android and iOS Mobile Application. This will enable you to render social media content inside of your app without a lot of hassle.

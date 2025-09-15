@@ -1,5 +1,13 @@
 # How to Load External JS and CSS into Widgets
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](loading-external-js-and-css-libraries-to-widgets.md#overview)
 * [Loading the External CSS](loading-external-js-and-css-libraries-to-widgets.md#loading-the-external-css)
 * [Loading the External JavaScript](loading-external-js-and-css-libraries-to-widgets.md#loading-the-external-javascript)

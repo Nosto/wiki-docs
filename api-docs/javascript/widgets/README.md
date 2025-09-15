@@ -2,7 +2,15 @@
 description: Widget JavaScript API
 ---
 
-# Widgets
+# Onsite Widgets (Classic)
+
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+{% endhint %}
 
 UGC Widgets a full templating framework, as well as custom HTML, JavaScript, and CSS capabilities for developers to add their own layouts, transitioning, data management and so much more.
 

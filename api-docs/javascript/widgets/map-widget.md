@@ -4,6 +4,14 @@ description: JavaScript API for Map Widget
 
 # API Reference for Map Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+{% endhint %}
+
 * [Background](map-widget.md#background)
   * [Geohash](map-widget.md#background-geohash)
   * [Execution flows](map-widget.md#background-execution-flows)

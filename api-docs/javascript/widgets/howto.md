@@ -1,20 +1,20 @@
 # Introduction
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+{% endhint %}
+
 * [Debugging Mode](howto.md#debugging-mode)
 * [Use the Code Editor](howto.md#use-the-code-editor)
 * [Customize Inline Tile](howto.md#inline-tile)
 * [Customize Expanded Tile](howto.md#expanded-tile)
 * [Create Your Widget - Blank Canvas](howto.md#blank-canvas)
 
-### ⚠️ Important Note
 
-This documentation applies to versions of the **UGC Onsite Widgets** created **before September 1, 2025**.\
-For information about the latest version, please refer to [**NextGen Widgets**](https://docs.nosto.com/ugc/~/revisions/RgpISoa1jph2yqm46Sba/api-docs/javascript/onsite-widgets-nextgen).
-
-You can verify your widget version in the **Nosto Admin Portal**:
-
-* Look for the **Classic** label to identify Classic Widgets (covered in this documentation).
-* Look for the **NextGen** label to identify NextGen Widgets (refer to the updated documentation).
 
 ## Debugging Mode
 

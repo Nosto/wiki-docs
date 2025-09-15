@@ -1,5 +1,13 @@
 # Dynamically specify what Tile to display in a Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Introduction](dynamically-specify-tile-to-display-in-widget.md#introduction)
 * [Key Concepts](dynamically-specify-tile-to-display-in-widget.md#key-concepts)
 * [The Fun Part](dynamically-specify-tile-to-display-in-widget.md#fun-part)

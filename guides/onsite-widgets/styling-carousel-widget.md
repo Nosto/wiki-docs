@@ -1,5 +1,13 @@
 # Styling Carousel Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](styling-carousel-widget.md#overview)
 * [Use the Code Editor](styling-carousel-widget.md#use-the-code-editor)
 * [Layout Structure](styling-carousel-widget.md#layout-structure)

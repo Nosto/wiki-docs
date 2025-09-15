@@ -1,5 +1,13 @@
 # Styling cross-sellers on Grid and Carousel Widgets
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Pre-Requisites
 
 * If you are not familiar with customising widgets using CSS, we suggest you start [here](styling-widget-expanded-tile.md) first as some of those details will come in handy.

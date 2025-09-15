@@ -1,5 +1,13 @@
 # Dynamically Specify Products to Display in Widget
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Overview
 
 Nosto's UGC Social Commerce product is a very powerful resource to an eCommerce site's developer's toolkit. Not only can Nosto's UGC provide direct linking between social media content and a product (or even SKU), those same relationships can be leveraged by the eCommerce CMS or page to specify the content that should be surfaced. By modifying the embed code to specify the products, categories or brands, it is a great complement to the Filter associated with a Widget.

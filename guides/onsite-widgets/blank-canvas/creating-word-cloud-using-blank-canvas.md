@@ -1,5 +1,13 @@
 # Creating a Word Cloud using Blank Canvas
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../../widgets-nextgen/).
+{% endhint %}
+
 * [Overview](creating-word-cloud-using-blank-canvas.md#overview)
 * [Layout](creating-word-cloud-using-blank-canvas.md#layout)
 * [CSS](creating-word-cloud-using-blank-canvas.md#css)

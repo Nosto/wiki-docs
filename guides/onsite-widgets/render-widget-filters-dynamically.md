@@ -1,5 +1,13 @@
 # Render Widget filters dynamically
 
+{% hint style="warning" %}
+You are reading the Classic Widget Documentation
+
+Nextgen widgets are a new and improved way to display UGC content.&#x20;
+
+Read the [Nextgen widget documentation here](../widgets-nextgen/).
+{% endhint %}
+
 ## Overview
 
 When Nosto's UGC widgets are shown, often a custom menu will be built. The menu will drive the Filter-changing in the widget and often perform other functions too, not necessarily related to Stackla.
