@@ -1,5 +1,17 @@
 # Understanding Handlebars
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../../../onsite-widgets/) here.
+{% endhint %}
+
 Handlebars is utilised as our server side rendering engine to ensure that HTML is rendered before it reaches the user's screen.
 
 You will notice two core files in your stackla-widget-templates repository

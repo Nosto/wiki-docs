@@ -1,6 +1,19 @@
-# How to localize the load more button on widgets
+# How to localise the load more button on widgets
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Pre-Requisites
+
 ## Overview
 
 Nosto's UGC offers the ability to create advanced customizations to your widgets to match your brand needs.
@@ -13,7 +26,7 @@ Please note that this customization is currently not supported for Story widgets
 
 #### Create a Widget
 
-Create a new  Widget that supports the Load More button and leave all the settings as per default.
+Create a new Widget that supports the Load More button and leave all the settings as per default.
 
 #### Localize the Load More button
 

@@ -3,10 +3,16 @@
 {% hint style="warning" %}
 You are reading the Classic Widget Documentation
 
-Nextgen widgets are a new and improved way to display UGC content.&#x20;
+NextGen widgets are a new and improved way to display UGC content.&#x20;
 
-Read the [Nextgen widget documentation here](../../widgets-nextgen/).
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Nextgen widget documentation here](../../widgets-nextgen/).
 {% endhint %}
+
+
 
 * [Overview](creating-gallery-widget-by-using-the-blank-canvas-widget.md#overview)
 * [Step 1 - Settings](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step1)

@@ -1,5 +1,17 @@
 # Setting up the IDE
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../../../onsite-widgets/) here.
+{% endhint %}
+
 Once you have read our guide on [creating-a-development-space-for-your-team.md](creating-a-development-space-for-your-team.md "mention"), you can begin setting up your IDE for widget template development.
 
 To get started, follow the instructions below

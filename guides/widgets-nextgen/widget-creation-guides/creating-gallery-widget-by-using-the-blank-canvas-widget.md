@@ -1,4 +1,4 @@
-# Creating Gallery Widget by Using the Blank Canvas Widget
+# Creating gallery widget by using the blank canvas
 
 * [Overview](creating-gallery-widget-by-using-the-blank-canvas-widget.md#overview)
 * [Step 1 - Settings](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step1)
@@ -7,6 +7,18 @@
 * [Step 4 - Coding for JavaScript](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step4)
 * [Step 5 - Refinement](creating-gallery-widget-by-using-the-blank-canvas-widget.md#step5)
 * [Result - The Gallery Widget](creating-gallery-widget-by-using-the-blank-canvas-widget.md#result)
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Overview
 
@@ -101,7 +113,6 @@ In the above sample code, we created a tile template that will display the image
 
 To preview the result of HTML template, we need to get data using JavaScript. Click on the **fork** button on the JavaScript panel, you will get the minimal code needed.
 
-
 Click on the button "Update Preview", you should see plain stacked images and captions.
 
 ## Step 3 - Coding for CSS
@@ -191,7 +202,6 @@ All of the CSS rules reside within the Shadow DOM, so you don't need to worry ab
 ```
 
 Click on button "Update Preview", you should see images aligned in rows.
-
 
 ## Result - The Gallery Widget
 

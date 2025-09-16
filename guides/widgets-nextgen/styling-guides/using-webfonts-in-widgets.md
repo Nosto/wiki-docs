@@ -1,4 +1,16 @@
-# Using Web Fonts in Widgets
+# Using Webfonts in Widgets
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Overview
 
@@ -12,8 +24,7 @@ You will need to download the font files before using them. Let's take a look at
 
 If you are an IDE user, you can upload your font files to any given server and use the following code to load them:
 
-
-```ts
+````ts
 // widget.ts
 declare const sdk: ISdk
 import { fonts } from "./fonts"
@@ -72,17 +83,19 @@ export const fonts = [
     fontStyle: "normal"
   }
 ]
-```
+````
 
 ### Non-IDE Users
+
 If you are a non-IDE user, you can do the following:
 
-1) Import the font in your head section:
+1. Import the font in your head section:
 
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
 ```
-2) Add the font to the CSS editor:
+
+2. Add the font to the CSS editor:
 
 ```css
 @font-face {
@@ -92,14 +105,15 @@ If you are a non-IDE user, you can do the following:
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.woff2) format('woff2');
 }
 ```
-3) Apply the font to your widget:
+
+3. Apply the font to your widget:
 
 ```css
 .ugc-widget {
   font-family: 'Roboto', sans-serif;
 }
 ```
-4) Save your changes and publish the widget.
 
+4. Save your changes and publish the widget.
 
 Congratulations! You have successfully added a web font to your widget. You can now use this font in your CSS styles to customize the appearance of your widget.

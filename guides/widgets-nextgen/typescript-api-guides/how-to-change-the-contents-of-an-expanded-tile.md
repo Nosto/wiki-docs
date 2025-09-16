@@ -1,5 +1,17 @@
 # How to change the contents of an expanded tile
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
+
 This guide will explain how to customize the content displayed within an expanded tile in Nosto UGC NextGen widgets.
 
 ## For IDE Users:

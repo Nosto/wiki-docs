@@ -1,7 +1,19 @@
-# Creating a simple Hover effect using Blank Canvas
+# Creating hover cards using blank canvas
 
 * [Overview](creating-hover-cards-using-blank-canvas.md#overview)
 * [Sample #1](creating-hover-cards-using-blank-canvas.md#card1)
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Overview
 

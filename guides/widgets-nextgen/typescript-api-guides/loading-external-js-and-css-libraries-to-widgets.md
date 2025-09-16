@@ -1,4 +1,16 @@
-# How to Load External JS and CSS into Widgets
+# How to load external JS and external CSS
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Overview
 
@@ -21,7 +33,7 @@ You can write the following code in your Custom CSS code editor to load [Bootstr
 
 ## Loading the External JavaScript
 
-In order to load external Javascript files, you can utilise 
+In order to load external Javascript files, you can utilise
 
 ```js
 sdk.addLoadedComponents(["https://google.com/bananas.js"])

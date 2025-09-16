@@ -3,6 +3,18 @@
 * [Introduction](bind-your-own-events.md#introduction)
 * [Creating your Custom Event](bind-your-own-events.md#custom-events)
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
+
 ## Introduction
 
 Nosto's UGC Widget SDK empowers users to feed their favorite Analytics tools with useful interaction information from their UGC Widgets based on common user behavior.

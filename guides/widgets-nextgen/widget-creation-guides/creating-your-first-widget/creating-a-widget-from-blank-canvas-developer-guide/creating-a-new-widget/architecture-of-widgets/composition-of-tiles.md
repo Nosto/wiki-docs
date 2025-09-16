@@ -1,5 +1,17 @@
 # Composition of tiles
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../../../../../onsite-widgets/) here.
+{% endhint %}
+
 **Tile**
 
 A **Tile** is the central entity in Visual UGC, representing a curated piece of user-generated content. Tiles are enhanced with metadata, media, tags, and interactivity, enabling seamless integration into marketing campaigns or other content strategies.

@@ -1,4 +1,4 @@
-# Creating Your Widget by Using the Blank Canvas
+# Creating your own widget type using blank canvas
 
 * [Overview](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#overview)
 * [Step 1 - Getting a Canvas with Single Click!](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#step1)
@@ -9,6 +9,18 @@
 * [Step 6 - Coding for JavaScript](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#step6)
 * [Result - The Boilerplate Widget](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#result)
 * [Bonus - Creating the Horizontal Masonry Widget](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#bonus)
+
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
 
 ## Overview
 

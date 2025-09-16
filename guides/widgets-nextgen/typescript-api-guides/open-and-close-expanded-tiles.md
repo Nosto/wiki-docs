@@ -1,5 +1,17 @@
 # Open and close expanded tiles
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
+
 ## How to open and close expanded tiles <a href="#how-to-open-and-close-expanded-tiles" id="how-to-open-and-close-expanded-tiles"></a>
 
 Expanded tiles are dialog overlays contained within the core widget. They are used to display additional information about a tile, such as the tile's image, title, and description. This guide will show you how to open and close expanded tiles using the SDK.

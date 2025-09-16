@@ -1,5 +1,17 @@
 # How to make expanded tiles vertical
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+{% endhint %}
+
 ## How to make the expanded tile vertical <a href="#how-to-make-the-expanded-tile-vertical" id="how-to-make-the-expanded-tile-vertical"></a>
 
 1. Remove Unnecessary Classes In the ExpandedTiles template `expanded-tile.template.tsx`, remove the following class names to prevent horizontal swiper behavior:

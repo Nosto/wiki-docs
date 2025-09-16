@@ -1,5 +1,17 @@
 # Configuring your widget
 
+{% hint style="warning" %}
+You are reading the NextGen Documentation
+
+NextGen widgets are a new and improved way to display UGC content.&#x20;
+
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Classic Widget Documentation](../../../../../onsite-widgets/) here.
+{% endhint %}
+
 When using the blank canvas widget, we do not have configuration on the backend available for your use.
 
 All configuration is now managed in the frontend by the developer.
