@@ -7,9 +7,15 @@ description: Onsite Widgets JavaScript API Reference
 {% hint style="warning" %}
 You are reading the Classic Widget Documentation
 
-Nextgen widgets are a new and improved way to display UGC content.&#x20;
+NextGen widgets are a new and improved way to display UGC content.&#x20;
 
-Read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+On Oct 1st, all widgets created will be NextGen.
+
+Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+
+You can read the [Nextgen widget documentation here](../../../guides/widgets-nextgen/).
+
+**Note: This feature is unique to Classic widgets**
 {% endhint %}
 
 * [Inline Tiles API](reference.md#inline-tiles)
