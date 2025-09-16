@@ -10,6 +10,8 @@ On Oct 1st, all widgets created will be NextGen.
 Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
 
 You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+
+**Note: This feature is exclusive to NextGen widgets.**
 {% endhint %}
 
 This guide will explain how to customize the content displayed within an expanded tile in Nosto UGC NextGen widgets.

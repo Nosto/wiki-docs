@@ -19,7 +19,7 @@ On Oct 1st, all widgets created will be NextGen.
 
 Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
 
-You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+You can read the [Classic Widget Documentation](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md) here.
 {% endhint %}
 
 ## Overview

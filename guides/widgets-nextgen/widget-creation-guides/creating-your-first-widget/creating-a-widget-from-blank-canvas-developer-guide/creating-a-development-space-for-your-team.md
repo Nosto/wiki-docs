@@ -10,6 +10,8 @@ On Oct 1st, all widgets created will be NextGen.
 Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
 
 You can read the [Classic Widget Documentation](../../../../onsite-widgets/) here.
+
+**Note: This feature is unique to NextGen widgets**
 {% endhint %}
 
 While development of widgets in UGC Widgets 2.0 primarily took place in the browser, NextGen Widget development will primarily take place in the IDE.

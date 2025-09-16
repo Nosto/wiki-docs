@@ -9,7 +9,9 @@ On Oct 1st, all widgets created will be NextGen.
 
 Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
 
-You can read the [Classic Widget Documentation](../../onsite-widgets/) here.
+You can read the [Classic Widget Documentation](../../onsite-widgets/using-webfonts-in-widgets.md) here.
+
+
 {% endhint %}
 
 ## Overview

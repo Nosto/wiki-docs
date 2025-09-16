@@ -9,7 +9,9 @@ On Oct 1st, all widgets created will be NextGen.
 
 Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
 
-You can read the [Nextgen widget documentation here](../widgets-nextgen/).
+You can read the Nextgen widget documentation here.
+
+**Note: This feature is unique to Classic widgets**
 {% endhint %}
 
 ## Overview
