@@ -33,7 +33,7 @@ For frontend integrations you can also use our JavaScript library. This library 
 ## Compare implementations
 
 |                                                | Search Templates | API       | JavaScript Library |
-|------------------------------------------------|------------------|-----------|--------------------|
+| ---------------------------------------------- | ---------------- | --------- | ------------------ |
 | Can be implemented by Nosto team               | Yes              | No        | No                 |
 | Expected time to launch live                   | 1-3 weeks\*      | 4-8 weeks | 3-6 weeks          |
 | Headless compatible                            | Yes              | Yes       | Yes                |
@@ -44,11 +44,11 @@ For frontend integrations you can also use our JavaScript library. This library 
 | Analytics                                      | Yes              | Yes       | Yes                |
 | Segmentation                                   | Yes              | Yes       | Yes                |
 | Individual personalization (affinities)        | Yes              | Yes\*\*\* | Yes                |
-| A/B testing                                    | Yes              | No        | Yes                |
+| A/B testing                                    | Yes              | Yes       | Yes                |
 | SPA suitable                                   | Limited\*\*\*\*  | Yes       | Yes                |
 
 {% hint style="info" %}
-\* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.&#x20;
+\* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.
 
 \*\* Matching merchandising rules are applied automatically based on requested search queries, categories, and segments, without the need to request them in API requests.
 
@@ -60,4 +60,3 @@ For frontend integrations you can also use our JavaScript library. This library 
 If you are looking for a fast launch without much effort we recommend going with the fully customizable pre-built templates. This type of integration does not support full API access but comes complete with an out-of-the-box search result page and autocomplete templates that can easily be customized to match most website designs and integrate even advanced custom functionality.
 
 If however you need full control over the search frontend or require complex custom functionality we recommend to go with the API or JavaScript integrations. These integrations do not provide out-of-the-box templates but provide direct access to the Search API, allowing you use the data in whatever way is required for your use cases.
-
