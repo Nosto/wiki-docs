@@ -1,13 +1,13 @@
 # How to add a title / subtitle to a widget
 
 {% hint style="warning" %}
-You are reading the Classic Widget Documentation
+You are reading the **Classic Widget Documentation**
 
-NextGen widgets are a new and improved way to display UGC content.&#x20;
+Classic widgets are a previous widget version for onsite widgets created before September 23rd.
 
-On Oct 1st, all widgets created will be NextGen.
+From September 23rd 2025, all new widgets created will be NextGen.
 
-Please check your widget version on the Widget List page to see if it is **Classic** or **NextGen** widget.
+Please check your widget version on the **Widget List page** to see if it is **Classic** or **NextGen** widget.
 
 You can read the [Nextgen widget documentation here](../widgets-nextgen/styling-guides/how-to-add-a-title-sub-title-to-a-widget.md).
 {% endhint %}

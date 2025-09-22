@@ -1,16 +1,16 @@
 # Introduction
 
-### ⚠️ Important Note
+{% hint style="warning" %}
+You are reading the **NextGen Documentation**
 
-This documentation applies to versions of the **UGC Onsite Widgets** created **after September 1, 2025**.\
-For information about the older version, please refer to [**Classic Widgets**.](https://docs.nosto.com/ugc/guides/onsite-widgets)
+**NextGen widgets** are a new and improved way to display UGC content onsite.&#x20;
 
-You can verify your widget version in the **Nosto Admin Portal**:
+From September 23rd 2025, all new widgets created will be NextGen.
 
-* Look for the **NextGen** label to identify NextGen Widgets  (covered in this documentation).
-* Look for the **Classic** label to identify Classic Widgets (covered here).
+Please check your widget version on the **Widget List page** to see if it is a **Classic** or **NextGen** widget.
 
-
+You can read the [Classic Widget Documentation](../widgets/) here.
+{% endhint %}
 
 The new **NextGen Widgets** are designed to deliver faster, more engaging onsite experiences. With a focus on performance and flexibility, they bring:
 
