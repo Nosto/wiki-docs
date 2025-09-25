@@ -9,15 +9,16 @@ This package provides headless web components. Templates must be provided by the
 
 This package provides the following web components:
 
-| Component                               | Category                  |
-| --------------------------------------- | ------------------------- |
-| [Campaign](./#campaign)       | Progressive Enhancement   |
-| [Control](./#control)         | Templating   |
-| [DynamicCard](./#dynamiccard) | Templating (Shopify only) |
-| [Image](./#image)             | Progressive Enhancement   | 
-| [Product](./#product)         | Progressive Enhancement   |
-| [ProductCard](./#productcard) | Templating                |
-| [SkuOptions](./#skuoptions)   | Progressive Enhancement   |
+| Component                                       | Category                  |
+| ----------------------------------------------- | ------------------------- |
+| [Campaign](./#campaign)                         | Progressive Enhancement   |
+| [Control](./#control)                           | Templating                |
+| [DynamicCard](./#dynamiccard)                   | Templating (Shopify only) |
+| [Image](./#image)                               | Progressive Enhancement   | 
+| [Product](./#product)                           | Progressive Enhancement   |
+| [ProductCard](./#productcard)                   | Templating                |
+| [SectionCampaign](./#sectioncampaign)           | Templating (Shopify only) |
+| [SkuOptions](./#skuoptions)                     | Progressive Enhancement   |
 
 ### `Campaign`
 
@@ -27,11 +28,12 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 
 | Attribute    | Description                                                                                                                                                                                                                     |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)                                                                                                                                            |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). Can also use `id` attribute as an alternative.                                                                                           |
 | `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
 | `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
 | `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
-| `init`       | For disabling automatic campaign loading on page load, set to `false`                                                                                                                                                           |
+| `init`       | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
+| `lazy`       | If `true`, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                   |
 
 #### Usage example
 
@@ -75,6 +77,35 @@ Template-based rendering:
 
 A subset of Vue is used as the templating language. The template support is described in detail below.
 
+### `SectionCampaign`
+
+The `SectionCampaign` custom element fetches Nosto placement results and renders them using Shopify's Section Rendering API. This component is specifically designed for Shopify stores and integrates with Shopify's section templates to dynamically render campaign content.
+
+#### Component attributes
+
+| Attribute    | Description                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------------------- |
+| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`)          |
+| `section`    | **Required.** The section to be used for Section Rendering API based rendering                 |
+
+#### Usage example
+
+**Example #1**:
+
+Basic usage with Shopify section rendering:
+
+```html
+<nosto-section-campaign placement="front-page" section="product-recommendations"></nosto-section-campaign>
+```
+
+**Example #2**:
+
+Advanced usage for specific product page recommendations:
+
+```html
+<nosto-section-campaign placement="product-page-cross-sell" section="related-products-section"></nosto-section-campaign>
+```
+
 ### `Control`
 
 The `Control` custom element provides conditional content rendering capabilities to inject customer segment specific content to the web page. The segment specific injections are defined as template children of the custom element.
@@ -100,13 +131,14 @@ This custom element is the recommended choice to use when the product card marku
 
 #### Component attributes
 
-| Attribute    | Description                           |
-| ------------ | ------------------------------------- |
-| `handle`     | Handle of the product                 |
-| `template`   | Name of the alternate template to use |
-| `section`    | Name of the product level section to use |
-| `variant-id` | Optional reference to variant id      |
-| `lazy`       | Optional lazy loading mode to delay loading until element is visible in viewport |
+| Attribute     | Description                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| `handle`      | **Required.** Handle of the product                                                                  |
+| `template`    | Name of the alternate template to use. Either `template` or `section` is required.                  |
+| `section`     | Name of the product level section to use. Either `template` or `section` is required.               |
+| `variant-id`  | Optional reference to variant id                                                                     |
+| `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.       |
+| `lazy`        | Optional lazy loading mode to delay loading until element is visible in viewport. Defaults to `false`. |
 
 #### Usage example
 
@@ -142,14 +174,16 @@ After that the component can be used in Nosto templates like this
 
 #### Component attributes
 
-| Attribute    | Description                           |
-| ------------ | ------------------------------------- |
-| `src`        | The source URL of the image.          |
-| `width`      | The width of the image in pixels.     |
-| `height`     | The height of the image in pixels.    |
-| `aspect-ratio`  | The aspect ratio of the image (width / height value).      |
-| `crop`       | Shopify only. The crop of the image. Can be "center", "left", "right", "top", or "bottom".      |
-| `layout`     | The layout of the image. Can be "fixed", "constrained", or "fullWidth". |
+| Attribute       | Description                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `src`           | **Required.** The source URL of the image.                                                                          |
+| `width`         | The width of the image in pixels.                                                                                   |
+| `height`        | The height of the image in pixels.                                                                                  |
+| `aspect-ratio`  | The aspect ratio of the image (width / height value).                                                               |
+| `crop`          | Shopify only. The crop of the image. Can be "center", "left", "right", "top", or "bottom".                         |
+| `layout`        | The layout of the image. Can be "fixed", "constrained", or "fullWidth". Defaults to "constrained".                 |
+| `alt`           | Alternative text for the image for accessibility purposes.                                                          |
+| `sizes`         | The sizes attribute for responsive images to help the browser choose the right image size.                          |
 
 **Example #1**:
 
@@ -167,19 +201,34 @@ Usage with BigCommerce image URL:
 <nosto-image src="https://cdn11.bigcommerce.com/s-hm8pjhul3k/products/4055/images/23603/7-15297__04892.1719977920.1280.1280.jpg" width="800" height="600" layout="constrained"></nosto-image>
 ```
 
+**Example #3**:
+
+Usage with responsive sizes attribute:
+
+```html
+<nosto-image
+  src="https://cdn.shopify.com/static/sample-images/bath.jpeg"
+  width="800"
+  aspect-ratio="1.5"
+  layout="constrained"
+  alt="Product showcase image"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+</nosto-image>
+```
+
 ### `Product`
 
 When markup (HTML) for rendering a product is wrapped with the `Product` component, the APIs for SKU selection and Add to cart functionality are automatically handled by the component. By encapsulating the necessary APIs, this component reduces any JavaScript logic that would otherwise be included in the template and helps the team to concentrate only on building the template rather than implementing the JavaScript logic.
 
 #### Component attributes
 
-Two mandatory component attributes:
+#### Component attributes
 
-| Attribute    | Description                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `product-id` | Id of the product being rendered. `$!product.productId` provides the Product Id in templates.                              |
-| `reco-id`    | The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates.       |
-| `n-sku-data` | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries |
+| Attribute      | Description                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `product-id`   | **Required.** Id of the product being rendered. `$!product.productId` provides the Product Id in templates.              |
+| `reco-id`      | **Required.** The Id of the recommendation being rendered. `$!product.attributionKey` provides the Recommendation Id in templates. |
+| `sku-selected` | Boolean attribute that indicates whether a SKU is currently selected. Automatically managed by the component.             |
 
 **Note**:\
 The following examples of rendering product SKUs are applicable only for simple use-cases. For complex cases, like multi-directional SKU selections where selecting color renders the matching size and vice-versa, consider using the `SkuOptions` component.
@@ -226,10 +275,12 @@ This component requires the following attributes to parse the markup, extract pr
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `n-sku-selector` | Marks the SKU select dropdown. Attaches an `onchange` event to the element. Clicking on the "Add to cart" button adds the SKU value selected from the dropdown to the cart. |
 | `n-sku-id`       | Relevant when SKU options are rendered as "Add to cart" button. Supplies the ID of the SKU option value and should be supplied on the parent of "Add to cart" button.       |
-| `n-img`          | Image URL for SKU which will be applied to Product wrapper on click                                                                                                    |
-| `n-alt-img`      | Alternate image URL for SKU which will be applied to Product wrapper on                                                                                                |
-| `n-price`        | Price for SKU which will be applied to Product wrapper on click                                                                                                        |
-| `n-list-price`   | List price for SKU which will be applied to Product wrapper price on click                                                                                             |
+| `n-sku-data`     | To be applied on an optional script element with SKU data as a JSON array of { price, listPrice, image, altImage } entries                                                |
+| `n-img`          | Image URL for SKU which will be applied to Product wrapper on click                                                                                                        |
+| `n-alt-img`      | Alternate image URL for SKU which will be applied to Product wrapper on                                                                                                    |
+| `n-price`        | Price for SKU which will be applied to Product wrapper on click                                                                                                           |
+| `n-list-price`   | List price for SKU which will be applied to Product wrapper price on click                                                                                                |
+| `n-atc`          | Marks an element as Add to cart trigger and attaches click event to the element. Clicking on this element triggers `addSkuToCart` API and supplies the selected SKU Id. |
 
 ```html
 <div n-sku-id="456">
@@ -237,17 +288,26 @@ This component requires the following attributes to parse the markup, extract pr
 </div>
 ```
 
-`n-atc`\
-Marks an element as Add to cart trigger and attaches click event to the element. Clicking on this element triggers `addSkuToCart` API and supplies the selected SKU Id.
-
 ### `ProductCard`
 
 The `ProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
 
-Unlike `Product`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup. For side effects the `wrap` attribute can be used to wrap the inner content in a `Product` instance.
+Unlike `Product`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup.
+
+#### Component attributes
+
+| Attribute  | Description                                                                  |
+| ---------- | ---------------------------------------------------------------------------- |
+| `template` | **Required.** The id of the Vue-like template element to use for rendering. |
+
+#### Usage example
+
+**Example #1**:
+
+Using with embedded JSON data:
 
 ```html
-<nosto-product-card reco-id="789011" template="product-card-template">
+<nosto-product-card template="product-card-template">
   <script type="application/json" product-data>
     {
       "id": "1223456",
@@ -269,6 +329,20 @@ Unlike `Product`, this component doesn't include any side effects or platform-sp
     <span n-list-price>{{ product.listPrice }}</span>
   </p>
 </template>
+```
+
+**Example #2**:
+
+Using with data attributes:
+
+```html
+<nosto-product-card template="product-card-template"
+  data-id="1223456"
+  data-image="https://example.com/images/awesome-product.jpg"
+  data-title="Awesome Product"
+  data-price="19.99"
+  data-list-price="29.99">
+</nosto-product-card>
 ```
 
 ### `SkuOptions`
@@ -357,12 +431,13 @@ Usage with select elements
 | Attribute      | Description                                                                                                                                                                                      |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `n-option`     | Marks an element as SKU option element                                                                                                                                                           |
+| `n-target`     | Applied to a `<select>` element to indicate it should be used for option selection instead of individual `n-option` elements                                                                    |
 | `n-skus`       | Comma-separated value of linked available SKU Ids. `$!product.getSkuAggregateOptions` method in templates provides the Sku aggregates for the supplied custom field (color/size/material etc...) |
 | `n-skus-oos`   | Comma-separated value of linked unavailable SKU Ids. The usage of this parameter is optional and should be considered when Out of stock SKUs should be considered.                               |
-| `n-img`        | Image URL for SKU option which will be applied to Product wrapper on click                                                                                                                  |
-| `n-alt-img`    | Alternate image URL for SKU option which will be applied to Product wrapper on click                                                                                                        |
-| `n-price`      | Price for SKU option which will be applied to Product wrapper on click                                                                                                                      |
-| `n-list-price` | List price for SKU option which will be applied to Product wrapper price on click                                                                                                           |
+| `n-img`        | Image URL for SKU option which will be applied to Product wrapper on click                                                                                                                      |
+| `n-alt-img`    | Alternate image URL for SKU option which will be applied to Product wrapper on click                                                                                                            |
+| `n-price`      | Price for SKU option which will be applied to Product wrapper on click                                                                                                                          |
+| `n-list-price` | List price for SKU option which will be applied to Product wrapper price on click                                                                                                               |
 
 Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
 
