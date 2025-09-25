@@ -1,6 +1,6 @@
 # Shopify Integration
 
-This page lists proven integration patterns and code snippets for the Shopify specific web components such as `DynamicCard` and `SectionCampaign`. Since integrations depend a lot based on theme structure the solutions are grouped by Theme name.
+This page lists proven integration patterns and code snippets for the Shopify specific web components such as `DynamicCard`. Since integrations depend a lot based on theme structure the solutions are grouped by Theme name.
 
 ## `DynamicCard` Integration
 
@@ -36,47 +36,4 @@ The following snippet works as the product card template (e.g. `templates/produc
 %}
 
 {% render 'product-card', product: product, children: children %}
-```
-
-## `SectionCampaign` Integration
-
-The `SectionCampaign` component works with Shopify's Section Rendering API. To use it, you need to create a section that can handle product recommendations.
-
-### Example Section Template
-
-Create a section template (e.g. `sections/nosto-recommendations.liquid`):
-
-```liquid
-<div class="nosto-recommendations">
-  {% if section.settings.title %}
-    <h2 nosto-title>{{ section.settings.title }}</h2>
-  {% endif %}
-  
-  <div class="product-grid">
-    {% for product in search.results %}
-      {% render 'card-product', card_product: product %}
-    {% endfor %}
-  </div>
-</div>
-
-{% schema %}
-{
-  "name": "Nosto Recommendations",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Section Title"
-    }
-  ]
-}
-{% endschema %}
-```
-
-### Usage in Templates
-
-Use the `SectionCampaign` component in your Nosto templates:
-
-```html
-<nosto-section-campaign placement="front-page" section="nosto-recommendations"></nosto-section-campaign>
 ```
