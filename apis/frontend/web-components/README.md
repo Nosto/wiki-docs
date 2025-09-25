@@ -75,6 +75,14 @@ Template-based rendering:
 </nosto-campaign>
 ```
 
+**Example #4**:
+
+Campaign with lazy loading:
+
+```html
+<nosto-campaign placement="below-fold-recommendations" lazy></nosto-campaign>
+```
+
 A subset of Vue is used as the templating language. The template support is described in detail below.
 
 ### `SectionCampaign`
@@ -160,10 +168,26 @@ In addition to template targeting `DynamicCard` supports also the targeting of s
 Make sure that web components are enabled in the Nosto Recommendation Settings after completion of the Shopify side changes.\
 After that the component can be used in Nosto templates like this
 
+**Example #1**:
+
+Basic usage with template:
+
 ```markup
 #foreach($product in $products)
 <nosto-dynamic-card handle="$!product.handle" template="card">
   <div class="product-card-skeleton"></div>
+</nosto-dynamic-card>
+#end
+```
+
+**Example #2**:
+
+Using with section and placeholder:
+
+```markup
+#foreach($product in $products)
+<nosto-dynamic-card handle="$!product.handle" section="product-card-section" placeholder lazy>
+  <div class="loading-placeholder">Loading...</div>
 </nosto-dynamic-card>
 #end
 ```
