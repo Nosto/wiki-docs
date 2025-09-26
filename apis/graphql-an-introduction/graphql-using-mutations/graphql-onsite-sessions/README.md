@@ -1,7 +1,7 @@
 # GraphQL: Onsite Sessions
 
-{% hint style="info" %}
-Nosto Documentation MCP Server Beta is now available to help out with documentation and implementation of GraphQL onsite sessions
+{% hint style="success" %}
+[Nosto MCP Server Beta](nosto-mcp-server-beta.md) is now available to help out with documentation and implementation of GraphQL onsite sessions
 {% endhint %}
 
 ## Creating a session
