@@ -1,5 +1,9 @@
 # GraphQL: Onsite Sessions
 
+{% hint style="info" %}
+Nosto Documentation MCP Server Beta is now available to help out with documentation and implementation of GraphQL onsite sessions
+{% endhint %}
+
 ## Creating a session
 
 When a new user comes to the app, you can use this method to get a new session. It will return you a customer-id that can save on the device and use for future requests. This would be ideal.

@@ -1,12 +1,12 @@
 # Supporting opt-out and do-not-track
 
-You can disable Nosto for a given customer if they don't give consent for data processing or if legal reasons such as [COPPA](https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act) requires to disable Nosto for an individual. 
+You can disable Nosto for a given customer if they don't give consent for data processing or if legal reasons such as [COPPA](https://en.wikipedia.org/wiki/Children's_Online_Privacy_Protection_Act) requires to disable Nosto for an individual.
 
 This method disables the initialization of Nosto entirely, meaning that all associated Nosto features on your web store for that user are also disabled.
 
 You will need to wrap the Nosto script in a conditional that activates only if the customer has accepted to activate Nosto. Below is an example that simply checks for the existence of a cookie called `accepts_marketing` but you should change the conditional to match your consent management implementation.
 
-```text
+```
 <script type="text/javascript">
 if (document.cookie.indexOf('accepts_marketing') >= 0) {
   var head = document.getElementsByTagName('head')[0];
@@ -51,18 +51,22 @@ nostojs(api => console.log(api.visit.isDoNotTrack()));
 This section lists the impact of enabled `doNoTrack` mode on various Nosto features.
 
 ### Recommendations and Onsite Content Personalization
+
 Normally served but taking only the current request information into account (Customer history or profile won't be available)
 
 ### Segments
+
 Taking only the current request information into account (Customer history or profile won't be available)
 
 ### Popups
+
 Fully disabled
 
 ### Search and Category Merchandising (Universal)
+
 Analytics tracking disabled
 
 ### Category Merchandising (Platform)
-Segmentation and A/B testing logic is disabled for CM (Platform)
-Only the main sorting will be applied to categories
 
+Segmentation and A/B testing logic is disabled for CM (Platform)\
+Only the main sorting will be applied to categories

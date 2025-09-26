@@ -1,4 +1,4 @@
-# Starting Points
+# Starting points
 
 Each new Nosto account comes with three base recommendation templates to customize.
 
@@ -14,7 +14,7 @@ The `Default` template has the following features:
 
 ## Carousel
 
-The `Carousel` template extends the base template with a `Swiper`-based carousel to cycle between the recommended products.
+The `Carousel` template extends the base template with a `Swiper`-based carousel to cycle between the recommended products.\
 The library dependency is loaded via a script module, but a locally available version of the library can be used as well.
 
 * Carousel implementation via Swiper

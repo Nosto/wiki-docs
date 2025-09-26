@@ -39,7 +39,7 @@ EOF
 
 ## Session Lookup
 
-In order to be able to provide personalized results, we will need to look up a session either by id or by reference. You read more about managing sessions on our [onsite sessions](../graphql-using-mutations/graphql-onsite-sessions.md) wiki page.
+In order to be able to provide personalized results, we will need to look up a session either by id or by reference. You read more about managing sessions on our [onsite sessions](../graphql-using-mutations/graphql-onsite-sessions/) wiki page.
 
 ## Attribution
 

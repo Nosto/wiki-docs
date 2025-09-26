@@ -1,18 +1,14 @@
-# Analytics and A/B testing in API integrations
+# Analytics and A/B testing
 
-Template and JavaScript integrations come with tracking- and A/B testing support out of the box.
-For pure API integrations, some extra steps need to be performed on the integration side
-to ensure that user interactions are tracked and attributed appropriately.
+Template and JavaScript integrations come with tracking- and A/B testing support out of the box. For pure API integrations, some extra steps need to be performed on the integration side to ensure that user interactions are tracked and attributed appropriately.
 
 {% hint style="info" %}
-The workflow for search and categories is generally the same.
-This article describes the necessary steps mostly from a search perspective but provides additional information where deviation for category support is necessary. 
+The workflow for search and categories is generally the same. This article describes the necessary steps mostly from a search perspective but provides additional information where deviation for category support is necessary.
 {% endhint %}
 
 ## Limitations
 
-* Individual personalization with user-specific affinities is currently not available with a pure API approach to search.
-If this is a critical requirement, consider using the [JavaScript library](../search/README.md).
+* Individual personalization with user-specific affinities is currently not available with a pure API approach to search. If this is a critical requirement, consider using the [JavaScript library](../search/).
 * An `API_APPS` authentication token is necessary to implement API requests related to session management and tracking.
 
 ## General workflow
@@ -25,38 +21,27 @@ The key points are:
 
 * Track impression event including found products and A/B variations (if applicable) when displaying search results.
 * Track click event including clicked product and A/B variations (if applicable) when clicking on a search result.
-* Store A/B variations received from the search API and include them in all following search requests *for the duration of the session*.
+* Store A/B variations received from the search API and include them in all following search requests _for the duration of the session_.
 
 Storing the session ID for the duration of the session (30 minutes) is essential to ensure that the experience is personalized using the segments associated with the session.
 
 ### Keeping track of assigned A/B test variations
 
-When requesting search results subject to an A/B test without supplying any A/B testing parameters,
-the search API assigns a random A/B variation and includes it in the search result.
-It is vital to include the returned A/B variations in following search requests within the same session to ensure a consistent experience.
-Failing to do so results in the user being assigned a new A/B variation for equivalent search requests, potentially leading to the user seeing different results, corresponding to the different A/B variations, for the same search.
+When requesting search results subject to an A/B test without supplying any A/B testing parameters, the search API assigns a random A/B variation and includes it in the search result. It is vital to include the returned A/B variations in following search requests within the same session to ensure a consistent experience. Failing to do so results in the user being assigned a new A/B variation for equivalent search requests, potentially leading to the user seeing different results, corresponding to the different A/B variations, for the same search.
 
 The following graphic uses a fictional scenario to illustrate which A/B testing information needs to be stored, sent to search, and tracked.
 
 <figure><img src="../../../.gitbook/assets/search_ab_test_handling.png" alt="Diagram of which A/B variations to store and include in search requests."><figcaption></figcaption></figure>
 
-* In *search 1*, the session starts without any A/B tests, so no A/B testing information is included in the search request.
-  The request is affected by an A/B test, so the test ID and affected variation are returned.
-  It must be tracked and stored.
-* In *search 2*, all known A/B assignments are included in the search request.
-  This request is affected by a different A/B test, so the response contains information about *this* A/B test.
-  Now, both of these A/B test's information should be stored for future searches within the session, but only the A/B test(s) affecting the latest search request should be included in the corresponding tracking requests.
-* In *search 3*, all known A/B assignments (now two) are included in the search request.
-  The search isn't affected by any A/B tests, so the response doesn't contain any, and none should be tracked.
-* In *search 4*, the same known A/B tests are included in the search request.
-  The request is affected by `Test 1`, and includes the known assignment for `Test 1` in the request, ensuring that the assignment remains the same as before in the same session.
-* The session ends after *search 4*.
-  *Search 5* represents a search in a new session, which starts with fresh A/B variation assignments and fresh storage.
+* In _search 1_, the session starts without any A/B tests, so no A/B testing information is included in the search request. The request is affected by an A/B test, so the test ID and affected variation are returned. It must be tracked and stored.
+* In _search 2_, all known A/B assignments are included in the search request. This request is affected by a different A/B test, so the response contains information about _this_ A/B test. Now, both of these A/B test's information should be stored for future searches within the session, but only the A/B test(s) affecting the latest search request should be included in the corresponding tracking requests.
+* In _search 3_, all known A/B assignments (now two) are included in the search request. The search isn't affected by any A/B tests, so the response doesn't contain any, and none should be tracked.
+* In _search 4_, the same known A/B tests are included in the search request. The request is affected by `Test 1`, and includes the known assignment for `Test 1` in the request, ensuring that the assignment remains the same as before in the same session.
+* The session ends after _search 4_. _Search 5_ represents a search in a new session, which starts with fresh A/B variation assignments and fresh storage.
 
 ## Search API
 
-Search is handled by the [Nosto search GraphQL API](https://search.nosto.com/v1/graphql?ref=InputSearchQuery).
-Its use is documented [elsewhere](./using-the-search-api.md) in great detail.
+Search is handled by the [Nosto search GraphQL API](https://search.nosto.com/v1/graphql?ref=InputSearchQuery). Its use is documented [elsewhere](using-the-search-api.md) in great detail.
 
 This is a minimal example search request that contains all fields relevant for tracking and A/B testing purposes:
 
@@ -94,20 +79,17 @@ query {
 
 ## Session management and tracking API
 
-Session creation, segment retrieval, and analytics tracking is handled by the [Nosto platform GraphQL API](../../../apis/graphql-an-introduction/README.md).
+Session creation, segment retrieval, and analytics tracking is handled by the [Nosto platform GraphQL API](../../../apis/graphql-an-introduction/).
 
 {% hint style="warning" %}
-This API requires authentication using an API token with scope `API_APPS`.
-Learn more about the authentication workflow [here](../../../apis/graphql-an-introduction/graphql-using-the-api.md).
+This API requires authentication using an API token with scope `API_APPS`. Learn more about the authentication workflow [here](../../../apis/graphql-an-introduction/graphql-using-the-api.md).
 {% endhint %}
-
 
 ### Using external session IDs instead of Nosto-generated session IDs
 
 Examples on this page use explicit session creation using the `newSession` mutation, and other API requests reference this session using the session ID and the parameter `by: BY_CID`.
 
-If some form of session ID is already available, creating a new session with the `newSession` mutation can be skipped.
-Use the already available session ID and replace `by: BY_CID` with `by: BY_REF`.
+If some form of session ID is already available, creating a new session with the `newSession` mutation can be skipped. Use the already available session ID and replace `by: BY_CID` with `by: BY_REF`.
 
 Example for what segment retrieval looks like with an externally provided session ID:
 
@@ -122,14 +104,12 @@ query {
 ```
 
 {% hint style="warning" %}
-When using non-Nosto session IDs, it is no less important to maintain limited 30-minute session durations.
-This includes deleting stored A/B test variation assignments at the end of the session.
+When using non-Nosto session IDs, it is no less important to maintain limited 30-minute session durations. This includes deleting stored A/B test variation assignments at the end of the session.
 {% endhint %}
 
 ### Mutation `newSession`
 
-Creates a new session and returns that session's ID, which should be used in further interactions with this API.
-This step can be skipped if [externally provided session IDs are used](#using-external-session-ids-instead-of-nosto-generated-session-ids).
+Creates a new session and returns that session's ID, which should be used in further interactions with this API. This step can be skipped if [externally provided session IDs are used](analytics-ab-testing.md#using-external-session-ids-instead-of-nosto-generated-session-ids).
 
 #### Request example
 
@@ -151,12 +131,11 @@ mutation {
 
 Store the value of the `newSession` property for 30 minutes and include it in the following API interactions for the duration of the session.
 
-Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
+Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/).
 
 ### Query `session`
 
-Retrieves segments that have been assigned to this session.
-Segments must be included in search requests to leverage segmentation in rules.
+Retrieves segments that have been assigned to this session. Segments must be included in search requests to leverage segmentation in rules.
 
 #### Request example
 
@@ -182,15 +161,13 @@ query {
 }
 ```
 
-Request segments *before* searching.
-Note that segments can change during the course of the session based on user interactions.
+Request segments _before_ searching. Note that segments can change during the course of the session based on user interactions.
 
-Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions.md).
+Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/).
 
 ### Mutation `recordAnalyticsEvent`
 
-Tracks search impressions (immediately upon displaying search results) and search clicks (upon clicking a product).
-The exact structure varies between impressions and clicks, but search metadata is the same for both.
+Tracks search impressions (immediately upon displaying search results) and search clicks (upon clicking a product). The exact structure varies between impressions and clicks, but search metadata is the same for both.
 
 The specific structure of metadata depends on whether the user is searching or visiting a category.
 
@@ -214,21 +191,17 @@ Here is an example of what metadata looks like for search requests:
 ```
 
 Properties:
+
 * `hasResults`: `true` if the search response `total` is greater than zero.
-* `autoComplete`: `false` for regular search, `true` for search requests used for providing autocomplete-style functionality.
-  This distinguishes interactions in the Nosto search analytics dashboard.
+* `autoComplete`: `false` for regular search, `true` for search requests used for providing autocomplete-style functionality. This distinguishes interactions in the Nosto search analytics dashboard.
 * `autoCorrect`: Set to the `fuzzy` value returned in the search response to indicate searches that required error-tolerant search.
 * `keyword`: Set to `true` if search keywords were requested (typically for autocomplete purposes).
-* `organic`: Set to `true` if the search was caused by a user action within the store.
-  Searches caused by links to the store (e.g. from ads) are indicated by `false`.
-* `refined`: Set to `true` if the user searched before in this session, and searched again now *with a different query*.
-* `refinedQuery`: In case of refined search (see above), include the previously searched for query.
-  Otherwise, this can be `null` or omitted entirely.
-* `sorted`: `true` when sorting by anything other than `_score`.
-  Sorting by `_score` is default behavior if no sort parameter is supplied in the search request.
+* `organic`: Set to `true` if the search was caused by a user action within the store. Searches caused by links to the store (e.g. from ads) are indicated by `false`.
+* `refined`: Set to `true` if the user searched before in this session, and searched again now _with a different query_.
+* `refinedQuery`: In case of refined search (see above), include the previously searched for query. Otherwise, this can be `null` or omitted entirely.
+* `sorted`: `true` when sorting by anything other than `_score`. Sorting by `_score` is default behavior if no sort parameter is supplied in the search request.
 * `query`: The current search query entered by the user into the search field.
-* `resultId`: Unique ID for this interaction.
-  UUID4 is particularly useful for this.
+* `resultId`: Unique ID for this interaction. UUID4 is particularly useful for this.
 
 #### Category tracking metadata
 
@@ -242,18 +215,15 @@ Here is an example of what the (much simpler) category tracking metadata looks l
 ```
 
 Properties:
-* `category`: Human-readable category name.
-  This should be the same as the `categoryPath` parameter in category requests sent to the search API.
-* `categoryId`: Machine-readable category ID.
-  This should be the same as the `categoryId` parameter in category requests sent to the search API.
 
-At least one of these parameter is required.
-Provide the same one(s) that are included in category requests sent to the search API.
+* `category`: Human-readable category name. This should be the same as the `categoryPath` parameter in category requests sent to the search API.
+* `categoryId`: Machine-readable category ID. This should be the same as the `categoryId` parameter in category requests sent to the search API.
+
+At least one of these parameter is required. Provide the same one(s) that are included in category requests sent to the search API.
 
 #### A/B testing properties
 
-A/B test properties are the same for both impression and click tracking for both search and categories.
-They should contain all A/B variations that applied to the search request this tracking request is associated with.
+A/B test properties are the same for both impression and click tracking for both search and categories. They should contain all A/B variations that applied to the search request this tracking request is associated with.
 
 If the search API returns A/B test data like this:
 
@@ -289,7 +259,7 @@ The object above is referred to in the following examples as `$properties`.
 
 This request must be sent immediately upon displaying search or category results.
 
-Example for *search* using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`:
+Example for _search_ using previous examples for [search metadata](analytics-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -315,7 +285,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Example for *categories* using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`:
+Example for _categories_ using previous examples for [category metadata](analytics-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -342,6 +312,7 @@ mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAn
 ```
 
 Properties:
+
 * `type`: `SEARCH` for search events, `CATEGORY` for category events.
 * `timestamp`: Time of event must be formatted as ISO 8601 date.
 * `page`: 1-based page number.
@@ -351,10 +322,9 @@ The response contains a generic success message that is not necessary for furthe
 
 #### Click tracking request example
 
-This request must be sent when a search result is clicked.
-The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
+This request must be sent when a search result is clicked. The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
 
-Search example using previous examples for [search metadata](#search-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`.
+Search example using previous examples for [search metadata](analytics-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -379,7 +349,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Category example using previous examples for [category metadata](#category-tracking-metadata) as `$metadata` and [A/B test properties](#a-b-testing-properties) as `$properties`.
+Category example using previous examples for [category metadata](analytics-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -405,6 +375,7 @@ mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAn
 ```
 
 Properties:
+
 * `type`: `SEARCH` for search events, `CATEGORY` for category events.
 * `timestamp`: Time of event must be formatted as ISO 8601 date.
 * `productId`: The product ID (`productId` property in search response) of the product that was clicked.
@@ -413,8 +384,7 @@ The response contains a generic success message that is not necessary for furthe
 
 ## Putting it all together
 
-The JavaScript program below implements the complete workflow of session maintenance, segment retrieval, search, and tracking with support for A/B testing.
-The general flow and data structures can be translated to any language.
+The JavaScript program below implements the complete workflow of session maintenance, segment retrieval, search, and tracking with support for A/B testing. The general flow and data structures can be translated to any language.
 
 Error handling is largely omitted to focus on the more interesting bits.
 
