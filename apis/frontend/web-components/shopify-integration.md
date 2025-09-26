@@ -1,21 +1,23 @@
 # Shopify Integration
 
-This page lists proven integration patterns and code snippets for the Shopify specific web components such as `NostoDynamicCard`. Since integrations depend a lot based on theme structure the solutions are grouped by Theme name.
+This page lists proven integration patterns and code snippets for the Shopify specific web components such as `DynamicCard`. Since integrations depend a lot based on theme structure the solutions are grouped by Theme name.
 
-## Dawn theme
+## `DynamicCard` Integration
+
+### Dawn theme
 
 The following snippet works as the product card template (e.g. `templates/product.card.liquid`)
 
-```
+```liquid
 {% layout none %}
 {% render 'card-product', card_product: product %}
 ```
 
-## Horizon theme
+### Horizon theme
 
 The following snippet works as the product card template (e.g. `templates/product.card.liquid`)
 
-```
+```liquid
 {% layout none %}
 
 {% liquid

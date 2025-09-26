@@ -53,7 +53,7 @@ If you prefer not to enable web components globally via the recommendation setti
 Since the web components artifact is an ES module, include it using a script tag as shown below:
 
 ```
-<script type="module" src="https://cdn.jsdelivr.net/npm/@nosto/web-components@4.0.0/dist/main.es.bundle.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@nosto/web-components@8.24.0/dist/main.es.bundle.js"></script>
 ```
 
 #### Advantages
