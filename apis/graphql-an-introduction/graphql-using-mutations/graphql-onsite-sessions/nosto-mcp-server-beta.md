@@ -140,7 +140,7 @@ The MCP server provides **7 specialized graphql tools** that can be combined. to
 
 ### Feedback
 
-If you have found MCP server useful, or if you found some issues or would like MCP server to support more use-cases please don't hesitate to contact us by platforms@nosto.com&#x20;
+If you have found MCP server useful, or if you found some issues or would like MCP server to support more use-cases please don't hesitate to contact us at platforms@nosto.com&#x20;
 
 \
 
