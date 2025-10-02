@@ -26,14 +26,15 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 
 #### Component attributes
 
-| Attribute    | Description                                                                                                                                                                                                                     |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `placement`  | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). Can also use `id` attribute as an alternative.                                                                                           |
-| `product-id` | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
-| `variant-id` | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
-| `template`   | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
-| `init`       | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
-| `lazy`       | If `true`, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                   |
+| Attribute     | Description                                                                                                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`   | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). Can also use `id` attribute as an alternative.                                                                                           |
+| `product-id`  | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
+| `variant-id`  | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
+| `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
+| `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
+| `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                 |
+| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`.                                            |
 
 #### Usage example
 
@@ -81,6 +82,22 @@ Campaign with lazy loading:
 
 ```html
 <nosto-campaign placement="below-fold-recommendations" lazy></nosto-campaign>
+```
+
+**Example #5**:
+
+Campaign with cart synchronization:
+
+```html
+<nosto-campaign placement="cart-recommendations" cart-synced></nosto-campaign>
+```
+
+**Example #6**:
+
+Campaign with multiple features combined:
+
+```html
+<nosto-campaign placement="related-products" product-id="123456" cart-synced lazy></nosto-campaign>
 ```
 
 A subset of Vue is used as the templating language. The template support is described in detail below.
