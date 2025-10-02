@@ -33,7 +33,7 @@ There are also 2 Documentation tools
 
 ### Nosto MCP Server
 
-**Server URL** [https://dev.mcp.staging.nosto.com/mcp](https://dev.mcp.staging.nosto.com/mcp)
+**Server URL** [https://dev.mcp.nosto.com/mcp](https://dev.mcp.nosto.com/mcp)
 
 Nosto MCP server specializes in:
 
@@ -68,8 +68,9 @@ Add the Nosto MCP server to your Claude Code configuration:
 {
   "mcpServers": {
     "nosto-graphql": {
-      "command": "mcp-client",
-      "args": ["https://dev.mcp.staging.nosto.com/mcp"]
+       "type": "http",
+       "url": "https://dev.mcp.nosto.com/mcp",
+       "env": {}
     }
   }
 }
