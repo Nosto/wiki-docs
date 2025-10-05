@@ -67,6 +67,33 @@ const response = await search(searchQuery, {
 })
 ```
 
+You can also create custom decorators to add additional fields to your search results:
+
+```ts
+import { SearchProduct } from "@nosto/nosto-js/client"
+
+type DecoratedProduct = SearchProduct & { handle?: string }
+
+export function handleDecorator(product: SearchProduct): DecoratedProduct {
+  if (product.url) {
+    const pathname = new URL(product.url).pathname
+    return {
+      ...product,
+      handle: pathname.split("/").pop() || undefined
+    }
+  }
+  return product
+}
+
+const response = await search(searchQuery, {
+    hitDecorators: [
+        priceDecorator(),
+        thumbnailDecorator({ size: "9" }),
+        handleDecorator
+    ]
+})
+```
+
 ### `maxRetries`
 **Type:** `number`  
 **Default:** `0`
@@ -96,7 +123,7 @@ const response = await search(searchQuery, {
 **Type:** `boolean`  
 **Default:** `false`
 
-Whether to use a persistent cache for the search results. When enabled, search results are cached across browser sessions.
+Whether to use a persistent cache for the search results. When enabled, search results are cached across browser sessions. Only a single result will be cached and this feature is primarily meant to support efficient back navigation from product pages to search results.
 
 ```ts
 const response = await search(searchQuery, {
@@ -108,7 +135,7 @@ const response = await search(searchQuery, {
 **Type:** `boolean`  
 **Default:** `false`
 
-Whether to use an in-memory cache for search results. When enabled, search results are cached in memory for the current session.
+Whether to use an in-memory cache for search results. When enabled, search results are cached in memory for the current session. Memory cache can be considered for autocomplete results to improve performance.
 
 ```ts
 const response = await search(searchQuery, {
