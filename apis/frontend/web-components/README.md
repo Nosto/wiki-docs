@@ -34,7 +34,7 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 | `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
 | `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
 | `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                 |
-| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`.                                            |
+| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.        |
 
 #### Usage example
 
