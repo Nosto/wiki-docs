@@ -462,6 +462,62 @@ These parameters describe how the prices should be formatted on the frontend bas
 | **decimalSeparator** | The character used to separate the decimal part of the price (e.g., ".", ","). |
 | **thousandSeparator** | The character used to separate thousands in the price (e.g., ",", " "). |
 
+## Fallback Implementation <a href="#fallback-implementation" id="fallback-implementation"></a>
+
+For JS API integrations, there is no built-in fallback functionality. Merchants need to implement their own fallback mechanism to ensure a reliable user experience.
+
+### When to Use Fallback
+
+Your integration should fall back to the native search solution in the following scenarios:
+
+* **API Errors**: If the search query returns an error (network issues, server errors, etc.)
+* **Timeout**: If the search query takes longer than 1 second to return results
+* **Empty Response**: If the API returns an unexpected empty response when results should be available
+
+### Implementation Guidelines
+
+```javascript
+// Example fallback implementation
+const SEARCH_TIMEOUT = 1000; // 1 second timeout
+
+async function performSearch(query) {
+  try {
+    // Set up timeout promise
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Search timeout')), SEARCH_TIMEOUT)
+    );
+    
+    // Race between API call and timeout
+    const searchPromise = fetch('/nosto-search-api', {
+      method: 'POST',
+      body: JSON.stringify({ query }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    
+    const response = await Promise.race([searchPromise, timeoutPromise]);
+    const data = await response.json();
+    
+    if (!response.ok || !data.products?.hits?.length) {
+      throw new Error('Invalid search response');
+    }
+    
+    return data;
+  } catch (error) {
+    console.warn('Nosto search failed, falling back to native search:', error);
+    // Redirect to native search or use alternative search implementation
+    window.location.href = `/search?q=${encodeURIComponent(query)}`;
+  }
+}
+```
+
+### Best Practices
+
+* Always implement a timeout mechanism (recommended: 1 second maximum)
+* Log fallback occurrences for monitoring and debugging
+* Ensure the fallback provides a seamless user experience
+* Test fallback scenarios regularly to ensure they work correctly
+* Consider implementing progressive enhancement where Nosto search enhances the native experience
+
 ## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalized results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
