@@ -388,4 +388,58 @@ Tracking product clicks is fundamental for understanding user interaction. Use `
 
 In case of an SPA based integration the `api.recordSearchClick` calls should be complemented with Session API or `api.createRecommendationRequest()` usage to couple the search analytics events to generic Nosto events for accurate attribution.
 
+## Fallback mechanism
+
+For JS API integrations, there is no built-in fallback functionality. Merchants need to build this themselves to ensure a robust search experience.
+
+### When to implement fallbacks
+
+You should implement fallback mechanisms in the following scenarios:
+
+* **Search query errors**: When the search API returns an error response
+* **Timeout scenarios**: When the search query takes longer than 1 second to return results
+* **Network connectivity issues**: When there are network problems preventing API calls
+
+### Implementation considerations
+
+* **Error handling**: Always wrap Nosto search calls in try-catch blocks
+* **Timeout management**: Implement reasonable timeout values (recommended: 1 second)
+* **User experience**: Ensure seamless transition to fallback without visible errors
+* **Analytics**: Track fallback usage to monitor search performance
+
+### Category merchandising fallbacks
+
+The same fallback principles apply to category merchandising implementations. When using the search API for category pages, implement similar timeout and error handling:
+
+```javascript
+async function getCategoryProductsWithFallback(categoryId, options = {}) {
+    try {
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error('Category search timeout')), 1000);
+        });
+        
+        const categoryPromise = new Promise((resolve, reject) => {
+            nostojs(api => {
+                api.search({
+                    products: {
+                        categoryId: categoryId,
+                        fields: ['name', 'url', 'price'],
+                        size: options.size || 24
+                    }
+                }, {
+                    track: 'category'
+                }).then(resolve).catch(reject);
+            });
+        });
+        
+        return await Promise.race([categoryPromise, timeoutPromise]);
+        
+    } catch (error) {
+        console.warn('Nosto category search failed, falling back:', error);
+        // Fallback to native category page logic
+        return await executeNativeCategoryFallback(categoryId, options);
+    }
+}
+```
+
 ***
