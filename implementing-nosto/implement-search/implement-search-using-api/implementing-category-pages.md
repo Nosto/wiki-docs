@@ -127,45 +127,6 @@ Your category implementation should fall back to the native category page soluti
 * **Timeout**: If the category query takes longer than 1 second to return results
 * **Empty Response**: If the API returns an unexpected empty response when products should be available
 
-### Implementation Guidelines
-
-```javascript
-// Example fallback implementation for category pages
-const CATEGORY_TIMEOUT = 1000; // 1 second timeout
-
-async function loadCategoryProducts(categoryId, categoryPath) {
-  try {
-    // Set up timeout promise
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Category loading timeout')), CATEGORY_TIMEOUT)
-    );
-    
-    // Race between API call and timeout
-    const categoryPromise = fetch('/nosto-category-api', {
-      method: 'POST',
-      body: JSON.stringify({ 
-        categoryId, 
-        categoryPath 
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-    
-    const response = await Promise.race([categoryPromise, timeoutPromise]);
-    const data = await response.json();
-    
-    if (!response.ok || !data.products?.hits?.length) {
-      throw new Error('Invalid category response');
-    }
-    
-    return data;
-  } catch (error) {
-    console.warn('Nosto category merchandising failed, falling back to native category:', error);
-    // Redirect to native category page or use alternative category implementation
-    window.location.href = `/category/${categoryPath}`;
-  }
-}
-```
-
 ### Best Practices
 
 * Always implement a timeout mechanism (recommended: 1 second maximum)

@@ -474,42 +474,6 @@ Your integration should fall back to the native search solution in the following
 * **Timeout**: If the search query takes longer than 1 second to return results
 * **Empty Response**: If the API returns an unexpected empty response when results should be available
 
-### Implementation Guidelines
-
-```javascript
-// Example fallback implementation
-const SEARCH_TIMEOUT = 1000; // 1 second timeout
-
-async function performSearch(query) {
-  try {
-    // Set up timeout promise
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Search timeout')), SEARCH_TIMEOUT)
-    );
-    
-    // Race between API call and timeout
-    const searchPromise = fetch('/nosto-search-api', {
-      method: 'POST',
-      body: JSON.stringify({ query }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-    
-    const response = await Promise.race([searchPromise, timeoutPromise]);
-    const data = await response.json();
-    
-    if (!response.ok || !data.products?.hits?.length) {
-      throw new Error('Invalid search response');
-    }
-    
-    return data;
-  } catch (error) {
-    console.warn('Nosto search failed, falling back to native search:', error);
-    // Redirect to native search or use alternative search implementation
-    window.location.href = `/search?q=${encodeURIComponent(query)}`;
-  }
-}
-```
-
 ### Best Practices
 
 * Always implement a timeout mechanism (recommended: 1 second maximum)
