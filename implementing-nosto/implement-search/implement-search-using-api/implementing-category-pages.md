@@ -132,3 +132,65 @@ To analyze user behavior you need to implement tracking. This can be achieved us
 * [recordSearch](../search/#search-1) to track category page visits
 * [recordSearchClick](../search/#search-product-keyword-click) to track clicks on category results
 
+## Fallback mechanism
+
+Similar to search implementations, category merchandising via API requires fallback mechanisms to handle errors and timeouts gracefully.
+
+### Implementation guidance
+
+When the category API call returns an error or takes longer than 1 second to respond, the integration should fall back to the native category page solution:
+
+```javascript
+async function loadCategoryWithFallback(categoryId, categoryPath) {
+    const timeout = 1000; // 1 second timeout
+    
+    try {
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error('Category API timeout')), timeout);
+        });
+        
+        const categoryPromise = fetch(`https://search.nosto.com/v1/graphql`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${YOUR_TOKEN}`
+            },
+            body: JSON.stringify({
+                query: `
+                    query {
+                        search(
+                            accountId: "${YOUR_ACCOUNT_ID}"
+                            products: {
+                                categoryId: "${categoryId}",
+                                categoryPath: "${categoryPath}"
+                            }
+                        ) {
+                            products {
+                                hits {
+                                    productId
+                                    name
+                                    url
+                                    imageUrl
+                                    price
+                                }
+                                total
+                            }
+                        }
+                    }
+                `
+            })
+        }).then(response => response.json());
+        
+        const result = await Promise.race([categoryPromise, timeoutPromise]);
+        return result;
+        
+    } catch (error) {
+        console.warn('Nosto category API failed, using native category logic:', error);
+        // Fallback to native category page implementation
+        return await loadNativeCategoryProducts(categoryId, categoryPath);
+    }
+}
+```
+
+This ensures users always see category products, even when the Nosto API is unavailable or slow to respond.
+
