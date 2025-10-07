@@ -1,6 +1,6 @@
-# Parameterless attribution
+# Parameterless Attribution
 
-By default Nosto tracks campaign attribution without additional url parameters. The tracking happens by registering click listeners to the campaign elements that detect product url clicks and associate them with the attribution metadata of the rendered campaign. The pair of url and campaign attribution is stored in the local storage of the Browser. 
+By default Nosto tracks campaign attribution without additional url parameters. The tracking happens by registering click listeners to the campaign elements that detect product url clicks and associate them with the attribution metadata of the rendered campaign. The pair of url and campaign attribution is stored in the local storage of the Browser.
 
 In most cases this will work out of the box, but in certain scenarious adjustments need to be made.
 
@@ -21,11 +21,15 @@ api.defaultSession()
   .load() 
 ```
 
+Check out the API documentation for [defaultSession](https://nosto.github.io/nosto-js/interfaces/client.API.html#defaultsession)
+
 ## Reliance on the legacy nosto parameters
 
 Parameterless attribution became the default attribution mechanism on May 26th 2025. If your setup relies on the legacy nosto parameters being present you can enable the legacy behavior in your main account settings page.
 
-## Attribution in custom element based Nosto campaign rendering
+## JSON Rendering Attribution
+
+### Attribution in custom element based Nosto campaign rendeirng
 
 Below is an example of a custom element that fetches JSON results based on the placement attribute, renders them and register parameterless attribution for product link clicks:
 
@@ -54,7 +58,7 @@ if (!customElements.get("nosto-renderer")) {
 }
 ```
 
-## Rendering of campaign markup in non managed elements
+### Rendering of campaign markup in non-managed placement elements
 
 In case the campaign markup is rendered into a non-placement element the element will need to be registered with parameterless attribution handling via `api.attributeProductClicksInCampaign`:
 
@@ -73,4 +77,6 @@ if (recommendation && container) {
   renderProductsToContainer(containerElement, recommendation)
   api.attributeProductClicksInCampaign(container, recommendation)
 }
-``` 
+```
+
+Check out the API documentation for [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign)
