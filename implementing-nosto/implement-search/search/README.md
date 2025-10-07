@@ -407,39 +407,4 @@ You should implement fallback mechanisms in the following scenarios:
 * **User experience**: Ensure seamless transition to fallback without visible errors
 * **Analytics**: Track fallback usage to monitor search performance
 
-### Category merchandising fallbacks
-
-The same fallback principles apply to category merchandising implementations. When using the search API for category pages, implement similar timeout and error handling:
-
-```javascript
-async function getCategoryProductsWithFallback(categoryId, options = {}) {
-    try {
-        const timeoutPromise = new Promise((_, reject) => {
-            setTimeout(() => reject(new Error('Category search timeout')), 1000);
-        });
-        
-        const categoryPromise = new Promise((resolve, reject) => {
-            nostojs(api => {
-                api.search({
-                    products: {
-                        categoryId: categoryId,
-                        fields: ['name', 'url', 'price'],
-                        size: options.size || 24
-                    }
-                }, {
-                    track: 'category'
-                }).then(resolve).catch(reject);
-            });
-        });
-        
-        return await Promise.race([categoryPromise, timeoutPromise]);
-        
-    } catch (error) {
-        console.warn('Nosto category search failed, falling back:', error);
-        // Fallback to native category page logic
-        return await executeNativeCategoryFallback(categoryId, options);
-    }
-}
-```
-
 ***
