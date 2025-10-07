@@ -397,13 +397,12 @@ For JS API integrations, there is no built-in fallback functionality. Merchants 
 You should implement fallback mechanisms in the following scenarios:
 
 * **Search query errors**: When the search API returns an error response
-* **Timeout scenarios**: When the search query takes longer than 1 second to return results
+* **Timeout scenarios**: JS API based Search requests timeout after 5 seconds, so implement fallbacks for cases when requests take longer than expected
 * **Network connectivity issues**: When there are network problems preventing API calls
 
 ### Implementation considerations
 
 * **Error handling**: Always wrap Nosto search calls in try-catch blocks
-* **Timeout management**: Implement reasonable timeout values (recommended: 1 second)
 * **User experience**: Ensure seamless transition to fallback without visible errors
 * **Analytics**: Track fallback usage to monitor search performance
 
