@@ -10,11 +10,14 @@ description: This guide explains the Nosto usage of cookies
 
 To ensure that the **Nosto Plugin** and the **Nosto Debug Toolbar** operate correctly, the following cookies must be accepted:
 
-| Cookie                          | Purpose                                                                      |
-| ------------------------------- | ---------------------------------------------------------------------------- |
-| `2c.cid`                        | Visitor-specific identifier used by Nosto for analytics and personalisation. |
-| `nosto-integration-track-allow` | Indicates that Nosto tracking is permitted.                                  |
-| `nosto-search-session-params`   | Stores search-session parameters for more precise recommendations.           |
+| Cookie                          | Purpose                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `2c.cid`                        | Visitor-specific identifier used by Nosto for analytics and personalisation.                       |
+| `nosto-integration-track-allow` | Indicates that Nosto tracking is permitted.                                                        |
+| `nosto-search-session-params`   | Stores search-session parameters for more precise recommendations.                                 |
+| `nostoCookieFilter`             | Includes all Search/Category merchandising filters and values                                      |
+| `nostoCookieFilterMapping`      | Includes mapped Search/Category merchandising filters                                              |
+| `nosto_preview`                 | Used to preview Search/Category merchandising results without enabling it globally on a live store |
 
 ***
 
@@ -31,7 +34,7 @@ When a customer visits the store for the first time after the Nosto Plugin has b
 
 <figure><img src="../../.gitbook/assets/nosto cookies.png" alt=""><figcaption></figcaption></figure>
 
-
+After accepting Shopware default cookie consent, cookie `nosto-search-session-params` is created which then allows Nosto script to load as well as other Nosto functionality.&#x20;
 
 ***
 
@@ -55,6 +58,10 @@ The toolbar allows developers to inspect page-level Nosto events, placements, an
 
 If explicit cookie consent is **not** legally required in your region, you can configure Shopware to accept Nosto cookies automatically.
 
+{% hint style="warning" %}
+This may not work with third party cookie consent managers, and in this case you need to make sure to check the documentation and settings to allow all Nosto cookies.
+{% endhint %}
+
 #### Backend steps
 
 1. Go to **Settings → Basic Information → Security and Privacy**.
@@ -68,6 +75,21 @@ If explicit cookie consent is **not** legally required in your region, you can c
 > Customers will no longer see the cookie-consent banner, and Nosto cookies will be set automatically on the first page load.
 
 ***
+
+### 4. Third-Party Cookie consent Manager (not Shopware default)
+
+In general Third-party cookie consent managers would override default Shopware cookie banner. This means that you would need to go through the documentation and settings of the specific cookie consent manager to allow Nosto Cookies.&#x20;
+
+This can also mean that if Nosto plugin setting **Ignore cookie consent** is enabled, it could be blocked by a Third-party cookie consent manager unless its configured within its settings.\
+\
+Cookies below may need to be be explicitly added within the settings:
+
+* `2c.cid`
+* `nosto-integration-track-allow`
+* `nosto-search-session-params`
+* `nostoCookieFilter`
+* `nostoCookieFilterMapping`
+* `nosto_preview`
 
 ### 4. Summary Checklist
 
