@@ -16,7 +16,6 @@ This package provides the following web components:
 | [DynamicCard](./#dynamiccard)                   | Templating (Shopify only) |
 | [Image](./#image)                               | Progressive Enhancement   | 
 | [Product](./#product)                           | Progressive Enhancement   |
-| [ProductCard](./#productcard)                   | Templating                |
 | [SectionCampaign](./#sectioncampaign)           | Templating (Shopify only) |
 | [SkuOptions](./#skuoptions)                     | Progressive Enhancement   |
 
@@ -329,62 +328,7 @@ This component requires the following attributes to parse the markup, extract pr
 </div>
 ```
 
-### `ProductCard`
 
-The `ProductCard` component acts as a basic product card component where the content is rendered via an externally defined template. The data is embedded via an inner script element with JSON contents and rendering happens via an embedded Vue-like compiler using an external template element.
-
-Unlike `Product`, this component doesn't include any side effects or platform-specific API support on top of the rendered markup.
-
-#### Component attributes
-
-| Attribute  | Description                                                                  |
-| ---------- | ---------------------------------------------------------------------------- |
-| `template` | **Required.** The id of the Vue-like template element to use for rendering. |
-
-#### Usage example
-
-**Example #1**:
-
-Using with embedded JSON data:
-
-```html
-<nosto-product-card template="product-card-template">
-  <script type="application/json" product-data>
-    {
-      "id": "1223456",
-      "image": "https://example.com/images/awesome-product.jpg",
-      "title": "Awesome Product",
-      "price": "19.99",
-      "listPrice": "29.99"
-    }
-  </script>
-</nosto-product-card>
-
-<template id="product-card-template">
-  <img :src="product.image" :alt="product.title" class="product-image" />
-  <h1>{{ product.title }}</h1>
-  <p class="price">
-    <span n-price>{{ product.price }}</span>
-  </p>
-  <p class="list-price" v-if="product.price !== product.listPrice">
-    <span n-list-price>{{ product.listPrice }}</span>
-  </p>
-</template>
-```
-
-**Example #2**:
-
-Using with data attributes:
-
-```html
-<nosto-product-card template="product-card-template"
-  data-id="1223456"
-  data-image="https://example.com/images/awesome-product.jpg"
-  data-title="Awesome Product"
-  data-price="19.99"
-  data-list-price="29.99">
-</nosto-product-card>
-```
 
 ### `SkuOptions`
 
@@ -538,7 +482,7 @@ The component does not handle styling for disabled options and it has to be appl
 
 ## Vue-like templating
 
-`Campaign` and `ProductCard` support a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
+`Campaign` supports a subset of Vue templating as the templating language. The supported features are mustache interpolation and the directives that are listed below. Reactivity is not supported.
 
 * [v-text](https://vuejs.org/api/built-in-directives.html#v-text)
 * [v-html](https://vuejs.org/api/built-in-directives.html#v-html)
