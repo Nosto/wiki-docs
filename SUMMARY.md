@@ -23,6 +23,7 @@
     * [Extending tagging with SKUs](implementing-nosto/implement-on-your-website/advanced-implementation/extending-tagging-with-skus.md)
     * [Adding support for multi-currency](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-multi-currency.md)
     * [Adding support for customer group pricing](implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md)
+    * [Event API: Listening to Bus Events with api.listen](implementing-nosto/implement-on-your-website/advanced-implementation/event-api-listening-to-bus-events-with-api.listen.md)
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
