@@ -34,6 +34,10 @@ or via DOM tagging
 <div class="nosto_brand" style="display:none" translate="no">Acme</div>
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 ### Tagging the categories
 
 Categories must always be delimited by a slash. For example, `/Home/Accessories` is a valid category while `Home > Accessories` is not.
@@ -77,7 +81,7 @@ Page type is optional and used mainly for triggering popups and also to understa
 
 Once included on all pages, you can review if the site is transmitting data using the Nosto Debug Toolbar. If you can see order contents being picked up under "Tagging" → "Category" then the category and page type tagging are correctly set up in the source code.
 
-![Nosto debug category ](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-debug-toolbar-category.png)
+![Nosto debug category](https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-debug-toolbar-category.png)
 
 ### Translate attribute
 

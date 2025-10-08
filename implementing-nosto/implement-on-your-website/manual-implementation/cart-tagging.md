@@ -27,6 +27,10 @@ nostojs(api => {
 })
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 The full schema for cart tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.Cart.html)
 
 or via DOM tagging
@@ -78,7 +82,6 @@ nostojs(api => {
 ```
 
 or via DOM tagging
-
 
 ```markup
 <div class="restore_link">https://example.com/cart/restore?cart=4D5C3060-1334-4C63-B6FA-D9D342D88B08</div>

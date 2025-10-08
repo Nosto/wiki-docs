@@ -17,6 +17,10 @@ nostojs(api => {
 })
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 The full schema for customer tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.PushedCustomer.html)
 
 or via DOM tagging
@@ -44,4 +48,3 @@ The marketing-permission should be included as a part of the customer tagging an
 The customer-reference can be leveraged to unify sessions across channels such as between online and offline. It is a unique identifier provided by you that is used in conjunction with the Nosto cookie. The customer-reference can also be used to uniquely identify users in lieu of an email address.
 
 The customer-reference should be a long, secure and a non-guessable identifier. For example, use your internal customer-id or the customer's loyalty program identifier and use a secure hash function like an HMAC-SHA256 to hash it.
-

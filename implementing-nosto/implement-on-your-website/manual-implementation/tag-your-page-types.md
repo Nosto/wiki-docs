@@ -20,9 +20,12 @@ nostojs(api => {
 })
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 or via DOM tagging
 
 ```markup
  <div class="nosto_page_type" style="display:none" translate="no">product</div>
 ```
-

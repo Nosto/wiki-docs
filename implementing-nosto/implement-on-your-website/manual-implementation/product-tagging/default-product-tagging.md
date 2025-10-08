@@ -19,6 +19,10 @@ nostojs(api => {
 })
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 The full schema for product tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.PushedProduct.html)
 
 or via DOM tagging
@@ -113,16 +117,8 @@ If you want to use Nosto’s margin filter, you need to send supplier cost via [
 
 Once included on all pages, you can review if the site is transmitting data using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see product attributes being picked up under "Tagging" then the product details are correctly set up. You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to the Catalog Explorer: **https://my.nosto.com/admin/$accountID/products**
 
-<div data-full-width="true">
-
-<img src="https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-product-tagging.png" alt="Nosto debug toolbar / products">
-
- 
-
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>The UI of the Catalog Explorer (CE)</p></figcaption></figure>
-
-</div>
+<div data-full-width="true"><img src="https://nosto-campaign-assets.s3.amazonaws.com/images/nosto-product-tagging.png" alt="Nosto debug toolbar / products"> <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>The UI of the Catalog Explorer (CE)</p></figcaption></figure></div>
 
 ### Translate attribute
 
-The translate attribute is a [HTML5 standard attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global\_attributes/translate) which specifies whether the value of the element and it's `Text` node children should be translated. If your tagging elements are being translated by e.g. Google Translator then this is the way to opt out elements being translated by Google and possibly other vendors.
+The translate attribute is a [HTML5 standard attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate) which specifies whether the value of the element and it's `Text` node children should be translated. If your tagging elements are being translated by e.g. Google Translator then this is the way to opt out elements being translated by Google and possibly other vendors.

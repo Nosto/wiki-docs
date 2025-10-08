@@ -9,6 +9,12 @@ nostojs(api => {
 })
 ```
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
+The full schema for product tagging is defined [here](https://nosto.github.io/nosto-js/interfaces/client.PushedProduct.html)
+
 or via DOM tagging
 
 ```markup
