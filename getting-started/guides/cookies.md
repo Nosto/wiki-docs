@@ -91,7 +91,7 @@ Cookies below may need to be be explicitly added within the settings:
 * `nostoCookieFilterMapping`
 * `nosto_preview`
 
-### 4. Summary Checklist
+### 5. Summary Checklist
 
 Banner shows on first visit (unless automatic acceptance is enabled).
 
