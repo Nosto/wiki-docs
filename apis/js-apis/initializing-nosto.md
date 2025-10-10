@@ -7,7 +7,7 @@ Nosto is initialized automatically once the script has loaded. Unlike the legacy
 In the event that you would like to initialize Nosto but not have it automatically load the recommendations, you can set `setAutoLoad` to false.
 
 ```javascript
-  nostojs(api => api.setAutoLoad(false));
+nostojs(api => api.setAutoLoad(false));
 ```
 
 _Also see_: [spa-basics-setting-up.md](../frontend/implementation-guide-session-api/spa-basics-setting-up.md "mention") for how to first include the script stub that allows API usage in this manner.

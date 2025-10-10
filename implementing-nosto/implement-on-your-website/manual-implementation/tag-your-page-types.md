@@ -26,6 +26,6 @@ To learn more about the `api.setTaggingProvider` usage, please refer to the [off
 
 or via DOM tagging
 
-```markup
+```html
  <div class="nosto_page_type" style="display:none" translate="no">product</div>
 ```

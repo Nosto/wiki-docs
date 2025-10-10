@@ -68,13 +68,13 @@ nostojs(api => {
 
 These colon separated values are then parsed into an object with format { "key1":"value1,value2", "key2":"value1" }.
 
-```markup
+```javascript
 texts.keyValueTexts(nodes)
 ```
 
 The above method will receive references to all the "nosto\_custom\_field" elements. It extracts the colon separated strings and parses them to an object. For e.g. the above gender and material custom fields will be parsed to
 
-```markup
+```json
 {
   "gender": "male",
   "material": "cotton"
@@ -94,3 +94,8 @@ nostojs(api => {
 })
 ```
 
+## See also
+
+To learn more about the `setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+
+For more information on `loadRecommendations`, refer to [this](https://nosto.github.io/nosto-js/interfaces/client.API.html#loadrecommendations) API documentation
