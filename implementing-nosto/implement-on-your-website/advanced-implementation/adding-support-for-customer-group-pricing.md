@@ -79,11 +79,11 @@ Ensure that a span element with the class `variation_id` is added as a child of 
 
 ### What about the prices in the cart and the order tagging?
 
-The cart and order tagging can be left as-is but the prices must be in the customer's currently active currency. For example, a customer shopping in Swiss Francs \(CHF\) should have all the cart items tagged in Swiss Francs \(CHF\). Failure to do so will result in incorrect prices in any triggered emails such as abandoned cart or order followup.
+The cart and order tagging can be left as-is but the prices must be in the customer's currently active currency. For example, a customer shopping in Swiss Francs (CHF) should have all the cart items tagged in Swiss Francs (CHF). Failure to do so will result in incorrect prices in any triggered emails such as abandoned cart or order followup.
 
 ## Specifying the active variation
 
-Once you have amended the product tagging, an additional DIV element must be added to all the other pages \(including the product page itself\). The tag should not be encapsulated in the `nosto_product` DIV tag. The information sent in the tag refers to the segment of the customer.
+Once you have amended the product tagging, an additional DIV element must be added to all the other pages (including the product page itself). The tag should not be encapsulated in the `nosto_product` DIV tag. The information sent in the tag refers to the segment of the customer.
 
 ```js
 nostojs(api => {
@@ -97,11 +97,11 @@ or via DOM tagging
 <div class="nosto_variation" style="display: none;">GENERAL</div>
 ```
 
-For example, on the site of a retailer, who has different prices for normal \(GENERAL\) and loyal \(LOYAL\) customers, if the customer is a logged in customer and is a known loyalty customer, the `nosto_variation` element should show `LOYAL`. If the customer logs out or a new customer visits, and there is no way to identify him as a loyal customer, the `nosto_variation` element should show `GENERAL`.
+For example, on the site of a retailer, who has different prices for normal (GENERAL) and loyal (LOYAL) customers, if the customer is a logged in customer and is a known loyalty customer, the `nosto_variation` element should show `LOYAL`. If the customer logs out or a new customer visits, and there is no way to identify him as a loyal customer, the `nosto_variation` element should show `GENERAL`.
 
 ## Enabling multi-variants from the admin
 
-Once the tagging changed have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** &gt; **Other** &gt; **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
+Once the tagging changed have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
 
 ![](https://user-images.githubusercontent.com/327432/36842403-419416ae-1d54-11e8-9bea-a979d7896977.png)
 
@@ -113,7 +113,7 @@ You will also need to configure the price formatting for your primary and second
 
 ## Reviewing your changes
 
-Once you enabled multi-variants you can preview the product prices for different groups by navigating to **Tools** &gt; **Products** and choosing a product.
+Once you enabled multi-variants you can preview the product prices for different groups by navigating to **Tools** > **Products** and choosing a product.
 
 You will see one or more dropdowns that contain the prices and the availability for that group.
 
@@ -121,3 +121,6 @@ You will see one or more dropdowns that contain the prices and the availability 
 
 When you have reviewed your set-up, you’re all set and ready to go live with our features. Nosto will automatically handle the different customer groups across its feature set.
 
+## See also
+
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).

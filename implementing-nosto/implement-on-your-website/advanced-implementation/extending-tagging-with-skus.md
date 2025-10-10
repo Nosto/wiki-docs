@@ -86,7 +86,7 @@ or via DOM tagging
 
 **Extending the cart tagging with SKU metadata**
 
-When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+When tagging the cart contents as outlined here, you can also tag information of the actual SKU that was added to cart.
 
 ```javascript
 nostojs(api => {
@@ -149,10 +149,9 @@ or via DOM tagging
 
 Notice the extra `<span class="sku_id">` attribute.
 
-
 **Extending the order tagging with SKU metadata**
 
-When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart. 
+When tagging the order contents as outlined here, you can also tag information of the actual SKU that was added to cart.
 
 ```javascript
 nostojs(api => {
@@ -180,7 +179,6 @@ nostojs(api => {
 ```
 
 or via DOM tagging
-
 
 ```markup
 <div class="nosto_purchase_order" style="display:none" translate="no">
@@ -216,13 +214,15 @@ or via DOM tagging
 
 Notice the extra `<span class="sku_id">` attribute inside each of the `purchased_items`.
 
+{% hint style="info" %}
+To learn more about the `api.setTaggingProvider` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+{% endhint %}
+
 ## Validating
 
 Once included you can review if the SKUs are picked up by using the [Nosto Debug Toolbar](https://help.nosto.com/get-started/guides/how-to-use-the-nosto-debug-toolbar). If you can see individual SKUs being picked up below the original product details then this is correctly set up.
 
-You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to Tools → Products \([https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)\)
-![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalog](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png)
-![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalog](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png)
+You can further verify that products are being indexed to the catalog under the Nosto admin by navigating to Tools → Products ([https://my.nosto.com/admin/$accountID/campaigns/products/list](https://my.nosto.com/admin/$accountID/campaigns/products/list)) ![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalog](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png) ![Sku debug toolbar](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-toolbar.png) ![Sku product catalog](https://nosto-campaign-assets.s3.amazonaws.com/images/sku-catalogue.png)
 
 ## FAQ
 
@@ -231,4 +231,3 @@ You can further verify that products are being indexed to the catalog under the 
 No, Nosto does no recommend individual SKUs. While this is something on our roadmap, at the moment, you do not need to send any events when an SKU is selected.
 
 For example, assume you had a product page selling a shoe. In this case, the product tagging would always point to the id of the shoe. No events should be dispatched when the customer selects a particular size such as S, M, L.
-
