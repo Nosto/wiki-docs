@@ -43,6 +43,12 @@ nostojs(api => {
 
 If for implementation specific reasons there are multiple calls for product related recommendations on the product page, only the first request should track the event and subsequent requests should have the `{ trackEvents: false }` flag include.
 
+{% hint style="info" %}
+To learn more about the `viewProduct` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewproduct)
+
+Also check out the official documentation for [enableCampaignInjection](https://nosto.github.io/nosto-js/interfaces/client.Session.html#enablecampaigninjection) and [setPlacements](https://nosto.github.io/nosto-js/interfaces/client.Action.html#setplacements-1)
+{% endhint %}
+
 ### Handling attribution
 
 When a recommended product is viewed, the `result_id` from the recommendation result should be used. Below is an example recommendation result (some fields have been omitted).
@@ -99,6 +105,10 @@ nostojs(api => {
 
 Please note that Nosto will not inject the returned HTML into the DOM even if the response mode is set to HTML. The logic for injecting the recommendations must be implemented in the application side.
 
+{% hint style="info" %}
+To learn more about the `viewNotFound` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewnotfound-1)
+{% endhint %}
+
 ### Including Add to Cart-buttons into Recommendations
 
 Usually adding an Add to cart button directly into the recommendation which lists multiple products is fairly straightforward, the website just needs to have an appropriate javascript function to do the operation. Nosto provides ready-made functions for multiple platforms so check the Nosto documentation specific to your e-commerce platform or if needed look into your e-commerce platform's documentation and support on how to create such a function.
@@ -114,6 +124,10 @@ nostojs(api => {
 ```
 
 ⚠️ The api call is only for informing Nosto about the attribution (that the product was added from the recommendation), `setCart` function in the Session API should be used to tell Nosto the user’s cart contents.
+
+{% hint style="info" %}
+To learn more about the `reportAddToCart` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#reportaddtocart)
+{% endhint %}
 
 ## Working with content
 
@@ -168,3 +182,7 @@ nostojs(api => {
       .then(handleResponse)
 })
 ```
+
+{% hint style="info" %}
+To learn more about the `addAffinity` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Action.html#addaffinity-1)
+{% endhint %}

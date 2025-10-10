@@ -16,6 +16,10 @@ nostojs(api => {
 });
 ```
 
+{% hint style="info" %}
+To learn more about the `viewFrontPage` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewfrontpage).
+{% endhint %}
+
 ## Upon viewing a product
 
 When viewing a product, you should send the product-id of the current product being viewed. Unlike the regular implementation, you do not need to pass the entirety of the product metadata.
@@ -31,6 +35,10 @@ nostojs(api => {
     })
 });
 ```
+
+{% hint style="info" %}
+To learn more about the `viewProduct` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewproduct).
+{% endhint %}
 
 ## Upon viewing a product variant
 
@@ -49,6 +57,10 @@ nostojs(api => {
 
 {% hint style="info" %}
 This example leverages dynamic placements and html rendering
+{% endhint %}
+
+{% hint style="info" %}
+To learn more about the `viewProductSku` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewproductsku)
 {% endhint %}
 
 ## Upon viewing a category
@@ -77,7 +89,12 @@ nostojs(api => {
     ...
 });
 ```
+
 It is needed for accurate attribution in certain Nosto products such as Category Merchandising.
+
+{% hint style="info" %}
+To learn more about the `viewCategory` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcategory)
+{% endhint %}
 
 {% hint style="info" %}
 You don’t need to ensure the case-sensitivity of the category being passed so long as the path is tagged in the same way as your products’ categories are.
@@ -109,6 +126,10 @@ nostojs(api => {
 
 **Note:** You don’t need to normalize or encode the search query in any way.
 
+{% hint style="info" %}
+To learn more about the `viewSearch` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewsearch)
+{% endhint %}
+
 ## Upon starting a checkout
 
 When viewing a checkout page, there's no context to be provided, so invoking the `viewCart` will suffice.
@@ -124,6 +145,10 @@ nostojs(api => {
     })
 });
 ```
+
+{% hint style="info" %}
+To learn more about the `viewCart` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcart)
+{% endhint %}
 
 ## Upon placing an order
 
@@ -166,6 +191,10 @@ nostojs(api => {
 });
 ```
 
+{% hint style="info" %}
+To learn more about the `addOrder` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#addorder)
+{% endhint %}
+
 ## Upon viewing a page that was not found (404)
 
 When viewing a page / view that was not found, there's no context to be provided, so invoking the `viewNotFound` will suffice.
@@ -182,6 +211,10 @@ nostojs(api => {
 });
 ```
 
+{% hint style="info" %}
+To learn more about the `viewNotFound` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewnotfound)
+{% endhint %}
+
 ## Upon viewing a general page
 
 When a page with a type - other than the ones listed here - is viewed, there's no context to be provided, so invoking the `viewOther` will suffice.
@@ -197,3 +230,11 @@ nostojs(api => {
     })
 });
 ```
+
+{% hint style="info" %}
+To learn more about the `viewOther` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewother)
+{% endhint %}
+
+## See also
+
+To learn more about the `api.defaultSession` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).

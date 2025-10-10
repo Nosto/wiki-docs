@@ -6,7 +6,7 @@ This method disables the initialization of Nosto entirely, meaning that all asso
 
 You will need to wrap the Nosto script in a conditional that activates only if the customer has accepted to activate Nosto. Below is an example that simply checks for the existence of a cookie called `accepts_marketing` but you should change the conditional to match your consent management implementation.
 
-```
+```javascript
 <script type="text/javascript">
 if (document.cookie.indexOf('accepts_marketing') >= 0) {
   var head = document.getElementsByTagName('head')[0];

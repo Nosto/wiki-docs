@@ -102,7 +102,7 @@ nostojs(api => {
 });
 ```
 
-**Note:** 
+**Note:**
 
 1. Passing `null` or `undefined` will prevent the customer information from being mutated on Nosto. Passing an empty object `{}` will reset the customer information.
 2. Here `viewCart` is only provided as an example. But the actual tracking method to be invoked will depend on customer's current page. For more information on this, please refer [Tracking Events](spa-basics-tracking-events.md#tracking-events)
@@ -121,3 +121,8 @@ The customer-reference can be leveraged to unify sessions across channels such a
 
 The customer-reference should be a long, secure and a non-guessable identifier. For example, use your internal customer-id or the customer's loyalty program identifier and use a secure hash function like an HMAC-SHA256 to hash it.
 
+## See also
+
+To learn more about the `api.defaultSession` usage, please refer to the [official API documentation](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider).
+
+For more information on `setCustomer`, refer to [this](https://nosto.github.io/nosto-js/interfaces/client.Session.html#setcustomer-1) API documentation
