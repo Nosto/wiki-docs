@@ -56,7 +56,7 @@ As an alternative to `nosto_element` divs, you can use the `<nosto-campaign>` we
 
 ### Advanced features
 
-The web component supports additional features like lazy loading, product-specific recommendations, and cart synchronization:
+The web component supports additional features like lazy loading, product-specific recommendations, cart synchronization, and embedded Vue templates:
 
 ```html
 <!-- Lazy-loaded campaign -->
@@ -67,6 +67,16 @@ The web component supports additional features like lazy loading, product-specif
 
 <!-- Cart-synchronized campaign -->
 <nosto-campaign placement="cart-recommendations" cart-synced></nosto-campaign>
+
+<!-- Campaign with embedded Vue template -->
+<nosto-campaign placement="best-sellers">
+  <template>
+    <div class="product-card" v-for="product in products">
+      <span class="product-name">{{ product.name }}</span>
+      <span class="product-price">{{ product.price }}</span>
+    </div>  
+  </template>
+</nosto-campaign>
 ```
 
 ## When to choose each approach
@@ -78,6 +88,7 @@ The web component supports additional features like lazy loading, product-specif
 **Use `<nosto-campaign>` web component when:**
 - You need advanced features like lazy loading or cart synchronization
 - You want better integration with modern web development practices
+- You need embedded Vue templates for store-side templating
 - Working with Shopify themes (additional integration patterns available)
 
 ## Setup and integration
