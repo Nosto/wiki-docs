@@ -2,14 +2,14 @@
 
 You can define placements for Nosto to use in two ways:
 
-1. **Traditional approach**: Using div-elements with `nosto_element` class
+1. **Traditional approach**: Using native HTML elements with `nosto_element` class
 2. **Web component approach**: Using the `<nosto-campaign>` web component
 
 Both approaches mark locations in your site where Nosto can hook into and expose onsite content.
 
 ## Traditional div-element approach
 
-You can define placements via a code block called div-elements. Each element marks a location in your site where Nosto can hook into and expose onsite content.
+You can define placements via native HTML elements with the `nosto_element` class. Each element marks a location in your site where Nosto can hook into and expose onsite content.
 
 Here is an example of a `<div>` tag on the site:
 
@@ -44,7 +44,7 @@ Here is an example of a page with multiple `<div>` elements:
 
 ## Web component approach with `<nosto-campaign>`
 
-As an alternative to `nosto_element` divs, you can use the `<nosto-campaign>` web component. This approach exposes campaigns without adding wrapper divs, providing cleaner markup integration.
+As an alternative to `nosto_element` divs, you can use the `<nosto-campaign>` web component. This approach provides cleaner markup integration.
 
 ### Basic usage
 
@@ -72,17 +72,15 @@ The web component supports additional features like lazy loading, product-specif
 ## When to choose each approach
 
 **Use `nosto_element` divs when:**
-- You need wrapper divs for styling or layout purposes
 - Working with existing legacy implementations
 - You prefer traditional HTML markup patterns
 
 **Use `<nosto-campaign>` web component when:**
-- You want cleaner markup without wrapper divs
 - You need advanced features like lazy loading or cart synchronization
 - You want better integration with modern web development practices
 - Working with Shopify themes (additional integration patterns available)
 
 ## Setup and integration
 
-To use the `<nosto-campaign>` web component, you need to include the Nosto Web Components library. For detailed setup instructions and Shopify-specific integration patterns, see the [Web Components documentation](/apis/frontend/web-components/README.md) and [Shopify integration guide](/apis/frontend/web-components/shopify-integration.md).
+To use the `<nosto-campaign>` web component, you need to include the Nosto Web Components library. For detailed setup instructions, see the [Web Components documentation](/apis/frontend/web-components/README.md).
 
