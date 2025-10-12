@@ -78,7 +78,7 @@ The web component supports additional features like lazy loading, product-specif
 
 **Use `<nosto-campaign>` web component when:**
 - You want cleaner markup without wrapper divs
-- You need advanced features like lazy loading or cart synchronization  
+- You need advanced features like lazy loading or cart synchronization
 - You want better integration with modern web development practices
 - Working with Shopify themes (additional integration patterns available)
 
