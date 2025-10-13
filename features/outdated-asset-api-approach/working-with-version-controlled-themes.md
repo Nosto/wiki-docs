@@ -13,4 +13,4 @@ In the event that you are using source-control for your themes, you may need to 
 3. Download the theme to your local directory where your theme sources are version controlled
 4. Use the Git tool to inspect all the changes made to your theme and commit them to the version control
 
-If you have multiple themes, the same procedure can be used. We recommend that you read up on [Working with multiple themes](https://docs.nosto.com/shopify/guides/working-with-multiple-themes)
+If you have multiple themes, the same procedure can be used.&#x20;
