@@ -97,9 +97,8 @@ class MyNosto extends Module
 
 Once you have overridden the product model and customised whatever fields you may need, you should verify that it, in fact, working as expected.
 
-A simple way to verify that the changes are working would be to view any product page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://help.nosto.com/get-started/nosto-debug-toolbar/) in our Support Center.
+A simple way to verify that the changes are working would be to view any product page with the Nosto debug-mode enabled. The debug mode can be enabled by adding the query parameter `nostodebug=true` to the end of any URL. This will cause a helpful debug toolbar to appear where you can view the tagged data on the page. For more information on the debug-toolbar, please refer to this guide titled [Nosto Debug Toolbar](https://help.nosto.com/en/articles/1441625-how-to-use-the-nosto-debug-toolbar) in our Support Center.
 
 If you were to extend the product model using the example given above, you would see that the "Tags" field in the debug-toolbar will read "nosto".
 
 **NOTE:** Please note that in order to verify the changes using the debug-toolbar, you must have a Nosto account for the given store.
-
