@@ -1,4 +1,4 @@
-# Shopify International
+# Shopify International (Markets)
 
 ## **Overview**
 
@@ -41,6 +41,21 @@ Here you can:&#x20;
 * Set up your campaigns, templates, rulesets, and other details within your Nosto Market accounts to precisely target individual Markets. All linked Markets will utilise the Main Accounts campaigns automatically\
   \--> Unlinked Markets will fall back to your Master Account&#x20;
 * If you don't wish to tailor campaigns for each Main Account specifically, you can reach out to the Nosto team, who can copy the configurations to your accounts.
+
+**Web Presence & How to Create it in Shopify:**
+
+* A web presence defines how customers in a market access the store — through a specific domain, subdomain, or subfolder (for example, `mystore.com/fr` or `ca.mystore.com`).\
+  Nosto uses this configuration to identify and map each market’s domain, ensuring that scripts, recommendations, and analytics load under the correct account context.
+* **Steps to Create or Update a Web Presence in Shopify**
+  * Go to your Shopify Admin Panel → Markets and select the market you want to configure.
+  * Ensure the market is enabled.
+  * Under Domains and Languages, choose Add domain or Manage domain to assign a domain, subdomain, or subfolder.
+  * Set the default language and confirm translations if applicable.
+  * Click Save and publish — the new market web presence will now appear in the Shopify Admin Markets list and be available for Nosto synchronization.
+* **Verification in Nosto**
+  * Navigate to Integrations → Shopify Markets.
+  * Click Sync Shopify Markets.
+  * The updated market should appear with its locale and domain. If the market appears under “unknown,” its web presence is missing or unpublished.
 
 ## Fulfillable Inventory
 
