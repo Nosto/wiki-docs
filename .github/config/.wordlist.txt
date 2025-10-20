@@ -134,3 +134,11 @@ namespace
 transpilation
 polyfill
 Swiper
+nosto
+divs
+html
+apis
+frontend
+md
+frontpage
+README
