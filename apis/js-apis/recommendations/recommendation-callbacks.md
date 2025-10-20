@@ -41,24 +41,26 @@ nostojs(api => {
 #### Fields <a href="#fields-1" id="fields-1"></a>
 
 <table data-header-hidden><thead><tr><th></th><th width="115.0859375"></th><th></th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td>affinityScores</td><td>Object</td><td><p>Describes visitor's most preferred brands and categories, the object has two attributes top_brands and top_categories which are arrays that contain maximum 5 most preferred brands/categories for the visitor. Example content:</p><pre class="language-json" data-overflow="wrap"><code class="lang-json">{
-top_brands: [
-{
-    name:"Acme",
-    score:0.8
-},
-{
-    name:"Universal",
-    score:0.3
-}]
+  top_brands: [
+    {
+      name:"Acme",
+      score:0.8
+    },
+    {
+      name:"Universal",
+      score:0.3
+    }
+  ]
 }
 </code></pre></td></tr><tr><td>segments</td><td>Object</td><td><p>Information about which segments the visitor falls into. active_segments field contains a list of segment identifiers that were active on the latest request to Nosto. Segment identifiers can be retrieved from the Nosto backend, or queried from the <a href="https://docs.nosto.com/techdocs/apis/graphql-an-introduction/graphql-using-queries/graphql-querying-segments">GraphQL API</a>. Example content:</p><pre class="language-json"><code class="lang-json">{
-active_segments:[
-{
-id:"5a497a000000000000000004"
-},
-{
-id:"5aa12b8960b2352d326d77f1"
-}]
+  active_segments:[
+    {
+      id:"5a497a000000000000000004"
+    },
+    {
+      id:"5aa12b8960b2352d326d77f1"
+    }
+  ]
 }
 </code></pre></td></tr></tbody></table>
 
