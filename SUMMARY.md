@@ -30,6 +30,7 @@
 * [Implement Search & Categories](implementing-nosto/implement-search/README.md)
   * [Using Search Templates](implementing-nosto/implement-search/implement-search-using-code-editor/README.md)
     * [Using Search Templates](implementing-nosto/implement-search/implement-search-using-code-editor/using-the-code-editor.md)
+    * [Using Nosto CLI](implementing-nosto/implement-search/implement-search-using-code-editor/using-nosto-cli.md)
     * [Implementing Search page](implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page.md)
     * [Implementing Autocomplete](implementing-nosto/implement-search/implement-search-using-code-editor/implementing-autocomplete.md)
     * [Implementing Category pages](implementing-nosto/implement-search/getting-started-with-nosto-search/implementing-category-pages.md)
