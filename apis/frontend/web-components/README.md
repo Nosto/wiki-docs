@@ -73,7 +73,7 @@ Template-based rendering:
       </a>
       <span class="product-name">{{ product.name }}</span>
       <span class="product-price">{{ product.price }}</span>
-    </div>  
+    </div>
   </template>
 </nosto-campaign>
 ```
@@ -578,7 +578,7 @@ Product card with responsive images:
 
 ```html
 <nosto-simple-card 
-  handle="awesome-product" 
+  handle="awesome-product"
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
 </nosto-simple-card>
 ```
