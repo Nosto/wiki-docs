@@ -630,8 +630,9 @@ Variant selector combined with SimpleCard:
 
 ```html
 <div class="product-display">
-  <nosto-simple-card handle="awesome-product"></nosto-simple-card>
-  <nosto-variant-selector handle="awesome-product" preselect></nosto-variant-selector>
+  <nosto-simple-card handle="awesome-product">
+    <nosto-variant-selector handle="awesome-product" preselect></nosto-variant-selector>
+  </nosto-simple-card>
 </div>
 ```
 
