@@ -1,6 +1,6 @@
 # Web Components
 
-[Nosto Web Components](https://github.com/Nosto/web-components) provides the necessary APIs to handle side-effects of a recommendation template like "Add to cart" button events, and other platform-specific APIs.
+[Nosto Web Components](https://github.com/Nosto/web-components) offers various custom elements for both store and campaign level templating.
 
 **Note**:\
 This package provides headless web components. Templates must be provided by the user.
@@ -15,9 +15,12 @@ This package provides the following web components:
 | [Control](./#control)                 | Templating                |
 | [DynamicCard](./#dynamiccard)         | Templating (Shopify only) |
 | [Image](./#image)                     | Progressive Enhancement   |
+| [Popup](./#popup)                     | Store level templating    |
 | [Product](./#product)                 | Progressive Enhancement   |
 | [SectionCampaign](./#sectioncampaign) | Templating (Shopify only) |
+| [SimpleCard](./#simplecard)           | Campaign level templating |
 | [SkuOptions](./#skuoptions)           | Progressive Enhancement   |
+| [VariantSelector](./#variantselector) | Campaign level templating |
 
 ### `Campaign`
 
@@ -70,7 +73,7 @@ Template-based rendering:
       </a>
       <span class="product-name">{{ product.name }}</span>
       <span class="product-price">{{ product.price }}</span>
-    </div>  
+    </div>
   </template>
 </nosto-campaign>
 ```
@@ -257,6 +260,58 @@ Usage with responsive sizes attribute:
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
 </nosto-image>
 ```
+
+### `Popup`
+
+The `Popup` custom element displays popup content with dialog and ribbon slots. It supports conditional activation based on Nosto segments and persistent closure state. The popup's closed state is remembered using localStorage to prevent showing the same popup repeatedly to users.
+
+#### Component attributes
+
+| Attribute | Description                                                                                                                                     |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`    | **Required.** Name used for analytics and localStorage persistence. The popup's closed state will be remembered using this identifier.         |
+| `segment` | Optional Nosto segment that acts as a precondition for activation. Only users in this segment will see the popup.                              |
+
+#### Usage examples
+
+**Example #1**:
+
+Simple popup without segment restriction:
+
+```html
+<nosto-popup name="newsletter-signup">
+  <div class="popup-content">
+    <h3>Subscribe to our Newsletter</h3>
+    <form>
+      <input type="email" placeholder="Enter your email" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <button n-close>No, thanks</button>
+  </div>
+  <div slot="ribbon">Newsletter</div>
+</nosto-popup>
+```
+
+**Example #2**:
+
+Basic popup with dialog and ribbon content:
+
+```html
+<nosto-popup name="promo-popup" segment="5b71f1500000000000000006">
+  <h2>Special Offer!</h2>
+  <p>Get 20% off your order today</p>
+  <button n-close>Close</button>
+  <div slot="ribbon">
+    <span>Limited time!</span>
+  </div>
+</nosto-popup>
+```
+
+#### Markup Attributes
+
+| Attribute | Description                                                                           |
+| --------- | ------------------------------------------------------------------------------------- |
+| `n-close` | Marks an element as a close trigger. Clicking this element will close the popup.     |
 
 ### `Product`
 
@@ -481,6 +536,111 @@ The component does not handle styling for disabled options and it has to be appl
   ...
 </nosto-product>
 ```
+
+### `SimpleCard`
+
+The `SimpleCard` custom element displays a product card using Shopify product data. It fetches product data from `/products/<handle>.js` and renders a card with responsive product image(s), title, price, and optional brand, discount, and rating information.
+
+The component renders inside a shadow DOM with encapsulated styles and provides built-in "Add to cart" functionality.
+
+#### Component attributes
+
+| Attribute   | Description                                                                                                      |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                     |
+| `alternate` | Show alternate product image on hover. Defaults to `false`.                                                     |
+| `brand`     | Show brand/vendor data. Defaults to `false`.                                                                    |
+| `discount`  | Show discount data. Defaults to `false`.                                                                        |
+| `rating`    | Show product rating. Defaults to `false`.                                                                       |
+| `sizes`     | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
+
+#### Usage examples
+
+**Example #1**:
+
+Basic product card:
+
+```html
+<nosto-simple-card handle="awesome-product"></nosto-simple-card>
+```
+
+**Example #2**:
+
+Product card with all features enabled:
+
+```html
+<nosto-simple-card handle="awesome-product" alternate brand discount rating></nosto-simple-card>
+```
+
+**Example #3**:
+
+Product card with responsive images:
+
+```html
+<nosto-simple-card 
+  handle="awesome-product"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+</nosto-simple-card>
+```
+
+#### Events
+
+The component listens for `variantchange` events to update the displayed product variant information.
+
+#### Markup Attributes
+
+| Attribute | Description                                                                           |
+| --------- | ------------------------------------------------------------------------------------- |
+| `n-atc`   | Marks an element as "Add to cart" trigger. Clicking this element will add the current product variant to the cart. |
+
+### `VariantSelector`
+
+The `VariantSelector` custom element displays product variant options as clickable pills. It fetches product data from `/products/<handle>.js` and renders option rows with clickable value pills. Optionally preselects the first value for each option and highlights the currently selected choices.
+
+The component emits a custom `variantchange` event when variant selections change, making it compatible with other components like `SimpleCard`.
+
+#### Component attributes
+
+| Attribute   | Description                                                                                                      |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                     |
+| `preselect` | Whether to automatically preselect the first value for each option. Defaults to `false`.                       |
+
+#### Usage examples
+
+**Example #1**:
+
+Basic variant selector:
+
+```html
+<nosto-variant-selector handle="awesome-product"></nosto-variant-selector>
+```
+
+**Example #2**:
+
+Variant selector with auto-preselection:
+
+```html
+<nosto-variant-selector handle="awesome-product" preselect></nosto-variant-selector>
+```
+
+**Example #3**:
+
+Variant selector combined with SimpleCard:
+
+```html
+<div class="product-display">
+  <nosto-simple-card handle="awesome-product">
+    <nosto-variant-selector handle="awesome-product" preselect></nosto-variant-selector>
+  </nosto-simple-card>
+</div>
+```
+
+#### Events
+
+| Event           | Description                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| `variantchange` | Emitted when variant selection changes. The event detail contains `{ variant, product }` data. |
 
 ## Vue-like templating
 
