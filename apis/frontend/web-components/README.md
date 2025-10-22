@@ -1,6 +1,6 @@
 # Web Components
 
-[Nosto Web Components](https://github.com/Nosto/web-components) provides various custom elements for both store and campaign level templating.
+[Nosto Web Components](https://github.com/Nosto/web-components) offers various custom elements for both store and campaign level templating.
 
 **Note**:\
 This package provides headless web components. Templates must be provided by the user.
@@ -276,21 +276,6 @@ The `Popup` custom element displays popup content with dialog and ribbon slots. 
 
 **Example #1**:
 
-Basic popup with dialog and ribbon content:
-
-```html
-<nosto-popup name="promo-popup" segment="5b71f1500000000000000006">
-  <h2>Special Offer!</h2>
-  <p>Get 20% off your order today</p>
-  <button n-close>Close</button>
-  <div slot="ribbon">
-    <span>Limited time!</span>
-  </div>
-</nosto-popup>
-```
-
-**Example #2**:
-
 Simple popup without segment restriction:
 
 ```html
@@ -304,6 +289,21 @@ Simple popup without segment restriction:
     <button n-close>No, thanks</button>
   </div>
   <div slot="ribbon">Newsletter</div>
+</nosto-popup>
+```
+
+**Example #2**:
+
+Basic popup with dialog and ribbon content:
+
+```html
+<nosto-popup name="promo-popup" segment="5b71f1500000000000000006">
+  <h2>Special Offer!</h2>
+  <p>Get 20% off your order today</p>
+  <button n-close>Close</button>
+  <div slot="ribbon">
+    <span>Limited time!</span>
+  </div>
 </nosto-popup>
 ```
 
@@ -539,7 +539,7 @@ The component does not handle styling for disabled options and it has to be appl
 
 ### `SimpleCard`
 
-The `SimpleCard` custom element displays a product card using Shopify product data. It fetches product data from `/products/<handle>.js` and renders a card with product image, title, price, and optional brand, discount, and rating information.
+The `SimpleCard` custom element displays a product card using Shopify product data. It fetches product data from `/products/<handle>.js` and renders a card with responsive product image(s), title, price, and optional brand, discount, and rating information.
 
 The component renders inside a shadow DOM with encapsulated styles and provides built-in "Add to cart" functionality.
 
@@ -552,7 +552,7 @@ The component renders inside a shadow DOM with encapsulated styles and provides 
 | `brand`     | Show brand/vendor data. Defaults to `false`.                                                                    |
 | `discount`  | Show discount data. Defaults to `false`.                                                                        |
 | `rating`    | Show product rating. Defaults to `false`.                                                                       |
-| `sizes`     | The sizes attribute for responsive images to help the browser choose the right image size.                      |
+| `sizes`     | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
 
 #### Usage examples
 
