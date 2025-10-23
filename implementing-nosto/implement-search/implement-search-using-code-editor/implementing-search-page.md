@@ -14,7 +14,7 @@ init({
     inputCssSelector: '#search',
     contentCssSelector: '#content',
     serpPath: '/search',
-    serpPathRedirect: false,
+    serpPathRedirect: true,
     formCssSelector: '#search-form',
     formUnbindDelay: 1000, // 1 second
     serpUrlMapping: {
@@ -29,7 +29,7 @@ init({
 })
 </code></pre>
 
-#### Serp query parameter flavors&#x20;
+#### Serp query parameter flavors
 
 In the example above, we supply serp query parameters as an object. Additionally, the `serpQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters. Section below shows an example of `serpQuery` supplied as a function which provides the product variation id by accessing the pre-defined `variationId` method from the default configuration.
 
@@ -43,7 +43,7 @@ init({
     inputCssSelector: '#search',
     contentCssSelector: '#content',
     serpPath: '/search',
-    serpPathRedirect: false,
+    serpPathRedirect: true,
     formCssSelector: '#search-form',
     formUnbindDelay: 1000, // 1 second
     serpUrlMapping: {
@@ -63,13 +63,39 @@ init({
 
 The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/interfaces/Config.html)
 
-### Search page path
-
-When `serpPath` parameter is specified, the application will **redirect to the specified search** page after a search is conducted. Otherwise, the search will be **rendered** **on the same page** without changing the URL path.
-
 ### Search page redirect
 
-When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the page to the search page specified in `serpPath` and fetch the page. Default behavior will rewrite browser history only to the specified path, without fetching the page.
+When `serpPathRedirect` parameter is set to `true`, the application after search submission will redirect the browser to the search page specified in `serpPath`. Default behavior will only rewrite browser history to the specified path, without reloading the page.
+
+In many cases, the search/autocomplete input is located on a different page from the search results. For example, on the landing or home page; or it may be always visible in the store's header. For those cases, it may be desired to redirect the user to the search results when a search request is submitted. If search page redirect is not configured, Nosto integration assumes that the search results should be rendered on the current page.
+
+The redirect is controlled by two configuration variables:
+
+* `serpPath` (string) - specifies the path to the search page (follows the browser's `location.pathname`).
+* `serpPathRedirect` - (boolean or function) - combined variable that controls whether or not the redirect is enabled, and also provides a custom navigation mechanism if necessary.
+
+When `serpPathRedirect` is omitted or set to `false`,  the default behaviour is to update the browser's history (i.e. rewrite the current URL) to add the search query parameter.
+
+When `serpPathRedirect` is set to `true`, the browser will redirect to the search page indicated by `serpPath` upon search submission. The default mechanism is `location.href = {targetUrl}` . If the current page already matches the search path, the search query parameter will be added instead.
+
+When `serpPathRedirect` is set to a function, it will be called instead of setting `location.href` . This is useful to, for example, interact with your frontend framework, inject custom logic before redirect or handle special cases for redirect. For example:
+
+```javascript
+init({
+    serpPath: '/search',
+    serpPathRedirect: (query: SearchQuery, options: AutocompleteOptions | undefined) => {
+        location.href = `https://store.com/search/${query?.query}` // Query as a path param
+    },
+})
+```
+
+In function form, `serpPathRedirect` exposes the main query object that holds the data which would instead be send to Nosto. The second object simply holds information about the click.
+
+```typescript
+export interface AutocompleteOptions {
+    isKeyword?: boolean // true if the user clicked on a suggested keyword
+}
+```
 
 ### Unbinding existing search input
 
@@ -178,26 +204,21 @@ The `thumbnailDecorator` takes a size argument and requires the following additi
 
 The supported sizes are
 
-<table>
-  <thead>
-    <tr><th>Code</th><th>Description</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>1</td><td>170x170 px</td></tr>
-    <tr><td>2</td><td>100x100 px</td></tr>
-    <tr><td>3</td><td>90x70 px</td></tr>
-    <tr><td>4</td><td>50x50 px</td></tr>
-    <tr><td>5</td><td>30x30 px</td></tr>
-    <tr><td>6</td><td>100x140 px</td></tr>
-    <tr><td>7</td><td>200x200 px</td></tr>
-    <tr><td>8</td><td>400x400 px</td></tr>
-    <tr><td>9</td><td>750x750 px</td></tr>
-    <tr><td>10</td><td>Original (Square)</td></tr>
-    <tr><td>11</td><td>200x200 px (Square)</td></tr>
-    <tr><td>12</td><td>400x400 px (Square)</td></tr>
-    <tr><td>13</td><td>750x750 px (Square)</td></tr> 
-  </tbody>
-</table>
+| Code | Description         |
+| ---- | ------------------- |
+| 1    | 170x170 px          |
+| 2    | 100x100 px          |
+| 3    | 90x70 px            |
+| 4    | 50x50 px            |
+| 5    | 30x30 px            |
+| 6    | 100x140 px          |
+| 7    | 200x200 px          |
+| 8    | 400x400 px          |
+| 9    | 750x750 px          |
+| 10   | Original (Square)   |
+| 11   | 200x200 px (Square) |
+| 12   | 400x400 px (Square) |
+| 13   | 750x750 px (Square) |
 
 The same mapping will also be attempted for SKU level data
 
@@ -212,9 +233,8 @@ The `priceDecorator` utilizes the currency formatting definitions of the Nosto a
   * `price` will be formatted to `priceText`
   * `listPrice` will be formatted to `listPriceText`
   * `priceCurrencyCode` will be used as the currency code
-* **Use the `priceDecorator`**
-  The `priceDecorator` is responsible for formatting prices into text fields using above mentioned fields.
- 
+* **Use the `priceDecorator`** The `priceDecorator` is responsible for formatting prices into text fields using above mentioned fields.
+
 A complete example of the Search-templates configuration:
 
 ```javascript
@@ -249,10 +269,9 @@ init({
 To enable multi-currency functionality in search templates, follow these steps:
 
 * **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
+* **Provide the `variationId`**\
+  The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion.
 
-* **Provide the `variationId`**  
-  The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion. 
-  
 Below is an example of how to include the `variationId` in your search query:
 
 ```js
@@ -583,7 +602,6 @@ This improves the user experience significantly when the user navigates from a p
 
 This feature is useful for both paginated and infinite scroll, but the benefits are significantly more visible with the latter.
 
-{% code %}
 ```jsx
 import { init } from '@nosto/preact'
 
@@ -592,7 +610,6 @@ init({
     persistentSearchCache: true,
 })
 ```
-{% endcode %}
 
 ### Product actions
 
@@ -708,7 +725,6 @@ The `fallback: true` setting only works out of the box if the path is the same f
 
 If the paths differ, you must configure the `serpFallback` or `categoryFallback` function to ensure proper redirection. See: [Customizing Fallback Location](https://docs.nosto.com/techdocs/implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page#customizing-fallback-location)
 {% endhint %}
-
 
 ### Alternative Fallback Behavior
 
