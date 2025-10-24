@@ -2,9 +2,6 @@
 
 [Nosto Web Components](https://github.com/Nosto/web-components) offers various custom elements for both store and campaign level templating.
 
-**Note**:\
-This package provides headless web components. Templates must be provided by the user.
-
 ## Components
 
 This package provides the following web components:
