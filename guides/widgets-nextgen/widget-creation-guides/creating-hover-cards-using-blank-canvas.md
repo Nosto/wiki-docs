@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Creating hover cards using blank canvas
 
 * [Overview](creating-hover-cards-using-blank-canvas.md#overview)

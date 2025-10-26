@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Creating your own widget type using blank canvas
 
 * [Overview](creating-your-own-widget-type-by-using-the-blank-canvas-widget.md#overview)

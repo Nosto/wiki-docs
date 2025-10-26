@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Creating gallery widget by using the blank canvas
 
 * [Overview](creating-gallery-widget-by-using-the-blank-canvas-widget.md#overview)
