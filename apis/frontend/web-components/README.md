@@ -480,7 +480,7 @@ Usage with select elements
 
 Disabled options that are not available due to selections in other groups are marked with the `disabled` attribute and unavailable options that are Out of stock are marked with the `unavailable` attribute. Both should be styled distinctively.
 
-## Pre-selected options
+#### Pre-selected options
 
 In addition to handling APIs, supports pre-selection of SKU options. For example in the template below, option `SKU 2` is rendered with `selected` attribute. With this template, when clicking "Add to cart" button, `SKU 2` gets added to the cart.
 
@@ -514,7 +514,7 @@ with `nosto-sku-options` component
 Note:\
 The component does not handle styling for selected options and it has to be applied from the template.
 
-## Default disabled
+#### Default disabled
 
 This is useful when some SKU options are to be hidden or greyed out. The `disabled` attribute represents an unsupported option and is added to all unsupported SKU options on SKU selections. This is useful when SKU options that are Out-Of-Stock needs to be hidden or greyed out. By default, the `disabled` attribute is added to all unsupported SKU options. For example, when there is no `M` size in `Blue` color, on selection of `Blue` color, the component adds `disabled` attribute to option `M`.
 
