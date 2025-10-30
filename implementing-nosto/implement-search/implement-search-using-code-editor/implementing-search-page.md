@@ -97,6 +97,10 @@ export interface AutocompleteOptions {
 }
 ```
 
+{% hint style="info" %}
+Checkout our API documentation on [serpPathRedirect](https://nosto.github.io/search-templates/interfaces/Config.html#serppathredirect)
+{% endhint %}
+
 ### Unbinding existing search input
 
 To prevent events from firing on an existing input, you need to provide the CSS selector of the form that the input is in to the initialization configuration. When optional `fromCssSelector` is passed, it will unbind the form and the elements inside from existing events. Additionally, `formUnbindDelay` in milliseconds as value can be passed to delay the unbinding functionality.
@@ -135,6 +139,10 @@ export default () => {
 ### Automatic URL Parameter Compression
 
 When the `compressUrlParameters` flag is set to `true`, it automatically applies the URL parameter compression functions for filters, sort and pagination.
+
+{% hint style="info" %}
+Checkout our API documentation on [compressUrlParameters](https://nosto.github.io/search-templates/interfaces/Config.html#compressurlparameters)
+{% endhint %}
 
 <pre class="language-javascript"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
 </strong>
@@ -222,6 +230,10 @@ The supported sizes are
 
 The same mapping will also be attempted for SKU level data
 
+{% hint style="info" %}
+Checkout our API documentation on [thumbnailDecorator](https://nosto.github.io/search-js/functions/thumbnails.thumbnailDecorator.html)
+{% endhint %}
+
 ### Currency formatting
 
 Currency formatting is implemented via the `priceDecorator` decorator function.
@@ -263,6 +275,10 @@ init({
     ]
 });
 ```
+
+{% hint style="info" %}
+Checkout our API documentation on [priceDecorator](https://nosto.github.io/search-js/functions/currencies.priceDecorator.html)
+{% endhint %}
 
 ### Multi-Currency
 
@@ -316,9 +332,43 @@ The [stats facet](https://search.nosto.com/v1/graphql?ref=SearchStatsFacet) retu
 
 **Range Slider**
 
-Utilize the `useRangeSlider` hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the interactive slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+Utilize the `useRange` ( or previously `useRangeSlider` ) hook to generate useful context for rendering range inputs. Additionally, employ the component to generate the interactive slider itself. These tools together facilitate the creation of dynamic and interactive range sliders for your application.
+
+**Example #1:**&#x20;
+
+with useRange
+
+{% code overflow="wrap" %}
+```tsx
+import { useRange } from "@nosto/search-js/preact/hooks";
+import { useState } from "react";
+
+const Component = ({ facetId }) => {
+  const { min, max, range, active, toggleActive, updateRange } = useRange(facetId);
+  
+  return (
+    <div>
+      <button onClick={() => toggleActive()}>
+        {active ? "Hide" : "Show"} Range Filter
+      </button>
+      {active && (
+        <div>
+          Current Range: {range[0]} to {range[1]}
+          <button onClick={() => updateRange([min, max])}>Reset Range</button>
+        </div>
+      )}
+    </div>
+  );
+};
+```
+{% endcode %}
+
+**Example #2**
+
+with useRangeSlider (legacy)
 
 ```jsx
+
 import { RangeSlider, useRangeSlider } from '@nosto/preact'
 
 export default ({ facet }) => {
@@ -349,6 +399,12 @@ export default ({ facet }) => {
     </div>
 }
 ```
+
+{% hint style="info" %}
+Checkout our API documentation for [useRangeSlider](https://nosto.github.io/search-templates/functions/useRange.html) hook
+
+useRangeSlider has been renamed to `useRange` but the older `useRangeSlider` name is still supported for backward compatibility.&#x20;
+{% endhint %}
 
 **Range Selector**
 
@@ -435,6 +491,10 @@ export default function RangeSelector({ facet }) {
 }
 ```
 
+{% hint style="info" %}
+Checkout our API documentation on [useRangeSelector](https://nosto.github.io/search-js/functions/preact_hooks.useRangeSelector.html)
+{% endhint %}
+
 #### Terms facet
 
 The [terms facet](https://search.nosto.com/v1/graphql?ref=SearchTermsFacet) returns field terms for all products found in the search. This feature analyzes the content of each product and extracts meaningful terms. These terms can then be used to filter or refine search results, providing users with a more accurate and targeted product search.
@@ -472,6 +532,10 @@ export default ({ facet }) => {
 ```
 
 You can use the `toggleProductFilter` function to toggle any filter value. This function will either add the filter value if it's not already applied or remove it if it's currently active, thus providing an efficient way to manipulate product filters in your application.
+
+{% hint style="info" %}
+Checkout our API documentation on [useActions](https://nosto.github.io/search-js/functions/preact_hooks.useActions.html) hook
+{% endhint %}
 
 ### Pagination
 
@@ -548,11 +612,19 @@ export default () => {
 ```
 {% endcode %}
 
+{% hint style="info" %}
+Checkout our API documentation on [usePagination](https://nosto.github.io/search-js/functions/preact_hooks.usePagination.html) hook
+{% endhint %}
+
 #### Infinite Scroll
 
 Nosto search-templates library provides a simple out-of-the-box solution to implement infinite scroll functionality. Simply wrapping your product rendering with the `<InfiniteScroll>` component is generally enough.
 
 As the user scrolls the page down, the wrapper will detect it using the `IntersectionObserver`. If it is not supported by the user's browser, a 'load more' button will be shown instead.
+
+{% hint style="info" %}
+Infinite scroll works best when the product images have a pre-defined aspect ratio.
+{% endhint %}
 
 {% code title="serp.jsx" %}
 ```jsx
@@ -577,6 +649,10 @@ function SerpInfiniteScroll() {
 }
 ```
 {% endcode %}
+
+{% hint style="info" %}
+Checkout our API documentation on [InfiniteScroll](https://nosto.github.io/search-js/variables/preact_common.InfiniteScroll.html)
+{% endhint %}
 
 **Observer options**
 
@@ -610,6 +686,10 @@ init({
     persistentSearchCache: true,
 })
 ```
+
+{% hint style="info" %}
+Checkout our API documentation on [persistentSearchCache](https://nosto.github.io/search-templates/interfaces/Config.html#persistentsearchcache)
+{% endhint %}
 
 ### Product actions
 
@@ -699,6 +779,8 @@ export default ({ product }) => {
 
 {% hint style="info" %}
 The `SerpElement` component supports any other HTML attribute, e.g. **class.**
+
+Checkout our API documentation on [SerpElement](https://nosto.github.io/search-js/functions/preact_serp.SerpElement.html)
 {% endhint %}
 
 ## Fallback Functionality
