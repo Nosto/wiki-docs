@@ -1,7 +1,5 @@
 # Getting Started
 
-This guide will walk you through setting up and running the Search Templates Starter project on your local machine for development.
-
 ## Why use the Search Templates Starter?
 
 The Search Templates Starter provides a complete development environment for building custom search experiences with modern tools and practices. It's designed for developers who need:
