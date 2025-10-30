@@ -120,7 +120,7 @@ To use this mode effectively:
 ```bash
 npm run dev:native
 ```
-In this mode, the Starter behaves like a standard React/Preact app. It creates the component tree and renders it normally into the document body. This is useful for:
+In this mode, the Starter behaves like a standard React/Preact app but still uses React Portals with a single injection point (`#app`). It creates the component tree and renders both search and results components together based on the page type (search results or category page). This is useful for:
 - Developing your store from the ground up using Search Templates Starter
 - Testing search functionality without existing page constraints
 - Rapid prototyping of new features
