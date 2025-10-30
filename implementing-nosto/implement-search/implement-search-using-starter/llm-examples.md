@@ -16,9 +16,11 @@ The Search Templates Starter's well-structured codebase and modern tooling make 
 ### Follow Standard Development Patterns
 The Search Templates Starter includes standard development patterns and documentation that LLMs can leverage:
 
-- **AGENTS.md** - Contains specific prompting patterns and conventions for the project
+- **AGENTS.md Standard** - Follow the [agents.md](https://agents.md/) standardized pattern for providing AI coding agents with project-specific context, build commands, code style guidelines, and testing instructions
 - **Copilot Instructions** - Pre-configured GitHub Copilot instructions are included in the repository and should be customized for your specific use case
 - **README patterns** - Follow the established documentation structure for consistency
+
+> **Tip:** Consider creating an `AGENTS.md` file in your project root following the [agents.md standard](https://agents.md/) to provide consistent context for all AI coding tools.
 
 ### Include Context
 Always provide relevant context about the project structure and existing patterns:
