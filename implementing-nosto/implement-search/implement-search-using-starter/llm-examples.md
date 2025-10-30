@@ -45,168 +45,45 @@ Point to existing code as examples:
 
 ## Common Development Tasks
 
-### Adding New Components
+### Component Modifications
 
-**Prompt Template:**
+**Example: Replace FilterSidebar with FilterTopbar**
 ```
-Create a new [ComponentName] component for the Search Templates Starter project. 
+Replace the existing FilterSidebar component with a FilterTopbar component that displays filters horizontally at the top of the search results.
 
-Requirements:
-- Place in src/components/[ComponentName]/
-- Use TypeScript and Preact
-- Follow the existing component patterns
-- Include PropTypes/interface definitions
-- Create a Storybook story
-- Add basic CSS modules for styling
-- Include unit tests with React Testing Library
-
-The component should [specific functionality requirements].
-
-Reference the existing [SimilarComponent] component for patterns.
+Update the layout in Serp component to render FilterTopbar above the products grid instead of FilterSidebar in the sidebar. Maintain all existing filter functionality while adapting the responsive design for horizontal layout.
 ```
 
-**Example: Product Quick View**
+**Example: Replace Pills with Checkboxes in Filters**
 ```
-Create a new ProductQuickView component for the Search Templates Starter project.
+Replace the Pill components used in FilterSidebar with checkbox inputs for better accessibility and mobile usability.
 
-Requirements:
-- Place in src/components/ProductQuickView/
-- Use TypeScript and Preact
-- Follow the existing component patterns
-- Include PropTypes/interface definitions  
-- Create a Storybook story
-- Add basic CSS modules for styling
-- Include unit tests with React Testing Library
-
-The component should display product details in a modal overlay when triggered, showing product images, name, price, description, and an "Add to Cart" button. Use the existing Portal element for modal rendering.
-
-Reference the existing SearchResults component for patterns and the Portal element usage.
+Update the filter display to show checkboxes with labels instead of pill-style buttons, while maintaining the same filter state management and visual feedback for selected filters.
 ```
 
-### Styling and Theme Changes
+### Styling Changes
 
-**Example: Migrating to Tailwind CSS**
+**Example: Replace CSS Modules with Tailwind**
 ```
-Replace the existing CSS modules structure in the Search Templates Starter with Tailwind CSS.
+Convert the Button component from CSS modules to Tailwind CSS classes.
 
-Steps needed:
-1. Install and configure Tailwind CSS with Vite
-2. Update vite.config.ts to include Tailwind
-3. Create a tailwind.config.js with appropriate configuration
-4. Replace all CSS module imports and classes with Tailwind utility classes
-5. Remove the original CSS module files
-6. Update Storybook configuration to support Tailwind
-7. Ensure the existing component functionality remains unchanged
-
-Start with the Button element in src/elements/Button/ as an example, then apply to all components.
+Replace the current Button.module.css imports and className usage with Tailwind utility classes, maintaining the same visual appearance and hover states.
 ```
 
-### API Integration
+### Search Functionality
 
-**Example: Adding Search Filters**
+**Example: Add Voice Search to Autocomplete**
 ```
-Add advanced filtering functionality to the Search Templates Starter.
+Integrate the existing SpeechToTextButton component into the main search input in the Serp component.
 
-Requirements:
-- Create a FilterPanel component in src/components/FilterPanel/
-- Add filter state management to src/contexts/SearchContext.tsx
-- Create custom hooks in src/hooks/useFilters.ts for filter logic
-- Add filter mapping functions in src/mapping/filterMapping.ts
-- Update the search API calls to include filter parameters
-- Add TypeScript interfaces for filter data structures
-- Include comprehensive tests for filter functionality
-
-The filters should support:
-- Price range filtering
-- Category selection
-- Brand filtering  
-- Rating filtering
-- Custom attribute filtering
-
-Reference the existing search implementation patterns and Nosto Search API documentation.
+Position the voice search button inside the search input field and ensure it works consistently across both autocomplete and main search interfaces.
 ```
 
-### Testing
-
-**Example: Adding E2E Tests**
+**Example: Replace Infinite Scroll with Load More Button**
 ```
-Create comprehensive end-to-end tests for the Search Templates Starter using Playwright.
+Replace the current pagination in search results with a "Load More" button that appends new results to the existing list.
 
-Create tests in test/e2e/ for:
-- Basic search functionality
-- Autocomplete behavior
-- Filter interactions
-- Pagination
-- Mobile responsive behavior
-- Performance testing
-
-Tests should:
-- Use Page Object Model pattern
-- Include setup for different merchant configurations
-- Test against both mocked and live Nosto data
-- Include accessibility testing
-- Generate test reports
-
-Reference the existing test structure and follow Playwright best practices.
-```
-
-### Performance Optimization
-
-**Example: Bundle Optimization**
-```
-Optimize the Search Templates Starter build for production performance.
-
-Implement:
-- Code splitting for components and routes
-- Lazy loading for non-critical components
-- Tree shaking optimization in vite.config.ts
-- Asset optimization and compression
-- Bundle analysis and size monitoring
-- Performance monitoring setup
-
-Focus on:
-- Reducing initial bundle size
-- Improving Time to Interactive (TTI)
-- Optimizing Core Web Vitals
-- Maintaining development experience
-
-Provide before/after bundle analysis and performance metrics.
-```
-
-## Advanced Use Cases
-
-### Custom Hook Development
-
-**Example: Search Analytics Hook**
-```
-Create a custom hook useSearchAnalytics in src/hooks/ that:
-
-- Tracks search events and user interactions
-- Integrates with Google Analytics and Nosto Analytics
-- Provides search performance metrics
-- Handles event batching and error handling
-- Includes TypeScript interfaces for analytics data
-- Follows the existing hook patterns in the project
-
-The hook should work with the existing SearchContext and be easily testable.
-```
-
-### Configuration Management
-
-**Example: Multi-Environment Config**
-```
-Enhance the configuration system in src/config.ts to support multiple environments.
-
-Requirements:
-- Support development, staging, and production configurations
-- Environment-specific API endpoints and settings
-- Type-safe configuration with TypeScript
-- Runtime configuration validation
-- Easy switching between configurations
-- Integration with Vite environment variables
-- Documentation for adding new configuration options
-
-Follow the existing configuration patterns and maintain backward compatibility.
+Update the Pagination component to show a centered button instead of page numbers, and modify the search state to accumulate results rather than replace them.
 ```
 
 ## Best Practices for LLM-Assisted Development

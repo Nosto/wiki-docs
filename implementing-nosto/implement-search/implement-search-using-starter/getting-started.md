@@ -25,17 +25,12 @@ Before you begin, ensure you have the following installed on your system:
 
 First, clone the Search Templates Starter repository to your local machine. You can do this using the command line or via the GitHub UI:
 
-**Option 1: Command line**
-```sh
-git clone https://github.com/nosto/search-templates-starter.git
-cd search-templates-starter
-```
-
-**Option 2: GitHub UI**
+**Option 1: GitHub UI (Recommended)**
 1. Go to [Search Templates Starter on GitHub](https://github.com/nosto/search-templates-starter)
-2. Click the **Code** button and select **Download ZIP** or **Open with GitHub Desktop**
-3. Extract the ZIP file or clone the repository using your preferred Git client
+2. Click the **Use this template** button to create your own repository, or click **Code** and select **Download ZIP** or **Open with GitHub Desktop**
+3. If using the template feature, clone your new repository; if downloading, extract the ZIP file
 
+**Option 2: Command Line**
 ```sh
 git clone https://github.com/nosto/search-templates-starter.git
 cd search-templates-starter
@@ -49,12 +44,7 @@ Install the required npm packages:
 npm ci
 ```
 
-This will install all necessary dependencies including:
-- Preact for the UI framework
-- Vite for build tooling and development server
-- TypeScript for type safety
-- Vitest for testing
-- Storybook for component development
+This will install all necessary dependencies for the project.
 
 ## Configuration
 
@@ -66,6 +56,12 @@ The Search Templates Starter requires your Nosto merchant ID to connect to your 
 Create a `.env` file in the root of the project:
 ```
 VITE_MERCHANT_ID=your-merchant-id
+```
+
+For Shopify merchants, you may also want to configure your store URL:
+```
+VITE_MERCHANT_ID=your-merchant-id
+VITE_SHOPIFY_STORE_URL=https://your-store.myshopify.com
 ```
 
 **Option 2: Environment Variable**
