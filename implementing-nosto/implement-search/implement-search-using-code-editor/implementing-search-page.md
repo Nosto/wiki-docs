@@ -4,8 +4,10 @@
 
 To create a search application, call the `init` function with your configuration. This will create a new Preact application that renders on the specified `contentCssSelector`. It will also bind to the input element identified by the provided `inputCssSelector` and execute a search upon form submission.
 
-<pre class="language-javascript" data-title="index.js"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
-</strong>
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
 import serpComponent from './serp'
 
 init({
@@ -27,14 +29,17 @@ init({
         },
     },
 })
-</code></pre>
+```
+{% endcode %}
 
 #### Serp query parameter flavors
 
 In the example above, we supply serp query parameters as an object. Additionally, the `serpQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters. Section below shows an example of `serpQuery` supplied as a function which provides the product variation id by accessing the pre-defined `variationId` method from the default configuration.
 
-<pre class="language-javascript" data-title="index.js"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
-</strong>
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
 import serpComponent from './serp'
 
 init({
@@ -59,7 +64,8 @@ init({
         }
     }
 })
-</code></pre>
+```
+{% endcode %}
 
 The full list of Configuration options is documented [here](https://nosto.github.io/search-templates/interfaces/Config.html)
 
@@ -144,8 +150,9 @@ When the `compressUrlParameters` flag is set to `true`, it automatically applies
 Checkout our API documentation on [compressUrlParameters](https://nosto.github.io/search-templates/interfaces/Config.html#compressurlparameters)
 {% endhint %}
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>import { init } from '@nosto/preact'
-</strong>
+```javascript
+import { init } from '@nosto/preact'
+
 import serpComponent from './serp'
 
 init({
@@ -167,7 +174,7 @@ init({
         },
     },
 })
-</code></pre>
+```
 
 `@nosto/preact` library has pre-built functions for changing search url format:
 
