@@ -13,6 +13,13 @@ The Search Templates Starter's well-structured codebase and modern tooling make 
 
 ## Effective Prompting Strategies
 
+### Follow Standard Development Patterns
+The Search Templates Starter includes standard development patterns and documentation that LLMs can leverage:
+
+- **AGENTS.md** - Contains specific prompting patterns and conventions for the project
+- **Copilot Instructions** - Pre-configured GitHub Copilot instructions are included in the repository and should be customized for your specific use case
+- **README patterns** - Follow the established documentation structure for consistency
+
 ### Include Context
 Always provide relevant context about the project structure and existing patterns:
 

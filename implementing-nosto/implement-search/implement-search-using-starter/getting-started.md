@@ -23,7 +23,18 @@ Before you begin, ensure you have the following installed on your system:
 
 ### 1. Clone the repository
 
-First, clone the Search Templates Starter repository to your local machine:
+First, clone the Search Templates Starter repository to your local machine. You can do this using the command line or via the GitHub UI:
+
+**Option 1: Command line**
+```sh
+git clone https://github.com/nosto/search-templates-starter.git
+cd search-templates-starter
+```
+
+**Option 2: GitHub UI**
+1. Go to [Search Templates Starter on GitHub](https://github.com/nosto/search-templates-starter)
+2. Click the **Code** button and select **Download ZIP** or **Open with GitHub Desktop**
+3. Extract the ZIP file or clone the repository using your preferred Git client
 
 ```sh
 git clone https://github.com/nosto/search-templates-starter.git
@@ -35,7 +46,7 @@ cd search-templates-starter
 Install the required npm packages:
 
 ```sh
-npm install
+npm ci
 ```
 
 This will install all necessary dependencies including:
@@ -51,15 +62,15 @@ This will install all necessary dependencies including:
 
 The Search Templates Starter requires your Nosto merchant ID to connect to your search data. You can provide this in two ways:
 
-**Option 1: Environment Variable**
-```bash
-VITE_MERCHANT_ID=your-merchant-id npm run dev
-```
-
-**Option 2: Environment File**
+**Option 1: Environment File (Recommended)**
 Create a `.env` file in the root of the project:
 ```
 VITE_MERCHANT_ID=your-merchant-id
+```
+
+**Option 2: Environment Variable**
+```bash
+VITE_MERCHANT_ID=your-merchant-id npm run dev
 ```
 
 > **Finding your Merchant ID:** You can find your merchant ID in the Nosto Admin UI under Account Settings, or it's typically in the format `platform-storeid` (e.g., `shopify-12345678`).
@@ -83,27 +94,38 @@ npm run dev
 
 This will launch the application at `http://localhost:8000` with hot reloading enabled. Any changes you make to the source code will be automatically reflected in the browser.
 
+> **Important:** The local development server runs independently of your shop's styles. To see how your components will look with your shop's styling, you can:
+> - Modify `index.html` to reference your shop's CSS files
+> - Use the `nosto-cli watch` workflow for live deployment testing
+> - Test directly on your shop's staging environment
+
 ### Understanding Development Modes
 
-The Search Templates Starter supports multiple development modes to accommodate different workflows:
+Search Templates Starter may operate in three modes: Injected, Native and Mocked. For a typical store setup, you will most likely be using the Injected mode, as it is designed to integrate with any store page. Native mode is useful if you want to develop your store from the ground up using Search Templates Starter, and Mocked is primarily used for development and Storybook.
+
+#### Injected Mode (Default)
+```bash
+npm run dev
+```
+In this mode, the components are rendered into the page using [React Portals](https://react.dev/reference/react-dom/createPortal), targeting the elements you define with CSS selectors in `src/config.tsx`. Note that without correct selectors, the components will not appear in the page at all. After the injection step, the rest of the application behaves nearly the same as it would in native mode.
+
+> **Entry point:** `src/entries/injected.tsx`
+
+To use this mode effectively:
+1. Configure CSS selectors in `src/config.ts` to match your site's elements
+2. Ensure your site is accessible for injection
+3. Test on your actual store to see real integration
 
 #### Native Mode
 ```bash
 npm run dev:native
 ```
-In this mode, the application renders as a standalone Preact app. This is useful for:
-- Developing components in isolation
-- Testing search functionality without a live site
+In this mode, the Starter behaves like a standard React/Preact app. It creates the component tree and renders it normally into the document body. This is useful for:
+- Developing your store from the ground up using Search Templates Starter
+- Testing search functionality without existing page constraints
 - Rapid prototyping of new features
 
-#### Injected Mode
-```bash
-npm run dev
-```
-This is the default mode where search components are injected into a live site using React Portals. To use this mode effectively:
-1. Configure CSS selectors in `src/config.ts` to match your site's elements
-2. Ensure your site is accessible for injection
-3. Test on your actual store to see real integration
+> **Entry point:** `src/entries/native.tsx`
 
 #### Mocked Mode
 Used automatically in Storybook and testing environments where components render with mock data for consistent development and testing.
