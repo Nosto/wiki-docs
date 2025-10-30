@@ -16,7 +16,7 @@ This approach is ideal when you need advanced customization or when your develop
 
 ## Get Started
 
-To start developing with Search Templates Starter, you'll need Node.js 16+ and familiarity with React/Preact.
+To start developing with Search Templates Starter, you'll need Node.js 22+ and familiarity with React/Preact.
 
 {% content-ref url="getting-started.md" %}
 [getting-started.md](getting-started.md)
