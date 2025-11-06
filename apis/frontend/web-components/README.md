@@ -36,7 +36,7 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 | `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.                                                                                                             |
 
 {% hint style="info" %}
-In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign`  instead of the `placement` attribute for easier element targetting, using `#$divId` , in styling and template logic.&#x20;
+In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign`  instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.&#x20;
 {% endhint %}
 
 #### Usage examples
