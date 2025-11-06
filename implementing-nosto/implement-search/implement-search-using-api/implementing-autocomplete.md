@@ -1,6 +1,6 @@
 # Implement Autocomplete
 
-Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page.&#x20;
+Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page. The feature also supports category and popular search suggestions.&#x20;
 
 <figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
@@ -22,7 +22,9 @@ query {
     accountId: "YOUR_ACCOUNT_ID"
     query: "green"
     products: { size: 5 },
-    keywords: { size: 5 }
+    keywords: { size: 5 },
+    categories: { size: 5 },
+    popularSearches: { size: 5 }
   ) {
     products {
       hits {
@@ -39,6 +41,24 @@ query {
           keyword
         }
       }
+    }
+    categories {
+      hits {
+        name
+        fullName
+        externalId
+        parentExternalId
+        url
+        urlPath
+      }
+      total
+    }
+    popularSearches {
+      hits {
+        query
+        total
+      }
+      total
     }
     query
   }
@@ -58,7 +78,7 @@ query {
             "productId": "1",
             "name": "My product"
           }
-        ]
+        ],
         "total": 1
       },
       "keywords": {
@@ -75,8 +95,43 @@ query {
             "_redirect": null,
             "_highlight": {
               "keyword": "<em>green</em> energy"
+            }
           }
         ]
+      },
+      "categories": {
+        "hits": [
+          {
+            "name": "Home and Garden > Plants > Green Plants",
+            "fullName": "Home and Garden > Plants > Green Plants",
+            "externalId": "1234",
+            "parentExternalId": "5678",
+            "url": "https://www.test.com/category/home-and-garden",
+            "urlPath": "home-and-garden"
+          },
+          {
+            "name": "Fashion > Jackets > Green Jackets",
+            "fullName": "Fashion > Jackets > Green Jackets",
+            "externalId": "4321",
+            "parentExternalId": "8765",
+            "url": "https://www.test.com/category/fashion",
+            "urlPath": "fashion"
+          }
+        ],
+        "total": 86
+      },
+      "popularSearches": {
+        "hits": [
+          {
+            "query": "green pants",
+            "total": 3024
+          },
+          {
+            "query": "green shirt",
+            "total": 480
+          }
+        ],
+        "total": 2
       }
     }
   }
