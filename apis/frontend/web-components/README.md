@@ -49,6 +49,14 @@ Static campaign rendering:
 <nosto-campaign placement="best-sellers"></nosto-campaign>
 ```
 
+or alternatively 
+
+```html
+<nosto-campaign id="best-sellers"></nosto-campaign>
+```
+
+for better compatibility with the scoped styling conventions of Velocity templates
+
 **Example #2**:
 
 Product-specific campaign:
