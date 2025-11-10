@@ -149,6 +149,28 @@ This behavior applies to all suggestion types — keywords, categories, and popu
 
 For more details please check the [Search request schema](https://search.nosto.com/v1/graphql?ref=Query)
 
+#### Example query for default popular search suggestions
+The query below returns the most popular search terms for the specified account.
+
+```graphql
+query {
+    search(
+        accountId: "YOUR_ACCOUNT_ID"
+        query: ""
+        popularSearches: {size: 5, emptyQueryMatchesAll: true}
+    ) {
+        popularSearches {
+            hits {
+                query
+                total
+            }
+            total
+        }
+        query
+    }
+} 
+```
+
 ### Highlight
 
 API can return highlights indicating which parts of a keyword match the search query. This HTML can be used to render and emphasize the matching sections during display.
