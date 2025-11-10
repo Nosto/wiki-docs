@@ -6,6 +6,14 @@ Your search engine will be ready after the Nosto representative enables the Sear
 
 ## Implementation methods
 
+### Search Templates Starter
+
+For developers who prefer a modern, local development workflow, the Search Templates Starter provides a complete Preact-based project. This approach offers full source code control with Git, a local development environment with hot reloading, and a component library with pre-built, customizable search components. It's ideal for teams that want maximum flexibility and integration with their existing development practices.
+
+{% content-ref url="using-search-templates-starter/" %}
+[using-search-templates-starter](using-search-templates-starter/)
+{% endcontent-ref %}
+
 ### Search Templates
 
 By using a pre-built template that can be customized to fully match a website's design using built-in code editor directly in [https://my.nosto.com/](https://my.nosto.com/). In the code editor, you can fully customize the pre-built template's JavaScript, HTML, and CSS code. Changes to the template can be implemented either by client’s developers or Nosto team. Frontend integration uses Preact and JSX templates and renders search results page dynamically in website’s frontend, so no additional integration is needed to the backend. When using Nosto services, no development is needed from the client.
@@ -32,20 +40,20 @@ For frontend integrations you can also use our JavaScript library. This library 
 
 ## Compare implementations
 
-|                                                | Search Templates | API       | JavaScript Library |
-| ---------------------------------------------- | ---------------- | --------- | ------------------ |
-| Can be implemented by Nosto team               | Yes              | No        | No                 |
-| Expected time to launch live                   | 1-3 weeks\*      | 4-8 weeks | 3-6 weeks          |
-| Headless compatible                            | Yes              | Yes       | Yes                |
-| Fully customizable frontend                    | Yes              | Yes       | Yes                |
-| Customized and managed only in Nosto dashboard | Yes              | No        | No                 |
-| Suitable for complex use cases                 | Sometimes        | Yes       | Yes                |
-| Merchandising rules applied automatically\*\*  | Yes              | Yes       | Yes                |
-| Analytics                                      | Yes              | Yes       | Yes                |
-| Segmentation                                   | Yes              | Yes       | Yes                |
-| Individual personalization (affinities)        | Yes              | Yes\*\*\* | Yes                |
-| A/B testing                                    | Yes              | Yes       | Yes                |
-| SPA suitable                                   | Limited\*\*\*\*  | Yes       | Yes                |
+|                                                | Search Templates Starter | Search Templates | API       | JavaScript Library |
+| ---------------------------------------------- | ------------------------ | ---------------- | --------- | ------------------ |
+| Can be implemented by Nosto team               | Yes                      | Yes              | No        | No                 |
+| Expected time to launch live                   | 2-4 weeks\*              | 1-3 weeks\*      | 4-8 weeks | 3-6 weeks          |
+| Headless compatible                            | Yes                      | Yes              | Yes       | Yes                |
+| Fully customizable frontend                    | Yes                      | Yes              | Yes       | Yes                |
+| Customized and managed only in Nosto dashboard | No                       | Yes              | No        | No                 |
+| Suitable for complex use cases                 | Yes                      | Sometimes        | Yes       | Yes                |
+| Merchandising rules applied automatically\*\*  | Yes                      | Yes              | Yes       | Yes                |
+| Analytics                                      | Yes                      | Yes              | Yes       | Yes                |
+| Segmentation                                   | Yes                      | Yes              | Yes       | Yes                |
+| Individual personalization (affinities)        | Yes                      | Yes              | Yes\*\*\* | Yes                |
+| A/B testing                                    | Yes                      | Yes              | Yes       | Yes                |
+| SPA suitable                                   | Yes                      | Limited\*\*\*\*  | Yes       | Yes                |
 
 {% hint style="info" %}
 \* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.
@@ -57,6 +65,17 @@ For frontend integrations you can also use our JavaScript library. This library 
 \*\*\*\* Using search templates with SPAs comes with challenges related to routing and dynamic content injection that tend to be solvable, but are more technically involved. We highly recommend using the JavaScript library instead.
 {% endhint %}
 
-If you are looking for a fast launch without much effort we recommend going with the fully customizable pre-built templates. This type of integration does not support full API access but comes complete with an out-of-the-box search result page and autocomplete templates that can easily be customized to match most website designs and integrate even advanced custom functionality.
+### Search Templates vs. Search Templates Starter
 
-If however you need full control over the search frontend or require complex custom functionality we recommend to go with the API or JavaScript integrations. These integrations do not provide out-of-the-box templates but provide direct access to the Search API, allowing you use the data in whatever way is required for your use cases.
+| Feature                     | Search Templates                                        | Search Templates Starter                       |
+| --------------------------- | ------------------------------------------------------- | ---------------------------------------------- |
+| **Development Environment** | In-browser code editor in the Nosto Admin UI            | Local development with your preferred IDE      |
+| **Version Control**         | Managed within the Nosto platform                       | Full source code control with Git              |
+| **Workflow**                | Edit and preview directly in the browser                | Local development with `nosto-cli` for uploads |
+| **Best For**                | Quick setup and users comfortable with an online editor | Developers wanting a modern, local workflow    |
+
+If you are a developer who prefers a modern, local development workflow with full version control (Git), we strongly recommend using the **Search Templates Starter**. It offers the most flexibility and integrates seamlessly with professional development practices.
+
+If you are looking for a faster, more straightforward setup and are comfortable using an in-browser code editor, **Search Templates** are a great alternative.
+
+For use cases that require deep backend integration, or if you're building for a non-web platform (e.g., native mobile apps), the **API** or **JavaScript Library** integrations provide the necessary control and access to the raw search data.
