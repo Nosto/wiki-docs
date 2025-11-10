@@ -1,9 +1,18 @@
 # Table of contents
 
-* [Introduction](README.md)
+## Getting started
+
+* [Welcome and Support](getting-started/README.md)
+* [How to get the most out of our Guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
+* [What Nosto does](getting-started/what-nosto-does.md)
+* [What Nosto needs](getting-started/what-nosto-needs.md)
+* [How you ensure a clean and quick Implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
+* [Building your implementation plan](getting-started/building-your-implementation-plan.md)
+* [Headless implementation methods](getting-started/headless-frontend-implementation-methods.md)
 
 ## Implementing Nosto
 
+* [Introduction](README.md)
 * [Implement on your website](implementing-nosto/implement-on-your-website/README.md)
   * [Manual Tagging - Essentials](implementing-nosto/implement-on-your-website/manual-implementation/README.md)
     * [Setting up your account](implementing-nosto/implement-on-your-website/manual-implementation/setting-up-your-account.md)
@@ -27,6 +36,7 @@
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
+* [Implement Personalized Campaign Widgets](implementing-nosto/implement-psn/README.md)
 * [Implement Search & Categories](implementing-nosto/implement-search/README.md)
   * [Using Search Templates Starter](implementing-nosto/implement-search/using-search-templates-starter/README.md)
     * [Getting started](implementing-nosto/implement-search/using-search-templates-starter/getting-started.md)
