@@ -24,7 +24,10 @@ query {
     products: { size: 5 },
     keywords: { size: 5 },
     categories: { size: 5 },
-    popularSearches: { size: 5 }
+    popularSearches: { 
+      size: 5,
+      emptyQueryMatchesAll: true
+    }
   ) {
     products {
       hits {
@@ -137,6 +140,14 @@ query {
   }
 }
 ```
+#### Empty query
+
+To retrieve results for an empty query, you must explicitly set `emptyQueryMatchesAll: true` in your request.
+By default, `emptyQueryMatchesAll` is `false`, and the API does not return any results when the query parameter is empty.
+Setting it to `true` enables the API to return default suggestions.
+This behavior applies to all suggestion types — keywords, categories, and popular searches.
+
+For more details please check the [Search request schema](https://search.nosto.com/v1/graphql?ref=Query)
 
 ### Highlight
 
