@@ -1,6 +1,5 @@
 # Implement Autocomplete
 
-Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page.
 Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page. The feature also supports category and popular search suggestions. Please contact Nosto Support to have them enabled for your account.
 
 <figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
@@ -144,7 +143,7 @@ query {
 #### Empty query
 
 To retrieve results for an empty query, you must explicitly set `emptyQueryMatchesAll: true` in your request.
-By default, `emptyQueryMatchesAll` is `false`, and the API does not return any results when the query parameter is empty.
+By default, `emptyQueryMatchesAll` is `false` and the API does not return any results when the query is empty.
 Setting it to `true` enables the API to return default suggestions.
 This behavior applies to all suggestion types — keywords, categories, and popular searches.
 
