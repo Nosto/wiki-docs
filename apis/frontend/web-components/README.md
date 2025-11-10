@@ -25,15 +25,19 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 
 #### Component attributes
 
-| Attribute     | Description                                                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `placement`   | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). Can also use `id` attribute as an alternative.                                                                                            |
-| `product-id`  | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
-| `variant-id`  | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
-| `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
-| `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
-| `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                  |
-| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.               |
+| Attribute     | Description                                                                                                                                                                                                                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`   | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). <mark style="color:$primary;">Can also use</mark> <mark style="color:$primary;"></mark><mark style="color:$primary;">`id`</mark> <mark style="color:$primary;"></mark><mark style="color:$primary;">attribute as an alternative.</mark> |
+| `product-id`  | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                                                                                                                |
+| `variant-id`  | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                                                                                                                           |
+| `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component.                                                                                               |
+| `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                                                                                                                    |
+| `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                                                                                                                |
+| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.                                                                                                             |
+
+{% hint style="info" %}
+In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign`  instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.&#x20;
+{% endhint %}
 
 #### Usage examples
 
@@ -44,6 +48,14 @@ Static campaign rendering:
 ```html
 <nosto-campaign placement="best-sellers"></nosto-campaign>
 ```
+
+or alternatively 
+
+```html
+<nosto-campaign id="best-sellers"></nosto-campaign>
+```
+
+for better compatibility with the scoped styling conventions of Velocity templates
 
 **Example #2**:
 
@@ -264,10 +276,10 @@ The `Popup` custom element displays popup content with dialog and ribbon slots. 
 
 #### Component attributes
 
-| Attribute | Description                                                                                                                                     |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`    | **Required.** Name used for analytics and localStorage persistence. The popup's closed state will be remembered using this identifier.         |
-| `segment` | Optional Nosto segment that acts as a precondition for activation. Only users in this segment will see the popup.                              |
+| Attribute | Description                                                                                                                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`    | **Required.** Name used for analytics and localStorage persistence. The popup's closed state will be remembered using this identifier. |
+| `segment` | Optional Nosto segment that acts as a precondition for activation. Only users in this segment will see the popup.                      |
 
 #### Usage examples
 
@@ -306,9 +318,9 @@ Basic popup with dialog and ribbon content:
 
 #### Markup Attributes
 
-| Attribute | Description                                                                           |
-| --------- | ------------------------------------------------------------------------------------- |
-| `n-close` | Marks an element as a close trigger. Clicking this element will close the popup.     |
+| Attribute | Description                                                                      |
+| --------- | -------------------------------------------------------------------------------- |
+| `n-close` | Marks an element as a close trigger. Clicking this element will close the popup. |
 
 ### `Product`
 
@@ -542,13 +554,13 @@ The component renders inside a shadow DOM with encapsulated styles and provides 
 
 #### Component attributes
 
-| Attribute   | Description                                                                                                      |
-| ----------- | ---------------------------------------------------------------------------------------------------------------- |
-| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                     |
-| `alternate` | Show alternate product image on hover. Defaults to `false`.                                                     |
-| `brand`     | Show brand/vendor data. Defaults to `false`.                                                                    |
-| `discount`  | Show discount data. Defaults to `false`.                                                                        |
-| `rating`    | Show product rating. Defaults to `false`.                                                                       |
+| Attribute   | Description                                                                                                                                                                             |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                                                                                             |
+| `alternate` | Show alternate product image on hover. Defaults to `false`.                                                                                                                             |
+| `brand`     | Show brand/vendor data. Defaults to `false`.                                                                                                                                            |
+| `discount`  | Show discount data. Defaults to `false`.                                                                                                                                                |
+| `rating`    | Show product rating. Defaults to `false`.                                                                                                                                               |
 | `sizes`     | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
 
 #### Usage examples
@@ -586,8 +598,8 @@ The component listens for `variantchange` events to update the displayed product
 
 #### Markup Attributes
 
-| Attribute | Description                                                                           |
-| --------- | ------------------------------------------------------------------------------------- |
+| Attribute | Description                                                                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------ |
 | `n-atc`   | Marks an element as "Add to cart" trigger. Clicking this element will add the current product variant to the cart. |
 
 ### `VariantSelector`
@@ -598,10 +610,10 @@ The component emits a custom `variantchange` event when variant selections chang
 
 #### Component attributes
 
-| Attribute   | Description                                                                                                      |
-| ----------- | ---------------------------------------------------------------------------------------------------------------- |
-| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                     |
-| `preselect` | Whether to automatically preselect the first value for each option. Defaults to `false`.                       |
+| Attribute   | Description                                                                              |
+| ----------- | ---------------------------------------------------------------------------------------- |
+| `handle`    | **Required.** The Shopify product handle to fetch data for.                              |
+| `preselect` | Whether to automatically preselect the first value for each option. Defaults to `false`. |
 
 #### Usage examples
 

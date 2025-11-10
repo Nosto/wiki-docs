@@ -54,6 +54,16 @@ As an alternative to `nosto_element` divs, you can use the `<nosto-campaign>` we
 <nosto-campaign placement="frontpage-nosto-3"></nosto-campaign>
 ```
 
+or alternatively
+
+```html
+<nosto-campaign id="frontpage-nosto-1"></nosto-campaign>
+<nosto-campaign id="frontpage-nosto-2"></nosto-campaign>
+<nosto-campaign id="frontpage-nosto-3"></nosto-campaign>
+```
+
+for better compatibility with the scoped styling conventions of Velocity templates
+
 ### Advanced features
 
 The web component supports additional features like lazy loading, product-specific recommendations, cart synchronization, and embedded Vue templates:

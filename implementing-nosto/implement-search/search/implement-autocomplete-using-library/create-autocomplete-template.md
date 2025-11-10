@@ -2,14 +2,14 @@
 
 ## Attributes
 
-The following `data-*`  attributes are required by the library to handle attributions (click events) for products/keywords/history items rendered in the autocomplete result:
+The following `data-*` attributes are required by the library to handle attributions (click events) for products/keywords/history items rendered in the autocomplete result:
 
 `data-ns-hit`
 
 This attribute should be used on clickable `keyword`, `product`, `history` list elements. This attribute handles submit keyword/history as search, redirect to product, analytics (if enabled) request.
 
 {% hint style="info" %}
-### Encode HTML content
+#### Encode HTML content
 
 **This is specific to cases where no template language like liquid/handlebars is used and the content is rendered using plain HTML.**
 
@@ -35,7 +35,7 @@ can be encoded as
 
 Following table shows value for this attribute depending on the rendering context.
 
-<table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { keywords } = response.data.search
+<table><thead><tr><th width="100">Context</th><th width="686.50390625">Value</th></tr></thead><tbody><tr><td>keyword</td><td><p>value from <code>response.data.search.keywords</code></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { keywords } = response.data.search
 const contentToRender = keywords.map(keyword => 
     `
     &#x3C;div data-ns-hit="${JSON.stringify(keyword)}" ....>
@@ -48,7 +48,7 @@ const contentToRender = keywords.map(keyword =>
     "keyword": "midi dresses",
     "_highlight": { "keyword": "midi &#x3C;strong>dress&#x3C;/strong>es" }
 }
-</code></pre></td></tr><tr><td>product</td><td><p>productId and url from <code>response.data.search.products.hits</code></p><p></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { hits } = response.data.search.products
+</code></pre></td></tr><tr><td>product</td><td><p>productId and url from <code>response.data.search.products.hits</code></p><p>Code example:</p><pre class="language-javascript"><code class="lang-javascript">const { hits } = response.data.search.products
 const contentToRender = hits.map(({ productId, url }) => 
     `
     &#x3C;div data-ns-hit="${JSON.stringify({ productId, url })}" ....>
@@ -71,12 +71,12 @@ To make an element delete a single history entry when clicked, add `data-ns-remo
 
 ## Starter templates
 
-This section provides links to default startup templates for different rendering frameworks. These templates can be copied and customized as needed.&#x20;
+This section provides links to default startup templates for different rendering frameworks. These templates can be copied and customized as needed.
 
 [Handlebars](https://github.com/Nosto/nosto-autocomplete/blob/main/src/handlebars/autocomplete.handlebars), [Mustache](https://github.com/Nosto/nosto-autocomplete/blob/main/src/mustache/autocomplete.mustache), [Liquid](https://github.com/Nosto/nosto-autocomplete/blob/main/src/liquid/autocomplete.liquid), [React/Preact (HTML)](https://github.com/Nosto/nosto-autocomplete/blob/main/src/react/Autocomplete.tsx)
 
 {% hint style="info" %}
-#### Mustache helpers
+**Mustache helpers**
 
 _**Mustache is based on logic-less templates which can be enhanced with helpers, e.g `toJson`, `imagePlaceholder`, `showListPrice` in example template**_.
 
