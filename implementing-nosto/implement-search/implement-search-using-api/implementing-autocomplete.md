@@ -109,7 +109,7 @@ query {
             "fullName": "Home and Garden > Plants > Green Plants",
             "externalId": "1234",
             "parentExternalId": "5678",
-            "url": "https://www.test.com/category/home-and-garden",
+            "url": "https://www.example.com/category/home-and-garden",
             "urlPath": "home-and-garden"
           },
           {
@@ -117,7 +117,7 @@ query {
             "fullName": "Fashion > Jackets > Green Jackets",
             "externalId": "4321",
             "parentExternalId": "8765",
-            "url": "https://www.test.com/category/fashion",
+            "url": "https://www.example.com/category/fashion",
             "urlPath": "fashion"
           }
         ],
