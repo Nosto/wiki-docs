@@ -1,6 +1,6 @@
 # Implement Autocomplete
 
-Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page. The feature also supports category and popular search suggestions.&#x20;
+Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page. The feature also supports category and popular search suggestions. Please contact Nosto Support to have them enabled for your account.&#x20;
 
 <figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
