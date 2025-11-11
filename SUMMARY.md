@@ -170,3 +170,4 @@
 ## Nosto Default Service Limits
 
 * [Nosto Service Limits](nosto-default-service-limits/nosto-service-limits.md)
+* [API and request rate limits](nosto-default-service-limits/api-and-request-rate-limits.md)
