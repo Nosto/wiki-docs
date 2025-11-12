@@ -75,6 +75,7 @@
             * [Configuring your widget](guides/widgets-nextgen/widget-creation-guides/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/configuring-your-widget.md)
             * [Building your widget](guides/widgets-nextgen/widget-creation-guides/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/building-your-widget.md)
             * [Shipping to production](guides/widgets-nextgen/widget-creation-guides/creating-your-first-widget/creating-a-widget-from-blank-canvas-developer-guide/creating-a-new-widget/shipping-to-production.md)
+      * [Filtering and Organizing Tiles in Your Widget](guides/widgets-nextgen/widget-creation-guides/filtering-and-organizing-tiles-in-your-widget.md)
     * [Styling Guides](guides/widgets-nextgen/styling-guides/README.md)
       * [Using Webfonts in Widgets](guides/widgets-nextgen/styling-guides/using-webfonts-in-widgets.md)
       * [Styling Widget Shopspots](guides/widgets-nextgen/styling-guides/styling-widget-shopspots.md)

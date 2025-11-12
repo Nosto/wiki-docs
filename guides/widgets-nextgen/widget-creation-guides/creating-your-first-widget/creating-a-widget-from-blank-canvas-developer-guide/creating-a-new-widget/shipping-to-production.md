@@ -16,7 +16,7 @@ You can read the [Classic Widget Documentation](../../../../../onsite-widgets/) 
 
 In-order to ship your widget to production, you can utilise the assets built in the dist folder.
 
-<figure><img src="../../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 There are a few ways you can utilise these to ensure your widget is production ready:
 
