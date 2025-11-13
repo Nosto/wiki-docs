@@ -34,7 +34,11 @@ init({
 
 #### Serp query parameter flavors
 
-In the example above, we supply serp query parameters as an object. Additionally, the `serpQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters. Section below shows an example of `serpQuery` supplied as a function which provides the product variation id by accessing the pre-defined `variationId` method from the default configuration.
+In the example above, we supply serp query parameters as an object. Additionally, the `serpQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters.
+
+##### Using variationId for price variations
+
+When you have **price variations** in use, provide the product variation ID by accessing the pre-defined `variationId` method from the default configuration:
 
 {% code title="index.js" %}
 ```javascript
@@ -60,6 +64,41 @@ init({
                 size: 20,
                 from: 0,
                 variationId: this.variationId()
+            },
+        }
+    }
+})
+```
+{% endcode %}
+
+##### Using currency for exchange rates
+
+When you use **exchange rates** for multi-currency support, use the `currency` parameter instead:
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import serpComponent from './serp'
+
+init({
+    ...window.nostoTemplatesConfig,
+    serpComponent,
+    inputCssSelector: '#search',
+    contentCssSelector: '#content',
+    serpPath: '/search',
+    serpPathRedirect: true,
+    formCssSelector: '#search-form',
+    formUnbindDelay: 1000, // 1 second
+    serpUrlMapping: {
+        query: 'q',
+    },
+    serpQuery() {
+        return {
+            products: {
+                size: 20,
+                from: 0,
+                currency: this.variationId()
             },
         }
     }
@@ -254,7 +293,7 @@ The `priceDecorator` utilizes the currency formatting definitions of the Nosto a
   * `priceCurrencyCode` will be used as the currency code
 * **Use the `priceDecorator`** The `priceDecorator` is responsible for formatting prices into text fields using above mentioned fields.
 
-A complete example of the Search-templates configuration:
+A complete example of the Search-templates configuration for price variations:
 
 ```javascript
 import { init, priceDecorator } from "@nosto/preact";
@@ -283,6 +322,35 @@ init({
 });
 ```
 
+For exchange rates, use `currency` instead:
+
+```javascript
+import { init, priceDecorator } from "@nosto/preact";
+
+init({
+    ...window.nostoTemplatesConfig,
+    ...
+    serpQuery() {
+        return {
+            products: {
+                currency: this.variationId(),
+                fields: [
+                    // needed for priceDecorator
+                    "price", 
+                    "listPrice",
+                    "priceCurrencyCode",
+                ],
+                size: 20,
+                from: 0
+            }
+        }    
+    },
+    hitDecorators: [
+        priceDecorator()
+    ]
+});
+```
+
 {% hint style="info" %}
 Checkout our API documentation on [priceDecorator](https://nosto.github.io/search-js/functions/currencies.priceDecorator.html)
 {% endhint %}
@@ -292,10 +360,13 @@ Checkout our API documentation on [priceDecorator](https://nosto.github.io/searc
 To enable multi-currency functionality in search templates, follow these steps:
 
 * **Enable Multi-Currency in Nosto Admin** - [Enabling multi-currency from the admin](https://docs.nosto.com/techdocs/apis/frontend/implementation-guide-session-api/advanced-usage/spa-adding-support-for-multi-currency#enabling-multi-currency-from-the-admin)
-* **Provide the `variationId`**\
-  The `variationId` is used to specify the currency of the response price data - it should be included in the search query to ensure accurate price conversion.
+* **Choose the appropriate parameter based on your setup:**
+  * Use `variationId: this.variationId()` when you have **price variations** in use
+  * Use `currency: this.variationId()` when you use **exchange rates** for multi-currency support
 
-Below is an example of how to include the `variationId` in your search query:
+#### Price variations example
+
+When using price variations, include the `variationId` parameter in your search query:
 
 ```js
 import { init } from "@nosto/preact";
@@ -307,6 +378,27 @@ init({
         return {
             products: {
                 variationId: this.variationId()
+                ...
+            }
+        }
+    }
+});
+```
+
+#### Exchange rates example
+
+When using exchange rates, include the `currency` parameter in your search query:
+
+```js
+import { init } from "@nosto/preact";
+
+init({
+    ...window.nostoTemplatesConfig,
+    ...
+    serpQuery() {
+        return {
+            products: {
+                currency: this.variationId()
                 ...
             }
         }
