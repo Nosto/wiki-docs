@@ -15,11 +15,13 @@ How to implement Product Recommendations, Dynamic Bundles and Onsite Content Per
 
 ## Good to know before you start
 
-Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements. These are sorted into the different page types like homepage (e.g. `#nosto-frontpage-1`), PLP, PDP, SERP, 404 page as well as general layout areas like the mini-cart drawer or search overlay/autocomplete.
+Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements). These are sorted into the different page types like homepage (e.g. `#nosto-frontpage-1`), PLP, PDP, SERP, 404 page as well as general layout areas like the mini-cart drawer or search overlay/autocomplete.
 
 Your client will tell you which placements to put where inside your templates (or has already defined those within a design file). Nosto campaigns need to be injected into the placements - automatically or manually, depending on your tech stack and implementation method.
 
 Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs).
+
+Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
 
 OCP and RECs campaigns are always associated with exactly one placement. The placements are also used for A/B testing, e.g. testing campaign A vs. campaign B inside of placement `#nosto-productpage-1`.
 
@@ -85,7 +87,7 @@ In case you are running a **SPA or headless frontend**, you want more control ab
   - [Sending an additional event when a specific SKU has been selected (either on a PDP or via a "quick view" modal.](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#handling-attribution)
   - Pay close attention to the `setRef()` method ([reference](https://nosto.github.io/nosto-js/interfaces/client.Action.html#setref-1)) - **the second parameter is the recommendation slot id** (`result_id` of the response), *not the placement div id*.
 - [Using `load()` only on the first request on the current page](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#reporting-correct-page-views-load-vs-update) because it increments the page view counter (`pv` in the ["ev1" response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#pv)). On subsequent requests on the same page you must send the request with `update()` or [pass a recommendation request flag like `.load{skipPageViews: true}`](https://nosto.github.io/nosto-js/interfaces/client.Action.html#load) ([details here](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#reporting-correct-page-views-load-vs-update)).
-- You can still set the response mode to HTML and request the Nosto-hosted templates if you're not running a SPA. The click attribution and template injection can be automated by calling `enableCampaignInjection()` ([example](../../implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution#session-api-based-usage)).
+- You can still `setResponseMode("HTML")` and request the Nosto-hosted templates if you're not running a SPA. The click attribution and template injection can be automated by calling `enableCampaignInjection()` ([example](../../implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution#session-api-based-usage)).
 
 
 ### Server: GraphQL API: `updateSession()`
