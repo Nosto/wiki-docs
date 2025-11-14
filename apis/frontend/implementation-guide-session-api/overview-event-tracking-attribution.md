@@ -1,6 +1,6 @@
-# Event Tracking and Attribution via Session API
+# Overview: Event Tracking and Attribution
 
-Please make sure to [read the introduction on Nosto personalization](../../../implementing-nosto/implement-psn/README.md) before diving into this topic (or [read our summary](../../../getting-started//headless-frontend-implementation-methods.md#page-tagging-and-event-tracking-requesting-nosto-content-for-rendering-with-your-templates)).
+Please make sure to [read the introduction on Nosto personalization](../../../implementing-nosto/implement-psn/README.md) (or [read our summary](../../../getting-started/headless-frontend-implementation-methods.md#page-tagging-and-event-tracking-requesting-nosto-content-for-rendering-with-your-templates)) and the previous links in the navigation before diving into this topic.
 
 
 ## Event Tracking via Page Type
@@ -40,6 +40,7 @@ nostojs(api => {
 
 You can store the reference "productpage-nosto-2" of the Nosto campaign in the shopper's browser session storage when the click occurs (still on PDP product ID 42) and retrieve this data when the target PDP (ID 200) is loaded to then pass it to `setRef(...)`.
 
+TODO: Check with CFE if `api.attributeProductClicksInCampaign` also works for Session API default JSON.
 
 ## Advanced Cases and Examples
 
