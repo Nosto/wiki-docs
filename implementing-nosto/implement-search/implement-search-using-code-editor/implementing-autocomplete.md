@@ -40,7 +40,11 @@ init({
 
 #### Autocomplete query parameter as function&#x20;
 
-In the example above, we supply autocomplete query parameters as an object. Additionally, the `autocompleteQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters. Section below shows an example of `autocompleteQuery` supplied as a function which  provides the product variation id by accessing the pre-defined `variationId` method from the default configuration.
+In the example above, we supply autocomplete query parameters as an object. Additionally, the `autocompleteQuery` parameter can also be supplied as a function. The function flavor can be used for building complex query parameters and provides access to other pre-defined configuration parameters.
+
+##### Using variationId for price variations
+
+When you have **price variations** in use, provide the product variation ID by accessing the pre-defined `variationId` method from the default configuration:
 
 {% code title="index.js" %}
 ```javascript
@@ -60,6 +64,41 @@ init({
             products: {
                 size: 5,
                 variationId: this.variationId()
+            },
+            keywords: {
+                size: 5,
+                fields: [
+                    'keyword', '_highlight.keyword'
+                ],
+            },
+        }
+    }
+})
+```
+{% endcode %}
+
+##### Using currency for exchange rates
+
+When you use **exchange rates** for multi-currency support, use the `currency` parameter instead:
+
+{% code title="index.js" %}
+```javascript
+import { init } from '@nosto/preact'
+
+import autocompleteComponent from './autocomplete'
+import historyComponent from './history'
+
+init({
+    ...window.nostoTemplatesConfig,
+    historyComponent,
+    autocompleteComponent,
+    inputCssSelector: '#search',
+    autocompleteQuery() {
+        return {
+            name: 'autocomplete',
+            products: {
+                size: 5,
+                currency: this.variationId()
             },
             keywords: {
                 size: 5,
