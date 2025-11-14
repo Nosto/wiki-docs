@@ -51,7 +51,6 @@ This method is the fastest and works best for conventional builds where the temp
 - If your client is on Shopify, we recommend to evaluate our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
 - You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template (mostly applicable for clients not using the dynamic product cards).
 - **This approach is not suitable for SPAs** since interactions trigger a full page load.
-TODO: Add approach via Vlad/M+A to get the data via JSON template
 
 ### Client: JS API: `createRecommendationRequest()`
 
