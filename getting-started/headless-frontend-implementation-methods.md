@@ -1,11 +1,11 @@
 # Headless Frontend: Implementation Methods
 
-The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md).
+The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a very good understanding of the concept.
 
 Search and Category Merchandising is separate from that and covered afterwards.
 
 
-## Page Tagging and Event Tracking + Requesting Nosto Content to it rendering with your Templates
+## Page Tagging and Event Tracking + Requesting Nosto Content for rendering with your Templates
 On every page visit, you need to send a request to Nosto about the page type the user is browsing and what exactly they're looking at (e.g. type = product, ID = 123).
 
 Nosto then returns a response with two types of content:
@@ -25,7 +25,7 @@ Using placements gives the eCom-team a high degree of flexibility since they can
 API Reference: https://nosto.github.io/nosto-js/interfaces/client.Session.html
 
 ### Nosto Content via GraphQL
-The page tagging/event tracking can also be done via GraphQL.
+The event tracking can also be done via GraphQL.
 
 The concept is the same: [specify data about the session (cart and customer)](../apis/graphql-an-introduction/graphql-using-mutations/README.md). and [request product recommendations for a given page type](../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md).
 

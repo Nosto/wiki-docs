@@ -7,6 +7,7 @@ How to implement Product Recommendations, Dynamic Bundles and Onsite Content Per
 - [ ] Nosto account with working product sync (promotable products)
 - [ ] Nosto script in the frontend (Nosto Debug Toolbar is loading)
 - [ ] Knowledge of running a SPA or classic web application
+- [ ] General understanding of [how Nosto works](../../getting-started/README.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
 - [ ] One or multiple Nosto modules enabled in your account:
   - [ ] OCP: Onsite Content Personalization (like banners or text)
   - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
@@ -65,7 +66,7 @@ Setting the data manually via JS, e.g. `setPageType("product").setProducts([prod
 - Attribution is automatically handled by Nosto when using the default `response mode HTML`. 
   - If you use the `JSON response mode`, you can [simplify attribution by creating a custom HTML element](../../apis/js-apis/recommendations/sending-product-view-events) and using the `api.attributeProductClicksInCampaign()` method from Nosto ([reference](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign)).
 - This approach is recommended for custom frontend builds, we recommend looking into the [Nosto Open Source packages](../../apis/frontend/oss/README.md).
-This approach is **not suitable for SPAs**, please see `Session API: defaultSession()` below.
+This approach is **not suitable for SPAs or headless frontends**, please see `Session API: defaultSession()` below.
 
 ### Client: Session API: `defaultSession()`
 
@@ -77,7 +78,7 @@ In case you are running a **SPA or headless frontend**, you want more control ab
 - The page tracking sends the same ["ev1" request](https://nosto.github.io/nosto-js/interfaces/client.EventRequestMessageV1.html) which responds with the same campaign data and the same principles for the JS API apply.
 - Since requesting campaigns is tied to the `defaultSession()` for page tracking, you can run a very similar code block on the different page types ([examples here](../../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md) and in the [API reference](https://nosto.github.io/nosto-js/interfaces/client.Session.html)).
   - The methods like `viewFrontPage()` or `viewProduct("4")` are the main indicator that campaigns will be returned.
-  - Adding `setPlacements(api.placements.getPlacements())` or passing the placement IDs explicitly as an array determines from where campaigns will be requested.
+  - Adding `setPlacements(api.placements.getPlacements())` or passing the placement IDs explicitly as an array determines from where campaigns will be requested. We recommend the first approach, getting all campaigns for all placements instead of requesting them one by one.
 - Calling `load()` sends the request to Nosto, the returned Promise can be handled async or by chaining a `then()` to the request.
 - Since there is no page tagging, you need to use the ["Visitor" tab in the Nosto Debug Toolbar](../checking-your-setup.md) and the "ev1" request in your network tab for verification and QA.
 - There are several advanced cases to keep in mind and cover:
