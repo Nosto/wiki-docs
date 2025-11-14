@@ -19,7 +19,7 @@ We encourage you to first read through the guiding principles and in a next step
 2. Page tagging via JavaScript or hidden HTML on all pages
    - There are several page types, so please make sure they are covered in your QA checklist. (You can use ours as a blueprint.)
    - The current cart content and logged in user information need to be available on all pages.
-3. Placements (empty divs) where Nosto content can be injected. TODO: Add Web Components?
+3. Placements (empty divs) where Nosto content can be injected.
    - These placements should be added into the HTML, most Nosto plugins offer CMS blocks for easier use.
 4. Injecting personalized content into the placements of the current page (banners, product recommendation carousels/grids, ...)
    - This involves a simple request/response pattern: Tell Nosto which placements are on the current page and you’ll receive the content as JSON or HTML.
