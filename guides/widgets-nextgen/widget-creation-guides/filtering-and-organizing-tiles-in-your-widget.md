@@ -165,8 +165,6 @@ sdk.searchTilesByTagGroup('au'); // e.g., Australia
 
 You can let users **choose how to organize content**:
 
-* **Sort by newest** → Use filters or text search combined with SDK methods.
-* **Sort by category or brand** → Add buttons for brands or categories.
 * **Filter by tags** → Let users pick multiple tags.
 * **Mix filters** → Users can combine brand + category + tag.
 
