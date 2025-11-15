@@ -26,7 +26,7 @@ We encourage you to first read through the guiding principles and in a next step
 5. Replacing native platform features like product listings (PLPs and SERPs) with facets, pagination and sorting options.
 6. Attribution and recording of certain events when a user interacts with a Nosto module, for example:
    - Impressions: Products returned from a search query
-   -  Clicks/Showing interest in a product by clicking "view more" on a PLP or SERP, from the search overlay or from a product recommendations carousel):
+   -  Clicks/Showing interest in a product by clicking "view more" on a PLP or SERP, from the search overlay or from a product recommendations carousel:
       - Can be a redirect to a PDP or
       - When a popup/modal (quick view) is triggered
 7. A client that defines merchandising rules, fine-tunes the search functionality, creates recommendation campaigns, A/B tests etc. and does not need to interact with your code.

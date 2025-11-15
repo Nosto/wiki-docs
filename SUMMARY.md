@@ -4,7 +4,7 @@
 
 * [Welcome and Support](getting-started/README.md)
 * [How to get the most out of our Guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
-* [What Nosto does](getting-started/what-nosto-does.md)
+* [What Nosto does and how it works](getting-started/what-nosto-does-and-how-it-works.md)
 * [What Nosto needs](getting-started/what-nosto-needs.md)
 * [How you ensure a clean and quick Implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
 * [Building your implementation plan](getting-started/building-your-implementation-plan.md)
