@@ -99,6 +99,18 @@ or via DOM tagging
 
 For example, on the site of a retailer, who has different prices for normal (GENERAL) and loyal (LOYAL) customers, if the customer is a logged in customer and is a known loyalty customer, the `nosto_variation` element should show `LOYAL`. If the customer logs out or a new customer visits, and there is no way to identify him as a loyal customer, the `nosto_variation` element should show `GENERAL`.
 
+### Integration with search/category merchandising (universal)
+
+The search/category merchandising (universal) API supports specifying the variation ID in requests
+using the `variationId` property of the [products object](https://search.nosto.com/v1/graphql?ref=InputSearchProducts).
+
+If specified, the selected variation's specific properties automatically replace the corresponding values in the
+top-level product. All features (e.g., rules, facets, filters, sorting) work with the selected variation's values
+automatically when the variation ID is provided.
+
+For Nosto code editor integrations, please refer to a
+[simplified version of this process](../../implement-search/implement-search-using-code-editor/implementing-search-page#multi-currency).
+
 ## Enabling multi-variants from the admin
 
 Once the tagging changed have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
