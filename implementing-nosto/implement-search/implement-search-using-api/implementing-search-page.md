@@ -40,6 +40,10 @@ Products offset parameter `from` is used for pagination functionality.
 
 The **default** count of documents returned per page is `size = 5`, you can change it with `products.size`, and offset of products is controlled with `products.from` field:
 
+{% hint style="info" %}
+Up to 250 products can be retrieved in a single page, corresponding to `size = 250`.
+{% endhint %}
+
 #### Query
 
 ```graphql
