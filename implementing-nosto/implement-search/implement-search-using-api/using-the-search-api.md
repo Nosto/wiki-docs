@@ -337,4 +337,4 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 ## Analytics
 
-{% include "./analytics-hint.md" %}
+{% include "../../.gitbook/includes/analytics-hint.md" %}

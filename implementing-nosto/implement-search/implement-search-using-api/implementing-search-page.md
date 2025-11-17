@@ -486,7 +486,7 @@ The results of this function should be passed to search query [sessionParams](ht
 
 ### Nosto Analytics
 
-{% include "./_analytics-hint.md" %}
+{% include "../../.gitbook/includes/analytics-hint.md" %}
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 

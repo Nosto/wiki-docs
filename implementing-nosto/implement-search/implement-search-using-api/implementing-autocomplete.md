@@ -187,7 +187,7 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-{% include "./_analytics-hint.md" %}
+{% include "../../.gitbook/includes/analytics-hint.md" %}
 
 ### Google Analytics
 
