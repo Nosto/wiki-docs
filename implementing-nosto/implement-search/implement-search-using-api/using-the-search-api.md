@@ -221,7 +221,7 @@ The API may return some errors even when data is returned. This means that some 
 
 For features like personalized results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 
-It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
+It's possible to get search session data using the [JS API](../search#session-parameters):
 
 ```javascript
 nostojs(api => {
