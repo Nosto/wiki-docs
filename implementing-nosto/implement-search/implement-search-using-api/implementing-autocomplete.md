@@ -187,12 +187,7 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = autocomplete`:
-
-* [recordSearch](../search/#search-1) to track users typing in the search field and viewing suggestions
-* [recordSearchClick](../search/#search-product-keyword-click) to track clicks on autocomplete suggestions
-
-Additionally, see the [tracking instructions for search form submissions](../search/#search-form-submit).
+{% include "./_analytics-hint.md" %}
 
 ### Google Analytics
 

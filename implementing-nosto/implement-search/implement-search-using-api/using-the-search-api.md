@@ -337,6 +337,4 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 ## Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods:
-
-* [recordSearchSubmit](../search/#search-form-submit) to track search form submissions
+{% include "./analytics-hint.md" %}

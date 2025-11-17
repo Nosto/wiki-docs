@@ -482,10 +482,7 @@ The results of this function should be passed to search query [sessionParams](ht
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = serp`:
-
-* [recordSearch](../search/#search-1) to track search result interactions like filtering and pagination
-* [recordSearchClick](../search/#search-product-keyword-click) to track result clicks
+{% include "./_analytics-hint.md" %}
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
