@@ -104,7 +104,7 @@ You will also need to configure the price formatting for your primary and second
 
 ### Integration with search/category merchandising (universal)
 
-{% include "../../.gitbook/includes/search-variation-implementation.md" %}
+{% include "../../../.gitbook/includes/search-variation-implementation.md" %}
 
 ## Reviewing your changes
 

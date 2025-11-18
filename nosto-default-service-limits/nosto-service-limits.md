@@ -6,15 +6,15 @@ This page outlines key technical thresholds and performance constraints for diff
 
 ### Search specific Limits <a href="#application-record-and-index-limits" id="application-record-and-index-limits"></a>
 
-| Limit                  | Standard Value\*                                                |
-|------------------------|-----------------------------------------------------------------|
-| Custom Fields          | 5.000 maximum custom fields across the entire product catalogue |
-| Indexed SKU's (Search) | Up to 400.000                                                   |
-| Synonyms               | Max 25 synonymized queries per request                          |
-| Number of Facets       | Up to 100                                                       |
-| Variations             | 100 variation ID's per account                                  |
-| Pins                   | 1.000 per rule                                                  |
-| Products per page      | Up to 250 per request by default                                |
+| Limit                  | Standard Value\*                                                                                                                                                           |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Custom Fields          | 5.000 maximum custom fields across the entire product catalogue                                                                                                            |
+| Indexed SKU's (Search) | Up to 400.000                                                                                                                                                              |
+| Synonyms               | Max 25 synonymized queries per request                                                                                                                                     |
+| Number of Facets       | Up to 100                                                                                                                                                                  |
+| Variations             | 100 variation ID's per account                                                                                                                                             |
+| Pins                   | 1.000 per rule                                                                                                                                                             |
+| Products per page      | Up to 250 per request by default (please use [pagination](../implementing-nosto/implement-search/implement-search-using-api/implementing-search-page#pagination-and-size)) |
 
 ### Recommendations <a href="#filters-facets-and-rules-limits" id="filters-facets-and-rules-limits"></a>
 

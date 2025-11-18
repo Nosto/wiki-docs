@@ -101,7 +101,7 @@ For example, on the site of a retailer, who has different prices for normal (GEN
 
 ### Integration with search/category merchandising (universal)
 
-{% include "../../.gitbook/includes/search-variation-implementation.md" %}
+{% include "../../../.gitbook/includes/search-variation-implementation.md" %}
 
 ## Enabling multi-variants from the admin
 
