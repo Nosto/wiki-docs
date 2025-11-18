@@ -79,7 +79,7 @@ By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
-By default, you should always sort by relevance and rules, which is achieved by not specifying any sort parameter.
+By default, you should always sort by relevance and merchandising rules, which is achieved by not specifying any sort parameter.
 Only if the user selects a different sort method, a sorting rule should be used.
 
 {% hint style="info" %}
@@ -350,7 +350,7 @@ query {
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
 {% hint style="info" %}
-Filters in requests take precedence over rules.
+Filters in requests take precedence over merchandising rules.
 Filtered products can't be brought back using pinning.
 {% endhint %}
 

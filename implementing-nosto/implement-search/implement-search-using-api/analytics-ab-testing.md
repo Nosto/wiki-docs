@@ -135,7 +135,8 @@ Learn more about session handling [here](../../../apis/graphql-an-introduction/g
 
 ### Query `session`
 
-Retrieves segments that have been assigned to this session. Segments must be included in search requests to leverage segmentation in rules.
+Retrieves segments that have been assigned to this session.
+Segments must be included in search requests to leverage segmentation in merchandising rules.
 
 #### Request example
 
@@ -533,7 +534,7 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
   await createSessionIfMissingOrExpired()
 
   // Retrieve an up-to-date list of segments the user in this session belongs to.
-  // Segments are important to support segment-aware rules that might be
+  // Segments are important to support segment-aware merchandising rules that might be
   // associated with A/B tests.
   // Keep in mind that user behavior changes segments during the session!
   // If caching is used, use short lifetimes.
