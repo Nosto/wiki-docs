@@ -127,4 +127,4 @@ The category page shares a lot of similarities with the search page, so please r
 
 ### Nosto Analytics
 
-{% include "../../.gitbook/includes/analytics-hint.md" %}
+{% include "../../../.gitbook/includes/analytics-hint.md" %}
