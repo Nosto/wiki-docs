@@ -44,6 +44,12 @@ The **default** count of documents returned per page is `size = 5`, you can chan
 Up to 250 products can be retrieved in a single page, corresponding to `size = 250`.
 {% endhint %}
 
+The `total` value in the response is useful for pagination as well:
+
+* `total / products.size` is the number of available pages with the current page size.
+* `products.from + products.size >= total` is `true` when the last page has been reached.
+  This is particularly useful for infinite scrolling/load more solutions.
+
 #### Query
 
 ```graphql
@@ -73,7 +79,13 @@ By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
-By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
+By default, you should always sort by relevance and rules, which is achieved by not specifying any sort parameter.
+Only if the user selects a different sort method, a sorting rule should be used.
+
+{% hint style="info" %}
+When sorting by one or more fields, only the field(s) dictate the order of products.
+Merchandising rules have no effect.
+{% endhint %}
 
 #### Query
 
@@ -336,6 +348,11 @@ query {
 [GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7Bfilter:%20%5B%7Bfield:%20%22price%22,%20range:%20%7Blt:%20%2260%22,%20gt:%20%2250%22%7D%7D%5D%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchStatsFacet%20%7B%20field%20name%20min%20max%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
+
+{% hint style="info" %}
+Filters in requests take precedence over rules.
+Filtered products can't be brought back using pinning.
+{% endhint %}
 
 ### Redirects
 
