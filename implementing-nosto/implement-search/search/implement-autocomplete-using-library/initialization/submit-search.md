@@ -38,13 +38,13 @@ To disable `submit` pass `undefined` value.\
 
 Setting `nostoAnalytics: true` will enable Nosto Analytics tracking. Tracking results can be seen in the Nosto Dashboard under Search & Categories -> Analytics page.
 
-❗Note: you should additionally add click events on your search results page according to [Nosto Tech Docs](https://docs.nosto.com/techdocs/apis/frontend/js-apis/search#search-product-keyword-click) with `type: serp || category` according to the results page type.❗\
-\
-
+{% hint style="info" %}
+Note: You should additionally add click events on your search results page according to [Nosto Tech Docs](../../../search#search-product-click) with `type: serp || category` according to the results page type.
+{% endhint %}
 
 #### 📈 Google Analytics (enabled by default)
 
-By default we send `pageview` events to existing GA tag, found in shop site. To send `pageview` events with correct search information, a minimal configuration is needed in `googleAnalytics` property.
+By default, we send `pageview` events to existing GA tag, found in shop site. To send `pageview` events with correct search information, a minimal configuration is needed in `googleAnalytics` property.
 
 * **`serpPath`** - Search query url parameter name
 * **`queryParamName`** - Search query url parameter name

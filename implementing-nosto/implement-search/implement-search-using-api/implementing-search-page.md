@@ -40,6 +40,16 @@ Products offset parameter `from` is used for pagination functionality.
 
 The **default** count of documents returned per page is `size = 5`, you can change it with `products.size`, and offset of products is controlled with `products.from` field:
 
+{% hint style="info" %}
+Up to 250 products can be retrieved in a single page, corresponding to `size = 250`.
+{% endhint %}
+
+The `total` value in the response is useful for pagination as well:
+
+* `total / products.size` is the number of available pages with the current page size.
+* `products.from + products.size >= total` is `true` when the last page has been reached.
+  This is particularly useful for infinite scrolling/load more solutions.
+
 #### Query
 
 ```graphql
@@ -69,7 +79,13 @@ By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
-By default, you should always sort by relevance. Only if the user selects a different sort method, a sorting rule should be used.
+By default, you should always sort by relevance and merchandising rules, which is achieved by not specifying any sort parameter.
+Only if the user selects a different sort method, a sorting rule should be used.
+
+{% hint style="info" %}
+When sorting by one or more fields, only the field(s) dictate the order of products.
+Merchandising rules have no effect.
+{% endhint %}
 
 #### Query
 
@@ -333,6 +349,11 @@ query {
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
+{% hint style="info" %}
+Filters in requests take precedence over merchandising rules.
+Filtered products can't be brought back using pinning.
+{% endhint %}
+
 ### Redirects
 
 Redirects can be used to forward users to special pages depending on their search keywords. For example, users searching for `shipping` could be forwarded to https://example.com/shipping.html.
@@ -482,10 +503,7 @@ The results of this function should be passed to search query [sessionParams](ht
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = serp`:
-
-* [recordSearch](../search/#search-1) to track search result interactions like filtering and pagination
-* [recordSearchClick](../search/#search-product-keyword-click) to track result clicks
+{% include "../../../.gitbook/includes/analytics-hint.md" %}
 
 ## Search engine configuration <a href="#selecting-fields" id="selecting-fields"></a>
 
