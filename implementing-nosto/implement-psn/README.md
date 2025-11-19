@@ -23,6 +23,8 @@ Templates for RECs campaigns can be hosted and maintained in Nosto or built with
 
 Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
 
+*Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar.
+
 OCP and RECs campaigns are always associated with exactly one placement. The placements are also used for A/B testing, e.g. testing campaign A vs. campaign B inside of placement `#nosto-productpage-1`.
 
 
@@ -72,6 +74,9 @@ This approach is **not suitable for SPAs or headless frontends**, please see `Se
 ### Client: Session API: `defaultSession()`
 
 In case you are running a **SPA or headless frontend**, you want more control about the campaign loading and need to disable autoloading to request the campaigns yourself.
+
+You can also find a [video for the Session API](https://partners.nostoacademy.com/catalog/courses/3870391) in the Nosto Partner Academy, just reach out to your Nosto contact if you don't have access yet. We also recommend to bookmark the [video to debug the Session API](https://partners.nostoacademy.com/catalog/courses/3870394).
+
 
 - The campaigns return `JSON` by default, but in comparison to the JS API, you incorporate requesting campaigns with your page tagging/tracking via `defaultSession()` ([reference](https://nosto.github.io/nosto-js/interfaces/client.API.html#defaultsession)).
     - *Page tagging* refers to the JS API ([taggingProvider](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider)) and uses HTML and **MUST NOT** be mixed with the Session API.
