@@ -66,6 +66,7 @@ In case you want more control about the campaign loading, you can disable autolo
 Setting the data manually via JS, e.g. `setPageType("product").setProducts([product_id: "4"])`
     - In most cases it will be sufficient to only include the page tagging since it reads the current product, cart content etc. and add a `.setPlacements(api.placements.getPlacements())` call.
     - Advanced cases where you need to explicitly set data occur when e.g. a variant has been selected on a PDP or if products should be filtered by a certain tag (e.g. for cannabis state-specific regulation or for vehicle-specific parts).
+    - You can overwrite parts of the page tagging and filter products in a recommendation using [dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md).
 - Attribution is automatically handled by Nosto when using the default `response mode HTML`. 
   - If you use the `JSON response mode`, you can [simplify attribution by creating a custom HTML element](../../apis/js-apis/recommendations/sending-product-view-events) and using the `api.attributeProductClicksInCampaign()` method from Nosto ([reference](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign)).
 - This approach is recommended for custom frontend builds, we recommend looking into the [Nosto Open Source packages](../../apis/frontend/oss/README.md).
@@ -77,6 +78,7 @@ In case you are running a **SPA or headless frontend**, you want more control ab
 
 You can also find a [video for the Session API](https://partners.nostoacademy.com/catalog/courses/3870391) in the Nosto Partner Academy, just reach out to your Nosto contact if you don't have access yet. We also recommend to bookmark the [video to debug the Session API](https://partners.nostoacademy.com/catalog/courses/3870394).
 
+You can filter products in a recommendation using [`viewCustomField()`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield) which is the equivalent to dynamic filtering via the JS API.
 
 - The campaigns return `JSON` by default, but in comparison to the JS API, you incorporate requesting campaigns with your page tagging/tracking via `defaultSession()` ([reference](https://nosto.github.io/nosto-js/interfaces/client.API.html#defaultsession)).
     - *Page tagging* refers to the JS API ([taggingProvider](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider)) and uses HTML and **MUST NOT** be mixed with the Session API.
