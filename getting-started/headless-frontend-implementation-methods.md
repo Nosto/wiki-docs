@@ -31,7 +31,8 @@ The concept is the same: [specify data about the session (cart and customer)](..
 
 **Please beware of the following drawbacks:**
 1. You request the campaigns for a specific product ID or category (without placements) and will receive the RECs campaign IDs directly and therefore can't use Nosto built-in A/B testing. You need an alternative, full page A/B testing like Omniconvert in this case.
-2. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
+2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield)
+3. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
 
 
 ## Implementation Methods for Nosto Search/Category Merchandising (CM)
