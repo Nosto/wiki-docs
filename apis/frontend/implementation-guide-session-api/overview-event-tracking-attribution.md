@@ -7,19 +7,19 @@ Please make sure to [read the introduction on Nosto personalization](../../../im
 
 Instead of using HTML tagging or tagging providers, you will implement the same pattern for event tracking on all page types. Nosto needs to know what is happening during a user's session, mainly page views (like PDPs or PLPs), "add to cart" events and conversions.
 
-Regardless if an event was influence by a Nosto personalization module (product recommendation/bundle or on-site content like a personalized banner) or not, **the fundamental call you make is always the same and varies on the page type** (it will make sense in a second).
+Regardless if an event was influenced by a Nosto personalization module (product recommendation/bundle or on-site content like a personalized banner) or not, **the fundamental call you make is always the same and varies on the page type** (it will make sense in a second).
 
 When a shopper visits the homepage, you will call `viewFrontPage()`, when a search was made for "black shoes" you will call `.viewSearch("black shoes")` and so on. [All page types are listed with examples here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md).
 
 
-## Attribution via Reference
+### Attribution via Reference
 
 You will do the same event tracking as above (mostly on a page view) and add `setRef(...)` to the call for Nosto attribution.
 
-If the product view was caused by a Nosto module (let's say a recommendation campaign on the homepage), you will add the Nosto campaign slot ID as a reference via `setRef("frontpage-nosto-1")`.
+If the product view was caused by a Nosto module (e.g. a recommendation campaign on the homepage), you will add the Nosto campaign slot ID as a reference via `setRef("frontpage-nosto-1")`.
 You will receive this reference as `result_id` when you load the campaigns on the current page (homepage in this example). You MUST use the `result_id`, **do not** use the placement or `div_id` ([example response](spa-basics-leveraging-features.md#handling-attribution)).
 
-Another common example is when a shopper is on a PDP (let's say product ID 42), see a Nosto product recommendation and clicks on a shown product (ID 200). The user opens the PDP and you will track:
+Another common example is when a shopper is on a PDP (e.g. product ID 42), see a Nosto product recommendation and clicks on a shown product (ID 200). The user opens the PDP and you will track:
 
 - Shopper is now viewing product ID 200
 - Shopper saw and clicked on this product ID 200 from the Nosto campaign "productpage-nosto-2".
