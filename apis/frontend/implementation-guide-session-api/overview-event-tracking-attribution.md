@@ -32,7 +32,7 @@ nostojs(api => {
     .setRef("200", "productpage-nosto-2")
     .setPlacements(api.placements.getPlacements)
     .load()
-    .then(data => {
+    .then(response => {
       // ...
     })
 });
@@ -40,7 +40,56 @@ nostojs(api => {
 
 You can store the reference "productpage-nosto-2" of the Nosto campaign in the shopper's browser session storage when the click occurs (still on PDP product ID 42) and retrieve this data when the target PDP (ID 200) is loaded to then pass it to `setRef(...)`.
 
-TODO: Check with CFE if `api.attributeProductClicksInCampaign` also works for Session API default JSON.
+### Attribution via Click
+
+As alternative to storing a reference and retrieving it for `setRef(...)` you can also let Nosto listen for clicks for direct attribution.
+
+* If you're building the templates in the Nosto backend (HTML response mode), follow the [Session API based usage](../../../implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution.md#session-api-based-usage).
+* If you're retrieving only the product data (JSON response mode) and are building the templates in your code base, follow the JSON rendering attribution example below.
+
+Use Case: A shopper is on a PDP (e.g. product ID 42), sees a Nosto product recommendation and clicks on a shown product (ID 200).
+You don't explicitly react to the click, you instead set up the click listener with [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign) after rendering the campaign.
+
+```js
+nostojs(api => {
+  api.defaultSession()
+    .viewProduct("42")
+    .setPlacements(api.placements.getPlacements)
+    .load()
+    .then(response => {
+      const recommendation = response.recommendations[placementId]
+      const container = document.getElementById(placementId)
+      if (recommendation && container) {
+        // TODO: Define your own method to render products
+        renderProductsToContainer(containerElement, recommendation)
+        api.attributeProductClicksInCampaign(container, recommendation)
+      }
+    })
+});
+```
+
+Here is an example [ev1 response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html) (some fields have been omitted):
+
+```json
+{
+    "recommendations": {
+        "productpage-nosto-2": { // requested placement id
+            "result_id": "productpage-nosto-2-fallback", // slot id that served the recommendations
+            "products": [{
+                "url": "https://example.com/products/product200",
+                "product_id": "200"
+            }, {
+                "url": "https://example.com/products/product300",
+                "product_id": "300"
+            }],
+            "result_type": "REAL",
+            "title": "Most Popular Right Now",
+            "div_id": "productpage-nosto-2" // requested placement id
+        }
+    }
+}
+```
+
 
 ## Advanced Cases and Examples
 
