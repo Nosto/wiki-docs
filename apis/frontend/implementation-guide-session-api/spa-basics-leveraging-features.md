@@ -68,6 +68,7 @@ When a recommended product is viewed, the `result_id` from the recommendation re
             "result_type": "REAL",
             "title": "Most Popular Right Now",
             "div_id": "nosto-frontpage-1" // requested placement id
+        }
     }
 }
 ```
