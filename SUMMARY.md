@@ -2,11 +2,11 @@
 
 ## Getting started
 
-* [Welcome and Support](getting-started/README.md)
-* [How to get the most out of our Guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
+* [Welcome and support](getting-started/README.md)
+* [How to get the most out of our guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
 * [What Nosto does and how it works](getting-started/what-nosto-does-and-how-it-works.md)
 * [What Nosto needs](getting-started/what-nosto-needs.md)
-* [How you ensure a clean and quick Implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
+* [How you ensure a clean and quick implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
 * [Building your implementation plan](getting-started/building-your-implementation-plan.md)
 * [Headless implementation methods](getting-started/headless-frontend-implementation-methods.md)
 
