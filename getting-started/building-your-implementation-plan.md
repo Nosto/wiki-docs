@@ -51,6 +51,7 @@ All of the following questions can be answered with our general and platform-spe
 
 - [ ] **Product Data Sync:** How do you send Nosto the product catalog?
 - [ ] **Multi-Currency and Localization:** How do you send Nosto the localized data? How do you make sure the correct language and currency shows in the frontend?
+- [ ] **Customer Group Visibility/Pricing:** How do you handle different product availability or prices depending on customer groups? If you are using SKUs/variants/child products or also have multiple currencies, you can't use Nosto's built-in functionality. We then recommend either an API implementation or fetching the prices via an frontend API.
 - [ ] **Order Data Sync:** How do you send Nosto the placed orders?
 - [ ] **Frontend Script:** How do you inject the Nosto script?
 - [ ] **Session Tagging:** How do you tag the currently logged in user and shopping cart content on all pages?
@@ -68,7 +69,8 @@ All of the following questions can be answered with our general and platform-spe
   - [ ] Listings: Do you fallback to your platform's native functionality? We recommend to fallback to your navtive PLPs and SERPs, [Nosto search templates have a "ready to use" fallback mechanism](../implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page.md#fallback-functionality).
 - [ ] **Testing and QA**: How do you verify:
   - [ ] Nosto receives the correct product and order data from your platform,
-  - [ ] Nosto data (product recommendations and/or product listings) is personalized, segmented and rendered in the frontend,
+  - [ ] Nosto data (product cards in product recommendations and/or product listings) is personalized, segmented and rendered in the frontend,
+  - [ ] Nosto data (product cards in product recommendations and/or product listings) match your customer grouping and localization strategy,
   - [ ] Nosto-relevant user interactions are tracked by Nosto,
   - [ ] Nosto-influenced user interactions are correctly attributed to orders,
   - [ ] Nosto A/B testing functionality can be utilized for each Nosto module.

@@ -2,9 +2,15 @@
 
 In this article, you will learn how to implement multi-variants in Nosto. When the implementation is complete, you will be able to display different products at different prices to different customer groups.
 
-**Note:** You can only change the pricing and the availabilities using this feature.
+## Edge cases
 
-**Note:** You cannot use SKUs with this feature at the time of writing.
+If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via an frontend API (instead of sending the price variations to Nosto). Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation.
+
+* You can only change the pricing and the availabilities using this feature.
+* You cannot use SKUs with this feature at the time of writing.
+* You cannot use Nosto multi currency with this feature.
+
+## Ideal use cases
 
 You will need to implement the multi-variate tagging if you have any such scenarios:
 
