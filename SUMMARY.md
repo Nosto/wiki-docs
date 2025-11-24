@@ -8,7 +8,7 @@
 * [What Nosto needs](getting-started/what-nosto-needs.md)
 * [How you ensure a clean and quick implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
 * [Building your implementation plan](getting-started/building-your-implementation-plan.md)
-* [Headless implementation methods](getting-started/headless-frontend-implementation-methods.md)
+* [Headless and SPA (Single Page Application) implementation methods](getting-started/headless-spa-frontend-implementation-methods.md)
 
 ## Implementing Nosto
 

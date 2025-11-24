@@ -85,8 +85,7 @@ In these cases you might be able to use parts of the Nosto plugins (e.g. for a S
 
 We're happy to help you find the ideal approach for your particular tech stack. Please read the matching playbook prior to our conversation:
 
-- Headless Frontend: [Implementation Methods](headless-frontend-implementation-methods.md)
-- SPA: [Implementation Methods](spa-implementation-methods.md)
+- Headless and SPA (Single Page Application) Frontend: [Implementation Methods](headless-spa-frontend-implementation-methods.md)
 - Custom Platform/Use Case: Product Data Sync [GraphQL](../apis/graphql-an-introduction/graphql-using-mutations/graphql-updating-products.md) | [REST](../apis/rest/products/updating-products-using-the-products-api.md)
 - Custom Platform/Use Case: Order Data Sync [GraphQL](../apis/graphql-an-introduction/graphql-using-mutations/working-with-orders/graphql-placing-orders.md)
 

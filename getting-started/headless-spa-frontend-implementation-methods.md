@@ -1,12 +1,13 @@
-# Headless Frontend: Implementation Methods
-
-The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a very good understanding of the concept.
+# Headless and SPA Frontend: Implementation Methods
+The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless and SPA (Single Page Application) builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a general understanding of the concept. You will
 
 Search and Category Merchandising is separate from that and covered afterwards.
 
 
 ## Page Tagging and Event Tracking + Requesting Nosto Content for rendering with your Templates
-On every page visit, you need to send a request to Nosto about the page type the user is browsing and what exactly they're looking at (e.g. type = product, ID = 123).
+On every page visit, you need to send a request to Nosto using our [Session API](https://nosto.github.io/nosto-js/interfaces/client.Session.html) about the page type the user is browsing and what exactly they're looking at (e.g. type = product, ID = 123).
+
+You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events), the concept is the same every time.
 
 Nosto then returns a response with two types of content:
 - Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with [[JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)]
@@ -15,14 +16,11 @@ Nosto then returns a response with two types of content:
 ### Nosto Content via Session API
 You take the response and pass it to your rendering function, building the HTML template and injecting it into your theme.
 
-Typically, this is done via "[placements](../apis/frontend/implementation-guide-session-api/handling-placements)" (empty divs on every page that can be populated from the backend, e.g. pdp-top, pdp-mid, home-1, home-2, ...) and you pass all the placement-IDs that are on the current page to Nosto. Nosto then returns the data of the campaigns that are inside of those placements, [see here (incl. sample response)](../apis/frontend/implementation-guide-session-api/handling-placements#managing-placements-automatically).
-
-When you've built the HTML template for the received campaigns, you can use a helper function to inject them into your placements `api.placements.injectCampaigns(recsHtml);` and Nosto will also take care of the tracking and attribution.
-
-You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events), the concept is the same every time.
+This is done via ["placements"](https://help.nosto.com/en/articles/1883767-placements-general-article) (empty divs on every page that can be populated from the backend, e.g. pdp-top, pdp-mid, home-1, home-2, ...) and you pass all the placement-IDs that are on the current page to Nosto. Nosto then returns the data of the campaigns that are inside of those placements.
 
 Using placements gives the eCom-team a high degree of flexibility since they can control what to show where and they can run A/B tests within Nosto.
-API Reference: https://nosto.github.io/nosto-js/interfaces/client.Session.html
+
+Nosto offers you several helper functions to simplify injecting your campaigns and setting up click attribution. If you want to read more on DOM injection and click attribution [read this](../implementing-nosto/implement-psn/README.md#dom-injection-and-click-attribution).
 
 ### Nosto Content via GraphQL
 The event tracking can also be done via GraphQL.
@@ -34,9 +32,11 @@ The concept is the same: [specify data about the session (cart and customer)](..
 2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield)
 3. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
 
+### Choosing the right Implementation Method
+The Nosto team is happy to support you finding the method that matches your tech stack, requirements and preferences. We highly recommend reading our [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but if you're in a hurry, take a look at our [comparison table](../implementing-nosto/implement-psn/README.md#comparison-table)
+
 
 ## Implementation Methods for Nosto Search/Category Merchandising (CM)
-
 Here you can find an [overview of all implementation methods](../implementing-nosto/implement-search/README.md#compare-implementations).
 
 The differences between the GraphQL API and JS Library (wrapping the GraphQL API) are:
