@@ -63,6 +63,9 @@ All of the following questions can be answered with our general and platform-spe
   - [ ] "Quick View"/"Quick Buy" modals in campaign widgets or listings,
   - [ ] "Mini-Cart" campaign widgets, 
   - [ ] ...
+- [ ] **Fallback Plan:** How does your frontend behave in case the Nosto service is unavailable? (The insurance we want you to never need.)
+  - [ ] Campaign Widgets: Do you fallback to native recommendations or generic banners? Do you show an empty section? Is it worth implementing a fallback?
+  - [ ] Listings: Do you fallback to your platform's native functionality? We recommend to fallback to your navtive PLPs and SERPs, [Nosto search templates have a "ready to use" fallback mechanism](../implementing-nosto/implement-search/implement-search-using-code-editor/implementing-search-page.md#fallback-functionality).
 - [ ] **Testing and QA**: How do you verify:
   - [ ] Nosto receives the correct product and order data from your platform,
   - [ ] Nosto data (product recommendations and/or product listings) is personalized, segmented and rendered in the frontend,
