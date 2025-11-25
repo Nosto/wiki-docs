@@ -10,7 +10,7 @@ On every page visit, you need to send a request to Nosto using our [Session API]
 You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events), the concept is the same every time.
 
 Nosto then returns a response with two types of content:
-- Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with [[JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)]
+- Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)s
 - Onsite Content Personalization (OCP, e.g. banners or text) -> [HTML](https://nosto.github.io/nosto-js/interfaces/client.AttributedCampaignResult.html)
 
 ### Nosto Content via Session API
@@ -25,15 +25,15 @@ Nosto offers you several helper functions to simplify injecting your campaigns a
 ### Nosto Content via GraphQL
 The event tracking can also be done via GraphQL.
 
-The concept is the same: [specify data about the session (cart and customer)](../apis/graphql-an-introduction/graphql-using-mutations/README.md). and [request product recommendations for a given page type](../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md).
+The concept is the same: [specify data about the session (cart and customer)](../apis/graphql-an-introduction/graphql-using-mutations/README.md) and [request product recommendations for a given page type](../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md).
 
 **Please beware of the following drawbacks:**
 1. You request the campaigns for a specific product ID or category (without placements) and will receive the RECs campaign IDs directly and therefore can't use Nosto built-in A/B testing. You need an alternative, full page A/B testing like Omniconvert in this case.
-2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield)
+2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield).
 3. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
 
 ### Choosing the right Implementation Method
-The Nosto team is happy to support you finding the method that matches your tech stack, requirements and preferences. We highly recommend reading our [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but if you're in a hurry, take a look at our [comparison table](../implementing-nosto/implement-psn/README.md#comparison-table)
+The Nosto team is happy to support you finding the method that matches your tech stack, requirements and preferences. We highly recommend reading our [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but if you're in a hurry, take a look at our [comparison table](../implementing-nosto/implement-psn/README.md#comparison-table).
 
 
 ## Implementation Methods for Nosto Search/Category Merchandising (CM)
