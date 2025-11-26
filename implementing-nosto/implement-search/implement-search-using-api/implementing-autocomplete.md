@@ -16,10 +16,11 @@ Some autocomplete features are available conditionally.
 
 * **Keyword suggestions** require searchable fields to be marked for autocomplete.
 * **Popular searches** require a function Nosto tracking integration for searches.
-* **Category suggestions** depend on available categories (including URLs)
-  being [sent to Nosto](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md).
+* **Category suggestions** depend on available categories (including URLs) being sent to Nosto.
   * The Shopify integration sends categories to Nosto out-of-the-box, with no extra work required.
   * The Shopware 6 plugin automatically sends categories to Nosto without requiring extra work from version 5.1.4.
+  * For other platforms and custom integrations, send categories to Nosto via
+    [GraphQL API](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md).
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
