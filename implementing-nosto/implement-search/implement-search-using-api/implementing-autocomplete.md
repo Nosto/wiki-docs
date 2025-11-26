@@ -10,6 +10,17 @@ Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/arti
 When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
 {% endhint %}
 
+## Requirements
+
+Some autocomplete features are available conditionally.
+
+* **Keyword suggestions** require searchable fields to be marked for autocomplete.
+* **Popular searches** require a function Nosto tracking integration for searches.
+* **Category suggestions** depend on available categories (including URLs)
+  being [sent to Nosto](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories).
+  * The Shopify integration sends categories to Nosto out-of-the-box, with no extra work required.
+  * The Shopware 6 plugin automatically sends categories to Nosto without requiring extra work from version 5.1.4.
+
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
 ### Example
