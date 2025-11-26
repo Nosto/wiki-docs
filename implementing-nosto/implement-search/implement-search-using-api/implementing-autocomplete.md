@@ -7,7 +7,7 @@ Autocomplete provides keyword suggestions to assist users in completing their qu
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
 {% hint style="info" %}
-When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
+When integrating autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
 {% endhint %}
 
 ## Requirements
