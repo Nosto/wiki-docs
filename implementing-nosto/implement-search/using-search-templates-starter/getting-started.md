@@ -204,7 +204,7 @@ npm run preview
 
 Once you have the development environment running, you can:
 
-* **Use the Nosto CLI** - See [Nosto CLI](../../deployment-and-testing/nosto-cli.md) for deployment workflows
+* **Use the Nosto CLI** - See [Nosto CLI](../deployment-and-testing/nosto-cli.md) for deployment workflows
 * **Leverage AI assistance** - See [LLM Examples](llm-examples.md) for development productivity tips
 
 ### Troubleshooting

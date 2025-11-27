@@ -8,7 +8,7 @@ Search Templates allow you to add a search function to your website quickly and 
 
 To get started with Search Templates on your website, navigate to the Search tab under 'On-site' within the Nosto UI. This is where everything for Search can be configured and controlled, including designing the templates for search pages and autocomplete dropdowns, as well as search analytics, merchandising rules and other settings. Synonyms for search queries can also be configured here.
 
-> If you prefer to develop the template in your local IDE of choice, we recommend you also take a look at [Nosto-CLI](../../deployment-and-testing/nosto-cli.md). The CLI tool set allows you to develop the template on your machine with your own tools, and upload the build artifacts directly to Nosto.
+> If you prefer to develop the template in your local IDE of choice, we recommend you also take a look at [Nosto-CLI](../deployment-and-testing/nosto-cli.md). The CLI tool set allows you to develop the template on your machine with your own tools, and upload the build artifacts directly to Nosto.
 
 To begin implementing Search, navigate to the Templates tab under Search, and Click on “Open Code Editor”.
 
