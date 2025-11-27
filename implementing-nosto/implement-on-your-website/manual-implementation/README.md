@@ -1,8 +1,8 @@
-# Manual Tagging - Essentials
+# Manual Implementation - Essentials
 
 To implement Nosto manually you will need to go through the following steps to ensure that the store data is captured by Nosto. The following steps will allow Nosto to gather product, cart and order data, and analyze how individual customers are interacting with this data. The implementation steps listed here are necessary for both functionalities based on crowd logic and 1-1 behavioral personalization.
 
-* [Manual Tagging - Essentials](./)
+* [Manual Implementation - Essentials](./)
   * [Setting up your account](setting-up-your-account.md)
   * [Adding the Nosto Script](add-nosto-script.md)
   * [Adding the Cart Tagging](cart-tagging.md)

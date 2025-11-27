@@ -5,7 +5,7 @@
 ## Implementing Nosto
 
 * [Implement on your website](implementing-nosto/implement-on-your-website/README.md)
-  * [Manual Tagging - Essentials](implementing-nosto/implement-on-your-website/manual-implementation/README.md)
+  * [Manual Implementation - Essentials](implementing-nosto/implement-on-your-website/manual-implementation/README.md)
     * [Setting up your account](implementing-nosto/implement-on-your-website/manual-implementation/setting-up-your-account.md)
     * [Adding the Nosto Script](implementing-nosto/implement-on-your-website/manual-implementation/add-nosto-script.md)
     * [Adding the Cart Tagging](implementing-nosto/implement-on-your-website/manual-implementation/cart-tagging.md)
