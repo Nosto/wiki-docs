@@ -16,7 +16,7 @@ Most customers implement Nosto by installing a Nosto extension to their e-commer
 | Implement on your Headless | [GraphQL](../../apis/graphql-an-introduction/) |
 | -------------------------- | ---------------------------------------------- |
 
-| Implement on a standard e-commerce store | [Manual Tagging](manual-implementation/) |
+| Implement on a standard e-commerce store | [Manual Implementation](manual-implementation/) |
 | ---------------------------------------- | ---------------------------------------- |
 
 When implementing in SPA and PWA environments, product updates must be done via [REST API](../../apis/rest/). In case you are using some of the platforms that Nosto has extension for the extension takes care of the product updates.
