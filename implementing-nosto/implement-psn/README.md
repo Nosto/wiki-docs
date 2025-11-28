@@ -6,17 +6,6 @@ How to implement Product Recommendations, Dynamic Bundles and Onsite Content Per
 
 If you only have a complex product card but are using a Shopify theme, you can consider using our [dynamic product cards](../../implementing-nosto/template-customization/product-cards.md)
 
-## Prerequisites
-
-- [ ] Nosto account with working product sync (promotable products)
-- [ ] Nosto script in the frontend (Nosto Debug Toolbar is loading)
-- [ ] Knowledge of running a SPA or classic web application
-- [ ] General understanding of [how Nosto works](../../getting-started/README.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
-- [ ] One or multiple Nosto modules enabled in your account:
-  - [ ] OCP: Onsite Content Personalization (like banners or text)
-  - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
-
-
 ## Good to know before you start
 
 1. Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements). 

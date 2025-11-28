@@ -4,7 +4,7 @@ In this article, you will learn how to implement multi-variants in Nosto. When t
 
 ## Edge cases
 
-If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via an frontend API (instead of sending the price variations to Nosto). Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation.
+If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via an frontend API (instead of sending the price variations to Nosto).
 
 * You can only change the pricing and the availabilities using this feature.
 * You cannot use SKUs with this feature at the time of writing.
@@ -107,7 +107,7 @@ For example, on the site of a retailer, who has different prices for normal (GEN
 
 ## Enabling multi-variants from the admin
 
-Once the tagging changed have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
+Once the tagging changes have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
 
 ![](https://user-images.githubusercontent.com/327432/36842403-419416ae-1d54-11e8-9bea-a979d7896977.png)
 
