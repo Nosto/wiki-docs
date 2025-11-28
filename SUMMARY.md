@@ -1,18 +1,9 @@
 # Table of contents
 
-## Getting started
-
-* [Welcome and support](getting-started/README.md)
-* [How to get the most out of our guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
-* [What Nosto does and how it works](getting-started/what-nosto-does-and-how-it-works.md)
-* [What Nosto needs](getting-started/what-nosto-needs.md)
-* [How you ensure a clean and quick implementation](getting-started/how-you-ensure-a-clean-and-quick-implementation.md)
-* [Building your implementation plan](getting-started/building-your-implementation-plan.md)
-* [Headless and SPA (Single Page Application) implementation methods](getting-started/headless-spa-frontend-implementation-methods.md)
+* [Introduction](README.md)
 
 ## Implementing Nosto
 
-* [Introduction](README.md)
 * [Implement on your website](implementing-nosto/implement-on-your-website/README.md)
   * [Manual Tagging - Essentials](implementing-nosto/implement-on-your-website/manual-implementation/README.md)
     * [Setting up your account](implementing-nosto/implement-on-your-website/manual-implementation/setting-up-your-account.md)
