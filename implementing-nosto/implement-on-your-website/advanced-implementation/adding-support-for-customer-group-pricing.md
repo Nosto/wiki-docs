@@ -2,9 +2,15 @@
 
 In this article, you will learn how to implement multi-variants in Nosto. When the implementation is complete, you will be able to display different products at different prices to different customer groups.
 
-**Note:** You can only change the pricing and the availabilities using this feature.
+## Edge cases
 
-**Note:** You cannot use SKUs with this feature at the time of writing.
+If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via an frontend API (instead of sending the price variations to Nosto). Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation.
+
+* You can only change the pricing and the availabilities using this feature.
+* You cannot use SKUs with this feature at the time of writing.
+* You cannot use Nosto multi currency with this feature.
+
+## Ideal use cases
 
 You will need to implement the multi-variate tagging if you have any such scenarios:
 
@@ -99,13 +105,9 @@ or via DOM tagging
 
 For example, on the site of a retailer, who has different prices for normal (GENERAL) and loyal (LOYAL) customers, if the customer is a logged in customer and is a known loyalty customer, the `nosto_variation` element should show `LOYAL`. If the customer logs out or a new customer visits, and there is no way to identify him as a loyal customer, the `nosto_variation` element should show `GENERAL`.
 
-### Integration with search/category merchandising (universal)
-
-{% include "../../../.gitbook/includes/search-variation-implementation.md" %}
-
 ## Enabling multi-variants from the admin
 
-Once the tagging changes have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
+Once the tagging changed have been done and the API implemented, you need to configure and enable it from your admin panel under **Settings** > **Other** > **Multi-Currency**. Toggle the **Use Multiple Currencies** switch on and **Use Exchange Rates** switch off and set the variation ID of the primary currency via the input field and toggle on the exchange rates switch.
 
 ![](https://user-images.githubusercontent.com/327432/36842403-419416ae-1d54-11e8-9bea-a979d7896977.png)
 

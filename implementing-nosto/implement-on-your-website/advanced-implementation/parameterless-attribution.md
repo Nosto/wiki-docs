@@ -2,7 +2,7 @@
 
 By default Nosto tracks campaign attribution without additional url parameters. The tracking happens by registering click listeners to the campaign elements that detect product url clicks and associate them with the attribution metadata of the rendered campaign. The pair of url and campaign attribution is stored in the local storage of the Browser.
 
-In most cases this will work out of the box, but in certain scenarious adjustments need to be made.
+In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/README.md#attribution).
 
 ## Product url redirects
 
@@ -27,7 +27,7 @@ Check out the API documentation for [defaultSession](https://nosto.github.io/nos
 
 Parameterless attribution became the default attribution mechanism on May 26th 2025. If your setup relies on the legacy nosto parameters being present you can enable the legacy behavior in your main account settings page.
 
-## JSON Rendering Attribution
+## JS API based usage: JSON Rendering Attribution
 
 ### Attribution in custom element based Nosto campaign rendeirng
 
@@ -46,7 +46,9 @@ export class NostoRenderer extends HTMLElement {
         .load()
       if (results.recommendations[placement]) {
         const rec = results.recommendations[placement]
-        // TODO render results
+        const container = document.getElementById(placement)
+        // TODO: Define your own method to render products
+        renderProductsToContainer(container, recommendation)
         api.attributeProductClicksInCampaign(this, rec)
       }
     }
@@ -74,7 +76,8 @@ const response = await api
 const recommendation = response.recommendations[placementId]
 const container = document.getElementById(placementId)
 if (recommendation && container) {
-  renderProductsToContainer(containerElement, recommendation)
+  // TODO: Define your own method to render products
+  renderProductsToContainer(container, recommendation)
   api.attributeProductClicksInCampaign(container, recommendation)
 }
 ```
