@@ -38,7 +38,7 @@ In the example above, we supply serp query parameters as an object. Additionally
 
 ##### Using variationId for price variations
 
-When you have **price variations** in use, provide the product variation ID by accessing the pre-defined `variationId` method from the default configuration:
+When you have [**price variations**](../../../implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing) in use, provide the product variation ID by accessing the pre-defined `variationId` method from the default configuration:
 
 {% code title="index.js" %}
 ```javascript

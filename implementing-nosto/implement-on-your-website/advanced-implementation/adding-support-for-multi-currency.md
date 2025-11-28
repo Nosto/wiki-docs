@@ -101,6 +101,11 @@ Once the tagging changed have been done and the API implemented, you need to con
 
 You will also need to configure the price formatting for your primary and secondary currencies.
 
+
+### Integration with search/category merchandising (universal)
+
+{% include "../../../.gitbook/includes/search-variation-implementation.md" %}
+
 ## Reviewing your changes
 
 Once you enabled multi-currency and made an API call, you can review the exchange rates received by Nosto by navigating to **Settings** > **Other** > **Multi-currency**.

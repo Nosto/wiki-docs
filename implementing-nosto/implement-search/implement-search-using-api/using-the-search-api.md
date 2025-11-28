@@ -221,7 +221,7 @@ The API may return some errors even when data is returned. This means that some 
 
 For features like personalized results and user segments to function effectively, the search function needs access to the user's session information from the front-end.
 
-It's possible to get search session data using the [JS API](https://docs.nosto.com/techdocs/apis/js-apis/search):
+It's possible to get search session data using the [JS API](../search#session-parameters):
 
 ```javascript
 nostojs(api => {
@@ -337,6 +337,4 @@ Variables should encompass all dynamic query data because it is the most efficie
 
 ## Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods:
-
-* [recordSearchSubmit](../search/#search-form-submit) to track search form submissions
+{% include "../../../.gitbook/includes/analytics-hint.md" %}

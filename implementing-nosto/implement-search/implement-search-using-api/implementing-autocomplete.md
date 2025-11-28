@@ -7,8 +7,20 @@ Autocomplete provides keyword suggestions to assist users in completing their qu
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
 {% hint style="info" %}
-When integrating Autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
+When integrating autocomplete you have the option to directly access the API, or you can use our existing [Autocomplete JavaScript library](../search/implement-autocomplete-using-library/) that provides most of the required functionality out of the box.
 {% endhint %}
+
+## Requirements
+
+Some autocomplete features are available conditionally.
+
+* **Keyword suggestions** require searchable fields to be marked for autocomplete.
+* **Popular searches** require a function Nosto tracking integration for searches.
+* **Category suggestions** depend on available categories (including URLs) being sent to Nosto.
+  * The Shopify integration sends categories to Nosto out-of-the-box, with no extra work required.
+  * The Shopware 6 plugin automatically sends categories to Nosto without requiring extra work from version 5.1.4.
+  * For other platforms and custom integrations, send categories to Nosto via
+    [GraphQL API](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md).
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
@@ -187,12 +199,7 @@ API only returns redirect url, the actual browser redirect must be implemented b
 
 ### Nosto Analytics
 
-To analyze user behavior you need to implement tracking. This can be achieved using our [JavaScript library](../search/). You need to implement the following methods with `type = autocomplete`:
-
-* [recordSearch](../search/#search-1) to track users typing in the search field and viewing suggestions
-* [recordSearchClick](../search/#search-product-keyword-click) to track clicks on autocomplete suggestions
-
-Additionally, see the [tracking instructions for search form submissions](../search/#search-form-submit).
+{% include "../../../.gitbook/includes/analytics-hint.md" %}
 
 ### Google Analytics
 
