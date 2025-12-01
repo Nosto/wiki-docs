@@ -27,7 +27,7 @@
   * [FAQ](implementing-nosto/implement-on-your-website/faq.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
-* [Implement Personalized Campaign Widgets](implementing-nosto/implement-psn/README.md)
+* [Implement Personalized Campaigns](implementing-nosto/implement-psn/README.md)
 * [Implement Search & Categories](implementing-nosto/implement-search/README.md)
   * [Using Search Templates Starter](implementing-nosto/implement-search/using-search-templates-starter/README.md)
     * [Getting started](implementing-nosto/implement-search/using-search-templates-starter/getting-started.md)
