@@ -2,7 +2,7 @@
 
 Instead of using [HTML tagging or tagging providers](../../../implementing-nosto/implement-on-your-website/manual-implementation/README.md), you will implement the same pattern for event tracking on all page types. Nosto needs to know what is happening during a user's session, mainly page views (like PDPs or PLPs), "add to cart" events and conversions.
 
-Regardless if an event was influenced by a Nosto personalization module (product recommendation/bundle or on-site content like a personalized banner) or not, **the fundamental call you make is always the same and varies on the page type**. When a shopper visits the homepage, you will call `viewFrontPage()`, when a search was made for "black shoes" you will call `.viewSearch("black shoes")` and so on. **All page types are listed with examples below**.
+Regardless if an event was influenced by a Nosto personalization module (product recommendation/bundle or on-site content like a personalized banner) or not, **the fundamental call you make is always the same and varies based on the page type**. When a shopper visits the homepage, you will call `viewFrontPage()`, when a search was made for "black shoes" you will call `.viewSearch("black shoes")` and so on. **All page types are listed with examples below**.
 
 ## Upon viewing the homepage
 
