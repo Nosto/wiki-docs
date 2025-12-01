@@ -22,7 +22,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 1. Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements). 
    - You can see the mapping of campaigns and placements in the Nosto Admin UI: Product Experience Cloud -> Recommendations.
    - These are sorted into the different page types like homepage (e.g. `#nosto-frontpage-1`), PLP, PDP, SERP, 404 page as well as general layout areas like the mini-cart drawer or search overlay/autocomplete.
-2. Your client will guide you on setting up placements in your store templates (or has already defined those within a design file).
+2. Placements need to be set up in your store templates.
   - Nosto campaigns need to be injected into the placements - automatically or manually, depending on your tech stack and implementation method.
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
 3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
@@ -83,8 +83,8 @@ This method is the fastest and works best for conventional builds where the temp
 
 - By default, the Nosto autoloader is enabled and content will be automatically injected into the templates on the page.
 - Attribution is automatically handled by Nosto as it knows which HTML template was used in what campaign.
-- If your client is on Shopify, we recommend to evaluate our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
-- You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template (mostly applicable for clients not using the dynamic product cards).
+- If you are on Shopify, we recommend to evaluate our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
+- You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template.
   - You will find a full reference and examples in the Nosto backend when you're building your template.
 
 ### Client: JS API: `createRecommendationRequest()`
