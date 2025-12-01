@@ -4,10 +4,10 @@ In this article, you will learn how to implement multi-variants in Nosto. When t
 
 ## Edge cases
 
-If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via an frontend API (instead of sending the price variations to Nosto). Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation.
+If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via a frontend API (instead of sending the price variations to Nosto). Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation.
 
 * You can only change the pricing and the availabilities using this feature.
-* You cannot use SKUs with this feature at the time of writing.
+* You cannot use SKUs with this feature.
 * You cannot use Nosto multi currency with this feature.
 
 ## Ideal use cases
