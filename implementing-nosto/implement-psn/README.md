@@ -196,7 +196,7 @@ Typical use case, options and adjustment depending on your implementation method
   * If you're using Nosto-hosted templates with autoloading, you don't need to do anything. Parameterless attribution is enabled and set up by default.
   * If you're manually requesting Nosto-hosted HTML templates via the JS API, you have two options:
     * Let Nosto inject the campaigns into the DOM via `injectCampaigns()`, this is recommended, attribution is set up automatically.
-    * Inject the campaigns into the DOM yourself and set up attribution manually via [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign) after rendering the campaign.
+    * Inject the campaigns into the DOM yourself and set up attribution manually via [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign) after rendering the campaign ([example here](../implement-on-your-website/advanced-implementation/parameterless-attribution#json-rendering-attribution)).
   * If you're manually requesting Nosto-hosted HTML templates via the Session API, we recommend to add `enableCampaignInjection()` to your `defaultSession()`. Nosto will automatically inject the campaigns into the DOM, parameterless attribution is enabled and set up by default.
   * If you're manually requesting only the product data via JSON from a Nosto campaign via the Session API, you have two options after you've built the HTML for your campaigns in your code base:
     * Let Nosto inject the campaigns into the DOM via `injectCampaigns()`, this is recommended, attribution is set up automatically.
