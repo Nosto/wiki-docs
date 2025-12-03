@@ -1,4 +1,4 @@
-# Welcome Guide
+# Welcome and support
 
 We are glad to have you as a partner and want to help you get running with Nosto as soon as possible while making it as easy as possible for you.
 
