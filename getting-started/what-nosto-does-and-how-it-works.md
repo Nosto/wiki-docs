@@ -9,7 +9,7 @@ Nosto then does two basic things onsite:
 2. **Content personalization:** Change the content on an eCommerce site per user depending on the data we have collected and which campaigns have been set up by the client.
     - "Content" is a broad term and ranges:
         - from a hero/banner image on a home, landing, category or product page
-        - over product recommendations ("You might also like") on any page type (or even in the mini-cart or search overlay)
+        - to product recommendations ("You might also like") on any page type (or even in the mini-cart or search overlay)
         - to conversion rate optimized, personalized category pages and SERPs which replace the native platform functionality.
 
 * [Watch video: Overview of Nosto by example of a custom implementation](/.gitbook/assets/01-overview-custom-implementation.mp4)
