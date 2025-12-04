@@ -22,7 +22,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 1. Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements). 
    - You can see the mapping of campaigns and placements in the Nosto Admin UI: Product Experience Cloud -> Recommendations.
    - These are sorted into the different page types like homepage (e.g. `#nosto-frontpage-1`), PLP, PDP, SERP, 404 page as well as general layout areas like the mini-cart drawer or search overlay/autocomplete.
-2. Placements need to be set up in your store templates.
+2. Placements need to be set up in your store templates. On Shopify and Shopware, you can use our content blocks. For assistance in setting up placements on your store, please reach out to your Nosto POC or Nosto's support team. 
   - Nosto campaigns need to be injected into the placements - automatically or manually, depending on your tech stack and implementation method.
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
 3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
