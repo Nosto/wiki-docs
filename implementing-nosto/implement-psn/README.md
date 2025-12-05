@@ -4,7 +4,7 @@ How to implement Product Recommendations, Dynamic Bundles and Onsite Content Per
 
 **If you have custom requirements like customer group pricing/visibility or a highly complex product card**, *we recommend using one of the Nosto APIs to only retrieve the core product data via JSON and get prices and visibility from your platform instead of sending it to Nosto.*
 
-If you only have a complex product card but are using a Shopify theme, you can consider using our [dynamic product cards](../../implementing-nosto/template-customization/product-cards.md)
+If you only have a complex product card but are using a Shopify theme, you can consider using our [dynamic product cards](../../implementing-nosto/template-customization/product-cards.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
 3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs).
 4. Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
-   - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar.
+   - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar. You can do QA via the `ev1` request in your network tab (details below).
 5. OCP and RECs campaigns are always associated with exactly one placement.
    - The placements are also used for A/B testing, e.g. testing campaign A vs. campaign B inside of placement `#nosto-productpage-1`.
    - Requesting campaigns via GraphQL is limited (no A/B testing, no dynamic filtering).
@@ -83,7 +83,7 @@ This method is the fastest and works best for conventional builds where the temp
 
 - By default, the Nosto autoloader is enabled and content will be automatically injected into the templates on the page.
 - Attribution is automatically handled by Nosto as it knows which HTML template was used in what campaign.
-- If your client is on Shopify, we recommend to evaluate our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
+- If your client is on Shopify, we recommend to use our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
 - You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template (mostly applicable for clients not using the dynamic product cards).
   - You will find a full reference and examples in the Nosto backend when you're building your template.
 
@@ -98,7 +98,7 @@ This approach is **not suitable for SPAs or headless frontends**, please see `Se
   - Setting the data manually via JS, e.g. `setPageType("product").setProducts([product_id: "4"])`
     - In most cases it will be sufficient to only include the page tagging since it reads the current product, cart content etc. and add a `.setPlacements(api.placements.getPlacements())` call.
     - Advanced cases where you need to explicitly set data occur when e.g. a variant has been selected on a PDP or if products should be filtered by a certain tag (e.g. for cannabis state-specific regulation or for vehicle-specific parts).
-    - You can overwrite parts of the page tagging and filter products in a recommendation using [dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md).
+    - You can overwrite parts of the page tagging and filter products in a recommendation request (can include one or more placements) using [dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md).
 - Attribution is automatically handled by Nosto when using the default `response mode HTML`.
   - If you use the `JSON response mode`, you can [simplify DOM injection and click attribution](#dom-injection-and-click-attribution) with Nosto's helper methods.
 - This approach is recommended for custom frontend builds, we recommend looking into the [Nosto Open Source packages](../../apis/frontend/oss/README.md).
