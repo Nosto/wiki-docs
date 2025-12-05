@@ -10,7 +10,7 @@ On every page visit, you need to send a request to Nosto using our [Session API]
 You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events), the concept is the same every time.
 
 Nosto then returns a response with two types of content:
-- Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)s
+- Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)
 - Onsite Content Personalization (OCP, e.g. banners or text) -> [HTML](https://nosto.github.io/nosto-js/interfaces/client.AttributedCampaignResult.html)
 
 ### Nosto Content via Session API
