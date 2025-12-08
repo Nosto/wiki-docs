@@ -11,7 +11,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 - [ ] Nosto account with working product sync (promotable products)
 - [ ] Nosto script in the frontend (Nosto Debug Toolbar is loading)
 - [ ] Knowledge of running a SPA or classic web application
-- [ ] General understanding of [how Nosto works](../../getting-started/README.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
+- [ ] General understanding of how Nosto works and what components make a stable Nosto implementation
 - [ ] One or both of the following Nosto modules enabled in your account:
   - [ ] OCP: Onsite Content Personalization (like banners or text)
   - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
