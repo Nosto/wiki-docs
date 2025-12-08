@@ -2,9 +2,15 @@
 
 In this article, you will learn how to implement multi-variants in Nosto. When the implementation is complete, you will be able to display different products at different prices to different customer groups.
 
-**Note:** You can only change the pricing and the availabilities using this feature.
+## Edge cases
 
-**Note:** You cannot use SKUs with this feature at the time of writing.
+If either of the following cases applies to you, we recommend either an API implementation or fetching the prices via the frontend API of your platform instead of sending the price variations to Nosto. Shopify for example has the [Storefront API](https://shopify.dev/docs/api/storefront/latest) and our Shopware plugin has an [endpoint for multi-currency](https://github.com/Nosto/nosto-shopware6/blob/develop/src/Api/Controller/NostoMulticurrencyController.php) that you can extend. Please [reach out to our team](mailto:onboarding@nosto.com) or your Nosto onboarding manager for additional consultation. 
+
+* You can only change the pricing and the availabilities using this feature.
+* You cannot use SKUs with this feature.
+* You cannot use Nosto multi currency with this feature.
+
+## Ideal use cases
 
 You will need to implement the multi-variate tagging if you have any such scenarios:
 

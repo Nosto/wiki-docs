@@ -2,6 +2,8 @@
 
 To implement Nosto manually you will need to go through the following steps to ensure that the store data is captured by Nosto. The following steps will allow Nosto to gather product, cart and order data, and analyze how individual customers are interacting with this data. The implementation steps listed here are necessary for both functionalities based on crowd logic and 1-1 behavioral personalization.
 
+If you are running a headless frontend or SPA (Single Page Application), you will follow the same approach using the Nosto Session API. Please read more on the [introduction](../../../apis/frontend/implementation-guide-session-api/README.md), [managing the session](../../../apis/frontend/implementation-guide-session-api/spa-basics-managing-sessions.md) and [event tracking](../../../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md) (instead of page tagging).
+
 * [Manual Implementation - Essentials](./)
   * [Setting up your account](setting-up-your-account.md)
   * [Adding the Nosto Script](add-nosto-script.md)
