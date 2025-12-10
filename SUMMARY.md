@@ -2,7 +2,7 @@
 
 ## Quick Start Guide
 
-* [Welcome and support](getting-started/README.md)
+* [Welcome and support](README.md)
 * [How to get the most out of our guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
 * [What Nosto does and how it works](getting-started/what-nosto-does-and-how-it-works.md)
 * [What Nosto needs](getting-started/what-nosto-needs.md)
