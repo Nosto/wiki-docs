@@ -4,7 +4,7 @@ How to implement Product Recommendations, Dynamic Bundles and Onsite Content Per
 
 **If you have custom requirements like customer group pricing/visibility or a highly complex product card**, *we recommend using one of the Nosto APIs to only retrieve the core product data via JSON and get prices and visibility from your platform instead of sending it to Nosto.*
 
-If you only have a complex product card but are using a Shopify theme, you can consider using our [dynamic product cards](../../implementing-nosto/template-customization/product-cards.md).
+If you only have a complex product card but are using a Shopify theme, you can consider using our [dynamic product cards](../../implementing-nosto/template-customization/product-cards.md)
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 - [ ] Nosto script in the frontend (Nosto Debug Toolbar is loading)
 - [ ] Knowledge of running a SPA or classic web application
 - [ ] General understanding of [how Nosto works](../../getting-started/README.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
-- [ ] One or multiple Nosto modules enabled in your account:
+- [ ] One or both Nosto modules enabled in your account:
   - [ ] OCP: Onsite Content Personalization (like banners or text)
   - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
 
@@ -20,12 +20,12 @@ If you only have a complex product card but are using a Shopify theme, you can c
 ## Good to know before you start
 
 1. Every Nosto account comes with a set of default product recommendation campaigns and "placements" (empty `<div/>` elements). 
-   - You can see the mapping of campaigns and placements in the Nosto backend: Product Experience Cloud -> Recommendations.
+   - You can see the mapping of campaigns and placements in the Nosto Admin UI: Product Experience Cloud -> Recommendations.
    - These are sorted into the different page types like homepage (e.g. `#nosto-frontpage-1`), PLP, PDP, SERP, 404 page as well as general layout areas like the mini-cart drawer or search overlay/autocomplete.
-2. Your client will tell you which placements to put where inside your templates (or has already defined those within a design file).
+2. Placements need to be set up in your store templates. On Shopify and Shopware, you can use our content blocks. For assistance in setting up placements on your store, please reach out to your Nosto POC or Nosto's support team. 
   - Nosto campaigns need to be injected into the placements - automatically or manually, depending on your tech stack and implementation method.
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
-3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs).
+3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
 4. Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
    - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar. You can do QA via the `ev1` request in your network tab (details below).
 5. OCP and RECs campaigns are always associated with exactly one placement.
@@ -36,7 +36,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 ## How it works
 
 1. After the Nosto script is loaded on a page, you can send a request to Nosto and will receive the campaigns for this specific page.
-2. Your request to Nosto needs to include certain data like the current page type, what's on the page (e.g. product data, the current category or search term), what's in the cart, if the customer is logged in and what placements are on the page.
+2. Your request to Nosto needs to include certain data like the current page type, what's on the page (e.g. product data, the current category or search term), what's in the cart, customer details if the customer is logged in and what placements are on the page.
    - You'll see [this `ev1` request](https://nosto.github.io/nosto-js/interfaces/client.EventRequestMessageV1.html) in your network tab and will monitor it extensively while implementing Nosto.
 3. The [Nosto response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html) includes mostly the [recommendation campaigns](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#recommendations) but also meta data like the [number of pages visited](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#pv) in the current session, a session ID, a customer ID and more.
    - OCP campaigns are always returned as raw [HTML](https://nosto.github.io/nosto-js/interfaces/client.AttributedCampaignResult.html).
@@ -83,8 +83,8 @@ This method is the fastest and works best for conventional builds where the temp
 
 - By default, the Nosto autoloader is enabled and content will be automatically injected into the templates on the page.
 - Attribution is automatically handled by Nosto as it knows which HTML template was used in what campaign.
-- If your client is on Shopify, we recommend to use our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
-- You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template (mostly applicable for clients not using the dynamic product cards).
+- If you are on Shopify, we recommend to evaluate our [dynamic product cards](https://docs.nosto.com/shopify/styling-options-dynamic-product-cards) which allow you to re-use your existing product cards.
+- You can make use of several [Nosto-variables](https://help.nosto.com/en/articles/2002516-available-variables-and-attributes-for-nosto-campaigns) inside of your template.
   - You will find a full reference and examples in the Nosto backend when you're building your template.
 
 ### Client: JS API: `createRecommendationRequest()`
@@ -92,7 +92,7 @@ This method is the fastest and works best for conventional builds where the temp
 In case you want more control about the campaign loading, you can disable autoloading and request the campaigns yourself. This approach is also suitable if you only want to request the product data in JSON per campaign and build the templates yourself.
 This approach is **not suitable for SPAs or headless frontends**, please see `Session API: defaultSession()` below.
 
-- The campaigns can return `HTML` (default, for Nosto-hosted templates) or `JSON`, depending on how you [build the request](https://nosto.github.io/nosto-js/interfaces/client.API.html#createrecommendationrequest).
+- The campaigns can return `HTML` (default, for templates hosted at Nosto) or `JSON`, depending on how you [build the request](https://nosto.github.io/nosto-js/interfaces/client.API.html#createrecommendationrequest).
 - By default, the request does not know anything about the current page, placements on the current page, logged in customer, cart content etc. and you have two options of passing that data:
   - Including the HTML tagging with `{includeTagging: true}`
   - Setting the data manually via JS, e.g. `setPageType("product").setProducts([product_id: "4"])`
@@ -111,7 +111,15 @@ You can also find a [video for the Session API](https://partners.nostoacademy.co
 
 - The campaigns return `JSON` by default, but in comparison to the JS API, you incorporate requesting campaigns with your page tagging/tracking via `defaultSession()` ([reference](https://nosto.github.io/nosto-js/interfaces/client.API.html#defaultsession)).
     - *Page tagging* refers to the JS API ([taggingProvider](https://nosto.github.io/nosto-js/interfaces/client.API.html#settaggingprovider)) and uses HTML and **MUST NOT** be mixed with the Session API.
-    - *Page tracking* is similar to the page tagging but uses JavaScript calls to let Nosto know what is on the current page.
+    - *Page tracking* is similar to the page tagging but uses JavaScript calls to let Nosto know what is on the current page. For example:
+    ```javascript
+    nostojs(api => {
+      api.defaultSession()
+        .viewProduct("product-123")
+        .setPlacements(api.placements.getPlacements())
+        .load()
+    });
+    ```
 - The page tracking sends the same [`ev1` request](https://nosto.github.io/nosto-js/interfaces/client.EventRequestMessageV1.html) which responds with the same campaign data and the same principles as the JS API.
 - Since requesting campaigns is tied to the `defaultSession()` for page tracking, you can run a very similar code block on the different page types ([examples here](../../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md) and in the [API reference](https://nosto.github.io/nosto-js/interfaces/client.Session.html)).
   - The methods like `viewFrontPage()` or `viewProduct("4")` are the main indicator that campaigns will be returned.
@@ -121,11 +129,11 @@ You can also find a [video for the Session API](https://partners.nostoacademy.co
 - Since there is no page tagging, you need to use the ["Visitor" tab in the Nosto Debug Toolbar](../checking-your-setup.md) and the [`ev1` request](https://nosto.github.io/nosto-js/interfaces/client.EventRequestMessageV1.html) in your network tab for verification and QA.
 - There are several advanced cases to keep in mind and cover:
   - Using the category path that's in the Nosto backend (use the "Preview" feature and [Nosto Debug Toolbar](../checking-your-setup.md#view-category)), not the URL slug.
-  - [Sending an additional event when a specific SKU has been selected (either on a PDP or via a "quick view" modal.](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#handling-attribution)
+  - [Sending an additional event when a specific SKU has been selected (either on a PDP or via a "quick view" modal.](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md#handling-attribution)
   - You can filter products in a recommendation using [`viewCustomField()`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield) which is the equivalent to [dynamic filtering via the JS API](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md) (you MUST NOT mix these APIs).
   - If you are using the `setRef()` method ([reference](https://nosto.github.io/nosto-js/interfaces/client.Action.html#setref-1)), pay close attention - **the second parameter is the recommendation slot id** (`result_id` of the response), *not the placement div id*.
-  - [Using `load()` only on the first request on the current page](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#reporting-correct-page-views-load-vs-update) because it increments the page view counter (`pv` in the ["ev1" response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#pv)). On subsequent requests on the same page you must send the request with `update()` or [pass a recommendation request flag like `.load{skipPageViews: true}`](https://nosto.github.io/nosto-js/interfaces/client.Action.html#load) ([details here](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features#reporting-correct-page-views-load-vs-update)).
-- You can still `setResponseMode("HTML")` and request the Nosto-hosted templates if you're *not* running a SPA. The click attribution and template injection can be automated by calling `enableCampaignInjection()` ([example](../../implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution#session-api-based-usage)).
+  - [Using `load()` only on the first request on the current page](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md#reporting-correct-page-views-load-vs-update) because it increments the page view counter (`pv` in the ["ev1" response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#pv)). On subsequent requests on the same page you must send the request with `update()` or [pass a recommendation request flag like `.load{skipPageViews: true}`](https://nosto.github.io/nosto-js/interfaces/client.Action.html#load) ([details here](../../apis/frontend/implementation-guide-session-api/spa-basics-leveraging-features.md#reporting-correct-page-views-load-vs-update)).
+- You can still `setResponseMode("HTML")` and request the Nosto-hosted templates if you're *not* running a SPA. The click attribution and template injection can be automated by calling `enableCampaignInjection()` ([example](../../implementing-nosto/implement-on-your-website/advanced-implementation/parameterless-attribution.md#session-api-based-usage)).
 
 ### Server: GraphQL API: `updateSession()`
 
@@ -184,11 +192,11 @@ mutation {
 
 Typical use case, options and adjustment depending on your implementation method:
 
-* A shopper is on a PDP (e.g. product ID 42), sees a Nosto product recommendation and clicks on a shown product (ID 200). You don't explicitly react to the click, you instead make sure the click listener for parameterless attribution is firing.
+* A shopper is on a PDP (e.g. product ID 42), sees a Nosto product recommendation and clicks on a shown product (ID 200). You don't explicitly react to the click, you instead make sure the click listener for parameterless attribution is firing. See the [parameterless attribution documentation](../implement-on-your-website/advanced-implementation/parameterless-attribution.md) for more details.
   * If you're using Nosto-hosted templates with autoloading, you don't need to do anything. Parameterless attribution is enabled and set up by default.
   * If you're manually requesting Nosto-hosted HTML templates via the JS API, you have two options:
     * Let Nosto inject the campaigns into the DOM via `injectCampaigns()`, this is recommended, attribution is set up automatically.
-    * Inject the campaigns into the DOM yourself and set up attribution manually via [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign) after rendering the campaign.
+    * Inject the campaigns into the DOM yourself and set up attribution manually via [attributeProductClicksInCampaign](https://nosto.github.io/nosto-js/interfaces/client.API.html#attributeproductclicksincampaign) after rendering the campaign ([example here](../implement-on-your-website/advanced-implementation/parameterless-attribution.md#json-rendering-attribution)).
   * If you're manually requesting Nosto-hosted HTML templates via the Session API, we recommend to add `enableCampaignInjection()` to your `defaultSession()`. Nosto will automatically inject the campaigns into the DOM, parameterless attribution is enabled and set up by default.
   * If you're manually requesting only the product data via JSON from a Nosto campaign via the Session API, you have two options after you've built the HTML for your campaigns in your code base:
     * Let Nosto inject the campaigns into the DOM via `injectCampaigns()`, this is recommended, attribution is set up automatically.
