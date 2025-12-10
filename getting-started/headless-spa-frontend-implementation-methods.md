@@ -1,5 +1,5 @@
 # Headless and SPA Frontend: Implementation Methods
-The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless and SPA (Single Page Application) builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a general understanding of the concept. You will
+The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless and SPA (Single Page Application) builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a general understanding of the concept.
 
 Search and Category Merchandising is separate from that and covered afterwards.
 
@@ -7,7 +7,7 @@ Search and Category Merchandising is separate from that and covered afterwards.
 ## Page Tagging and Event Tracking + Requesting Nosto Content for rendering with your Templates
 On every page visit, you need to send a request to Nosto using our [Session API](https://nosto.github.io/nosto-js/interfaces/client.Session.html) about the page type the user is browsing and what exactly they're looking at (e.g. type = product, ID = 123).
 
-You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events), the concept is the same every time.
+You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md), the concept is the same every time.
 
 Nosto then returns a response with two types of content:
 - Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)
@@ -29,7 +29,7 @@ The concept is the same: [specify data about the session (cart and customer)](..
 
 **Please beware of the following drawbacks:**
 1. You request the campaigns for a specific product ID or category (without placements) and will receive the RECs campaign IDs directly and therefore can't use Nosto built-in A/B testing. You need an alternative, full page A/B testing like Omniconvert in this case.
-2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield).
+2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering.md) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield).
 3. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
 
 ### Choosing the right Implementation Method
