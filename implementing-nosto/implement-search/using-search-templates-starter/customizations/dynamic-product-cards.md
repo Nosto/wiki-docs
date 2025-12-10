@@ -22,7 +22,7 @@ The key props you will work with are:
 
 The `nosto-dynamic-card` web component leverages Shopify's built-in support for these features. When you provide a `section` or `template` prop, the component constructs the appropriate URL to fetch the pre-rendered HTML from your Shopify store.
 
-We recommend to use the section based approach as it has proven to be more robust.
+> **Note:** The `template` prop usage is currently being deprecated and we recommend the `section` prop usage as it is recommended by Shopify and proven to be more robust.
 
 Read more about the [Dynamic Product Cards web component](https://docs.nosto.com/techdocs/sdks/web-components/dynamic-product-cards).
 
