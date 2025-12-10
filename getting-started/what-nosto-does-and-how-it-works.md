@@ -15,6 +15,6 @@ Nosto then does two basic things onsite:
 * [Watch video: Overview of Nosto by example of a custom implementation](https://youtu.be/kBz84G4TMgw)
 * [Watch video: How Nosto injects personalized content](https://youtu.be/LWdrE4-CKMk)
 
-Nosto has several apps/plugins for common platforms like Shopify, Shopware, Magento, ... that give you head start. Please review the platform-specific documentation at the bottom of this page. The feature set (product and order sync, adding the script and page tagging, ...) can vary and might need to be extended for custom requirements.
+Nosto has several apps/plugins for common platforms like Shopify, Shopware, Magento, ... that give you a head start. Please review the platform-specific documentation at the bottom of this page. The feature set (product and order sync, adding the script and page tagging, ...) can vary and might need to be extended for custom requirements.
 
 ![Big Picture of a Nosto implementation](../.gitbook/assets/Nosto-Big-Picture.png)
