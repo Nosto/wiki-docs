@@ -11,6 +11,8 @@ Nosto provides plugins for the most common eCommerce platforms like Shopify, Mag
 *This guide focuses on classic web applications that work with full page reloads. For SPAs/PWAs like React, the same principles apply but they are handled differently.
 We encourage you to first read through the guiding principles and in a next step make yourself familiar with the implementation within a Single Page Application.
 
+![Big Picture of a Nosto implementation, details in the next section](../.gitbook/assets/Nosto-Big-Picture.png)
+
 
 ## Components of a stable Nosto Implementation
 
