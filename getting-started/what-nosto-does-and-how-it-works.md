@@ -12,5 +12,7 @@ Nosto then does two basic things onsite:
         - to product recommendations ("You might also like") on any page type (or even in the mini-cart or search overlay)
         - to conversion rate optimized, personalized category pages and SERPs which replace the native platform functionality.
 
-* [Watch video: Overview of Nosto by example of a custom implementation](/.gitbook/assets/01-overview-custom-implementation.mp4)
-* [Watch video: How Nosto injects personalized content](/.gitbook/assets/02-RECs-implementation-nosto-hosted-vs-api.mp4)
+* [Watch video: Overview of Nosto by example of a custom implementation](https://youtu.be/kBz84G4TMgw)
+* [Watch video: How Nosto injects personalized content](https://youtu.be/LWdrE4-CKMk)
+
+![Big Picture of a Nosto implementation](../.gitbook/assets/Nosto-Big-Picture.png)
