@@ -1,6 +1,6 @@
 # Table of contents
 
-## Getting started
+## Quick Start Guide
 
 * [Welcome and support](getting-started/README.md)
 * [How to get the most out of our guides and Nosto](getting-started/how-to-get-the-most-out-of-our-guides-and-nosto.md)
@@ -12,7 +12,6 @@
 
 ## Implementing Nosto
 
-* [Introduction](README.md)
 * [Implement on your website](implementing-nosto/implement-on-your-website/README.md)
   * [Manual Implementation - Essentials](implementing-nosto/implement-on-your-website/manual-implementation/README.md)
     * [Setting up your account](implementing-nosto/implement-on-your-website/manual-implementation/setting-up-your-account.md)
