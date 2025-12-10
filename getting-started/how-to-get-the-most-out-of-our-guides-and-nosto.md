@@ -10,7 +10,7 @@ From our experience, there is always added frustration and costs due to several 
 * **Use the product as it is intended.** *This is the most common pitfall:* After hours and hours of complex programming it often turns out there already is a functionality inside the platform which is configured with only a few clicks.
 * **Don't just copy & paste the code examples.** *Yes, it happens.* To improve readability, our examples give you an overview with only the most relevant data/parameters. We don't want to clutter your mind, so please refer to the API references for an extensive overview.
 
-We are happy to [support you](mailto:onboarding@nosto.com) with any question regarding the details and are confident you will be able to solve 90% of your questions with this guide.
+We are happy to [support you](https://www.nosto.com/contact/) with any question regarding the details and are confident you will be able to solve 90% of your questions with this guide.
 
 Pro Tip: Let us review your project plan/milestones before you get started.
 
