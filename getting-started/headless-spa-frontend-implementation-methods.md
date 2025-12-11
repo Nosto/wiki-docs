@@ -1,11 +1,11 @@
 # Headless and SPA Frontend: Implementation Methods
 The following gives a quick overview of page tagging/event tracking (coupled with handling Nosto product recommendations and banners) for headless and SPA (Single Page Application) builds. You can find more details in the [personalization implementation guide](../implementing-nosto/implement-psn/README.md), but this page will already give you a general understanding of the concept.
 
+Search and Category Merchandising is separate from the personalization guide and covered at the end of this page.
+
 {% hint style="info" %}
 If you are using Shopify Hydrogen or Magento Hyvä, you can use Nosto's dedicated [React Component Library for Shopify Hydrogen](https://docs.nosto.com/shopify/features/shopify-hydrogen) and the [built-in support for Hyvä in the Nosto Magento plugin](https://docs.nosto.com/magento-2/hyva-theme).
 {% endhint %}
-
-Search and Category Merchandising is separate from that and covered afterwards.
 
 
 ## Page Tagging and Event Tracking + Requesting Nosto Content for rendering with your Templates
