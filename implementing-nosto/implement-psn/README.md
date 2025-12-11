@@ -11,8 +11,8 @@ If you only have a complex product card but are using a Shopify theme, you can c
 - [ ] Nosto account with working product sync (promotable products)
 - [ ] Nosto script in the frontend (Nosto Debug Toolbar is loading)
 - [ ] Knowledge of running a SPA or classic web application
-- [ ] General understanding of how Nosto works and what components make a stable Nosto implementation
-- [ ] One or both of the following Nosto modules enabled in your account:
+- [ ] General understanding of [how Nosto works](../../getting-started/README.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
+- [ ] One or both Nosto modules enabled in your account:
   - [ ] OCP: Onsite Content Personalization (like banners or text)
   - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
 
@@ -27,7 +27,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
 3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
 4. Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
-   - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar.
+   - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar. You can do QA via the `ev1` request in your network tab (details below).
 5. OCP and RECs campaigns are always associated with exactly one placement.
    - The placements are also used for A/B testing, e.g. testing campaign A vs. campaign B inside of placement `#nosto-productpage-1`.
    - Requesting campaigns via GraphQL is limited (no A/B testing, no dynamic filtering).
@@ -98,7 +98,7 @@ This approach is **not suitable for SPAs or headless frontends**, please see `Se
   - Setting the data manually via JS, e.g. `setPageType("product").setProducts([product_id: "4"])`
     - In most cases it will be sufficient to only include the page tagging since it reads the current product, cart content etc. and add a `.setPlacements(api.placements.getPlacements())` call.
     - Advanced cases where you need to explicitly set data occur when e.g. a variant has been selected on a PDP or if products should be filtered by a certain tag (e.g. for cannabis state-specific regulation or for vehicle-specific parts).
-    - You can overwrite parts of the page tagging and filter products in a recommendation using [dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md).
+    - You can overwrite parts of the page tagging and filter products in a recommendation request (can include one or more placements) using [dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md).
 - Attribution is automatically handled by Nosto when using the default `response mode HTML`.
   - If you use the `JSON response mode`, you can [simplify DOM injection and click attribution](#dom-injection-and-click-attribution) with Nosto's helper methods.
 - This approach is recommended for custom frontend builds, we recommend looking into the [Nosto Open Source packages](../../apis/frontend/oss/README.md).
