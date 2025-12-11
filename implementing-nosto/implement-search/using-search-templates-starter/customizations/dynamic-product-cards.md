@@ -15,12 +15,14 @@ The starter template uses a decorator to extract a product's handle from its URL
 The key props you will work with are:
 
 * **`handle`**: This is derived automatically by the `handleDecorator` from the `product.url`. You typically do not need to manage this manually.
-* **`template`**: The name of the alternate template to use for rendering.
 * **`section`**: The ID of the section to render from your product template.
+* **`template`**: The name of the alternate template to use for rendering.
 
-> **Note:** To render a dynamic card, you must provide the `handle` prop along with either the `template` or `section` prop.
+> **Note:** To render a dynamic card, you must provide the `handle` prop along with either the `section` or `template` prop.
 
-The `nosto-dynamic-card` web component leverages Shopify's built-in support for these features. When you provide a `template` or `section` prop, the component constructs the appropriate URL to fetch the pre-rendered HTML from your Shopify store.
+The `nosto-dynamic-card` web component leverages Shopify's built-in support for these features. When you provide a `section` or `template` prop, the component constructs the appropriate URL to fetch the pre-rendered HTML from your Shopify store.
+
+> **Note:** The `template` prop usage is currently being deprecated and we recommend the `section` prop usage as it is recommended by Shopify and proven to be more robust.
 
 Read more about the [Dynamic Product Cards web component](https://docs.nosto.com/techdocs/sdks/web-components/dynamic-product-cards).
 
