@@ -14,7 +14,7 @@ On every page visit, you need to send a request to Nosto using our [Session API]
 You can [find the different page types here](../apis/frontend/implementation-guide-session-api/spa-basics-tracking-events.md), the concept is the same every time.
 
 Nosto then returns a response with two types of content:
-- Product Recommendations (RECs) -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)
+- Product Recommendations -> [JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with an array of [JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)
 - Onsite Content Personalization (OCP, e.g. banners or text) -> [HTML](https://nosto.github.io/nosto-js/interfaces/client.AttributedCampaignResult.html)
 
 ### Nosto Content via Session API
@@ -32,7 +32,7 @@ The event tracking can also be done via GraphQL.
 The concept is the same: [specify data about the session (cart and customer)](../apis/graphql-an-introduction/graphql-using-mutations/README.md) and [request product recommendations for a given page type](../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md).
 
 **Please beware of the following drawbacks:**
-1. You request the campaigns for a specific product ID or category (without placements) and will receive the RECs campaign IDs directly and therefore can't use Nosto built-in A/B testing. You need an alternative, full page A/B testing like Omniconvert in this case.
+1. You request the campaigns for a specific product ID or category (without placements) and will receive the Recommendation campaign IDs directly and therefore can't use Nosto built-in A/B testing. You need an alternative, full page A/B testing like Omniconvert in this case.
 2. [Dynamic filtering](../apis/frontend/js-apis/recommendations/setting-up-dynamic-filtering.md) is not possible via GraphQL. We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield).
 3. Nosto OCP (like personalized banners or other HTML content) can not be retrieved via GraphQL.
 
