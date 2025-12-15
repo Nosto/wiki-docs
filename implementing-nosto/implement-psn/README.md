@@ -14,7 +14,7 @@ If you only have a complex product card but are using a Shopify theme, you can c
 - [ ] General understanding of [how Nosto works](../../getting-started/what-nosto-does-and-how-it-works.md) and [what components make a stable Nosto implementation](../../getting-started/building-your-implementation-plan.md#components-of-a-stable-nosto-implementation.md)
 - [ ] One or both Nosto modules enabled in your account:
   - [ ] OCP: Onsite Content Personalization (like banners or text)
-  - [ ] RECs/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
+  - [ ] Product Recommendations/Dynamic Bundles: Product Recommendations (like "You might be interested in" or "Complete the look")
 
 
 ## Good to know before you start
@@ -25,10 +25,10 @@ If you only have a complex product card but are using a Shopify theme, you can c
 2. Placements need to be set up in your store templates. On Shopify and Shopware, you can use our content blocks. For assistance in setting up placements on your store, please reach out to your Nosto POC or Nosto's support team. 
   - Nosto campaigns need to be injected into the placements - automatically or manually, depending on your tech stack and implementation method.
   - Nosto offers you several helper methods to inject campaign into the DOM, you'll find details at the end of this page.
-3. Templates for RECs campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
+3. Templates for Recommendation campaigns can be hosted and maintained in Nosto or built within your own code base (API approach, recommended for headless and SPAs when using a custom code setup).
 4. Depending on your implementation method and tech stack, different options to attribute clicks from Nosto campaigns are available (it might need a few lines of custom code, you'll find details below per implementation method).
    - *Please note:* If you have the Nosto preview enabled, attribution/references will not show in the Nosto debug toolbar. You can do QA via the `ev1` request in your network tab (details below).
-5. OCP and RECs campaigns are always associated with exactly one placement.
+5. OCP and Recommendation campaigns are always associated with exactly one placement.
    - The placements are also used for A/B testing, e.g. testing campaign A vs. campaign B inside of placement `#nosto-productpage-1`.
    - Requesting campaigns via GraphQL is limited (no A/B testing, no dynamic filtering).
 
@@ -40,11 +40,11 @@ If you only have a complex product card but are using a Shopify theme, you can c
    - You'll see [this `ev1` request](https://nosto.github.io/nosto-js/interfaces/client.EventRequestMessageV1.html) in your network tab and will monitor it extensively while implementing Nosto.
 3. The [Nosto response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html) includes mostly the [recommendation campaigns](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#recommendations) but also meta data like the [number of pages visited](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html#pv) in the current session, a session ID, a customer ID and more.
    - OCP campaigns are always returned as raw [HTML](https://nosto.github.io/nosto-js/interfaces/client.AttributedCampaignResult.html).
-   - RECs/Bundles campaigns can be returned as raw HTML or JSON ([JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with [[JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)]).
+   - Product Recommendation campaigns can be returned as raw HTML or JSON ([JSONResult](https://nosto.github.io/nosto-js/interfaces/client.JSONResult.html) with [[JSONProduct](https://nosto.github.io/nosto-js/interfaces/client.JSONProduct.html)]).
 4. Depending on your tech stack and templating method, the campaigns get automatically injected into the page (conventional) or need to be explicitly rendered (advanced).
 5. Interactions with Nosto campaigns (like clicking on a product, selecting a variant/color swatch or clicking on a banner) need a certain attribution that always follows the same pattern: *"This event X (page/product/variant/… has been viewed/selected) after an interaction with the campaign Y (on page Z (optional))."*:
-    - Product ID 8 was viewed after a click in RECs campaign `nosto-pdp-top` on the PDP with product ID 4.
-    - Product ID 6 was viewed after a click (quick view modal or PDP redirect) in RECs campaign `nosto-frontpage-mid`.
+    - Product ID 8 was viewed after a click in Recommendation campaign `nosto-pdp-top` on the PDP with product ID 4.
+    - Product ID 6 was viewed after a click (quick view modal or PDP redirect) in Recommendation campaign `nosto-frontpage-mid`.
 
 Example [Nosto response](https://nosto.github.io/nosto-js/interfaces/client.EventResponseMessage.html): 
 
@@ -74,7 +74,7 @@ Example [Nosto response](https://nosto.github.io/nosto-js/interfaces/client.Even
 
 ## Implementation Methods
 
-Since OCP campaigns always return HTML content, this guide only compares product recommendations (RECs and Bundles). (Example response and type reference above.)
+Since OCP campaigns always return HTML content, this guide only compares product recommendations (Recommendations and Bundles). (Example response and type reference above.)
 
 ### Client: Automatic Injection with Nosto Autoloading
 
@@ -140,7 +140,7 @@ You can also find a [video for the Session API](https://partners.nostoacademy.co
 In case you don't want follow one of the client-based approaches, you can manage the Nosto session and campaign rendering via GraphQL.
 
 **Please beware of the following limitations:**
-- You request the campaigns for a specific product ID or category (without placements) and will receive the RECs campaign IDs directly.
+- You request the campaigns for a specific product ID or category (without placements) and will receive the Recommendation campaign IDs directly.
   - Therefore, you **can't use Nosto built-in A/B testing** for campaign widgets.
   - *You need an alternative, full page A/B testing like Omniconvert* in this case.
 - **[Dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md) is not possible via GraphQL.** We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield)
@@ -212,7 +212,7 @@ Typical use case, options and adjustment depending on your implementation method
 | :------------------------------------------------- | :----------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  | :--------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
 | **Best For**                                       | Conventional builds                                    | Custom frontend builds (non-SPA) with e.g. customer group pricing/visibility (every platform) or highly complex product cards (non-Shopify)                                     | SPAs and Headless frontends                                                                                                                    | Mobile apps or server-side rendered builds (when Nosto A/B testing, dynamic filtering and OCP isn't needed) |
 | **How it Works**                                   | Content is automatically injected into page templates. | Manually request campaigns after disabling autoloading.                                                                                                                         | Request campaigns as part of the page tracking/tagging flow.                                                                                   | Request campaigns as part of the page tracking/tagging flow.                                                |
-| **Campaign Response Type**                         | HTML (for Nosto-hosted templates)                      | HTML (default) or JSON                                                                                                                                                          | JSON (default), but can be set to HTML                                                                                                         | RECs campaign slot IDs (no placements, **OCP campaigns are *not* available**)                               |
+| **Campaign Response Type**                         | HTML (for Nosto-hosted templates)                      | HTML (default) or JSON                                                                                                                                                          | JSON (default), but can be set to HTML                                                                                                         | Recommendation campaign slot IDs (no placements, **OCP campaigns are *not* available**)                               |
 | **Campaign Injection and Click Attribution**       | Handled automatically by Nosto.                        | Automatic for HTML mode with `enableCampaignInjection()`. For JSON mode, use `injectCampaigns()` or inject campaigns yourself and add `api.attributeProductClicksInCampaign()`. | For JSON mode, use `injectCampaigns()` or inject campaigns yourself and add `api.attributeProductClicksInCampaign()`. Automatic for HTML mode. | Manual. Requires careful use of the `event` params in `updateSession()` mutation.                           |
 | **SPA Suitable**                                   | No (triggers a full page load)                         | No (recommended for custom builds, but not SPAs)                                                                                                                                | Yes (designed for SPAs and Headless)                                                                                                           | Yes                                                                                                         |
 | **Headless compatible**                            | No                                                     | No                                                                                                                                                                              | Yes                                                                                                                                            | Yes                                                                                                         |
