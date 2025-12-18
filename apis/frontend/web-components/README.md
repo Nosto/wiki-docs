@@ -12,7 +12,6 @@ This package provides the following web components:
 | [Control](./#control)                 | Templating                |
 | [DynamicCard](./#dynamiccard)         | Templating (Shopify only) |
 | [Image](./#image)                     | Progressive Enhancement   |
-| [Popup](./#popup)                     | Store level templating    |
 | [Product](./#product)                 | Progressive Enhancement   |
 | [SectionCampaign](./#sectioncampaign) | Templating (Shopify only) |
 | [SimpleCard](./#simplecard)           | Campaign level templating |
@@ -25,18 +24,18 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 
 #### Component attributes
 
-| Attribute     | Description                                                                                                                                                                                                                                                                                                                   |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `placement`   | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). <mark style="color:$primary;">Can also use</mark> <mark style="color:$primary;"></mark><mark style="color:$primary;">`id`</mark> <mark style="color:$primary;"></mark><mark style="color:$primary;">attribute as an alternative.</mark> |
-| `product-id`  | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                                                                                                                |
-| `variant-id`  | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                                                                                                                           |
-| `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component.                                                                                               |
-| `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                                                                                                                    |
-| `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                                                                                                                |
-| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.                                                                                                             |
+| Attribute     | Description                                                                                                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `placement`   | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`). Can also use `id` attribute as an alternative.                                                                                            |
+| `product-id`  | Product ID for contextual recommendations. If provided, the campaign is scoped to that product                                                                                                                                  |
+| `variant-id`  | Reference to variant id. Refines the context to a specific product variant. Only used when `product-id` is provided                                                                                                             |
+| `template`    | Name of the template to use. If provided, the campaign will use a JSON response and evaluate it using the given client-side template. If omitted, Nosto injects pre-rendered HTML from the backend directly into the component. |
+| `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
+| `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                  |
+| `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.               |
 
 {% hint style="info" %}
-In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign`  instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.&#x20;
+In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign` instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.
 {% endhint %}
 
 #### Usage examples
@@ -49,7 +48,7 @@ Static campaign rendering:
 <nosto-campaign placement="best-sellers"></nosto-campaign>
 ```
 
-or alternatively 
+or alternatively
 
 ```html
 <nosto-campaign id="best-sellers"></nosto-campaign>
@@ -113,6 +112,10 @@ Campaign with multiple features combined:
 
 A subset of Vue is used as the templating language. The template support is described in detail below.
 
+{% hint style="info" %}
+Checkout our API documentation for \`nosto-campaign\` custom element [here](https://nosto.github.io/web-components/classes/Campaign.html)
+{% endhint %}
+
 ### `SectionCampaign`
 
 The `SectionCampaign` custom element fetches Nosto placement results and renders them using Shopify's Section Rendering API. This component is specifically designed for Shopify stores and integrates with Shopify's section templates to dynamically render campaign content.
@@ -142,6 +145,10 @@ Advanced usage for specific product page recommendations:
 <nosto-section-campaign placement="product-page-cross-sell" section="related-products-section"></nosto-section-campaign>
 ```
 
+{% hint style="info" %}
+Checkout our API documentation for \`nosto-section-campaign\` custom element [here](https://nosto.github.io/web-components/classes/SectionCampaign.html)
+{% endhint %}
+
 ### `Control`
 
 The `Control` custom element provides conditional content rendering capabilities to inject customer segment specific content to the web page. The segment specific injections are defined as template children of the custom element.
@@ -158,6 +165,10 @@ The default content can be defined as follow up children of the custom element.
 ```
 
 The content of the element will become `New visitor content` for new visitors and `Returning visitor content` for returning visitors.
+
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-control\` custom element [here](https://nosto.github.io/web-components/classes/Control.html)
+{% endhint %}
 
 ### `DynamicCard`
 
@@ -220,6 +231,10 @@ Using with section and placeholder:
 #end
 ```
 
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-dynamic-card\` custom element [here](https://nosto.github.io/web-components/classes/DynamicCard.html)
+{% endhint %}
+
 ### `Image`
 
 `Image` is a web component that provides response image rendering capabilities using the [unpic](https://unpic.pics/about/) library. It supports Shopify and BigCommerce thumbnails out of the box and uses the same configuration model and unpic's own web components. It can be used as a `img` element replacement with smart rendering capabilities.
@@ -270,57 +285,9 @@ Usage with responsive sizes attribute:
 </nosto-image>
 ```
 
-### `Popup`
-
-The `Popup` custom element displays popup content with dialog and ribbon slots. It supports conditional activation based on Nosto segments and persistent closure state. The popup's closed state is remembered using localStorage to prevent showing the same popup repeatedly to users.
-
-#### Component attributes
-
-| Attribute | Description                                                                                                                            |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`    | **Required.** Name used for analytics and localStorage persistence. The popup's closed state will be remembered using this identifier. |
-| `segment` | Optional Nosto segment that acts as a precondition for activation. Only users in this segment will see the popup.                      |
-
-#### Usage examples
-
-**Example #1**:
-
-Simple popup without segment restriction:
-
-```html
-<nosto-popup name="newsletter-signup">
-  <div class="popup-content">
-    <h3>Subscribe to our Newsletter</h3>
-    <form>
-      <input type="email" placeholder="Enter your email" />
-      <button type="submit">Subscribe</button>
-    </form>
-    <button n-close>No, thanks</button>
-  </div>
-  <div slot="ribbon">Newsletter</div>
-</nosto-popup>
-```
-
-**Example #2**:
-
-Basic popup with dialog and ribbon content:
-
-```html
-<nosto-popup name="promo-popup" segment="5b71f1500000000000000006">
-  <h2>Special Offer!</h2>
-  <p>Get 20% off your order today</p>
-  <button n-close>Close</button>
-  <div slot="ribbon">
-    <span>Limited time!</span>
-  </div>
-</nosto-popup>
-```
-
-#### Markup Attributes
-
-| Attribute | Description                                                                      |
-| --------- | -------------------------------------------------------------------------------- |
-| `n-close` | Marks an element as a close trigger. Clicking this element will close the popup. |
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-image\` custom element [here](https://nosto.github.io/web-components/classes/Image.html)
+{% endhint %}
 
 ### `Product`
 
@@ -393,6 +360,10 @@ This component requires the following attributes to parse the markup, extract pr
   <span n-atc>Blue</span>
 </div>
 ```
+
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-product\` custom element [here](https://nosto.github.io/web-components/classes/Product.html)
+{% endhint %}
 
 ### `SkuOptions`
 
@@ -546,6 +517,10 @@ The component does not handle styling for disabled options and it has to be appl
 </nosto-product>
 ```
 
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-sku-options\` custom element [here](https://nosto.github.io/web-components/classes/SkuOptions.html)
+{% endhint %}
+
 ### `SimpleCard`
 
 The `SimpleCard` custom element displays a product card using Shopify product data. It fetches product data from `/products/<handle>.js` and renders a card with responsive product image(s), title, price, and optional brand, discount, and rating information.
@@ -602,6 +577,10 @@ The component listens for `variantchange` events to update the displayed product
 | --------- | ------------------------------------------------------------------------------------------------------------------ |
 | `n-atc`   | Marks an element as "Add to cart" trigger. Clicking this element will add the current product variant to the cart. |
 
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-simple-card\` custom element [here](https://nosto.github.io/web-components/classes/SimpleCard.html)
+{% endhint %}
+
 ### `VariantSelector`
 
 The `VariantSelector` custom element displays product variant options as clickable pills. It fetches product data from `/products/<handle>.js` and renders option rows with clickable value pills. Optionally preselects the first value for each option and highlights the currently selected choices.
@@ -650,6 +629,10 @@ Variant selector combined with SimpleCard:
 | Event           | Description                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | `variantchange` | Emitted when variant selection changes. The event detail contains `{ variant, product }` data. |
+
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-variant-selector\` custom element [here](https://nosto.github.io/web-components/classes/VariantSelector.html)
+{% endhint %}
 
 ## Vue-like templating
 
