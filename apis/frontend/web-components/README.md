@@ -665,9 +665,9 @@ The `Bundle` custom element provides product bundle selection and pricing displa
 
 The component requires the following attribute within a child element to function correctly:
 
-| Attribute        | Description                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| `n-summary-price`| An element (e.g., `<span>`, `<div>`) where the total price of selected products will be displayed. Example: `<span n-summary-price></span>` |
+| Attribute         | Description                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| `n-summary-price` | An element (e.g., `<span>`, `<div>`) where the total price of selected products will be displayed. Example: `<span n-summary-price></span>` |
 
 #### Usage examples
 
