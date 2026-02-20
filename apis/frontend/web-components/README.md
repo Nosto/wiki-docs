@@ -184,7 +184,7 @@ This custom element is the recommended choice to use when the product card marku
 | Attribute     | Description                                                                                            |
 | ------------- | ------------------------------------------------------------------------------------------------------ |
 | `handle`      | **Required.** Handle of the product                                                                    |
-| `section`     | **Required.** Name of the product level section to use for rendering.                                  |
+| `section`     | Name of the product level section to use for rendering. Required unless using deprecated `template` attribute. |
 | `template`    | **[DEPRECATED]** Use `section` instead. Name of the alternate template (supported for backwards compatibility). |
 | `variant-id`  | Optional reference to variant id                                                                       |
 | `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.          |
@@ -659,7 +659,7 @@ The `Bundle` custom element provides product bundle selection and pricing displa
 | `result-id` | Optional. The ID of the recommendation result for attribution tracking.                                                         |
 | `summary`   | Optional. Template string for summary display. Use `{amount}` for product count and `{total}` for formatted price. Default: "Total: {total}" |
 
-**Note**: The `products` property is set programmatically as a JSONProduct[] array and is not available as an HTML attribute.
+**Note**: The `products` property is set programmatically as an array of product objects and is not available as an HTML attribute. See the [API documentation](https://nosto.github.io/web-components/classes/Bundle.html) for the product object structure.
 
 #### Required markup attributes
 
