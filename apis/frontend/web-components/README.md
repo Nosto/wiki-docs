@@ -34,7 +34,7 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 | `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
 | `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                  |
 | `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.               |
-| `nav-synced`  | If present, the component will reload the campaign whenever a successful page navigation occurs via the Navigation API. Useful for keeping campaigns in sync with URL changes (e.g., category-specific recommendations). Requires browser support for the Navigation API. Defaults to `false`. |
+| `nav-synced`  | If present, the component will reload the campaign on page navigation via the Navigation API. Requires browser support. Defaults to `false`. |
 
 {% hint style="info" %}
 In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign` instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.
@@ -184,8 +184,8 @@ This custom element is the recommended choice to use when the product card marku
 | Attribute     | Description                                                                                            |
 | ------------- | ------------------------------------------------------------------------------------------------------ |
 | `handle`      | **Required.** Handle of the product                                                                    |
-| `section`     | Name of the product level section to use. Either `template` or `section` is required.                  |
-| `template`    | **[DEPRECATED]** Use `section` instead. Name of the alternate template to use. Either `template` or `section` is required. |
+| `section`     | **Required.** Name of the product level section to use for rendering.                                  |
+| `template`    | **[DEPRECATED]** Use `section` instead. Name of the alternate template (supported for backwards compatibility). |
 | `variant-id`  | Optional reference to variant id                                                                       |
 | `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.          |
 | `lazy`        | If `true`, the component will only fetch data when it comes into view. Defaults to `false`.            |
