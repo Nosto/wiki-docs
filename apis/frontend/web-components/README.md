@@ -255,10 +255,10 @@ Checkout our API documentation on \`nosto-dynamic-card\` custom element [here](h
 | `layout`         | The layout of the image. Can be "fixed", "constrained", or "fullWidth". Defaults to "constrained". |
 | `alt`            | Alternative text for the image for accessibility purposes.                                         |
 | `sizes`          | The sizes attribute for responsive images to help the browser choose the right image size.         |
-| `loading`        | The loading behavior of the image. Use "lazy" for lazy loading or "eager" for immediate loading.  |
-| `fetch-priority` | Provides a hint to the browser about the priority of this image relative to other images. Can be "high", "low", or "auto". |
+| `loading`        | The loading behavior of the image. Use "lazy" for lazy loading or "eager" for immediate loading. Defaults to "lazy". |
+| `fetch-priority` | Provides a hint to the browser about the priority of this image relative to other images. Can be "high", "low", or "auto". Defaults to "auto". |
 | `breakpoints`    | Custom widths (as an array of numbers) for responsive image generation. Default breakpoints are generated based on common screen sizes. |
-| `unstyled`       | When present, prevents inline styles from being applied to the image element.                      |
+| `unstyled`       | When present, prevents inline styles from being applied to the image element. Defaults to `false`. |
 
 #### Usage examples
 
@@ -544,7 +544,7 @@ The component renders inside a shadow DOM with encapsulated styles and provides 
 | `brand`       | Show brand/vendor data. Defaults to `false`.                                                                                                                                            |
 | `discount`    | Show discount data. Defaults to `false`.                                                                                                                                                |
 | `rating`      | Show product rating. Defaults to `false`.                                                                                                                                               |
-| `variant-id`  | The specific variant ID to display. When set, shows this variant's data instead of the default variant.                                                                                 |
+| `variant-id`  | The specific variant ID to display. By default, displays the default variant. When set, shows this variant's data instead.                                                              |
 | `image-sizes` | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
 | `mock`        | If `true`, uses mock data instead of fetching from Shopify. Defaults to `false`.                                                                                                        |
 
@@ -604,7 +604,7 @@ The component emits a custom `variantchange` event when variant selections chang
 | `handle`      | **Required.** The Shopify product handle to fetch data for.                                                                    |
 | `preselect`   | Whether to automatically preselect the options of the first available variant. Defaults to `false`.                            |
 | `variant-id`  | Optional. The ID of the variant to preselect on load.                                                                          |
-| `mode`        | Optional. Display mode: "options" or "compact". Defaults to "options".                                                         |
+| `mode`        | Optional. Display mode: `"options"` or `"compact"`. Defaults to `"options"`.                                                   |
 | `max-values`  | Optional. Maximum number of option values to display per option. When exceeded, shows an ellipsis indicator.                   |
 | `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.                                  |
 
