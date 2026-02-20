@@ -257,7 +257,7 @@ Checkout our API documentation on \`nosto-dynamic-card\` custom element [here](h
 | `sizes`          | The sizes attribute for responsive images to help the browser choose the right image size.         |
 | `loading`        | The loading behavior of the image. Use "lazy" for lazy loading or "eager" for immediate loading.  |
 | `fetch-priority` | Provides a hint to the browser about the priority of this image relative to other images. Can be "high", "low", or "auto". |
-| `breakpoints`    | Custom widths for responsive image generation. Default breakpoints are generated based on common screen sizes. |
+| `breakpoints`    | Custom widths (as an array of numbers) for responsive image generation. Default breakpoints are generated based on common screen sizes. |
 | `unstyled`       | When present, prevents inline styles from being applied to the image element.                      |
 
 #### Usage examples
@@ -540,7 +540,7 @@ The component renders inside a shadow DOM with encapsulated styles and provides 
 | Attribute     | Description                                                                                                                                                                             |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `handle`      | **Required.** The Shopify product handle to fetch data for.                                                                                                                             |
-| `image-mode`  | Image display mode. Use "alternate" for hover image swap or "carousel" for image carousel with navigation. Defaults to undefined.                                                       |
+| `image-mode`  | Image display mode. Use "alternate" for hover image swap or "carousel" for image carousel with navigation. When undefined, shows only the primary image. |
 | `brand`       | Show brand/vendor data. Defaults to `false`.                                                                                                                                            |
 | `discount`    | Show discount data. Defaults to `false`.                                                                                                                                                |
 | `rating`      | Show product rating. Defaults to `false`.                                                                                                                                               |
