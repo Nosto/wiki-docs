@@ -8,6 +8,7 @@ This package provides the following web components:
 
 | Component                             | Category                  |
 | ------------------------------------- | ------------------------- |
+| [Bundle](./#bundle)                   | Templating (Shopify only) |
 | [Campaign](./#campaign)               | Progressive Enhancement   |
 | [Control](./#control)                 | Templating                |
 | [DynamicCard](./#dynamiccard)         | Templating (Shopify only) |
@@ -33,6 +34,7 @@ The `Campaign` custom element is a general-purpose solution for injecting or tem
 | `init`        | For disabling automatic campaign loading on page load, set to `false`. Defaults to `true`.                                                                                                                                      |
 | `lazy`        | If present, the component will only load the campaign when it comes into view using IntersectionObserver. Defaults to `false`.                                                                                                  |
 | `cart-synced` | If present, the component will reload the campaign whenever a cart update event occurs. Useful for keeping cart-related campaigns in sync with cart changes. Defaults to `false`. Available since version 8.29.0.               |
+| `nav-synced`  | If present, the component will reload the campaign whenever a successful page navigation occurs via the Navigation API. Useful for keeping campaigns in sync with URL changes (e.g., category-specific recommendations). Requires browser support for the Navigation API. Defaults to `false`. |
 
 {% hint style="info" %}
 In case if the merchant is using Nosto's velocity template for rendering recommendations, it is recommended to use the `id` attribute with `nosto-campaign` instead of the `placement` attribute for easier element targeting, using `#$divId` , in styling and template logic.
@@ -122,10 +124,11 @@ The `SectionCampaign` custom element fetches Nosto placement results and renders
 
 #### Component attributes
 
-| Attribute   | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| `placement` | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`) |
-| `section`   | **Required.** The section to be used for Section Rendering API based rendering       |
+| Attribute        | Description                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| `placement`      | **Required.** Placement ID used to fetch campaign content (e.g. `frontpage-nosto-1`) |
+| `section`        | **Required.** The section to be used for Section Rendering API based rendering       |
+| `title-selector` | Optional. CSS selector for the title element to inject the campaign title            |
 
 #### Usage examples
 
@@ -181,11 +184,12 @@ This custom element is the recommended choice to use when the product card marku
 | Attribute     | Description                                                                                            |
 | ------------- | ------------------------------------------------------------------------------------------------------ |
 | `handle`      | **Required.** Handle of the product                                                                    |
-| `template`    | Name of the alternate template to use. Either `template` or `section` is required.                     |
 | `section`     | Name of the product level section to use. Either `template` or `section` is required.                  |
+| `template`    | **[DEPRECATED]** Use `section` instead. Name of the alternate template to use. Either `template` or `section` is required. |
 | `variant-id`  | Optional reference to variant id                                                                       |
 | `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.          |
-| `lazy`        | Optional lazy loading mode to delay loading until element is visible in viewport. Defaults to `false`. |
+| `lazy`        | If `true`, the component will only fetch data when it comes into view. Defaults to `false`.            |
+| `mock`        | If `true`, the component will render mock markup instead of fetching real data. Defaults to `false`.   |
 
 #### Usage examples
 
@@ -241,16 +245,20 @@ Checkout our API documentation on \`nosto-dynamic-card\` custom element [here](h
 
 #### Component attributes
 
-| Attribute      | Description                                                                                        |
-| -------------- | -------------------------------------------------------------------------------------------------- |
-| `src`          | **Required.** The source URL of the image.                                                         |
-| `width`        | The width of the image in pixels.                                                                  |
-| `height`       | The height of the image in pixels.                                                                 |
-| `aspect-ratio` | The aspect ratio of the image (width / height value).                                              |
-| `crop`         | Shopify only. The crop of the image. Can be "center", "left", "right", "top", or "bottom".         |
-| `layout`       | The layout of the image. Can be "fixed", "constrained", or "fullWidth". Defaults to "constrained". |
-| `alt`          | Alternative text for the image for accessibility purposes.                                         |
-| `sizes`        | The sizes attribute for responsive images to help the browser choose the right image size.         |
+| Attribute        | Description                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| `src`            | **Required.** The source URL of the image.                                                         |
+| `width`          | The width of the image in pixels.                                                                  |
+| `height`         | The height of the image in pixels.                                                                 |
+| `aspect-ratio`   | The aspect ratio of the image (width / height value).                                              |
+| `crop`           | Shopify only. The crop of the image. Can be "center", "left", "right", "top", or "bottom".         |
+| `layout`         | The layout of the image. Can be "fixed", "constrained", or "fullWidth". Defaults to "constrained". |
+| `alt`            | Alternative text for the image for accessibility purposes.                                         |
+| `sizes`          | The sizes attribute for responsive images to help the browser choose the right image size.         |
+| `loading`        | The loading behavior of the image. Use "lazy" for lazy loading or "eager" for immediate loading.  |
+| `fetch-priority` | Provides a hint to the browser about the priority of this image relative to other images. Can be "high", "low", or "auto". |
+| `breakpoints`    | Custom widths for responsive image generation. Default breakpoints are generated based on common screen sizes. |
+| `unstyled`       | When present, prevents inline styles from being applied to the image element.                      |
 
 #### Usage examples
 
@@ -529,14 +537,16 @@ The component renders inside a shadow DOM with encapsulated styles and provides 
 
 #### Component attributes
 
-| Attribute   | Description                                                                                                                                                                             |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `handle`    | **Required.** The Shopify product handle to fetch data for.                                                                                                                             |
-| `alternate` | Show alternate product image on hover. Defaults to `false`.                                                                                                                             |
-| `brand`     | Show brand/vendor data. Defaults to `false`.                                                                                                                                            |
-| `discount`  | Show discount data. Defaults to `false`.                                                                                                                                                |
-| `rating`    | Show product rating. Defaults to `false`.                                                                                                                                               |
-| `sizes`     | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
+| Attribute     | Description                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `handle`      | **Required.** The Shopify product handle to fetch data for.                                                                                                                             |
+| `image-mode`  | Image display mode. Use "alternate" for hover image swap or "carousel" for image carousel with navigation. Defaults to undefined.                                                       |
+| `brand`       | Show brand/vendor data. Defaults to `false`.                                                                                                                                            |
+| `discount`    | Show discount data. Defaults to `false`.                                                                                                                                                |
+| `rating`      | Show product rating. Defaults to `false`.                                                                                                                                               |
+| `variant-id`  | The specific variant ID to display. When set, shows this variant's data instead of the default variant.                                                                                 |
+| `image-sizes` | Optional. The sizes attribute for responsive images to help the browser choose the right image size. When not provided, sizes will be calculated dynamically based on image dimensions. |
+| `mock`        | If `true`, uses mock data instead of fetching from Shopify. Defaults to `false`.                                                                                                        |
 
 #### Usage examples
 
@@ -553,7 +563,7 @@ Basic product card:
 Product card with all features enabled:
 
 ```html
-<nosto-simple-card handle="awesome-product" alternate brand discount rating></nosto-simple-card>
+<nosto-simple-card handle="awesome-product" image-mode="alternate" brand discount rating></nosto-simple-card>
 ```
 
 **Example #3**:
@@ -563,7 +573,7 @@ Product card with responsive images:
 ```html
 <nosto-simple-card 
   handle="awesome-product"
-  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+  image-sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
 </nosto-simple-card>
 ```
 
@@ -589,10 +599,14 @@ The component emits a custom `variantchange` event when variant selections chang
 
 #### Component attributes
 
-| Attribute   | Description                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------- |
-| `handle`    | **Required.** The Shopify product handle to fetch data for.                              |
-| `preselect` | Whether to automatically preselect the first value for each option. Defaults to `false`. |
+| Attribute     | Description                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `handle`      | **Required.** The Shopify product handle to fetch data for.                                                                    |
+| `preselect`   | Whether to automatically preselect the options of the first available variant. Defaults to `false`.                            |
+| `variant-id`  | Optional. The ID of the variant to preselect on load.                                                                          |
+| `mode`        | Optional. Display mode: "options" or "compact". Defaults to "options".                                                         |
+| `max-values`  | Optional. Maximum number of option values to display per option. When exceeded, shows an ellipsis indicator.                   |
+| `placeholder` | If `true`, the component will display placeholder content while loading. Defaults to `false`.                                  |
 
 #### Usage examples
 
@@ -632,6 +646,63 @@ Variant selector combined with SimpleCard:
 
 {% hint style="info" %}
 Checkout our API documentation on \`nosto-variant-selector\` custom element [here](https://nosto.github.io/web-components/classes/VariantSelector.html)
+{% endhint %}
+
+### `Bundle`
+
+The `Bundle` custom element provides product bundle selection and pricing display functionality. It allows customers to select multiple products as a bundle with dynamic pricing calculations and add-to-cart functionality. This component is specifically designed for Shopify stores.
+
+#### Component attributes
+
+| Attribute   | Description                                                                                                                      |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `result-id` | Optional. The ID of the recommendation result for attribution tracking.                                                         |
+| `summary`   | Optional. Template string for summary display. Use `{amount}` for product count and `{total}` for formatted price. Default: "Total: {total}" |
+
+**Note**: The `products` property is set programmatically as a JSONProduct[] array and is not available as an HTML attribute.
+
+#### Required markup attributes
+
+The component requires the following attribute within a child element to function correctly:
+
+| Attribute        | Description                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| `n-summary-price`| An element (e.g., `<span>`, `<div>`) where the total price of selected products will be displayed. Example: `<span n-summary-price></span>` |
+
+#### Usage examples
+
+**Example #1**:
+
+Basic bundle with summary:
+
+```html
+<nosto-bundle>
+  <div class="bundle-products">
+    <!-- Products will be rendered here -->
+  </div>
+  <div class="bundle-summary">
+    <span n-summary-price></span>
+  </div>
+</nosto-bundle>
+```
+
+**Example #2**:
+
+Bundle with custom summary template:
+
+```html
+<nosto-bundle summary="Buy {amount} items for {total}">
+  <div class="bundle-container">
+    <!-- Product cards with variant selectors -->
+  </div>
+  <div class="summary">
+    Total: <span n-summary-price></span>
+  </div>
+</nosto-bundle>
+```
+
+{% hint style="info" %}
+Checkout our API documentation on \`nosto-bundle\` custom element [here](https://nosto.github.io/web-components/classes/Bundle.html)
 {% endhint %}
 
 ## Vue-like templating
