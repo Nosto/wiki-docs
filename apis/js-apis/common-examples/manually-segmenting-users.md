@@ -1,6 +1,8 @@
-# Manually segmenting users
+# [Manually segmenting users](https://help.nosto.com/en/articles/2398016-visit-custom-event)
 
 While Nosto leverages customer attributes and behavioral signals to automatically segment users, there may be scenarios where you may want to explicitly segment users. You can do so by affixing a segment-code to the current user and then leverage Nosto's segmentation tool to segment users with that specified attribute.
+
+Manual segmentation requires a backup segment to be created in Nosto first. If no matching backup segment exists, adding a segment code to the visit will not produce the intended segmentation behavior.
 
 ```javascript
 nostojs(api => {
@@ -16,6 +18,4 @@ nostojs(api => {
 });
 ```
 
-Once you have done so, read our guide on [segmenting users via custom events](#user-content-fn-1)[^1].
-
-[^1]: 
+Once you have done so, read our guide on [segmenting users via custom events](https://help.nosto.com/en/articles/2398016-visit-custom-event).
