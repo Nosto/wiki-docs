@@ -10,14 +10,12 @@ hidden: true
 
 ### 1 Create a Dynamic Product Group
 
-1.  **Shopware 6 Admin → Catalogues → Dynamic product groups**\
-
+1.  **Shopware 6 Admin → Catalogues → Dynamic product groups**<br>
 
     <figure><img src="../../.gitbook/assets/image-20241011-135922.png" alt=""><figcaption></figcaption></figure>
 2. Click **Add dynamic product group** (or open an existing one) and define your conditions.\
    &#xNAN;_&#x45;xample:_ _Price < 30 €_ returns all products under €30.
-3.  Click **Preview**, choose the relevant **Sales Channel**, and verify the resulting product list.\
-
+3.  Click **Preview**, choose the relevant **Sales Channel**, and verify the resulting product list.<br>
 
     <figure><img src="../../.gitbook/assets/image-20241011-140311.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,8 +48,7 @@ After saving the category:
 1. Trigger a **Full Product Sync** from the Nosto plugin (or wait for the next scheduled sync).
 2. Shopware exports the updated catalogue: the DPG products now appear under the linked category.
 3.  In your **Nosto Account**, you should see the additional category node on affected products:\
-    \
-
+    <br>
 
     <figure><img src="../../.gitbook/assets/image-20241011-141955.png" alt=""><figcaption></figcaption></figure>
 

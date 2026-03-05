@@ -26,8 +26,7 @@
 
 <figure><img src="../../.gitbook/assets/image-20250310-113532.png" alt=""><figcaption></figcaption></figure>
 
-\
-
+<br>
 
 ***
 
@@ -113,16 +112,13 @@ _Higher numbers = higher dropdown position._\
 
 #### Creating a New Option
 
-1.  Click **Add option**.\
-
+1.  Click **Add option**.<br>
 
     <figure><img src="../../.gitbook/assets/sw add option.png" alt=""><figcaption></figcaption></figure>
-2.  Fill in **Name**, **Technical name**, set **Active**, and add criteria.\
-
+2.  Fill in **Name**, **Technical name**, set **Active**, and add criteria.<br>
 
     <figure><img src="../../.gitbook/assets/sw add option config.png" alt=""><figcaption></figcaption></figure>
-3.  For each criterion define **Order** _(ASC/DESC)_ and \*_Priority_.\
-
+3.  For each criterion define **Order** _(ASC/DESC)_ and \*_Priority_.<br>
 
     <figure><img src="../../.gitbook/assets/sw add option config criteria setup.png" alt=""><figcaption></figcaption></figure>
 
@@ -130,25 +126,20 @@ _Higher numbers = higher dropdown position._\
 
 ### 7. Using a Custom Field as Sorting Criteria
 
-1.  Create the custom field in **Shopware Backend → Settings → Custom fields** and attach it to products.\
-
+1.  Create the custom field in **Shopware Backend → Settings → Custom fields** and attach it to products.<br>
 
     <figure><img src="../../.gitbook/assets/cf 1.png" alt=""><figcaption></figcaption></figure>
-2.  Back in **Product Sorting**, pick the custom field from the **Name** dropdown.\
-
+2.  Back in **Product Sorting**, pick the custom field from the **Name** dropdown.<br>
 
     <figure><img src="../../.gitbook/assets/cf 2.png" alt=""><figcaption></figcaption></figure>
-3.  In **Settings → Extensions → Nosto**, add the same custom field.\
-
+3.  In **Settings → Extensions → Nosto**, add the same custom field.<br>
 
     <figure><img src="../../.gitbook/assets/cf 3.png" alt=""><figcaption></figcaption></figure>
 4. Run a **Full Product Sync**.
 5.  In the Nosto account:\
-    **Product Experience Cloud → Search → Settings → Indexed fields → + Add attribute**.\
-
+    **Product Experience Cloud → Search → Settings → Indexed fields → + Add attribute**.<br>
 
     <figure><img src="../../.gitbook/assets/nosto add attribute.png" alt=""><figcaption></figcaption></figure>
-6.  Save. Indexing runs every 6 hours—changes may take time to appear.\
-
+6.  Save. Indexing runs every 6 hours—changes may take time to appear.<br>
 
     <figure><img src="../../.gitbook/assets/cf shop.png" alt=""><figcaption></figcaption></figure>

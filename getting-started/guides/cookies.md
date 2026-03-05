@@ -40,8 +40,7 @@ After accepting Shopware default cookie consent, cookie `nosto-search-session-pa
 
 ### 2. Nosto Debug Toolbar
 
-![](<../../.gitbook/assets/nosto debug toolbar.png>)\
-
+![](<../../.gitbook/assets/nosto debug toolbar.png>)<br>
 
 The toolbar allows developers to inspect page-level Nosto events, placements, and requests while browsing the storefront.
 
@@ -65,8 +64,7 @@ This may not work with third party cookie consent managers, and in this case you
 #### Backend steps
 
 1. Go to **Settings → Basic Information → Security and Privacy**.
-2. Disable **Use default cookie notification**.\
-
+2. Disable **Use default cookie notification**.<br>
 3. Return to **Settings → Plugins → Nosto** and enable **Ignore cookie consent**.
 
 <figure><img src="../../.gitbook/assets/ignore cookie consent configuration.png" alt=""><figcaption></figcaption></figure>

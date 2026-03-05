@@ -51,4 +51,4 @@ Shopware Admin → Extensions → My Extensions → Nosto → Configuration
 No. Only Category and Search result pages rendered via Nosto are affected.
 
 **What would happen if I enable caching?**\
-Category and Search result pages would be caching for a selected timeframe. This would affect Search and CM analytics on Nosto as well as show stale data when it comes to personalisation, and rules depending on affinity/segments \
+Category and Search result pages would be caching for a selected timeframe. This would affect Search and CM analytics on Nosto as well as show stale data when it comes to personalisation, and rules depending on affinity/segments <br>
