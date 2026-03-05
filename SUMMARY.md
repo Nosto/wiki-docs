@@ -26,4 +26,4 @@
 
 ***
 
-* [Additional Features](additional-features.md)
+* [Feature Scope & Limitations](feature-scope-and-limitations.md)

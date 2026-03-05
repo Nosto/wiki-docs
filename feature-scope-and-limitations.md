@@ -1,6 +1,31 @@
-# Additional Features
+# Feature Scope & Limitations
 
-This documentation page provides detailed information on the additional features available through the plugin, including how these features interact with Shopware's capabilities and are implemented in Nosto state. Understanding these features will help you tailor your storefront to meet your specific business needs.
+This page describes how the Nosto Shopware plugin interacts with native Shopware features and highlights areas where behavior may differ or where only partial support is available. Understanding these behaviors helps merchants and developers correctly scope their storefront implementation and avoid unexpected results.
+
+### Debugging with Custom Themes
+
+When troubleshooting issues related to the Nosto Shopware plugin, we strongly recommend testing the behavior using the default Shopware storefront theme.
+
+Custom themes and storefront overrides may alter template logic, routes, or data handling in ways that affect how Nosto functionality behaves.
+
+Before reporting a bug to Nosto Support, please verify that the issue can also be reproduced when using the default Shopware theme without additional customizations.
+
+If the issue only occurs with a custom theme, the problem is most likely caused by the theme implementation and should be investigated by the merchant or their development team.
+
+### Feature Support Overview
+
+The table below provides an overview of how the Nosto Shopware plugin interacts with selected Shopware features.
+
+| Shopware Feature             | Plugin Support | Notes                                                                                       |
+| ---------------------------- | -------------- | ------------------------------------------------------------------------------------------- |
+| Multi-currency               | Partial        | Only the default currency price is exported to Nosto.                                       |
+| Customer-specific pricing    | Partial        | Advanced Pricing is partially supported, but not all Shopware pricing rules are applied.    |
+| Special prices               | Partial        | Prices are evaluated during product synchronization rather than during search requests.     |
+| Product reviews              | Supported      | Review count and average rating can be synchronized if enabled in the plugin configuration. |
+| External review systems      | Not supported  | Only the native Shopware review system is supported.                                        |
+| Customer tagging             | Supported      | Custom tagging can be configured via `customerDataToNosto`.                                 |
+| Alternate image exports      | Supported      | Multiple product images can be exported if enabled in the plugin configuration.             |
+| Cart recommendation template | Supported      | Supports adding products to cart, cart reload, and restore-cart links.                      |
 
 ### Multi-Currency
 
