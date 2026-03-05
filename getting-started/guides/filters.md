@@ -17,6 +17,10 @@ This means:
 | **Facet order, labels & hierarchy** | Managed in Nosto Admin.                                      |
 | **Adding a new filter**             | Create it in Nosto (Shopware settings alone have no effect). |
 
+**Note on customization support**
+
+> The visual appearance and frontend behavior of filters (for example styling, layout, or UI modifications) are part of the merchant’s storefront implementation. Any customizations to the look and feel of filters are not supported by Nosto and should be implemented by the merchant or their development team.
+
 ***
 
 ### 2 Best-practice tips
