@@ -8,7 +8,7 @@ The workflow for search and categories is generally the same. This article descr
 
 ## Limitations
 
-* Individual personalization with user-specific affinities is currently not available with a pure API approach to search. If this is a critical requirement, consider using the [JavaScript library](../search/).
+* Individual personalization with user-specific affinities is currently not available with a pure API approach to search. If this is a critical requirement, consider using the [JavaScript library](../search/) for a client-side integration or a [hybrid-integration by passing the sessionParams](./using-the-search-api.md#session-params).
 * An `API_APPS` authentication token is necessary to implement API requests related to session management and tracking.
 
 ## General workflow
