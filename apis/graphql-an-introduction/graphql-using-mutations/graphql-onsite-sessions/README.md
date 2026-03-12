@@ -16,7 +16,103 @@ mutation {
 
 ## Updating a session
 
-When a customer logs in, you can update the existing customer with the customer-reference. This would merge the online and mobile sessions. If not needed, I would omit this for now.
+During a user session two things will happen that are likely not tied to viewing a page. Use the following mutations to keep the user session up to date.
+
+* If you use `by: BY_CID`, pass a Nosto session ID (see above). 
+* If you use `by: BY_REF`, pass an external [customer-reference](./../../../../implementing-nosto/implement-on-your-website/manual-implementation/adding-the-customer-information.md)
+
+You will likely want to set `skipEvents` to `true` to prevent incrementing the page views. A common use case is to update the session after the "add to cart"-button on a product card has been clicked.
+
+You also have the option to include the `cart` and `customer` information in the mutations per page type. You can explore details in the [GraphQL playground](./../../graphql-the-playground.md), the general structure of the `updateSession` mutation is:
+
+```graphql
+mutation {
+  updateSession(
+    by: ...,
+    id: "...",
+    params: {
+      cart: { ... },
+      customer: { ... },
+      event: { ... },
+      skipEvents: ...
+    }
+  ) {
+    id
+    cart: { ... }
+    customer: { ... }
+    events: { ... }
+    pages: { ... }
+    segments: { ... }
+  }
+}
+```
+
+### Set the cart
+
+The cart content *must* be updated whenever the cart contents change. The cart contents are the 1:1 representation of the user's cart.
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      cart: {
+        items: [
+          {
+            productId: "100",
+            skuId: "100-1",
+            name: "#100",
+            unitPrice: 199,
+            priceCurrencyCode: "EUR",
+            quantity: 1
+          },
+          {
+            productId: "200",
+            skuId: "200-1",
+            name: "#200",
+            unitPrice: 299,
+            priceCurrencyCode: "EUR",
+            quantity: 2
+          }
+        ]
+      },
+      skipEvents: true,
+      event: {
+        // Same data as below from the different page types, will get ignored if skipEvents: true
+      }
+    }
+  ) {
+    id
+  }
+}
+```
+
+### Set the customer
+
+When a customer logs in, you can update the existing customer with the their data and potentially an external [customer-reference](./../../../../implementing-nosto/implement-on-your-website/manual-implementation/adding-the-customer-information.md). This would merge the online and mobile sessions. If not needed, you can omit this.
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      customer: {
+        firstName: "Mridang"
+        lastName: "Agarwalla"
+        email: "mridang@nosto.com"
+        customerReference: "b369f1235cf4f08153c560.82515936"
+        marketingPermission: false
+        doNotTrack: false
+      }
+      skipEvents: true,
+      event: {
+        // Same data as below from the different page types, will get ignored if skipEvents: true
+      }
+    }
+  ) {
+    id
+  }
+}
+```
+
 
 ## Working with recommendations
 
