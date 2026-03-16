@@ -76,7 +76,7 @@ This configuration card contains multiple feature toggles which enable/disable w
 14. If the checkbox is checked, product publishing date will be tagged as well.
 15. If the checkbox is checked, the recommendations will be reloaded after adding a recommended product
 16. When enabled, customers will be automatically redirected to the product detail page if a search query returns only one matching product.
-17. If the checkbox is checked, product labels will be sent to Nosto
+17. If the checkbox is checked, product labels such as release date, ean, and manufacturer number will be sent to Nosto as custom fields.
 18. This configuration option controls whether data for abandoned carts should be stored in the relevant table. When this option is enabled, the system will fetch and create new rows in the table for each abandoned cart. If disabled, no new rows will be added, potentially preventing performance issues.
 19. Cookie consent may be turned off if you determine it is not required for legal compliance.
 20. If the checkbox is checked, sync first available variant as a product, if product is on clearance and out of stock.
