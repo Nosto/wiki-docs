@@ -4,6 +4,12 @@ By default Nosto tracks campaign attribution without additional url parameters. 
 
 In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/README.md#attribution).
 
+## Support for non anchor clicks
+
+In addition to handling product url navigation attribution it is also possible to annotate elements with a `data-nosto-product` attribute to track interactions with other elements that should be attributed to the campaign. The attribute value should be a valid product id.
+
+This attribution style should only be used for element interactions that don't trigger page reloads. Examples are product detail drawers and overlays as well as add to cart dialogs.
+
 ## Product url redirects
 
 In case the product urls used in Nosto campaigns have HTTP level redirects applied the HTML should link back to the canonical url used in Nosto campaign via `link[refl="canonical"]` elements in the head element. Nosto uses both the current location and the canonical page url as lookup keys for the attribution metadata.
