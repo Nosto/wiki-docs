@@ -146,6 +146,44 @@ mutation {
 }
 ```
 
+### Tracking Product Variant Views
+
+This optional event that can be sent to signal that a specific product variant (SKU in Nosto terms) is being viewed.
+
+* Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size.
+* The recommendations can then be configured in the Nosto admin UI to update and give preference for products that have similar variants available. For example "Other products also available in the same size".
+  
+Product variant views are added with `targetFragment=skuId` in the `event` the `updateSession.params`.
+
+Example for a product page after the SKU ID "589053" was selected by a user:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "11923861519",
+        targetFragment: "589053",
+        ref: "front-page-slot-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400
+      }, product: "11923861519") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
 ### On the Category Page
 
 In order to use the GraphQL session mutation to fetch recommendations for your category page, the event, in this case, must be `VIEWED_CATEGORY` and you should specify a fully qualified category path of the current category. For example, if you have a category called "Dresses" under the category "Women", the FQCN would be "/Women/Dresses".
