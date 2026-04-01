@@ -384,6 +384,41 @@ mutation {
 }
 ```
 
+## Customer Group Pricing and Multi Currency
+
+If your site uses Nosto variants for [customer group pricing](../../../../implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md) or [multi currency](../../../../implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-multi-currency.md), you must pass the `variantId` (e.g. `USD`, `EUR` or `GENERAL`, `GUEST`, `WHOLESALE`) to the `params` inside of `pages` and the respective `forXXPage()` field to retrieve the correct price and availability for the products.
+
+Example for a product page to retrieve `WHOLESALE` prices and availability:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "11923861519"
+        ref: "front-page-slot-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false,
+        imageVersion:  VERSION_8_400_400,
+        variantId: "WHOLESALE"
+      }, product: "11923861519") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
+
 ## GraphQL from mobile applications
 
 When making GraphQL queries from mobile applications, it's essential to define the user agent string in your HTTP headers. Ideally, the user agent should represent the mobile environment, including details such as the platform, device type, and application version. Avoid using terms like "bot" in the user agent string, as this might lead to unintended behavior or rejection of the query/session. Sending an empty user agent will also lead to be catch by the bot detection mechanism.
