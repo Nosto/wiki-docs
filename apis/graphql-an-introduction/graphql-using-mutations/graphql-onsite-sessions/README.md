@@ -151,7 +151,7 @@ mutation {
 This optional event that can be sent to signal that a specific product variant (SKU in Nosto terms) is being viewed.
 
 * Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size.
-* The recommendations can then be configured in the Nosto admin UI to update and give preference for products that have similar variants available. For example "Other products also available in the same size".
+* The recommendations can then be configured in the Nosto admin UI to update and give preference for products that have similar variants available. For example "Other products also available in the same size", [read more about variant affinities here](https://help.nosto.com/en/articles/6863800-variant-settings-for-recommendations#h_c08c4a5d0f).
   
 Product variant views are added with `targetFragment=skuId` in the `event` the `updateSession.params`.
 
