@@ -118,7 +118,7 @@ mutation {
 
 ### On the Product Page
 
-In order to use the GraphQL session mutation to fetch recommendations for your search page, the event, in this case, must be `VIEWED_PRODUCT` and you should specify the product-identifier of the current product being viewed.
+In order to use the GraphQL session mutation to fetch recommendations for your product page, the event, in this case, must be `VIEWED_PRODUCT` and you should specify the product-identifier of the current product being viewed.
 
 ```graphql
 mutation {
