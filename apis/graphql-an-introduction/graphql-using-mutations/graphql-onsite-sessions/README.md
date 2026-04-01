@@ -300,6 +300,13 @@ mutation {
 }
 ```
 
+### On additional page types
+
+Please review the `PageRequestEntity` in the [GraphQL Playground](../../graphql-the-playground.md) to ensure all page types are tracking the user behavior.
+
+You can apply the same concept as in the examples above with e.g. `forNotFoundPage()` and `forOtherPage()`.
+
+
 ### Attribution of Recommendation Results
 
 Recommendation results can be attributed to events by setting a session event's `ref` to the recommendation result's `resultId`.
