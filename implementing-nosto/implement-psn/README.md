@@ -145,6 +145,7 @@ In case you don't want follow one of the client-based approaches, you can manage
   - *You need an alternative, full page A/B testing like Omniconvert* in this case.
 - **[Dynamic filtering](../../apis/js-apis/recommendations/setting-up-dynamic-filtering.md) is not possible via GraphQL.** We highly recommend to go with the Session API and use [`viewCustomField`](https://nosto.github.io/nosto-js/interfaces/client.Session.html#viewcustomfield)
 - **Nosto OCP cannot be retrieved via GraphQL** (personalized banners or other HTML content).
+- Adding explicit affinity signals manually like with the [JS API](https://nosto.github.io/nosto-js/interfaces/client.API.html#addaffinitysignals) is not supported. [Personalization via variant/SKU affinity](../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md#tracking-product-variant-views) as well as [multi currency or customer group pricing](../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/README.md#customer-group-pricing-and-multi-currency) are supported.
 
 - The page tagging/event tracking (current customer data and shopping cart) can also be done via [a GraphQL mutation that returns the session ID](../../apis/graphql-an-introduction/graphql-using-mutations/README.md), example:
 ```graphql
