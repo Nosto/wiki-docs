@@ -59,7 +59,9 @@ This opens a browser window for secure authentication. Requires 2FA enabled on y
 
 **API Key Authentication**
 
-Alternatively, you can use a private Search API key in your project configuration. Public API keys are not supported as the CLI requires read-write access. You can provide your API key as part of the configuration described below. The API keys are scoped to a single merchant, but they never expire.
+Alternatively, you can use a private API key in your project configuration. Public API keys are not supported as the CLI requires read-write access. You can provide your API key as part of the configuration described below. The API keys are scoped to a single merchant, but they never expire.
+
+> **Note:** Use an API key with the `API_APPS` role (not `API_SEARCH`), as the CLI requires write access to upload templates. `API_SEARCH` is read-only and will not work for CLI operations. You can create an `API_APPS` token on the [Authentication Tokens](https://help.nosto.com/en/articles/613616-settings-authentication-tokens) settings page in your Nosto dashboard.
 
 #### Project Configuration
 
