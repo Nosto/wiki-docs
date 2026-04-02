@@ -118,7 +118,7 @@ mutation {
 
 ### On the Product Page
 
-In order to use the GraphQL session mutation to fetch recommendations for your search page, the event, in this case, must be `VIEWED_PRODUCT` and you should specify the product-identifier of the current product being viewed.
+In order to use the GraphQL session mutation to fetch recommendations for your product page, the event, in this case, must be `VIEWED_PRODUCT` and you should specify the product-identifier of the current product being viewed.
 
 ```graphql
 mutation {
@@ -127,6 +127,44 @@ mutation {
       event: {
         type: VIEWED_PRODUCT
         target: "11923861519"
+        ref: "front-page-slot-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false, imageVersion:  VERSION_8_400_400
+      }, product: "11923861519") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
+### Tracking Product Variant Views
+
+This optional event that can be sent to signal that a specific product variant (SKU in Nosto terms) is being viewed.
+
+* Typical use case for sending this event would be from product detail page when the user selects a product variant, such as some specific color and/or size.
+* The recommendations can then be configured in the Nosto admin UI to update and give preference for products that have similar variants available. For example "Other products also available in the same size", [read more about variant affinities here](https://help.nosto.com/en/articles/6863800-variant-settings-for-recommendations#h_c08c4a5d0f).
+  
+Product variant views are added with `targetFragment=skuId` in the `event` the `updateSession.params`.
+
+Example for a product page after the SKU ID "589053" was selected by a user:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "11923861519",
+        targetFragment: "589053",
         ref: "front-page-slot-1"
       }
     }
@@ -262,6 +300,13 @@ mutation {
 }
 ```
 
+### On additional page types
+
+Please review the `PageRequestEntity` in the [GraphQL Playground](../../graphql-the-playground.md) to ensure all page types are tracking the user behavior.
+
+You can apply the same concept as in the examples above with e.g. `forNotFoundPage()` and `forOtherPage()`.
+
+
 ### Attribution of Recommendation Results
 
 Recommendation results can be attributed to events by setting a session event's `ref` to the recommendation result's `resultId`.
@@ -338,6 +383,41 @@ mutation {
   }
 }
 ```
+
+## Customer Group Pricing and Multi Currency
+
+If your site uses Nosto variants for [customer group pricing](../../../../implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-customer-group-pricing.md) or [multi currency](../../../../implementing-nosto/implement-on-your-website/advanced-implementation/adding-support-for-multi-currency.md), you must pass the `variantId` (e.g. `USD`, `EUR` or `GENERAL`, `GUEST`, `WHOLESALE`) to the `params` inside of `pages` and the respective `forXXPage()` field to retrieve the correct price and availability for the products.
+
+Example for a product page to retrieve `WHOLESALE` prices and availability:
+
+```graphql
+mutation {
+  updateSession(by: BY_CID, id: "5b1a481060b221115c4a251e",
+    params: {
+      event: {
+        type: VIEWED_PRODUCT
+        target: "11923861519"
+        ref: "front-page-slot-1"
+      }
+    }
+  ) {
+    pages {
+      forProductPage(params: {
+        isPreview: false,
+        imageVersion:  VERSION_8_400_400,
+        variantId: "WHOLESALE"
+      }, product: "11923861519") {
+        divId
+        resultId
+        primary {
+          productId
+        }
+      }
+    }
+  }
+}
+```
+
 
 ## GraphQL from mobile applications
 
