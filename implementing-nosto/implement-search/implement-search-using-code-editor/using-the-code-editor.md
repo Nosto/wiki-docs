@@ -1,5 +1,9 @@
 # Using Search Templates
 
+{% hint style="warning" %}
+Search Templates is no longer actively developed. We recommend using [Search Templates Starter](../using-search-templates-starter/) instead, which provides modern development tooling, full source code control, and a local development environment.
+{% endhint %}
+
 ## **Why use Search Templates?**
 
 Search Templates allow you to add a search function to your website quickly and easily without the need to use an API. You can customize the design of your search pages and autocomplete boxes to match your brand's look and feel. This saves you a lot of time compared to implementing search functionality through an API.
