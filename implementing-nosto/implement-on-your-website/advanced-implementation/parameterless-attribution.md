@@ -4,6 +4,8 @@ By default Nosto tracks campaign attribution without additional url parameters. 
 
 In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/README.md#attribution).
 
+## Capturing clicks
+
 The following tracking modes are supported:
 
 * `a[data-nosto-product]` 
