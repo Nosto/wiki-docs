@@ -8,10 +8,13 @@ The following tracking modes are supported:
 
 * `a[data-nosto-product]` 
   * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute
+  * Recommended for most reliable attribution
 * `a[href]` 
   * Attributions are tracked based on the URL of the clicked product supplied in the `href` attribute
+  * Fallback logic that requires that the source and target URL of the product are aligned
 * `:not(a)[data-nosto-product]`
   * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute, triggering an immediate network call to Nosto
+  * Useful for any interaction that doesn't trigger a navigation to a PDP page
 
 ## Product url redirects
 
