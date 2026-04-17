@@ -4,11 +4,14 @@ By default Nosto tracks campaign attribution without additional url parameters. 
 
 In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/README.md#attribution).
 
-`data-nosto-product` can be applied to anchor elements to use the product id for linking product click and view together instead of the url.
+The following tracking modes are supported:
 
-## Support for non anchor clicks
-
-In addition to handling product url navigation attribution it is also possible to annotate elements with a `data-nosto-product` attribute to track interactions with other elements that should be attributed to the campaign. The attribute value should be a valid product id.
+* `a[data-nosto-product]` 
+  * clicks on anchor elements with a `data-nosto-product` attribute will store the attribute value (product id) in local storage and pick it up on product page view
+* `a[href]` 
+  * clicks on anchor elements will store the product url path in local storage and pick it up on product page view
+* `:not(a)[data-nosto-product]`
+  * clicks on non-anchor elements with a `data-nosto-product` attribute will result in immediate network calls to Nosto with the value of `data-nosto-product` as the product id
 
 ## Product url redirects
 
