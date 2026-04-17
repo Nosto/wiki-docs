@@ -11,7 +11,7 @@ The following tracking modes are supported:
 * `a[href]` 
   * Attributions are tracked based on the URL of the clicked product supplied in the `href` attribute
 * `:not(a)[data-nosto-product]`
-  * clicks on non-anchor elements with a `data-nosto-product` attribute will result in immediate network calls to Nosto with the value of `data-nosto-product` as the product id
+  * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute, triggering an immediate network call to Nosto
 
 ## Product url redirects
 
