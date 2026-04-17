@@ -14,7 +14,7 @@ The following tracking modes are supported:
   * Fallback logic that requires that the source and target URL of the product are aligned
 * `:not(a)[data-nosto-product]`
   * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute, triggering an immediate network call to Nosto
-  * Useful for any interaction that doesn't trigger a navigation to a PDP page
+  * Useful for any interaction that doesn't trigger a navigation to a PDP page, e.g. ATC dialogs, modals etc.
 
 ## Product url redirects
 
