@@ -7,9 +7,9 @@ In most cases this will work out of the box, but in certain scenarios adjustment
 The following tracking modes are supported:
 
 * `a[data-nosto-product]` 
-  * clicks on anchor elements with a `data-nosto-product` attribute will store the attribute value (product id) in local storage and pick it up on product page view
+  * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute
 * `a[href]` 
-  * clicks on anchor elements will store the product url path in local storage and pick it up on product page view
+  * Attributions are tracked based on the URL of the clicked product supplied in the `href` attribute
 * `:not(a)[data-nosto-product]`
   * clicks on non-anchor elements with a `data-nosto-product` attribute will result in immediate network calls to Nosto with the value of `data-nosto-product` as the product id
 
