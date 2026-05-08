@@ -2,7 +2,7 @@
 
 Before you begin, ensure you have the following installed on your system:
 
-* **Node.js** (v22 or higher) - [Download from nodejs.org](https://nodejs.org/)
+* **Node.js** (v24 or higher) - [Download from nodejs.org](https://nodejs.org/)
 * **npm** (comes with Node.js) or **yarn** as your package manager
 * **Git** for version control
 * A **Nosto account** with Search and Categories enabled
