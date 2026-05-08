@@ -2,7 +2,7 @@
 
 ## Utilizing LLMs for Development
 
-Large Language Models (LLMs) like GitHub Copilot, ChatGPT, and Claude can significantly accelerate development with the Search Templates Starter. This guide provides proven prompts and strategies for common development tasks.
+Large Language Models (LLMs) like GitHub Copilot, ChatGPT, Codex and Claude can significantly accelerate development with the Search Templates Starter. This guide provides proven prompts and strategies for common development tasks.
 
 ### Why use LLMs with Search Templates Starter?
 
