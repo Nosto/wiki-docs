@@ -68,28 +68,50 @@ VITE_MERCHANT_ID=your-merchant-id npm run dev
 
 The starter includes a configuration file at `src/config.ts` where you can customize:
 
-* CSS selectors for integration with your site
+* **CSS selectors** for integration with your site — these define which DOM elements the search components are injected into via React Portals. They should match elements that exist on your store's search results page, category pages, and wherever your autocomplete input lives. If the selectors don't match anything on the page, the components won't appear.
 * Search behavior and settings
 * Component rendering options
 * Customized queries for SERP, category pages, and autocomplete
 
+### Connecting to Nosto CLI
+
+Before you can push templates to your store, authenticate with the Nosto CLI:
+
+```bash
+nosto login
+```
+
+This opens a browser window. If you already have a valid Nosto session, you are logged in automatically for the rest of the working day. Once authenticated, configure the CLI for your merchant:
+
+```bash
+nosto setup -m your-merchant-id
+```
+
+This creates a `.nosto.json` configuration file in your project root. See [Nosto CLI](../deployment-and-testing/nosto-cli.md) for full details on the CLI workflow.
+
 ### Local Development
 
-#### Starting the Development Server
+#### Development approaches
 
-To start the local development server:
+There are two ways to develop with Search Templates Starter. Choose based on what you need at a given moment — most developers use both during a project.
+
+**`npm run dev` — Vite dev server**
 
 ```bash
 npm run dev
 ```
 
-This will launch the application at `http://localhost:8000` with hot reloading enabled. Any changes you make to the source code will be automatically reflected in the browser.
+Starts a local Vite dev server at `http://localhost:8000`. The page is a small mock store that mounts your components with your real Nosto data, but without your shop's styles or layout. Changes are reflected instantly in the browser via hot reload. This is the fastest way to work on component logic and appearance.
 
-> **Important:** The local development server runs independently of your shop's styles. To see how your components will look with your shop's styling, you can:
->
-> * Modify `index.html` to reference your shop's CSS files
-> * Use the `nosto-cli watch` workflow for live deployment testing
-> * Test directly on your shop's staging environment
+**`nosto st dev` — watch mode on your real store**
+
+```bash
+nosto st dev
+```
+
+Watches your files, rebuilds on save, and pushes the artifacts to Nosto's infrastructure. Your changes become available in preview mode on your actual store — visit it with `?nostodebug=true` and enable Preview in the debug toolbar, then refresh the page to see the update. This shows the templates exactly as they will appear when deployed, injected into your real store's pages.
+
+Use `npm run dev` when iterating quickly on components. Use `nosto st dev` when you want to verify the result in context — with your real theme, real CSS, and real page structure.
 
 #### Understanding Modes
 
@@ -101,15 +123,11 @@ Search Templates Starter may operate in three modes: Injected, Native and Mocked
 npm run dev
 ```
 
-In this mode, the components are rendered into the page using [React Portals](https://react.dev/reference/react-dom/createPortal), targeting the elements you define with CSS selectors in `src/config.tsx`. Note that without correct selectors, the components will not appear in the page at all. After the injection step, the rest of the application behaves nearly the same as it would in native mode.
+In this mode, the components are rendered into the page using [React Portals](https://react.dev/reference/react-dom/createPortal), targeting the elements you define with CSS selectors in `src/config.ts`. Note that without correct selectors, the components will not appear in the page at all. After the injection step, the rest of the application behaves nearly the same as it would in native mode.
 
 > **Entry point:** `src/entries/injected.tsx`
 
-To use this mode effectively:
-
-1. Configure CSS selectors in `src/config.ts` to match your site's elements
-2. Ensure your site is accessible for injection
-3. Test on your actual store to see real integration
+Configure CSS selectors in `src/config.ts` to match your store's elements. To test the injected result on your actual store, use `nosto st dev` instead of the Vite dev server.
 
 **Native Mode**
 
