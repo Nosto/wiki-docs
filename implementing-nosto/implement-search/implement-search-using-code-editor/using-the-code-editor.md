@@ -1,7 +1,7 @@
 # Using Search Templates
 
 {% hint style="warning" %}
-Search Templates is no longer actively developed. We recommend using [Search Templates Starter](../using-search-templates-starter/) instead, which provides modern development tooling, full source code control, and a local development environment.
+Search Templates is no longer actively developed. We recommend using [Search Templates Starter](../using-search-templates-starter/) instead, which provides modern development tooling, full source code control, and a local development environment. Onboarding assistance is only available for Search Templates Starter.
 {% endhint %}
 
 ## **Why use Search Templates?**
