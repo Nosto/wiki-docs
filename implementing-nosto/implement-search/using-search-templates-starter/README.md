@@ -20,7 +20,7 @@ If you have not worked with Nosto Search before, here is what you need to know a
 
 #### Templates are hosted by Nosto
 
-You do not host or deploy the built bundle yourself. When you build and push your templates using `nosto-cli`, the artifacts are uploaded to Nosto's infrastructure. Nosto then serves the bundle to your store visitors automatically — no CDN setup, no server configuration needed on your end.
+You do not need to host the built bundle yourself. When you build and push your templates using `nosto-cli`, the artifacts are uploaded to Nosto's infrastructure and served to your store visitors automatically — no CDN setup or server configuration required. Self-hosting is supported if you need it, but for most use cases Nosto's hosting is all you need.
 
 #### The bundle is injected via the Nosto script
 
