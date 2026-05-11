@@ -111,6 +111,8 @@ nosto st dev
 
 Watches your files, rebuilds on save, and pushes the artifacts to Nosto's infrastructure. Your changes become available in preview mode on your actual store — visit it with `?nostodebug=true` and enable Preview in the debug toolbar, then refresh the page to see the update. This shows the templates exactly as they will appear when deployed, injected into your real store's pages.
 
+> **Note:** `nosto st dev` pushes to a shared S3 bucket tied to the merchant account. If multiple developers run it simultaneously against the same merchant, they will overwrite each other's uploads. Coordinate with your team to avoid conflicts — or use `npm run dev` for local iteration and only switch to `nosto st dev` when you need to verify on the real store.
+
 Use `npm run dev` when iterating quickly on components. Use `nosto st dev` when you want to verify the result in context — with your real theme, real CSS, and real page structure.
 
 #### Understanding Modes
