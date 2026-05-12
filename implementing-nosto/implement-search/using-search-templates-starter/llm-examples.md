@@ -55,6 +55,12 @@ Convert the Button component from CSS modules to Tailwind CSS classes.
 Replace the current Button.module.css imports and className usage with Tailwind utility classes, maintaining the same visual appearance and hover states.
 ```
 
+or for a full conversion
+
+```
+Convert the CSS module based styling with Tailwind using standard Tailwind build pipelines.
+```
+
 #### Search Functionality
 
 **Example: Replace Infinite Scroll with Load More Button**
