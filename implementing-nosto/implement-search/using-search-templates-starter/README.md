@@ -2,6 +2,17 @@
 
 The Search Templates Starter is a Preact-based starter template that provides a complete development environment for building custom search experiences with Nosto.
 
+### Prerequisites
+
+Search Templates Starter is aimed at developers comfortable with:
+
+* **TypeScript** — the codebase is TypeScript-first throughout
+* **Git** — version control is central to the workflow
+* **NPM-based tooling** — dependency management, scripts, local dev servers
+* **React or Preact** — components follow standard React patterns
+
+**Agentic coding** (using LLM tools such as Copilot, Codex or Claude) is optional but particularly useful here. Unlike the legacy VSCode web-based Search Templates, the Search Templates Starter is built with an assumption that AI tools are a staple of modern development. We recommend relying on LLMs to give you a better starting point before finalizing the feature development manually. For example, if you want to convert the starter to a different styling approach such as Tailwind, or swap out individual components for ones that better fit your stack, an LLM is useful. See [LLM Examples](llm-examples.md) for practical guidance.
+
 ### Why use Search Templates Starter?
 
 Search Templates Starter allows you to build fully custom search implementations with modern development practices. You get:
@@ -43,7 +54,7 @@ The development workflow separates preview from production deployment. During de
 
 When you are happy with the result, you can deploy to production either from the Nosto Admin UI or directly using the CLI. This is the same workflow as the legacy Search Templates — the difference is only in how you develop and push your code locally.
 
-### Get Started
+### Next steps
 
 To start developing with Search Templates Starter, you'll need **Node.js 24+** and familiarity with React/Preact. Here is the typical workflow end to end:
 
@@ -52,3 +63,9 @@ To start developing with Search Templates Starter, you'll need **Node.js 24+** a
 3. **Develop** — Use `npm run dev` for fast component iteration in isolation, or `nosto st dev` to push changes and test them on your real store
 4. **Preview** — Enable the Nosto debug toolbar on your store (`?nostodebug=true`) and toggle Preview mode to review your changes before they go live
 5. **[Deploy](../deployment-and-testing/deploying.md)** — When ready, deploy from the CLI or from the Nosto Admin UI
+
+### Best practices
+
+#### Use separate branches for production and development
+
+Maintain at least two long-lived branches in your repository — for example `main` for the current production state and `dev` for ongoing development. When you need to apply an urgent fix to the live store, you can branch off `main`, apply and deploy the patch, and merge back — without disrupting work in progress on `dev`. This is the same branching model you would use in any professional frontend project, and it maps naturally onto Nosto's preview/production deployment model.
