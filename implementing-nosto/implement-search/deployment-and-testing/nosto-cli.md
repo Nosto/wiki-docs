@@ -55,7 +55,9 @@ The Nosto CLI supports two authentication methods - your Nosto user account or a
 nosto login
 ```
 
-This opens a browser window for secure authentication. Requires 2FA enabled on your Nosto account and stores credentials in your system's home folder for 8 hours. This method works across all merchant accounts you have access to.
+This opens a browser window for secure authentication. If you are already logged in to Nosto, the authentication will succeed immediately. After logging in, your credentials are stored in your system's home folder for 8 hours. This method works across all merchant accounts you have access to.
+
+If your account has 2FA enabled, Nosto CLI login does not prompt for a verification code. You may enter the code manually in the browser before running `nosto login`.
 
 **API Key Authentication**
 
