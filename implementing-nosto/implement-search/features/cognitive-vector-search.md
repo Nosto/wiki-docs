@@ -1,13 +1,10 @@
 ---
 description: >-
-    Cognitive Vector Search finds relevant products based on conceptual similarity to the search terms in situations
-    in which keyword search performs poorly or delivers no relevant results.
+    Merchants with Cognitive Vector Search enabled gain the ability to search products based on conceptual similarity
+    in addition to precise retrieval based on textual relevance.
 ---
 
 # Cognitive Vector Search
-
-Merchants with Cognitive Vector Search enabled gain the ability to search products based on conceptual similarity
-in addition to precise retrieval based on textual relevance.
 
 Depending on merchant preferences, Cognitive Vector Search can take over from keyword search when:
 
