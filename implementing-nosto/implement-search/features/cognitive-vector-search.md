@@ -7,7 +7,7 @@ description: >-
 # Cognitive Vector Search
 
 Merchants with Cognitive Vector Search enabled gain the ability to search products based on conceptual similarity
-in addition to preceise retrieval based on textual relevance.
+in addition to precise retrieval based on textual relevance.
 
 Depending on merchant preferences, Cognitive Vector Search can take over from keyword search when:
 
@@ -28,7 +28,7 @@ of the search response.
 
 This information can be optionally used in the search result page to convey whether these results are precise
 (keyword search) or conceptually related (Cognitive Vector Search).
-Cognitive Vector Search results can be more general than keyword search resuls -
+Cognitive Vector Search results can be more general than keyword search results -
 communicating with the user helps with setting expectations.
 
 ## Limitations
