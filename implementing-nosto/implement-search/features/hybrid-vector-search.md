@@ -1,17 +1,17 @@
 ---
 description: >-
-    Merchants with Hybrid Search enabled gain the ability to search products based on conceptual similarity
+    Merchants with Hybrid Vector Search enabled gain the ability to search products based on conceptual similarity
     in addition to precise retrieval based on textual relevance.
 ---
 
-# Hybrid Search
+# Hybrid Vector Search
 
-Depending on merchant preferences, Hybrid Search can take over from keyword search when:
+Depending on merchant preferences, Hybrid Vector Search can take over from keyword search when:
 
 * The search query has a poor click-through rate.
 * The search query has a poor conversion rate.
 * The search query has no results.
-* Hybrid Search was requested specifically for a particular search query.
+* Hybrid Vector Search was requested specifically for a particular search query.
 
 ## Recognizing the type of search logic being used
 
@@ -21,18 +21,18 @@ of the search response.
 
 `searchType` contains the type of search logic being used:
 * `keyword` indicates normal keyword search.
-* `vector` indicates Hybrid Search.
+* `vector` indicates Hybrid Vector Search.
 
 This information can be optionally used in the search result page to convey whether these results are precise
-(keyword search) or conceptually related (Hybrid Search).
-Hybrid Search results can be more general than keyword search results -
+(keyword search) or conceptually related (Hybrid Vector Search).
+Hybrid Vector Search results can be more general than keyword search results -
 communicating with the user helps with setting expectations.
 
 ## Limitations
 
-When Hybrid Search engages, features of Nosto search work as normal with one major caveat:
+When Hybrid Vector Search engages, features of Nosto search work as normal with one major caveat:
 Only the **1000 most relevant results** are accessible via pagination and covered by facets and sorting.
-Depending on the strictness of the relevance threshold defined in the Hybrid Search settings, fewer results
+Depending on the strictness of the relevance threshold defined in the Hybrid Vector Search settings, fewer results
 could be available.
 
-This cutoff is based purely on Hybrid Search relevance and does not take pinning or promote/demote rules into account.
+This cutoff is based purely on Hybrid Vector Search relevance and does not take pinning or promote/demote rules into account.

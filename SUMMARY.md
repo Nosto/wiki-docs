@@ -66,7 +66,7 @@
       * [Create Autocomplete template](implementing-nosto/implement-search/search/implement-autocomplete-using-library/create-autocomplete-template.md)
       * [Further reading](implementing-nosto/implement-search/search/implement-autocomplete-using-library/further-reading.md)
   * [Features](implementing-nosto/implement-search/features/README.md)
-    * [Hybrid Search](implementing-nosto/implement-search/features/hybrid-search.md)
+    * [Hybrid Vector Search](implementing-nosto/implement-search/features/hybrid-vector-search.md)
   * [Deployment & Testing](implementing-nosto/implement-search/deployment-and-testing/README.md)
     * [Testing](implementing-nosto/implement-search/deployment-and-testing/testing.md)
     * [Deploying](implementing-nosto/implement-search/deployment-and-testing/deploying.md)
