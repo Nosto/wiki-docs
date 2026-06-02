@@ -214,8 +214,7 @@ query {
 {
   "data": {
     "session": {
-      "segments": ["5a497a000000000000000001", "5b71f1500000000000000006"]
-      "discount": 0,
+      "segments": ["5a497a000000000000000001", "5b71f1500000000000000006"],
       "topBrands": [
         {
           "name": "Amazing Brand",
