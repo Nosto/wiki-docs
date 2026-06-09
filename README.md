@@ -4,8 +4,7 @@
 
 Enrich, understand, and activate all your customer, product, and content data in our Commerce Experience Platform (CXP) to personalize every shopping experience and increase your online revenue.
 
-Named the “preferred solution” for Shopify merchants by the Shopify App Review and Quality Assurance team, our out-of-the-box integration leaves nothing behind, ensuring no Shopify brand has to sacrifice their ability to deliver exceptional commerce experiences that increase online revenue.\
-
+Named the “preferred solution” for Shopify merchants by the Shopify App Review and Quality Assurance team, our out-of-the-box integration leaves nothing behind, ensuring no Shopify brand has to sacrifice their ability to deliver exceptional commerce experiences that increase online revenue.<br>
 
 Find out more at [nosto.com](http://www.nosto.com/)
 

@@ -51,6 +51,5 @@ You can set up automation to send Partially Paid orders to `Manual Review` using
 
 
 
-\
-
+<br>
 

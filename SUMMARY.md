@@ -25,7 +25,6 @@
   * [Shopify Flow](features/shopify-flow.md)
   * [Shopify Hydrogen](features/shopify-hydrogen.md)
   * [Marketing permission and GDPR compatibility](features/marketing-permission-and-gdpr-compatibility.md)
-  * [Dynamic Bundle Discounts](features/dynamic-bundle-discounts.md)
   * [Customer Reference](features/customer-reference.md)
   * [Leveraging Margin Data](features/leveraging-margin-data.md)
   * [(Outdated) Asset API approach](features/outdated-asset-api-approach/README.md)

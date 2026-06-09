@@ -92,8 +92,7 @@ Removing Nosto will also delete the files `nosto-tagging.liquid` and `nosto-elem
     <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 
-2.  In your Theme Management Section, click on "_Partially remove Nosto_", which will remove the old script and old tagging from your Theme code, but **retains your Placements fully**\
-
+2.  In your Theme Management Section, click on "_Partially remove Nosto_", which will remove the old script and old tagging from your Theme code, but **retains your Placements fully**<br>
 
     <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
