@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Dynamic Bundle Discounts
 
 {% hint style="info" %}
