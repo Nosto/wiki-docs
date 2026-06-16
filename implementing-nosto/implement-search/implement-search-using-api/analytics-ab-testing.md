@@ -63,6 +63,7 @@ query {
     products {
       total
       fuzzy
+      searchType
       hits {
         productId
       }
@@ -187,7 +188,8 @@ Here is an example of what metadata looks like for search requests:
   "refinedQuery": null,
   "sorted": false,
   "query":  "t-shirt",
-  "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855"
+  "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855",
+  "searchType": "keyword"
 }
 ```
 
@@ -203,6 +205,7 @@ Properties:
 * `sorted`: `true` when sorting by anything other than `_score`. Sorting by `_score` is default behavior if no sort parameter is supplied in the search request.
 * `query`: The current search query entered by the user into the search field.
 * `resultId`: Unique ID for this interaction. UUID4 is particularly useful for this.
+* `searchType`: Type of search logic being used, as returned by the API's `searchType` field. This is required for merchants using Hybrid Vector Search, but otherwise optional.
 
 #### Category tracking metadata
 
@@ -525,6 +528,7 @@ function transformSearchResultsToTrackingMetadata(query, searchResults, isAutoCo
     query,
     refinedQuery: store.mostRecentSearchMetadata?.query ?? null,
     resultId: crypto.randomUUID(),
+    searchType: searchResults.search.products.searchType
   }
 }
 
@@ -551,6 +555,7 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
         products {
           total
           fuzzy
+          searchType
           hits {
             productId
             name
