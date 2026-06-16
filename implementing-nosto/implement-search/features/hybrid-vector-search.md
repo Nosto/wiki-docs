@@ -31,6 +31,33 @@ This information can be optionally used in the search result page to convey whet
 Hybrid Vector Search results can be more general than keyword search results —
 communicating with the user helps with setting expectations.
 
+### Tracking requirements
+
+In order to benefit from analytics for Hybrid Vector Search, the search type must be included in impression- and click tracking events sent to Nosto.
+
+The `searchType` value queried from the search API can be included in tracking events verbatim within the tracking metadata property `searchType`, on the same level as `query`.
+Here is an example for a well-formed tracking metadata that includes the search type:
+
+```json
+{
+  "hasResults": true,
+  "autoComplete": false,
+  "autoCorrect": false,
+  "keyword": false,
+  "organic": true,
+  "refined": false,
+  "refinedQuery": null,
+  "sorted": false,
+  "query":  "t-shirt",
+  "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855",
+  "searchType": "vector" // or "keyword"
+}
+```
+
+When using NostoJS' automatic tracking tracking (using the `track` parameter), `searchType` tracking is included automatically, and no adjustments to the integration are required.
+
+API integrations and integrations managing tracking metadata manually need to take care of passing through `searchType` explicitly.
+
 ## Limitations
 
 When Hybrid Vector Search engages, features of Nosto search work as normal with one major caveat:
