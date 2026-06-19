@@ -55,7 +55,7 @@ query {
     #  categoryId: "AB1337"
     #}
     sessionParams: {
-      segments: ["array", "of", "segment", "IDs", "from", "session", "API"]
+      segments: ["array", "of", "segment", "IDs", "from", "API"]
       products: {
         personalizationBoost: [
           # List each affinity belonging to the session using mapped names.
@@ -172,7 +172,7 @@ Learn more about session handling [here](../../../apis/graphql-an-introduction/g
 
 ### Query `session`
 
-Retrieves segments that have been assigned to this session.
+Retrieves segments and personalization affinities that have been assigned to this session.
 Segments must be included in search requests to leverage segmentation in merchandising rules.
 
 #### Request example
