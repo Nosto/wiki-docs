@@ -596,6 +596,44 @@ async function track(event) {
     })
 }
 
+// Map the session's affinities to search "personalizationBoost" entries.
+// The session API and search API use different names, so the affinities need
+// to be translated:
+//   - topBrands       -> affinities.brand
+//   - topCategories   -> affinities.categories
+//   - topProductTypes -> affinities.productType
+//   - topSkus         -> affinities.<attribute> (SKU attributes are flattened)
+// In all cases, the affinity "name" becomes the boost "value" and the affinity
+// "score" becomes the boost "weight".
+function mapAffinitiesToPersonalizationBoost(affinities) {
+  if (!affinities) {
+    return []
+  }
+
+  const boost = []
+
+  const directMappings = [
+    { source: affinities.topBrands, field: "affinities.brand" },
+    { source: affinities.topCategories, field: "affinities.categories" },
+    { source: affinities.topProductTypes, field: "affinities.productType" },
+  ]
+  for (const { source, field } of directMappings) {
+    for (const { name, score } of source ?? []) {
+      boost.push({ field, value: [name], weight: score })
+    }
+  }
+
+  // SKU affinities are flattened: each attribute becomes its own field, e.g.
+  // the "size" attribute becomes the field "affinities.size".
+  for (const sku of affinities.topSkus ?? []) {
+    for (const { name, score } of sku.values ?? []) {
+      boost.push({ field: `affinities.${sku.attribute}`, value: [name], weight: score })
+    }
+  }
+
+  return boost
+}
+
 async function fetchPersonalization() {
   const result = await graphql(config.platformGraphqlUrl, `
     query ($sessionId: String!) {
@@ -603,14 +641,34 @@ async function fetchPersonalization() {
         segments {
           id
         }
+        affinities {
+          topBrands {
+            name
+            score
+          }
+          topCategories {
+            name
+            score
+          }
+          topProductTypes {
+            name
+            score
+          }
+          topSkus {
+            attribute
+            values {
+              name
+              score
+            }
+          }
+        }
       }
     }`, { sessionId: store.sessionId })
-  // TODO: fetch affinities and map
 
   return {
     segments: result.session.segments.map(segment => segment.id),
     products: {
-      personalizationBoost: []
+      personalizationBoost: mapAffinitiesToPersonalizationBoost(result.session.affinities)
     }
   }
 }
@@ -648,9 +706,9 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
       $accountId: String!,
       $query: String!,
       $abTests: [InputSearchABTest!]
-      $sessionParams: InputSearchQuery!
+      $sessionParams: InputSearchQuery
     ) {
-      search(accountId: $accountId, query: $query, segments: $segments, abTests: $abTests, sessionParams: $sessionParams) {
+      search(accountId: $accountId, query: $query, abTests: $abTests, sessionParams: $sessionParams) {
         products {
           total
           fuzzy
@@ -670,7 +728,8 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
     {
       accountId: config.merchantId,
       query,
-      segments,
+      // Segments and personalization affinities both travel in sessionParams.
+      sessionParams,
       // Include previously stored A/B variation assignments in search
       // requests to ensure consistent results within the session.
       abTests: store.abTests
