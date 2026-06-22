@@ -192,7 +192,7 @@ API can return highlights indicating which parts of a keyword match the search q
 Redirects are configured in the search dashboard and can be used to forward users to specific pages depending on what they type into the search field. For example, users searching for "shipping" could be directed to [https://example.com/shipping.html](https://example.com/shipping.html).
 
 {% hint style="info" %}
-API only returns redirect url, the actual browser redirect must be implemented by the merchant on keyword selection
+API only returns redirect URL, the actual browser redirect must be implemented by the merchant on keyword selection
 {% endhint %}
 
 ## Analytics
