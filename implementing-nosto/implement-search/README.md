@@ -51,19 +51,32 @@ For frontend integrations you can also use our JavaScript library. This library 
 | Merchandising rules applied automatically\*\*  | Yes                      | Yes              | Yes       | Yes                |
 | Analytics                                      | Yes                      | Yes              | Yes       | Yes                |
 | Segmentation                                   | Yes                      | Yes              | Yes       | Yes                |
-| Individual personalization (affinities)        | Yes                      | Yes              | Yes\*\*\* | Yes                |
+| Individual personalization (affinities)        | Yes                      | Yes              | Yes       | Yes                |
 | A/B testing                                    | Yes                      | Yes              | Yes       | Yes                |
-| SPA suitable                                   | Yes                      | Limited\*\*\*\*  | Yes       | Yes                |
+| SPA suitable                                   | Yes                      | Limited\*\*\*    | Yes       | Yes                |
 
 {% hint style="info" %}
 \* This estimation is based on the merchant's team building the templates. When Nosto's frontend team builds templates via the Code Editor, this can take longer due to overall bandwidth from the team.
 
 \*\* Matching merchandising rules are applied automatically based on requested search queries, categories, and segments, without the need to request them in API requests.
 
-\*\*\* Full functionality is only possible as a hybrid solution in combination with the JavaScript library for affinity retrieval.
-
-\*\*\*\* Using search templates with SPAs comes with challenges related to routing and dynamic content injection that tend to be solvable, but are more technically involved. We highly recommend using the JavaScript library instead.
+\*\*\* Using search templates with SPAs comes with challenges related to routing and dynamic content injection that tend to be solvable, but are more technically involved. We highly recommend using the JavaScript library or API instead.
 {% endhint %}
+
+### Mixing integration types ("hybrid integration")
+
+With appropriate care, it's possible to mix and match different integration types.
+The most commonly observed combinations are:
+
+* Use JavaScript library for tracking and API for retrieving search/category results.
+* Use search templates (starter) for autocomplete, and API for search/category results.
+
+When choosing such an approach, it's important that all components involved use the same session parameters throughout to ensure that all interactions are connected to the same visitor.
+This is easiest to achieve by managing the session in the frontend using the JavaScript library (included in search templates (starter)), and passing session parameters (including active segments and personalization affinities) to other components connected to Nosto (e.g., a backend interacting with Nosto search via API), so these can include the session parameters in API requests.
+
+To avoid pitfalls and ensure correct attribution of sales to search, tracking search impressions and clicks should be done with the same integration types.
+
+Please refer to documentation for retrieving session parameters via [JavaScript library](./search#session-parameters) or [API](./implement-search-using-api/analytics-ab-testing.md#query-session) for more details.
 
 ### Search Templates vs. Search Templates Starter
 

@@ -8,7 +8,6 @@ The workflow for search and categories is generally the same. This article descr
 
 ## Limitations
 
-* Individual personalization with user-specific affinities is currently not available with a pure API approach to search. If this is a critical requirement, consider using the [JavaScript library](../search/) for a client-side integration or a [hybrid-integration by passing the sessionParams](./using-the-search-api.md#session-params).
 * An `API_APPS` authentication token is necessary to implement API requests related to session management and tracking.
 
 ## General workflow
@@ -23,7 +22,7 @@ The key points are:
 * Track click event including clicked product and A/B variations (if applicable) when clicking on a search result.
 * Store A/B variations received from the search API and include them in all following search requests _for the duration of the session_.
 
-Storing the session ID for the duration of the session (30 minutes) is essential to ensure that the experience is personalized using the segments associated with the session.
+Storing the session ID for the duration of the session (30 minutes) is essential to ensure that the experience is personalized using the segments and affinities associated with the session.
 
 ### Keeping track of assigned A/B test variations
 
@@ -55,7 +54,45 @@ query {
     #  categoryPath: "Tops and Shirts"
     #  categoryId: "AB1337"
     #}
-    segments: ["array", "of", "segment", "IDs", "from", "session", "API"]
+    sessionParams: {
+      segments: ["array", "of", "segment", "IDs", "from", "API"]
+      products: {
+        personalizationBoost: [
+          # List each affinity belonging to the session using mapped names.
+          #  - topBrands -> affinities.brand
+          #  - topCategories -> affinities.categories
+          #  - topProductTypes -> affinities.productType
+          # SKU attributes are flattened.
+          # "score" from the session API becomes "weight".
+          # Example:
+          {
+            field: "affinities.brand"
+            value: ["Amazing Brand"]
+            weight: 0.6
+          }
+          {
+            field: "affinities.categories"
+            value: ["/accessories"]
+            weight: 0.4
+          }
+          {
+            field: "affinities.productType"
+            value: ["accessory"]
+            weight: 0.53
+          }
+          {
+            field: "affinities.size"
+            value: ["36"]
+            weight: 0.5
+          }
+          {
+            field: "affinities.color"
+            value: ["green"]
+            weight: 0.8
+          }
+        ]
+      }
+    }
     # For the first search in a session, this can be an empty array. All following searches should contain an array
     # of all A/B variation assignments returned by search within the same session.
     abTests: []
@@ -136,7 +173,7 @@ Learn more about session handling [here](../../../apis/graphql-an-introduction/g
 
 ### Query `session`
 
-Retrieves segments that have been assigned to this session.
+Retrieves segments and personalization affinities that have been assigned to this session.
 Segments must be included in search requests to leverage segmentation in merchandising rules.
 
 #### Request example
@@ -146,6 +183,27 @@ query {
   session(by: BY_CID, id: "68b6f028a49067459453e89b") {
     segments {
       id
+    }
+    affinities {
+      topBrands {
+        name
+        score
+      }
+      topCategories {
+        name
+        score
+      }
+      topProductTypes {
+        name
+        score
+      }
+      topSkus {
+        attribute
+        values {
+          name
+          score
+        }
+      }
     }
   }
 }
@@ -157,15 +215,54 @@ query {
 {
   "data": {
     "session": {
-      "segments": ["5a497a000000000000000001", "5b71f1500000000000000006"]
+      "segments": ["5a497a000000000000000001", "5b71f1500000000000000006"],
+      "topBrands": [
+        {
+          "name": "Amazing Brand",
+          "score": 0.6
+        }
+      ],
+      "topCategories": [
+        {
+          "name": "/accessories",
+          "score": 0.4
+        }
+      ],
+      "topProductTypes": [
+        {
+          "name": "accessory",
+          "score": 0.53
+        }
+      ],
+      "topSkus": [
+        {
+          "attribute": "size",
+          "values": [
+            {
+              "name": "36",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "attribute": "color",
+          "values": [
+            {
+              "name": "green",
+              "score": 0.8
+            }
+          ]
+        }
+      ]
     }
   }
 }
 ```
 
-Request segments _before_ searching. Note that segments can change during the course of the session based on user interactions.
+Request segments and affinities _before_ searching. Note that segments and affinities can change during the course of the session based on user interactions.
 
 Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/).
+Note that updating the session as described in the linked article is necessary for new segments and affinities to be applied based on user behavior.
 
 ### Mutation `recordAnalyticsEvent`
 
@@ -502,17 +599,81 @@ async function track(event) {
     })
 }
 
-async function fetchSegments() {
+// Map the session's affinities to search "personalizationBoost" entries.
+// The session API and search API use different names, so the affinities need
+// to be translated:
+//   - topBrands       -> affinities.brand
+//   - topCategories   -> affinities.categories
+//   - topProductTypes -> affinities.productType
+//   - topSkus         -> affinities.<attribute> (SKU attributes are flattened)
+// In all cases, the affinity "name" becomes the boost "value" and the affinity
+// "score" becomes the boost "weight".
+function mapAffinitiesToPersonalizationBoost(affinities) {
+  if (!affinities) {
+    return []
+  }
+
+  const boost = []
+
+  const directMappings = [
+    { source: affinities.topBrands, field: "affinities.brand" },
+    { source: affinities.topCategories, field: "affinities.categories" },
+    { source: affinities.topProductTypes, field: "affinities.productType" },
+  ]
+  for (const { source, field } of directMappings) {
+    for (const { name, score } of source ?? []) {
+      boost.push({ field, value: [name], weight: score })
+    }
+  }
+
+  // SKU affinities are flattened: each attribute becomes its own field, e.g.
+  // the "size" attribute becomes the field "affinities.size".
+  for (const sku of affinities.topSkus ?? []) {
+    for (const { name, score } of sku.values ?? []) {
+      boost.push({ field: `affinities.${sku.attribute}`, value: [name], weight: score })
+    }
+  }
+
+  return boost
+}
+
+async function fetchPersonalization() {
   const result = await graphql(config.platformGraphqlUrl, `
     query ($sessionId: String!) {
       session(by: BY_CID, id: $sessionId) {
         segments {
           id
         }
+        affinities {
+          topBrands {
+            name
+            score
+          }
+          topCategories {
+            name
+            score
+          }
+          topProductTypes {
+            name
+            score
+          }
+          topSkus {
+            attribute
+            values {
+              name
+              score
+            }
+          }
+        }
       }
     }`, { sessionId: store.sessionId })
 
-  return result.session.segments.map(segment => segment.id)
+  return {
+    segments: result.session.segments.map(segment => segment.id),
+    products: {
+      personalizationBoost: mapAffinitiesToPersonalizationBoost(result.session.affinities)
+    }
+  }
 }
 
 function transformSearchResultsToTrackingMetadata(query, searchResults, isAutoComplete, isOrganic) {
@@ -537,21 +698,21 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
   // one if not.
   await createSessionIfMissingOrExpired()
 
-  // Retrieve an up-to-date list of segments the user in this session belongs to.
+  // Retrieve an up-to-date list of personalization parameters for the user in this session.
   // Segments are important to support segment-aware merchandising rules that might be
   // associated with A/B tests.
   // Keep in mind that user behavior changes segments during the session!
   // If caching is used, use short lifetimes.
-  const segments = await fetchSegments()
+  const sessionParams = await fetchPersonalization()
 
   const searchResults = await graphql(config.searchGraphqlUrl, `
     query (
       $accountId: String!,
       $query: String!,
-      $segments: [String!],
       $abTests: [InputSearchABTest!]
+      $sessionParams: InputSearchQuery
     ) {
-      search(accountId: $accountId, query: $query, segments: $segments, abTests: $abTests) {
+      search(accountId: $accountId, query: $query, abTests: $abTests, sessionParams: $sessionParams) {
         products {
           total
           fuzzy
@@ -572,7 +733,8 @@ async function search(query, isAutoComplete = false, isOrganic = true) {
     {
       accountId: config.merchantId,
       query,
-      segments,
+      // Segments and personalization affinities both travel in sessionParams.
+      sessionParams,
       // Include previously stored A/B variation assignments in search
       // requests to ensure consistent results within the session.
       abTests: store.abTests
