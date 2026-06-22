@@ -74,8 +74,6 @@ The most commonly observed combinations are:
 When choosing such an approach, it's important that all components involved use the same session parameters throughout to ensure that all interactions are connected to the same visitor.
 This is easiest to achieve by managing the session in the frontend using the JavaScript library (included in search templates (starter)), and passing session parameters (including active segments and personalization affinities) to other components connected to Nosto (e.g., a backend interacting with Nosto search via API), so these can include the session parameters in API requests.
 
-To avoid pitfalls and ensure correct attribution of sales to search, tracking search impressions and clicks should be done with the same integration types.
-
 Please refer to documentation for retrieving session parameters via [JavaScript library](./search#session-parameters) or [API](./implement-search-using-api/analytics-ab-testing.md#query-session) for more details.
 
 ### Search Templates vs. Search Templates Starter
