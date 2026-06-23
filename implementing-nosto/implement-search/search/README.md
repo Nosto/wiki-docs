@@ -18,7 +18,7 @@ nostojs(api => {
 });
 ```
 
-> **Note:** The first parameter of `api.search` generally corresponds to the graphql schema accepted by the search backend. The second parameter includes more frontend-specific logic like tracking or following redirects.
+> **Note:** The first parameter of `api.search` generally corresponds to the GraphQL schema accepted by the search backend. The second parameter includes more frontend-specific logic like tracking or following redirects.
 
 The second parameter of the `api.search` function also accepts the following optional fields:​
 
