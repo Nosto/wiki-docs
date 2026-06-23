@@ -219,7 +219,7 @@ The API may return some errors even when data is returned. This means that some 
 ## Session params <a href="#session-params" id="session-params"></a>
 
 For features like personalized results and user segments to function effectively, the search function needs access to the user's session information.
-Session information can be [queried from the session API](/analytics-ab-testing.md#query-session).
+Session information can be [queried from the session API](./analytics-ab-testing.md#query-session).
 
 Alternatively, it's possible to get search session data using the [JS API](../search#session-parameters):
 
