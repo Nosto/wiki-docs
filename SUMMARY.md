@@ -55,7 +55,7 @@
     * [Implement Search results page](implementing-nosto/implement-search/implement-search-using-api/implementing-search-page.md)
     * [Implement Autocomplete](implementing-nosto/implement-search/implement-search-using-api/implementing-autocomplete.md)
     * [Implement Category pages](implementing-nosto/implement-search/implement-search-using-api/implementing-category-pages.md)
-    * [Analytics and A/B testing](implementing-nosto/implement-search/implement-search-using-api/analytics-ab-testing.md)
+    * [Analytics, Personalization and A/B testing](implementing-nosto/implement-search/implement-search-using-api/analytics-ab-testing.md)
     * [FAQ](implementing-nosto/implement-search/implement-search-using-api/faq.md)
   * [Using the JavaScript Library](implementing-nosto/implement-search/search/README.md)
     * [Implement Autocomplete using the Nosto Autocomplete library](implementing-nosto/implement-search/search/implement-autocomplete-using-library/README.md)
