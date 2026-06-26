@@ -2,7 +2,7 @@
 
 Autocomplete provides keyword suggestions to assist users in completing their queries, supplemented by a selection of the most relevant products with the ability to see all products on the search results page. The feature also supports category and popular search suggestions. Please contact Nosto Support to have them enabled for your account.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Example Autocomplete</p></figcaption></figure>
 
 Check out [autocomplete's look & feel guidelines](https://help.nosto.com/en/articles/7169076-autocomplete-s-look-feel-guidelines).
 
@@ -19,8 +19,7 @@ Some autocomplete features are available conditionally.
 * **Category suggestions** depend on available categories (including URLs) being sent to Nosto.
   * The Shopify integration sends categories to Nosto out-of-the-box, with no extra work required.
   * The Shopware 6 plugin automatically sends categories to Nosto without requiring extra work from version 5.1.4.
-  * For other platforms and custom integrations, send categories to Nosto via
-    [GraphQL API](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md).
+  * For other platforms and custom integrations, send categories to Nosto via [GraphQL API](../../../apis/graphql-an-introduction/graphql-using-mutations/updating-categories.md).
 
 ## API Requests <a href="#autocomplete" id="autocomplete"></a>
 
@@ -152,16 +151,15 @@ query {
   }
 }
 ```
+
 #### Empty query
 
-To retrieve results for an empty query, you must explicitly set `emptyQueryMatchesAll: true` in your request.
-By default, `emptyQueryMatchesAll` is `false` and the API does not return any results when the query is empty.
-Setting it to `true` enables the API to return default suggestions.
-This behavior applies to all suggestion types — keywords, categories, and popular searches.
+To retrieve results for an empty query, you must explicitly set `emptyQueryMatchesAll: true` in your request. By default, `emptyQueryMatchesAll` is `false` and the API does not return any results when the query is empty. Setting it to `true` enables the API to return default suggestions. This behavior applies to all suggestion types — keywords, categories, and popular searches.
 
 For more details please check the [Search request schema](https://search.nosto.com/v1/graphql?ref=Query)
 
 #### Example query for default popular search suggestions
+
 The query below returns the most popular search terms for the specified account.
 
 ```graphql

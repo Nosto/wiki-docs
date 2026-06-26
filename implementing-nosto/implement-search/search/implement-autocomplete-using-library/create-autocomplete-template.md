@@ -9,7 +9,7 @@ The following `data-*` attributes are required by the library to handle attribut
 This attribute should be used on clickable `keyword`, `product`, `history` list elements. This attribute handles submit keyword/history as search, redirect to product, analytics (if enabled) request.
 
 {% hint style="info" %}
-#### Encode HTML content
+**Encode HTML content**
 
 **This is specific to cases where no template language like liquid/handlebars is used and the content is rendered using plain HTML.**
 

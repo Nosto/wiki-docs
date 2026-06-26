@@ -218,10 +218,9 @@ The API may return some errors even when data is returned. This means that some 
 
 ## Session params <a href="#session-params" id="session-params"></a>
 
-For features like personalized results and user segments to function effectively, the search function needs access to the user's session information.
-Session information can be [queried from the session API](./analytics-ab-testing.md#query-session).
+For features like personalized results and user segments to function effectively, the search function needs access to the user's session information. Session information can be [queried from the session API](analytics-personalization-ab-testing.md#query-session).
 
-Alternatively, it's possible to get search session data using the [JS API](../search#session-parameters):
+Alternatively, it's possible to get search session data using the [JS API](../search/#session-parameters):
 
 ```javascript
 nostojs(api => {
@@ -231,9 +230,9 @@ nostojs(api => {
 });
 ```
 
-The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
+The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)).
 
-It's also possible to save session data to [cookies](https://www.w3schools.com/js/js\_cookies.asp) on page load:
+It's also possible to save session data to [cookies](https://www.w3schools.com/js/js_cookies.asp) on page load:
 
 ```html
 <script>

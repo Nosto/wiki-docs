@@ -26,7 +26,7 @@ query {
 }
 ```
 
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22,%20query:%20%22green%22\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(accountId:%20%22YOUR_ACCOUNT_ID%22,%20query:%20%22green%22\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 #### Query parameters:
 
@@ -47,8 +47,7 @@ Up to 250 products can be retrieved in a single page, corresponding to `size = 2
 The `total` value in the response is useful for pagination as well:
 
 * `total / products.size` is the number of available pages with the current page size.
-* `products.from + products.size >= total` is `true` when the last page has been reached.
-  This is particularly useful for infinite scrolling/load more solutions.
+* `products.from + products.size >= total` is `true` when the last page has been reached. This is particularly useful for infinite scrolling/load more solutions.
 
 #### Query
 
@@ -71,7 +70,7 @@ query {
 }
 ```
 
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR_ACCOUNT_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7Bsize:%2010,%20from:%2010%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20total%0A%20%20%20%20%20%20size%0A%20%20%20%20%20%20from%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Sorting <a href="#sorting" id="sorting"></a>
 
@@ -79,12 +78,10 @@ By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
 
-By default, you should always sort by relevance and merchandising rules, which is achieved by not specifying any sort parameter.
-Only if the user selects a different sort method, a sorting rule should be used.
+By default, you should always sort by relevance and merchandising rules, which is achieved by not specifying any sort parameter. Only if the user selects a different sort method, a sorting rule should be used.
 
 {% hint style="info" %}
-When sorting by one or more fields, only the field(s) dictate the order of products.
-Merchandising rules have no effect.
+When sorting by one or more fields, only the field(s) dictate the order of products. Merchandising rules have no effect.
 {% endhint %}
 
 #### Query
@@ -114,21 +111,13 @@ query {
   }
 ```
 
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR_ACCOUNT_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 ### Faceting <a href="#faceting" id="faceting"></a>
 
 Facets help the user to find products more easily. Faceted navigation is normally found in the sidebar of a website and contains filters only relevant to the current search query. Facets are configured in the Nosto dashboard.
 
-<div>
-
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Terms facet</p></figcaption></figure>
-
- 
-
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Stats facet</p></figcaption></figure>
-
-</div>
+<div><figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Terms facet</p></figcaption></figure> <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Stats facet</p></figcaption></figure></div>
 
 {% hint style="info" %}
 To use facet for a specific field you need to [configure it in the Nosto dashboard](https://help.nosto.com/en/articles/7169091-setting-up-facets) first.
@@ -167,7 +156,7 @@ query {
 }
 ```
 
-[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+[Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(accountId:%20%22YOUR_ACCOUNT_ID%22%20query:%20%22green%22\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20%20facets%20%7B%0A%20%20%20%20%20...%20on%20SearchTermsFacet%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20field%0A%20%20%20%20%20%20type%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20data%20%7B%20value%20count%20selected%20%7D%0A%20%20%20%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 #### Response
 
@@ -235,7 +224,7 @@ query {
   }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%09search\(accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22\)%20%7B%0A%09%09products%20%7B%0A%09%09%09hits%20%7B%20productId%20name%20price%20%7D%0A%09%09%09facets%20%7B%0A%09%09%09%09...%20on%20SearchStatsFacet%20%7B%0A%09%09%09%09%09id%0A%09%09%09%09%09field%0A%09%09%09%09%09type%0A%09%09%09%09%09name%0A%09%09%09%09%09min%0A%09%09%09%09%09max%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%09search\(accountId:%20%22YOUR_ACCOUNT_ID%22%20query:%20%22green%22\)%20%7B%0A%09%09products%20%7B%0A%09%09%09hits%20%7B%20productId%20name%20price%20%7D%0A%09%09%09facets%20%7B%0A%09%09%09%09...%20on%20SearchStatsFacet%20%7B%0A%09%09%09%09%09id%0A%09%09%09%09%09field%0A%09%09%09%09%09type%0A%09%09%09%09%09name%0A%09%09%09%09%09min%0A%09%09%09%09%09max%0A%09%09%09%09%7D%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%7D)
 
 #### **Response**
 
@@ -303,7 +292,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7B%20filter:%20%5B%7B%20field:%20%22customFields.brandname%22,%20value:%20%22Adidas%22%20%7D%5D%20%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchTermsFacet%20%7B%20field%20name%20data%20%7B%20value%20count%20selected%20%7D%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR_ACCOUNT_ID%22%20query:%20%22green%22%0A%20%20products:%20%7B%20filter:%20%5B%7B%20field:%20%22customFields.brandname%22,%20value:%20%22Adidas%22%20%7D%5D%20%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchTermsFacet%20%7B%20field%20name%20data%20%7B%20value%20count%20selected%20%7D%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 When filtering by multiple same field items, filters will be joined with OR operator and different fields with AND.
 
@@ -345,13 +334,12 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR\_ACCOUNT\_ID%22%20query:%20%22green%22%0A%20%20products:%20%7Bfilter:%20%5B%7Bfield:%20%22price%22,%20range:%20%7Blt:%20%2260%22,%20gt:%20%2250%22%7D%7D%5D%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchStatsFacet%20%7B%20field%20name%20min%20max%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20search\(%0A%20%20accountId:%20%22YOUR_ACCOUNT_ID%22%20query:%20%22green%22%0A%20%20products:%20%7Bfilter:%20%5B%7Bfield:%20%22price%22,%20range:%20%7Blt:%20%2260%22,%20gt:%20%2250%22%7D%7D%5D%7D%0A\)%20%7B%0A%20%20products%20%7B%0A%20%20%20hits%20%7B%20productId%20name%20%7D%0A%20%20%20facets%20%7B%0A%20%20%20%20...%20on%20SearchStatsFacet%20%7B%20field%20name%20min%20max%20%7D%0A%20%20%20%7D%0A%20%20%7D%0A%20%7D%0A%7D)
 
 You can sort using these arguments: `lt` (less than), `gt` (greater than), `lte` (less than or equal to), `gte` (greater than or equal to).
 
 {% hint style="info" %}
-Filters in requests take precedence over merchandising rules.
-Filtered products can't be brought back using pinning.
+Filters in requests take precedence over merchandising rules. Filtered products can't be brought back using pinning.
 {% endhint %}
 
 ### Redirects
@@ -385,7 +373,7 @@ query {
 }
 ```
 
-[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR\_MERCHANT\_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+[GraphQL playground example](https://search.nosto.com/v1/graphql?query=query%20%7B%0A%20%20search%28%0A%20%20%20%20accountId%3A%20%22YOUR_MERCHANT_ID%22%2C%0A%20%20%20%20query%3A%20%22shipping%22%0A%20%20%29%20%7B%0A%20%20%20%20redirect%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20keywords%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20keyword%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 
 #### Response
 
@@ -409,7 +397,7 @@ You can request specific currency formatting settings for prices returned in the
 
 #### Query
 
-To select which *pre-configured* currency settings to retrieve, include the `currencyFormat` parameter within the `products` input. Additionally, ensure you request the `priceFormat` field in your query to receive these details.
+To select which _pre-configured_ currency settings to retrieve, include the `currencyFormat` parameter within the `products` input. Additionally, ensure you request the `priceFormat` field in your query to receive these details.
 
 ```graphql
 query (
@@ -447,9 +435,9 @@ query (
 
 #### Behavior and Error Handling:
 
-  * If `currencyFormat` is not provided in the `products` input, the default currency format configured for the account will be used for the `priceFormat` field.
-  * If `currencyFormat` is provided but corresponds to a currency for which no settings are configured, an error will be returned.
-  * If `currencyFormat` is not provided and no default currency format exists for the account, an error will be returned.
+* If `currencyFormat` is not provided in the `products` input, the default currency format configured for the account will be used for the `priceFormat` field.
+* If `currencyFormat` is provided but corresponds to a currency for which no settings are configured, an error will be returned.
+* If `currencyFormat` is not provided and no default currency format exists for the account, an error will be returned.
 
 #### Response Example:
 
@@ -475,20 +463,19 @@ query (
 
 These parameters describe how the prices should be formatted on the frontend based on the selected `currencyFormat`.
 
-| Name | Description |
-| :---------------- | :--------------------------------------------------------------------------------------------- |
-| **currencySymbol** | The symbol for the currency (e.g., "$", "€"). |
-| **placement** | Indicates where the currency symbol is placed relative to the price ("before" or "after"). |
-| **decimalPlaces** | The number of decimal places to display for the price. |
-| **decimalSeparator** | The character used to separate the decimal part of the price (e.g., ".", ","). |
-| **thousandSeparator** | The character used to separate thousands in the price (e.g., ",", " "). |
+| Name                  | Description                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| **currencySymbol**    | The symbol for the currency (e.g., "$", "€").                                              |
+| **placement**         | Indicates where the currency symbol is placed relative to the price ("before" or "after"). |
+| **decimalPlaces**     | The number of decimal places to display for the price.                                     |
+| **decimalSeparator**  | The character used to separate the decimal part of the price (e.g., ".", ",").             |
+| **thousandSeparator** | The character used to separate thousands in the price (e.g., ",", " ").                    |
 
 ## Session params <a href="#session-params" id="session-params"></a>
 
-For features like personalized results and user segments to function effectively, the search function needs access to the user's session information.
-Session information can be [queried from the session API](./analytics-ab-testing.md#query-session).
+For features like personalized results and user segments to function effectively, the search function needs access to the user's session information. Session information can be [queried from the session API](analytics-personalization-ab-testing.md#query-session).
 
-Alternatively, it's possible to get search session data using the [JS API](../search#session-parameters):
+Alternatively, it's possible to get search session data using the [JS API](../search/#session-parameters):
 
 ```javascript
 nostojs(api => {
@@ -498,7 +485,7 @@ nostojs(api => {
 });
 ```
 
-The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending\_and\_retrieving\_form\_data)).
+The results of this function should be passed to search query [sessionParams](https://search.nosto.com/v1/graphql?ref=InputSearchQuery) parameter. In case search is called from backend, it should pass this data to backend (e.g. using [form data](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)).
 
 ## Analytics
 

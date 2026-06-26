@@ -1,4 +1,4 @@
-# Analytics and A/B testing
+# Analytics, Personalization and A/B testing
 
 Template and JavaScript integrations come with tracking- and A/B testing support out of the box. For pure API integrations, some extra steps need to be performed on the integration side to ensure that user interactions are tracked and attributed appropriately.
 
@@ -147,7 +147,7 @@ When using non-Nosto session IDs, it is no less important to maintain limited 30
 
 ### Mutation `newSession`
 
-Creates a new session and returns that session's ID, which should be used in further interactions with this API. This step can be skipped if [externally provided session IDs are used](analytics-ab-testing.md#using-external-session-ids-instead-of-nosto-generated-session-ids).
+Creates a new session and returns that session's ID, which should be used in further interactions with this API. This step can be skipped if [externally provided session IDs are used](analytics-personalization-ab-testing.md#using-external-session-ids-instead-of-nosto-generated-session-ids).
 
 #### Request example
 
@@ -173,8 +173,7 @@ Learn more about session handling [here](../../../apis/graphql-an-introduction/g
 
 ### Query `session`
 
-Retrieves segments and personalization affinities that have been assigned to this session.
-Segments must be included in search requests to leverage segmentation in merchandising rules.
+Retrieves segments and personalization affinities that have been assigned to this session. Segments must be included in search requests to leverage segmentation in merchandising rules.
 
 #### Request example
 
@@ -261,8 +260,7 @@ query {
 
 Request segments and affinities _before_ searching. Note that segments and affinities can change during the course of the session based on user interactions.
 
-Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/).
-Note that updating the session as described in the linked article is necessary for new segments and affinities to be applied based on user behavior.
+Learn more about session handling [here](../../../apis/graphql-an-introduction/graphql-using-mutations/graphql-onsite-sessions/). Note that updating the session as described in the linked article is necessary for new segments and affinities to be applied based on user behavior.
 
 ### Mutation `recordAnalyticsEvent`
 
@@ -360,7 +358,7 @@ The object above is referred to in the following examples as `$properties`.
 
 This request must be sent immediately upon displaying search or category results.
 
-Example for _search_ using previous examples for [search metadata](analytics-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`:
+Example for _search_ using previous examples for [search metadata](analytics-personalization-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-personalization-ab-testing.md#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -386,7 +384,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Example for _categories_ using previous examples for [category metadata](analytics-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`:
+Example for _categories_ using previous examples for [category metadata](analytics-personalization-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-personalization-ab-testing.md#a-b-testing-properties) as `$properties`:
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -425,7 +423,7 @@ The response contains a generic success message that is not necessary for furthe
 
 This request must be sent when a search result is clicked. The request uses the same search metadata and A/B testing properties as impression tracking, so make sure to store them.
 
-Search example using previous examples for [search metadata](analytics-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`.
+Search example using previous examples for [search metadata](analytics-personalization-ab-testing.md#search-tracking-metadata) as `$metadata` and [A/B test properties](analytics-personalization-ab-testing.md#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
@@ -450,7 +448,7 @@ mutation ($metadata: InputSearchEventMetadataInputEntity, $properties: InputAnal
 }
 ```
 
-Category example using previous examples for [category metadata](analytics-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-ab-testing.md#a-b-testing-properties) as `$properties`.
+Category example using previous examples for [category metadata](analytics-personalization-ab-testing.md#category-tracking-metadata) as `$metadata` and [A/B test properties](analytics-personalization-ab-testing.md#a-b-testing-properties) as `$properties`.
 
 ```graphql
 mutation ($metadata: InputCategoryEventMetadataInputEntity, $properties: InputAnalyticEventPropertiesInputEntity) {
