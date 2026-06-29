@@ -63,7 +63,8 @@ Update the cloned repository's remote to point at your new GitHub repository, th
 
 ```sh
 git remote set-url origin {your-repo-link}
-git push
+git push --all
+git push --tags
 ```
 
 Now the repository has a new owner!
