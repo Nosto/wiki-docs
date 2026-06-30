@@ -69,3 +69,7 @@ To start developing with Search Templates Starter, you'll need **Node.js 24+** a
 #### Use separate branches for production and development
 
 Maintain at least two long-lived branches in your repository — for example `main` for the current production state and `dev` for ongoing development. When you need to apply an urgent fix to the live store, you can branch off `main`, apply and deploy the patch, and merge back — without disrupting work in progress on `dev`. This is the same branching model you would use in any professional frontend project, and it maps naturally onto Nosto's preview/production deployment model.
+
+#### Keep repository ownership with the active developer
+
+The repository should be owned by whoever is actively developing the template - typically the merchant or their agency. If Nosto built the template initially, ownership should be transferred over when development is handed off. See [Repository Ownership](repository-ownership.md) for details and how to transfer it.

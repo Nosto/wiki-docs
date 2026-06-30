@@ -38,6 +38,7 @@
   * [Using Search Templates Starter](implementing-nosto/implement-search/using-search-templates-starter/README.md)
     * [Getting started](implementing-nosto/implement-search/using-search-templates-starter/getting-started.md)
     * [LLM Examples](implementing-nosto/implement-search/using-search-templates-starter/llm-examples.md)
+    * [Repository Ownership](implementing-nosto/implement-search/using-search-templates-starter/repository-ownership.md)
     * [Customizations](implementing-nosto/implement-search/using-search-templates-starter/customizations/README.md)
       * [Product Image Configuration](implementing-nosto/implement-search/using-search-templates-starter/customizations/product-image-configuration.md)
       * [Search page redirects](implementing-nosto/implement-search/using-search-templates-starter/customizations/search-page-redirects.md)
