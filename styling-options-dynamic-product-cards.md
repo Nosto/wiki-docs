@@ -9,7 +9,7 @@ description: >-
 
 ## What Dynamic Product Cards are
 
-Our `DynamicCard`  Web Component offers a clean, flexible way to render Shopify product cards within Nosto-powered experiences, by fully deferring product markup to Shopify. This is especially useful for merchants who want their storefront's visual identity and product logic to remain unified, whilte still utilising Nosto's Personalization capabilities.
+Our `DynamicCard` Web Component offers a clean, flexible way to render Shopify product cards within Nosto-powered experiences, by fully deferring product markup to Shopify. This is especially useful for merchants who want their storefront's visual identity and product logic to remain unified, whilte still utilising Nosto's Personalization capabilities.
 
 This is the recommended method to use when you want the actual product card layout to be sourced from Shopify, not duplicated or maintained separately in Nosto templates.
 
@@ -31,23 +31,23 @@ It works by passing a `handle` and optional `variant-id` into a Shopify template
 
 `DynamicCard` is a Web Component that runs in the browser. It accepts a minimal set of attributes:
 
-| **Attribute** | **Description**                                   |
-| ------------- | ------------------------------------------------- |
-| `handle`      | The Shopify product handle (required)             |
-| `section`     | Name of the section to use                        |
-| `template`    | Name of the alternate product template (deprecated)         |
-| `variant-id`  | Optional variant ID to preselect                  |
+| **Attribute** | **Description**                                     |
+| ------------- | --------------------------------------------------- |
+| `handle`      | The Shopify product handle (required)               |
+| `section`     | Name of the section to use                          |
+| `template`    | Name of the alternate product template (deprecated) |
+| `variant-id`  | Optional variant ID to preselect                    |
 
 When this is rendered inside a Nosto template, Shopify is responsible for fetching and rendering the final product card markup using the specified alternate template.
 
 ## Implementation Steps (Example: Dawn Theme)
 
-To give you full context, let's use an example of how this could be set up.&#x20;
+To give you full context, let's use an example of how this could be set up.
 
 1.  **Identify the product grid section of the collection template**
 
     Search for the type of the product grid section in `templates/collection.{json|liquid}`
-    
+
     ```
     {
       "sections": {
@@ -68,8 +68,7 @@ To give you full context, let's use an example of how this could be set up.&#x20
     The type is `main-collection-product-grid` in the Dawn theme
 2.  **Identify the product card snippet in the product grid section**
 
-    Open the file for the section found in the previous step, `sections/main-collection-product-grid.liquid` in Dawn.
-    Search for the snippet usage that renders the product card:
+    Open the file for the section found in the previous step, `sections/main-collection-product-grid.liquid` in Dawn. Search for the snippet usage that renders the product card:
 
     ```
     {% render 'card-product',
@@ -110,7 +109,7 @@ To give you full context, let's use an example of how this could be set up.&#x20
     Replace `card-product` and the parameters with the snippet usage you found in the previous step. The parameters for the snippet will need to be replaced with the relevant section settings.
 4.  **Enable Web Components in Nosto**
 
-    In the Nosto admin, go to **Settings > Recommendations** and enable **Web Components**.
+    In the Nosto admin, go to **Settings > Account Settings** and enable **Web Components**.
 5.  **Use in Nosto Template**
 
     In your Nosto template (e.g., for recommendations), use the component like this:
@@ -136,7 +135,7 @@ This ensures that across carousels, grids, and dynamic lists, your product cards
 
 ## Best Practices
 
-* Keep the alternate template minimal. Don’t include layout wrappers or page-level HTML, but only  the product card snippet.
+* Keep the alternate template minimal. Don’t include layout wrappers or page-level HTML, but only the product card snippet.
 * Always test your template in a preview to ensure it works with real handles.
 * Consider adding skeleton loaders or fallback content inside the element for smoother rendering.
 * Use consistent naming across theme and Nosto templates (e.g., `template="card"` maps to `product.card.liquid`).
@@ -149,4 +148,4 @@ If you're interested for other options, refer also to our [Web Components Overvi
 
 `DynamicCard` is the best choice when your product card rendering should be entirely owned by Shopify. It removes duplication, aligns your storefront visuals, and makes maintaining personalization layouts much easier across Nosto's modules.
 
-Of course, in case you intend to have specific (or all) Nosto Experiences appear differently, we still offer fully customized templates.&#x20;
+Of course, in case you intend to have specific (or all) Nosto Experiences appear differently, we still offer fully customized templates.
