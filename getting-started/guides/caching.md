@@ -33,7 +33,7 @@ Shopware Admin → Extensions → My Extensions → Nosto → Configuration
    * Off – real-time results (no cache).
    * On – enable caching.
 3. If enabled, set **Cache interval (minutes)** to your preferred TTL, e.g. **15**.\
-   &#xNAN;_&#x4D;inimum_: 1 min · _Typical_: 10–30 min · _Maximum_: any value
+   _&#x4D;inimum_: 1 min · _Typical_: 10–30 min · _Maximum_: any value
 4. **Save** the configuration. Changes take effect immediately—no Shopware cache clear is required.
 
 ***

@@ -14,7 +14,7 @@ hidden: true
 
     <figure><img src="../../.gitbook/assets/image-20241011-135922.png" alt=""><figcaption></figcaption></figure>
 2. Click **Add dynamic product group** (or open an existing one) and define your conditions.\
-   &#xNAN;_&#x45;xample:_ _Price < 30 €_ returns all products under €30.
+   _&#x45;xample:_ _Price < 30 €_ returns all products under €30.
 3.  Click **Preview**, choose the relevant **Sales Channel**, and verify the resulting product list.<br>
 
     <figure><img src="../../.gitbook/assets/image-20241011-140311.png" alt=""><figcaption></figcaption></figure>

@@ -32,15 +32,15 @@ description: How these Shopware settings affect Nosto catalogue synchronisation
 #### Practical effects
 
 1. **In-stock products**\
-   &#xNAN;_&#x4E;o impact_—synchronised as usual.
+   _&#x4E;o impact_—synchronised as usual.
 2. **Clearance sale On + Hide after clearance On + Stock 0**\
-   &#xNAN;_&#x50;roduct disappears from the feed._\
+   _&#x50;roduct disappears from the feed._\
    Previously synced items transition to **Discontinued**.
 3. **Clearance sale On + Hide after clearance Off + Stock 0**\
-   &#xNAN;_&#x50;roduct stays in the feed but is marked unavailable._\
+   _&#x50;roduct stays in the feed but is marked unavailable._\
    Status becomes **OutOfStock**.
 4. **Clearance sale Off + Stock 0**\
-   &#xNAN;_&#x50;roduct remains visible in Nosto as “InStock”._\
+   _&#x50;roduct remains visible in Nosto as “InStock”._\
    Use this when you still want to promote wait-lists or pre-orders.
 
 ***

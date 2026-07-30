@@ -37,7 +37,7 @@ Wait until the job status shows **Finished**.
 #### Step 2 Index Custom Fields in Nosto
 
 1.  **MyNosto → Product Experience Cloud → Search → Settings → Indexed Fields**\
-    &#xNAN;_(You can do the same via Category Merchandising; once is enough.)_&#x20;
+    _(You can do the same via Category Merchandising; once is enough.)_&#x20;
 
     <figure><img src="../../.gitbook/assets/Screenshot from 2025-06-09 09-57-59.png" alt=""><figcaption></figcaption></figure>
 2. Click **Add attribute** twice and create the following custom fields:
@@ -57,7 +57,7 @@ Wait until the job status shows **Finished**.
 
 * **MyNosto → Search → Settings → Facet Manager → New facet group**
 * Pick `showsearch` (or `showcategory`).\
-  &#xNAN;_&#x49;f the “attribute unavailable” warning disappears, indexing is done. Delete the test facet._
+  _&#x49;f the “attribute unavailable” warning disappears, indexing is done. Delete the test facet._
 
 Once indexing is confirmed:
 

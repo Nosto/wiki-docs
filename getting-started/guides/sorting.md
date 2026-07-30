@@ -108,7 +108,7 @@ If a sorting option contains **no criteria**, Shopware runs the listing **withou
 <figure><img src="../../.gitbook/assets/sw sort prio.png" alt=""><figcaption></figcaption></figure>
 
 _Higher numbers = higher dropdown position._\
-&#xNAN;_&#x41;void giving two options the exact same priority._
+_&#x41;void giving two options the exact same priority._
 
 #### Creating a New Option
 
