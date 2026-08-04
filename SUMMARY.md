@@ -82,6 +82,11 @@
   * [Custom logic](implementing-nosto/template-customization/custom-logic.md)
 * [Implement on native mobile](implementing-nosto/implement-on-native-mobile.md)
 * [Implement on a physical store](implementing-nosto/implement-on-physical-store.md)
+* [Implement LIM Skill (Early Access)](implementing-nosto/implement-lim-skill-early-access/README.md)
+  * [Architecture and integration overview](implementing-nosto/implement-lim-skill-early-access/architecture-and-integration-overview/README.md)
+    * [REST API](implementing-nosto/implement-lim-skill-early-access/architecture-and-integration-overview/rest-api.md)
+    * [MCP](implementing-nosto/implement-lim-skill-early-access/architecture-and-integration-overview/mcp.md)
+    * [Rate Limits](implementing-nosto/implement-lim-skill-early-access/architecture-and-integration-overview/rate-limits.md)
 
 ## APIs
 
