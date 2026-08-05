@@ -39,8 +39,8 @@ At a minimum, LIM requires the fields below:
 
     Used to enable session-level and cross-session personalization when available.\
     Partners can get the customerId by accessing the Nosto's 2c.cId cookie for each visitor.
-* `partnerId` **:** Your unique Nosto partner identifier provided by the partner management team.
-* `chatId` **:** Your unique identifier for the conversation, to help answer follow up questions within a conversation
+* `partnerId` **(NEW):** Your unique Nosto partner identifier provided by the partner management team.
+* `chatId` **(NEW):** Your unique identifier for the conversation, to help answer follow up questions within a conversation
 
 Example request:
 
@@ -52,6 +52,15 @@ Example request:
   "chatId": "xxxxx"
 }
 ```
+
+**Required Fields for Shopify Merchants (NEW):**
+
+For merchants using Shopify Markets, Nosto LIM resolves the correct catalog — currency, availability, and language — based on the storefront's country and locale. To support this, partners must send two additional fields for **all Shopify merchants**:
+
+* `country` **:** The ISO 3166 alpha-2 country code of the Shopify store. [Supported values](https://shopify.dev/docs/api/storefront/latest/enums/CountryCode).
+* `locale` **:** The language code of the Shopify store. [Supported values](https://shopify.dev/docs/api/admin-graphql/latest/enums/LanguageCode).
+
+> **Note:** Shopify Markets merchants authenticate using the API token from their Nosto Markets Master account, not a per-storefront token. This is the single account Nosto uses to resolve catalog data across all connected markets — see Authentication.
 
 **Optional Fields:**
 

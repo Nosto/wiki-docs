@@ -51,6 +51,15 @@ Example request:
 }
 ```
 
+**Required Fields for Shopify Merchants (NEW):**
+
+For merchants using Shopify Markets, Nosto LIM resolves the correct catalog — currency, availability, and language — based on the storefront's country and locale. To support this, partners must send two additional fields for **all Shopify merchants**:
+
+* `country` **:** The ISO 3166 alpha-2 country code of the Shopify store. [Supported values](https://shopify.dev/docs/api/storefront/latest/enums/CountryCode).
+* `locale` **:** The language code of the Shopify store. [Supported values](https://shopify.dev/docs/api/admin-graphql/latest/enums/LanguageCode).
+
+> **Note:** Shopify Markets merchants authenticate using the API token from their Nosto Markets Master account, not a per-storefront token. This is the single account Nosto uses to resolve catalog data across all connected markets — see Authentication.
+
 **Optional Fields:**
 
 LIM supports the following optional fields:
