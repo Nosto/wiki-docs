@@ -37,8 +37,8 @@ At a minimum, LIM requires the fields below:
 
     Used to enable session-level and cross-session personalization when available.\
     Partners can get the customerId by accessing the Nosto's 2c.cId cookie for each visitor.
-* `partnerId` **:** Your unique Nosto partner identifier provided by the partner management team.
-* `chatId` **:** Your unique identifier for the conversation, to help answer follow up questions within a conversation
+* `partnerId` **(NEW):** Your unique Nosto partner identifier provided by the partner management team.
+* `chatId` **(NEW):** Your unique identifier for the conversation, to help answer follow up questions within a conversation
 
 Example request:
 
