@@ -77,6 +77,9 @@ query {
 By default results are sorted by products relevance score.
 
 To change the sorting, use the sort parameter, where you would specify any indexed field which should be sorted by, and order: `asc` for ascending and `desc` for descending.
+Top-level product fields can be used for sorting using [documented field names](https://search.nosto.com/v1/graphql?ref=SearchProduct).
+To sort by a custom field, prefix the custom field name with `customFields.`.
+Likewise, extracted fields need to be prefixed with `extra.` to use them for sorting.
 
 By default, you should always sort by relevance and merchandising rules, which is achieved by not specifying any sort parameter. Only if the user selects a different sort method, a sorting rule should be used.
 
@@ -112,6 +115,11 @@ query {
 ```
 
 [Playground example](https://search.nosto.com/v1/graphql?query=%7B%0A%20%20search\(%0A%20%20%20%20accountId:%20%22YOUR_ACCOUNT_ID%22%0A%20%20%20%20query:%20%22green%22%0A%20%20%20%20products:%20%7B%0A%20%20%20%20%20%20sort:%20%5B%7Bfield:%20%22price%22,%20order:%20asc%7D%5D%0A%20%20%20%20%7D%0A%20%20\)%20%7B%0A%20%20%20%20products%20%7B%0A%20%20%20%20%20%20hits%20%7B%0A%20%20%20%20%20%20%20%20productId%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20price%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
+{% hint style="info" %}
+Some search implementations are more straightforward if sorting is defined in all search queries, even ones that use default sorting (by relevance and rules).
+Sorting by field `_score` with order `desc` is equivalent to omitting the sort parameter entirely.
+{% endhint %}
 
 ### Faceting <a href="#faceting" id="faceting"></a>
 
