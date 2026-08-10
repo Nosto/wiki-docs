@@ -12,7 +12,15 @@ The following features are not available through GraphQL API:
 * Facebook Ads: As the pixel events aren't dispatched.
 * Content Personalization: As the GraphQL API only handles the personalization and not onsite experiences.
 * Popups: As the GraphQL API only handle the personalization and not onsite experiences.
-* AB-testing & dynamic placements: Because the current GraphQL API works with recommendation identifiers directly and not through placements.
+* AB-testing & dynamic placements: Because the current GraphQL API works with recommendation identifiers directly and not through placements. See [A/B Testing](graphql-for-headless.md#a-b-testing) below for how to run your own experiments in a headless implementation.
+
+## A/B Testing
+
+Nosto's built-in recommendation campaign A/B testing (Champion/Challenger testing) is a feature of the placement-based, on-site rendering model: a placement is configured in the Nosto admin to serve one of several algorithms or campaigns to different visitors, and Nosto automatically assigns visitors to a variation and tracks which one performs best.
+
+🚨**This built-in A/B testing is not available when recommendations are rendered through the GraphQL API.** The GraphQL recommendation API (session `recos`, `pages.forFrontPage()`, and the other page-specific fields) fetches results by requesting recommendation identifiers/slots directly, bypassing the placement layer that Champion/Challenger testing relies on. As a result, there is no `abTests`-style input parameter or response field for recommendations — unlike the [search API](../../implementing-nosto/implement-search/implement-search-using-api/analytics-personalization-ab-testing.md), which does support A/B testing natively.
+
+If you run your own experiment on top of the GraphQL API, attribution still works the same way it does outside of an experiment: store the `resultId` returned with the recommendation response and pass it back as the event's `ref` (and `refType`, where applicable), as described in [Attribution of Recommendation Results](graphql-using-mutations/graphql-onsite-sessions/#attribution-of-recommendation-results). Since variant assignment and reporting in that case live entirely outside of Nosto, results won't appear in the Nosto admin's A/B testing reports — those only reflect placement-based Champion/Challenger tests run through template/JS integrations.
 
 Each customer who visits a site is uniquely identified with a session identifier. When a new customer comes to the site, a GraphQL session mutation call must be made to initiate a session. The resultant session identifier must be persisted and reused for all consecutive calls.
 
