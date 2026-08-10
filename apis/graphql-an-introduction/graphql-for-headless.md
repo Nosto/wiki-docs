@@ -20,16 +20,7 @@ Nosto's built-in recommendation campaign A/B testing (Champion/Challenger testin
 
 🚨**This built-in A/B testing is not available when recommendations are rendered through the GraphQL API.** The GraphQL recommendation API (session `recos`, `pages.forFrontPage()`, and the other page-specific fields) fetches results by requesting recommendation identifiers/slots directly, bypassing the placement layer that Champion/Challenger testing relies on. As a result, there is no `abTests`-style input parameter or response field for recommendations — unlike the [search API](../../implementing-nosto/implement-search/implement-search-using-api/analytics-personalization-ab-testing.md), which does support A/B testing natively.
 
-### Running your own experiment
-
-If you need to A/B test recommendations in a headless/GraphQL implementation, run the experiment in your own experimentation layer instead of relying on Nosto to assign and track variations:
-
-1. Assign each visitor to a variant using your own experimentation tool (a homegrown split, or a third-party tool such as Optimizely or LaunchDarkly), and persist that assignment for the duration of the visitor's session, the same way you persist the Nosto session identifier.
-2. For each variant, call a different recommendation configuration through GraphQL — for example, a different recommendation slot, a different set of `include`/`exclude` filters, or an entirely different recommender (e.g. `toplist` sorted by `BUYS` vs. `VIEWS`).
-3. Keep attribution intact for every variant: store the `resultId` returned with the recommendation response and pass it back as the event's `ref` (and `refType`, where applicable) on the corresponding `VIEWED_PRODUCT` event, exactly as described in [Attribution of Recommendation Results](graphql-using-mutations/graphql-onsite-sessions/#attribution-of-recommendation-results). This keeps clicks and conversions attributable to the specific recommendation result that was served, so you can compare performance across variants.
-4. Track which variant each impression, click, and conversion belongs to using your own analytics platform, since Nosto has no notion of the client-managed variant.
-
-⚠️ Because variant assignment and reporting live entirely outside of Nosto, results won't appear in the Nosto admin's A/B testing reports — those only reflect placement-based Champion/Challenger tests run through template/JS integrations.
+If you run your own experiment on top of the GraphQL API, attribution still works the same way it does outside of an experiment: store the `resultId` returned with the recommendation response and pass it back as the event's `ref` (and `refType`, where applicable), as described in [Attribution of Recommendation Results](graphql-using-mutations/graphql-onsite-sessions/#attribution-of-recommendation-results). Since variant assignment and reporting in that case live entirely outside of Nosto, results won't appear in the Nosto admin's A/B testing reports — those only reflect placement-based Champion/Challenger tests run through template/JS integrations.
 
 Each customer who visits a site is uniquely identified with a session identifier. When a new customer comes to the site, a GraphQL session mutation call must be made to initiate a session. The resultant session identifier must be persisted and reused for all consecutive calls.
 
