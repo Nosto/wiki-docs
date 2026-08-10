@@ -34,7 +34,7 @@ We recommend using the following flow to creating and resuming sessions.
 2. If the session-identifier doesn't exist, initiate a new session and store the resultant session identifier in a cookie.
 3. Read the session identifier from the cookie, and leverage the mutations for the outlined page types.
 
-#### Starting a new session
+### Starting a new session
 
 In order to start a new session when a session-identifier doesn't exist, you'll need to use the `newSession` mutation
 
@@ -48,7 +48,7 @@ The `newSession` mutation will return a unique session-identifier that you must 
 
 ⚠️ How you persist the session-identifier is entirely dependant upon your implementation. For example, you can persist it into a cookie or even application storage.
 
-#### Using a session
+### Using a session
 
 If you already have a session-identifier, you can pass that using the `updateSession` mutation.
 
@@ -75,7 +75,7 @@ In order to use Nosto the different pages, you'll need to make the appropriate m
 
 Every page-specific mutation requires you to pass the event for the specific page. These events are used to pass signals to Nosto's intelligence engine. Each of the page-specific mutations also allows you to fetch the recommendations for the given page type.
 
-#### Sending the cart
+### Sending the cart
 
 When you mutate a session, it is imperative that you send the full cart contents.
 
@@ -152,7 +152,7 @@ mutation MySession {
 
 ```
 
-#### Sending the customer
+### Sending the customer
 
 When you mutate a session, it is imperative that you send the details of the currently logged-in customer. If no customer if currently logged in, this can be omitted.
 
@@ -177,7 +177,7 @@ mutation MySession {
 }
 ```
 
-#### Sending attribution parameters
+### Sending attribution parameters
 
 When navigating between pages, if the navigation happens as a result of a click on a recommendation element, you must pass the identifier as part of the route and on the next page load, read the attribution parameter and pass it along with the event as the `ref` parameter.
 
@@ -199,7 +199,7 @@ mutation MySession {
 
 ⚠️ If you do not pass the attribution parameter, the recommendations statistics will be inaccurate but will not affect the quality of the recommendations.
 
-#### Previewing the recommendations
+### Previewing the recommendations
 
 All default the recommendation results are returned when the recommendations are enabled and the account is a live account. If you would like to preview the recommendations, all the recommendation fields accept a boolean `isPreview` parameter.
 
