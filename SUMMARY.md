@@ -37,6 +37,7 @@
     * [Online Store 2.0](features/outdated-asset-api-approach/online-store-2.md)
     * [Shopify Sections](features/outdated-asset-api-approach/shopify-sections.md)
     * [Uninstalling](features/outdated-asset-api-approach/uninstalling.md)
+  * [Shopify Cookie-Consent Tracking](features/shopify-cookie-consent-tracking.md)
 * [Integrations](integrations/README.md)
   * [Using Yotpo](integrations/integration-yotpo.md)
   * [Using Stamped.IO](integrations/integration-stamped.md)
