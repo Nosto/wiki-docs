@@ -2,20 +2,30 @@
 
 By default Nosto tracks campaign attribution without additional url parameters. The tracking happens by registering click listeners to the campaign elements that detect product url clicks and associate them with the attribution metadata of the rendered campaign. The pair of url and campaign attribution is stored in the local storage of the Browser.
 
-In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/README.md#attribution).
+In most cases this will work out of the box, but in certain scenarios adjustments need to be made. For a comprehensive overview, please read our [personalization attribution guide](../../implement-psn/#attribution).
 
 ## Capturing clicks
 
 The following tracking modes are supported:
 
-* `a[data-nosto-product]` 
+* `a[data-nosto-product]`
   * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute
   * Recommended for most reliable attribution
   * Example: `<a href="..." data-nosto-product="1234">...</a>`
-* `a[href]` 
+
+{% hint style="info" %}
+Requires the \`a\` tag to wrap the whole product card content. In other words, the anchor tag should be the parent of the whole product card markup
+{% endhint %}
+
+* `a[href]`
   * Attributions are tracked based on the URL of the clicked product supplied in the `href` attribute
   * Fallback logic that requires that the source and target URL of the product are aligned
   * Example: `<a href="https://example.com/products/1234">...</a>`
+
+{% hint style="info" %}
+Requires the \`a\` tag to wrap the whole product card content. In other words, the anchor tag should be the parent of the whole product card markup
+{% endhint %}
+
 * `:not(a)[data-nosto-product]`
   * Attributions are tracked based on the id of the clicked product supplied in the `data-nosto-product` attribute, triggering an immediate network call to Nosto
   * Useful for any interaction that doesn't trigger a navigation to a PDP page, e.g. ATC dialogs, modals etc.
