@@ -388,4 +388,22 @@ Tracking product clicks is fundamental for understanding user interaction. Use `
 
 In case of an SPA based integration the `api.recordSearchClick` calls should be complemented with Session API or `api.createRecommendationRequest()` usage to couple the search analytics events to generic Nosto events for accurate attribution.
 
+## Fallback mechanism
+
+For JS API integrations, there is no built-in fallback functionality. Merchants need to build this themselves to ensure a robust search experience.
+
+### When to implement fallbacks
+
+You should implement fallback mechanisms in the following scenarios:
+
+* **Search query errors**: When the search API returns an error response
+* **Timeout scenarios**: JS API based Search requests timeout after 5 seconds, so implement fallbacks for cases when requests take longer than expected
+* **Network connectivity issues**: When there are network problems preventing API calls
+
+### Implementation considerations
+
+* **Error handling**: Always wrap Nosto search calls in try-catch blocks
+* **User experience**: Ensure seamless transition to fallback without visible errors
+* **Analytics**: Track fallback usage to monitor search performance
+
 ***
