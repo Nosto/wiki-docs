@@ -6,60 +6,94 @@ description: >-
 
 # Migration to Theme App Extensions
 
+## Important dates
+
+**Shopify is retiring Script Tags for apps. Two dates matter for your store:**
+
+* **01.10.2026:** Shopify no longer lets apps create or update Script Tags. From this day, Nosto cannot register or repair a Script Tag for your store. An existing Script Tag keeps working as long as nobody removes it.
+* **01.03.2027:** Shopify stops loading Script Tags on storefronts entirely. Any store still relying on the Nosto Script Tag will stop showing Nosto experiences and stop sending shopper signals from the storefront.
+
+If your store still loads Nosto through a Script Tag, **complete the steps under "The minimum you need to do" before 01.10.2026**. After that date, a store that loses its Script Tag cannot get it back, and the only way forward is the Theme App Extension.
+
+Not sure if your store is affected? See "How to check if your store is already migrated" below.
+
 ## Why this is needed
 
-Shopify has deprecated legacy Script Tag methods for app integration as well as their Asset API, in favor of Theme App Extensions. This is not just a technical change it’s a shift toward a more robust, standardized, and merchant-friendly integration model.
+Shopify has deprecated legacy Script Tag methods for app integration as well as their Asset API, in favor of Theme App Extensions. This is not just a technical change, it is a shift toward a more robust, standardized, and merchant-friendly integration model.
 
-Following this, Nosto launched Theme App Extensions support in spring 2024 as the new Integration-Standart. Since then, this approach proved highly valuable, introducing many upsides. This approach doesn't stop you from still using hard-coded and custom placements, and only simplifies the creation of placements and control over Nosto script/Nosto tagging.
+Following this, Nosto launched Theme App Extensions support in spring 2024 as the new integration standard. Since then, this approach proved highly valuable, introducing many upsides. It does not stop you from still using hard-coded placements you added to your theme, and only simplifies the creation of placements and control over the Nosto script and Nosto tagging.
+
+Shopify has now set the dates above, so the migration is no longer optional.
 
 ### Key Benefits&#x20;
 
-* **Performance**: Faster script loading and natively embedded Placements reduce Nosto's affect on site speed drastically.
 * **Modern standard**: Theme App Extensions are the new default for Theme adjustments in Shopify.
-* **Unified Theme-Management**: Nosto automatically works across all of your Themes, reducing the time to bring your Nosto Experience to new Theme Versions.&#x20;
+* **Unified Theme-Management**: Nosto automatically works across all of your Themes, reducing the time to bring your Nosto Experience to new Theme Versions.
 * **Full Control**: Nosto Placements are fully embedded, allowing control and previewing in Shopify's Theme Editor.
-* **Future-proof**: Script Tags are no longer considered a supported or recommended method. All new features will be built with Theme App Extensions in mind.
+* **Future-proof**: Script Tags are no longer considered a supported or recommended method. All Nosto features are built with Theme App Extensions in mind for a while now.
 
-☑️ Following this, we're now migrating also existing merchants to Theme App Extensions completely.&#x20;
+☑️ Following this, we're now migrating also existing merchants to Theme App Extensions completely.
 
 {% hint style="info" %}
-You of course can still **use** hard-coded Placements that you add to your files, call Nosto APIs for results and more. It's just the "how we interact with your theme" that changes!
+While we recommend using the Theme App Extension including Theme App Blocks and the App Embed Script, you can of course continue using hard-coded Placements that you add to your files, call Nosto APIs for results and more.&#x20;
 {% endhint %}
 
-## Before you start
+## About the Migration
 
-Before proceeding, please verify the following conditions to avoid issues or downtimes when in the process. App Embeds are per Theme which means if you enable Nosto Script on one theme, it will not be automatically enabled on other themes.&#x20;
+This migration replaces the way Nosto's script and tagging get into your theme. For older installations, Shopify injects a Nosto Script Tag and Nosto has added tagging files to your theme. After the migration, both come from the Nosto Theme App Extension instead, which you control in your Theme Editor under App Embeds.
+
+It is **not** related to Shopify's other new extension features, and it does **not** change your Nosto campaigns, placements, Search or Category Merchandising setup. Custom sections or hard-coded placements built by your developers continue to work.
+
+Every store that was installed before spring 2024 and has not migrated yet is affected, whether or not you use Recommendations. The Script Tag loads everything Nosto does on your storefront.
+
+### Script Migration - the minimum you need to do
+
+If you cannot complete the full migration before 01.10.2026, this is the smallest change that protects your store. Do it on your **published** theme:
+
+1. Enable the **Nosto Script** App Embed in your Theme Editor (see "Before you start" below for where to find it). This replaces what the Script Tag does today. Your existing Nosto tagging in the theme can stay as it is for now.
+2. In your Nosto Dashboard, click on "Go to Shopify Settings". Confirm that **Nosto App Embed** shows **Active**. This tells you the embed is live on your published theme and is loading Nosto. If this is not the case yet, click on "Open Theme Editor" to enable the App Embed Script, then come back and refresh.
+3. Once the embed shows Active, click **Remove Script Tag** in the same panel. The **Script Tag** row then flips from **Still registered** to **Removed**
+4. Both rows should now show green, and your store is safe for both deadlines on the minimum path.
+
+{% hint style="info" %}
+Removing the Script Tag before activating the **Nosto App Embed** takes prevents Nosto from loading in your store, and after 01.10.2026 we cannot re-register the Script Tag for you.&#x20;
+
+If the embed does not show Active in your Nosto admin, do not remove the script tag yet - make sure the **Nosto Script** App Embed is enabled on your **published** theme (see "Before you start"), then check the panel again.&#x20;
+
+The only exception is, in case you are manually loading Nosto from a `<script>`  element in your theme.
+{% endhint %}
+
+Please keep in mind, that this is the minimum. Shopify has also deprecated the Asset API that the old tagging and placement files rely on. There is no date for final end-of-life yet, but we can expect this will change on some point. The only setup that is safe for both changes is the full migration below, with **Nosto Script** and **Nosto Tagging** both enabled and the old theme files removed. Plan it for a quieter moment after the deadline if you cannot do it now.
+
+### Full Migration - Recommended path
+
+Your store is only fully migrated when, in addition to the Script migration, the **Nosto Tagging** App Embed toggle is enabled and the old Nosto theme files are removed.
+
+{% hint style="warning" %}
+We highly suggest to prepare your Migration on a non-live Theme (e.g. on a copy of your current Theme)
+{% endhint %}
+
+Before proceeding, please verify the above steps of **Script migration - the minimum you need to do** are done. Then:
 
 1. **Navigate to "App Embeds" in your Theme**
    * In Shopify, open your Theme Editor
    * Navigate to "App Embeds"
-2. **Enable Nosto-Settings in "App Embeds"**
-   * **Nosto Script (Mandatory):**
-     * This functionality embeds the Nosto script into your theme, enabling all Nosto functionality. This is mandatory - Nosto cannot load otherwise.
-   * **Nosto Tagging (Mandatory):**
-     * This embeds Nosto Tagging (e.g. for page types) in your theme. This is required to share needed context with Nosto, allowing you to contexually load Nosto placements & more.
+2. **Nosto Tagging (Mandatory):**
+   * This embeds Nosto Tagging (e.g. for page types) in your theme. This is required to share needed context with Nosto, allowing you to contextually load Nosto placements & more.
    * **Multi-currency Settings (Optional):**
-     * This functionality will embed Multi-Currency tagging in your theme, allowing Nosto to understand your currencies as well as fetching conversion rates. Only needed when opperating in Multi-Currency setups.&#x20;
+     * This functionality will embed Multi-Currency tagging in your theme, allowing Nosto to understand your currencies as well as fetching conversion rates. Only needed when operating in Multi-Currency setups.
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-If you can't find this App Embed in your Theme, or in case either of these Toggles is missing, please reach out to Nosto Support!
-{% endhint %}
+### Tagging Migration Options
 
-## Starting the Migration
+There are two possible paths to complete your tagging migration. You can choose between a Quick Version or a Clean Version (our Recommendation). Your choice depends on whether you're aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.
 
-{% hint style="success" %}
-**We highly suggest to do prepare your Migration on a non-live Theme (e.g. on a copy of your current Theme)**
-{% endhint %}
-
-There are two main paths to complete your migration. You can choose between a **Quick Version** or a **Clean Version** (Recommended). Your choice depends on whether you’re aiming for minimal disruption or a long-term clean setup. Both options will be outlined in the following section.
-
-### Quick Version
+#### Quick Version
 
 This version is for you, if you want to migrate with the least possible effort.&#x20;
 
-Using this approach, you will **retain all** out-of-the box & hard-coded placements, that initially have been added for you when you first installed Nosto to your theme, and only remove the old Tagging- and Script-Version. &#x20;
+Using this approach, you will **retain all** out-of-the box & hard-coded placements, that initially have been added for you when you first installed Nosto to your theme, and only remove the old tagging and script version. &#x20;
 
 <details>
 
@@ -100,7 +134,7 @@ Removing Nosto will also delete the files `nosto-tagging.liquid` and `nosto-elem
 
 </details>
 
-### Clean Version (Recommended)
+#### Clean Version (Recommended)
 
 This version is for you, if you want to migrate in a structured way, that allows you full control and easy usability going forward.&#x20;
 
