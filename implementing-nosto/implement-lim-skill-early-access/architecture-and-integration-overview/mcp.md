@@ -69,7 +69,16 @@ LIM supports the following optional fields:
   * `rankingOnly`: `true`: The LLM only ranks/selects the best matching products without generating agent insights. Using this option reduces latency.
 * **Max Agent Recommendations Controls:** The tool supports the `maxAgentRecommendations`  (integer | null) field that controls the number of products returned. The default is 3, and the value range is 1 to 20.
 * **Agent Context:** The tool supports the `giveAgentContext` (boolean) flag. When `true`, LIM returns a concise context describing why LIM selected the returned products.
-* **Agent Insight Format:** The /api endpoint supports the `responseFormat` (string) field to define how the natural language response is returned; by default is plain text, but for partners looking to show the response directly to shoppers, the `markdown` option is also supported.&#x20;
+* **Agent Insight Format:** The /api endpoint supports the `responseFormat` (string) field to define how the natural language response is returned; by default is plain text, but for partners looking to show the response directly to shoppers, the `markdown` option is also supported.
+* **Reply Language (NEW):** The /api endpoint supports the `languageCode` (string) field, an ISO 639-1 code such as `"no"`, to set the language of the reply. By default, LIM replies in the language of the shopper's message. It uses `languageCode` when the message reads as English or has no clear language, for example when it contains only brand or product names, or when your assistant has translated the shopper's words before calling LIM. If the message is clearly in another language, that language wins. The setting also applies to "no results" default replies.&#x20;
+*   **Max Response Size (NEW):** The /api endpoint supports the `maxResponseBytes` (integer) field, with a minimum of 1024, to cap the size of the response. Omit it for no limit. This is useful for platforms that discard large responses. A response within the limit is unchanged. If it is larger, LIM shrinks it step by step until it fits:
+
+    1. Product descriptions are converted to plain text.
+    2. All descriptions are shortened evenly, ending at a full sentence where possible.
+    3. Descriptions are removed.
+    4. As a last resort, the lowest-ranked products are dropped. The top recommendation is always kept.
+
+    The `agentInsight` text, the product order and all other product fields are never changed, so the limit is best effort. If your platform wraps LIM's response in its own envelope, set the limit slightly below its cutoff.
 
 #### Response
 
