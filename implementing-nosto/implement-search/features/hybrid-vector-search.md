@@ -50,7 +50,7 @@ The `searchType` value queried from the search API can be included in tracking e
 }
 ```
 
-When using NostoJS' automatic tracking tracking (using the `track` parameter), `searchType` tracking is included automatically, and no adjustments to the integration are required.
+When using NostoJS' automatic tracking (using the `track` parameter), `searchType` tracking is included automatically, and no adjustments to the integration are required.
 
 API integrations and integrations managing tracking metadata manually need to take care of passing through `searchType` explicitly.
 
