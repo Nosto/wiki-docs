@@ -20,7 +20,7 @@ nostojs(api => {
 | Field | Type | Reason |
 | :--- | :--- | :--- |
 | email | String | The email address in the user input. |
-| newsletter | String | Whether the user gave their consent to subscribing to a newsletter. E.g. either the pop­up prompting for the email address input was worded similarly to “Please enter your email address to subscribe to our newsletter:” or there was an explicit checkbox that the user checked to give their consent. |
+| newsletter | boolean (optional) | Whether the user gave their consent to subscribing to a newsletter. E.g. either the pop­up prompting for the email address input was worded similarly to “Please enter your email address to subscribe to our newsletter:” or there was an explicit checkbox that the user checked to give their consent. |
 
 ## Popup Opened Callback
 
@@ -115,13 +115,9 @@ The callback will be called when a customer clicks a button inside a Nosto behav
 
 ```javascript
   api.listen("couponGiven", couponEvent => {
-    if (couponEvent.error) {
-      console.error(couponEvent.error);
-    } else {
-      console.log(couponEvent.campaignId);
-      console.log(couponEvent.couponCode);
-      console.log(couponEvent.origin);
-    }
+    console.log(couponEvent.coupon_campaign);
+    console.log(couponEvent.coupon_code);
+    console.log(couponEvent.coupon_used);
   });
 ```
 
@@ -129,10 +125,9 @@ The callback will be called when a customer clicks a button inside a Nosto behav
 
 | Field | Type | Reason |
 | :--- | :--- | :--- |
-| campaignId | String | The identifier of the popup campaign. |
-| couponCode | String | The trigger-type of the popup campaign. |
-| origin | String | Where the coupon code originated from. Always `popup`. |
-| error | String | Description of the error in the case the pop-up failed to open. |
+| coupon_campaign | String | The identifier of the popup campaign. |
+| coupon_code | String | The discount coupon code given to the customer. |
+| coupon_used | boolean | Whether the coupon was reported as used. |
 
 ### Cart Abandonment Callback
 
@@ -153,8 +148,8 @@ The callback will be called when a customer clicks a button inside a Nosto aband
 
 | Field | Type | Reason |
 | :--- | :--- | :--- |
-| sent | boolean | A boolean indicating whether the email was sent |
+| sent | boolean | Indicates whether the email was sent |
 | campaignId | String | The identifier of the popup campaign |
-| email | String | The email address to which the email was sent |
+| email | String (optional) | The email address to which the email was sent |
 | message | String | Any error messages relating to the email sending |
 
