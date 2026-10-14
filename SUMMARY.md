@@ -12,7 +12,7 @@
   * [Known Shopify Limitations](post-purchase-upsell/known-shopify-limitations.md)
   * [Handling Partially Paid Orders](post-purchase-upsell/handling-partially-paid-orders.md)
 * [Recommendation Extensions](recommendation-extensions.md)
-* [Shopify International (Markets)](shopify-markets/README.md)
+* [Shopify Markets](shopify-markets/README.md)
   * [Front End addition](shopify-markets/technical-details-how-to-use-it.md)
 * [Guides & Features](features/README.md)
   * [Migration to Theme App Extensions](features/migration-to-theme-app-extensions.md)
