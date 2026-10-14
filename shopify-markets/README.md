@@ -4,7 +4,7 @@
 
 Nosto supports Shopify Markets for selling across countries and regions, so each of your Markets gets the right Nosto experience: tailored to one Market, shared across several, or a mix of both. Language, currency and product availability follow your Shopify setup, and new Submarkets are picked up automatically.
 
-Prices show in each Market's currency, using the exchange rates and rounding rules you set in Shopify. If you set prices per Market, for example through Global-E or Managed Markets, a small template adjustment keeps the displayed prices right. See Global-E & Managed Markets.
+Prices show in each Market's currency, using the exchange rates and rounding rules you set in Shopify. If you set prices per Market, for example through Managed Markets, a small template adjustment keeps the displayed prices right.&#x20;
 
 ### How Nosto maps your Markets <a href="#user-content-how-nosto-maps-your-markets" id="user-content-how-nosto-maps-your-markets"></a>
 
@@ -86,9 +86,9 @@ For more visibility, we log your Markets events received from Shopify, as well a
 
 Nosto supports Fulfillable Inventory for international sales channels. To activate, please reach out to us directly, and share the IDs of your inventory locations per Market. You can find these IDs when navigating to your location in Shopify - the ID will be at the end of your URL in the browser. The Nosto team will enable the functionality for you, and assign the locations to your Market Accounts. After this, a full Product Sync will be started. Please note that the initial sync will take more time than usual, with around 250 products per hour (separately for your Markets). The process will speed up while it's running, and every sync afterwards will be within normal product sync expectations.
 
-## Global-E & Managed Markets <a href="#user-content-global-e--managed-markets" id="user-content-global-e--managed-markets"></a>
+## Managed Markets & Global-E <a href="#user-content-global-e--managed-markets" id="user-content-global-e--managed-markets"></a>
 
-In some cases you might encounter incorrect prices showing up in the Front End (e.g. in Recommendations). This can happen when Nosto grabs exchange rates for multiple currencies from Shopify, but in fact prices are set through Global-E or in Managed Markets. In that case it can be needed to add an additional functionality to your templates in order to ensure prices in the Front End are always showing correctly. Please check here \[link as on live page], or reach out to your Nosto contact and ask for help.
+In some cases you might encounter incorrect prices showing up in the Front End (e.g. in Recommendations). This can happen when Nosto grabs exchange rates for multiple currencies from Shopify, but in fact prices are set through in Managed Markets or Global-E. In that case it can be needed to add an additional functionality to your templates in order to ensure prices in the Front End are always showing correctly. Please check [here](technical-details-how-to-use-it.md), or reach out to your Nosto contact and ask for help.
 
 ## Technical Details <a href="#user-content-technical-details" id="user-content-technical-details"></a>
 
@@ -105,5 +105,5 @@ There are some limitations to the data that Nosto can receive:
 
 * In Shopify, it's not possible to translate Tags or ProductType; therefore, Tags will only appear in your main market language in Nosto.
 * For localizing data points that can be used within Nosto, we highly suggest making these available as metafields in Shopify. Usage examples include Filters on Search- & Category pages and badges in Product Recommendations, among others.
-* To allow Nosto to pull your metafields, those need to be accessible through the storefront. See also: Shopify documentation \[link as on live page]
+* To allow Nosto to pull your metafields, those need to be accessible through the storefront. See also: [Shopify documentation](https://help.shopify.com/en/manual/custom-data/options)
 * The integration is only compatible with Category Merchandising (Universal).
