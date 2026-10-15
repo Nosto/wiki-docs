@@ -9,10 +9,10 @@ description: >-
 
 Depending on merchant preferences, Hybrid Vector Search can take over from keyword search when:
 
-* The search query has a poor click-through rate.
-* The search query has a poor conversion rate.
-* The search query has no results.
-* Hybrid Vector Search was requested specifically for a particular search query.
+- The search query has a poor click-through rate.
+- The search query has a poor conversion rate.
+- The search query has no results.
+- Hybrid Vector Search was requested specifically for a particular search query.
 
 In principle, Hybrid Vector Search works out of the box and doesn't require changes to the integration. The suggestions below are optional.
 
@@ -22,15 +22,15 @@ To understand results, it's valuable to know which type of logic generated them.
 
 `searchType` contains the type of search logic being used:
 
-* `keyword` indicates pure keyword search.
-* `vector` indicates pure vector search.
-* `hybrid` indicates hybrid search (blended keyword + vector search).
+- `keyword` indicates pure keyword search.
+- `vector` indicates pure vector search.
+- `hybrid` indicates hybrid search (blended keyword + vector search).
 
 This information can be optionally used in the search result page to convey whether these results are precise (keyword search) or conceptually related (Hybrid Vector Search). Hybrid Vector Search results can be more general than keyword search results — communicating with the user helps with setting expectations.
 
 ### Tracking requirements
 
-In order to benefit from analytics for Hybrid Vector Search, the search type must be included in impression- and click tracking events sent to Nosto.
+In order to benefit from analytics for Hybrid Vector Search, the search type must be included in impression- and click tracking events sent to Nosto. The reason is what allows Nosto to track searches where Hybrid Vector Search avoided a no-result page.
 
 The `searchType` and `searchTypeReason` values queried from the search API can be included in tracking events verbatim within the tracking metadata properties `searchType` and `searchTypeReason`, on the same level as `query`. Here is an example for a well-formed tracking metadata that includes both:
 
@@ -44,16 +44,12 @@ The `searchType` and `searchTypeReason` values queried from the search API can b
   "refined": false,
   "refinedQuery": null,
   "sorted": false,
-  "query":  "t-shirt",
+  "query": "t-shirt",
   "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855",
   "searchType": "vector", // or "keyword" or "hybrid"
   "searchTypeReason": "no_results" // pass through whatever the search API returns
 }
 ```
-
-{% hint style="warning" %}
-Sending `searchTypeReason` together with `searchType` is crucial for tracking searches where Hybrid Vector Search avoided a no-result page. If `searchTypeReason` is not sent with the tracking events, these searches are not counted and the corresponding analytics stay at zero.
-{% endhint %}
 
 When using NostoJS' automatic tracking (using the `track` parameter), `searchType` and `searchTypeReason` tracking is included automatically, and no adjustments to the integration are required.
 
