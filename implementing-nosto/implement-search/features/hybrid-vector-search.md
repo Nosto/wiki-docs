@@ -30,9 +30,9 @@ This information can be optionally used in the search result page to convey whet
 
 ### Tracking requirements
 
-In order to benefit from analytics for Hybrid Vector Search, the search type must be included in impression- and click tracking events sent to Nosto.
+In order to benefit from analytics for Hybrid Vector Search, the search type and the reason for it must be included in impression- and click tracking events sent to Nosto.
 
-The `searchType` value queried from the search API can be included in tracking events verbatim within the tracking metadata property `searchType`, on the same level as `query`. Here is an example for a well-formed tracking metadata that includes the search type:
+The `searchType` and `searchTypeReason` values queried from the search API can be included in tracking events verbatim within the tracking metadata properties `searchType` and `searchTypeReason`, on the same level as `query`. Here is an example for a well-formed tracking metadata that includes both:
 
 ```json
 {
@@ -46,13 +46,18 @@ The `searchType` value queried from the search API can be included in tracking e
   "sorted": false,
   "query":  "t-shirt",
   "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855",
-  "searchType": "vector" // or "keyword" or "hybrid"
+  "searchType": "vector", // or "keyword" or "hybrid"
+  "searchTypeReason": "no_results" // pass through whatever the search API returns
 }
 ```
 
-When using NostoJS' automatic tracking (using the `track` parameter), `searchType` tracking is included automatically, and no adjustments to the integration are required.
+{% hint style="warning" %}
+Sending `searchTypeReason` together with `searchType` is crucial for avoiding false "no results" reporting. Without it, searches where Hybrid Vector Search took over from a keyword search with no results cannot be told apart from searches that genuinely returned nothing, and are counted as no-result searches.
+{% endhint %}
 
-API integrations and integrations managing tracking metadata manually need to take care of passing through `searchType` explicitly.
+When using NostoJS' automatic tracking (using the `track` parameter), `searchType` and `searchTypeReason` tracking is included automatically, and no adjustments to the integration are required.
+
+API integrations and integrations managing tracking metadata manually need to take care of passing through both `searchType` and `searchTypeReason` explicitly.
 
 ## Limitations
 
