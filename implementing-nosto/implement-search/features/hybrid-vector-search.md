@@ -30,7 +30,7 @@ This information can be optionally used in the search result page to convey whet
 
 ### Tracking requirements
 
-In order to benefit from analytics for Hybrid Vector Search, the search type must be included in impression- and click tracking events sent to Nosto. The reason is what allows Nosto to track searches where Hybrid Vector Search avoided a no-result page.
+To enable Hybrid Vector Search analytics, include the `searchType` in impression and click tracking events sent to Nosto. Tracking avoided zero-result searches also requires including `searchTypeReason`.
 
 The `searchType` and `searchTypeReason` values queried from the search API can be included in tracking events verbatim within the tracking metadata properties `searchType` and `searchTypeReason`, on the same level as `query`. Here is an example for a well-formed tracking metadata that includes both:
 
