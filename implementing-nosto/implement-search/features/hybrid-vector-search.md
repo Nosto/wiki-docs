@@ -9,10 +9,10 @@ description: >-
 
 Depending on merchant preferences, Hybrid Vector Search can take over from keyword search when:
 
-- The search query has a poor click-through rate.
-- The search query has a poor conversion rate.
-- The search query has no results.
-- Hybrid Vector Search was requested specifically for a particular search query.
+* The search query has a poor click-through rate.
+* The search query has a poor conversion rate.
+* The search query has no results.
+* Hybrid Vector Search was requested specifically for a particular search query.
 
 In principle, Hybrid Vector Search works out of the box and doesn't require changes to the integration. The suggestions below are optional.
 
@@ -22,9 +22,9 @@ To understand results, it's valuable to know which type of logic generated them.
 
 `searchType` contains the type of search logic being used:
 
-- `keyword` indicates pure keyword search.
-- `vector` indicates pure vector search.
-- `hybrid` indicates hybrid search (blended keyword + vector search).
+* `keyword` indicates pure keyword search.
+* `vector` indicates pure vector search.
+* `hybrid` indicates hybrid search (blended keyword + vector search).
 
 This information can be optionally used in the search result page to convey whether these results are precise (keyword search) or conceptually related (Hybrid Vector Search). Hybrid Vector Search results can be more general than keyword search results — communicating with the user helps with setting expectations.
 
