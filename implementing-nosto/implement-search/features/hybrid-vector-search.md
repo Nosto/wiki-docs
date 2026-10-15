@@ -52,7 +52,7 @@ The `searchType` and `searchTypeReason` values queried from the search API can b
 ```
 
 {% hint style="warning" %}
-Sending `searchTypeReason` together with `searchType` is crucial for avoiding false "no results" reporting. Without it, searches where Hybrid Vector Search took over from a keyword search with no results cannot be told apart from searches that genuinely returned nothing, and are counted as no-result searches.
+Sending `searchTypeReason` together with `searchType` is crucial for tracking searches where Hybrid Vector Search avoided a no-result page. If `searchTypeReason` is not sent with the tracking events, these searches are not counted and the corresponding analytics stay at zero.
 {% endhint %}
 
 When using NostoJS' automatic tracking (using the `track` parameter), `searchType` and `searchTypeReason` tracking is included automatically, and no adjustments to the integration are required.
