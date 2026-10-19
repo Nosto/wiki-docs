@@ -40,6 +40,10 @@ When a customer visits the store for the first time after the Nosto Plugin has b
 
 After accepting Shopware default cookie consent, cookie `nosto-search-session-params` is created which then allows Nosto script to load as well as other Nosto functionality.&#x20;
 
+{% hint style="warning" %}
+Any information sent to Nosto with the requests activated by the implementation will still be processed normally by Nosto's service even when users have opted out of session tracking. Merchant should ensure necessary consent is obtained for this processing.
+{% endhint %}
+
 ***
 
 ### 2. Send Customer Data to Nosto
@@ -77,6 +81,11 @@ The toolbar allows developers to inspect page-level Nosto events, placements, an
 The **Treat Nosto as an essential cookie** setting (**Settings → Plugins → Nosto → Features flags**) decides whether Nosto may load without explicit consent. **It is enabled by default.**
 
 * **Enabled (default)** - Nosto is registered as a technically required cookie and loads for every visitor, running in `doNotTrack` mode until marketing consent is given. This matches the behaviour of earlier plugin versions.
+
+{% hint style="warning" %}
+This feature does not disable cookies entirely. It only disables the `2c.cId` cookie that is used for identifying browsers between their visits to the site.
+{% endhint %}
+
 * **Disabled** - Nosto loads only after the shopper accepts the **Nosto** cookie group in the banner. If they decline it, Nosto is never loaded and sends no requests.
 
 {% hint style="warning" %}
