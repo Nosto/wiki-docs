@@ -156,7 +156,11 @@ Watches files for changes and automatically uploads builds for preview. Essentia
 nosto st push
 ```
 
-Builds and uploads the current state of the project to Nosto cloud storage. This includes both built artifacts and source files.
+Builds and uploads the current state of the project to Nosto cloud storage. For legacy templates, this includes both built artifacts and source files. For modern templates, the default only pushes the built artifacts. You may use an opt-in flag if you wish to push sources for the modern templates:
+
+```sh
+nosto st push --push-sources
+```
 
 > **Note:** Refer to `nosto --help` and `nosto st --help` for more information about the commands available in your version.
 

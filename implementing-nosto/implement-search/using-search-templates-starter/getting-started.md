@@ -87,7 +87,7 @@ This opens a browser window. If you already have a valid Nosto session, you are 
 nosto setup -m your-merchant-id
 ```
 
-This creates a `.nosto.json` configuration file in your project root. See [Nosto CLI](../deployment-and-testing/nosto-cli.md) for full details on the CLI workflow.
+This creates a `.nosto.json` configuration file in your project root. See [Nosto CLI](nosto-cli.md) for full details on the CLI workflow.
 
 ### Local Development
 
@@ -224,7 +224,7 @@ npm run preview
 
 Once you have the development environment running, you can:
 
-* **Use the Nosto CLI** - See [Nosto CLI](../deployment-and-testing/nosto-cli.md) for deployment workflows
+* **Use the Nosto CLI** - See [Nosto CLI](nosto-cli.md) for deployment workflows
 * **Leverage AI assistance** - See [LLM Examples](llm-examples.md) for development productivity tips
 
 ### Troubleshooting
