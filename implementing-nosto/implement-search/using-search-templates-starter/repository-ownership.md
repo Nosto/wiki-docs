@@ -74,3 +74,23 @@ git push --tags
 ```
 
 Now the repository has a new owner!
+
+## Sharing the code temporarily
+
+When asking Nosto for help or opening a support ticket, it may be required to share the code to help debug the issue in question. There are two ways to share the code. The best way is still to share the git repository, but another option is to utilize a built-in feature of Nosto CLI.
+
+By default, `nosto st push` only uploads the built artifacts and does not upload your source code to Nosto. If you wish to include sources and make them available to anyone with access to your Nosto merchant account (which includes Nosto developers), you may instead use the following:
+
+```sh
+nosto st push --push-sources
+```
+
+This will also upload all files not covered by `.gitignore` to the Nosto cloud storage. To pull the files back, it's possible to run the following:
+
+```sh
+nosto st pull
+```
+
+This will download all files currently available in the cloud storage, including sources.
+
+> **Note:** To avoid any accidental data loss, Nosto CLI currently does not delete any files from the remote, so pull may bring them back. We still recommend using git as the source of truth and only resort to this method when the repository can't be easily shared.
