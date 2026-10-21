@@ -284,7 +284,8 @@ Here is an example of what metadata looks like for search requests:
   "sorted": false,
   "query":  "t-shirt",
   "resultId": "d65b040c-56ae-4c6d-a038-fe908e140855",
-  "searchType": "keyword"
+  "searchType": "keyword",
+  "searchTypeReason": "low_metrics"
 }
 ```
 
@@ -301,6 +302,7 @@ Properties:
 * `query`: The current search query entered by the user into the search field.
 * `resultId`: Unique ID for this interaction. UUID4 is particularly useful for this.
 * `searchType`: Type of search logic being used, as returned by the API's `searchType` field. This is required for merchants using Hybrid Vector Search, but otherwise optional.
+* `searchTypeReason`: Reason why this `searchType` was used e.g., 0 keyword search results, low CTR, as returned by the API's `searchTypeReason` field. This is required for merchants using Hybrid Vector Search, but otherwise optional.
 
 #### Category tracking metadata
 

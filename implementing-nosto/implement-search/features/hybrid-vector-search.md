@@ -20,13 +20,15 @@ In principle, Hybrid Vector Search works out of the box and doesn't require chan
 
 To understand results, it's valuable to know which type of logic generated them. The search API exposes this information in the [`SearchProducts` object](https://search.nosto.com/v1/graphql?ref=SearchProducts) of the search response.
 
-`searchType` contains the type of search logic being used:
+[`searchType`](https://search.nosto.com/v1/graphql?ref=SearchProductSearchType) contains the type of search logic being used:
 
 * `keyword` indicates pure keyword search.
 * `vector` indicates pure vector search.
-* `hybrid` indicates hybrid search (blended keyword + vector search).
+* `hybrid` indicates hybrid vector search (blended keyword + vector search).
 
-This information can be optionally used in the search result page to convey whether these results are precise (keyword search) or conceptually related (Hybrid Vector Search). Hybrid Vector Search results can be more general than keyword search results — communicating with the user helps with setting expectations.
+This information can optionally be used in the search result page to convey whether these results are precise (keyword search) or conceptually related (Hybrid Vector Search). Hybrid Vector Search results can be more general than keyword search results — communicating this to the user helps with setting expectations.
+
+The response also provides [`searchTypeReason`](https://search.nosto.com/v1/graphql?ref=SearchProductSearchTypeReason) which indicates why a particular `searchType` was used. Most notably, this will list the hybrid vector search trigger that was applied e.g., 0 keyword search results, low CTR.
 
 ### Tracking requirements
 
