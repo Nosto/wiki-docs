@@ -62,10 +62,6 @@ For merchants using Shopify Markets, Nosto LIM resolves the correct catalog — 
 
 > **Note:** Shopify Markets merchants authenticate using the API token from their Nosto Markets Master account, not a per-storefront token. This is the single account Nosto uses to resolve catalog data across all connected markets — see Authentication.
 
-**Account ID for Shopify App Tokens (NEW):**
-
-* `accountId` **:** The Nosto merchant account id, for example `shopify-15195932`. Send it only when you call LIM with a Shopify app token, which does not identify a single merchant on its own; without it, the call is rejected with `accountId is required`. With a merchant API token, leave it unset: LIM resolves the account from the token and rejects a value that does not match it.
-
 **Optional Fields:**
 
 LIM supports the following optional fields:
@@ -85,12 +81,6 @@ LIM supports the following optional fields:
     4. As a last resort, the lowest-ranked products are dropped. The top recommendation is always kept.
 
     `agentInsight`, the product order and all other product fields are never changed, so the limit is best effort. If your platform wraps LIM's response in its own envelope, set the limit slightly below its cutoff.
-*   **Image Search (NEW):** The /api endpoint supports the `image` (object) field to send an image the shopper wants to use as context, for example a photo of a product to find similar items. Send exactly one of:
-
-    * `{"url": "https://..."}`: A public `http` or `https` image URL.
-    * `{"data": "<base64>", "mediaType": "image/jpeg"}`: The image bytes as base64, without a data-URI prefix. `mediaType` is one of `image/jpeg`, `image/png`, `image/webp` or `image/gif`. The decoded image is limited to 8 MB.
-
-    `prompt` may be empty when an image is sent; LIM then looks for products similar to the one shown.
 *   **Generic Recommendations (NEW):** The /api endpoint supports the `agenticOnly` (boolean) flag that controls whether generic recommendations are returned next to the products selected by LIM:
 
     * `agenticOnly`: `true` (default): Only products selected by LIM are returned, and `genericRecommendations` is an empty list.
