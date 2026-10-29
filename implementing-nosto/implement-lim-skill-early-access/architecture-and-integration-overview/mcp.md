@@ -100,7 +100,6 @@ LIM supports the following optional fields:
     * `maxGenericRecommendations` (integer | null): The maximum number of generic recommendations, from 1 to 20. Values outside the range are clamped to it rather than rejected. When omitted, LIM uses the deployment default.
     * `toplistHours` (integer): The hours of popularity history used by the `toplist` recommender, from 1 to 744. The default is 168 (7 days). Values outside the range are clamped to it rather than rejected.
     * `toplistSort` (string): How the `toplist` recommender scores products: `VIEWS` (default), `BUYS` or `TOTAL_REVENUE`.
-* **Shopper Segments (NEW):** The tool supports the `segments` (array of strings) field, a list of Nosto shopper segment ids that LIM can use when ranking and recommending products.
 
 #### Response
 
