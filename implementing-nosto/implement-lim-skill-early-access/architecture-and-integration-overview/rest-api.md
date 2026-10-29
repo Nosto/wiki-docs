@@ -62,6 +62,10 @@ For merchants using Shopify Markets, Nosto LIM resolves the correct catalog — 
 
 > **Note:** Shopify Markets merchants authenticate using the API token from their Nosto Markets Master account, not a per-storefront token. This is the single account Nosto uses to resolve catalog data across all connected markets — see Authentication.
 
+**Account ID for Shopify App Tokens (NEW):**
+
+* `accountId` **:** The Nosto merchant account id, for example `shopify-15195932`. Send it only when you call LIM with a Shopify app token, which does not identify a single merchant on its own; without it, the call is rejected with `accountId is required`. With a merchant API token, leave it unset: LIM resolves the account from the token and rejects a value that does not match it.
+
 **Optional Fields:**
 
 LIM supports the following optional fields:
@@ -69,7 +73,7 @@ LIM supports the following optional fields:
 * **Ranking-Only Mode:** The /api endpoint supports a `rankingOnly` (boolean) flag that controls how the LLM processes product results:
   * `rankingOnly`: `false` (default): The LLM returns both a ranked selection of products and the agent response (a natural language conversational response).
   * `rankingOnly`: `true`: The LLM only ranks/selects the best matching products without generating agent insights. Using this option reduces latency.
-* **Max Agent Recommendations Controls:** The /api endpoint supports the `maxAgentRecommendations`  (integer | null) field that controls the number of products returned. The default is 3, and the value range is 1 to 20.
+* **Max Agent Recommendations Controls:** The /api endpoint supports the `maxAgentRecommendations`  (integer | null) field that controls the number of products returned. The value range is 1 to 15; values outside the range are clamped to it rather than rejected. When omitted, LIM uses the deployment default (currently 3).
 * **Agent Context:** The /api endpoint supports the `giveAgentContext` (boolean) flag. When `true`, LIM returns a concise context describing why LIM selected the returned products.
 * **Agent Insight Format:** The /api endpoint supports the `responseFormat` (string) field to define how the natural language response is returned; by default is plain text, but for partners looking to show the response directly to shoppers, the `markdown` option is also supported.&#x20;
 * **Reply Language (NEW):** The /api endpoint supports the `languageCode` (string) field, an ISO 639-1 code such as `"no"`, to set the language of the reply. By default, LIM replies in the language of the shopper's message. It uses `languageCode` when the message reads as English or has no clear language, for example when it contains only brand or product names, or when your assistant has translated the shopper's words before calling LIM. If the message is clearly in another language, that language wins. The setting also applies to "no results" or "unsupported questions" default replies.&#x20;
@@ -81,6 +85,24 @@ LIM supports the following optional fields:
     4. As a last resort, the lowest-ranked products are dropped. The top recommendation is always kept.
 
     `agentInsight`, the product order and all other product fields are never changed, so the limit is best effort. If your platform wraps LIM's response in its own envelope, set the limit slightly below its cutoff.
+*   **Image Search (NEW):** The /api endpoint supports the `image` (object) field to send an image the shopper wants to use as context, for example a photo of a product to find similar items. Send exactly one of:
+
+    * `{"url": "https://..."}`: A public `http` or `https` image URL.
+    * `{"data": "<base64>", "mediaType": "image/jpeg"}`: The image bytes as base64, without a data-URI prefix. `mediaType` is one of `image/jpeg`, `image/png`, `image/webp` or `image/gif`. The decoded image is limited to 8 MB.
+
+    `prompt` may be empty when an image is sent; LIM then looks for products similar to the one shown.
+*   **Generic Recommendations (NEW):** The /api endpoint supports the `agenticOnly` (boolean) flag that controls whether generic recommendations are returned next to the products selected by LIM:
+
+    * `agenticOnly`: `true` (default): Only products selected by LIM are returned, and `genericRecommendations` is an empty list.
+    * `agenticOnly`: `false`: LIM also returns `genericRecommendations` from the strategy set in `genericRecommender`.
+
+    The following fields apply only when `agenticOnly` is `false`:
+
+    * `genericRecommender` (string): The recommendation strategy: `related` (default), `random`, `live` or `toplist`.
+    * `maxGenericRecommendations` (integer | null): The maximum number of generic recommendations, from 1 to 20. Values outside the range are clamped to it rather than rejected. When omitted, LIM uses the deployment default.
+    * `toplistHours` (integer): The hours of popularity history used by the `toplist` recommender, from 1 to 744. The default is 168 (7 days). Values outside the range are clamped to it rather than rejected.
+    * `toplistSort` (string): How the `toplist` recommender scores products: `VIEWS` (default), `BUYS` or `TOTAL_REVENUE`.
+* **Shopper Segments (NEW):** The /api endpoint supports the `segments` (array of strings) field, a list of Nosto shopper segment ids that LIM can use when ranking and recommending products.
 
 
 
@@ -125,6 +147,10 @@ Nosto LIM returns a ranked list of product recommendations, suitable for direct 
                             availability (string | null)
                             name(string | null)
 </code></pre>
+
+`currencyCode` is the canonical currency field: the ISO 4217 currency of `price` and `listPrice`. `priceCurrencyCode` carries the same value and is kept for existing integrations.
+
+* `genericRecommendations` **(NEW):** A list of products from the `genericRecommender` strategy, with the same fields as `agentProductRecommendations`. It is always present and is an empty list unless `agenticOnly` is `false`. Generic recommendations keep catalog prices; unlike `agentProductRecommendations`, they are not localized for the shopper's market.
 
 
 
