@@ -40,6 +40,7 @@
     * [LLM Examples](implementing-nosto/implement-search/using-search-templates-starter/llm-examples.md)
     * [Repository Ownership](implementing-nosto/implement-search/using-search-templates-starter/repository-ownership.md)
     * [Nosto CLI](implementing-nosto/implement-search/using-search-templates-starter/nosto-cli.md)
+    * [Fallback and Reliability](implementing-nosto/implement-search/using-search-templates-starter/fallback-and-reliability.md)
     * [Customizations](implementing-nosto/implement-search/using-search-templates-starter/customizations/README.md)
       * [Product Image Configuration](implementing-nosto/implement-search/using-search-templates-starter/customizations/product-image-configuration.md)
       * [Search page redirects](implementing-nosto/implement-search/using-search-templates-starter/customizations/search-page-redirects.md)
