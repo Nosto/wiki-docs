@@ -22,6 +22,7 @@
       * [Default Product Tagging](implementing-nosto/implement-on-your-website/manual-implementation/product-tagging/default-product-tagging.md)
       * [Basic Tagging](implementing-nosto/implement-on-your-website/manual-implementation/product-tagging/minimum-product-tagging.md)
     * [Adding the Category/Brand Tagging](implementing-nosto/implement-on-your-website/manual-implementation/category-and-brand-tagging.md)
+    * [Adding the Affinity Tagging](implementing-nosto/implement-on-your-website/manual-implementation/affinity-tagging.md)
     * [Adding the Search Tagging](implementing-nosto/implement-on-your-website/manual-implementation/search-tagging.md)
     * [Adding the Order Tagging](implementing-nosto/implement-on-your-website/manual-implementation/order-tagging.md)
     * [Defining Nosto placements](implementing-nosto/implement-on-your-website/manual-implementation/defining-nosto-placements.md)
