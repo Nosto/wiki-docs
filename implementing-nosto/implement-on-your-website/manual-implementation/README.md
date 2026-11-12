@@ -13,6 +13,7 @@ If you are running a headless frontend or SPA (Single Page Application), you wil
     * [Default Product Tagging](product-tagging/default-product-tagging.md)
     * [Basic Tagging](product-tagging/minimum-product-tagging.md)
   * [Adding the Category/Brand Tagging](category-and-brand-tagging.md)
+  * [Adding the Affinity Tagging](affinity-tagging.md)
   * [Adding the Search Tagging](search-tagging.md)
   * [Adding the Order Tagging](order-tagging.md)
   * [Defining Nosto placements](defining-nosto-placements.md)
