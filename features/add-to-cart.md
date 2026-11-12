@@ -24,7 +24,7 @@ If you wish to combine cart mutation and recommendation reloading the following 
 
 ```javascript
 async function addToCart(productId, skuId, attribution) {
-  await Nosto.addSkuToCart({ productid, skuId }, attribution)
+  await Nosto.addSkuToCart({ productId, skuId }, attribution)
   const api = await new Promise(nostojs)
   await api.loadRecommendations()
 }
@@ -44,7 +44,7 @@ or to reload only a specific recommendation
 
 ```javascript
 async function addToCart(productId, skuId, attribution, toReload) {
-  await Nosto.addSkuToCart({ productid, skuId }, attribution)
+  await Nosto.addSkuToCart({ productId, skuId }, attribution)
   const api = await new Promise(nostojs)
   await api.createRecommendationRequest({ includeTagging: true })
     .setElements([toReload])
