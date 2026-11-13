@@ -229,7 +229,7 @@ EOF
 
 ## Available product fields
 
-Each recommender returns a `RecommenderResult`. Products are listed under `primary`. The result also has `totalPrimaryCount` (the number of products available) and `batchToken` (used to fetch the next batch).
+Each recommender returns a `RecommenderResult`. Products are listed under `primary`. The result also has `totalPrimaryCount` (the number of products available). To page through the results of `toplist`, `random`, `related` or `search`, set `offset` in `params`. The result also exposes `batchToken`, but these recommenders do not accept it: it is used only by the session `category` recommender, see [Pagination](graphql-querying-category-merchandising-products.md#pagination).
 
 You can request any of the following fields on a product in `primary`:
 
@@ -246,11 +246,10 @@ You can request any of the following fields on a product in `primary`:
 | `brand` | The brand of the product |
 | `availability` | The availability of the product |
 | `price` | The price of the product |
-| `priceText` | The formatted price of the product |
+| `priceText` | The formatted price of the product. Always `null` for the root `recos` query: format `price` on the client using `currencyCode` |
 | `listPrice` | The list price of the product |
-| `listPriceText` | The formatted list price of the product |
+| `listPriceText` | The formatted list price of the product. Always `null` for the root `recos` query: format `listPrice` on the client using `currencyCode` |
 | `currencyCode` | The currency code of the product |
-| `supplierCost` | The supplier cost of the product |
 | `inventoryLevel` | The inventory level of the product |
 | `categories` | The categories of the product |
 | `categoryIds` | The category identifiers of the product |
